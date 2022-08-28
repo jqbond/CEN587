@@ -131,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
    CEN 587: Lecture 03
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="F21-587-R01-Solution.html">
+   CEN 587: Recitation 01
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -344,152 +349,158 @@ title="Print to PDF"
 <p>This lecture covers definitions for extent of reaction and fractional conversion.  It also considers how we can use extent or fractional conversions along with reaction stoichiometry to define the changes in molar quantities of each species that occur as reactions progress.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Extent of Reaction</strong></span></p>
 <p>We will define a quantity called the <em><strong>extent of reaction</strong></em>.  Here we’ll use a pretty lose definition and just say that the extent of reaction is a measure of how “much” reaction has occurred. For convenience (and compatibility with stoichiometric coefficients), we will define the extent of reaction in molar units.</p>
-<p>An important thing to note about the extent of reaction is that it is something that is specific to a <em>reaction, <span class="math notranslate nohighlight">\(i\)</span></em>, it is not something that is specific to a <em>species, <span class="math notranslate nohighlight">\(j\)</span></em>. Therefore, we will define the extent of reaction for a specific reaction, <span class="math notranslate nohighlight">\(i\)</span>. We use the symbol <span class="math notranslate nohighlight">\(\xi_i\)</span> to represent the extent of the “<span class="math notranslate nohighlight">\(i^{th}\)</span> reaction.</p>
-<div class="math notranslate nohighlight">
-\[\xi_i = \textrm{moles of reaction $i$ that have occured}\]</div>
-<p>If that is a bit too abstract, just consider that we often have many reactions to consider in a reacting systems.  Each reaction gets its own extent.  The index <span class="math notranslate nohighlight">\(i\)</span> just corresponds to the number you’ve assigned that reaction in your network.</p>
+<p>An important thing to note about the extent of reaction is that it is something that is specific to a <em>reaction, $i$</em>, it is not something that is specific to a <em>species, $j$</em>. Therefore, we will define the extent of reaction for a specific reaction, $i$. We use the symbol $\xi_i$ to represent the extent of the “$i^{th}$ reaction.</p>
+<p>$$\xi_i = \textrm{moles of reaction $i$ that have occured}$$</p>
+<p>If that is a bit too abstract, just consider that we often have many reactions to consider in a reacting systems.  Each reaction gets its own extent.  The index $i$ just corresponds to the number you’ve assigned that reaction in your network.</p>
 <p>Now, let’s consider a single reaction with generic species and stoichiometric coefficients:</p>
-<div class="math notranslate nohighlight">
-\[\nu_A A + \nu_B B \leftrightharpoons \nu_C C\]</div>
-<p>We perform this reaction in a batch reactor that we initially charge with the following quantities of each species: <span class="math notranslate nohighlight">\(N_{A_0}\)</span>, <span class="math notranslate nohighlight">\(N_{B_0}\)</span>, and <span class="math notranslate nohighlight">\(N_{C_0}\)</span>.  We would like to describe how the quantity of each of those species changes as the reaction occurs; we can do so using the extent of reaction. For this particular example, this is the only reaction occuring, so we assign it the number 1.  We can then assign a specific extent for that reaction:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = \textrm{moles of reaction $1$ that have occured}\]</div>
+<p>$$\nu_A A + \nu_B B \leftrightharpoons \nu_C C$$</p>
+<p>We perform this reaction in a batch reactor that we initially charge with the following quantities of each species: $N_{A_0}$, $N_{B_0}$, and $N_{C_0}$.  We would like to describe how the quantity of each of those species changes as the reaction occurs; we can do so using the extent of reaction. For this particular example, this is the only reaction occuring, so we assign it the number 1.  We can then assign a specific extent for that reaction:</p>
+<p>$$\xi_1 = \textrm{moles of reaction $1$ that have occured}$$</p>
 <p>Again, this is an attribute of the reaction, not of a specific species.  We can however use the extent along with stoichiometric coefficients to quantify how the molar quantity of each species changes as reaction 1 occurs.  Specifically, we know that every time this reaction occurs, it will:</p>
 <ol class="simple">
-<li><p>Consume <span class="math notranslate nohighlight">\(\nu_A\)</span> moles of species A</p></li>
-<li><p>Consume <span class="math notranslate nohighlight">\(\nu_B\)</span> moles of species B</p></li>
-<li><p>Produce <span class="math notranslate nohighlight">\(\nu_C\)</span> moles of species C</p></li>
+<li><p>Consume $\nu_A$ moles of species A</p></li>
+<li><p>Consume $\nu_B$ moles of species B</p></li>
+<li><p>Produce $\nu_C$ moles of species C</p></li>
 </ol>
 <p>With that in mind, we can express the molar quantities of A, B, and C as functions of their intial values and the extent of reaction:</p>
-<p>\begin{align}
-N_A &amp;= N_{A_0} + \nu_A , \xi_1 \
-N_B &amp;= N_{B_0} + \nu_B , \xi_1 \
-N_C &amp;= N_{C_0} + \nu_C , \xi_1 \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8bf1737a-4a4b-45b3-b4d9-7b9a975c5be8">
+<span class="eqno">(3)<a class="headerlink" href="#equation-8bf1737a-4a4b-45b3-b4d9-7b9a975c5be8" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A_0} + \nu_A \, \xi_1 \\
+    N_B &amp;= N_{B_0} + \nu_B \, \xi_1 \\
+    N_C &amp;= N_{C_0} + \nu_C \, \xi_1 \\
+\end{align}\]</div>
 <p>You may not immediately see the significance of doing this, but it is extremely useful in that it allows us to express the quantities of all species in terms of a single extent of reaction!  Basically, this reduces the number of unknowns we need to deal with, and we will use this extensively in solving algebraic equations, primarily equilibrium problems and CSTR sizing equations.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>A Real Example (Ammonia Synthesis)</strong></span></p>
-<p>I like the generality of things like <span class="math notranslate nohighlight">\(\xi_i\)</span> and reactions written in terms of A’s, B’s, and C’s.  At the same time, it can be hard to get a feel for how this applies to real systems because it is so abstract.  So we’ll apply this principle to the Ammonia Synthesis reaction at the heart of the Haber-Bosch process.  This is unquestionably one of the most important reactions  to society – our ability to “fix” nitrogen in this way underlies a lot of our nitrogen-containing fertilizer production (among other things).  Were it not for ammonia synthesis, it is unlikely modern agriculture would be as productive as it is.  In any event, here is the balanced, overall reaction for ammonia synthesis:</p>
-<div class="math notranslate nohighlight">
-\[N_2 (g) + 3H_2 (g) \leftrightharpoons 2N \! H_3 (g)\]</div>
-<p>It occurs in the gas phase, and it is typically carried out over iron-based catalysts, moderate temperatures (<span class="math notranslate nohighlight">\(300^\circ C - 400^\circ C\)</span>), and high pressures (<span class="math notranslate nohighlight">\(100 - 200\)</span> atm).  For this example, let’s consider that we initially charge a batch reactor with 1 mole of nitrogen, 3 moles of hydrogen, and 0 moles of ammonia.  Therefore:</p>
-<p>\begin{align}
-N_{N_{2,0}} &amp;= 1 \ \textrm{mole} \
-N_{H_{2,0}} &amp;= 3 \ \textrm{moles} \
-N_{N!H_{3,0}} &amp;= 0 \ \textrm{moles} \
-\end{align}</p>
-<p>Here, we are only considering ammonia synthesis, so we will assign this reaction the number 1, and define an extent, <span class="math notranslate nohighlight">\(\xi_1\)</span> that describes the moles of “ammonia synthesis reaction” that have occured.</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = \textrm{moles of ammonia synthesis that have occured}\]</div>
+<p>I like the generality of things like $\xi_i$ and reactions written in terms of A’s, B’s, and C’s.  At the same time, it can be hard to get a feel for how this applies to real systems because it is so abstract.  So we’ll apply this principle to the Ammonia Synthesis reaction at the heart of the Haber-Bosch process.  This is unquestionably one of the most important reactions  to society – our ability to “fix” nitrogen in this way underlies a lot of our nitrogen-containing fertilizer production (among other things).  Were it not for ammonia synthesis, it is unlikely modern agriculture would be as productive as it is.  In any event, here is the balanced, overall reaction for ammonia synthesis:</p>
+<p>$$N_2 (g) + 3H_2 (g) \leftrightharpoons 2N ! H_3 (g)$$</p>
+<p>It occurs in the gas phase, and it is typically carried out over iron-based catalysts, moderate temperatures ($300^\circ C - 400^\circ C$), and high pressures ($100 - 200$ atm).  For this example, let’s consider that we initially charge a batch reactor with 1 mole of nitrogen, 3 moles of hydrogen, and 0 moles of ammonia.  Therefore:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-552caca4-2503-4bf2-89e6-bfbab7e83f08">
+<span class="eqno">(4)<a class="headerlink" href="#equation-552caca4-2503-4bf2-89e6-bfbab7e83f08" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_{2,0}} &amp;= 1 \ \textrm{mole} \\
+    N_{H_{2,0}} &amp;= 3 \ \textrm{moles} \\
+    N_{N\!H_{3,0}} &amp;= 0 \ \textrm{moles} \\
+\end{align}\]</div>
+<p>Here, we are only considering ammonia synthesis, so we will assign this reaction the number 1, and define an extent, $\xi_1$ that describes the moles of “ammonia synthesis reaction” that have occured.</p>
+<p>$$\xi_1 = \textrm{moles of ammonia synthesis that have occured}$$</p>
 <p>Once we conceptually define this extent of reaction, it is straightforward to define the number of moles of each species as a function of extent of reaction using stoichiometric coefficients. Specifically, we know that for each mole of “reaction” that occurs, it consumes 1 mole of nitrogen, it consumes 3 moles of hydrogen, and it produces 2 moles of ammonia:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= N_{N_{2,0}}    - 1 , \xi_1 \
-N_{H_2}    &amp;= N_{H_{2,0}}    - 3 , \xi_1 \
-N_{N!H_3} &amp;= N_{N!H_{3,0}} + 2 , \xi_1 \
-\end{align}</p>
-<p>We can see that our maximum extent of reaction in this example is 1.  It is impossible to have a larger extent than 1 because this would result in negative quantities of <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> being present in the reactor, which is not physically possible.  Let’s say that:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = 0.75 \, \textrm{moles}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-9193a9ad-98de-4f2d-b67e-740e0d02bb2c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-9193a9ad-98de-4f2d-b67e-740e0d02bb2c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 \\
+    N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 \\
+    N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 \, \xi_1 \\
+\end{align}\]</div>
+<p>We can see that our maximum extent of reaction in this example is 1.  It is impossible to have a larger extent than 1 because this would result in negative quantities of $N_2$ and $H_2$ being present in the reactor, which is not physically possible.  Let’s say that:</p>
+<p>$$\xi_1 = 0.75 , \textrm{moles}$$</p>
 <p>Once we know this, we can plug in values to the above equations and calculate that the following moles of each species are present in the reactor:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= 0.25 , \textrm{moles} \
-N_{H_2}    &amp;= 0.75 , \textrm{moles} \
-N_{N!H_3} &amp;= 1.50 , \textrm{moles} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-375d6d12-f6ab-409b-80dc-28292216ffc0">
+<span class="eqno">(6)<a class="headerlink" href="#equation-375d6d12-f6ab-409b-80dc-28292216ffc0" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= 0.25 \, \textrm{moles} \\
+    N_{H_2}    &amp;= 0.75 \, \textrm{moles} \\
+    N_{N\!H_3} &amp;= 1.50 \, \textrm{moles} \\
+\end{align}\]</div>
 <p>This is one simple example of how we would use an extent of reaction to express molar quantities of all species in terms of a single extent variable</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Extents can be negative</strong></span></p>
-<p>Generally, reactions can occur in either direction.  An extent is a description of reaction progress or the change in moles of “reaction” that have occured. For this reason, it can have either a positive or a negative value.  A positive value means that the reaction has occured in the “forward” direction as we’ve written it (to the right), and a negative value means that the reaction has occured in the “reverse” direction as we’ve written it (to the left).  In our ammonia synthesis example, let’s say we initially fill the reactor with ammonia instead of <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span>:</p>
-<p>\begin{align}
-N_{N_{2,0}} &amp;= 0 \ \textrm{mole} \
-N_{H_{2,0}} &amp;= 0 \ \textrm{moles} \
-N_{N!H_{3,0}} &amp;= 10 \ \textrm{moles} \
-\end{align}</p>
+<p>Generally, reactions can occur in either direction.  An extent is a description of reaction progress or the change in moles of “reaction” that have occured. For this reason, it can have either a positive or a negative value.  A positive value means that the reaction has occured in the “forward” direction as we’ve written it (to the right), and a negative value means that the reaction has occured in the “reverse” direction as we’ve written it (to the left).  In our ammonia synthesis example, let’s say we initially fill the reactor with ammonia instead of $N_2$ and $H_2$:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-66435d7c-7b9c-4a10-a3ef-449383285757">
+<span class="eqno">(7)<a class="headerlink" href="#equation-66435d7c-7b9c-4a10-a3ef-449383285757" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_{2,0}} &amp;= 0 \ \textrm{mole} \\
+    N_{H_{2,0}} &amp;= 0 \ \textrm{moles} \\
+    N_{N\!H_{3,0}} &amp;= 10 \ \textrm{moles} \\
+\end{align}\]</div>
 <p>In this case, the ammonia will decompose into nitrogen and hydrogen, and we would see a negative extent of reaction.  For example, if:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = -3\]</div>
+<p>$$\xi_1 = -3$$</p>
 <p>We would plug these values into the following expressions:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= N_{N_{2,0}}    - 1 , \xi_1 \
-N_{H_2}    &amp;= N_{H_{2,0}}    - 3 , \xi_1 \
-N_{N!H_3} &amp;= N_{N!H_{3,0}} + 2 , \xi_1 \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-09caccc6-be4a-401f-be11-7a0a30b7d1c9">
+<span class="eqno">(8)<a class="headerlink" href="#equation-09caccc6-be4a-401f-be11-7a0a30b7d1c9" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 \\
+    N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 \\
+    N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 \, \xi_1 \\
+\end{align}\]</div>
 <p>To find that:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= 3 , \textrm{moles} \
-N_{H_2}    &amp;= 9 , \textrm{moles} \
-N_{N!H_3} &amp;= 4 , \textrm{moles} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d8935cae-c063-4e39-86a0-0c30f1b97b88">
+<span class="eqno">(9)<a class="headerlink" href="#equation-d8935cae-c063-4e39-86a0-0c30f1b97b88" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= 3 \, \textrm{moles} \\
+    N_{H_2}    &amp;= 9 \, \textrm{moles} \\
+    N_{N\!H_3} &amp;= 4 \, \textrm{moles} \\
+\end{align}\]</div>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Dealing with multiple reactions</strong></span></p>
 <p>Now that we have a general understanding of how to use an extent of reaction, it is very easy to extend the concept to 2, 3, 5, 10, or 1000 reactions.  We simply define a single extent of reaction for each reaction in our network, and then we consider how that reaction impacts the number of moles of each species using stoichiometric coefficients, just as we did above. As an example, let’s consider adding a couple of completely arbitrary reaction that occurs in parallel to ammonia synthesis.  Now, we have three reactions involving six different species:</p>
-<p>\begin{align}
-N_2 (g) + 3H_2 (g) &amp;\leftrightharpoons 2N!H_3 (g) \ \ \ \ \ \ \ \ \ \ (i = 1) \
-N_2 (g) + 2O_2 (g) &amp;\leftrightharpoons 2N!O_3 (g) \ \ \ \ \ \ \ \ \ \ (i = 2) \
-2H_2 (g) + O_2 (g) &amp;\leftrightharpoons 2H_2O   (g) \ \ \ \ \ \ \ \ \ \ (i = 3) \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-13e41480-6e91-4cf8-9aa9-cfcf86c3dbc2">
+<span class="eqno">(10)<a class="headerlink" href="#equation-13e41480-6e91-4cf8-9aa9-cfcf86c3dbc2" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_2 (g) + 3H_2 (g) &amp;\leftrightharpoons 2N\!H_3 (g) \ \ \ \ \ \ \ \ \ \ (i = 1) \\
+    N_2 (g) + 2O_2 (g) &amp;\leftrightharpoons 2N\!O_3 (g) \ \ \ \ \ \ \ \ \ \ (i = 2) \\
+    2H_2 (g) + O_2 (g) &amp;\leftrightharpoons 2H_2O   (g) \ \ \ \ \ \ \ \ \ \ (i = 3) \\
+\end{align}\]</div>
 <p>We initially charge the reactor with:</p>
-<p>\begin{align}
-N_{N_{2,0}} &amp;= 1.0 \ \textrm{mole} \
-N_{H_{2,0}} &amp;= 3.0 \ \textrm{moles} \
-N_{O_{2,0}} &amp;= 0.5 \ \textrm{moles} \
-N_{N!H_{3,0}} &amp;= 0.0 \ \textrm{moles} \
-N_{NO_{2,0}} &amp;= 0.0 \ \textrm{moles} \
-N_{H_2O_{0}} &amp;= 0.0 \ \textrm{moles} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f5742a3-2127-4799-bc43-4cf95e67a9ab">
+<span class="eqno">(11)<a class="headerlink" href="#equation-9f5742a3-2127-4799-bc43-4cf95e67a9ab" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_{2,0}} &amp;= 1.0 \ \textrm{mole} \\
+    N_{H_{2,0}} &amp;= 3.0 \ \textrm{moles} \\
+    N_{O_{2,0}} &amp;= 0.5 \ \textrm{moles} \\
+    N_{N\!H_{3,0}} &amp;= 0.0 \ \textrm{moles} \\
+    N_{NO_{2,0}} &amp;= 0.0 \ \textrm{moles} \\
+    N_{H_2O_{0}} &amp;= 0.0 \ \textrm{moles} \\
+\end{align}\]</div>
 <p>We can define one extent of reaction for each reaction in our network, so:</p>
-<p>\begin{align}
-\xi_1 &amp;= \textrm{moles of ammonia synthesis that have occured} \
-\xi_2 &amp;= \textrm{moles of nitrogen oxidation that have occured} \
-\xi_3 &amp;= \textrm{moles of hydrogen oxidation that have occured} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3ebd9c9c-4ce8-4517-9736-bee2feeb2ecf">
+<span class="eqno">(12)<a class="headerlink" href="#equation-3ebd9c9c-4ce8-4517-9736-bee2feeb2ecf" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \xi_1 &amp;= \textrm{moles of ammonia synthesis that have occured} \\
+    \xi_2 &amp;= \textrm{moles of nitrogen oxidation that have occured} \\
+    \xi_3 &amp;= \textrm{moles of hydrogen oxidation that have occured} \\
+\end{align}\]</div>
 <p>With this information, we use the extent of each reaction and stoichiometric coefficients in each reaction to quantify the changes in moles of each species.  Specifically:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= N_{N_{2,0}}    - 1 , \xi_1 - 1 , \xi_2 + 0 , \xi_3\
-N_{H_2}    &amp;= N_{H_{2,0}}    - 3 , \xi_1 + 0 , \xi_2 - 2 , \xi_3\
-N_{O_2}    &amp;= N_{O_{2,0}}    - 0 , \xi_1 - 2 , \xi_2 - 1 , \xi_3\
-N_{N!H_3} &amp;= N_{N!H_{3,0}} + 2 , \xi_1 + 0 , \xi_2 + 0 , \xi_3\
-N_{NO_2}   &amp;= N_{NO_{2,0}}   + 0 , \xi_1 + 2 , \xi_2 + 0 , \xi_3\
-N_{H_2O}   &amp;= N_{H_2O_{0}}   + 0 , \xi_1 + 0 , \xi_2 + 2 , \xi_3\
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ad4718be-7e8b-4a4d-ac02-3953256cafae">
+<span class="eqno">(13)<a class="headerlink" href="#equation-ad4718be-7e8b-4a4d-ac02-3953256cafae" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 - 1 \, \xi_2 + 0 \, \xi_3\\
+    N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 + 0 \, \xi_2 - 2 \, \xi_3\\
+    N_{O_2}    &amp;= N_{O_{2,0}}    - 0 \, \xi_1 - 2 \, \xi_2 - 1 \, \xi_3\\
+    N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 \, \xi_1 + 0 \, \xi_2 + 0 \, \xi_3\\
+    N_{NO_2}   &amp;= N_{NO_{2,0}}   + 0 \, \xi_1 + 2 \, \xi_2 + 0 \, \xi_3\\
+    N_{H_2O}   &amp;= N_{H_2O_{0}}   + 0 \, \xi_1 + 0 \, \xi_2 + 2 \, \xi_3\\
+\end{align}\]</div>
 <p>If we know the values of extents, for example:</p>
-<p>\begin{align}
-\xi_1 = 0.25 \ \textrm{moles} \
-\xi_2 = 0.05 \ \textrm{moles} \
-\xi_3 = 0.15 \ \textrm{moles} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-111d2d6f-9fc7-4bb7-980d-7b7b8a78dc76">
+<span class="eqno">(14)<a class="headerlink" href="#equation-111d2d6f-9fc7-4bb7-980d-7b7b8a78dc76" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \xi_1 = 0.25 \ \textrm{moles} \\
+    \xi_2 = 0.05 \ \textrm{moles} \\
+    \xi_3 = 0.15 \ \textrm{moles} \\
+\end{align}\]</div>
 <p>we can plug in numbers as before to find:</p>
-<p>\begin{align}
-N_{N_2}    &amp;= 0.70 \ \textrm{moles} \
-N_{H_2}    &amp;= 1.95 \ \textrm{moles} \
-N_{O_2}    &amp;= 0.25 \ \textrm{moles} \
-N_{N!H_3} &amp;= 0.50 \ \textrm{moles} \
-N_{NO_2}   &amp;= 0.10 \ \textrm{moles} \
-N_{H_2O}   &amp;= 0.30 \ \textrm{moles} \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8ae6084c-d437-4f49-b198-70e03a4b5e88">
+<span class="eqno">(15)<a class="headerlink" href="#equation-8ae6084c-d437-4f49-b198-70e03a4b5e88" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2}    &amp;= 0.70 \ \textrm{moles} \\
+    N_{H_2}    &amp;= 1.95 \ \textrm{moles} \\
+    N_{O_2}    &amp;= 0.25 \ \textrm{moles} \\
+    N_{N\!H_3} &amp;= 0.50 \ \textrm{moles} \\
+    N_{NO_2}   &amp;= 0.10 \ \textrm{moles} \\
+    N_{H_2O}   &amp;= 0.30 \ \textrm{moles} \\
+\end{align}\]</div>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Optional observation for those who love linear algebra (not covered in class)</strong></span></p>
-<p>If you are really into the matrix idea, you’ll notice that we are just using linear combinations of stoichiometric coefficients and reaction extents.  We can define a species vector, <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>, a stoichiometric matrix <span class="math notranslate nohighlight">\(\boldsymbol{\nu}\)</span>, and an extent vector <span class="math notranslate nohighlight">\(\boldsymbol{\xi}\)</span> for this three reaction system. The species vector will have 6 elements (because there are 6 species); the extent vector will have 3 elements (because there are 3 reactions); and the stoichiometric matrix will have have 3 rows (because there are 3 reactions) and 6 columns (because there are 6 species):</p>
-<p>\begin{align}
-\boldsymbol{\xi} &amp;=
-\begin{bmatrix}
-\xi_1 \ \xi_2 \ \xi_3 \
-\end{bmatrix}
-\
-\
-\mathbf{N} &amp;=
-\begin{bmatrix}
-N_{N_2} \ N_{H_2} \ N_{O_2} \ N_{N!H_3} \ N_{NO_3} \ N_{H_2O} \
-\end{bmatrix}
-\
-\
-\boldsymbol{\nu} &amp;=
-\begin{bmatrix}
--1 &amp; -3 &amp;  0 &amp; 2 &amp; 0 &amp; 0 \
--1 &amp;  0 &amp; -2 &amp; 0 &amp; 2 &amp; 0 \
-0 &amp; -2 &amp; -1 &amp; 0 &amp; 0 &amp; 2 \
-\end{bmatrix}
-\end{align}</p>
+<p>If you are really into the matrix idea, you’ll notice that we are just using linear combinations of stoichiometric coefficients and reaction extents.  We can define a species vector, $\mathbf{N}$, a stoichiometric matrix $\boldsymbol{\nu}$, and an extent vector $\boldsymbol{\xi}$ for this three reaction system. The species vector will have 6 elements (because there are 6 species); the extent vector will have 3 elements (because there are 3 reactions); and the stoichiometric matrix will have have 3 rows (because there are 3 reactions) and 6 columns (because there are 6 species):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ab1c62c5-c43e-43c5-84d9-fc4638b0bee1">
+<span class="eqno">(16)<a class="headerlink" href="#equation-ab1c62c5-c43e-43c5-84d9-fc4638b0bee1" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \boldsymbol{\xi} &amp;=
+        \begin{bmatrix}
+            \xi_1 \\ \xi_2 \\ \xi_3 \\
+        \end{bmatrix}
+    \\
+    \\
+    \mathbf{N} &amp;=
+        \begin{bmatrix}
+            N_{N_2} \\ N_{H_2} \\ N_{O_2} \\ N_{N\!H_3} \\ N_{NO_3} \\ N_{H_2O} \\
+        \end{bmatrix}
+    \\
+    \\
+    \boldsymbol{\nu} &amp;=
+        \begin{bmatrix}
+            -1 &amp; -3 &amp;  0 &amp; 2 &amp; 0 &amp; 0 \\
+            -1 &amp;  0 &amp; -2 &amp; 0 &amp; 2 &amp; 0 \\
+             0 &amp; -2 &amp; -1 &amp; 0 &amp; 0 &amp; 2 \\
+        \end{bmatrix}
+\end{align}\]</div>
 <p>With these defined, you see that, for large systems, I can keep track of the moles of each species with a single matrix operation:</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{N} = \mathbf{N_0} + \boldsymbol{\nu}^T \boldsymbol{\xi}\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(\mathbf{N_0}\)</span> is a vector containing the starting number of moles of each species, and <span class="math notranslate nohighlight">\(\boldsymbol{\nu}^T\)</span> is the transpose of our stoichiometric matrix.</p>
+<p>$$\mathbf{N} = \mathbf{N_0} + \boldsymbol{\nu}^T \boldsymbol{\xi}$$</p>
+<p>Here, $\mathbf{N_0}$ is a vector containing the starting number of moles of each species, and $\boldsymbol{\nu}^T$ is the transpose of our stoichiometric matrix.</p>
 <p>This can be cumbersome for small reaction networks involving only a few species, but it is often a good idea to organizer your information this way for large reaction networks involving many species.  As I demonstrate below, it makes it pretty easy to reduce the number of lines of code you write.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -512,110 +523,98 @@ N_{N_2} \ N_{H_2} \ N_{O_2} \ N_{N!H_3} \ N_{NO_3} \ N_{H_2O} \
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Fractional Conversion</strong></span></p>
 <p>In quantifying reaction progress, we are frequently interested in the amount of reactant that has been consumed.  We usually discuss this in terms of a <em><strong>fractional conversion</strong></em>, which literally tells us what fraction of a specific reactant has been consumed over the course of reaction progress.</p>
 <p>Let’s return to a single, generic reaction so that we can make general definitions:</p>
-<div class="math notranslate nohighlight">
-\[\nu_A A + \nu_B B \leftrightharpoons \nu_C C\]</div>
+<p>$$\nu_A A + \nu_B B \leftrightharpoons \nu_C C$$</p>
 <p>If we are interested in the fractional conversion of the reactant A, we would define it as such:</p>
-<div class="math notranslate nohighlight">
-\[X_A = \frac{N_{A,0} - N_A}{N_{A,0}}\]</div>
-<p>Clearly, this represents the fraction of species A consumed by reaction. This quantity is going to be related to the extent of reaction, but unlike the extent of reaction, fractional conversion is specific to a <em>species</em> (whereas extents are specific to a <em>reaction</em>). As we’ve done with extents, it is frequently useful to expres the number of moles of reactant as a function of fractional conversion.  We can solve the above definition of fractional conversion for <span class="math notranslate nohighlight">\(N_A\)</span> to find:</p>
-<div class="math notranslate nohighlight">
-\[N_A = N_{A_0} - N_{A_0}X_A\]</div>
-<p>In the first cell of this worksheet, we already showed that, for this reaction, we can also express <span class="math notranslate nohighlight">\(N_A\)</span> as a function of extent:</p>
-<div class="math notranslate nohighlight">
-\[N_A = N_{A_0} + \nu_A \, \xi_1\]</div>
-<p>These two statements are both true, and the quantity <span class="math notranslate nohighlight">\(N_A\)</span> in each equation is equal; therefore, for this <em><strong>specific example of a single, generic reaction</strong></em>:</p>
-<div class="math notranslate nohighlight">
-\[N_{A_0} - N_{A_0}X_A = N_{A_0} + \nu_A \, \xi_1\]</div>
+<p>$$X_A = \frac{N_{A,0} - N_A}{N_{A,0}}$$</p>
+<p>Clearly, this represents the fraction of species A consumed by reaction. This quantity is going to be related to the extent of reaction, but unlike the extent of reaction, fractional conversion is specific to a <em>species</em> (whereas extents are specific to a <em>reaction</em>). As we’ve done with extents, it is frequently useful to expres the number of moles of reactant as a function of fractional conversion.  We can solve the above definition of fractional conversion for $N_A$ to find:</p>
+<p>$$N_A = N_{A_0} - N_{A_0}X_A$$</p>
+<p>In the first cell of this worksheet, we already showed that, for this reaction, we can also express $N_A$ as a function of extent:</p>
+<p>$$N_A = N_{A_0} + \nu_A , \xi_1$$</p>
+<p>These two statements are both true, and the quantity $N_A$ in each equation is equal; therefore, for this <em><strong>specific example of a single, generic reaction</strong></em>:</p>
+<p>$$N_{A_0} - N_{A_0}X_A = N_{A_0} + \nu_A , \xi_1$$</p>
 <p>We can solve this expression for fractional conversion as a function of extent:</p>
-<div class="math notranslate nohighlight">
-\[X_A = -\frac{\nu_A \xi_1}{N_{A,0}}\]</div>
+<p>$$X_A = -\frac{\nu_A \xi_1}{N_{A,0}}$$</p>
 <p>Or we can define extent as a function of conversion:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = -\frac{N_{A,0}X_A }{\nu_A}\]</div>
+<p>$$\xi_1 = -\frac{N_{A,0}X_A }{\nu_A}$$</p>
 <p>Either may be useful to us.  Now, we already saw that we were able to use reaction extents to define the molar quantity of each species in terms of a single variable that measures reaction progress (the extent).  <strong>For a single reaction</strong> we can do the same thing with fractional conversion.  This is a frequent approach in reactor design.  It is attractive for a few reasons, chief among them is that conversion, because it is a fractional quantity, always varies between 0 and 1.  Further, it is always positive. Finally, it is an <em><strong>intensive</strong></em> quantity that is independent of system size.  For that rason, it is a more practical metric than reaction extent in terms of physical significance.</p>
 <p>For a tangible example, consider whether 150 moles of extent is a significant amount of reaction progress or not.  It is hard to say–it depends on the size of our system.  If we started with 170 moles of A, then yes.  If we started with several million moles of A, then no.  In contrast, stating that our system achieves, e.g., 80% conversion is unambiguous.</p>
 <p>For these reasons, you tend to encounter fractional conversion more frequently than reaction extent in discussion of reactor design problems. It is therefore often useful for us to use fractional conversion of a specific reactant to quantify the change in moles of each species.  This is slightly more complicated than using extents directly, but eventually it becomes second nature.</p>
 <p>We’ll demonstrate it first for our generic reaction and then translate to a couple of specific examples.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>The General Case</strong></span></p>
 <p>For the generic single reaction:</p>
-<div class="math notranslate nohighlight">
-\[\nu_A A + \nu_B B \leftrightharpoons \nu_C C\]</div>
+<p>$$\nu_A A + \nu_B B \leftrightharpoons \nu_C C$$</p>
 <p>We know that:</p>
-<p>\begin{align}
-N_A &amp;= N_{A_0} + \nu_A , \xi_1 \
-N_B &amp;= N_{B_0} + \nu_B , \xi_1 \
-N_C &amp;= N_{C_0} + \nu_C , \xi_1 \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7908a71f-08c2-4fd9-a215-e423858f1395">
+<span class="eqno">(17)<a class="headerlink" href="#equation-7908a71f-08c2-4fd9-a215-e423858f1395" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A_0} + \nu_A \, \xi_1 \\
+    N_B &amp;= N_{B_0} + \nu_B \, \xi_1 \\
+    N_C &amp;= N_{C_0} + \nu_C \, \xi_1 \\
+\end{align}\]</div>
 <p>We also saw that we can define the extent <em><strong>for this specific example</strong></em> as:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = -\frac{N_{A,0}X_A }{\nu_A}\]</div>
+<p>$$\xi_1 = -\frac{N_{A,0}X_A }{\nu_A}$$</p>
 <p>We can substitute that quantity into each of the above extents to get:</p>
-<p>\begin{align}
-N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \
-\
-N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \
-\
-N_C &amp;= N_{C_0} - \frac{\nu_C}{\nu_A} N_{A,0}X_A \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8fca2c4e-79db-480c-b7bc-0135d3bad05b">
+<span class="eqno">(18)<a class="headerlink" href="#equation-8fca2c4e-79db-480c-b7bc-0135d3bad05b" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \\
+    \\
+    N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \\
+    \\
+    N_C &amp;= N_{C_0} - \frac{\nu_C}{\nu_A} N_{A,0}X_A \\
+\end{align}\]</div>
 <p>In other words, if we are careful about ratioing our stoichiometric coefficients, <em><strong>for a single reaction</strong></em> we can use the fractional conversion of the reactant to calculate the change in number of moles of each species.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Fractional Conversion in the Ammonia Synthesis Example</strong></span></p>
 <p>For the specific case of ammonia synthesis:</p>
-<div class="math notranslate nohighlight">
-\[N_2 (g) + 3H_2 (g) \leftrightharpoons 2N \! H_3 (g)\]</div>
+<p>$$N_2 (g) + 3H_2 (g) \leftrightharpoons 2N ! H_3 (g)$$</p>
 <p>We would define the fractional conversion of Nitrogen as follows:</p>
-<div class="math notranslate nohighlight">
-\[X_{N_2} = \frac{N_{N_{2,0}} - N_{N_2}}{N_{N_{2,0}}}\]</div>
+<p>$$X_{N_2} = \frac{N_{N_{2,0}} - N_{N_2}}{N_{N_{2,0}}}$$</p>
 <p>In this case, the extent of reaction can be expressed as a function of fractional conversion:</p>
-<div class="math notranslate nohighlight">
-\[\xi_1 = -\frac{N_{N_{2,0}}X_{N_2}}{\nu_{N_2}} = N_{N_{2,0}}X_{N_2} \]</div>
-<p>In other words, <span class="math notranslate nohighlight">\(N_{N_{2,0}}X_A\)</span> represents the moles of reaction that have occured.  We know that for every reaction that occurs, it consumes 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span>, it consumes 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>, and it produces 2 moles of <span class="math notranslate nohighlight">\(N\!H_3\)</span>.  So:</p>
-<p>\begin{align}
-N_{N_2} &amp;= N_{N_{2,0}} - N_{N_{2,0}}X_{N_2} \
-\
-N_{H_2} &amp;= N_{H_{2,0}} - 3 N_{N_{2,0}}X_{N_2} \
-\
-N_{N!H_3} &amp;= N_{N!H_{3,0}} + 2 N_{N_{2,0}}X_{N_2} \
-\end{align}</p>
+<p>$$\xi_1 = -\frac{N_{N_{2,0}}X_{N_2}}{\nu_{N_2}} = N_{N_{2,0}}X_{N_2} $$</p>
+<p>In other words, $N_{N_{2,0}}X_A$ represents the moles of reaction that have occured.  We know that for every reaction that occurs, it consumes 1 mole of $N_2$, it consumes 3 moles of $H_2$, and it produces 2 moles of $N!H_3$.  So:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fe721d34-1cc9-4cc4-80c5-72775954d768">
+<span class="eqno">(19)<a class="headerlink" href="#equation-fe721d34-1cc9-4cc4-80c5-72775954d768" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{N_2} &amp;= N_{N_{2,0}} - N_{N_{2,0}}X_{N_2} \\
+    \\
+    N_{H_2} &amp;= N_{H_{2,0}} - 3 N_{N_{2,0}}X_{N_2} \\
+    \\
+    N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 N_{N_{2,0}}X_{N_2} \\
+\end{align}\]</div>
 <p><strong>Notice</strong>: We do not define a new fractional conversion for each species.  This defeats the purpose of the exercise.  We want to use a single fractional conversion for a single reactant to quantify the changes in each species.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Be careful with stoichiometry!</strong></span></p>
 <p>You’ll find that it is slightly trickier to keep track of changes in molar quantities with fractional conversion than with extent.  With extent, you use stoichiometric coefficients directly because the extent is specific to a reaction.  With conversions, you have to use ratios of stoichiometric coefficients because conversion is specific to a species.</p>
 <p>So, when you have a reactant that has a stoichiometric coefficient other than one, you’ll need to be careful to account for it:</p>
-<div class="math notranslate nohighlight">
-\[3A + 2B \leftrightharpoons C\]</div>
+<p>$$3A + 2B \leftrightharpoons C$$</p>
 <p>In this case, we define the conversion of A as usual:</p>
-<div class="math notranslate nohighlight">
-\[X_A = \frac{N_{A_0} - N_A}{N_{A_0}}\]</div>
+<p>$$X_A = \frac{N_{A_0} - N_A}{N_{A_0}}$$</p>
 <p>Formally expressing the moles of each species as a function of conversion of A:</p>
-<p>\begin{align}
-N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \
-\
-N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \
-\
-N_C &amp;= N_{C_0} - \frac{\nu_C}{\nu_A} N_{A,0}X_A \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bbd2bd87-9c66-43cf-af34-cb1d1f409916">
+<span class="eqno">(20)<a class="headerlink" href="#equation-bbd2bd87-9c66-43cf-af34-cb1d1f409916" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \\
+    \\
+    N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \\
+    \\
+    N_C &amp;= N_{C_0} - \frac{\nu_C}{\nu_A} N_{A,0}X_A \\
+\end{align}\]</div>
 <p>For this particular example, once we substitute stoichiometric coefficients, we find that the above is equivalent to::</p>
-<p>\begin{align}
-N_A &amp;= N_{A_0} - N_{A,0}X_A \
-\
-N_B &amp;= N_{B_0} - \frac{2}{3} N_{A,0}X_A \
-\
-N_C &amp;= N_{C_0} + \frac{1}{3} N_{A,0}X_A \
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4dc251d8-27d2-49b2-982d-50bb5071be7d">
+<span class="eqno">(21)<a class="headerlink" href="#equation-4dc251d8-27d2-49b2-982d-50bb5071be7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A_0} - N_{A,0}X_A \\
+    \\
+    N_B &amp;= N_{B_0} - \frac{2}{3} N_{A,0}X_A \\
+    \\
+    N_C &amp;= N_{C_0} + \frac{1}{3} N_{A,0}X_A \\
+\end{align}\]</div>
 <p>In these cases, if you have trouble figuring out the correct ratios, it can be useful to divide your balanced chemical reaction by the coefficient of the reactant of interest (in this case, A).  This will ensure that the reactant we have defined conversion for has a coefficient of 1, and it makes the ratios easy to see.</p>
-<div class="math notranslate nohighlight">
-\[A + \frac{2}{3} B \leftrightharpoons \frac{1}{3} C\]</div>
-<p>Now, it is clear that for every 1 mole of A consumed, we consume <span class="math notranslate nohighlight">\(\frac{2}{3}\)</span> moles of B, and we produce <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span> moles of C.</p>
+<p>$$A + \frac{2}{3} B \leftrightharpoons \frac{1}{3} C$$</p>
+<p>Now, it is clear that for every 1 mole of A consumed, we consume $\frac{2}{3}$ moles of B, and we produce $\frac{1}{3}$ moles of C.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>A note about units</strong></span></p>
 <p><strong>Batch Reactor</strong></p>
 <p>When we work in batch reactors, we usually discuss <strong>moles</strong> of each species.  As such, extents in batch reactors will commonly have units of <strong>moles</strong>, and when we define conversions, we do so as above:</p>
-<div class="math notranslate nohighlight">
-\[X_A = \frac{N_{A_0} - N_A}{N_{A_0}}\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(N_{A_0}\)</span> is the number of moles of A at the start of the reaction, and <span class="math notranslate nohighlight">\(N_A\)</span> is the number of moles of A remaining at the end of the reaction.</p>
+<p>$$X_A = \frac{N_{A_0} - N_A}{N_{A_0}}$$</p>
+<p>Here, $N_{A_0}$ is the number of moles of A at the start of the reaction, and $N_A$ is the number of moles of A remaining at the end of the reaction.</p>
 <p><strong>Flow Reactors</strong></p>
 <p>When we work in flow processes (CSTR, PFR, PBR, etc.), we usually operate at steady state, and we discuss <strong>molar flowrates</strong>, which have units of <strong>moles per time</strong>.  In these cases, it is convenient for extents to also have units of <strong>moles per time</strong> so that we can add and subtract them directly to a molar flowrate. In flow systems, since we don’t usually discuss the total number of moles of a species (more often, we discuss molar flowrates), we define conversions in terms of molar flowrates:</p>
-<div class="math notranslate nohighlight">
-\[X_A = \frac{F_{A_f} - F_A}{F_{A_f}}\]</div>
-<p>Here <span class="math notranslate nohighlight">\(F_{A_f}\)</span> is the molar flowrate of reactant A into the reactor, and <span class="math notranslate nohighlight">\(F_A\)</span> is the molar flowrate of reactant A leaving the reactor.</p>
+<p>$$X_A = \frac{F_{A_f} - F_A}{F_{A_f}}$$</p>
+<p>Here $F_{A_f}$ is the molar flowrate of reactant A into the reactor, and $F_A$ is the molar flowrate of reactant A leaving the reactor.</p>
 </section>
 
     <script type="text/x-thebe-config">

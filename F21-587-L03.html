@@ -355,19 +355,17 @@ title="Print to PDF"
 <p>We will start with <strong>algebraic equations</strong>, and then we will cover <strong>ordinary differential equations (ODEs)</strong>.  Any special cases outside of these, we’ll cover as the semester progresses.</p>
 <p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Solving Algebraic Equations</strong></span></p>
 <p>Let’s imagine we have an algebraic equation that we want to solve.  In this case, we’ll consider a simple function:</p>
-<div class="math notranslate nohighlight">
-\[f(x) = x^2 - 10x - 25\]</div>
+<p>$$f(x) = x^2 - 10x - 25$$</p>
 <p>And we want to find the root of that function, i.e., where it is equal to zero.  So, we’re solving this equation:</p>
-<div class="math notranslate nohighlight">
-\[0 = x^2 - 10x - 25\]</div>
+<p>$$0 = x^2 - 10x - 25$$</p>
 <p>Now, this one is actually pretty easy to solve. I would just use the quadratic formula if I needed an exact solution.</p>
-<div class="math notranslate nohighlight">
-\[ x = -b \pm \frac{\sqrt{\left(b^2 - 4ac\right)}}{2a}\]</div>
+<p>$$ x = -b \pm \frac{\sqrt{\left(b^2 - 4ac\right)}}{2a}$$</p>
 <p>If we do that, we find that there are two solutions to this equation (two roots of the function):</p>
-<p>\begin{align}
-x &amp;= 12.07107 \
-x &amp;= -2.07107
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e07eebf0-4b6b-48b4-aaed-7ddbd6bf86d5">
+<span class="eqno">(22)<a class="headerlink" href="#equation-e07eebf0-4b6b-48b4-aaed-7ddbd6bf86d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+    x &amp;= 12.07107 \\
+    x &amp;= -2.07107
+\end{align}\]</div>
 <p>But what if we had no idea how to solve the problem?  There are a number of things we might try.  I always like graphing the function – for univariate problems, this is both easy and useful.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -384,7 +382,7 @@ x &amp;= -2.07107
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x23e73366580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1f86d5f7580&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_3_1.png" src="_images/F21-587-L03_3_1.png" />
@@ -433,9 +431,8 @@ x &amp;= -2.07107
 <p>So, you can see that guess and check is a pretty inefficient way to do this.  It requires me to inspect each solution and make decisions about my next guess.  Although I can probably get this to work for a simple univarate funtion like f(x) above, it is almost impossible to use guess and check to solve a system of equations numerically.  In these cases, we’ll use formal numerical algorithms to solve algebraic equations.  There are numerous options, many of which are already built into Python, Matlab, Excel, etc.</p>
 <p><strong>Newton-Raphson method</strong></p>
 <p>As an example, we’ll implement a Newton-Raphson iteration to solve this problem.  The Newton-Raphson iteration is much better than what I did above because it uses information about both the function value and its derivative to update guesses automatically.  The formula for the Newton-Raphson iteration is this:</p>
-<div class="math notranslate nohighlight">
-\[x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)}\]</div>
-<p>We simply make an initial guess, <span class="math notranslate nohighlight">\(x_i\)</span>, then we update that guess by subtracting the ratio of the function value at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, to its derivative at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f^\prime(x_i)\)</span>.</p>
+<p>$$x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)}$$</p>
+<p>We simply make an initial guess, $x_i$, then we update that guess by subtracting the ratio of the function value at $x_i$, $f(x_i)$, to its derivative at $x_i$, $f^\prime(x_i)$.</p>
 <p>I run this iteratively in the cell below using a while loop; this is the same as clicking and dragging to autofill in Excel, which is what I did in class.  You can see how quickly it converges for this simple example.  This is much, much better than a simple guess and check strategy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -465,8 +462,7 @@ x &amp;= -2.07107
 <p><strong>Numerical Methods for Alebraic Equations can be difficult…</strong></p>
 <p>Although a Newton-Raphson iteration is very useful, it isn’t always guaranteed to converge.  In general, you’ll find this is true of algebraic solutions.  They can be flaky, and they are usually very sensitive to the initial guess that we make for the solution.  As the equations become increasingly nonlinear and difficult to solve, we will find we need very good initial guesses in order to get numerical methods to converge for algebraic equations.</p>
 <p>As an example, let’s consider the more difficult function:</p>
-<div class="math notranslate nohighlight">
-\[g(x) = -0.74 + 0.765x + 1.1x^2 - 3.55x^3\]</div>
+<p>$$g(x) = -0.74 + 0.765x + 1.1x^2 - 3.55x^3$$</p>
 <p>We’ll graph it and then run a Newton-Raphson iteration.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -481,7 +477,7 @@ x &amp;= -2.07107
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x23e73467bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1f86d6f5bb0&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_9_1.png" src="_images/F21-587-L03_9_1.png" />
@@ -544,10 +540,11 @@ x &amp;= -2.07107
 </div>
 <p><strong>Numerical Methods for Systems of Equation</strong></p>
 <p>In class, I showed how you can use solver with an objective function and constraints to solve a system of equations, e.g.:</p>
-<p>\begin{align}
-0 &amp;= x^2 - 10x - 25y + 17 \
-0 &amp;= y^2  - 36x
-\end{align}</p>
+<div class="amsmath math notranslate nohighlight" id="equation-45b96715-66c2-48c9-828e-aba54d32035b">
+<span class="eqno">(23)<a class="headerlink" href="#equation-45b96715-66c2-48c9-828e-aba54d32035b" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= x^2 - 10x - 25y + 17 \\
+    0 &amp;= y^2  - 36x
+\end{align}\]</div>
 <p>To solve this system, we create a vector function and solve using optimize.root (See Supplement 11). We’ll also cover in Recitation during Week 02.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -571,15 +568,12 @@ x &amp;= -2.07107
 </div>
 <p><strong>Numerical Methods for Ordinary Differential Equations</strong></p>
 <p>In class, we considered how one might solve an initial value problem in cases where it isn’t clear how to integrate the differential equation by hand.  We demonstrated the methods by considering a simple initial value problem:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dx}{dt} = -x\]</div>
-<p>Where <span class="math notranslate nohighlight">\(x = 10\)</span> at <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
-<p>We would like to know the value of <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(t = 4\)</span>.  In this case, it is a first order ODE, and we can easily separate variables and integrate by hand:</p>
-<div class="math notranslate nohighlight">
-\[\int_{x_0}^x\frac{1}{x^\prime} dx^\prime = - \int_0^t dt^\prime\]</div>
+<p>$$\frac{dx}{dt} = -x$$</p>
+<p>Where $x = 10$ at $t = 0$.</p>
+<p>We would like to know the value of $x$ at $t = 4$.  In this case, it is a first order ODE, and we can easily separate variables and integrate by hand:</p>
+<p>$$\int_{x_0}^x\frac{1}{x^\prime} dx^\prime = - \int_0^t dt^\prime$$</p>
 <p>The integral on the left is a natural logarithm, so the solution of a first order problem like this is always an exponential function of time:</p>
-<div class="math notranslate nohighlight">
-\[x(t) = x_0\exp(-t)\]</div>
+<p>$$x(t) = x_0\exp(-t)$$</p>
 <p>Based on that solution, we can create a function and plot it to show the <strong>true</strong> behavior of x as a function of t.  Then, we’ll try to approximate that behavior using a numerical integration of that initial value problem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -615,26 +609,19 @@ x &amp;= -2.07107
 </div>
 <p>Now we’ll consider the case where we don’t actually know the analytical solution, and we need to approximate it using a numerical method.  In this case, we’ll use an Euler step, but the general concept here is the same as that used in more advanced methods:  we use information about the derivative of a function at the current value of that function to estimate where the function will be at some point in the future (a future time or a future position).</p>
 <p>This is based on the idea that the derivative of a function tells us the change in dependent variable that occurs when we change the dependent variable, i.e., for this function:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dx}{dt} = m\]</div>
+<p>$$\frac{dx}{dt} = m$$</p>
 <p>Where m is the slope of the function x(t) at a given point in time.  We don’t know what the function is, but we do know what its derivative is:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dx}{dt} = -x\]</div>
+<p>$$\frac{dx}{dt} = -x$$</p>
 <p>We can <strong>approximate</strong> a derivative using discrete (i.e., non-differential) changes in x and t, similar to what we did when we first learned about a slope as “rise over run”.</p>
-<div class="math notranslate nohighlight">
-\[m \approx \frac{\Delta x}{\Delta t}\]</div>
-<p>We can discretize that to describe the change in x and t in terms of their current state (position <span class="math notranslate nohighlight">\(i\)</span>) and their state at one step in the future (position <span class="math notranslate nohighlight">\(i+1\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[m_i = \frac{(x_{i+1} - x_i)}{(t_{i+1} - t_i)}\]</div>
-<p>In other words, if we know the slope, we can make a small step in the independent variable (<span class="math notranslate nohighlight">\(\Delta t = t_{i+1} - t_i\)</span>) and estimate where the dependent variable ends up after we make the step:</p>
-<div class="math notranslate nohighlight">
-\[x_{i+1} = x_i + m_i\Delta t\]</div>
-<p>In this specific example, we know that <span class="math notranslate nohighlight">\(m = -x\)</span>, so:</p>
-<div class="math notranslate nohighlight">
-\[x_{i+1} = x_i - x_i\Delta t\]</div>
+<p>$$m \approx \frac{\Delta x}{\Delta t}$$</p>
+<p>We can discretize that to describe the change in x and t in terms of their current state (position $i$) and their state at one step in the future (position $i+1$):</p>
+<p>$$m_i = \frac{(x_{i+1} - x_i)}{(t_{i+1} - t_i)}$$</p>
+<p>In other words, if we know the slope, we can make a small step in the independent variable ($\Delta t = t_{i+1} - t_i$) and estimate where the dependent variable ends up after we make the step:</p>
+<p>$$x_{i+1} = x_i + m_i\Delta t$$</p>
+<p>In this specific example, we know that $m = -x$, so:</p>
+<p>$$x_{i+1} = x_i - x_i\Delta t$$</p>
 <p>For consistency with the Runge-Kutta notation I use below, I’m going to call that time step “h”, giving:</p>
-<div class="math notranslate nohighlight">
-\[x_{i+1} = x_i - hx_i\]</div>
+<p>$$x_{i+1} = x_i - hx_i$$</p>
 <p>For the Euler method.</p>
 <p>That is all we need to write an iterative loop to solve this using a numerical method to approximate x(t).  This is implemented with for loop below, which I do by specifying the number of steps the solver will take and integrating to a time of 4 units, no matter how many steps I’ve made.  That is, I adjust the step size in response to the number of steps I want to take.  As I take more steps, the step size gets smaller. We’ll start with 5 steps for illustration purposes and go from there. We start the iteration at the start of our initial value problem, i.e., at t = 0, x = 10…and we’ll step forward in time until we reach t = 4.  We’ll plot the result to see how well it compares with the true solution.</p>
 <div class="cell docutils container">
@@ -665,7 +652,7 @@ x &amp;= -2.07107
  the Euler method predits that x = 0.0032, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23e73ed1b80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f86e162df0&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_23_2.png" src="_images/F21-587-L03_23_2.png" />
@@ -700,7 +687,7 @@ x &amp;= -2.07107
  the Euler method predits that x = 0.18107, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23e73f6a1f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f86f1c9310&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_25_2.png" src="_images/F21-587-L03_25_2.png" />
@@ -710,7 +697,7 @@ x &amp;= -2.07107
 <p>There are far more accurate methods for numerical integration.  Many, many methods, actually.  We’ll usually be able to use the classic 4th order Runge Kutta method in this class.  Occasionally, we may run into a stiff ODE system that will require us to use a stiff solver, but we’ll cross that bridge when we come to it.</p>
 <p>An explict 4th order Runge Kutta method is a fancy adaptation of the Euler method that is able to better anticipate how the derivative of the function will change across the span of the step.  This makes it much, much more accurate, and we’ll find that we can get almost analytical precision with only a few steps.  It looks much more complicated, but the principle is the same.  We are using the current value of the function and the derivative function to estimate where the function will be at some point in the future.</p>
 <p>If you want to read a little more about the 4th order Runge-Kutta method, it’s worth a quick look at least at Wikipedia, though you can get a more thorough treatment in a numerical methods book.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Runge-Kutta_methods">https://en.wikipedia.org/wiki/Runge-Kutta_methods</a></p>
+<p>https://en.wikipedia.org/wiki/Runge-Kutta_methods</p>
 <p>If you skim that page, you’ll see the equations I used to develop the iteration scheme in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,7 +737,7 @@ x &amp;= -2.07107
  the RK method predits that x = 0.18811, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23e73f023a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f86f2107f0&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_27_2.png" src="_images/F21-587-L03_27_2.png" />
@@ -779,7 +766,7 @@ x &amp;= -2.07107
  default scipy.integrate.solve_ivp predits that x = 0.18355, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x23e750c8a60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f86f358b80&gt;
 </pre></div>
 </div>
 <img alt="_images/F21-587-L03_29_2.png" src="_images/F21-587-L03_29_2.png" />

@@ -5,3 +5,6 @@ format: jb-book
 root: intro
 chapters:
 - file: F21-587-L01
+- file: F21-587-L02
+- file: F21-587-L03
+- file: F21-587-R01-Solution

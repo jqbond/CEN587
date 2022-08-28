@@ -3,12 +3,6 @@
 
 # # Lecture 01
 # 
-# <span style="font-family:Times New Roman; font-size:2.0em;">**CEN 587: Lecture 01**</span>
-# 
-# <span style="font-family:Times New Roman; font-size:1.5em;">**Roll Call**</span>
-# 
-# 1. Call the roll
-# 
 # <span style="font-family:Times New Roman; font-size:1.5em;">**Syllabus**</span>
 # 
 # 1. Contact Information
@@ -65,12 +59,6 @@
 # 
 # * We will get to properties of reactors eventually; for now, we want to talk about reactions.
 
-# In[ ]:
-
-
-
-
-
 # <span style="font-family:Times New Roman; font-size:1.5em;">**Chemical Reactions**</span>
 # 
 # A chemical reaction is a transformation of one or more atoms and/or molecules that involves breaking existing chemical bonds between atoms and/or forming new chemical bonds between atoms.
@@ -117,12 +105,6 @@
 # If the reaction occurs without external heat input, temperature must decrease.  If one wants to maintain isothermal conditions, heat must be added.
 # 
 # Temperature critically affects chemical reactions.  For reversible reactions (i.e., those that are somehow equilibrium limited), changing the temperature will usually affect the extent of reaction one can achieve.  Alternatively, reaction rates have a very strong dependence on reaction temperature, so it is critically important that we understand how the temperature in our reactor changes as we perform a reaction.  This is done through **energy balances**.
-
-# In[ ]:
-
-
-
-
 
 # <span style="font-family:Times New Roman; font-size:1.5em;">**Stoichiometry: Formally**</span>
 # 
@@ -181,12 +163,6 @@
 # 
 # Where the bold zero is a vector of zeros that is equal in length to the number of reactions that we have.
 # 
-
-# In[ ]:
-
-
-
-
 
 # <span style="font-family:Times New Roman; font-size:1.5em;">**Stoichiometry: Multiple Reactions**</span>
 # 

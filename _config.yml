@@ -30,3 +30,16 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+#Add support for LaTeX math
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
+    - dollarmath
+
+#MathJax v3
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

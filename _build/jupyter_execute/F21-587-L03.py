@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # CEN 587: Lecture 03 
+# # Lecture 03 
 # 
 # This lecture covers the basic ideas behind numerical methods for solving algebraic equations and ordinary differential equations.  
 # 

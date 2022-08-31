@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 03" href="F22-587-L03.html" />
+    <link rel="prev" title="Lecture 01" href="F22-587-L01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,24 +115,24 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="F21-587-L01.html">
+  <a class="reference internal" href="F22-587-L01.html">
    Lecture 01
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="F21-587-L02.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Lecture 02
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="F21-587-L03.html">
+  <a class="reference internal" href="F22-587-L03.html">
    Lecture 03
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="F21-587-R01-Solution.html">
+  <a class="reference internal" href="F22-587-R01.html">
    Recitation 01
   </a>
  </li>
@@ -500,8 +502,8 @@ title="Print to PDF"
 <li><p>Produce <span class="math notranslate nohighlight">\(\nu_C\)</span> moles of species C</p></li>
 </ol>
 <p>With that in mind, we can express the molar quantities of A, B, and C as functions of their intial values and the extent of reaction:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6af5e4a9-b6c4-41e6-ba09-86f97779173b">
-<span class="eqno">()<a class="headerlink" href="#equation-6af5e4a9-b6c4-41e6-ba09-86f97779173b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0454a062-bdf5-48b7-a092-25c9f653b400">
+<span class="eqno">(3)<a class="headerlink" href="#equation-0454a062-bdf5-48b7-a092-25c9f653b400" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A_0} + \nu_A \, \xi_1 \\
     N_B &amp;= N_{B_0} + \nu_B \, \xi_1 \\
     N_C &amp;= N_{C_0} + \nu_C \, \xi_1 \\
@@ -513,8 +515,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[N_2 (g) + 3H_2 (g) \leftrightharpoons 2N \! H_3 (g)\]</div>
 <p>It occurs in the gas phase, and it is typically carried out over iron-based catalysts, moderate temperatures (<span class="math notranslate nohighlight">\(300^\circ C - 400^\circ C\)</span>), and high pressures (<span class="math notranslate nohighlight">\(100 - 200\)</span> atm).  For this example, let’s consider that we initially charge a batch reactor with 1 mole of nitrogen, 3 moles of hydrogen, and 0 moles of ammonia.  Therefore:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f5be7af1-fc21-4717-a0d7-3f3077c04d75">
-<span class="eqno">()<a class="headerlink" href="#equation-f5be7af1-fc21-4717-a0d7-3f3077c04d75" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9bd5f411-2c64-4f74-9d84-fe4a499ea379">
+<span class="eqno">(4)<a class="headerlink" href="#equation-9bd5f411-2c64-4f74-9d84-fe4a499ea379" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_{2,0}} &amp;= 1 \ \textrm{mole} \\
     N_{H_{2,0}} &amp;= 3 \ \textrm{moles} \\
     N_{N\!H_{3,0}} &amp;= 0 \ \textrm{moles} \\
@@ -523,8 +525,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\xi_1 = \textrm{moles of ammonia synthesis that have occured}\]</div>
 <p>Once we conceptually define this extent of reaction, it is straightforward to define the number of moles of each species as a function of extent of reaction using stoichiometric coefficients. Specifically, we know that for each mole of “reaction” that occurs, it consumes 1 mole of nitrogen, it consumes 3 moles of hydrogen, and it produces 2 moles of ammonia:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e1ee866-5e8e-4556-bbb7-60a30af9f663">
-<span class="eqno">()<a class="headerlink" href="#equation-5e1ee866-5e8e-4556-bbb7-60a30af9f663" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5faa31da-1931-4489-93e2-e18f1e51c008">
+<span class="eqno">(5)<a class="headerlink" href="#equation-5faa31da-1931-4489-93e2-e18f1e51c008" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 \\
     N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 \\
     N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 \, \xi_1 \\
@@ -533,8 +535,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\xi_1 = 0.75 \, \textrm{moles}\]</div>
 <p>Once we know this, we can plug in values to the above equations and calculate that the following moles of each species are present in the reactor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-38bc525e-1127-4dd5-8d91-83e3af31ff67">
-<span class="eqno">()<a class="headerlink" href="#equation-38bc525e-1127-4dd5-8d91-83e3af31ff67" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d20acbe6-3897-4219-ad77-a884ee3bdbcd">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d20acbe6-3897-4219-ad77-a884ee3bdbcd" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= 0.25 \, \textrm{moles} \\
     N_{H_2}    &amp;= 0.75 \, \textrm{moles} \\
     N_{N\!H_3} &amp;= 1.50 \, \textrm{moles} \\
@@ -544,8 +546,8 @@ title="Print to PDF"
 <section id="extents-can-be-negative">
 <h3>Extents can be negative<a class="headerlink" href="#extents-can-be-negative" title="Permalink to this headline">#</a></h3>
 <p>Generally, reactions can occur in either direction.  An extent is a description of reaction progress or the change in moles of “reaction” that have occured. For this reason, it can have either a positive or a negative value.  A positive value means that the reaction has occured in the “forward” direction as we’ve written it (to the right), and a negative value means that the reaction has occured in the “reverse” direction as we’ve written it (to the left).  In our ammonia synthesis example, let’s say we initially fill the reactor with ammonia instead of <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-055dc61e-0884-437e-bef0-bef07e4b8601">
-<span class="eqno">()<a class="headerlink" href="#equation-055dc61e-0884-437e-bef0-bef07e4b8601" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3a6d9b3-5bd9-4fd7-a4cf-81af2573de82">
+<span class="eqno">(7)<a class="headerlink" href="#equation-c3a6d9b3-5bd9-4fd7-a4cf-81af2573de82" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_{2,0}} &amp;= 0 \ \textrm{mole} \\
     N_{H_{2,0}} &amp;= 0 \ \textrm{moles} \\
     N_{N\!H_{3,0}} &amp;= 10 \ \textrm{moles} \\
@@ -554,15 +556,15 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\xi_1 = -3\]</div>
 <p>We would plug these values into the following expressions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d2fdad6-3e26-48a4-93d0-6af227621f0a">
-<span class="eqno">()<a class="headerlink" href="#equation-4d2fdad6-3e26-48a4-93d0-6af227621f0a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f4d8be6-c9d7-4d21-8b20-ad4e9291c8fd">
+<span class="eqno">(8)<a class="headerlink" href="#equation-9f4d8be6-c9d7-4d21-8b20-ad4e9291c8fd" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 \\
     N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 \\
     N_{N\!H_3} &amp;= N_{N\!H_{3,0}} + 2 \, \xi_1 \\
 \end{align}\]</div>
 <p>To find that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cd0b7e2-2685-42aa-b935-8ed2f68294ce">
-<span class="eqno">()<a class="headerlink" href="#equation-0cd0b7e2-2685-42aa-b935-8ed2f68294ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b2db39f6-164b-4b68-af25-610d4e2b93d9">
+<span class="eqno">(9)<a class="headerlink" href="#equation-b2db39f6-164b-4b68-af25-610d4e2b93d9" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= 3 \, \textrm{moles} \\
     N_{H_2}    &amp;= 9 \, \textrm{moles} \\
     N_{N\!H_3} &amp;= 4 \, \textrm{moles} \\
@@ -571,15 +573,15 @@ title="Print to PDF"
 <section id="dealing-with-multiple-reactions">
 <h3>Dealing with multiple reactions<a class="headerlink" href="#dealing-with-multiple-reactions" title="Permalink to this headline">#</a></h3>
 <p>Now that we have a general understanding of how to use an extent of reaction, it is very easy to extend the concept to 2, 3, 5, 10, or 1000 reactions.  We simply define a single extent of reaction for each reaction in our network, and then we consider how that reaction impacts the number of moles of each species using stoichiometric coefficients, just as we did above. As an example, let’s consider adding a couple of completely arbitrary reaction that occurs in parallel to ammonia synthesis.  Now, we have three reactions involving six different species:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57c1ae29-9e5f-46e2-aaf2-5fd0a3f56ce1">
-<span class="eqno">()<a class="headerlink" href="#equation-57c1ae29-9e5f-46e2-aaf2-5fd0a3f56ce1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a68dc14a-bbaa-4fb2-8d65-7394ab7af26a">
+<span class="eqno">(10)<a class="headerlink" href="#equation-a68dc14a-bbaa-4fb2-8d65-7394ab7af26a" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_2 (g) + 3H_2 (g) &amp;\leftrightharpoons 2N\!H_3 (g) \ \ \ \ \ \ \ \ \ \ (i = 1) \\
     N_2 (g) + 2O_2 (g) &amp;\leftrightharpoons 2N\!O_2 (g) \ \ \ \ \ \ \ \ \ \ (i = 2) \\
     2H_2 (g) + O_2 (g) &amp;\leftrightharpoons 2H_2O   (g) \ \ \ \ \ \ \ \ \ \ (i = 3) \\
 \end{align}\]</div>
 <p>We initially charge the reactor with:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f104e1ac-7638-4e3a-a2bc-e199775eafbe">
-<span class="eqno">()<a class="headerlink" href="#equation-f104e1ac-7638-4e3a-a2bc-e199775eafbe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ecf9eca1-7cda-456f-af39-7d636a85ae2e">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ecf9eca1-7cda-456f-af39-7d636a85ae2e" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_{2,0}} &amp;= 1.0 \ \textrm{mole} \\
     N_{H_{2,0}} &amp;= 3.0 \ \textrm{moles} \\
     N_{O_{2,0}} &amp;= 0.5 \ \textrm{moles} \\
@@ -588,15 +590,15 @@ title="Print to PDF"
     N_{H_2O_{0}} &amp;= 0.0 \ \textrm{moles} \\
 \end{align}\]</div>
 <p>We can define one extent of reaction for each reaction in our network, so:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f0da7fa-d48b-4653-b51f-f6ff916446f3">
-<span class="eqno">()<a class="headerlink" href="#equation-1f0da7fa-d48b-4653-b51f-f6ff916446f3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4993e6ec-e4cf-4d6c-82c2-a118b6509013">
+<span class="eqno">(12)<a class="headerlink" href="#equation-4993e6ec-e4cf-4d6c-82c2-a118b6509013" title="Permalink to this equation">#</a></span>\[\begin{align}
     \xi_1 &amp;= \textrm{moles of ammonia synthesis that have occured} \\
     \xi_2 &amp;= \textrm{moles of nitrogen oxidation that have occured} \\
     \xi_3 &amp;= \textrm{moles of hydrogen oxidation that have occured} \\
 \end{align}\]</div>
 <p>With this information, we use the extent of each reaction and stoichiometric coefficients in each reaction to quantify the changes in moles of each species.  Specifically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-08011d66-14f4-4953-a5ae-fce6ea1328ef">
-<span class="eqno">()<a class="headerlink" href="#equation-08011d66-14f4-4953-a5ae-fce6ea1328ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aa347a99-dfcb-48eb-bfeb-fce63c814662">
+<span class="eqno">(13)<a class="headerlink" href="#equation-aa347a99-dfcb-48eb-bfeb-fce63c814662" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= N_{N_{2,0}}    - 1 \, \xi_1 - 1 \, \xi_2 + 0 \, \xi_3\\
     N_{H_2}    &amp;= N_{H_{2,0}}    - 3 \, \xi_1 + 0 \, \xi_2 - 2 \, \xi_3\\
     N_{O_2}    &amp;= N_{O_{2,0}}    - 0 \, \xi_1 - 2 \, \xi_2 - 1 \, \xi_3\\
@@ -605,15 +607,15 @@ title="Print to PDF"
     N_{H_2O}   &amp;= N_{H_2O_{0}}   + 0 \, \xi_1 + 0 \, \xi_2 + 2 \, \xi_3\\
 \end{align}\]</div>
 <p>If we know the values of extents, for example:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89f4bf90-e809-49de-a66f-b7ff8f4aeb85">
-<span class="eqno">()<a class="headerlink" href="#equation-89f4bf90-e809-49de-a66f-b7ff8f4aeb85" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-92ce001b-ac29-4a01-8775-e606682876fa">
+<span class="eqno">(14)<a class="headerlink" href="#equation-92ce001b-ac29-4a01-8775-e606682876fa" title="Permalink to this equation">#</a></span>\[\begin{align}
     \xi_1 = 0.25 \ \textrm{moles} \\
     \xi_2 = 0.05 \ \textrm{moles} \\
     \xi_3 = 0.15 \ \textrm{moles} \\
 \end{align}\]</div>
 <p>we can plug in numbers as before to find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de7ece72-0ed1-4f5d-94f4-3f8dbafd0013">
-<span class="eqno">()<a class="headerlink" href="#equation-de7ece72-0ed1-4f5d-94f4-3f8dbafd0013" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c78ba841-5836-4674-9704-fe4ed06faa20">
+<span class="eqno">(15)<a class="headerlink" href="#equation-c78ba841-5836-4674-9704-fe4ed06faa20" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2}    &amp;= 0.70 \ \textrm{moles} \\
     N_{H_2}    &amp;= 1.95 \ \textrm{moles} \\
     N_{O_2}    &amp;= 0.25 \ \textrm{moles} \\
@@ -625,8 +627,8 @@ title="Print to PDF"
 <section id="for-those-who-love-linear-algebra">
 <h3>For those who love linear algebra…<a class="headerlink" href="#for-those-who-love-linear-algebra" title="Permalink to this headline">#</a></h3>
 <p>If you are really into the matrix idea, you’ll notice that we are just using linear combinations of stoichiometric coefficients and reaction extents.  We can define a species vector, <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>, a stoichiometric matrix <span class="math notranslate nohighlight">\(\boldsymbol{\nu}\)</span>, and an extent vector <span class="math notranslate nohighlight">\(\boldsymbol{\xi}\)</span> for this three reaction system. The species vector will have 6 elements (because there are 6 species); the extent vector will have 3 elements (because there are 3 reactions); and the stoichiometric matrix will have have 3 rows (because there are 3 reactions) and 6 columns (because there are 6 species):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be4ae099-d3ec-4391-8ebe-288eb2cb8fa9">
-<span class="eqno">()<a class="headerlink" href="#equation-be4ae099-d3ec-4391-8ebe-288eb2cb8fa9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-55415b41-900b-4fae-8d7e-94b65e653f5d">
+<span class="eqno">(16)<a class="headerlink" href="#equation-55415b41-900b-4fae-8d7e-94b65e653f5d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \boldsymbol{\xi} &amp;=
         \begin{bmatrix}
             \xi_1 \\ \xi_2 \\ \xi_3 \\
@@ -705,8 +707,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\nu_A A + \nu_B B \leftrightharpoons \nu_C C\]</div>
 <p>We know that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6dd7d97-3b71-4c4d-96dc-63d9aca6facc">
-<span class="eqno">()<a class="headerlink" href="#equation-e6dd7d97-3b71-4c4d-96dc-63d9aca6facc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ab96bb8c-4d2c-44c1-addd-e42ff132125f">
+<span class="eqno">(17)<a class="headerlink" href="#equation-ab96bb8c-4d2c-44c1-addd-e42ff132125f" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A_0} + \nu_A \, \xi_1 \\
     N_B &amp;= N_{B_0} + \nu_B \, \xi_1 \\
     N_C &amp;= N_{C_0} + \nu_C \, \xi_1 \\
@@ -715,8 +717,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\xi_1 = -\frac{N_{A,0}X_A }{\nu_A}\]</div>
 <p>We can substitute that quantity into each of the above extents to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f173a0e-32c0-4566-af22-311c53237708">
-<span class="eqno">()<a class="headerlink" href="#equation-1f173a0e-32c0-4566-af22-311c53237708" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7e9f608d-9a00-4b03-848b-40df16ec520a">
+<span class="eqno">(18)<a class="headerlink" href="#equation-7e9f608d-9a00-4b03-848b-40df16ec520a" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \\
     \\
     N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \\
@@ -737,8 +739,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\xi_1 = -\frac{N_{N_{2,0}}X_{N_2}}{\nu_{N_2}} = N_{N_{2,0}}X_{N_2} \]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(N_{N_{2,0}}X_A\)</span> represents the moles of reaction that have occured.  We know that for every reaction that occurs, it consumes 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span>, it consumes 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>, and it produces 2 moles of <span class="math notranslate nohighlight">\(N\!H_3\)</span>.  So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6ab7c7b-1f15-410f-bc29-b96f3e80d3ad">
-<span class="eqno">()<a class="headerlink" href="#equation-d6ab7c7b-1f15-410f-bc29-b96f3e80d3ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c2831456-3af2-4a88-b788-42f8cd2f32d3">
+<span class="eqno">(19)<a class="headerlink" href="#equation-c2831456-3af2-4a88-b788-42f8cd2f32d3" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{N_2} &amp;= N_{N_{2,0}} - N_{N_{2,0}}X_{N_2} \\
     \\
     N_{H_2} &amp;= N_{H_{2,0}} - 3 N_{N_{2,0}}X_{N_2} \\
@@ -758,8 +760,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[X_A = \frac{N_{A_0} - N_A}{N_{A_0}}\]</div>
 <p>Formally expressing the moles of each species as a function of conversion of A:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-178dc1c5-8fbf-4e84-9a5b-8d4052f197ba">
-<span class="eqno">()<a class="headerlink" href="#equation-178dc1c5-8fbf-4e84-9a5b-8d4052f197ba" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e882200b-7212-4d0d-bfb6-b0e71251b508">
+<span class="eqno">(20)<a class="headerlink" href="#equation-e882200b-7212-4d0d-bfb6-b0e71251b508" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A_0} - \frac{\nu_A}{\nu_A} N_{A,0}X_A \\
     \\
     N_B &amp;= N_{B_0} - \frac{\nu_B}{\nu_A} N_{A,0}X_A \\
@@ -767,8 +769,8 @@ title="Print to PDF"
     N_C &amp;= N_{C_0} - \frac{\nu_C}{\nu_A} N_{A,0}X_A \\
 \end{align}\]</div>
 <p>For this particular example, once we substitute stoichiometric coefficients, we find that the above is equivalent to::</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77c64ba9-7019-42ac-893c-e1938f63c44f">
-<span class="eqno">()<a class="headerlink" href="#equation-77c64ba9-7019-42ac-893c-e1938f63c44f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-465b9697-0171-4508-a28c-fcd696814c28">
+<span class="eqno">(21)<a class="headerlink" href="#equation-465b9697-0171-4508-a28c-fcd696814c28" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A_0} - N_{A,0}X_A \\
     \\
     N_B &amp;= N_{B_0} - \frac{2}{3} N_{A,0}X_A \\
@@ -823,6 +825,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 01</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L03.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 03</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

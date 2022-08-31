@@ -54,8 +54,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Recitation 01" href="F21-587-R01-Solution.html" />
-    <link rel="prev" title="Lecture 02" href="F21-587-L02.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="F21-587-L01.html">
    Lecture 01
@@ -126,8 +124,8 @@ const thebe_selector_output = ".output, .cell_output"
    Lecture 02
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="F21-587-L03.html">
    Lecture 03
   </a>
  </li>
@@ -195,7 +193,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/docs/F21-587-L03.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/docs/F22-587-L03.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -255,7 +253,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FF21-587-L03.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FF22-587-L03.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -283,7 +281,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/F21-587-L03.ipynb"
+        <a href="_sources/F22-587-L03.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -320,12 +318,112 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-methods">
+   Numerical Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algebraic-equations">
+     Algebraic Equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-graphical-analysis">
+       A graphical analysis
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#guess-and-check-a-brute-force-numerical-method">
+       Guess and Check: a brute force numerical method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#newton-raphson-method">
+       Newton-Raphson method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numerical-solution-of-algebraic-equations-can-be-difficult">
+       Numerical solution of algebraic equations can be difficult…
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#better-tools-are-available-in-python">
+       Better tools are available in Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numerical-methods-for-systems-of-equations">
+       Numerical Methods for Systems of Equations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ordinary-differential-equations-initial-value-problems">
+     Ordinary Differential Equations (initial value problems):
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-first-order-problem">
+       A first order problem
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-analytical-solution">
+       The analytical solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-euler-method">
+       The Euler Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problems-with-the-euler-method">
+       Problems with the Euler Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#higher-order-methods-runge-kutta">
+       Higher Order Methods (Runge-Kutta)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ode-solvers-in-python">
+       ODE Solvers in Python
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -337,6 +435,95 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-methods">
+   Numerical Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algebraic-equations">
+     Algebraic Equations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-graphical-analysis">
+       A graphical analysis
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#guess-and-check-a-brute-force-numerical-method">
+       Guess and Check: a brute force numerical method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#newton-raphson-method">
+       Newton-Raphson method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numerical-solution-of-algebraic-equations-can-be-difficult">
+       Numerical solution of algebraic equations can be difficult…
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#better-tools-are-available-in-python">
+       Better tools are available in Python
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numerical-methods-for-systems-of-equations">
+       Numerical Methods for Systems of Equations
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ordinary-differential-equations-initial-value-problems">
+     Ordinary Differential Equations (initial value problems):
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-first-order-problem">
+       A first order problem
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-analytical-solution">
+       The analytical solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-euler-method">
+       The Euler Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#problems-with-the-euler-method">
+       Problems with the Euler Method
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#higher-order-methods-runge-kutta">
+       Higher Order Methods (Runge-Kutta)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ode-solvers-in-python">
+       ODE Solvers in Python
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -348,12 +535,14 @@ title="Print to PDF"
 <h1>Lecture 03<a class="headerlink" href="#lecture-03" title="Permalink to this headline">#</a></h1>
 <p>This lecture covers the basic ideas behind numerical methods for solving algebraic equations and ordinary differential equations.</p>
 <p>For more detail on these concepts and how they are implemented in Python, please reference <strong>Supplements 08 - 12</strong>.</p>
-<p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Numerical Methods</strong></span></p>
+<section id="numerical-methods">
+<h2>Numerical Methods<a class="headerlink" href="#numerical-methods" title="Permalink to this headline">#</a></h2>
 <p>Although your math and introductory engineering courses generally present a lot of problems that you were able to solve by hand using pencil-and-paper and, at most, a calculator, this is not generally the case in engineering practice.</p>
 <p>We frequently have to solve equations or sets of equations that have no tractable, closed-form analytical solution (pencil-and-paper solution).  They are either impossible to solve by hand, or just very tedious.  In these cases, we have to rely on numerical methods, which provide an approximation of the true solution.</p>
-<p>We will cover the main ideas behind them here.  We will use numerical methods extensively this semester, so I’ll introduce a few of the key tools for solving various types of equations in this notebook, and then we’ll get a lot of practice with them for the rest of the semester.</p>
+<p>We will cover the main ideas behind them here.  We will use numerical methods extensively this semester, so we will introduce a few of the key tools for solving various types of equations in this notebook, and then we’ll get a lot of practice with them for the rest of the semester.</p>
 <p>We will start with <strong>algebraic equations</strong>, and then we will cover <strong>ordinary differential equations (ODEs)</strong>.  Any special cases outside of these, we’ll cover as the semester progresses.</p>
-<p><span style="font-family:Times New Roman; font-size:1.5em;"><strong>Solving Algebraic Equations</strong></span></p>
+<section id="algebraic-equations">
+<h3>Algebraic Equations<a class="headerlink" href="#algebraic-equations" title="Permalink to this headline">#</a></h3>
 <p>Let’s imagine we have an algebraic equation that we want to solve.  In this case, we’ll consider a simple function:</p>
 <div class="math notranslate nohighlight">
 \[f(x) = x^2 - 10x - 25\]</div>
@@ -364,12 +553,17 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ x = -b \pm \frac{\sqrt{\left(b^2 - 4ac\right)}}{2a}\]</div>
 <p>If we do that, we find that there are two solutions to this equation (two roots of the function):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f6447da-bf11-4f48-b206-844f62686fd7">
-<span class="eqno">(22)<a class="headerlink" href="#equation-9f6447da-bf11-4f48-b206-844f62686fd7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-86af69bc-335a-4f48-bdc5-6de97ee3209f">
+<span class="eqno">()<a class="headerlink" href="#equation-86af69bc-335a-4f48-bdc5-6de97ee3209f" title="Permalink to this equation">#</a></span>\[\begin{align}
     x &amp;= 12.07107 \\
     x &amp;= -2.07107
 \end{align}\]</div>
 <p>But what if we had no idea how to solve the problem?  There are a number of things we might try.  I always like graphing the function – for univariate problems, this is both easy and useful.</p>
+<section id="a-graphical-analysis">
+<h4>A graphical analysis<a class="headerlink" href="#a-graphical-analysis" title="Permalink to this headline">#</a></h4>
+<p>In the cell below, we plot the function of interest on a domain (set of x values) from -5 to 15. Roots are where the function crosses the x-axis (where y = 0), From this, we can plainly see there is one root near <span class="math notranslate nohighlight">\(x = -2\)</span>, and there is another root near <span class="math notranslate nohighlight">\(x = 12\)</span>. This is consistent with our quadratic formula solution.</p>
+<p>Graphing isn’t the most precise method, but it allows us to very quickly identify the rough location of roots and solutions to various functions, so it is extremely useful.</p>
+<p>Beyond this, we generally have to rely on iterative methods, where we guess a likely solution, check the answer to see how close we are to the desired value, and then change our guess, hopefully moving toward the solution as we change our guesses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -385,18 +579,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1f7a2e26580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1ef3cf26580&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_3_1.png" src="_images/F21-587-L03_3_1.png" />
+<img alt="_images/F22-587-L03_4_1.png" src="_images/F22-587-L03_4_1.png" />
 </div>
 </div>
-<p>From this, we can plainly see there is one root near -2, and there is another root near 12, which is consistent with our quadratic formula solution.</p>
-<p>Graphing isn’t the most precise method, but it allows us to very quickly identify the rough location of roots and solutions to various functions.</p>
-<p>Beyond this, we generally have to rely on iterative methods, where we guess a likely solution, check the answer to see how close we are to the desired value, and then change our guess, hopefully moving toward the solution as we change our guesses.</p>
+</section>
+<section id="guess-and-check-a-brute-force-numerical-method">
+<h4>Guess and Check: a brute force numerical method<a class="headerlink" href="#guess-and-check-a-brute-force-numerical-method" title="Permalink to this headline">#</a></h4>
 <p>The most basic example is an iterative guess-and-check strategy.  We literally make a guess and keep changing it until we get close enough to our solution.  “Close enough” is the tolerance on our problem solution, and it depends on the level of precision we need in a particular problem.</p>
-<p><strong>Brute Force: Guess and Check</strong></p>
-<p>In class, I demonstrated the basic, simple logic of a guess and check strategy.  That is implemented in the cell below, where I just repeatedly pass values of x to our function f(x) until it returns a value that is sufficiently close to zero for my satisfaction…</p>
+<p>This is implemented in the cell below, where we just repeatedly pass values of x to our function f(x) until it returns a value that is sufficiently close to zero for our satisfaction…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">))</span>  <span class="c1">#gives 175</span>
@@ -432,12 +625,14 @@ title="Print to PDF"
 </div>
 </div>
 <p>So, you can see that guess and check is a pretty inefficient way to do this.  It requires me to inspect each solution and make decisions about my next guess.  Although I can probably get this to work for a simple univarate funtion like f(x) above, it is almost impossible to use guess and check to solve a system of equations numerically.  In these cases, we’ll use formal numerical algorithms to solve algebraic equations.  There are numerous options, many of which are already built into Python, Matlab, Excel, etc.</p>
-<p><strong>Newton-Raphson method</strong></p>
-<p>As an example, we’ll implement a Newton-Raphson iteration to solve this problem.  The Newton-Raphson iteration is much better than what I did above because it uses information about both the function value and its derivative to update guesses automatically.  The formula for the Newton-Raphson iteration is this:</p>
+</section>
+<section id="newton-raphson-method">
+<h4>Newton-Raphson method<a class="headerlink" href="#newton-raphson-method" title="Permalink to this headline">#</a></h4>
+<p>As an example, we’ll implement a Newton-Raphson iteration to solve this problem.  The Newton-Raphson iteration is much better than what we did above because it uses information about both the function value and its derivative to update guesses automatically.  The formula for the Newton-Raphson iteration is this:</p>
 <div class="math notranslate nohighlight">
 \[x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)}\]</div>
 <p>We simply make an initial guess, <span class="math notranslate nohighlight">\(x_i\)</span>, then we update that guess by subtracting the ratio of the function value at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, to its derivative at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f^\prime(x_i)\)</span>.</p>
-<p>I run this iteratively in the cell below using a while loop; this is the same as clicking and dragging to autofill in Excel, which is what I did in class.  You can see how quickly it converges for this simple example.  This is much, much better than a simple guess and check strategy.</p>
+<p>we run this iteratively in the cell below using a while loop; this is the same as clicking and dragging to autofill in Excel.  You can see how quickly it converges for this simple example.  This is much, much better than a simple guess and check strategy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">25</span>
@@ -463,7 +658,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p><strong>Numerical Methods for Alebraic Equations can be difficult…</strong></p>
+</section>
+<section id="numerical-solution-of-algebraic-equations-can-be-difficult">
+<h4>Numerical solution of algebraic equations can be difficult…<a class="headerlink" href="#numerical-solution-of-algebraic-equations-can-be-difficult" title="Permalink to this headline">#</a></h4>
 <p>Although a Newton-Raphson iteration is very useful, it isn’t always guaranteed to converge.  In general, you’ll find this is true of algebraic solutions.  They can be flaky, and they are usually very sensitive to the initial guess that we make for the solution.  As the equations become increasingly nonlinear and difficult to solve, we will find we need very good initial guesses in order to get numerical methods to converge for algebraic equations.</p>
 <p>As an example, let’s consider the more difficult function:</p>
 <div class="math notranslate nohighlight">
@@ -482,10 +679,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1f7a2f25bb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1ef3d02e280&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_9_1.png" src="_images/F21-587-L03_9_1.png" />
+<img alt="_images/F22-587-L03_11_1.png" src="_images/F22-587-L03_11_1.png" />
 </div>
 </div>
 <p>From this, we can see one root at about -0.6. Let’s try to find it with a Newton-Raphson iteration. We’ll start with an initial guess of -0.5 and see what happens…</p>
@@ -511,6 +708,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>We see it converges to the root easily…now let’s try an initial guess of 5/9.</p>
+<div class="alert alert-block alert-warning">
+<b>&#9888 Warning:</b> The cell below will result in an infinite loop (see explanation below).  If this happens when running a notebook, you can either press the stop button above ($\blacksquare$), go to Kernel -> Interrupt in the menu, or press <code>I</code> <code>I</code> in the cell that is stuck in the loop.
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># x = 5/9</span>
@@ -525,7 +725,9 @@ title="Print to PDF"
 </div>
 </div>
 <p>There, we wind up in an infinite loop because the NR iteration hits an unstable cycle.  The point of this illustration is that when you’re solving algebraic equations with numerical methods, beware that they will generally be very sensitive to the initial guess that you make.</p>
-<p><strong>Better tools are available in Python, Excel, and Matlab</strong></p>
+</section>
+<section id="better-tools-are-available-in-python">
+<h4>Better tools are available in Python<a class="headerlink" href="#better-tools-are-available-in-python" title="Permalink to this headline">#</a></h4>
 <p>In general, we’ll just use default numerical methods packages in whatever software we’re using instead of writing iteration codes ourselvs.  Under the hood, it’s basically the same thing, although the built in tools are generally more robust against issues like we encounter above.  In class, I demonstrated using Solver in Excel.  If you’re in Python, the equivalent tools are found in the <em>optimize</em> module from the Scipy Package.  See Supplement 08 for details about how to use it, and we’ll also cover it in recitation during Week 02.  But here’s how it works in practice.  There are many solvers available in scipy.opimtize.  The example below using “newton”, which here, I think is using a secant method to find the root of the above function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,10 +745,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p><strong>Numerical Methods for Systems of Equation</strong></p>
-<p>In class, I showed how you can use solver with an objective function and constraints to solve a system of equations, e.g.:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ca1ef04-0303-4173-8f80-6afb61160a09">
-<span class="eqno">(23)<a class="headerlink" href="#equation-8ca1ef04-0303-4173-8f80-6afb61160a09" title="Permalink to this equation">#</a></span>\[\begin{align}
+</section>
+<section id="numerical-methods-for-systems-of-equations">
+<h4>Numerical Methods for Systems of Equations<a class="headerlink" href="#numerical-methods-for-systems-of-equations" title="Permalink to this headline">#</a></h4>
+<p>In class, we saw how you can use solver with an objective function and constraints to solve a system of equations, e.g.:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4b93dbfd-b64d-42ac-9961-4eba40bd791a">
+<span class="eqno">()<a class="headerlink" href="#equation-4b93dbfd-b64d-42ac-9961-4eba40bd791a" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= x^2 - 10x - 25y + 17 \\
     0 &amp;= y^2  - 36x
 \end{align}\]</div>
@@ -571,11 +775,19 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p><strong>Numerical Methods for Ordinary Differential Equations</strong></p>
-<p>In class, we considered how one might solve an initial value problem in cases where it isn’t clear how to integrate the differential equation by hand.  We demonstrated the methods by considering a simple initial value problem:</p>
+</section>
+</section>
+<section id="ordinary-differential-equations-initial-value-problems">
+<h3>Ordinary Differential Equations (initial value problems):<a class="headerlink" href="#ordinary-differential-equations-initial-value-problems" title="Permalink to this headline">#</a></h3>
+<section id="a-first-order-problem">
+<h4>A first order problem<a class="headerlink" href="#a-first-order-problem" title="Permalink to this headline">#</a></h4>
+<p>We next think about how one might solve an initial value problem in cases where it isn’t clear how to integrate the differential equation by hand.  We demonstrate the methods by considering a simple initial value problem:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dx}{dt} = -x\]</div>
 <p>Where <span class="math notranslate nohighlight">\(x = 10\)</span> at <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
+</section>
+<section id="the-analytical-solution">
+<h4>The analytical solution<a class="headerlink" href="#the-analytical-solution" title="Permalink to this headline">#</a></h4>
 <p>We would like to know the value of <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(t = 4\)</span>.  In this case, it is a first order ODE, and we can easily separate variables and integrate by hand:</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_0}^x\frac{1}{x^\prime} dx^\prime = - \int_0^t dt^\prime\]</div>
@@ -599,7 +811,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 4.0)
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_19_1.png" src="_images/F21-587-L03_19_1.png" />
+<img alt="_images/F22-587-L03_23_1.png" src="_images/F22-587-L03_23_1.png" />
 </div>
 </div>
 <p>Now that our function x(t) is defined, we can easily use it to evaluate x at t = 4; we find that it is equal to 0.183</p>
@@ -615,6 +827,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="the-euler-method">
+<h4>The Euler Method<a class="headerlink" href="#the-euler-method" title="Permalink to this headline">#</a></h4>
 <p>Now we’ll consider the case where we don’t actually know the analytical solution, and we need to approximate it using a numerical method.  In this case, we’ll use an Euler step, but the general concept here is the same as that used in more advanced methods:  we use information about the derivative of a function at the current value of that function to estimate where the function will be at some point in the future (a future time or a future position).</p>
 <p>This is based on the idea that the derivative of a function tells us the change in dependent variable that occurs when we change the dependent variable, i.e., for this function:</p>
 <div class="math notranslate nohighlight">
@@ -667,12 +882,15 @@ title="Print to PDF"
  the Euler method predits that x = 0.0032, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f7a3991b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1ef3da983a0&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_23_2.png" src="_images/F21-587-L03_23_2.png" />
+<img alt="_images/F22-587-L03_27_2.png" src="_images/F22-587-L03_27_2.png" />
 </div>
 </div>
+</section>
+<section id="problems-with-the-euler-method">
+<h4>Problems with the Euler Method<a class="headerlink" href="#problems-with-the-euler-method" title="Permalink to this headline">#</a></h4>
 <p>You can see that Euler does a pretty bad job here; that is because we are making large steps and assuming that the derivative value doesn’t change over the span of that step, which clearly isn’t true when you consider that m = -x:  as x changes, the slope has to change.  So this is a really rough approximation, and we wont’ see good agreement unless we take a lot of steps (see below).  Feel free to progressively adjust the step size to get a feel for how many steps (and how small each step needs to be) to get even reasonable accuracy with an Euler method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,13 +920,15 @@ title="Print to PDF"
  the Euler method predits that x = 0.18107, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f7a49fa1c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1ef3db20850&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_25_2.png" src="_images/F21-587-L03_25_2.png" />
+<img alt="_images/F22-587-L03_29_2.png" src="_images/F22-587-L03_29_2.png" />
 </div>
 </div>
-<p><strong>Higher Order Methods</strong></p>
+</section>
+<section id="higher-order-methods-runge-kutta">
+<h4>Higher Order Methods (Runge-Kutta)<a class="headerlink" href="#higher-order-methods-runge-kutta" title="Permalink to this headline">#</a></h4>
 <p>There are far more accurate methods for numerical integration.  Many, many methods, actually.  We’ll usually be able to use the classic 4th order Runge Kutta method in this class.  Occasionally, we may run into a stiff ODE system that will require us to use a stiff solver, but we’ll cross that bridge when we come to it.</p>
 <p>An explict 4th order Runge Kutta method is a fancy adaptation of the Euler method that is able to better anticipate how the derivative of the function will change across the span of the step.  This makes it much, much more accurate, and we’ll find that we can get almost analytical precision with only a few steps.  It looks much more complicated, but the principle is the same.  We are using the current value of the function and the derivative function to estimate where the function will be at some point in the future.</p>
 <p>If you want to read a little more about the 4th order Runge-Kutta method, it’s worth a quick look at least at Wikipedia, though you can get a more thorough treatment in a numerical methods book.</p>
@@ -752,12 +972,15 @@ title="Print to PDF"
  the RK method predits that x = 0.18811, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f7a4a3fb50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1ef3db44850&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_27_2.png" src="_images/F21-587-L03_27_2.png" />
+<img alt="_images/F22-587-L03_31_2.png" src="_images/F22-587-L03_31_2.png" />
 </div>
 </div>
+</section>
+<section id="ode-solvers-in-python">
+<h4>ODE Solvers in Python<a class="headerlink" href="#ode-solvers-in-python" title="Permalink to this headline">#</a></h4>
 <p>As with the Algebraic methods above, we really don’t want to write our own integration algorithms.  There is much better support already built into Python, Matlab, etc.  The numerical methods packages for ODE solutions are in the scipy package, specifically the solve_ivp module.  It is relatively easy to use, we just write a funciton that calculates our derivative, give it initial values and an integration span, and it does the rest for us.  We’ll cover it in detail in recitation, and I also have a lot of examples in Supplement 12, but the basic approach is given in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,12 +1004,15 @@ title="Print to PDF"
  default scipy.integrate.solve_ivp predits that x = 0.18355, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1f7a4b958b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1ef3ec91f40&gt;
 </pre></div>
 </div>
-<img alt="_images/F21-587-L03_29_2.png" src="_images/F21-587-L03_29_2.png" />
+<img alt="_images/F22-587-L03_33_2.png" src="_images/F22-587-L03_33_2.png" />
 </div>
 </div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -816,20 +1042,6 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="F21-587-L02.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 02</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="F21-587-R01-Solution.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Recitation 01</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

@@ -1,3 +1,3 @@
 # Lectures
 
-This is the first chapter
+These are the lectures

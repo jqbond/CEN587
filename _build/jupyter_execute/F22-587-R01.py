@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Recitation 01
+# # Recitation 01: Jupyter and Python Fundamentals
 # 
 # Everyone should have completed the review materials (Supplements 01 - 07) by this point. Today, we will be getting familiar with the Jupyter Environment and basic Python. Here is an overview of the topics:
 # 
@@ -16,9 +16,11 @@
 # 
 # We'll go through some some practice exercises in the cells below.
 
-# ## Lists vs. Numpy Arrays
+# ## Lists and Numpy Arrays
 # 
-# If we're going to work in Python, we need to discuss the differences between lists and numpy arrays.  It is easy to confuse these two types of data structures since they look so similar and we create them in similar ways.  But they have important differences.  We will usually want to work with numpy arrays in this course, but I want to communicate why they are a bit more convenient.  To do that, we need to discuss lists first.
+# If we're going to work in Python, we need to discuss the differences between ***lists*** and ***numpy arrays***.  It is easy to confuse these two types of data structures since they look similar, and we create them in similar ways.  But they have important differences.  We will usually want to work with numpy arrays in this course, but I want to communicate why they are a bit more convenient. To do that, we need to discuss lists first.
+# 
+# ### Lists
 # 
 # When working with data, functions, and various types of analysis, we generally need to be able to store sets or collections of values instead of just scalars. In the base Python environment, the default type of collection is a list. If you are familiar with Matlab's environment, creating a list is very similar to creating an array in Matlab.  For example, if we wanted to create a list containing the integers 1 to 5, we would do so as follows:
 # 

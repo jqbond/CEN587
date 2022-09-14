@@ -12,7 +12,11 @@ chapters:
   - file: F22-587-L04
   - file: F22-587-L05
   - file: F22-587-L06
+  - file: F22-587-L07
+  - file: F22-587-L08
+  - file: F22-587-L09
 - file: Recitations
   sections:
   - file: F22-587-R01-Solution
   - file: F22-587-R02-Solution
+  - file: F22-587-R03-Solution

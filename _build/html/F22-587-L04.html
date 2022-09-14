@@ -156,6 +156,21 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 06
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -170,12 +185,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01: Jupyter and Python Fundamentals
+     Recitation 01
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R02-Solution.html">
      Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -495,8 +515,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[K = \exp \left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
 <p>Let’s consider whether those two equilibrium constants are actually the same thing…which we seem to have naively concluded above. Note that concentration has units of quantity per volume; for example: moles per liter (Molarity). Because of this, we can see that our first definition of K has to have units of inverse concentration, for example (L mol<span class="math notranslate nohighlight">\(^{-1})\)</span>.  In contrast, if we inspect the second equation, we see that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bad25467-df7d-4553-844c-29f3a7e61754">
-<span class="eqno">(24)<a class="headerlink" href="#equation-bad25467-df7d-4553-844c-29f3a7e61754" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f2bd632a-5940-497c-8984-f9a6cbeab952">
+<span class="eqno">(24)<a class="headerlink" href="#equation-f2bd632a-5940-497c-8984-f9a6cbeab952" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Delta G^\circ \ &amp;[=] \ J \ \textrm{mol}^{-1} \\
     R              \ &amp;[=] \ J \ \textrm{mol}^{-1} \ K^{-1} \\
     T              \ &amp;[=] \ K \\
@@ -516,8 +536,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[dG = \frac{\partial G}{\partial T}dT + \frac{\partial G}{\partial P}dP + \sum_{j = 1}{N_S}\frac{\partial G}{\partial n_j}dn_j\]</div>
 <p>The three partial derivatives have specific Thermodynamic variables associated with them:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc713e9e-d6e4-41d8-ada4-7caaae89c814">
-<span class="eqno">(25)<a class="headerlink" href="#equation-fc713e9e-d6e4-41d8-ada4-7caaae89c814" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f30293f-ed5b-45b9-b100-d6939c44f7f8">
+<span class="eqno">(25)<a class="headerlink" href="#equation-8f30293f-ed5b-45b9-b100-d6939c44f7f8" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{\partial G}{\partial T}dT &amp;= -S \\
     \\
     \frac{\partial G}{\partial P}dT &amp;= V \\

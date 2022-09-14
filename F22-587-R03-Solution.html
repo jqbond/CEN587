@@ -1,0 +1,1160 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recitation 03 &#8212; CEN 587 Fall 2022</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Recitation 02" href="F22-587-R02-Solution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CEN 587 Fall 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Lectures.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Recitations.html">
+   Recitations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R01-Solution.html">
+     Recitation 01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R02-Solution.html">
+     Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Recitation 03
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/docs/F22-587-R03-Solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FF22-587-R03-Solution.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/F22-587-R03-Solution.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recitation 03</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recitation-03">
+<h1>Recitation 03<a class="headerlink" href="#recitation-03" title="Permalink to this headline">#</a></h1>
+<p>These exercises will reinforce solution of general problems in chemical equilibrium for gas phase reactions at any temperature and pressure.  We will also cover how to handle non-ideality at high pressure.  We also introduce gaussian quadrature as a tool for solving definite integrals numerically.</p>
+<p><strong>Topics Covered</strong></p>
+<ol class="simple">
+<li><p>Formulation of gas-phase equilibrium problems at generic T, P, basis conditions.</p></li>
+<li><p>Solution of algebraic equations using scipy.optimize</p></li>
+<li><p>Building more complex functions to allow more general problem solutions</p></li>
+<li><p>Gaussian quadrature in scipy.integrate</p></li>
+<li><p>Fugacity coefficients</p></li>
+<li><p>Using loops to solve equilibrium equations over a large (T,P) space.</p></li>
+<li><p>Passing extra parameters using lambda functions.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quadrature</span> <span class="k">as</span> <span class="n">quadgk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Problem 1</strong></p>
+<p>In class, we have been considering the gas-phase reaction of molecular nitrogen with molecular hydrogen to produce ammonia:</p>
+<div class="math notranslate nohighlight">
+\[N_2 (g) + 3H_2 (g) \leftrightarrow 2N\!H_3 (g)\]</div>
+<p>We have specifically been solving for the equilibrium conversion of nitrogen and the equilibrium mixture composition at various temperatures and pressures.  In all examples, we have a stoichiometric (1:3) feed of <span class="math notranslate nohighlight">\(N_2\)</span> to <span class="math notranslate nohighlight">\(H_2\)</span>, and we’ve assumed a basis of 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span>, which means we also feed 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span> into the process.</p>
+<p>Today, we’re going to look at this problem in a general way and hopefully see that we can set it up using general functions where (T,P) are just parameters that we change.  Once we change them, we can re-solve the problem easily without changing any of our code. Generalizing solutions so that they work in any situation is one of the great things about programming, and it will help you to strengthen your understanding of how functions, root finding algorithms, and loops work in Python.</p>
+<p>From class, recall that we have really no information about this reaction, and we want to figure out equilibrium compositions.  To do that, we need to learn more about the thermodynamics of the reaction, specifically the Gibbs free energy change of the reaction.  Once we have this, we can start to figure out composition.  As usual, we are basically considering the following equation, which relates the standard state Gibbs Free energy change to the composition at chemical equilibrum.</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p><strong>Reminder:</strong> Let’s specify standard states here.  We are going to be considering a generic reaction temperature, T, and a generic reaction pressure, P. For problems in chemical equilibrium, our standard state Gibbs free energy of reaction, <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span>, is always specified at the reaction temperature, T, a pressure of 1 bar, and for a phase of matter dictated by the reaction as written.  Here, we are looking at a gas phase reaction.  For gases, we always use pure gases at 1 bar as our reference state. So:</p>
+<p><strong>Reference State for ammonia synthesis reaction:</strong> Pure gases at <span class="math notranslate nohighlight">\(T^\circ\)</span> = Reaction Temperature, and <span class="math notranslate nohighlight">\(P^\circ\)</span> = 1 bar.</p>
+<p>Recall from class that we were able to look up the following data for <span class="math notranslate nohighlight">\(N_2\)</span>, <span class="math notranslate nohighlight">\(H_2\)</span>, and <span class="math notranslate nohighlight">\(N\!H_3\)</span> as pure gases at 298K and 1 bar.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\({H_j}^\circ\)</span> (kJ mol<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\({S_j}^\circ\)</span> (J mol<span class="math notranslate nohighlight">\(^{-1}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+<th class="text-align:left head"><p><span class="math notranslate nohighlight">\({C_{p_j}}^\circ\)</span> (J mol<span class="math notranslate nohighlight">\(^{-1} \)</span>K<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N_2\)</span> (g)</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>191.60</p></td>
+<td class="text-align:left"><p>29.12</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_2\)</span> (g)</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>130.68</p></td>
+<td class="text-align:left"><p>28.84</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\!H_3\)</span> (g)</p></td>
+<td class="text-align:center"><p>-45.9</p></td>
+<td class="text-align:center"><p>192.77</p></td>
+<td class="text-align:left"><p>35.64</p></td>
+</tr>
+</tbody>
+</table>
+<p>This information is all we need to calculate the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta H\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta H(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta S\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta S(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta G(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(K(T)\)</span></p></li>
+</ul>
+<p>We already did this in class, so I’m just going to copy the code below for K(T).  We then plot to illustrate that this function basically gives us K at any T of interest.  This is important because it gives us the left hand side of that equilibrium equation at any temperature!!</p>
+<p><strong>Important:</strong> The equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>, is a function only of temperature for a given reaction. It does not depend on pressure or the starting composition of the mixture. We account for these in the definitions of thermodynamic activities. Ultimately, the effect of temperature on a chemical equilibrium problem is fully described by the value of <span class="math notranslate nohighlight">\(K\)</span>, whereas pressure and composition effects are described by the values of thermodynamic activities, <span class="math notranslate nohighlight">\(a_j\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">K</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="mi">298</span>   <span class="c1">#K</span>
+    <span class="n">R</span>  <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
+    
+    <span class="c1">#Enthalpies at 298K, 1 bar</span>
+    <span class="n">HN0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">HH0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">HA0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">45.9</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#J/mol</span>
+
+    <span class="c1">#Entropies at 298K, 1 bar</span>
+    <span class="n">SN0</span> <span class="o">=</span> <span class="mf">191.60</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SH0</span> <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SA0</span> <span class="o">=</span> <span class="mf">192.77</span> <span class="c1">#J/mol/K</span>
+
+    <span class="c1">#Heat capacities</span>
+    <span class="n">CPN</span> <span class="o">=</span> <span class="mf">29.12</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPH</span> <span class="o">=</span> <span class="mf">28.84</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPA</span> <span class="o">=</span> <span class="mf">35.64</span> <span class="c1">#J/mol/K</span>
+
+    <span class="c1">#Calculate thermodynamic state functions at T not equal to T0 = 298</span>
+    <span class="n">HN</span> <span class="o">=</span> <span class="n">HN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+    <span class="n">HH</span> <span class="o">=</span> <span class="n">HH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+    <span class="n">HA</span> <span class="o">=</span> <span class="n">HA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+
+    <span class="n">SN</span> <span class="o">=</span> <span class="n">SN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SH</span> <span class="o">=</span> <span class="n">SH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SA</span> <span class="o">=</span> <span class="n">SA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+
+    <span class="n">DH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HA</span> <span class="o">-</span> <span class="n">HN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH</span> <span class="c1">#J/mol</span>
+    <span class="n">DS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SA</span> <span class="o">-</span> <span class="n">SN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH</span> <span class="c1">#J/mol/K</span>
+    <span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span>        <span class="c1">#J/mol</span>
+
+    <span class="n">K</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
+    <span class="k">return</span> <span class="n">K</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span> <span class="mi">873</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tvals</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">Tvals</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;K(T)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">298</span><span class="p">,</span> <span class="mi">873</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;K = 1&#39;</span><span class="p">)</span> <span class="c1">#This is a reference line of K = 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;T (K)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x28f2f10eb80&gt;
+</pre></div>
+</div>
+<img alt="_images/F22-587-R03-Solution_4_1.png" src="_images/F22-587-R03-Solution_4_1.png" />
+</div>
+</div>
+<p><strong>Thermodynamic activities are where we describe composition and pressure effects</strong></p>
+<p>Now that we have an equilibrum constant at any temperature done, we have to work on the right hand side of that equilbrium equation:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>The thermodynamic activities are where our system/reference pressures and compositions come into play, so we need to specify them somehow. For gas phase reactions, regardless of temperature or operating pressure, we always do this the same way…so let’s just imagine a general solution at <em>any</em> (T,P).</p>
+<p>As we illustrated in class, if we expand the product operator, <span class="math notranslate nohighlight">\(\prod\)</span>, for ammonia synthesis, we find:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{a_{N\!H_3}}^{2}}{{a_{N_2}}{a_{H_2}}^3}\]</div>
+<p>Regardless of the reaction temperature or pressure (or even phase of matter), we always define a thermodyanmic activity as:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>The numerator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span>.</p>
+<p>The denominator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state. Our reference state for gas-phase species is a pure species at 1 bar and the reaction temperature, T. Our convention for calculating fugacities of gases in a mixture uses the Lewis Randall rule.  As usual, this gives:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ}\]</div>
+<p>Looking at the numerator, we are operating this reactor at an unknown pressure, P, so we aren’t yet sure about the fugacity coefficient in the numerator, <span class="math notranslate nohighlight">\(\phi_j\)</span>. Looking at the denominator, the reference state is a pure species, so <span class="math notranslate nohighlight">\(y_j^\circ = 1\)</span>. Further, that pure species is at 1 bar, so <span class="math notranslate nohighlight">\(\phi_j^\circ = 1\)</span></p>
+<p>This gives a very general result for activities of gases in a mixture, where we retain the fugacity coefficient:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{P^\circ}\]</div>
+<p>Notice that I’m still retaining <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(P^\circ\)</span> in my solution.  This helps me to keep it general, and to make sure that I take care to be dimensionally consistent.</p>
+<p>You <em>can</em> make these substitutions.  There is noting wrong with developing the following equations, and they might help with illustrations…I just don’t do this when I solve the problem in Python because the equations are messy to write and increase the chances I make mistakes.</p>
+<p>But, for completeness sake, just to make clear what shows up in the one “equation” we are trying to solve, you would get:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(\frac{y_{N\!H_3} \phi_{N\!H_3} P}{P^\circ}\right)^2}{\left(\frac{y_{N_2}\phi_{N_2}P}{P^\circ}\right) \left(\frac{y_{H_2}\phi_{H_2}P}{P^\circ}\right)^3}\]</div>
+<p>We see multiple pressures and reference pressures that will cancel, giving:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \frac{{\phi_{N\!H_3}}^2}{\phi_{N_2}{\phi_{H_2}}^3}\left(\frac{P^\circ}{P}\right)^2\]</div>
+<p>This is a completely general equation that will apply at any Temperature or Pressure, so we can always use this result, regardless of the operating conditions.</p>
+<p>As we discussed in class, <span class="math notranslate nohighlight">\(K\)</span> is fully determined by the reaction temperature.  Once we set temperature, K is fixed no matter how much we change pressure or the starting composition.  Those things are important, but they all show up in the right hand side of the equation.  They do not impact the value of K.</p>
+<p>This equation fully captures pressure effects.  Once we set the pressure, we see it appears in this equation (P).  It also changes the fugacity coefficients of each species.  Pressure dependencies do not appear anywhere else in the problem, so correctly specifiying our thermodynamic activities is how we account for changes in operating pressure.</p>
+<p><strong>Using Stoichiometry to reduce unknowns</strong></p>
+<p>Even after T is set (which gives us K) and pressure is set (which gives us P and all <span class="math notranslate nohighlight">\(\phi_j\)</span> values), we still have 3 unknowns: the equilibrium mole fractions of all species (<span class="math notranslate nohighlight">\(y_{N_2}\)</span>, <span class="math notranslate nohighlight">\(y_{H_2}\)</span>, and <span class="math notranslate nohighlight">\(y_{N\!H_3}\)</span>). The final step before we can solve this equation is to define the mole fraction of each species as:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{tot}} = \frac{N_j}{\sum N_j}\]</div>
+<p>This allows us to define an extent of reaction, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, and then specifiy the moles of each species as a function of extent using a “mole table” type of approach:</p>
+<div class="math notranslate nohighlight">
+\[N_j = N_{j,0} + \nu_j \varepsilon\]</div>
+<p>For simplicity, I will relabel the compounds using N (N<span class="math notranslate nohighlight">\(_2\)</span>), H (H<span class="math notranslate nohighlight">\(_2\)</span>), and A (NH<span class="math notranslate nohighlight">\(_3\)</span>) just for cleaner notation in the table below.</p>
+<div class="math notranslate nohighlight">
+\[N (g) + 3H (g) \leftrightharpoons 2A (g)\]</div>
+<p>Applying this to each species, we find:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Species</p></th>
+<th class="text-align:center head"><p>In</p></th>
+<th class="text-align:center head"><p>Change</p></th>
+<th class="text-align:center head"><p>End</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>N<span class="math notranslate nohighlight">\(_2\)</span></p></td>
+<td class="text-align:center"><p>NN0</p></td>
+<td class="text-align:center"><p>-1<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NN0 - 1<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>H<span class="math notranslate nohighlight">\(_2\)</span></p></td>
+<td class="text-align:center"><p>NH0</p></td>
+<td class="text-align:center"><p>-3<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NH0 - 3<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>NH<span class="math notranslate nohighlight">\(_3\)</span></p></td>
+<td class="text-align:center"><p>NA0</p></td>
+<td class="text-align:center"><p>+2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NA0 + 2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Total</p></td>
+<td class="text-align:center"><p>NT0</p></td>
+<td class="text-align:center"><p>-2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NT0 - 2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Now that these are defined, we can substitute back into our mole fraction defintion:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{tot}} = \frac{N_j}{\sum N_j}\]</div>
+<p>So that everything back to thermodynamic activities is now defined as a function of only extent of reaction and pressure.  Once we specify pressure and temperature, we have only one unknown (the extent) and can solve the equilibrium problem.</p>
+<p>For now, we’ll make an incorrect assumption just to illustrate the basic problem before getting too fancy:  We will assume fugacity coefficients are always 1 no matter the operating pressure.</p>
+<p>Notice that solving the problem when we have it formulated this way is just a matter of changing Trxn, Prxn, and maybe our initial guess:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ4</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
+    
+    <span class="c1">#Specifications for this problem</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    
+    <span class="c1">#Mole Table, this captures extent of reaction</span>
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="c1">#Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="c1">#Fugacity coefficients -- generally species specific and a strong function of pressure</span>
+    <span class="n">phiN</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">phiH</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">phiA</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1">#Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">phiN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">phiH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">phiA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="c1">#This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+    
+    <span class="c1">#And finall, our Thermodynamic equilibrium constant</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+       
+    <span class="k">return</span> <span class="n">KACTIVITY</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">EQ4</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 10
+     iterations: 9
+           root: 0.9678585932069598 
+
+Conversion of N2 is 0.9679, yN is 0.0156, yH is 0.0467, and yA is 0.9377
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Equilibrium Problems 2, 3, or 4 can all be solved with the same function above….</strong></p>
+<p><span style="font-family:Times New Roman; font-size:2.0em;"><strong>Equilibrium Example 5</strong></span></p>
+<p><strong>But what about nonideal gas behavior?  This is 200 bar after all</strong></p>
+<p>True.  We really shouldn’t set fugacity coefficients equal to 1, the problem is that they can be difficult to calculate. In general, you can calculate a fugacity coefficient using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\ln(\phi_j) = \int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\]</div>
+<p>Or:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\right)\]</div>
+<p>In this case, we have the following empirical functions that describe the compressibility factors for all gases at 600K.  These can be used to calculate fugacity coefficients.  Here, Pressures are in units of bar.</p>
+<div class="math notranslate nohighlight">
+\[Z_{N_2} = 1 + 2.1735\times10^{-4}P + 6.2923\times10^{-7}P^2 - 2.3065\times10^{-10}P^3 - 3.0835\times10^{-14}P^4\]</div>
+<div class="math notranslate nohighlight">
+\[Z_{H_2} = 1 + 4.3484\times10^{-4}P + 9.5380\times10^{-8}P^2 - 5.4028\times10^{-11}P^3 + 1.5314\times10^{-14}P^4\]</div>
+<div class="math notranslate nohighlight">
+\[Z_{NH_3} = 0.99987 - 9.0961\times10^{-4}P - 1.0349\times10^{-6}P^2 + 2.6566\times10^{-9}P^3 + 4.6925\times10^{-12}P^4\]</div>
+<p>Now, we need to use those to calculate fugacity coefficients at 200bar.  This is actually pretty easy to do in a programming language. We have polynomial expressions that give us compressibility factors for N<span class="math notranslate nohighlight">\(_2\)</span>, H<span class="math notranslate nohighlight">\(_2\)</span>, and NH<span class="math notranslate nohighlight">\(_3\)</span> as a function of pressure, so all we need to do to calculate fugacity coefficients is integrate those gnarly looking polynomials…</p>
+<p>You <em>could</em> do this by hand – they are polynomials after all.  But I prefer to use gaussian quadrature (similar to what your calculator does to solve definite integrals).</p>
+<p><strong>Gaussian Quadrature</strong></p>
+<p>Before we deal with a complex looking function to handle fugacity coefficients, let’s get a simple introduction to gaussian quadrature.  This is in the Scipy package, specifically as scipy.integrate.quadrature.  I’ve imported this as quadgk (Gauss-Kronrod quadrature) for simplicity.</p>
+<p>This basically works very similar to your graphing calculator does for solving a definitite integral. We define an integrand (the function we’re integrating), and we specifiy the range of integration. For example, let’s use it to solve the following definite integral using GK quadrature:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{10} x^2 dx\]</div>
+<p>We know that the solution to that integral is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{x^3}{3}\bigg |_0^{10} = 333.33\]</div>
+<p>Now with quadgk (note we have to define the integrand as a function…):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quadgk</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>333.33333333333326
+</pre></div>
+</div>
+</div>
+</div>
+<p>With that in mind, we can use a similar approach to develop integrands as functions of pressure…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N2COEFFS</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">1.0000e+00</span><span class="p">,</span> <span class="mf">2.1735e-04</span><span class="p">,</span> <span class="mf">6.2923e-07</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.3065e-10</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0835e-14</span><span class="p">]</span>
+<span class="n">H2COEFFS</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">1.0000e+00</span><span class="p">,</span>  <span class="mf">4.3484e-04</span><span class="p">,</span>  <span class="mf">9.5380e-08</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.4028e-11</span><span class="p">,</span>  <span class="mf">1.5314e-14</span><span class="p">]</span>
+<span class="n">NH3COEFFS</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.9987e-01</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.0961e-04</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0349e-06</span><span class="p">,</span>  <span class="mf">2.6566e-09</span><span class="p">,</span>  <span class="mf">4.6925e-12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step 1</strong>: Write compressibility factors as functions of pressure.</p>
+<p>Let’s use lambda functions here. These are just univariate polynomias, so these can be easily written as a one linear.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ZN</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">2.1735e-4</span><span class="o">*</span><span class="n">P</span> <span class="o">+</span> <span class="mf">6.2923e-7</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.3065e-10</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">3.0835e-14</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ZH</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">4.3484e-4</span><span class="o">*</span><span class="n">P</span> <span class="o">+</span> <span class="mf">9.5380e-8</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">5.4028e-11</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">1.5314e-14</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ZA</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.99987</span> <span class="o">-</span> <span class="mf">9.0961e-4</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="mf">1.0349e-6</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">2.6566e-9</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">4.6925e-12</span><span class="o">*</span><span class="n">P</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">pplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="c1">#We&#39;ll plot from 0 bar to 400 bar...</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pplot</span><span class="p">,</span> <span class="n">ZN</span><span class="p">(</span><span class="n">pplot</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ZN2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pplot</span><span class="p">,</span> <span class="n">ZH</span><span class="p">(</span><span class="n">pplot</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ZH2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pplot</span><span class="p">,</span> <span class="n">ZA</span><span class="p">(</span><span class="n">pplot</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;ZNH3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x28f2f0a6e80&gt;
+</pre></div>
+</div>
+<img alt="_images/F22-587-R03-Solution_16_1.png" src="_images/F22-587-R03-Solution_16_1.png" />
+</div>
+</div>
+<p>Now that I have expressions for compressibility factors, I’ll use them to define integrands that I can use to solve for the fugacity coefficients.  Again, we are trying to solve:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\right)\]</div>
+<p>The integrand is the part I am integrating:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P \textrm{integrand} \ d\!P\right)\]</div>
+<p>So I’m now writing functions that define the integrands that I need to integrate to figure out the fugacity coefficients.</p>
+<p><strong>Notice:</strong> I am again using a lambda function since this is a nice, easy one liner.  I’m passing Pressure as a function argument, which then gets passed into Z(P).  Functions are neat this way—you can use a function inside of another function if it is useful to you!!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">INTN</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="n">ZN</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">P</span>
+<span class="n">INTH</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="n">ZH</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">P</span>
+<span class="n">INTA</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">P</span><span class="p">:</span> <span class="p">(</span><span class="n">ZA</span><span class="p">(</span><span class="n">P</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">P</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that I have the integrands defined, I can use Gaussian Quadrature to integrate them to any pressure I want. This is just integrating the integrand as a function of pressure from 0 to P.  Here, we’ll use an upper limit of 200 bar since that is what the problem specifies for industrial synthesis of ammonia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phiN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">phiH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">phiA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTA</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phiN</span><span class="p">,</span> <span class="n">phiH</span><span class="p">,</span> <span class="n">phiA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.056992064544399 1.0927939252498111 0.8226247909678744
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we’re in a position to adapt our ammonia objective function to include fugacity coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ5</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
+    <span class="c1">#Specifications for this problem</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">600</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mi">200</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+
+    <span class="c1">#Mole Table, this captures extent of reaction</span>
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="c1">#Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="c1">#Fugacity coefficients -- generally species specific and a strong function of pressure</span>
+    <span class="n">phiN</span> <span class="o">=</span> <span class="mf">1.057</span>
+    <span class="n">phiH</span> <span class="o">=</span> <span class="mf">1.093</span>
+    <span class="n">phiA</span> <span class="o">=</span> <span class="mf">0.823</span>
+    
+    <span class="c1">#Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">phiN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">phiH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">phiA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="c1">#This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+    
+    <span class="c1">#Our thermodynamic equilibrium constant</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+       
+    <span class="k">return</span> <span class="n">KACTIVITY</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">EQ5</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 24
+     iterations: 23
+           root: 0.7466142677957369 
+
+Conversion of N2 is 0.7466, yN is 0.1011, yH is 0.3032, and yA is 0.5957
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Now let’s flex a little bit and really see if we can make this problem general</strong></p>
+<p>There are a couple of things I don’t like about the above approach.  The one we’ll talk about now is that it requires me to basically re-write specifications and recalculate fugacity coefficients every time I change the temperature and the pressure.  What I would <em>like</em> to do is embed those calculations into my objective function so that I can just pass (T,P) as arguments and have the problem solve at any T,P that I like without me having to, e.g., hard-code values of the equilibrium constant or fugacity coefficients.  Let’s start by moving everything inside of the function…and I’m going to give that function 3 arguments:  reaction extent, temperature, and pressure</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tempfun</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+
+    <span class="c1">#Specifications for this problem</span>
+    <span class="c1">#Trxn = T -- we are passing this into the function as an argument.</span>
+    <span class="c1">#Prxn = P -- we are passing this into the function as an argument</span>
+
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    
+    <span class="c1">#Mole Table, this captures extent of reaction</span>
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="c1">#Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="c1">#Fugacity coefficients -- generally species specific and a strong function of pressure; reuse integrand functions</span>
+    <span class="n">phiN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">phiH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">phiA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTA</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    
+    <span class="c1">#Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">phiN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">phiH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">phiA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="c1">#This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+    
+    <span class="c1">#Calculate the equilibrium constant at T = Trxn</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T</span><span class="p">)</span> 
+       
+    <span class="k">return</span> <span class="n">KACTIVITY</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a small problem – we recall that for our equation solvers in scipy.optimize, they only really work on a function that takes one argument (our unknowns, ex in this case)…here, we need to give 3 arguments to our function (ex, T, P).  There are two ways to handle this in Python. I like the first one since it is the same as the way you’d do this in Matlab or in Julia, so it is general.  The second one is, as far as I know, Python-specific.</p>
+<p><strong>Use a lambda function to pass extra parameters</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Trxn</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1">#K</span>
+<span class="n">Prxn</span>  <span class="o">=</span> <span class="mi">200</span> <span class="c1">#bar</span>
+<span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">tempfun</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Trxn</span><span class="p">,</span> <span class="n">Prxn</span><span class="p">)</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 18
+     iterations: 17
+           root: 0.746634352937764 
+
+Conversion of N2 is 0.7466, yN is 0.1011, yH is 0.3032, and yA is 0.5957
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also pass them directly to opt.newton using the args keyword.  This is a pretty common option for both algebraic and ODE solvers in Python.  It is honestly pretty convenient, so it is worth knowing about.</p>
+<p><strong>Using the args keyword argument</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Trxn</span> <span class="o">=</span> <span class="mi">600</span> <span class="c1">#K</span>
+<span class="n">Prxn</span>  <span class="o">=</span> <span class="mi">200</span> <span class="c1">#bar</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">tempfun</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">Trxn</span><span class="p">,</span> <span class="n">Prxn</span><span class="p">),</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: &#39;converged&#39;
+ function_calls: 24
+     iterations: 23
+           root: 0.746634352937764 
+
+Conversion of N2 is 0.7466, yN is 0.1011, yH is 0.3032, and yA is 0.5957
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>How about making this really crazy and solving for a lot of temperatures and pressures with a loop?</strong></p>
+<p>Perhaps it would be useful to map the equilibrium conversion in 3D space as a function of reaction temperature and reaction pressure.  We can easily do this!  One option is a for loop that will solve the objective function for a lot of temperatures and pressures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+
+<span class="n">Tset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">298</span><span class="p">,</span> <span class="mi">873</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">Pset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">Xout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Pset</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Pset</span><span class="p">)):</span>
+        <span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">tempfun</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Pset</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.99999</span><span class="p">,</span> <span class="n">xtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">Xout</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
+        <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_6864\2097038709.py</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Pset</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">tempfun</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Pset</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>         <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.99999</span><span class="p">,</span> <span class="n">xtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>             <span class="n">Xout</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\optimize\_zeros_py.py</span> in <span class="ni">brentq</span><span class="nt">(f, a, b, args, xtol, rtol, maxiter, full_output, disp)</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>     <span class="k">if</span> <span class="n">rtol</span> <span class="o">&lt;</span> <span class="n">_rtol</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;rtol too small (</span><span class="si">%g</span><span class="s2"> &lt; </span><span class="si">%g</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rtol</span><span class="p">,</span> <span class="n">_rtol</span><span class="p">))</span>
+<span class="ne">--&gt; </span><span class="mi">783</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">_zeros</span><span class="o">.</span><span class="n">_brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xtol</span><span class="p">,</span> <span class="n">rtol</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="p">,</span> <span class="n">disp</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span>     <span class="k">return</span> <span class="n">results_c</span><span class="p">(</span><span class="n">full_output</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span> 
+
+<span class="nn">~\AppData\Local\Temp\ipykernel_6864\2097038709.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(ex)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Pset</span><span class="p">)):</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>         <span class="n">objective</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">tempfun</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Pset</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">objective</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.99999</span><span class="p">,</span> <span class="n">xtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+
+<span class="nn">~\AppData\Local\Temp\ipykernel_6864\1295829847.py</span> in <span class="ni">tempfun</span><span class="nt">(ex, T, P)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="n">phiN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTN</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">phiH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTH</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="ne">---&gt; </span><span class="mi">26</span>     <span class="n">phiA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">quadgk</span><span class="p">(</span><span class="n">INTA</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">500</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> 
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="c1">#Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\integrate\_quadrature.py</span> in <span class="ni">quadrature</span><span class="nt">(func, a, b, args, tol, rtol, maxiter, vec_func, miniter)</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>     <span class="n">maxiter</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">miniter</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxiter</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">miniter</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">269</span>         <span class="n">newval</span> <span class="o">=</span> <span class="n">fixed_quad</span><span class="p">(</span><span class="n">vfunc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="p">(),</span> <span class="n">n</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span>         <span class="n">err</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">newval</span><span class="o">-</span><span class="n">val</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>         <span class="n">val</span> <span class="o">=</span> <span class="n">newval</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\integrate\_quadrature.py</span> in <span class="ni">fixed_quad</span><span class="nt">(func, a, b, args, n)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Gaussian quadrature is only available for &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span>                          <span class="s2">&quot;finite limits.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">149</span>     <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">+</span> <span class="n">a</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>     <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Pset</span><span class="p">,</span> <span class="n">Tset</span><span class="p">,</span> <span class="n">Xout</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">201</span><span class="p">),</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x27c47623dc0&gt;
+</pre></div>
+</div>
+<img alt="_images/F22-587-R03-Solution_33_1.png" src="_images/F22-587-R03-Solution_33_1.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-R02-Solution.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Recitation 02</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By JQB<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

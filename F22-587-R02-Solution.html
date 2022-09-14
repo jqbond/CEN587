@@ -54,7 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Recitation 01: Jupyter and Python Fundamentals" href="F22-587-R01-Solution.html" />
+    <link rel="next" title="Recitation 03" href="F22-587-R03-Solution.html" />
+    <link rel="prev" title="Recitation 01" href="F22-587-R01-Solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -155,6 +156,21 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 06
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -169,12 +185,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01: Jupyter and Python Fundamentals
+     Recitation 01
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -673,22 +694,22 @@ title="Print to PDF"
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h2>
 <p>Find all roots for the following system of equations. Both x and y must be between -10 and 10:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8409e6ef-8849-4160-9a2d-c94b3a4665b5">
-<span class="eqno">(26)<a class="headerlink" href="#equation-8409e6ef-8849-4160-9a2d-c94b3a4665b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a5ca5070-e650-4efc-9f84-0eeb0f4ebd99">
+<span class="eqno">(51)<a class="headerlink" href="#equation-a5ca5070-e650-4efc-9f84-0eeb0f4ebd99" title="Permalink to this equation">#</a></span>\[\begin{align}
      10 &amp;= 5x^2y - y^3\\
     -(15y+x) &amp;= 2y^2 + \textrm{tanh}(0.075x)\\
 \end{align}\]</div>
 <section id="solution-to-problem-02">
 <h3>Solution to Problem 02<a class="headerlink" href="#solution-to-problem-02" title="Permalink to this headline">#</a></h3>
 <p>This is a system of nonlinear equations, and even adding a second equation, we see that things get more complicated.  We do not have a solution until we find the (x,y) pairs where both of the equations are solved.  We essentially looking for the roots of the following two functions with this problem:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4433ce55-63b2-41e7-b1b3-8d7a080c6047">
-<span class="eqno">(27)<a class="headerlink" href="#equation-4433ce55-63b2-41e7-b1b3-8d7a080c6047" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5eddce4c-add5-459b-ab68-1d113c7803fb">
+<span class="eqno">(52)<a class="headerlink" href="#equation-5eddce4c-add5-459b-ab68-1d113c7803fb" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(x, y) &amp;= 5x^2y - y^3 - 10 \\
     f_2(x, y) &amp;= 2y^2 + \tanh{(0.075x)} + 15y + x\\
 \end{align}\]</div>
 <p>We have solved our problem when we find the values <span class="math notranslate nohighlight">\(\hat{x}\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> that give the following result:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e99e67f9-87bc-4da3-b87a-1d3bb443be80">
-<span class="eqno">(28)<a class="headerlink" href="#equation-e99e67f9-87bc-4da3-b87a-1d3bb443be80" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bac43571-55f5-4fa1-8f9d-d89d4ed67707">
+<span class="eqno">(53)<a class="headerlink" href="#equation-bac43571-55f5-4fa1-8f9d-d89d4ed67707" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(\hat{x}, \hat{y}) &amp;= 0 \\
     f_2(\hat{x}, \hat{y}) &amp;= 0 \\
 \end{align}\]</div>
@@ -827,7 +848,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x16bdea3b220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1b0e60ca220&gt;
 </pre></div>
 </div>
 <img alt="_images/F22-587-R02-Solution_19_1.png" src="_images/F22-587-R02-Solution_19_1.png" />
@@ -891,8 +912,8 @@ title="Print to PDF"
 <section id="problem-3">
 <h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
 <p>Solve the following system of nonlinear equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea24292a-af9e-4d1b-8879-87d89b7c4173">
-<span class="eqno">(29)<a class="headerlink" href="#equation-ea24292a-af9e-4d1b-8879-87d89b7c4173" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d0acfd38-57f3-4b12-8a10-af7692f4e8d9">
+<span class="eqno">(54)<a class="headerlink" href="#equation-d0acfd38-57f3-4b12-8a10-af7692f4e8d9" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= x^2 - 10x - 25y + 17z^2\\
     18.3 &amp;= xz + \textrm{ln}(yz)\\
     145 - y^2 &amp;= x^2 + 5z\\
@@ -1005,7 +1026,7 @@ current values in iteration are x = 11.520649152938127, y = 2.201512998249368, z
  The solution converged.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_6704\604149360.py:7: RuntimeWarning: invalid value encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_9408\604149360.py:7: RuntimeWarning: invalid value encountered in log
   LHS2 = x*z + np.log(y*z) - 18.3
 </pre></div>
 </div>
@@ -1047,8 +1068,15 @@ current values in iteration are x = 11.520649152938127, y = 2.201512998249368, z
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Recitation 01: Jupyter and Python Fundamentals</p>
+            <p class="prev-next-title">Recitation 01</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-R03-Solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recitation 03</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

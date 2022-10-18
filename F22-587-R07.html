@@ -1,0 +1,1193 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recitation 07 &#8212; CEN 587 Fall 2022</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CEN 587 Fall 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Lectures.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Solving problems with numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Recitations.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R01-Solution.html">
+     Recitation 01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R02-Solution.html">
+     Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/docs/F22-587-R07.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FF22-587-R07.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/F22-587-R07.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-of-topics-from-l20-levenspiel-plots">
+   Recap of topics from L20 (Levenspiel Plots)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-a-single-fractional-conversion-with-a-first-order-reaction">
+     CSTR Volume for a single fractional conversion with a first order reaction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-many-fractional-conversions-with-a-first-order-reaction">
+     CSTR Volume for many fractional conversions with a first order reaction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looping-over-multiple-iterables-with-zip">
+     Looping over multiple iterables with zip()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formatted-string-literals-in-python">
+     Formatted string literals in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-many-conversions-and-many-reaction-orders">
+     CSTR Volume for many conversions AND many reaction orders.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-complex-operations-efficiently-with-loops">
+     Handling complex operations efficiently with loops
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-a-function-to-calculate-cstr-volume-for-an-arbitrary-conversion-and-reaction-order">
+       Defining a function to calculate CSTR volume for an arbitrary conversion and reaction order
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#passing-a-numpy-array-to-the-function-broadcasting-to-evaluate-v-for-many-conversions">
+       Passing a numpy array to the function (broadcasting) to evaluate V for many conversions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looping-over-multiple-reaction-orders">
+       Looping over multiple reaction orders
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-pfr-problem-for-many-conversions-and-many-reaction-orders">
+   Solving the PFR problem for many conversions and many reaction orders
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-pfr-problem-for-a-single-conversion-and-single-reaction-order">
+     Solving the PFR problem for a single conversion and single reaction order
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#embedding-the-solution-of-the-definite-integral-inside-of-a-function">
+     Embedding the solution of the definite integral inside of a function…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-run-into-problems-with-broadcasting-this-function-to-many-fractional-conversions">
+     We run into problems with broadcasting this function to many fractional conversions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-a-for-loop-over-an-iterator-created-using-the-range-function">
+     Running a for loop over an iterator created using the range function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-a-for-loop-using-the-enumerate-function-to-create-the-iterator">
+     Running a for loop using the enumerate() function to create the iterator
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-comprehensions-the-most-python-way-of-all">
+     List comprehensions – the most Python way of all
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-a-list-comprehension-to-broadcast-the-vpfr-function">
+     Using a list comprehension to “broadcast” the VPFR function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluating-the-pfr-volume-for-many-fractional-conversions-and-many-reaction-orders">
+     Evaluating the PFR Volume for many fractional conversions and many reaction orders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overlaying-cstr-and-pfr-volumes-in-a-single-plot">
+     Overlaying CSTR and PFR volumes in a single plot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recitation 07</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-of-topics-from-l20-levenspiel-plots">
+   Recap of topics from L20 (Levenspiel Plots)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-a-single-fractional-conversion-with-a-first-order-reaction">
+     CSTR Volume for a single fractional conversion with a first order reaction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-many-fractional-conversions-with-a-first-order-reaction">
+     CSTR Volume for many fractional conversions with a first order reaction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looping-over-multiple-iterables-with-zip">
+     Looping over multiple iterables with zip()
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formatted-string-literals-in-python">
+     Formatted string literals in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr-volume-for-many-conversions-and-many-reaction-orders">
+     CSTR Volume for many conversions AND many reaction orders.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-complex-operations-efficiently-with-loops">
+     Handling complex operations efficiently with loops
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-a-function-to-calculate-cstr-volume-for-an-arbitrary-conversion-and-reaction-order">
+       Defining a function to calculate CSTR volume for an arbitrary conversion and reaction order
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#passing-a-numpy-array-to-the-function-broadcasting-to-evaluate-v-for-many-conversions">
+       Passing a numpy array to the function (broadcasting) to evaluate V for many conversions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looping-over-multiple-reaction-orders">
+       Looping over multiple reaction orders
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-pfr-problem-for-many-conversions-and-many-reaction-orders">
+   Solving the PFR problem for many conversions and many reaction orders
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-pfr-problem-for-a-single-conversion-and-single-reaction-order">
+     Solving the PFR problem for a single conversion and single reaction order
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#embedding-the-solution-of-the-definite-integral-inside-of-a-function">
+     Embedding the solution of the definite integral inside of a function…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-run-into-problems-with-broadcasting-this-function-to-many-fractional-conversions">
+     We run into problems with broadcasting this function to many fractional conversions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-a-for-loop-over-an-iterator-created-using-the-range-function">
+     Running a for loop over an iterator created using the range function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-a-for-loop-using-the-enumerate-function-to-create-the-iterator">
+     Running a for loop using the enumerate() function to create the iterator
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-comprehensions-the-most-python-way-of-all">
+     List comprehensions – the most Python way of all
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-a-list-comprehension-to-broadcast-the-vpfr-function">
+     Using a list comprehension to “broadcast” the VPFR function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluating-the-pfr-volume-for-many-fractional-conversions-and-many-reaction-orders">
+     Evaluating the PFR Volume for many fractional conversions and many reaction orders
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#overlaying-cstr-and-pfr-volumes-in-a-single-plot">
+     Overlaying CSTR and PFR volumes in a single plot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recitation-07">
+<h1>Recitation 07<a class="headerlink" href="#recitation-07" title="Permalink to this headline">#</a></h1>
+<p>These exercises walk through some of the Python code I’ve been writing for class but not necessarily explaining in class.  We also cover some intermediate skills in developing functions, solving problems with them, etc.</p>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Intermediate skills in Python</p></li>
+<li><p>Tips and Tricks</p></li>
+<li><p>List Comprehensions</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quadrature</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recap-of-topics-from-l20-levenspiel-plots">
+<h2>Recap of topics from L20 (Levenspiel Plots)<a class="headerlink" href="#recap-of-topics-from-l20-levenspiel-plots" title="Permalink to this headline">#</a></h2>
+<p>We’ve have been discussing sizing flow reactors (CSTRs and PFRs) for a very simple reaction:</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow B\]</div>
+<p>We have assumed the rate of reaction depends only on the concentration of A, and that the reaction order is unspecified. We have further assumed that the fluid density is constant in this system.  With these things in mind, we can develop the rate law below, which illustrates the functional dependence of rate on <span class="math notranslate nohighlight">\(C_A\)</span> and, by extension <span class="math notranslate nohighlight">\(X_A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha = kC_{A,f}^\alpha \, (1 - X_A)^\alpha\]</div>
+<p>In L20, we were focused on illustrating trends in CSTR and PFR sizes (volumes) as the reaction order, <span class="math notranslate nohighlight">\(\alpha\)</span>, changes. The Notebook for L20 does this using some generic functions that solve for CSTR and PFR volumes giving arguments of fractional conversion (<span class="math notranslate nohighlight">\(X_A\)</span>) and reaction order (<span class="math notranslate nohighlight">\(\alpha\)</span>).</p>
+<p>Just as a reminder, for this simple case where we are just wanting to illustrate concepts, we’re assuming that any parameter in the problem (k, CAf, FAf, Q, etc.) is going to be equal to a numerical value of 1 in appropriate units just to keep things “clean” as we write these various cases.</p>
+<p>We developed the solution below, which gives the volumes of a CSTR to achieve a certain fractional conversion, where we note that reaction rate is a function of fractional conversion, i.e., <span class="math notranslate nohighlight">\(r = f(X_A)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{CSTR} = \frac{F_{A,f}X_A}{r}\]</div>
+<p>We developed that function of fractional conversion during class; specifically <span class="math notranslate nohighlight">\(r = kC_{A,f}^\alpha \, (1 - X_A)^\alpha\)</span>. Substituting that rate as a function of conversion into the material balance solution for Volume, we find:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{CSTR} = \frac{F_{A,f}X_A}{kC_{A,f}^\alpha \, (1 - X_A)^\alpha}\]</div>
+<section id="cstr-volume-for-a-single-fractional-conversion-with-a-first-order-reaction">
+<h3>CSTR Volume for a single fractional conversion with a first order reaction<a class="headerlink" href="#cstr-volume-for-a-single-fractional-conversion-with-a-first-order-reaction" title="Permalink to this headline">#</a></h3>
+<p>That is pretty straightforward once we specify the desired conversion and the order of the reaction. Below, we solve for the CSTR volume required to achieve 50% conversion of A.</p>
+<div class = "alert alert-block alert-info">
+    This one is easy -- we can solve it by hand using, at most, a calculator.
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>     <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="n">alpha</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span><span class="o">/</span><span class="n">r</span>
+<span class="n">V</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cstr-volume-for-many-fractional-conversions-with-a-first-order-reaction">
+<h3>CSTR Volume for many fractional conversions with a first order reaction<a class="headerlink" href="#cstr-volume-for-many-fractional-conversions-with-a-first-order-reaction" title="Permalink to this headline">#</a></h3>
+<p>If you wanted to evaluate the volume for many different conversions, that’s fairly simple with a numpy array (remember, we can broadcast operations to each element with a numpy array).</p>
+<div class = "alert alert-block alert-info">
+    This is still pretty easy to do by hand using a calculator, though plugging in all of those conversions would be a bit tedious.  Notice the savings in efficiency we get by broadcasting the operation to each element of a numpy array (element-wise operations).
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>     <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="n">alpha</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span><span class="o">/</span><span class="n">r</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.         0.33333333 1.         3.         9.        ]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="looping-over-multiple-iterables-with-zip">
+<h3>Looping over multiple iterables with zip()<a class="headerlink" href="#looping-over-multiple-iterables-with-zip" title="Permalink to this headline">#</a></h3>
+<p>So, calculating all of those volumes by broadcasting to each element in the numpy array is easy, but the presentation of results is pretty rough.  It would be much nicer if we could come up with a way to provide context and units for all of those numbers, ideally with clean formatting and minimal coding. I usually would do this with a for loop to run a print command for each element in the array. The <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function in Python is handy in this type of scenario.  It allows you to to iterate over <em>many</em> iterables simultaneously instead of just one (in the past, we’ve only iterated over a single iterable in a for loop).</p>
+<div class = "alert alert-block alert-warning">
+    <b>Caveat</b>: iterables used with <code>zip()</code> must be the same size.
+    </div>
+</section>
+<section id="formatted-string-literals-in-python">
+<h3>Formatted string literals in Python<a class="headerlink" href="#formatted-string-literals-in-python" title="Permalink to this headline">#</a></h3>
+<p>Note also the usage of formatted string literals in the print statement below; these are denoted as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f&#39;...string...{numerical}...&#39;
+</pre></div>
+</div>
+<p>I expect you’ve seen these by now in a lot of the solution notebooks presented during lecture and recitation. This is basically using the old school printf formatting tags from C.  I like printf formatting commands because they are pretty consistent across various modern languages. For example, the usage is very similar in Python, Matlab, and Julia, so it is worth learning a little about how to change formatting with printf codes…</p>
+<p>In the simple example, below, where you see the following notation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{number:X.Yf}
+</pre></div>
+</div>
+<p>That says print the value of “number” formatted as a “f”loating point decimal; dedicate a minimum of “X” spaces in the print output, and round the value of “number” to “Y” decimal places.  I use these alot to make sure I have consistent formatting and spacing in a set of print commands.  See below, I use a loop with <code class="docutils literal notranslate"><span class="pre">zip()</span></code> to print out all of the conversion/volume pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">conversion</span><span class="p">,</span> <span class="n">volume</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;To achieve a conversion of </span><span class="si">{</span><span class="n">conversion</span><span class="si">:</span><span class="s1">2.2f</span><span class="si">}</span><span class="s1">, the required volume is </span><span class="si">{</span><span class="n">volume</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To achieve a conversion of 0.00, the required volume is 0.00L
+To achieve a conversion of 0.25, the required volume is 0.33L
+To achieve a conversion of 0.50, the required volume is 1.00L
+To achieve a conversion of 0.75, the required volume is 3.00L
+To achieve a conversion of 0.90, the required volume is 9.00L
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can do some fairly advanced formatting of your print output with string literals.  For more detail, see link below.  At a minimum for engineers, it is useful to know how to format numbers as floating point decimals (e.g., <code class="docutils literal notranslate"><span class="pre">{number:3.2f}</span></code>) and in exponential (scientific) notation (e.g., <code class="docutils literal notranslate"><span class="pre">{number:3.2E}</span></code> or <code class="docutils literal notranslate"><span class="pre">{number:3.2e}</span></code>).</p>
+<p>http://cissandbox.bentley.edu/sandbox/wp-content/uploads/2022-02-10-Documentation-on-f-strings-Updated.pdf</p>
+</section>
+<section id="cstr-volume-for-many-conversions-and-many-reaction-orders">
+<h3>CSTR Volume for many conversions AND many reaction orders.<a class="headerlink" href="#cstr-volume-for-many-conversions-and-many-reaction-orders" title="Permalink to this headline">#</a></h3>
+<p>Trying to broadcast to numpy arrays gets cumbersome if you want to get the CSTR volume required for many conversions and many reaction orders. Python won’t broadcast if we have different dimensions of arrays because it can’t intuit exactly what we want to do and how we want to broadcast (see error below).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>     <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FAf</span>   <span class="o">=</span> <span class="mi">1</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1">#Many fractional conversions</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="c1">#Many reaction orders</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="n">alpha</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span><span class="o">/</span><span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_13508\2990026782.py</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="c1">#Many reaction orders</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">CA</span>    <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="n">alpha</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">V</span>     <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span><span class="o">/</span><span class="n">r</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (100,) (5,) 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="handling-complex-operations-efficiently-with-loops">
+<h3>Handling complex operations efficiently with loops<a class="headerlink" href="#handling-complex-operations-efficiently-with-loops" title="Permalink to this headline">#</a></h3>
+<p>If I want to evaluate the CSTR volumes required for multiple values of fractional conversion, <span class="math notranslate nohighlight">\(X_A\)</span>, and multiple reaction orders, <span class="math notranslate nohighlight">\(\alpha\)</span>, I might naively think about pasting the above code into multiple cells and redefining the value of <span class="math notranslate nohighlight">\(\alpha\)</span> each time.  There is nothing wrong with that per se, but it is inefficient and results in a lot of redundant code.  It would be better to automate all of this using a loop to avoid rewriting code – this is the approach I used in L20.</p>
+<section id="defining-a-function-to-calculate-cstr-volume-for-an-arbitrary-conversion-and-reaction-order">
+<h4>Defining a function to calculate CSTR volume for an arbitrary conversion and reaction order<a class="headerlink" href="#defining-a-function-to-calculate-cstr-volume-for-an-arbitrary-conversion-and-reaction-order" title="Permalink to this headline">#</a></h4>
+<p>As a first step, we create a function that basically does what we’re doing above.  We’ll allow it to take two arguments:  the fractional conversion we aim to achieve, and the reaction order. Once we give it those two details, it will solve for the volume of the CSTR.  I use it to solve for XA = 0.5 and a first order reaction just so we can confirm it is returning answers consistent with what we’ve already solved in a specific example.  Here we expect a 1L CSTR.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">VCSTR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="n">k</span>     <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">CAf</span>   <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">FAf</span>   <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">CA</span>    <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span> <span class="c1">#Remember, the only relevant conversion in a CSTR is at the exit</span>
+    <span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="n">alpha</span>
+    <span class="n">V</span>     <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span><span class="o">/</span><span class="n">r</span>
+    <span class="k">return</span> <span class="n">V</span>
+<span class="n">VCSTR</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-a-numpy-array-to-the-function-broadcasting-to-evaluate-v-for-many-conversions">
+<h4>Passing a numpy array to the function (broadcasting) to evaluate V for many conversions<a class="headerlink" href="#passing-a-numpy-array-to-the-function-broadcasting-to-evaluate-v-for-many-conversions" title="Permalink to this headline">#</a></h4>
+<p>Now that we have this function, we will use it to do two things. First, we can pass it a numpy array of conversions just like above to calculate the required volumes as a function of fractional conversion for a given reaction order.  As an example, we illustrate the result for first order kinetics below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">VCSTR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CSTR Volume&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="looping-over-multiple-reaction-orders">
+<h4>Looping over multiple reaction orders<a class="headerlink" href="#looping-over-multiple-reaction-orders" title="Permalink to this headline">#</a></h4>
+<p>If I want to visualize this plot for multiple reaction orders, I <em>could</em> just re-paste versions of that code over and over, store the results, update the plots, etc., but this is very inefficient and clumsy. In situations like this where I want to just repeat a calculation for multiple values of a parameter, I just use a loop.  We can do this with a for loop.</p>
+<p><b>Notice</b>: In the code cell below, we see that the for loop is iterating over the values of “alpha” in the array “avals.”  This is a very Python way to iterate in a for loop (whereas the matlab approach would be to use an index as the counter).  Notice also that I’ve embedded a call to plt.semilogy() in the for loop so that I can update the label in the legend every time I consider a new reaction order.  Is that necessary? No, you can write out 5 different print statements, but I find it useful to be able to automate things like this, so it is worthwhile practicing the skill.</p>
+<p><strong>Note</strong>: I use a semilog plot here because the Volumes on the y-axis change by orders of magnitude, and I can’t see those changes on a linear y axis.  Another thing to know: in python, we can continue stacking plots in the following way:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plt.plot(X1, Y1, label = &#39;Y1&#39;)
+plt.plot(X2, Y2, label = &#39;Y2&#39;)
+plt.plot(X3, Y3, label = &#39;Y3&#39;)
+</pre></div>
+</div>
+<p>I automate that below in the for loop.  Optional, of course.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">avals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">avals</span><span class="p">:</span>
+    <span class="n">V</span>   <span class="o">=</span> <span class="n">VCSTR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;order is </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;CSTR volumes for various reaction orders&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reactor Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="solving-the-pfr-problem-for-many-conversions-and-many-reaction-orders">
+<h2>Solving the PFR problem for many conversions and many reaction orders<a class="headerlink" href="#solving-the-pfr-problem-for-many-conversions-and-many-reaction-orders" title="Permalink to this headline">#</a></h2>
+<p>The PFR solution is actually a bit trickier.  Recall that the solution for the PFR volume for this simple case is:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{PFR} = \int_0^{X_A}\frac{F_{A,f} \, dX_A}{r \, (X_A)}\]</div>
+<p>In other words, I have to solve the definite integral by integrating the right hand side from the lower limit of zero conversion to the upper limit of conversion I’m trying to achieve in this reactor to solve for the PFR Volume.  If I know the rate law exactly, I can solve this analytically (we did this in the Unit 03 Assignments).  In this case, we don’t know the rate law per se, we want a general solution for any rate law.  The easiest way for me to do that is to substitute our generic rate law into the above definite integral:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{PFR} = \int_0^{X_A}\frac{F_{A,f} \, dX_A}{kC_{A,f}^\alpha \, (1 - X_A)^\alpha}\]</div>
+<section id="solving-the-pfr-problem-for-a-single-conversion-and-single-reaction-order">
+<h3>Solving the PFR problem for a single conversion and single reaction order<a class="headerlink" href="#solving-the-pfr-problem-for-a-single-conversion-and-single-reaction-order" title="Permalink to this headline">#</a></h3>
+<p>Below, we’ll solve this for a single exit conversion, and we notice: we still have to solve the integral from the lower limit (0) to the exit conversion.  I’m doing this with Gaussian quadrature.  I’ll solve for 50% conversion since we know the answer should be 0.69L based on examples from class. Just to make sure we get the right answer before moving on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/min</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/min</span>
+<span class="n">CAf</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/L</span>
+<span class="n">k</span>   <span class="o">=</span> <span class="mi">1</span> <span class="c1">#1/min</span>
+<span class="n">XA</span>  <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">CA</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">CAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">r</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="n">alpha</span>
+
+<span class="n">intfun</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">FAf</span><span class="o">/</span><span class="n">r</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">vol</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">intfun</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;To achieve a conversion of </span><span class="si">{</span><span class="n">XA</span><span class="si">:</span><span class="s1">0.2</span><span class="si">}</span><span class="s1">, the PFR Volume must be </span><span class="si">{</span><span class="n">vol</span><span class="si">:</span><span class="s1">3.3</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="embedding-the-solution-of-the-definite-integral-inside-of-a-function">
+<h3>Embedding the solution of the definite integral inside of a function…<a class="headerlink" href="#embedding-the-solution-of-the-definite-integral-inside-of-a-function" title="Permalink to this headline">#</a></h3>
+<p>Again, I’d really like to make this general purpose and reusable, so i’m going to translate that calculation into a function that I can use to calculate PFR volume for <em>any</em> conversion and <em>any</em> reaction order.  This is the one I used in lecture.  We’ll test it for 50% conversion and first order kinetics as usual to see if we get 0.69L.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">VPFR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="n">FAf</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/min</span>
+    <span class="n">Qf</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/min</span>
+    <span class="n">CAf</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mol/L</span>
+    <span class="n">k</span>   <span class="o">=</span> <span class="mi">1</span> <span class="c1">#1/min</span>
+    <span class="n">intfun</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="n">FAf</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="n">CAf</span><span class="o">**</span><span class="n">alpha</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="n">alpha</span>
+    <span class="n">vol</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">intfun</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vol</span>
+<span class="n">XA</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">VPFR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="we-run-into-problems-with-broadcasting-this-function-to-many-fractional-conversions">
+<h3>We run into problems with broadcasting this function to many fractional conversions<a class="headerlink" href="#we-run-into-problems-with-broadcasting-this-function-to-many-fractional-conversions" title="Permalink to this headline">#</a></h3>
+<p>In this case, we can’t broadcast because we’re using <code class="docutils literal notranslate"><span class="pre">quadrature()</span></code>, which takes a single floating point decimal or integer for the lower and upper limits of integration (see error below).  So, if we’re want to calculate the PFR volume for multiple conversions using quadrature, we have to use a loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">VPFR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">order</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-a-for-loop-over-an-iterator-created-using-the-range-function">
+<h3>Running a for loop over an iterator created using the range function<a class="headerlink" href="#running-a-for-loop-over-an-iterator-created-using-the-range-function" title="Permalink to this headline">#</a></h3>
+<p>Here’s one way that we could write that loop – we iterate over an index or “counter” and we use it to specify which element in the arrays we are working with. This is similar to the way you’d probably write a loop in Matlab.  In the cell below, I do this with the range function, which is probably similar to how we all learned to first write a for loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">V</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">XA</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">XA</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">intfun</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">XA</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;PFR Volume&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="running-a-for-loop-using-the-enumerate-function-to-create-the-iterator">
+<h3>Running a for loop using the enumerate() function to create the iterator<a class="headerlink" href="#running-a-for-loop-using-the-enumerate-function-to-create-the-iterator" title="Permalink to this headline">#</a></h3>
+<p>Here’s a slightly different (and more Pythonic) way to approach the problem – it makes use of the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function, which returns both the value and the index of an element in an array.  Consider the code below and see if you can spot how it is different from the loop above that uses the range function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">V</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">XA</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">XA</span><span class="p">):</span>
+    <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">intfun</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;PFR Volume&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="list-comprehensions-the-most-python-way-of-all">
+<h3>List comprehensions – the most Python way of all<a class="headerlink" href="#list-comprehensions-the-most-python-way-of-all" title="Permalink to this headline">#</a></h3>
+<p>If you review the Notebook from L20, you’ll see what is probably unfamiliar syntax (unless you have prior experience in Python). The way that I solved for PFR volumes in class was to use a list comprehension, which is basically a shorthand for loop.  It is a very Python bit of syntax.  I love them because they make it very fast and easy to write for loops.  To understand a list comprehension, you have to know a little about how we would use a for loop with lists to do the above operation (solve for the volume of a PFR for many different conversions using quadrature).</p>
+<p>If you reference our very first Recitation notebook (R01), you will recall that in base python, the <code class="docutils literal notranslate"><span class="pre">list</span></code> is the base array structure and that you can’t really do math directly on a list. So let’s say we wanted to calculate the square of all of the integers between 1 and 10 in base Python.  Our instinct at this point might be to try to broadcase the square operator <code class="docutils literal notranslate"><span class="pre">**2</span></code> to all of the values in our list…but we’ll run into an error there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In base Python (that is, without working in numpy arrays), it would be mandatory to write a loop to do this.  So, a for loop is a natural choice here.  Working with lists:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#this appends the current value of x^2 to the list &quot;squares&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This type of scenario (needing to perform operations on each element of a list) is so common in base Python that there is a shorthand syntax that is equivalent to the above.  This is a list comprehension.  Basically, it performs an operation on each element of a list and stores the output of that operation in a new list.  It is the equivalent of the above for loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1">#Notice: a comprehension will always return a list.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-a-list-comprehension-to-broadcast-the-vpfr-function">
+<h3>Using a list comprehension to “broadcast” the VPFR function<a class="headerlink" href="#using-a-list-comprehension-to-broadcast-the-vpfr-function" title="Permalink to this headline">#</a></h3>
+<p>In my solutions for L20, I used a comprehension to pass many conversions to the VPFR function.  This is roughly equivalent to the for loops written above using <code class="docutils literal notranslate"><span class="pre">range()</span></code> and <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>.</p>
+<div class = "alert alert-block alert-info">
+    The list comprehension will generate a list...I converted it to a numpy array in the cell below so that it was the same type of array as XA.
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">##This is the list comprehension; I&#39;m solving the PFR volume for every XA in XA above</span>
+<span class="n">V</span> <span class="o">=</span> <span class="p">[</span><span class="n">VPFR</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">order</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">XA</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+
+<span class="c1">##Remember: a comprehension will always return a list of entries.  </span>
+<span class="c1">##I am partial to numpy arrays, so I convert the list to a numpy array below</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;PFR Volume&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluating-the-pfr-volume-for-many-fractional-conversions-and-many-reaction-orders">
+<h3>Evaluating the PFR Volume for many fractional conversions and many reaction orders<a class="headerlink" href="#evaluating-the-pfr-volume-for-many-fractional-conversions-and-many-reaction-orders" title="Permalink to this headline">#</a></h3>
+<p>If you wanted to calculate the PFR volume for many reaction orders, you’d need to nest loops somehow.  You can write two nested for loops, you can nest a comprehension in a for loop…you can probably even do a 2D comprehension, though I find comprehensions are best for <em>simple</em> for loops and it gets hard to keep dimensionality straight in one-liners.  Here’s an example of one way to get the PFR volume for many conversions and several reaction orders.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">avals</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">avals</span><span class="p">:</span>
+    <span class="n">temp</span>   <span class="o">=</span> <span class="p">[</span><span class="n">VPFR</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">XA</span><span class="p">]</span>
+    <span class="n">V</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;order is </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;PFR volumes for various reaction orders&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="overlaying-cstr-and-pfr-volumes-in-a-single-plot">
+<h3>Overlaying CSTR and PFR volumes in a single plot<a class="headerlink" href="#overlaying-cstr-and-pfr-volumes-in-a-single-plot" title="Permalink to this headline">#</a></h3>
+<p>At the risk of putting too much information into a single graph, it is worth considering how to control formatting for figures that are illustrating more complex data sets.  For example, below, I introduce list of strings that represent colors, and I can then use this to ensure that the CSTR and PFR volumes for a given reaction order are plotted in the same color.  If you study the code a bit, you’ll see that it makes use of lists, numpy arrays, strings, floating point decimals, <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>, and list comprehensions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">avals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">])</span>
+<span class="n">colorset</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;magenta&#39;</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">avals</span><span class="p">):</span>
+    <span class="n">VC</span>     <span class="o">=</span> <span class="n">VCSTR</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+    <span class="n">temp</span>   <span class="o">=</span> <span class="p">[</span><span class="n">VPFR</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">XA</span><span class="p">]</span>
+    <span class="n">VP</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">VC</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorset</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">VP</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;order is </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colorset</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Comparison of CSTR and PFR volumes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reactor Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By JQB<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

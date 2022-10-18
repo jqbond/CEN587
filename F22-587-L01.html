@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 01 &#8212; CEN 587 Fall 2022</title>
+    <title>Lecture 01: Introduction and Stoichiometry &#8212; CEN 587 Fall 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lecture 02" href="F22-587-L02.html" />
+    <link rel="next" title="Lecture 02: Extent and Conversion" href="F22-587-L02.html" />
     <link rel="prev" title="Lectures" href="Lectures.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -128,17 +128,47 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
   </ul>
@@ -154,8 +184,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="F22-587-R01.html">
+    <a class="reference internal" href="F22-587-R01-Solution.html">
      Recitation 01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R02-Solution.html">
+     Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -400,7 +440,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 01</h1>
+                <h1>Lecture 01: Introduction and Stoichiometry</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -445,8 +485,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-01">
-<h1>Lecture 01<a class="headerlink" href="#lecture-01" title="Permalink to this headline">#</a></h1>
+  <p><strong>Things to resolve from Fall 2022</strong></p>
+<ol class="simple">
+<li><p>Need to have In Class vs. Complete Notebooks.  In class version should only show the problem statement and any calculations done in Python.</p></li>
+<li><p>Complete solutions will have full “paper and pencil” work in the Markdown cells.</p></li>
+<li><p>Focus on trying as much as possible to write code in real time so that it is at appropriate pace.</p></li>
+</ol>
+<section class="tex2jax_ignore mathjax_ignore" id="lecture-01-introduction-and-stoichiometry">
+<h1>Lecture 01: Introduction and Stoichiometry<a class="headerlink" href="#lecture-01-introduction-and-stoichiometry" title="Permalink to this headline">#</a></h1>
 <section id="syllabus">
 <h2>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
@@ -592,14 +638,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\sum_j{\nu_j A_j} = 0\]</div>
 <p>So if we have two chemical reactions involving a total of 8 chemical species:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4cd33b76-a2d9-4a57-9209-f0bb1b006ce6">
-<span class="eqno">(1)<a class="headerlink" href="#equation-4cd33b76-a2d9-4a57-9209-f0bb1b006ce6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b7fbf249-7746-41c9-97ca-a1648b411343">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b7fbf249-7746-41c9-97ca-a1648b411343" title="Permalink to this equation">#</a></span>\[\begin{align}
     \nu_1 A_1 + \nu_2 A_2 &amp;\leftrightharpoons \nu_3 A_3 + \nu_4 A_4 \\
     \nu_5 A_5 + \nu_6 A_6 &amp;\leftrightharpoons \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 \\
 \end{align}\]</div>
 <p>We know that we can rearrange this as two linear equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96cae117-fa70-4656-bef7-21aa53991761">
-<span class="eqno">(2)<a class="headerlink" href="#equation-96cae117-fa70-4656-bef7-21aa53991761" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0e5ee07-5b86-4457-9bd6-0d9835a2dabb">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c0e5ee07-5b86-4457-9bd6-0d9835a2dabb" title="Permalink to this equation">#</a></span>\[\begin{align}
     \nu_1 A_1 + \nu_2 A_2 + \nu_3 A_3 + \nu_4 A_4 &amp;= 0\\
     \nu_5 A_5 + \nu_6 A_6 + \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 &amp;= 0\\
 \end{align}\]</div>
@@ -671,7 +717,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="F22-587-L02.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 02</p>
+        <p class="prev-next-title">Lecture 02: Extent and Conversion</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

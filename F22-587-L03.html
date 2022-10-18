@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 03 &#8212; CEN 587 Fall 2022</title>
+    <title>Lecture 03: Solving problems with numerical methods &#8212; CEN 587 Fall 2022</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Recitations" href="Recitations.html" />
-    <link rel="prev" title="Lecture 02" href="F22-587-L02.html" />
+    <link rel="next" title="Lecture 04" href="F22-587-L04.html" />
+    <link rel="prev" title="Lecture 02: Extent and Conversion" href="F22-587-L02.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,17 +128,47 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
   </ul>
@@ -154,8 +184,18 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="F22-587-R01.html">
+    <a class="reference internal" href="F22-587-R01-Solution.html">
      Recitation 01
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R02-Solution.html">
+     Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -456,7 +496,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lecture 03</h1>
+                <h1>Lecture 03: Solving problems with numerical methods</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -557,10 +597,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lecture-03">
-<h1>Lecture 03<a class="headerlink" href="#lecture-03" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-03-solving-problems-with-numerical-methods">
+<h1>Lecture 03: Solving problems with numerical methods<a class="headerlink" href="#lecture-03-solving-problems-with-numerical-methods" title="Permalink to this headline">#</a></h1>
 <p>This lecture covers the basic ideas behind numerical methods for solving algebraic equations and ordinary differential equations.</p>
 <p>For more detail on these concepts and how they are implemented in Python, please reference <strong>Supplements 08 - 12</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="numerical-methods">
 <h2>Numerical Methods<a class="headerlink" href="#numerical-methods" title="Permalink to this headline">#</a></h2>
 <p>Although your math and introductory engineering courses generally present a lot of problems that you were able to solve by hand using pencil-and-paper and, at most, a calculator, this is not generally the case in engineering practice.</p>
@@ -579,8 +628,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[ x = -b \pm \frac{\sqrt{\left(b^2 - 4ac\right)}}{2a}\]</div>
 <p>If we do that, we find that there are two solutions to this equation (two roots of the function):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1521e819-947f-497e-9b0a-2827d741e88b">
-<span class="eqno">(22)<a class="headerlink" href="#equation-1521e819-947f-497e-9b0a-2827d741e88b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-731d4386-de62-4845-8d11-20d5beb11856">
+<span class="eqno">(24)<a class="headerlink" href="#equation-731d4386-de62-4845-8d11-20d5beb11856" title="Permalink to this equation">#</a></span>\[\begin{align}
     x &amp;= 12.07107 \\
     x &amp;= -2.07107
 \end{align}\]</div>
@@ -592,23 +641,26 @@ title="Print to PDF"
 <p>Beyond this, we generally have to rely on iterative methods, where we guess a likely solution, check the answer to see how close we are to the desired value, and then change our guess, hopefully moving toward the solution as we change our guesses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">25</span>
 <span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">xplot</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="c1">#Add formatting to figure to suit your specific needs and make a more informative figure.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1">#limits on x axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="c1">#set x-ticks manually</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> <span class="c1">#add x axis label at font size of 14 pt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1">#set limits on y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span> <span class="c1">#set tickmarks on y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span> <span class="c1">#add lable on y axis at 14 pt font</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="c1">#horizontal line at y =0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="o">-</span><span class="mf">2.07107</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1">#vertical line at root 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">12.07107</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1">#vertical line at root 2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#display current figure</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1d81fb26580&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_4_1.png" src="_images/F22-587-L03_4_1.png" />
+<img alt="_images/F22-587-L03_5_0.png" src="_images/F22-587-L03_5_0.png" />
 </div>
 </div>
 </section>
@@ -620,7 +672,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">))</span>  <span class="c1">#gives 175</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>   <span class="c1">#gives -25.  There is at least one root between -10 and 10 since I crossed the x-axis.</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>    <span class="c1">#gives 50....There is at least one root between -10 and -5 sice I crossed x again</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>    <span class="c1">#gives 50....There is at least one root between 10 and -5 sice I crossed x again</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">))</span>    <span class="c1">#gives 94....that move was away from the root</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>    <span class="c1">#gives 14....relative to -5, that moves me toward the root</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>    <span class="c1">#gives -14...the root is somewhere between -1 and -3</span>
@@ -657,29 +709,34 @@ title="Print to PDF"
 <p>As an example, we’ll implement a Newton-Raphson iteration to solve this problem.  The Newton-Raphson iteration is much better than what we did above because it uses information about both the function value and its derivative to update guesses automatically.  The formula for the Newton-Raphson iteration is this:</p>
 <div class="math notranslate nohighlight">
 \[x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)}\]</div>
-<p>We simply make an initial guess, <span class="math notranslate nohighlight">\(x_i\)</span>, then we update that guess by subtracting the ratio of the function value at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, to its derivative at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f^\prime(x_i)\)</span>.</p>
+<p>We make an initial guess, <span class="math notranslate nohighlight">\(x_i\)</span>, then we update that guess by subtracting the ratio of the function value at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, to its derivative at <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(f^\prime(x_i)\)</span>.</p>
 <p>we run this iteratively in the cell below using a while loop; this is the same as clicking and dragging to autofill in Excel.  You can see how quickly it converges for this simple example.  This is much, much better than a simple guess and check strategy.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">25</span>
 <span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># x = -10</span>
+<span class="c1"># print(x, f(x), df(x))</span>
+<span class="c1"># x2 = x - f(x)/df(x)</span>
+<span class="c1"># print(x, x2, f(x), df(x))</span>
 
-<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-3</span><span class="p">:</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-3</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="c1">#time.sleep(3)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Loop is finished!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.1666666667 175
--2.3106060606 34.0277777778
--2.0749921495 3.4449609734
--2.0710689002 0.0555139151
--2.0710678119 1.53919e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-4.1666666667 34.0277777778
+-2.3106060606 3.4449609734
+-2.0749921495 0.0555139151
+-2.0710689002 1.53919e-05
+
+ Loop is finished!
 </pre></div>
 </div>
 </div>
@@ -700,15 +757,19 @@ title="Print to PDF"
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xspan</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">xspan</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;g(x)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="o">-</span><span class="mf">0.6081345343</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection at 0x1d81fc25bb0&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_11_1.png" src="_images/F22-587-L03_11_1.png" />
+<img alt="_images/F22-587-L03_12_0.png" src="_images/F22-587-L03_12_0.png" />
 </div>
 </div>
 <p>From this, we can see one root at about -0.6. Let’s try to find it with a Newton-Raphson iteration. We’ll start with an initial guess of -0.5 and see what happens…</p>
@@ -775,8 +836,8 @@ title="Print to PDF"
 <section id="numerical-methods-for-systems-of-equations">
 <h4>Numerical Methods for Systems of Equations<a class="headerlink" href="#numerical-methods-for-systems-of-equations" title="Permalink to this headline">#</a></h4>
 <p>In class, we saw how you can use solver with an objective function and constraints to solve a system of equations, e.g.:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52f851a1-8915-4a85-9921-0d435d4a5cf4">
-<span class="eqno">(23)<a class="headerlink" href="#equation-52f851a1-8915-4a85-9921-0d435d4a5cf4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-770809f4-a407-4869-ba66-75ff96566c46">
+<span class="eqno">(25)<a class="headerlink" href="#equation-770809f4-a407-4869-ba66-75ff96566c46" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= x^2 - 10x - 25y + 17 \\
     0 &amp;= y^2  - 36x
 \end{align}\]</div>
@@ -817,7 +878,7 @@ title="Print to PDF"
 <p>We would like to know the value of <span class="math notranslate nohighlight">\(x\)</span> at <span class="math notranslate nohighlight">\(t = 4\)</span>.  In this case, it is a first order ODE, and we can easily separate variables and integrate by hand:</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_0}^x\frac{1}{x^\prime} dx^\prime = - \int_0^t dt^\prime\]</div>
-<p>The integral on the left is a natural logarithm, so the solution of a first order problem like this is always an exponential function of time:</p>
+<p>The integral on the left is a natural logarithm, so the solution of a first order problem like this is always an exponential function of the independent variable (time in this case):</p>
 <div class="math notranslate nohighlight">
 \[x(t) = x_0\exp(-t)\]</div>
 <p>Based on that solution, we can create a function and plot it to show the <strong>true</strong> behavior of x as a function of t.  Then, we’ll try to approximate that behavior using a numerical integration of that initial value problem.</p>
@@ -829,26 +890,28 @@ title="Print to PDF"
 <span class="n">x0</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">tspan</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">fontfamily</span> <span class="o">=</span> <span class="s1">&#39;Arial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">fontfamily</span> <span class="o">=</span> <span class="s1">&#39;Arial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.0, 4.0)
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_23_1.png" src="_images/F22-587-L03_23_1.png" />
+<img alt="_images/F22-587-L03_24_0.png" src="_images/F22-587-L03_24_0.png" />
 </div>
 </div>
 <p>Now that our function x(t) is defined, we can easily use it to evaluate x at t = 4; we find that it is equal to 0.183</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4, the value of x is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#formatted string; evaluates code in {}</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1831563888873418
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4, the value of x is 0.18316
 </pre></div>
 </div>
 </div>
@@ -871,8 +934,11 @@ title="Print to PDF"
 \[m_i = \frac{(x_{i+1} - x_i)}{(t_{i+1} - t_i)}\]</div>
 <p>In other words, if we know the slope, we can make a small step in the independent variable (<span class="math notranslate nohighlight">\(\Delta t = t_{i+1} - t_i\)</span>) and estimate where the dependent variable ends up after we make the step:</p>
 <div class="math notranslate nohighlight">
+\[x_{i+1} = x_i + \frac{dx}{dt}\Delta t\]</div>
+<p>or:</p>
+<div class="math notranslate nohighlight">
 \[x_{i+1} = x_i + m_i\Delta t\]</div>
-<p>In this specific example, we know that <span class="math notranslate nohighlight">\(m = -x\)</span>, so:</p>
+<p>In this specific example, we know that <span class="math notranslate nohighlight">\(\frac{dx}{dt} = m = -x\)</span>, so:</p>
 <div class="math notranslate nohighlight">
 \[x_{i+1} = x_i - x_i\Delta t\]</div>
 <p>For consistency with the Runge-Kutta notation I use below, I’m going to call that time step “h”, giving:</p>
@@ -885,21 +951,35 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">tmax</span>   <span class="o">=</span> <span class="mi">4</span>
 <span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
-<span class="n">t</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">]</span> <span class="c1">#I&#39;m doing this as a list to store all values of time.</span>
-<span class="n">x</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">10.00</span><span class="p">]</span> <span class="c1">#Likewise, I want to store all values of x for plotting.</span>
+<span class="c1"># print(h)</span>
+<span class="c1"># t  = 0</span>
+<span class="c1"># x  = 10</span>
+<span class="c1"># xnew = x - h*x</span>
+<span class="c1"># tnew = t + h</span>
+<span class="c1"># print(t, x)</span>
+<span class="c1"># print(tnew, xnew)</span>
+
+<span class="n">t</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.00</span><span class="p">])</span> <span class="c1">#Initialize time series at zero</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.00</span><span class="p">])</span> <span class="c1">#Initialize x series at time = 0</span>
 
 <span class="c1">#We&#39;ll append updated values to t and x on each pass through the loop</span>
-<span class="c1">#I&#39;m using lists because they are easy to append in place</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">tnew</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xnew</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tnew</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the Euler method predits that x = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
- 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -908,10 +988,7 @@ title="Print to PDF"
  the Euler method predits that x = 0.0032, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1d820690b50&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_27_2.png" src="_images/F22-587-L03_27_2.png" />
+<img alt="_images/F22-587-L03_28_1.png" src="_images/F22-587-L03_28_1.png" />
 </div>
 </div>
 </section>
@@ -920,36 +997,37 @@ title="Print to PDF"
 <p>You can see that Euler does a pretty bad job here; that is because we are making large steps and assuming that the derivative value doesn’t change over the span of that step, which clearly isn’t true when you consider that m = -x:  as x changes, the slope has to change.  So this is a really rough approximation, and we wont’ see good agreement unless we take a lot of steps (see below).  Feel free to progressively adjust the step size to get a feel for how many steps (and how small each step needs to be) to get even reasonable accuracy with an Euler method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">700</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">tmax</span>   <span class="o">=</span> <span class="mi">4</span>
 <span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
 <span class="n">t</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">]</span> <span class="c1">#I&#39;m doing this as a list to store all values of time.</span>
 <span class="n">x</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">10.00</span><span class="p">]</span> <span class="c1">#Likewise, I want to store all values of x for plotting.</span>
 
 <span class="c1">#We&#39;ll append updated values to t and x on each pass through the loop</span>
-<span class="c1">#I&#39;m using lists because they are easy to append in place</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">tnew</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xnew</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tnew</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the Euler method predits that x = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
  
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4 with 700 steps and a step size of 0.00571429:
- the Euler method predits that x = 0.18107, and the true value is 0.18316
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4 with 20 steps and a step size of 0.2:
+ the Euler method predits that x = 0.11529, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1d8207291c0&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_29_2.png" src="_images/F22-587-L03_29_2.png" />
+<img alt="_images/F22-587-L03_30_1.png" src="_images/F22-587-L03_30_1.png" />
 </div>
 </div>
 </section>
@@ -965,31 +1043,38 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">tmax</span>   <span class="o">=</span> <span class="mi">4</span>
 <span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
-<span class="n">xRK</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">10.0</span><span class="p">]</span> <span class="c1">#RK values</span>
-<span class="n">tRK</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>  <span class="c1">#RK values</span>
-<span class="n">t</span>      <span class="o">=</span> <span class="p">[</span><span class="mf">0.00</span><span class="p">]</span> <span class="c1">#Euler values</span>
-<span class="n">x</span>      <span class="o">=</span> <span class="p">[</span><span class="mf">10.00</span><span class="p">]</span> <span class="c1">#Euler values</span>
+<span class="n">xRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">])</span> <span class="c1">#RK values</span>
+<span class="n">tRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>  <span class="c1">#RK values</span>
+<span class="n">t</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.00</span><span class="p">])</span> <span class="c1">#Euler values</span>
+<span class="n">x</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.00</span><span class="p">])</span> <span class="c1">#Euler values</span>
 
 <span class="c1">#Euler method</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">t</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+    <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">tnew</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xnew</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">tnew</span><span class="p">)</span>
 
 <span class="c1">#RK Method</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
-    <span class="n">dxdt</span>  <span class="o">=</span> <span class="o">-</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">#compute derivative, dx/dt @ x[i], t[i]</span>
-    <span class="n">k1</span>    <span class="o">=</span>  <span class="n">dxdt</span>    <span class="c1">#RK parameter &quot;k1[i]&quot; is equal to derivative &quot;dxdt[i] </span>
-    <span class="n">k2</span>    <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k2[i]&quot; is a more complex function of both x and dxdt</span>
-    <span class="n">k3</span>    <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k3[i]&quot; is a more complex function of both x and dxdt</span>
-    <span class="n">k4</span>    <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">);</span>  <span class="c1">#RK parameter &quot;k4[i]&quot; is a more complex function of both x and dxdt</span>
-    <span class="n">xRK</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">))</span> <span class="c1">#RK parameters k1 to k4 are used to predict change in x over time step h.  This equation gives the value of x[i+1].</span>
-    <span class="n">tRK</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="c1">#This steps the time forward to t[i+1].</span>
+    <span class="n">dxdt</span>   <span class="o">=</span> <span class="o">-</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">#compute derivative, dx/dt @ x[i], t[i]</span>
+    <span class="n">k1</span>     <span class="o">=</span>  <span class="n">dxdt</span>    <span class="c1">#RK parameter &quot;k1[i]&quot; is equal to derivative &quot;dxdt[i] </span>
+    <span class="n">k2</span>     <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k2[i]&quot; is a more complex function of both x and dxdt</span>
+    <span class="n">k3</span>     <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k3[i]&quot; is a more complex function of both x and dxdt</span>
+    <span class="n">k4</span>     <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">);</span>  <span class="c1">#RK parameter &quot;k4[i]&quot; is a more complex function of both x and dxdt</span>
+    <span class="n">xRKnew</span> <span class="o">=</span> <span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span>
+    <span class="n">tRKnew</span> <span class="o">=</span> <span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+    <span class="n">xRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xRK</span><span class="p">,</span> <span class="n">xRKnew</span><span class="p">)</span> <span class="c1">#RK parameters k1 to k4 are used to predict change in x over time step h.  This equation gives the value of x[i+1].</span>
+    <span class="n">tRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">tRKnew</span><span class="p">)</span> <span class="c1">#This steps the time forward to t[i+1].</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the RK method predits that x = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="c1">#, clip_on = False)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span><span class="c1">#, clip_on = False)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -998,10 +1083,7 @@ title="Print to PDF"
  the RK method predits that x = 0.18811, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1d82076eca0&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_31_2.png" src="_images/F22-587-L03_31_2.png" />
+<img alt="_images/F22-587-L03_32_1.png" src="_images/F22-587-L03_32_1.png" />
 </div>
 </div>
 </section>
@@ -1016,24 +1098,24 @@ title="Print to PDF"
     <span class="k">return</span> <span class="o">-</span><span class="n">x</span> <span class="c1">#this is just calculating my derivative and returning it.</span>
 
 <span class="n">sol</span> <span class="o">=</span> <span class="n">ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 w:</span><span class="se">\n</span><span class="s1"> default scipy.integrate.solve_ivp predits that x = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Scipy&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4:</span><span class="se">\n</span><span class="s1"> default scipy.integrate.solve_ivp predits that x = </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">xtrue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">clip_on</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">clip_on</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Scipy&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">clip_on</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">xtrue</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4 w:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4:
  default scipy.integrate.solve_ivp predits that x = 0.18355, and the true value is 0.18316
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1d821885a60&gt;
-</pre></div>
-</div>
-<img alt="_images/F22-587-L03_33_2.png" src="_images/F22-587-L03_33_2.png" />
+<img alt="_images/F22-587-L03_34_1.png" src="_images/F22-587-L03_34_1.png" />
 </div>
 </div>
 </section>
@@ -1072,13 +1154,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 02</p>
+            <p class="prev-next-title">Lecture 02: Extent and Conversion</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Recitations.html" title="next page">
+    <a class='right-next' id="next-link" href="F22-587-L04.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Recitations</p>
+        <p class="prev-next-title">Lecture 04</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

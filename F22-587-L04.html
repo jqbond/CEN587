@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lecture 05" href="F22-587-L05.html" />
-    <link rel="prev" title="Lecture 03" href="F22-587-L03.html" />
+    <link rel="prev" title="Lecture 03: Solving problems with numerical methods" href="F22-587-L03.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -128,17 +128,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -497,9 +497,9 @@ title="Print to PDF"
 <p>When we are designing chemical reactors, we have to consider two key questions about the reactions occuring in them: <strong>how far</strong> does the reaction go and <strong>how fast</strong> does the reaction get there.</p>
 <p>The first question is important from the perspective of raw material cost and process complexity. All chemical reactions have a maximum extent that they can reach (a maximum fractional conversion). This dictates how much reactant we convert per pass in a reactor, and it at least partially determines how much unconverted species we will have to either lose or recycle, both of which increase expenses. It is important to remember that the maximum conversion that a reaction can attain is not always 1. If a reaction is <em><strong>thermodynamically unfavorable</strong></em>, it may only have a maximum conversion of a few percent.</p>
 <p>The second question (how fast?) is important because it affects the size of chemical reactors and/or how long we need to allow for the reaction to occur.  In general, the slower the process, the more expensive it will be.</p>
-<p>We answer the first question (<strong>how far</strong>) by considering the thermodynamics of a reaction.  Specifically, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when <em><strong>reactants are converted into products</strong></em>.  We answer the second question (<strong>how fast</strong>) by considering the kinetics of the reaction. Specificaly, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when <em><strong>reactans are converted into transition states</strong></em>.  Consider the energy diagram for a generic, unfavorable reaction:</p>
-<p><img alt="EnergyDiagram-4.svg" src="attachment:EnergyDiagram-4.svg" /></p>
-<p>Considering the energy diagram above, the Gibbs free energy of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>) addresses the question of how far a reaction will go at a given temperature, pressure, and starting composition.  The Gibbs free energy of activation (<span class="math notranslate nohighlight">\(\Delta G^{\ddagger}\)</span> addresses the question of how fast a reaction will occur at a given temperature, pressure, and composition.  Note that there are activation barriers for both the forward reaction (<span class="math notranslate nohighlight">\(\Delta G_f^{\ddagger}\)</span>) and the reverse reaction (<span class="math notranslate nohighlight">\(\Delta G_r^{\ddagger}\)</span>).  The difference between these two barriers must equal the energy change of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>)</p>
+<p>We answer the first question (<strong>how far</strong>) by considering the thermodynamics of a reaction.  Specifically, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when <em><strong>reactants are converted into products</strong></em>.  We answer the second question (<strong>how fast</strong>) by considering the kinetics of the reaction. Specificaly, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when <em><strong>reactants are converted into transition states</strong></em>.  Consider the energy diagram for a generic, favorable reaction <span class="math notranslate nohighlight">\(R \leftrightarrow P\)</span>:</p>
+<p><img alt="EnergyDiagram.svg" src="attachment:EnergyDiagram.svg" /></p>
+<p>In the energy diagram above, the Gibbs free energy of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>) addresses the question of how far a reaction will go at a given temperature, pressure, and starting composition. It quantifies the change in Gibbs free energy when reactants are converted into products. The Gibbs free energy of activation (<span class="math notranslate nohighlight">\(\Delta G^{\ddagger}\)</span>) addresses the question of how fast a reaction will occur at a given temperature, pressure, and composition.  Note that there are activation barriers for both the forward reaction (<span class="math notranslate nohighlight">\(\Delta G_f^{\ddagger}\)</span>) and the reverse reaction (<span class="math notranslate nohighlight">\(\Delta G_r^{\ddagger}\)</span>). The Gibbs free energy of activation for the forward reaction (<span class="math notranslate nohighlight">\(\Delta G_f^{\ddagger}\)</span>) describes the change in Gibbs free energy that occurs when reactants are converted into the transition state, and the Gibbs free energy of activation for the reverse reaction (<span class="math notranslate nohighlight">\(\Delta G_r^{\ddagger}\)</span>) quantifies the change in Gibbs free energy that occurs when products are converted into the transition state.The difference between these two barriers must equal the energy change of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>)</p>
 <p>We will address kinetics in Chapter 5; we’ll talk about Thermodynamics now.</p>
 </section>
 <section id="a-definition-of-chemical-equilibrium">
@@ -515,8 +515,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[K = \exp \left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
 <p>Let’s consider whether those two equilibrium constants are actually the same thing…which we seem to have naively concluded above. Note that concentration has units of quantity per volume; for example: moles per liter (Molarity). Because of this, we can see that our first definition of K has to have units of inverse concentration, for example (L mol<span class="math notranslate nohighlight">\(^{-1})\)</span>.  In contrast, if we inspect the second equation, we see that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f2bd632a-5940-497c-8984-f9a6cbeab952">
-<span class="eqno">(24)<a class="headerlink" href="#equation-f2bd632a-5940-497c-8984-f9a6cbeab952" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b4b7f66f-fcb9-455b-9fb6-e94f3abfb877">
+<span class="eqno">(26)<a class="headerlink" href="#equation-b4b7f66f-fcb9-455b-9fb6-e94f3abfb877" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Delta G^\circ \ &amp;[=] \ J \ \textrm{mol}^{-1} \\
     R              \ &amp;[=] \ J \ \textrm{mol}^{-1} \ K^{-1} \\
     T              \ &amp;[=] \ K \\
@@ -531,56 +531,60 @@ title="Print to PDF"
 \[\nu_A A \ + \ \nu_B B \leftrightharpoons \nu_C C \ + \ \nu_D D\]</div>
 <p>The Gibbs free energy of the reacting system is defined as a function of Temperature, Pressure, and number of moles of each species:</p>
 <div class="math notranslate nohighlight">
-\[G = f(T, P, n_j)\]</div>
-<p>We are interested in determining the minimum in Gibbs energy for our system.  Finding a minimum is usually accomplished by taking a derivative.  Gibbs free energy is a function of the canonical variables <span class="math notranslate nohighlight">\((T, P, n_j).\)</span> So if we were to take the total derivative of Gibbs free energy, it looks something like this:</p>
+\[G = f(T, P, N_j)\]</div>
+<p>We are interested in determining the minimum in Gibbs energy for our system.  Finding a minimum is usually accomplished by taking a derivative.  Gibbs free energy is a function of the canonical variables <span class="math notranslate nohighlight">\((T, P, N_j).\)</span> So if we were to take the total derivative of Gibbs free energy, it looks something like this:</p>
 <div class="math notranslate nohighlight">
-\[dG = \frac{\partial G}{\partial T}dT + \frac{\partial G}{\partial P}dP + \sum_{j = 1}{N_S}\frac{\partial G}{\partial n_j}dn_j\]</div>
+\[dG = \frac{\partial G}{\partial T}dT + \frac{\partial G}{\partial P}dP + \sum_{j = 1}^{N_S}\frac{\partial G}{\partial N_j}dn_j\]</div>
 <p>The three partial derivatives have specific Thermodynamic variables associated with them:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f30293f-ed5b-45b9-b100-d6939c44f7f8">
-<span class="eqno">(25)<a class="headerlink" href="#equation-8f30293f-ed5b-45b9-b100-d6939c44f7f8" title="Permalink to this equation">#</a></span>\[\begin{align}
-    \frac{\partial G}{\partial T}dT &amp;= -S \\
+<div class="amsmath math notranslate nohighlight" id="equation-dff22cfc-93d4-403f-aff2-b041211944bf">
+<span class="eqno">(27)<a class="headerlink" href="#equation-dff22cfc-93d4-403f-aff2-b041211944bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{\partial G}{\partial T} &amp;= -S \\
     \\
-    \frac{\partial G}{\partial P}dT &amp;= V \\
+    \frac{\partial G}{\partial P} &amp;= V \\
     \\
-    \frac{\partial G}{\partial n_j}dT &amp;= \mu_j \\
+    \frac{\partial G}{\partial N_j} &amp;= \mu_j \\
 \end{align}\]</div>
 <p>With those definitions, we have:</p>
 <div class="math notranslate nohighlight">
-\[dG = -S dT + V dP + \sum_{j = 1}^{N_S} \mu_j dn_j\]</div>
+\[dG = -S dT + V dP + \sum_{j = 1}^{N_S} \mu_j dN_j\]</div>
 <p>Now we’ll make some simplifications and substitutions.  First, we remember that we consider chemical equilbrium at a constant temperature and pressure.  For that reason, if we are at chemical equilibrium, T and P are constant, and so dT and dP are both zero.  This simplifies the relevant derivative to:</p>
 <div class="math notranslate nohighlight">
-\[dG = \sum_{j = 1}^{N_S} \mu_j dn_j\]</div>
-<p>Next, we recall from Lecture 02 that, for a single reaction, we can define the number of moles of any species (<span class="math notranslate nohighlight">\(n_j\)</span>) in the reactor as a function of the extent of reaction.  Specifically, we define the extent of reaction as:</p>
+\[dG = \sum_{j = 1}^{N_S} \mu_j dN_j\]</div>
+<p>Next, we recall from Lecture 02 that, for a single reaction, we can define the number of moles of any species (<span class="math notranslate nohighlight">\(N_j\)</span>) in the reactor as a function of the extent of reaction.  Specifically, we define the extent of reaction as:</p>
 <div class="math notranslate nohighlight">
-\[\xi = \frac{n_{j} - n_{j,0}}{\nu_j}\]</div>
+\[\xi = \frac{N_{j} - N_{j,0}}{\nu_j}\]</div>
 <p>We can rearrange that definition to find:</p>
 <div class="math notranslate nohighlight">
-\[n_j = n_{j,0} + \nu_j \xi\]</div>
+\[N_j = N_{j,0} + \nu_j \xi\]</div>
 <p>We substitute the number of moles of <span class="math notranslate nohighlight">\(j\)</span> into our derivative:</p>
 <div class="math notranslate nohighlight">
-\[dG = \sum_{j = 1}^{N_S} \mu_j d(n_{j,0} + \nu_j \xi)\]</div>
+\[dG = \sum_{j = 1}^{N_S} \mu_j d(N_{j,0} + \nu_j \xi)\]</div>
 <p>Before we consider the sum, let’s examine that derivative and simplify some:</p>
 <div class="math notranslate nohighlight">
-\[d(n_{j,0} + \nu_j \xi) = dn_{j,0} + d(\nu_j \xi)\]</div>
-<p>The first term on the right hand size is zero; <span class="math notranslate nohighlight">\(n_{j,0}\)</span> is constant as a function of the extent of reaction, so its derivative is zero.  Stoichiometric coefficients are also constant, so the derivative becomes:</p>
+\[d(N_{j,0} + \nu_j \xi) = dN_{j,0} + d(\nu_j \xi)\]</div>
+<p>The first term on the right hand size is zero because <span class="math notranslate nohighlight">\(N_{j,0}\)</span> is constant as a function of the extent of reaction, so its derivative is zero.  Stoichiometric coefficients are also constant, so the derivative becomes:</p>
 <div class="math notranslate nohighlight">
-\[d(n_{j,0} + \nu_j \xi) = \nu_j d\xi\]</div>
+\[d(N_{j,0} + \nu_j \xi) = \nu_j d\xi\]</div>
 <p>We can substitute this into our expression for <span class="math notranslate nohighlight">\(dG\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[dG = \sum_{j = 1}^{N_S} \nu_j\mu_j d \xi\]</div>
 <p>Which rearranges to give:</p>
 <div class="math notranslate nohighlight">
 \[\frac{dG}{d\xi} = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
-<p>Now we have a derivative of Gibbs free energy with respect to reaction extent; it is defined in terms of species chemical potentials.  We know that, at chemical equilibrium, Gibbs is at a minimum with respect to reaction extent, so that derivative above has to be equal to zero at chemical equilibrium.  Then:</p>
+<p>To be a bit more strict, we’ll use the following notation, which indicates that we are specifically taking the derivative of Gibbs free energy with respect to reaction extent, <span class="math notranslate nohighlight">\(\xi\)</span>, at a constant Temperature and Pressure, which is in line with our usual analysis of a system at chemical equilibrium:</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{dG}{d\xi}\right)_{T,P} = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
+<p>Now we have a derivative of Gibbs free energy with respect to reaction extent at constant temperature and pressure on the left hand side. It is defined in terms of species chemical potentials on the right hand side.  We know that, at chemical equilibrium, Gibbs free energy is at a minimum with respect to reaction extent, so that derivative above has to be equal to zero at chemical equilibrium.  Then:</p>
 <div class="math notranslate nohighlight">
 \[0 = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
-<p>The chemical potential of species j, <span class="math notranslate nohighlight">\(\mu_j\)</span>, is defined in terms of its reference state chemical potential and a thermodynamic activity:</p>
+<p>The chemical potential of species j, <span class="math notranslate nohighlight">\(\mu_j\)</span>, is defined in terms of its reference state chemical potential and a thermodynamic activity, <span class="math notranslate nohighlight">\(a_j\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\mu_j = \mu_j^\circ + RT\ln{\left(a_j\right)}\]</div>
 <p>We define thermodynamic activities in terms of fugacities as below:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{f_j}{f_j^\circ}\]</div>
-<p>In that equation, <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and Composition of the system <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span>, and <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its <em>Reference State</em>, which we haven’t really defined yet. Probably the most important thing to remember about this definition is that activity is a <em>relative</em> quantity.  It depends on the reference state. For the types of problems we’ll address, the reference state for species <span class="math notranslate nohighlight">\(j\)</span> should always be the same in the definition of the reference state chemical potential, <span class="math notranslate nohighlight">\(\mu_j^\circ\)</span>, as it is in the reference state fugacity <span class="math notranslate nohighlight">\(f_j^\circ\)</span>. It actually isn’t helpful to switch to working with fugacities just yet, so we’ll stick with activities for now.  Let’s substitute our definition for chemical potential into the derivative of Gibbs, <span class="math notranslate nohighlight">\(\frac{dG}{d\xi}\)</span>:</p>
+<p>In that equation, <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and Composition of the system <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span>, and <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its <em>Reference State</em>, which we haven’t really defined yet. Probably the most important thing to remember about this definition is that activity is a <em>relative</em> quantity.  It depends on both the actual state of the system and the reference state of the system. For the types of problems we’ll address, the reference state for species <span class="math notranslate nohighlight">\(j\)</span> should always be the same in the definition of the reference state chemical potential, <span class="math notranslate nohighlight">\(\mu_j^\circ\)</span>, as it is in the reference state fugacity <span class="math notranslate nohighlight">\(f_j^\circ\)</span>.</p>
+<p>It actually isn’t helpful to switch to working with fugacities just yet, so we’ll stick with activities for now.  Let’s substitute our definition for chemical potential into the derivative of Gibbs, <span class="math notranslate nohighlight">\(\frac{dG}{d\xi}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\sum_{j = 1}^{N_S} \nu_j\mu_j = \sum_{j = 1}^{N_S} \nu_j \mu_j^\circ + \sum_{j = 1}^{N_S}\nu_jRT\ln{\left(a_j\right)}\]</div>
 <p>We may not recognize it in this form, but “Partial Molar Gibbs Free Energy” (<span class="math notranslate nohighlight">\(G_j\)</span>) is another name for chemical potential.  With that in mind, we simplify the first term in the summation, which represents the standard state free energy of reaction:</p>
@@ -636,7 +640,7 @@ title="Print to PDF"
 \[K_C = \prod_{j = 1}^{N_S}C_j^{\nu_j}\]</div>
 <div class="math notranslate nohighlight">
 \[K_P = \prod_{j = 1}^{N_S}p_j^{\nu_j}\]</div>
-<p>We’ll always use a subscript to distinguish these “Equilibrium ratios” from a dimensionless thermodynamic equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>.  Note the neither concentrations nor pressures are dimensionless, so both <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_C\)</span> can have units in cases where there is a change in number of moles with reaction, e.g., <span class="math notranslate nohighlight">\(A \leftrightharpoons 2B\)</span></p>
+<p>We’ll always use a subscript to distinguish these “Equilibrium ratios” from a dimensionless thermodynamic equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>.  Note that neither concentrations nor pressures are dimensionless, so both <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_C\)</span> can have units in cases where there is a change in number of moles with reaction, e.g., <span class="math notranslate nohighlight">\(A \leftrightharpoons 2B\)</span></p>
 </section>
 </section>
 
@@ -671,7 +675,7 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lecture 03</p>
+            <p class="prev-next-title">Lecture 03: Solving problems with numerical methods</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="F22-587-L05.html" title="next page">

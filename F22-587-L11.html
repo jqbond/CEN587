@@ -244,18 +244,38 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="F22-587-R01-Solution.html">
+    <a class="reference internal" href="F22-587-R01.html">
      Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="F22-587-R02-Solution.html">
+    <a class="reference internal" href="F22-587-R02.html">
      Recitation 02
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="F22-587-R03-Solution.html">
+    <a class="reference internal" href="F22-587-R03.html">
      Recitation 03
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R04.html">
+     Recitation 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R05.html">
+     Recitation 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R06.html">
+     Recitation 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R07.html">
+     Recitation 07
     </a>
    </li>
   </ul>
@@ -756,8 +776,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>I can relate the rate of reaction to the production rate of a species using stoichiometric coefficients.  This is similar to what we do with extents of reaction in completing a mole table for equilibrium problems.  For example, if I wanted to define the number of moles of A and B as functions of reaction extent, I would write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-caf3267f-6931-4fe0-8082-756a4f8543bd">
-<span class="eqno">(53)<a class="headerlink" href="#equation-caf3267f-6931-4fe0-8082-756a4f8543bd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-206e98b1-7c9d-4e3d-8ef0-f546a3cf3f86">
+<span class="eqno">(53)<a class="headerlink" href="#equation-206e98b1-7c9d-4e3d-8ef0-f546a3cf3f86" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A = N_{A0} + \nu_A \varepsilon = N_{A0} - 2 \varepsilon \\
     N_B = N_{B0} + \nu_B \varepsilon = N_{B0} + 3 \varepsilon \\
 \end{align}\]</div>
@@ -792,8 +812,8 @@ title="Print to PDF"
 <h3>Multiple Reactions<a class="headerlink" href="#multiple-reactions" title="Permalink to this headline">#</a></h3>
 <p>There is no restriction that a species is only participating in one reaction in a given reactor.  In fact, the more realistic scenario is that every species is actually participating in multiple reactions.  This means that it is being consumed or produced by multiple chemical reactions, and so when we define its production rate, <span class="math notranslate nohighlight">\(R_j\)</span>, we actually need to account for the rate of consumption from many chemical reactions.  We’ll do this with an intuitive example and then present a general equation.</p>
 <p>Consider partial and complete combustion pathways that occur during methane oxidation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f70dc26-f9d7-4164-8f3c-fbb66b9cbba2">
-<span class="eqno">(54)<a class="headerlink" href="#equation-7f70dc26-f9d7-4164-8f3c-fbb66b9cbba2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d98df297-fe58-4fce-9923-88a862fd74be">
+<span class="eqno">(54)<a class="headerlink" href="#equation-d98df297-fe58-4fce-9923-88a862fd74be" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad CH_4 \ (g) + \frac{3}{2} O_2 \ (g) &amp;\longrightarrow CO \ (g) + 2H_2O \ (g) \\
     \\
     (2) \qquad CH_4 \ (g) + 2 O_2 \ (g) &amp;\longrightarrow CO_2 \ (g) + 2H_2O \ (g) \\
@@ -805,8 +825,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_{CH_4} = -1r_1 - 1r_2\]</div>
 <p>And we can do the same thing for every species participating in these two reactions.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6b00dbbe-3a1b-444a-aa2f-74933393fca5">
-<span class="eqno">(55)<a class="headerlink" href="#equation-6b00dbbe-3a1b-444a-aa2f-74933393fca5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-55099ef4-415d-41b0-b7a6-f7e683e1f70f">
+<span class="eqno">(55)<a class="headerlink" href="#equation-55099ef4-415d-41b0-b7a6-f7e683e1f70f" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_{O_2} &amp;= -\frac{3}{2}r_1 - 2r_2\\
     R_{CO} &amp;= +1r_1 + 0r_2\\
     R_{CO_2} &amp;= +0r_1 + 1r_2\\
@@ -832,14 +852,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>Based on our discussion above, the intensive production rates for A and B would be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce41a443-a2d7-4f83-b53e-00ad2170be82">
-<span class="eqno">(56)<a class="headerlink" href="#equation-ce41a443-a2d7-4f83-b53e-00ad2170be82" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-28fae494-804c-472b-a7b1-a42096b5fb45">
+<span class="eqno">(56)<a class="headerlink" href="#equation-28fae494-804c-472b-a7b1-a42096b5fb45" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
     R_B &amp;= 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
 \end{align}\]</div>
 <p>And to get the extensive production rates for A and B, we’d multiply those intensive rates by the size of the system, which is 1L here:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fd58aee-ae97-4dc3-bf66-5b0356af25a8">
-<span class="eqno">(57)<a class="headerlink" href="#equation-2fd58aee-ae97-4dc3-bf66-5b0356af25a8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ca2e200f-2d00-4513-b402-1896a966d867">
+<span class="eqno">(57)<a class="headerlink" href="#equation-ca2e200f-2d00-4513-b402-1896a966d867" title="Permalink to this equation">#</a></span>\[\begin{align}
     G_A &amp;= -1 \ \frac{\text{mol}}{\text{min}}\\
     G_B &amp;= 1 \ \frac{\text{mol}}{\text{min}}\\
 \end{align}\]</div>
@@ -850,14 +870,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>Similarly, intensive production rates are identical to the 1L reactor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ee363d1-ce3b-491b-8f50-e863a9eba911">
-<span class="eqno">(58)<a class="headerlink" href="#equation-1ee363d1-ce3b-491b-8f50-e863a9eba911" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-76762d1c-f522-48e3-88dc-08ab27ae6810">
+<span class="eqno">(58)<a class="headerlink" href="#equation-76762d1c-f522-48e3-88dc-08ab27ae6810" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
     R_B &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
 \end{align}\]</div>
 <p>It is only when we get to calculating extensive rates–which we do by multiplying intensive rates by the size of the system–that we see a difference:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-48e44c86-5edf-44bf-a479-98e09830d05f">
-<span class="eqno">(59)<a class="headerlink" href="#equation-48e44c86-5edf-44bf-a479-98e09830d05f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cce37ec5-28b1-43cf-a2e6-dba777774a43">
+<span class="eqno">(59)<a class="headerlink" href="#equation-cce37ec5-28b1-43cf-a2e6-dba777774a43" title="Permalink to this equation">#</a></span>\[\begin{align}
     G_A &amp;= -100 \ \frac{\text{mol}}{\text{min}}\\
     G_B &amp;= 100 \ \frac{\text{mol}}{\text{min}}\\
 \end{align}\]</div>

@@ -169,6 +169,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -183,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -545,20 +605,20 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[0 = F_{A,f} - F_A - kC_AC_BV\]</div>
 <p>We have 3 unknowns in that equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>. We are given Volume in the problem statement (1.24L).  If we want to solve this by hand, we’ll need to express <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span> in terms of a single unknown.  I’ll choose to work with fractional conversion of A here.  Completing a mole table, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-553514ef-cbeb-4d14-a3f4-ef1add07627a">
-<span class="eqno">()<a class="headerlink" href="#equation-553514ef-cbeb-4d14-a3f4-ef1add07627a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ceb6dec3-4496-45c8-a830-27c709366661">
+<span class="eqno">()<a class="headerlink" href="#equation-ceb6dec3-4496-45c8-a830-27c709366661" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f}(1 - X_A) \\
     F_B &amp;= F_{B,f} - F_{A,f}X_A \\
 \end{align}\]</div>
 <p>But:  we see in the problem statement, that for this problem, <span class="math notranslate nohighlight">\(F_{A,f} = F_{B,F}\)</span>.  So, in this special case:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2f41c3de-6246-4c90-99c9-c75eeb79994c">
-<span class="eqno">()<a class="headerlink" href="#equation-2f41c3de-6246-4c90-99c9-c75eeb79994c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bcb5bb25-7aef-49f1-b2ef-90dd7c3e6b27">
+<span class="eqno">()<a class="headerlink" href="#equation-bcb5bb25-7aef-49f1-b2ef-90dd7c3e6b27" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f}(1 - X_A) \\
     F_B &amp;= F_{A,f}(1 - X_A) \\
 \end{align}\]</div>
 <p>Then we define concentrations as usual; for a constant density flow reactor, <span class="math notranslate nohighlight">\(Q = Q_f\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b56546e9-7a3b-4d80-8039-38f9306d38a1">
-<span class="eqno">()<a class="headerlink" href="#equation-b56546e9-7a3b-4d80-8039-38f9306d38a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88ebe0a1-183d-41ea-a162-6c719b77e0f0">
+<span class="eqno">()<a class="headerlink" href="#equation-88ebe0a1-183d-41ea-a162-6c719b77e0f0" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A &amp;= F_A/Q_f \\
     C_B &amp;= F_A/Q_f \\
 \end{align}\]</div>

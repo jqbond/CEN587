@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 15" href="F22-587-L15.html" />
+    <link rel="prev" title="Lecture 13" href="F22-587-L13.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,17 +115,17 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Lectures.html">
    Lectures
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
      Lecture 01: Introduction and Stoichiometry
@@ -169,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -183,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -648,8 +710,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A + B \rightarrow C\]</div>
 <p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff7d6d82-1083-49fb-92e3-8724860e809f">
-<span class="eqno">()<a class="headerlink" href="#equation-ff7d6d82-1083-49fb-92e3-8724860e809f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-23a155ae-3e95-498b-b786-ac78407ab458">
+<span class="eqno">(61)<a class="headerlink" href="#equation-23a155ae-3e95-498b-b786-ac78407ab458" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 25.3 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
     Q_f &amp;= 10 \ \textrm{L} \ \textrm{h}^{-1}\\
     F_{Af} &amp;= 10 \textrm{mol} \ \textrm{h}^{-1}\\
@@ -679,8 +741,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\frac{dF_A}{dV} = -\frac{k}{Q_f^2}F_AF_B\]</div>
 <p>We write a mole table for all species as functions of fractional conversion of A. This gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-abe72d32-7f85-41ea-b03c-ea4f4fe8a284">
-<span class="eqno">()<a class="headerlink" href="#equation-abe72d32-7f85-41ea-b03c-ea4f4fe8a284" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bf554b5a-aaad-43bd-92ad-a8e0918752c4">
+<span class="eqno">(62)<a class="headerlink" href="#equation-bf554b5a-aaad-43bd-92ad-a8e0918752c4" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A = F_{A,f} - F_{A,f}X_A \\
     F_B = F_{B,f} - F_{A,f}X_A \\
     F_C = F_{C,f} + F_{A,f}X_A \\
@@ -770,6 +832,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L13.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 13</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L15.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 15</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

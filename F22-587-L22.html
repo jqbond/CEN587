@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Recitations" href="Recitations.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="F22-587-L21.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,17 +115,17 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Lectures.html">
    Lectures
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
      Lecture 01: Introduction and Stoichiometry
@@ -169,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -183,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -540,8 +602,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\frac{dF_B}{dV} = R_B\]</div>
 <p>We generally know that <span class="math notranslate nohighlight">\(R_B\)</span> is going to be a complex function of concentrations of all of the species present in this system.  That means we can’t solve the above balance on Benzene without also solving balances on Diphenyl, Hydrogen, and Triphenyl <em>at the same time</em>, i.e., we have to solve the coupled system of differential equations below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d39253b-7781-43ac-ac84-9c019a09a51b">
-<span class="eqno">()<a class="headerlink" href="#equation-1d39253b-7781-43ac-ac84-9c019a09a51b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f12f59bd-a6b4-4098-82c8-69e88895450b">
+<span class="eqno">(107)<a class="headerlink" href="#equation-f12f59bd-a6b4-4098-82c8-69e88895450b" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_B}{dV} &amp;= R_B \\
     \frac{dF_D}{dV} &amp;= R_D \\
     \frac{dF_H}{dV} &amp;= R_H \\
@@ -553,16 +615,16 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a22a0d5-a8c9-4f97-a284-198fbe5ad080">
-<span class="eqno">()<a class="headerlink" href="#equation-7a22a0d5-a8c9-4f97-a284-198fbe5ad080" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb3d5a08-631b-4a92-90b2-8da055acb765">
+<span class="eqno">(108)<a class="headerlink" href="#equation-fb3d5a08-631b-4a92-90b2-8da055acb765" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f7e387d3-dd33-4f70-9b40-5b20342ce8d2">
-<span class="eqno">()<a class="headerlink" href="#equation-f7e387d3-dd33-4f70-9b40-5b20342ce8d2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d85811c4-5c26-42c9-899b-712307e4e3a3">
+<span class="eqno">(109)<a class="headerlink" href="#equation-d85811c4-5c26-42c9-899b-712307e4e3a3" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -737,8 +799,8 @@ title="Print to PDF"
 \[0 = F_{B,f} - F_B + R_BV\]</div>
 <p>I can see that the term <span class="math notranslate nohighlight">\(R_B\)</span> actually will depend on the concentrations of diphenyl, triphenyl, and hydrogen (see the PFR discussion above).  So I won’t be able to solve this equation by itself.  I’ll need to somehow determine the concentrations of all species…</p>
 <p>The easiest way to do this is to recognize that we can write a single, independent balance for each component:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10ced5d8-e6b1-4e34-baf9-da75bc3e9e27">
-<span class="eqno">()<a class="headerlink" href="#equation-10ced5d8-e6b1-4e34-baf9-da75bc3e9e27" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-36a17671-920c-4453-910a-24387b26afbd">
+<span class="eqno">(110)<a class="headerlink" href="#equation-36a17671-920c-4453-910a-24387b26afbd" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 = F_{B,f} - F_B + R_BV \\
     0 = F_{D,f} - F_D + R_DV \\
     0 = F_{H,f} - F_H + R_HV \\
@@ -746,8 +808,8 @@ title="Print to PDF"
 \end{align}\]</div>
 <p>The way I view this is that I have four equations written in terms of five unknowns (<span class="math notranslate nohighlight">\(F_B\)</span>, <span class="math notranslate nohighlight">\(F_D\)</span>, <span class="math notranslate nohighlight">\(F_H\)</span>, <span class="math notranslate nohighlight">\(F_T\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>).  I say this because although I don’t “know” the production rates for each species, <span class="math notranslate nohighlight">\(R_j\)</span>, I can express all of those production rates in terms of species flow rates.</p>
 <p>I need to do two things.  First, I need to add another equation to this system since I have an additional unknown (Volume).  I’ll do that from the conversion specification.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7adf53de-2185-4e0d-89e0-e5df63d10d4a">
-<span class="eqno">()<a class="headerlink" href="#equation-7adf53de-2185-4e0d-89e0-e5df63d10d4a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-346a87f3-2fe4-4152-83dd-5c82d35c4271">
+<span class="eqno">(111)<a class="headerlink" href="#equation-346a87f3-2fe4-4152-83dd-5c82d35c4271" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= F_{H,f} - F_H + R_HV \\
@@ -758,16 +820,16 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3954ff64-e4f8-44f0-a542-3dbcece464f6">
-<span class="eqno">()<a class="headerlink" href="#equation-3954ff64-e4f8-44f0-a542-3dbcece464f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f8a788d9-abd6-44af-80e7-31ad31714be9">
+<span class="eqno">(112)<a class="headerlink" href="#equation-f8a788d9-abd6-44af-80e7-31ad31714be9" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac8afb9f-2eca-490b-82be-02a53c4fc9bb">
-<span class="eqno">()<a class="headerlink" href="#equation-ac8afb9f-2eca-490b-82be-02a53c4fc9bb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f598d053-9793-4719-b3c1-d941616dfab7">
+<span class="eqno">(113)<a class="headerlink" href="#equation-f598d053-9793-4719-b3c1-d941616dfab7" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -877,8 +939,8 @@ title="Print to PDF"
 <p>Sometimes, when solving algebraic problems with numerical methods (like opt.root), it is very difficult for the solver to converge.  This is because a) solving algebraic equations numerically is challenging; b) solving the system gets more challenging when we write more equations; and c) we need to provide a good initial guess as to <em>what the correct solution is</em>.  Otherwise, the problem will not usually converge.</p>
 <p>It can be useful to reduce the number of equations and unknowns that we’re tying to solve.  We can do this by taking an alternate approach.  Specifically, instead of describing the system in terms of molar flowrates for all species (and volume), which gives us five unkowns, we can decide to instead express the system in terms of one extent of reaction for each reaction occuring and the system volume.  If we do this, we get to write one extent per chemical reaction, and we get to write one material balance for each reaction.</p>
 <p>So, above we wrote the following five equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-120514fa-6549-46d6-a2ad-49d1acd742c7">
-<span class="eqno">()<a class="headerlink" href="#equation-120514fa-6549-46d6-a2ad-49d1acd742c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2d1f9e1b-1b70-4ac3-b1b2-e1a341f77eec">
+<span class="eqno">(114)<a class="headerlink" href="#equation-2d1f9e1b-1b70-4ac3-b1b2-e1a341f77eec" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= F_{H,f} - F_H + R_HV \\
@@ -886,16 +948,16 @@ title="Print to PDF"
     0 &amp;= X_B - 0.5 \\
 \end{align}\]</div>
 <p>And we are able to express all of the production rates in terms of molar flowrates.  Here, we’ll express each exit flowrate in terms of extents of reaction (as we would do in a mole table):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79509b59-0872-45ce-a375-ac113daac930">
-<span class="eqno">()<a class="headerlink" href="#equation-79509b59-0872-45ce-a375-ac113daac930" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cd15eb3c-bb4a-4a38-99c7-b3fc06843397">
+<span class="eqno">(115)<a class="headerlink" href="#equation-cd15eb3c-bb4a-4a38-99c7-b3fc06843397" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_B &amp;= F_{B,f} - 2\varepsilon_1 - \varepsilon_2 \\
     F_D &amp;= F_{D,f} + \varepsilon_1 - \varepsilon_2 \\
     F_H &amp;= F_{H,f} + \varepsilon_1 + \varepsilon_2 \\
     F_T &amp;= F_{T,f} + \varepsilon_2 \\
 \end{align}\]</div>
 <p>By doing this, we reduce the system to 3 unknowns (<span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>).  Therefore, we only get to write 3 equations.  When we express the system in terms of extents, we get to write one balance per reaction instead of one balance per species.  I can arbitrarily pick two independent balance equations.  I will keep the specification that fractional conversion is 50% as my third equation.  That gives me:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb8c3e5b-cca4-4dec-9e85-b3de8bf18efa">
-<span class="eqno">()<a class="headerlink" href="#equation-eb8c3e5b-cca4-4dec-9e85-b3de8bf18efa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd8029ce-a0fe-4616-a902-7de4287eac3b">
+<span class="eqno">(116)<a class="headerlink" href="#equation-dd8029ce-a0fe-4616-a902-7de4287eac3b" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= X_B - 0.5 \\
@@ -904,16 +966,16 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a5f8d5d-bb69-4591-b346-8abd397b6a42">
-<span class="eqno">()<a class="headerlink" href="#equation-8a5f8d5d-bb69-4591-b346-8abd397b6a42" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e943f2ce-e106-4b9f-b97f-324e82763dfd">
+<span class="eqno">(117)<a class="headerlink" href="#equation-e943f2ce-e106-4b9f-b97f-324e82763dfd" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1f5087d-96f7-489b-9f0b-a169036bb15f">
-<span class="eqno">()<a class="headerlink" href="#equation-a1f5087d-96f7-489b-9f0b-a169036bb15f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a788c3af-a2fc-4898-a259-20ead382799c">
+<span class="eqno">(118)<a class="headerlink" href="#equation-a788c3af-a2fc-4898-a259-20ead382799c" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -1189,6 +1251,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L21.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">&lt;no title&gt;</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Recitations.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Recitations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

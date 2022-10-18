@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Recitation 03" href="F22-587-R03-Solution.html" />
-    <link rel="prev" title="Recitation 01" href="F22-587-R01-Solution.html" />
+    <link rel="prev" title="Recitation 01: Jupyter and Python Fundamentals" href="F22-587-R01-Solution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -171,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -185,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -644,10 +704,11 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 
 <span class="c1">#Set limits on x axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1">#Set ticks on x axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="c1">#plt.xticks(range(-50, 51, 10))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <span class="c1">#Set label on x axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
@@ -658,7 +719,7 @@ title="Print to PDF"
 <span class="c1">#Set label on y axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(x)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">16</span><span class="p">)</span>
 
-<span class="c1">#Display current figure</span>
+<span class="c1"># #Display current figure</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -675,16 +736,19 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#opt.newton needs our function name and an initial guess.</span>
+<span class="n">sol1</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#opt.newton needs our function name and an initial guess.</span>
 
 <span class="c1">#For a more complete picture of the solution, uncomment code below.</span>
-<span class="c1">#sol1, info = opt.newton(p1, 4, full_output = True)</span>
-<span class="c1">#print(&#39;&#39;, sol1, &#39;\n&#39;, info.converged, &#39;\n&#39;, p1(info.root), &#39;\n&#39;, info.flag)</span>
+<span class="n">sol1</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">sol1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">p1</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">root</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">flag</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.275631645416588
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 4.275631645416588 
+ True 
+ -1.5702994460298214e-12 
+ converged
 </pre></div>
 </div>
 </div>
@@ -694,22 +758,22 @@ title="Print to PDF"
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h2>
 <p>Find all roots for the following system of equations. Both x and y must be between -10 and 10:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a5ca5070-e650-4efc-9f84-0eeb0f4ebd99">
-<span class="eqno">(53)<a class="headerlink" href="#equation-a5ca5070-e650-4efc-9f84-0eeb0f4ebd99" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d52d149a-f33f-4388-936e-0fcb65cd3b28">
+<span class="eqno">(119)<a class="headerlink" href="#equation-d52d149a-f33f-4388-936e-0fcb65cd3b28" title="Permalink to this equation">#</a></span>\[\begin{align}
      10 &amp;= 5x^2y - y^3\\
     -(15y+x) &amp;= 2y^2 + \textrm{tanh}(0.075x)\\
 \end{align}\]</div>
 <section id="solution-to-problem-02">
 <h3>Solution to Problem 02<a class="headerlink" href="#solution-to-problem-02" title="Permalink to this headline">#</a></h3>
-<p>This is a system of nonlinear equations, and even adding a second equation, we see that things get more complicated.  We do not have a solution until we find the (x,y) pairs where both of the equations are solved.  We essentially looking for the roots of the following two functions with this problem:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5eddce4c-add5-459b-ab68-1d113c7803fb">
-<span class="eqno">(54)<a class="headerlink" href="#equation-5eddce4c-add5-459b-ab68-1d113c7803fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>This is a system of nonlinear equations, and even adding a second equation, we see that things get more complicated.  We do not have a solution until we find the (x,y) pairs where both of the equations are solved.  We are essentially looking for the roots of the following two functions with this problem:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f4107428-5ce2-45b3-8058-d73f3aa9057b">
+<span class="eqno">(120)<a class="headerlink" href="#equation-f4107428-5ce2-45b3-8058-d73f3aa9057b" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(x, y) &amp;= 5x^2y - y^3 - 10 \\
     f_2(x, y) &amp;= 2y^2 + \tanh{(0.075x)} + 15y + x\\
 \end{align}\]</div>
 <p>We have solved our problem when we find the values <span class="math notranslate nohighlight">\(\hat{x}\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> that give the following result:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bac43571-55f5-4fa1-8f9d-d89d4ed67707">
-<span class="eqno">(55)<a class="headerlink" href="#equation-bac43571-55f5-4fa1-8f9d-d89d4ed67707" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-30e8f5ef-1cae-4405-abaf-7ef329532dc1">
+<span class="eqno">(121)<a class="headerlink" href="#equation-30e8f5ef-1cae-4405-abaf-7ef329532dc1" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(\hat{x}, \hat{y}) &amp;= 0 \\
     f_2(\hat{x}, \hat{y}) &amp;= 0 \\
 \end{align}\]</div>
@@ -848,7 +912,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1b0e60ca220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x17648dc62b0&gt;
 </pre></div>
 </div>
 <img alt="_images/F22-587-R02-Solution_19_1.png" src="_images/F22-587-R02-Solution_19_1.png" />
@@ -912,8 +976,8 @@ title="Print to PDF"
 <section id="problem-3">
 <h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
 <p>Solve the following system of nonlinear equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0acfd38-57f3-4b12-8a10-af7692f4e8d9">
-<span class="eqno">(56)<a class="headerlink" href="#equation-d0acfd38-57f3-4b12-8a10-af7692f4e8d9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb919b76-0389-4438-acd9-18c7291761cc">
+<span class="eqno">(122)<a class="headerlink" href="#equation-fb919b76-0389-4438-acd9-18c7291761cc" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= x^2 - 10x - 25y + 17z^2\\
     18.3 &amp;= xz + \textrm{ln}(yz)\\
     145 - y^2 &amp;= x^2 + 5z\\
@@ -964,7 +1028,7 @@ title="Print to PDF"
     <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;current values in iteration are x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">, y = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s1">, z = </span><span class="si">{</span><span class="n">z</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1">#print(f&#39;current values in iteration are x = {x}, y = {y}, z = {z}&#39;)</span>
     <span class="n">LHS1</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">25</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mi">17</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">LHS2</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="mf">18.3</span>
     <span class="n">LHS3</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">145</span>
@@ -977,56 +1041,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>current values in iteration are x = 5, y = -5, z = -5
-current values in iteration are x = 5.0, y = -5.0, z = -5.0
-current values in iteration are x = 5.0, y = -5.0, z = -5.0
-current values in iteration are x = 5.000000074505806, y = -5.0, z = -5.0
-current values in iteration are x = 5.0, y = -4.999999925494194, z = -5.0
-current values in iteration are x = 5.0, y = -5.0, z = -4.999999925494194
-current values in iteration are x = 2.187712023642226, y = -17.359391519133563, z = -0.0942070854992334
-current values in iteration are x = -1.2411255598809259, y = -5.058623852313003, z = 0.4565904156511261
-current values in iteration are x = nan, y = nan, z = nan
-current values in iteration are x = 2.187712056241675, y = -17.359391519133563, z = -0.0942070854992334
-current values in iteration are x = 2.187712023642226, y = -17.359391260458473, z = -0.0942070854992334
-current values in iteration are x = 2.187712023642226, y = -17.359391519133563, z = -0.09420708409543843
-current values in iteration are x = 9.531666305862927, y = -12.468560846309286, z = -0.08685052713666222
-current values in iteration are x = 26.627829250302238, y = -2.9579707345174313, z = -0.0678520302028549
-current values in iteration are x = 5.8911477186996795, y = -17.529343855155812, z = -0.3490971549950189
-current values in iteration are x = 9.531666447895823, y = -12.468560846309286, z = -0.08685052713666222
-current values in iteration are x = 9.531666305862927, y = -12.468560660513251, z = -0.08685052713666222
-current values in iteration are x = 9.531666305862927, y = -12.468560846309286, z = -0.08685052584248852
-current values in iteration are x = 5.892845696870763, y = -10.550855966977009, z = -0.08250508788834873
-current values in iteration are x = 4.749771911696357, y = -6.472314111953366, z = -0.9031829919250103
-current values in iteration are x = 11.03716349259513, y = 1.7603178018427643, z = -2.3480855561385665
-current values in iteration are x = nan, y = nan, z = nan
-current values in iteration are x = 4.749771982473473, y = -6.472314111953366, z = -0.9031829919250103
-current values in iteration are x = 4.749771911696357, y = -6.47231401550837, z = -0.9031829919250103
-current values in iteration are x = 4.749771911696357, y = -6.472314111953366, z = -0.903182978466535
-current values in iteration are x = 7.462540717265474, y = -4.437811390783759, z = -0.6554651733742505
-current values in iteration are x = 14.246762796395721, y = -0.9223798987464371, z = -0.14990139767245303
-current values in iteration are x = 4.715492139296018, y = 0.4727523697987599, z = 2.186844378423742
-current values in iteration are x = 10.074160114821751, y = 1.5644370530304808, z = 0.8924116245228413
-current values in iteration are x = 12.898331425846758, y = -2.407590011156475, z = 2.9237605921910665
-current values in iteration are x = nan, y = nan, z = nan
-current values in iteration are x = 10.074160264938435, y = 1.5644370530304808, z = 0.8924116245228413
-current values in iteration are x = 10.074160114821751, y = 1.5644370763424094, z = 0.8924116245228413
-current values in iteration are x = 10.074160114821751, y = 1.5644370530304808, z = 0.8924116378208108
-current values in iteration are x = 11.673849143819195, y = 1.967605786953252, z = 1.5096788592768626
-current values in iteration are x = 11.517221887163963, y = 2.20903241706515, z = 1.4747510814310567
-current values in iteration are x = 11.518814773625518, y = 2.199063482275098, z = 1.4850083249223638
-current values in iteration are x = 11.521035319002953, y = 2.2014583743853464, z = 1.4856565745922998
-current values in iteration are x = 11.520629510339928, y = 2.201499403948119, z = 1.4855903610141667
-current values in iteration are x = 11.520647782911508, y = 2.201512276773538, z = 1.4855963260183664
-current values in iteration are x = 11.520649163019257, y = 2.2015130034445543, z = 1.4855967255549334
-current values in iteration are x = 11.520649152938127, y = 2.201512998249368, z = 1.4855967226602744
-current values in iteration are x = 11.520649152938127, y = 2.201512998249368, z = 1.4855967226602744
- [11.52064915  2.201513    1.48559672] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [11.52064915  2.201513    1.48559672] 
  [-7.93747290e-11 -2.79918311e-11 -1.43728585e-10] 
  [-7.93747290e-11 -2.79918311e-11 -1.43728585e-10] 
  The solution converged.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_9408\604149360.py:7: RuntimeWarning: invalid value encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_15112\3237017740.py:7: RuntimeWarning: invalid value encountered in log
   LHS2 = x*z + np.log(y*z) - 18.3
 </pre></div>
 </div>
@@ -1068,7 +1089,7 @@ current values in iteration are x = 11.520649152938127, y = 2.201512998249368, z
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Recitation 01</p>
+            <p class="prev-next-title">Recitation 01: Jupyter and Python Fundamentals</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="F22-587-R03-Solution.html" title="next page">

@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 19" href="F22-587-L19.html" />
+    <link rel="prev" title="Lecture 17" href="F22-587-L17.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,17 +115,17 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="Lectures.html">
    Lectures
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
      Lecture 01: Introduction and Stoichiometry
@@ -169,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -183,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -524,8 +586,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A \rightleftharpoons 4B\]</div>
 <p>The reaction is first order in A and fourth order in B; additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bc9d6b2-d7ee-4437-bf4a-54633dc94095">
-<span class="eqno">()<a class="headerlink" href="#equation-8bc9d6b2-d7ee-4437-bf4a-54633dc94095" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6fc9ee00-82cb-4e38-963a-3817cb1bbfa4">
+<span class="eqno">(84)<a class="headerlink" href="#equation-6fc9ee00-82cb-4e38-963a-3817cb1bbfa4" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f &amp;= 0.5 \ \textrm{min}^{-1}\\
     k_r &amp;= 20 \ \textrm{L}^{3} \ \textrm{mol}^{-3} \textrm{min}^{-1}\\
     T   &amp;= 298 \ \textrm{K}\\
@@ -547,8 +609,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>Here we see our first complication: the rate of reaction depends on the concentration of species B.  Our next complication arises when we define concentration.  Since we are in a batch reactor, we define concentrations for A and B as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a28c33d5-2713-41e2-a680-7d1c2b51945a">
-<span class="eqno">()<a class="headerlink" href="#equation-a28c33d5-2713-41e2-a680-7d1c2b51945a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1261b4ee-9dc7-463e-8f14-eb27c4f7b715">
+<span class="eqno">(85)<a class="headerlink" href="#equation-1261b4ee-9dc7-463e-8f14-eb27c4f7b715" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A &amp;= N_A/V \\
     C_B &amp;= N_B/V
 \end{align}\]</div>
@@ -561,14 +623,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[N_T = N_A + N_B\]</div>
 <p>For me, the easiest way to handle this is to just write a balance on each species and solve the set of coupled differential equations numerically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3e3a0ff-2c11-4b2f-a1c3-1b1162802d31">
-<span class="eqno">()<a class="headerlink" href="#equation-d3e3a0ff-2c11-4b2f-a1c3-1b1162802d31" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd68c999-751b-4c3d-8d13-724f56e462e2">
+<span class="eqno">(86)<a class="headerlink" href="#equation-bd68c999-751b-4c3d-8d13-724f56e462e2" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dN_A}{dt} = R_AV \\
     \frac{dN_B}{dt} = R_BV
 \end{align}\]</div>
 <p>Now we just make sure that everything on the right hand side of those two balances is defined in terms of contants or the three variables tracked by our ODE solver (t, NA, NB).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-125c99f9-a860-40e0-8acd-d544a0b7feda">
-<span class="eqno">()<a class="headerlink" href="#equation-125c99f9-a860-40e0-8acd-d544a0b7feda" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0211a990-f36c-4fcd-8f09-9242c9ef8e5b">
+<span class="eqno">(87)<a class="headerlink" href="#equation-0211a990-f36c-4fcd-8f09-9242c9ef8e5b" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A = -r \\
     R_B = 4r
 \end{align}\]</div>
@@ -576,8 +638,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>This means we need to define concentrations in terms of NA and NB:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7226f3e4-2bcd-4530-b69f-46481eba59d1">
-<span class="eqno">()<a class="headerlink" href="#equation-7226f3e4-2bcd-4530-b69f-46481eba59d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-93e365a3-6070-4944-801a-80c6d52fcaba">
+<span class="eqno">(88)<a class="headerlink" href="#equation-93e365a3-6070-4944-801a-80c6d52fcaba" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = N_A/V \\
     C_B = N_B/V
 \end{align}\]</div>
@@ -675,8 +737,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A \rightleftharpoons 4B\]</div>
 <p>The reaction is first order in A and fourth order in B; additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3b7f25a-0024-4d3c-b796-61a53e4f4ba0">
-<span class="eqno">()<a class="headerlink" href="#equation-d3b7f25a-0024-4d3c-b796-61a53e4f4ba0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-986cdf01-42d3-4428-a08e-1b0ab6fa1ed1">
+<span class="eqno">(89)<a class="headerlink" href="#equation-986cdf01-42d3-4428-a08e-1b0ab6fa1ed1" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f &amp;= 0.5 \ \textrm{min}^{-1}\\
     k_r &amp;= 20 \ \textrm{L}^{3} \ \textrm{mol}^{-3} \textrm{min}^{-1}\\
     T   &amp;= 298 \ \textrm{K}\\
@@ -688,14 +750,14 @@ title="Print to PDF"
 <section id="solution-to-example-problem-02">
 <h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
 <p>This problem is almost identical to the one above except for the fact that we fix the volume constant and no longer have to solve for it with the ideal gas law.  Otherwise, we approach it pretty much the same way.  Since my rate law depends on both <span class="math notranslate nohighlight">\(C_A\)</span> and <span class="math notranslate nohighlight">\(C_B\)</span>, I’ll write a balance on both species.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-985a6ce1-f6b1-44e4-859a-034de556bc09">
-<span class="eqno">()<a class="headerlink" href="#equation-985a6ce1-f6b1-44e4-859a-034de556bc09" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-52b4ff6d-23e1-4dc3-9f1c-2d1dc42a9898">
+<span class="eqno">(90)<a class="headerlink" href="#equation-52b4ff6d-23e1-4dc3-9f1c-2d1dc42a9898" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dN_A}{dt} = R_AV \\
     \frac{dN_B}{dt} = R_BV
 \end{align}\]</div>
 <p>Now we just make sure that everything on the right hand side of those two balances is defined in terms of contants or the three variables tracked by our ODE solver (t, NA, NB).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46cca980-8876-44da-a8f4-99805227b462">
-<span class="eqno">()<a class="headerlink" href="#equation-46cca980-8876-44da-a8f4-99805227b462" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80239071-19fc-4210-9157-e89e2808fe1f">
+<span class="eqno">(91)<a class="headerlink" href="#equation-80239071-19fc-4210-9157-e89e2808fe1f" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A = -r \\
     R_B = 4r
 \end{align}\]</div>
@@ -703,8 +765,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>This means we need to define concentrations in terms of NA and NB:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bef6151-0c27-484e-8251-7964faba0a67">
-<span class="eqno">()<a class="headerlink" href="#equation-6bef6151-0c27-484e-8251-7964faba0a67" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b9423f75-711a-4f47-a2a4-0941770929d9">
+<span class="eqno">(92)<a class="headerlink" href="#equation-b9423f75-711a-4f47-a2a4-0941770929d9" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = N_A/V \\
     C_B = N_B/V
 \end{align}\]</div>
@@ -793,8 +855,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A \rightarrow B\]</div>
 <p>The reaction is second order in A.  Additional data are given below.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0963a3b0-df76-438f-8bbf-8d6eda78d7b8">
-<span class="eqno">()<a class="headerlink" href="#equation-0963a3b0-df76-438f-8bbf-8d6eda78d7b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8230ae98-f0ef-4ad0-a773-abe879f1790a">
+<span class="eqno">(93)<a class="headerlink" href="#equation-8230ae98-f0ef-4ad0-a773-abe879f1790a" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 3.5 \times 10^{-3} \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{min}^{-1}\\
     {V_A}^\circ &amp;= 50 \ \textrm{mL} \ \textrm{mol}^{-1}\\
     {V_B}^\circ &amp;= 38.46 \ \textrm{mL} \ \textrm{mol}^{-1}\\
@@ -931,6 +993,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L17.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 17</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L19.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 19</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

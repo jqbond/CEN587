@@ -15,8 +15,26 @@ chapters:
   - file: F22-587-L07
   - file: F22-587-L08
   - file: F22-587-L09
+  - file: F22-587-L10
+  - file: F22-587-L11
+  - file: F22-587-L12
+  - file: F22-587-L13
+  - file: F22-587-L14
+  - file: F22-587-L15
+  - file: F22-587-L16
+  - file: F22-587-L17
+  - file: F22-587-L18
+  - file: F22-587-L19
+  - file: F22-587-L20
+  - file: F22-587-L21
+  - file: F22-587-L22
+  
 - file: Recitations
   sections:
-  - file: F22-587-R01-Solution
-  - file: F22-587-R02-Solution
-  - file: F22-587-R03-Solution
+  - file: F22-587-R01
+  - file: F22-587-R02
+  - file: F22-587-R03
+  - file: F22-587-R04
+  - file: F22-587-R05
+  - file: F22-587-R06
+  - file: F22-587-R07

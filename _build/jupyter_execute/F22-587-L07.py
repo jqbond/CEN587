@@ -88,24 +88,24 @@ CPH = 28.84 #J/mol/K
 CPA = 35.64 #J/mol/K
 
 #Calculate thermodynamic state functions at T not equal to T0 = 298
-T  = 873   #K
+T1 = 873   #K
 T0 = 298   #K
 R  = 8.314 #J/mol/K
 
-HN = HN0 + CPN*(T - T0) #J/mol
-HH = HH0 + CPH*(T - T0) #J/mol
-HA = HA0 + CPA*(T - T0) #J/mol
+HN = HN0 + CPN*(T1 - T0) #J/mol
+HH = HH0 + CPH*(T1 - T0) #J/mol
+HA = HA0 + CPA*(T1 - T0) #J/mol
 
-SN = SN0 + CPN*np.log(T/T0) #J/mol/K
-SH = SH0 + CPH*np.log(T/T0) #J/mol/K
-SA = SA0 + CPA*np.log(T/T0) #J/mol/K
+SN = SN0 + CPN*np.log(T1/T0) #J/mol/K
+SH = SH0 + CPH*np.log(T1/T0) #J/mol/K
+SA = SA0 + CPA*np.log(T1/T0) #J/mol/K
 
 DH = 2*HA - HN - 3*HH #J/mol
 DS = 2*SA - SN - 3*SH #J/mol/K
-DG = DH - T*DS        #J/mol
+DG = DH - T1*DS        #J/mol
 
-K1  = np.exp(-DG/R/T)     #Dimensionless
-print(f'At T = {T:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K1:0.2E}')
+K1  = np.exp(-DG/R/T1)     #Dimensionless
+print(f'At T = {T1:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K1:0.2E}')
 
 
 # ### Why not write a function that you can reuse over and over at any T?
@@ -154,9 +154,7 @@ def K(T):
     K  = np.exp(-DG/R/T)     #Dimensionless
     return K
 
-Tcurrent = 873
-
-print(f'At T = {Tcurrent:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K(Tcurrent):0.2E}')
+print(f'At T = {T1:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K(T1):0.2E}')
 
 
 # From this, we can see that the reaction is going to be pretty unfavorable at T = 873K, where the equilibrium constant is $K = 1.52\times10^{-6}$
@@ -262,7 +260,7 @@ plt.show()
 # In[5]:
 
 
-Kthermo = K(873)
+Kthermo = K(T1)
 NN0 = 1 #mole
 NH0 = 3 #moles
 NA0 = 0 #moles
@@ -273,7 +271,7 @@ P   = 1 #bar
 obj1 = lambda ex: (NA0 + 2*ex)**2 * (NT0 - 2*ex)**2 / (NN0 - ex) / (NH0 - 3*ex)**3 * P0**2 / P**2 - Kthermo
 
 ans, info = opt.newton(obj1, 0.01, full_output = True)
-print(f'At T = {Tcurrent:0.0f}K, the extent of reaction at equilibrium is {ans:0.2E} moles')
+print(f'At T = {T1:0.0f}K, the extent of reaction at equilibrium is {ans:0.2E} moles')
 
 
 # ### Using the equilibrium extent to calculate composition and conversion
@@ -289,8 +287,8 @@ yH = (NH0 - 3*ans)/(NT0 - 2*ans)
 yA = (NA0 + 2*ans)/(NT0 - 2*ans)
 XN = ans/NN0
 
-print(f'At T = {Tcurrent:0.0f}K, equilibrium mole fractions for N2, H2, and NH3 are {yN:0.3f}, {yH:0.3f}, {yA:0.3E}')
-print(f'At T = {Tcurrent:0.0f}K, the equilibrium fractional conversion of N2 is {XN:0.2E}')
+print(f'At T = {T1:0.0f}K, equilibrium mole fractions for N2, H2, and NH3 are {yN:0.3f}, {yH:0.3f}, {yA:0.3E}')
+print(f'At T = {T1:0.0f}K, the equilibrium fractional conversion of N2 is {XN:0.2E}')
 
 
 # ### Why not make a more general function so we aren't stuck doing so many hand calculations?
@@ -303,7 +301,7 @@ print(f'At T = {Tcurrent:0.0f}K, the equilibrium fractional conversion of N2 is 
 
 
 def obj2(ex):
-    T   = 873
+    T1  = 873
     P   = 1.0 #bar
     P0  = 1.0 #bar
     NN0 = 1.0 #moles
@@ -323,7 +321,7 @@ def obj2(ex):
     aH  = yH*P/P0
     aA  = yA*P/P0
     
-    KTHERMO = K(T)
+    KTHERMO = K(T1)
     KCOMP = aA**2/aN/aH**3
        
     return KCOMP - Kthermo  #We want to find the value of extent where KCOMP - Kthermo = 0
@@ -345,7 +343,7 @@ yN = NN/NT
 yH = NH/NT
 yA = NA/NT
 
-print(f'At T = {Tcurrent:0.0f}K, the equilibrium conversion of N2 is {XN:0.2E}, yN is {yN:0.3f}, yH is {yH:0.3f}, and yA is {yA:0.2E}')
+print(f'At T = {T1:0.0f}K, the equilibrium conversion of N2 is {XN:0.2E}, yN is {yN:0.3f}, yH is {yH:0.3f}, and yA is {yA:0.2E}')
 
 
 # ### What can we do to improve the equilibrium conversion?
@@ -422,16 +420,16 @@ print(f'At T = {Tcurrent:0.0f}K, the equilibrium conversion of N2 is {XN:0.2E}, 
 # In[8]:
 
 
-Kthermo = K(873)
+Kthermo = K(T1)
 NN0 = 1 #mole
 NH0 = 3 #moles
 NA0 = 0 #moles
 P0  = 1 #bar
-P   = 10 #bar
+P   = 1000 #bar
 
 obj3 = lambda ex: (NA0 + 2*ex)**2 * (NT0 - 2*ex)**2 / (NN0 - ex) / (NH0 - 3*ex)**3 * P0**2 / P**2 - Kthermo
 
-ans, info = opt.newton(obj3, 0.01, full_output = True)
+ans, info = opt.newton(obj3, 0.30, full_output = True)
 print(f'The extent of reaction at Equilibrium is {ans:0.2E} moles')
 
 yN = (NN0 - ans)/(NT0 - 2*ans)
@@ -439,8 +437,8 @@ yH = (NH0 - 3*ans)/(NT0 - 2*ans)
 yA = (NA0 + 2*ans)/(NT0 - 2*ans)
 XN = ans/NN0
 
-print(f'At T = {Tcurrent:0.0f}K and P = {P:0.0f} bar, equilibrium mole fractions for N2, H2, and NH3 are {yN:0.3f}, {yH:0.3f}, {yA:0.2E}')
-print(f'At T = {Tcurrent:0.0f}K and P = {P:0.0f} bar, the equilibrium fractional conversion of N2 is {XN:0.2E}')
+print(f'At T = {T1:0.0f}K and P = {P:0.0f} bar, equilibrium mole fractions for N2, H2, and NH3 are {yN:0.3f}, {yH:0.3f}, {yA:0.2E}')
+print(f'At T = {T1:0.0f}K and P = {P:0.0f} bar, the equilibrium fractional conversion of N2 is {XN:0.2E}')
 
 
 # Just to illustrate my personal preference again: I like to write a few more lines of code in a slightly more complex objective function, `obj4(ex)` so that Python does all of the substitutions for me.  See below.
@@ -455,12 +453,13 @@ print(f'At T = {Tcurrent:0.0f}K and P = {P:0.0f} bar, the equilibrium fractional
 def obj4(ex):
 
     #Specifications for this problem
+    T1  = 873 #K
     P   = 1000.0 #bar
     P0  = 1.0 #bar
     NN0 = 1.0 #moles
     NH0 = 3.0 #moles
     NA0 = 0.0 #moles
-    Kthermo = K(873)
+    Kthermo = K(T1)
     
     NN  = NN0 - ex
     NH  = NH0 - 3*ex
@@ -493,7 +492,7 @@ yN = NN/NT
 yH = NH/NT
 yA = NA/NT
 
-print(f'At T = {Tcurrent:0.0f}K and P = {P:0.0f} bar, equilibrium conversion of N2 is {round(XN,4)}, yA is {round(yN, 4)}, yB is {round(yH, 4)}, and yC is {round(yA, 4)}')
+print(f'At T = {T1:0.0f}K and P = {P:0.0f} bar, equilibrium conversion of N2 is {round(XN,4)}, yA is {round(yN, 4)}, yB is {round(yH, 4)}, and yC is {round(yA, 4)}')
 
 
 # ### This really doesn't seem industrially feasible
@@ -552,18 +551,18 @@ plt.show()
 # In[11]:
 
 
-Tcurrent = 673 #K
-Pcurrent = 100 #bar
+T2 = 673 #K
+P2 = 200 #bar
 
 def obj5(ex):
 
     #Specifications for this problem
-    P   = Pcurrent #bar
+    P   = P2 #bar
     P0  = 1.0 #bar
     NN0 = 1.0 #moles
     NH0 = 3.0 #moles
     NA0 = 0.0 #moles
-    Kthermo = K(Tcurrent)
+    Kthermo = K(T2)
     
     NN  = NN0 - ex
     NH  = NH0 - 3*ex
@@ -596,5 +595,5 @@ yN = NN/NT
 yH = NH/NT
 yA = NA/NT
 
-print(f'At T = {Tcurrent:0.0f}K and P = {Pcurrent:0.0f} bar, the equilibrium conversion of N2 is {XN:0.3f}, yA is {yN:0.3f}, yB is {yH:0.3f}, and yC is {yA:0.3f}')
+print(f'At T = {T2:0.0f}K and P = {P2:0.0f} bar, the equilibrium conversion of N2 is {XN:0.3f}, yA is {yN:0.3f}, yB is {yH:0.3f}, and yC is {yA:0.3f}')
 

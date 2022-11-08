@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 02
+# # Lecture 02: Extent and Conversion
 # 
 # This lecture covers definitions for extent of reaction and fractional conversion.  It also considers how we can use extent or fractional conversions along with reaction stoichiometry to define the changes in molar quantities of each species that occur as reactions progress.
 
@@ -37,7 +37,15 @@
 #     N_C &= N_{C_0} + \nu_C \, \xi_1 \\
 # \end{align}
 # 
+# More generally, for a single reaction:
+# 
+# $$N_j = N_{j_0} + \nu_j \, \xi$$
+# 
 # You may not immediately see the significance of doing this, but it is extremely useful in that it allows us to express the quantities of all species in terms of a single extent of reaction!  Basically, this reduces the number of unknowns we need to deal with, and we will use this extensively in solving algebraic equations, primarily equilibrium problems and CSTR sizing equations.
+# 
+# From the above, we can generally conclude that, for a single reaction, we can define the reaction extent in terms of the change in molar quantity of any species as long as we normalize that change by the stoichiometric coefficient for that species.
+# 
+# $$\xi = \frac{N_{j} - N_{j,0}}{\nu_j}$$
 
 # ### A Real Example (Ammonia Synthesis)
 # 
@@ -305,6 +313,22 @@ print(N)
 #     N_{H_2} &= N_{H_{2,0}} - 3 N_{N_{2,0}}X_{N_2} \\
 #     \\
 #     N_{N\!H_3} &= N_{N\!H_{3,0}} + 2 N_{N_{2,0}}X_{N_2} \\
+# \end{align}
+# 
+# As an example, if we considered our original ammonia synthesis batch reactor containing the following quantities at time = 0:
+# 
+# \begin{align}
+#     N_{N_{2,0}} &= 1 \ \textrm{mole} \\
+#     N_{H_{2,0}} &= 3 \ \textrm{moles} \\
+#     N_{N\!H_{3,0}} &= 0 \ \textrm{moles} \\
+# \end{align}
+# 
+# And we operated this reactor such that it achieved 40% conversion of $N_2$, we would conclude that, at that condition, the following number of moles of each species would be present:
+# 
+# \begin{align}
+#     N_{N_{2}} &= 0.6 \ \textrm{mole} \\
+#     N_{H_{2}} &= 1.8 \ \textrm{moles} \\
+#     N_{N\!H_{3}} &= 0.8 \ \textrm{moles} \\
 # \end{align}
 # 
 # <div class="alert alert-block alert-warning">

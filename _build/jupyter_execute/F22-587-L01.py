@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 01
+# **Things to resolve from Fall 2022**
+# 
+# 1. Need to have In Class vs. Complete Notebooks.  In class version should only show the problem statement and any calculations done in Python.
+# 2. Complete solutions will have full "paper and pencil" work in the Markdown cells.
+# 3. Focus on trying as much as possible to write code in real time so that it is at appropriate pace.
+
+# # Lecture 01: Introduction and Stoichiometry
 # 
 # ## Syllabus 
 # 

@@ -19,23 +19,45 @@
 # 
 # $$\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ \label{eq3}\tag{3}$$
 # 
-# So this shouldn't be a problem for us.  The right hand side of the Equation (\ref{eq1}) is a bit tricker.  This is where information about the composition of the system at equilibirum is contained.  To figure this out, we have to go back to the activity definition:
+# So this shouldn't be a problem for us.  The right hand side of the Equation (\ref{eq1}) is a bit trickier.  This is where information about the composition of the system at equilibirum is contained.  To figure this out, we have to go back to the activity definition:
 # 
 # $$a_j = \frac{f_j}{f_j^\circ} \label{eq4}\tag{4}$$
 # 
-# We should always remember that the standard state fugacity, $f_j^\circ$, should describe the fugacity of species $j$ at the state used in calculating $\Delta G$.  In other words, just make sure that when we calculate $G_j^\circ$ and $f_j^\circ$ that $\circ$ means the same thing in both cases. 
+# Importantly, the fucacity in the numerator of Equation (\ref{eq4}), $f_j$, is the fugacity of species $j$ at *system conditions of temperature, pressure, and composition*, while the fugacity of species j in the denominator, $f_j^\circ$, is the fugacity of species j at *reference state temperature, pressure, and composition.* It is critical to remember that the standard state fugacity, $f_j^\circ$, should describe the fugacity of species $j$ at the state used in calculating $\Delta G^\circ$.  In other words, just make sure that when we calculate $G_j^\circ$ and $f_j^\circ$ that $\circ$ means the same thing in both cases. 
 # 
-# In this class, we'll always follow a few rules:
+# To recap, in this class, we'll always follow a few rules:
 # 
 # 1. $\Delta G^\circ$ is always calculated at the Temperature that the reaction is occuring.
 # 2. $\Delta G^\circ$ is always calculated at a reference Pressure of 1 bar.
 # 3. $\Delta G^\circ$ is always calculated for the phases of matter listed in our reaction.
 # 
-# Reference state fugacities should be specified at these same conditions.To go further, there is no avoiding a discussion of fugacities...
+# The appropriate phase for the reference state is indicated by the (g), (l), (s), (aq.) notation in a balanced chemical reaction. If we are going to calculate the Gibbs free energy change for the following reaction:
+# 
+# **For species $j$ in the gas phase (g):**
+# 
+# We use the reference state of species $j$ as a pure gas at 1 bar and the reaction temperature.  
+# 
+# **For species $j$ in the liquid phase (l):**
+# 
+# We use the reference state of species $j$ as a pure liquid at 1 bar and the reaction temperature.
+# 
+# **For species $j$ in the solid phase (l):**
+# 
+# We use the reference state of species $j$ as a pure solid at 1 bar and the reaction temperature.
+# 
+# **For species $j$ in solution, e.g., for species dissolved in water (aq.):**
+# 
+# We use the reference state of species $j$ dissolved in the specified at a specified composition or concentration at 1 bar and the reaction temperature. There are three commonly used conventions for species in solution:
+# 
+# 1. Infinite dilution -- the mole fraction of $j$ approaches zero in the solvent ($x_j \rightarrow 0$)
+# 2. A 1 Molar solution of $j$ in the solvent -- the concentration of $j$ in the solution is 1 mole per liter of solution.
+# 3. A 1 Molal solution of $j$ in the solvent -- the concentration of $j$ in solution is 1 mole $j$ per kg of solvent.
 # 
 # <div class="alert alert-block alert-info">
 # <b>Important:</b> 
 # In our class, the reactions will always be given for pure species as either gases, liquids, or solids.  We will not use solution reference states in this course.</div>
+# 
+# Reference state fugacities should be specified at these same conditions. To go further, there is no avoiding a discussion of fugacities...
 
 # ## Reference States and Fugacity Definitions
 # 
@@ -50,13 +72,13 @@
 
 # ## Fugacities and Activities for Pure Gases
 # 
-# ### Fugacities
+# ### Fugacities for Pure Gases
 # 
-# You may recall from Thermodynamics that you would define the fugacity of a pure gas at a pressure, $P$, as follows:
+# You may recall from Thermodynamics that you would define the fugacity of a pure gas, $j$, at a pressure, $P$, as follows:
 # 
 # $$f_j = \phi_j P \label{eq5}\tag{5}$$
 # 
-# Here, the symbol $\phi_j$ represents the "fugacity coefficient" for species $j$ at the Temperature, Pressure, and composition under consideration. It quantifies the degree of non-ideality (i.e., the amount the system departs from it's reference state). In general, the fugacity coefficient is defined in terms of the "Residual Gibbs Free Energy" of species $j$.  This represents the Gibbs free energy change associated with moving the species $j$ from its reference state to the state under current consideration.  As the species moves further away from its thermodynamic reference state, one expects deviations from thermodynamically ideal behavior.
+# Here, the symbol $\phi_j$ represents the "fugacity coefficient" for species $j$ at the Temperature, Pressure, and composition under consideration. It quantifies the degree of non-ideality (i.e., the amount the system departs from it's reference state). In general, the fugacity coefficient is defined in terms of the "Residual Gibbs Free Energy" of species $j$.  This represents the deviaton from thermodynamic ideality associated with moving the species $j$ from its reference state to the state under current consideration.  As the species moves further away from its thermodynamic reference state, one expects deviations from thermodynamically ideal behavior.
 # 
 # $$\phi_j = \exp{\left(\frac{G^R}{RT}\right)} \label{eq6}\tag{6}$$
 # 
@@ -68,7 +90,7 @@
 # 
 # $$f_j = \phi_j P \label{eq8}\tag{8}$$
 # 
-# ### Activities
+# ### Activities for pure gases
 # 
 # With the above definitions of fugacity in mind, we can now define thermodynamic activities for pure gases, $a_j$ in terms of the species fugacity at system conditions ($f_j$) and the species fugacity at its reference state ($f_j^\circ$).  Specifically:
 # 
@@ -82,7 +104,7 @@
 # 
 # $$a_j = \frac{\phi_j P}{P^\circ} \label{eq11}\tag{11}$$
 # 
-# Even though we know that $P^\circ$ has a value of 1, it is useful for us to keep it in the definition since it reminds us to include units and convert the system or reference pressures as needed to cancel units and give a dimensionless activity.
+# Even though we are tempted to think that $P^\circ$ has a numerical value of 1, this is only true if we are working in pressure units of bars. It is useful for us to keep it in the definition since it reminds us to include units and convert the system or reference pressures as needed to cancel units and give a dimensionless activity. At low pressure, Equation (\ref{eq11}) simplifies to $a_j = P/P^\circ$.
 
 # ## Gases in a mixture
 # 
@@ -90,7 +112,7 @@
 # 
 # The only tricky part about this next bit is that, even though our real system may contain gases in a mixture, our reference state is always a pure gas at 1 bar and the temperature of the reaction.  We'll use this when we define thermodynamic activities.
 # 
-# For a gas in a mixture, we define the fugacity of species j, $\hat{f}_j$, according to the Lewis-Randall rule, which says that the fugacity of a species in a mixture is given by the product of the mole fraction of that species and it's pure species fugacity at the same conditions; therefore, for gases in a mixture:
+# For a gas in a mixture, we define the fugacity of species $j$, $\hat{f}_j$, according to the Lewis-Randall rule, which says that the fugacity of a species in a mixture is given by the product of the mole fraction of that species and it's pure species fugacity at the same conditions; therefore, for gases in a mixture:
 # 
 # $$\hat{f}_j = y_j \phi_j P \label{eq12}\tag{12}$$
 # 
@@ -144,7 +166,7 @@
 # 
 # $$\exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \approx 1.0 \label{eq19}\tag{19}$$
 # 
-# With these things in mind, we arrive at the a simplified, approximate definition of the fugacity of a pure liquid or a pure solid:
+# With these things in mind, we arrive at the simplified, approximate definition of the fugacity of a pure liquid or a pure solid:
 # 
 # $$f_j \approx P_j^\textrm{sat} \label{eq20}\tag{20}$$
 # 
@@ -158,7 +180,7 @@
 # 
 # Making substitutions using Equation ([17](#mjx-eqn-eq17)) to define fugacity:
 # 
-# $$a_j = \frac{\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P^\circ - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq21}\tag{21}$$
+# $$a_j = \frac{\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq21}\tag{21}$$
 # 
 # Focusing on the numerator, we'll point out that, in this course, pressures in liquid or solid-phase reactions are usually not too high above saturation pressure.  So the Poynting correction is 1 in the numerator.  Further, saturation pressures are not generally high in the first place here, so $\phi_j^\textrm{sat}$ is also 1.
 # 
@@ -200,7 +222,7 @@
 # 
 # $$a_j = \frac{{\hat{f}_j}^\textrm{ideal}}{f_j^\circ} \label{eq26}\tag{26}$$
 # 
-# Apply our definitions of fugacity for liquids in an ideal mixture:
+# Applying our definitions of fugacity for liquids in an ideal mixture:
 # 
 # $$a_j = \frac{x_j P_j^\textrm{sat}}{(x_j P_j^\textrm{sat})^\circ} \label{eq27}\tag{27}$$
 # 
@@ -210,7 +232,7 @@
 
 # ## Real Liquids in a mixture
 # 
-# When we say "real" liquids in a mixture, we mean liquids in a thermodynamically non-ideal mixture. It is pretty rare that liquid mixtures behave ideally.  To account for these deviations from ideality in liquid mixtures, we introduce an activity coefficient, $\gamma_j$, as the ratio of the fugacity in the real state to the fugacity in the ideal state:
+# When we say "real" liquids in a mixture, we mean liquids in a thermodynamically non-ideal mixture. It is pretty rare that liquid mixtures behave ideally.  To account for these deviations from ideality in liquid mixtures, we introduce an activity coefficient, $\gamma_j$, which is the ratio of the fugacity in the real state to the fugacity in the ideal state:
 # 
 # $$\gamma_j = \frac{{\hat{f}_j}^\textrm{real}}{{\hat{f}_j}^\textrm{ideal}} = \frac{{\hat{f}_j}^\textrm{real}}{x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]} \label{eq29}\tag{29} $$
 # 
@@ -222,7 +244,7 @@
 # 
 # $${\hat{f}_j}^\textrm{real} \approx \gamma_j x_j P_j^\textrm{sat} \label{eq31}\tag{31}$$
 # 
-# Formally, the activity coefficient is defined in terms of the Excess Gibbs free energy of species $j$, which reflects the Gibbs free energy change between the species in the state we are considering to the species in its reference state:
+# Formally, the activity coefficient is defined in terms of the Excess Gibbs free energy of species $j$, which reflects the deviation from thermodynamic ideality that occurs between the reference state of species $j$ and species $j$ as it exists under reaction conditions:
 # 
 # $$\gamma_j = \exp\left(\frac{G_j^E}{RT}\right) \label{eq32}\tag{32}$$
 # 

@@ -128,17 +128,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
     </a>
    </li>
    <li class="toctree-l2">
@@ -154,6 +154,81 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L06.html">
      Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
     </a>
    </li>
   </ul>
@@ -176,6 +251,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R02-Solution.html">
      Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -402,13 +482,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fugacities">
-     Fugacities
+    <a class="reference internal nav-link" href="#fugacities-for-pure-gases">
+     Fugacities for Pure Gases
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#activities">
-     Activities
+    <a class="reference internal nav-link" href="#activities-for-pure-gases">
+     Activities for pure gases
     </a>
    </li>
   </ul>
@@ -509,13 +589,13 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#fugacities">
-     Fugacities
+    <a class="reference internal nav-link" href="#fugacities-for-pure-gases">
+     Fugacities for Pure Gases
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#activities">
-     Activities
+    <a class="reference internal nav-link" href="#activities-for-pure-gases">
+     Activities for pure gases
     </a>
    </li>
   </ul>
@@ -605,20 +685,35 @@ title="Print to PDF"
 <p>We can frequently look up standard state partial molar Gibbs free energies in thermodynamic databases.  If not, we usually can find enthalpies and entropies, and we know the general relationship between Gibbs Free Energy, Enthalpy, and Entropy:</p>
 <div class="math notranslate nohighlight">
 \[\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ \label{eq3}\tag{3}\]</div>
-<p>So this shouldn’t be a problem for us.  The right hand side of the Equation (\ref{eq1}) is a bit tricker.  This is where information about the composition of the system at equilibirum is contained.  To figure this out, we have to go back to the activity definition:</p>
+<p>So this shouldn’t be a problem for us.  The right hand side of the Equation (\ref{eq1}) is a bit trickier.  This is where information about the composition of the system at equilibirum is contained.  To figure this out, we have to go back to the activity definition:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{f_j}{f_j^\circ} \label{eq4}\tag{4}\]</div>
-<p>We should always remember that the standard state fugacity, <span class="math notranslate nohighlight">\(f_j^\circ\)</span>, should describe the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the state used in calculating <span class="math notranslate nohighlight">\(\Delta G\)</span>.  In other words, just make sure that when we calculate <span class="math notranslate nohighlight">\(G_j^\circ\)</span> and <span class="math notranslate nohighlight">\(f_j^\circ\)</span> that <span class="math notranslate nohighlight">\(\circ\)</span> means the same thing in both cases.</p>
-<p>In this class, we’ll always follow a few rules:</p>
+<p>Importantly, the fucacity in the numerator of Equation (\ref{eq4}), <span class="math notranslate nohighlight">\(f_j\)</span>, is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at <em>system conditions of temperature, pressure, and composition</em>, while the fugacity of species j in the denominator, <span class="math notranslate nohighlight">\(f_j^\circ\)</span>, is the fugacity of species j at <em>reference state temperature, pressure, and composition.</em> It is critical to remember that the standard state fugacity, <span class="math notranslate nohighlight">\(f_j^\circ\)</span>, should describe the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the state used in calculating <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span>.  In other words, just make sure that when we calculate <span class="math notranslate nohighlight">\(G_j^\circ\)</span> and <span class="math notranslate nohighlight">\(f_j^\circ\)</span> that <span class="math notranslate nohighlight">\(\circ\)</span> means the same thing in both cases.</p>
+<p>To recap, in this class, we’ll always follow a few rules:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at the Temperature that the reaction is occuring.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at a reference Pressure of 1 bar.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated for the phases of matter listed in our reaction.</p></li>
 </ol>
-<p>Reference state fugacities should be specified at these same conditions.To go further, there is no avoiding a discussion of fugacities…</p>
+<p>The appropriate phase for the reference state is indicated by the (g), (l), (s), (aq.) notation in a balanced chemical reaction. If we are going to calculate the Gibbs free energy change for the following reaction:</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the gas phase (g):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure gas at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the liquid phase (l):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure liquid at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the solid phase (l):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure solid at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in solution, e.g., for species dissolved in water (aq.):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> dissolved in the specified at a specified composition or concentration at 1 bar and the reaction temperature. There are three commonly used conventions for species in solution:</p>
+<ol class="simple">
+<li><p>Infinite dilution – the mole fraction of <span class="math notranslate nohighlight">\(j\)</span> approaches zero in the solvent (<span class="math notranslate nohighlight">\(x_j \rightarrow 0\)</span>)</p></li>
+<li><p>A 1 Molar solution of <span class="math notranslate nohighlight">\(j\)</span> in the solvent – the concentration of <span class="math notranslate nohighlight">\(j\)</span> in the solution is 1 mole per liter of solution.</p></li>
+<li><p>A 1 Molal solution of <span class="math notranslate nohighlight">\(j\)</span> in the solvent – the concentration of <span class="math notranslate nohighlight">\(j\)</span> in solution is 1 mole <span class="math notranslate nohighlight">\(j\)</span> per kg of solvent.</p></li>
+</ol>
 <div class="alert alert-block alert-info">
 <b>Important:</b> 
-In our class, the reactions will always be given for pure species as either gases, liquids, or solids.  We will not use solution reference states in this course.</div></section>
+In our class, the reactions will always be given for pure species as either gases, liquids, or solids.  We will not use solution reference states in this course.</div>
+<p>Reference state fugacities should be specified at these same conditions. To go further, there is no avoiding a discussion of fugacities…</p>
+</section>
 <section id="reference-states-and-fugacity-definitions">
 <h2>Reference States and Fugacity Definitions<a class="headerlink" href="#reference-states-and-fugacity-definitions" title="Permalink to this headline">#</a></h2>
 <p>The way that we define a fugacity depends on the system that we’re considering.  It can change quite a bit depending on the phase of matter we are considering. We may also decide on reference states based on their convenience for considering one type of system compared to another, and this can impact how we define a fugacity for that phase.</p>
@@ -629,12 +724,12 @@ In our class, the reactions will always be given for pure species as either gase
 </section>
 <section id="fugacities-and-activities-for-pure-gases">
 <h2>Fugacities and Activities for Pure Gases<a class="headerlink" href="#fugacities-and-activities-for-pure-gases" title="Permalink to this headline">#</a></h2>
-<section id="fugacities">
-<h3>Fugacities<a class="headerlink" href="#fugacities" title="Permalink to this headline">#</a></h3>
-<p>You may recall from Thermodynamics that you would define the fugacity of a pure gas at a pressure, <span class="math notranslate nohighlight">\(P\)</span>, as follows:</p>
+<section id="fugacities-for-pure-gases">
+<h3>Fugacities for Pure Gases<a class="headerlink" href="#fugacities-for-pure-gases" title="Permalink to this headline">#</a></h3>
+<p>You may recall from Thermodynamics that you would define the fugacity of a pure gas, <span class="math notranslate nohighlight">\(j\)</span>, at a pressure, <span class="math notranslate nohighlight">\(P\)</span>, as follows:</p>
 <div class="math notranslate nohighlight">
 \[f_j = \phi_j P \label{eq5}\tag{5}\]</div>
-<p>Here, the symbol <span class="math notranslate nohighlight">\(\phi_j\)</span> represents the “fugacity coefficient” for species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and composition under consideration. It quantifies the degree of non-ideality (i.e., the amount the system departs from it’s reference state). In general, the fugacity coefficient is defined in terms of the “Residual Gibbs Free Energy” of species <span class="math notranslate nohighlight">\(j\)</span>.  This represents the Gibbs free energy change associated with moving the species <span class="math notranslate nohighlight">\(j\)</span> from its reference state to the state under current consideration.  As the species moves further away from its thermodynamic reference state, one expects deviations from thermodynamically ideal behavior.</p>
+<p>Here, the symbol <span class="math notranslate nohighlight">\(\phi_j\)</span> represents the “fugacity coefficient” for species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and composition under consideration. It quantifies the degree of non-ideality (i.e., the amount the system departs from it’s reference state). In general, the fugacity coefficient is defined in terms of the “Residual Gibbs Free Energy” of species <span class="math notranslate nohighlight">\(j\)</span>.  This represents the deviaton from thermodynamic ideality associated with moving the species <span class="math notranslate nohighlight">\(j\)</span> from its reference state to the state under current consideration.  As the species moves further away from its thermodynamic reference state, one expects deviations from thermodynamically ideal behavior.</p>
 <div class="math notranslate nohighlight">
 \[\phi_j = \exp{\left(\frac{G^R}{RT}\right)} \label{eq6}\tag{6}\]</div>
 <p>We won’t really use that definition much.  The biggest thing to remember about the fugacity coefficient is that it is really only sensitive to pressure (not temperature or composition). Gases behave ideally at low pressures, and they become nonideal at very high pressures.  When a gas is ideal, <span class="math notranslate nohighlight">\(G^R = 0\)</span>, and the fugacity coefficient is, <span class="math notranslate nohighlight">\(\phi\)</span>, is 1. Therefore, at low pressures, the fugacity of a pure gas, <span class="math notranslate nohighlight">\(f_j\)</span>, is given by:</p>
@@ -644,8 +739,8 @@ In our class, the reactions will always be given for pure species as either gase
 <div class="math notranslate nohighlight">
 \[f_j = \phi_j P \label{eq8}\tag{8}\]</div>
 </section>
-<section id="activities">
-<h3>Activities<a class="headerlink" href="#activities" title="Permalink to this headline">#</a></h3>
+<section id="activities-for-pure-gases">
+<h3>Activities for pure gases<a class="headerlink" href="#activities-for-pure-gases" title="Permalink to this headline">#</a></h3>
 <p>With the above definitions of fugacity in mind, we can now define thermodynamic activities for pure gases, <span class="math notranslate nohighlight">\(a_j\)</span> in terms of the species fugacity at system conditions (<span class="math notranslate nohighlight">\(f_j\)</span>) and the species fugacity at its reference state (<span class="math notranslate nohighlight">\(f_j^\circ\)</span>).  Specifically:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{f_j}{f_j^\circ} \label{eq9}\tag{9}\]</div>
@@ -655,7 +750,7 @@ In our class, the reactions will always be given for pure species as either gase
 <p>Remember, a thermodynamic activity is defined by the ratio of the fugacity of the species as it exists in the real, reacting system at its Temperature, Pressure, and Composition <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span> to the fugacity of that species in its reference state.  The quantity in the numerator of Equation (\ref{eq10}) refers to the <em><strong>system</strong></em> conditions, which may be very high pressure. Until we know the pressure in the system, we have to keep the fugacity coefficient in our equation.  The reference state for a pure gas, however, is a pure gas at 1 bar.  Since that is a low pressure, we know the fugacity of species j in the reference state is 1, and we get the following definition for the activity of a pure gas, <span class="math notranslate nohighlight">\(a_j\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{\phi_j P}{P^\circ} \label{eq11}\tag{11}\]</div>
-<p>Even though we know that <span class="math notranslate nohighlight">\(P^\circ\)</span> has a value of 1, it is useful for us to keep it in the definition since it reminds us to include units and convert the system or reference pressures as needed to cancel units and give a dimensionless activity.</p>
+<p>Even though we are tempted to think that <span class="math notranslate nohighlight">\(P^\circ\)</span> has a numerical value of 1, this is only true if we are working in pressure units of bars. It is useful for us to keep it in the definition since it reminds us to include units and convert the system or reference pressures as needed to cancel units and give a dimensionless activity. At low pressure, Equation (\ref{eq11}) simplifies to <span class="math notranslate nohighlight">\(a_j = P/P^\circ\)</span>.</p>
 </section>
 </section>
 <section id="gases-in-a-mixture">
@@ -663,7 +758,7 @@ In our class, the reactions will always be given for pure species as either gase
 <section id="fugacities-for-gases-in-a-mixture">
 <h3>Fugacities for gases in a mixture<a class="headerlink" href="#fugacities-for-gases-in-a-mixture" title="Permalink to this headline">#</a></h3>
 <p>The only tricky part about this next bit is that, even though our real system may contain gases in a mixture, our reference state is always a pure gas at 1 bar and the temperature of the reaction.  We’ll use this when we define thermodynamic activities.</p>
-<p>For a gas in a mixture, we define the fugacity of species j, <span class="math notranslate nohighlight">\(\hat{f}_j\)</span>, according to the Lewis-Randall rule, which says that the fugacity of a species in a mixture is given by the product of the mole fraction of that species and it’s pure species fugacity at the same conditions; therefore, for gases in a mixture:</p>
+<p>For a gas in a mixture, we define the fugacity of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\hat{f}_j\)</span>, according to the Lewis-Randall rule, which says that the fugacity of a species in a mixture is given by the product of the mole fraction of that species and it’s pure species fugacity at the same conditions; therefore, for gases in a mixture:</p>
 <div class="math notranslate nohighlight">
 \[\hat{f}_j = y_j \phi_j P \label{eq12}\tag{12}\]</div>
 <p>You probably recognize the product of the mole fraction of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(y_j\)</span>, and the system pressure, <span class="math notranslate nohighlight">\(P\)</span>, as a partial pressure of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(p_j\)</span>:</p>
@@ -708,7 +803,7 @@ In our class, the reactions will always be given for pure species as either gase
 <p>As such, the value of the Poynting correction is usually about 1.</p>
 <div class="math notranslate nohighlight">
 \[\exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \approx 1.0 \label{eq19}\tag{19}\]</div>
-<p>With these things in mind, we arrive at the a simplified, approximate definition of the fugacity of a pure liquid or a pure solid:</p>
+<p>With these things in mind, we arrive at the simplified, approximate definition of the fugacity of a pure liquid or a pure solid:</p>
 <div class="math notranslate nohighlight">
 \[f_j \approx P_j^\textrm{sat} \label{eq20}\tag{20}\]</div>
 <p>In other words, for a pure liquid or a pure solid, its fugacity at the temperature and pressure of the system under consideration is roughly equal to its saturation pressure at the temperature under consideration.  Equation (\ref{eq20}) will always hold for solids and liquids in this course.</p>
@@ -720,7 +815,7 @@ In our class, the reactions will always be given for pure species as either gase
 \[a_j = \frac{f_j}{f_j^\circ}\]</div>
 <p>Making substitutions using Equation (<a class="reference external" href="#mjx-eqn-eq17">17</a>) to define fugacity:</p>
 <div class="math notranslate nohighlight">
-\[a_j = \frac{\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P^\circ - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq21}\tag{21}\]</div>
+\[a_j = \frac{\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq21}\tag{21}\]</div>
 <p>Focusing on the numerator, we’ll point out that, in this course, pressures in liquid or solid-phase reactions are usually not too high above saturation pressure.  So the Poynting correction is 1 in the numerator.  Further, saturation pressures are not generally high in the first place here, so <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat}\)</span> is also 1.</p>
 <p>Focusing on the denominator, the same things apply.  The reference pressure of 1 bar is not going to be much different from the saturation pressure, and we have a small molar volume, so the Poynting correction is also 1 in the reference state, as is the saturation pressure fugacity coefficient, <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat}\)</span>.  Making those approximations, we have:</p>
 <div class="math notranslate nohighlight">
@@ -756,7 +851,7 @@ In our class, the reactions will always be given for pure species as either gase
 <p>We return to our standard definition of an activity, which is the ratio of the fugacity <span class="math notranslate nohighlight">\(j\)</span> at system <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span> to the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{{\hat{f}_j}^\textrm{ideal}}{f_j^\circ} \label{eq26}\tag{26}\]</div>
-<p>Apply our definitions of fugacity for liquids in an ideal mixture:</p>
+<p>Applying our definitions of fugacity for liquids in an ideal mixture:</p>
 <div class="math notranslate nohighlight">
 \[a_j = \frac{x_j P_j^\textrm{sat}}{(x_j P_j^\textrm{sat})^\circ} \label{eq27}\tag{27}\]</div>
 <p>We also recall that our reference state for a liquid in a mixture is that liquid as a pure species at system temperature and a pressure of 1 bar.  This gives the result for the activity of a liquid in an ideal mixture:</p>
@@ -766,7 +861,7 @@ In our class, the reactions will always be given for pure species as either gase
 </section>
 <section id="real-liquids-in-a-mixture">
 <h2>Real Liquids in a mixture<a class="headerlink" href="#real-liquids-in-a-mixture" title="Permalink to this headline">#</a></h2>
-<p>When we say “real” liquids in a mixture, we mean liquids in a thermodynamically non-ideal mixture. It is pretty rare that liquid mixtures behave ideally.  To account for these deviations from ideality in liquid mixtures, we introduce an activity coefficient, <span class="math notranslate nohighlight">\(\gamma_j\)</span>, as the ratio of the fugacity in the real state to the fugacity in the ideal state:</p>
+<p>When we say “real” liquids in a mixture, we mean liquids in a thermodynamically non-ideal mixture. It is pretty rare that liquid mixtures behave ideally.  To account for these deviations from ideality in liquid mixtures, we introduce an activity coefficient, <span class="math notranslate nohighlight">\(\gamma_j\)</span>, which is the ratio of the fugacity in the real state to the fugacity in the ideal state:</p>
 <div class="math notranslate nohighlight">
 \[\gamma_j = \frac{{\hat{f}_j}^\textrm{real}}{{\hat{f}_j}^\textrm{ideal}} = \frac{{\hat{f}_j}^\textrm{real}}{x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]} \label{eq29}\tag{29} \]</div>
 <p>Therefore, the fugacity of a liquid in a “real” mixture is:</p>
@@ -775,7 +870,7 @@ In our class, the reactions will always be given for pure species as either gase
 <p>As usual, we can simplify this to the following since we generally work under conditions where saturation pressures are low, system pressures are similar to saturation pressures, and the molar volume is small:</p>
 <div class="math notranslate nohighlight">
 \[{\hat{f}_j}^\textrm{real} \approx \gamma_j x_j P_j^\textrm{sat} \label{eq31}\tag{31}\]</div>
-<p>Formally, the activity coefficient is defined in terms of the Excess Gibbs free energy of species <span class="math notranslate nohighlight">\(j\)</span>, which reflects the Gibbs free energy change between the species in the state we are considering to the species in its reference state:</p>
+<p>Formally, the activity coefficient is defined in terms of the Excess Gibbs free energy of species <span class="math notranslate nohighlight">\(j\)</span>, which reflects the deviation from thermodynamic ideality that occurs between the reference state of species <span class="math notranslate nohighlight">\(j\)</span> and species <span class="math notranslate nohighlight">\(j\)</span> as it exists under reaction conditions:</p>
 <div class="math notranslate nohighlight">
 \[\gamma_j = \exp\left(\frac{G_j^E}{RT}\right) \label{eq32}\tag{32}\]</div>
 </section>

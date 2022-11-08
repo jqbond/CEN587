@@ -128,17 +128,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
     </a>
    </li>
    <li class="toctree-l2">
@@ -171,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -185,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -538,20 +598,20 @@ title="Print to PDF"
 <section id="example-1">
 <h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">#</a></h2>
 <p>The two reactions below represent possible products that can form in the alkylation of isobutane with 1-butene.  This is actually a really important industrial process for converting relatively low-value butane into high octane gasoline additives (triptane, also called iso-octante).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce0396d4-0a70-4ff3-bf89-10e4a2c864c6">
-<span class="eqno">(26)<a class="headerlink" href="#equation-ce0396d4-0a70-4ff3-bf89-10e4a2c864c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-11469ce2-381d-4001-bde7-ce83365e686b">
+<span class="eqno">(28)<a class="headerlink" href="#equation-11469ce2-381d-4001-bde7-ce83365e686b" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,3-trimethylpentane (g)} \\
     (2) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,4-trimethylpentane (g)} \\
 \end{align}\]</div>
 <p>It is common in reactor design that we represent reaction systems with generic notation to simplify labelling.  We will represent these reactions more succinctly as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b7ab8be-db2a-4e38-aeb6-814c938df753">
-<span class="eqno">(27)<a class="headerlink" href="#equation-1b7ab8be-db2a-4e38-aeb6-814c938df753" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b787527c-9fe8-4337-a705-e635aa0261d1">
+<span class="eqno">(29)<a class="headerlink" href="#equation-b787527c-9fe8-4337-a705-e635aa0261d1" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{C (g)} \\ 
     (2) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{D (g)} \\
 \end{align}\]</div>
 <p>Both reactions are occurring in a system in which temperature is constant at 400K, and pressure is constant at 1875.16 Torr. The system is initially charged with an equimolar quantity of isobutane (A) and 1-butene (B).  Under these conditions, you may assume that all species are in the gas phase, and that all gases behave ideally. The following thermodynamic data is available for the two reactions as written at 1 bar and 400K:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c12e0683-1e7d-40ef-a596-8656ba46d077">
-<span class="eqno">(28)<a class="headerlink" href="#equation-c12e0683-1e7d-40ef-a596-8656ba46d077" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-476feb24-0a09-406c-8b43-917833035ccc">
+<span class="eqno">(30)<a class="headerlink" href="#equation-476feb24-0a09-406c-8b43-917833035ccc" title="Permalink to this equation">#</a></span>\[\begin{align}
     {\Delta G}^\circ_1 &amp;= -3.72 \,\frac{\textrm{kcal}}{\textrm{mol}} \\
     {\Delta G}^\circ_2 &amp;= -4.49 \,\frac{\textrm{kcal}}{\textrm{mol}} \\
 \end{align}\]</div>
@@ -563,8 +623,8 @@ title="Print to PDF"
 \[\exp\left(\frac{-{\Delta G}^\circ_i}{RT}\right) = K_i = \prod_{j = 1}^{N_S}a_j^{\nu_{i,j}} \label{eq1}\tag{1}\]</div>
 <p>You’ll notice a very slight modification to this in that I’ve added an index, <span class="math notranslate nohighlight">\(i\)</span>, which corresponds to the reaction number (here, 1 or 2).  We developed this equation in consideration of a single reaction.  When we have multiple reactions, this equation will apply to each and every reaction independently.  So we basically end up writing a copy of that equation for every reaction that is happening in our system.</p>
 <p>With that in mind, to determine the equilibrium composition of the mixture, we need to solve the following two equations simultaneously:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8210e026-849e-4704-ba93-d4fe0521e8ce">
-<span class="eqno">(29)<a class="headerlink" href="#equation-8210e026-849e-4704-ba93-d4fe0521e8ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd334763-66bc-48b9-b702-02b883c3e5ea">
+<span class="eqno">(31)<a class="headerlink" href="#equation-fd334763-66bc-48b9-b702-02b883c3e5ea" title="Permalink to this equation">#</a></span>\[\begin{align}
     \exp\left(\frac{-{\Delta G}^\circ_1}{RT}\right) &amp;= K_1 = \frac{a_C}{a_A a_B} \label{eq2}\tag{2}\\
     \\
     \exp\left(\frac{-{\Delta G}^\circ_2}{RT}\right) &amp;= K_2 = \frac{a_D}{a_A a_B} \label{eq3}\tag{3}\\
@@ -605,8 +665,8 @@ title="Print to PDF"
 <section id="now-we-work-on-the-composition-and-pressure-dependencies">
 <h3>Now we work on the composition and pressure dependencies…<a class="headerlink" href="#now-we-work-on-the-composition-and-pressure-dependencies" title="Permalink to this headline">#</a></h3>
 <p>Now that we know the values of the equilibrium constants, we now have to fill out the right hand side of these equations, i.e.:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43755d52-b1c8-453f-86d2-3d60b899af46">
-<span class="eqno">(30)<a class="headerlink" href="#equation-43755d52-b1c8-453f-86d2-3d60b899af46" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f3388500-7383-4bda-b6b0-7cd8dbd84995">
+<span class="eqno">(32)<a class="headerlink" href="#equation-f3388500-7383-4bda-b6b0-7cd8dbd84995" title="Permalink to this equation">#</a></span>\[\begin{align}
     K_1 &amp;= \frac{a_C}{a_A a_B} \label{eq5}\tag{5}\\
     \\
     K_2 &amp;= \frac{a_D}{a_A a_B} \label{eq6}\tag{6}\\
@@ -623,8 +683,8 @@ title="Print to PDF"
 \[a_j = \frac{y_j P}{P^\circ} \label{eq9}\tag{9}\]</div>
 <p>Now we apply this equation to all of the species participating in the reaction.  Notice that I’m still retaining <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(P^\circ\)</span> in my solution.  This helps me to keep it general, and to make sure that I take care to be dimensionally consistent.</p>
 <p>If we substitute these activity definitions into our two equations that we’re trying to solve, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2331d3b6-5137-4653-9ced-eed31dd1e411">
-<span class="eqno">(31)<a class="headerlink" href="#equation-2331d3b6-5137-4653-9ced-eed31dd1e411" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5b61716e-5108-4b18-8df1-b85aa79942f1">
+<span class="eqno">(33)<a class="headerlink" href="#equation-5b61716e-5108-4b18-8df1-b85aa79942f1" title="Permalink to this equation">#</a></span>\[\begin{align}
     K_1 = \frac{\left(\frac{y_C P}{P^\circ}\right)}{\left(\frac{y_A P}{P^\circ}\right) \left(\frac{y_B P}{P^\circ}\right)} \label{eq10}\tag{10}\\
     \\
     K_2 = \frac{\left(\frac{y_D P}{P^\circ}\right)}{\left(\frac{y_A P}{P^\circ}\right) \left(\frac{y_B P}{P^\circ}\right)} \label{eq11}\tag{11}\\
@@ -670,8 +730,8 @@ title="Print to PDF"
 </tbody>
 </table>
 <p>Now that each of these molar quantities are defined as functions of <span class="math notranslate nohighlight">\(\varepsilon_1\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, it is just a matter of substituting those into mole fractions, then into activities, then into the equilibrium equations…that gives us two equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-69b8764b-0e79-4192-b5e3-f3a96bbda225">
-<span class="eqno">(32)<a class="headerlink" href="#equation-69b8764b-0e79-4192-b5e3-f3a96bbda225" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1442b3d2-974a-4d7d-af47-ebab64448c33">
+<span class="eqno">(34)<a class="headerlink" href="#equation-1442b3d2-974a-4d7d-af47-ebab64448c33" title="Permalink to this equation">#</a></span>\[\begin{align}
     K_1 &amp;= \frac{a_C}{a_A a_B} \label{eq13}\tag{13}\\
     \\
     K_2 &amp;= \frac{a_D}{a_A a_B} \label{eq14}\tag{14}\\
@@ -790,8 +850,8 @@ title="Print to PDF"
 <section id="example-2">
 <h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">#</a></h2>
 <p>Calculate the equilbrium composition for the system in Equilibrium Example 6 at 1875.16 Torr and 327<span class="math notranslate nohighlight">\(^\circ\)</span>C (600K); the following information will be useful.  All data obtained for pure gases at 1 bar and 400K.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74e64b3f-808e-447b-9da0-73fca67f9d6f">
-<span class="eqno">(33)<a class="headerlink" href="#equation-74e64b3f-808e-447b-9da0-73fca67f9d6f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9d64a017-6724-44cb-a6c5-1834b635b93e">
+<span class="eqno">(35)<a class="headerlink" href="#equation-9d64a017-6724-44cb-a6c5-1834b635b93e" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Delta H^\circ_1  &amp;= -20.1 \,\frac{\textrm{kcal}}{\textrm{mol}}\\
     \Delta H^\circ_2  &amp;= -21.0 \,\frac{\textrm{kcal}}{\textrm{mol}}\\
     \Delta Cp^\circ_1 &amp;= 8.20 \times 10^{-4} \,\frac{\textrm{kcal}}{\textrm{mol K}}\\
@@ -878,7 +938,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1a9d03f5220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x262c0ed5220&gt;
 </pre></div>
 </div>
 <img alt="_images/F22-587-L08_12_1.png" src="_images/F22-587-L08_12_1.png" />

@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 16 &#8212; CEN 587 Fall 2022</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 17" href="F22-587-L17.html" />
+    <link rel="prev" title="Lecture 15" href="F22-587-L15.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CEN 587 Fall 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Lectures.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Solving problems with numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Recitations.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R01-Solution.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R02-Solution.html">
+     Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/docs/F22-587-L16.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FF22-587-L16.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/F22-587-L16.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-01-by-quadrature">
+     Solving Example Problem 01 by Quadrature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-01-using-solve-ivp">
+     Solving Example Problem 01 using solve_ivp
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 16</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-01-by-quadrature">
+     Solving Example Problem 01 by Quadrature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-01-using-solve-ivp">
+     Solving Example Problem 01 using solve_ivp
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-16">
+<h1>Lecture 16<a class="headerlink" href="#lecture-16" title="Permalink to this headline">#</a></h1>
+<p>This lecture solves more Material Balance Example Problems</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quadrature</span> <span class="k">as</span> <span class="n">quadgk</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>Consider the following gas-phase, irreversible, homogeneous reaction that is occurring in an isothermal plug flow reactor.</p>
+<div class="math notranslate nohighlight">
+\[6A + 19B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-aeeb6376-f973-424d-a28f-01ee9c5830c3">
+<span class="eqno">(68)<a class="headerlink" href="#equation-aeeb6376-f973-424d-a28f-01ee9c5830c3" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k &amp;= 25.3 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    T &amp;= 573 \ \textrm{K}\\
+    P &amp;= 1.0 \ \textrm{atm}\\
+    F_{Af} &amp;= 3.7 \textrm{mol} \ \textrm{h}^{-1}\\
+    F_{Bf} &amp;= 9.3 \textrm{mol} \ \textrm{h}^{-1}
+\end{align}\]</div>
+<p>What PFR volume is required to achieve a fractional conversion of species B (<span class="math notranslate nohighlight">\(X_B\)</span>) of 85%?</p>
+<p><strong>Answer</strong>: V<span class="math notranslate nohighlight">\(_{PFR}\)</span> = 179 L</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>At this point, I am thinking I can probably work through an analytical solution because this is only one reaction, so I take the same approach as in <strong>Lectures 14 and 15</strong>. Start with a balance on Species B in a PFR at Steady state:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = R_B\]</div>
+<p>We define <span class="math notranslate nohighlight">\(R_B\)</span> as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_B = \sum_{i = 1}^{N_R} \nu_{i,B} \, r_i\]</div>
+<p>We again have a single reaction, so:</p>
+<div class="math notranslate nohighlight">
+\[R_B = -19r\]</div>
+<p>The problem statement tells us that the reaction is first order in A and first order in B, so:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[R_B = -19kC_AC_B\]</div>
+<p>We substitute this into the material balance to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = -19kC_AC_B\]</div>
+<p>As usual, we have several dependent variables.  We’ll try to work through our typical tricks of expressing everything in terms of flowrates, here, concentrations are defined as:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{F_B}{Q}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_j\)</span> is the molar flowrate of j at position “V” in the reactor, and Q is the volumetric flowrate at position “V” in the reactor.  Both are generally functions of position in the reactor. We definition have a change in number of moles from left to right in this reaction, so Q is not constant.  We define it with an equation of state.  Since we’re at 1 bar, we’ll use the ideal gas law.</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_{T}RT}{P}\]</div>
+<p>Substituting relevant quantities back into our material balance, we get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = -19k\frac{F_AF_B}{F_T^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>This isn’t separable because we have <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(F_B\)</span>, and <span class="math notranslate nohighlight">\(F_T\)</span> changing as a function of volume.  We write a mole table for all species as functions of fractional conversion of B. This gives:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-61ce3e47-7853-4a18-b77c-1a8b5d368ea8">
+<span class="eqno">(69)<a class="headerlink" href="#equation-61ce3e47-7853-4a18-b77c-1a8b5d368ea8" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f} - 6/19F_{B,f}X_B \\
+    F_B &amp;= F_{B,f} - F_{B,f}X_B \\
+    F_C &amp;= F_{C,f} + 1/19F_{B,f}X_B \\
+    F_T &amp;= F_{T,f} - 24/19F_{B,f}X_B \\
+\end{align}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_{T,f} = F_{A,f} + F_{B,f} + F_{C,f}\)</span>. We substitute these molar flowrates into our ODE. After factoring and simplifications like in the Lecture 15 problems, we get the following:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_B}{dV} = k\frac{6 \times 19^2}{24^2F_{B,f}}\left(\frac{P}{RT}\right)^2\frac{(\theta_A - X_B)(1 - X_B)}{(\theta_T - X_B))^2}\]</div>
+<p>This <em>is</em> a separable ODE.</p>
+<div class="math notranslate nohighlight">
+\[\frac{(\theta_T - X_B)^2}{(\theta_A - X_B)(1 - X_B)}dX_B = k\frac{6 \times 19^2}{24^2F_{B,f}}\left(\frac{P}{RT}\right)^2 dV\]</div>
+<p>But, honestly, I can’t find a concise, closed form solution for this.  There are no entries in my integral tables that are relevant, and last time I tried to integrate this in Wolfram, I got an answer, but it was so long and complicated, that it was effectively useless.  In that case, the only option left for me is to solve this numerically. If we think about this problem some, we are looking for the reactor volume required to achieve a fractional conversion of 0.85.  If we restructure the above equation a little, we’ll see that the volume is just given by a definite integral, which we can solve on a calculator or with quadrature in Python.</p>
+</section>
+<section id="solving-example-problem-01-by-quadrature">
+<h3>Solving Example Problem 01 by Quadrature<a class="headerlink" href="#solving-example-problem-01-by-quadrature" title="Permalink to this headline">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\int_0^{V} dV = V = \frac{1}{k}\frac{24^2F_{B,f}}{6 \times 19^2}\left(\frac{RT}{P}\right)^2 \int_0^{0.85}\frac{(\theta_T - X_B)^2}{(\theta_A - X_B)(1 - X_B)}dX_B\]</div>
+<p>Solving the integral on the right hand side, we find that:</p>
+<p><span class="math notranslate nohighlight">\(V = 179.7 L\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span>      <span class="c1">#L/mol/h</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="mf">3.7</span>       <span class="c1">#mol/h</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="mf">9.3</span>       <span class="c1">#mol/h</span>
+<span class="n">FCf</span> <span class="o">=</span> <span class="mi">0</span>         <span class="c1">#mol/h</span>
+<span class="n">FTf</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">+</span> <span class="n">FBf</span> <span class="o">+</span> <span class="n">FCf</span>
+
+<span class="n">T</span>   <span class="o">=</span> <span class="mi">573</span>      <span class="c1">#K</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1">#atm</span>
+<span class="n">R</span>   <span class="o">=</span> <span class="mf">0.08206</span>  <span class="c1">#L*atm/mol/K</span>
+<span class="n">thetaA</span> <span class="o">=</span> <span class="mi">19</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">FAf</span><span class="o">/</span><span class="n">FBf</span>
+<span class="n">thetaT</span> <span class="o">=</span> <span class="mi">19</span><span class="o">/</span><span class="mi">24</span><span class="o">*</span><span class="n">FTf</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="n">INT</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">X</span><span class="p">:</span> <span class="p">(</span><span class="mi">24</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">FBf</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="mi">19</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">thetaT</span> <span class="o">-</span> <span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">thetaA</span> <span class="o">-</span> <span class="n">X</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X</span><span class="p">))</span>
+
+<span class="n">V</span><span class="p">,</span> <span class="n">err</span>   <span class="o">=</span> <span class="n">quadgk</span><span class="p">(</span><span class="n">INT</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
+<span class="n">V</span> <span class="c1">#Liters</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>179.71628958920797
+</pre></div>
+</div>
+</div>
+</div>
+<p>While it is generally a good idea to get an analytical solution if we can, we have to recognize that when problems start to get more complex, we invariably have to solve them using a computer with some type of numerical method.  If we’re going to use a computer anyway (as above), my advice is to really lean into using the computer. Usually, I prefer not to spend a lot of time and effort deriving a complicated equation like the final ODE above.  I don’t like doing that because it is tedious and, inevitably, I make mistakes and have trouble figuring out where I made them because the final equations are incomprehenisble in terms of physical significance of the terms in them.</p>
+</section>
+<section id="solving-example-problem-01-using-solve-ivp">
+<h3>Solving Example Problem 01 using solve_ivp<a class="headerlink" href="#solving-example-problem-01-using-solve-ivp" title="Permalink to this headline">#</a></h3>
+<p>Here’s the approach I prefer.</p>
+<p>Above, we resolved having 3 dependent variables and only 1 equation by reducing the number of dependent variables to one, <span class="math notranslate nohighlight">\(X_B\)</span>.  An alternate approach is to add more equations. Instead of expressing <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(F_B\)</span>, and <span class="math notranslate nohighlight">\(F_C\)</span> in terms of fractional conversion of B, we just write material balances of A, B, and C if we find we need to know how A, B, and C change as a function of time, reactor volume, etc. So, for this problem, we would start out as usual by writing a balance on B (see first part of solution above):</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = -19kC_AC_B\]</div>
+<p>But we see as usual that we also need to know FA to figure out CA since:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q}\]</div>
+<p>Not only that, we know that <span class="math notranslate nohighlight">\(Q\)</span> is determined by the total molar flowrate:</p>
+<div class="math notranslate nohighlight">
+\[F_T = F_A + F_B + F_C\]</div>
+<p>So we actually need to know <span class="math notranslate nohighlight">\(F_C\)</span> as well.  My preference in this case is to just write balances on each species.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-22dde75e-047d-4028-aa80-22ad9a796ab2">
+<span class="eqno">(70)<a class="headerlink" href="#equation-22dde75e-047d-4028-aa80-22ad9a796ab2" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dF_A}{dV} &amp;= R_A \\
+    \frac{dF_B}{dV} &amp;= R_B \\
+    \frac{dF_C}{dV} &amp;= R_C \\
+\end{align}\]</div>
+<p>Once we do this, we just follow this guidance: we write everything on the right hand side of these three balances in terms of the indpendent variable (<span class="math notranslate nohighlight">\(V\)</span>) and/or the dependent variables (<span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(F_B\)</span>, and <span class="math notranslate nohighlight">\(F_C\)</span>).  With that in mind:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d4ea5207-ffc1-4695-ac1b-e84d56bfb017">
+<span class="eqno">(71)<a class="headerlink" href="#equation-d4ea5207-ffc1-4695-ac1b-e84d56bfb017" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A &amp;= -6r \\
+    R_B &amp;= -19r \\
+    R_C &amp;= r \\
+\end{align}\]</div>
+<p>And we know the rate law, so:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>We know how to define concentrations in terms of flowrates:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-41209aa6-02ad-44e5-bcd8-52d645cad6ab">
+<span class="eqno">(72)<a class="headerlink" href="#equation-41209aa6-02ad-44e5-bcd8-52d645cad6ab" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A = F_A/Q \\
+    C_B = F_B/Q \\ 
+    C_C = F_C/Q \\
+\end{align}\]</div>
+<p>And we know that Q can be obtained using the ideal gas law:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_T RT}{P}\]</div>
+<p>That’s all good because we can express the total molar flowrate in terms of individual species flowrates:</p>
+<div class="math notranslate nohighlight">
+\[F_T = F_A + F_B + F_C\]</div>
+<p>Problem solved.  We can integrate this using solve_ivp from scipy.integrate. See below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P01</span><span class="p">(</span><span class="n">vol</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">FB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">FC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span>
+    
+    <span class="n">T</span>  <span class="o">=</span> <span class="mi">573</span> <span class="c1">#K</span>
+    <span class="n">P</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#atm</span>
+    <span class="n">R</span>  <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span><span class="o">*</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="mi">19</span><span class="o">*</span><span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span> <span class="n">r</span>
+    
+    <span class="n">dFAdV</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">dFBdV</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">dFCdV</span> <span class="o">=</span> <span class="n">RC</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dFAdV</span><span class="p">,</span> <span class="n">dFBdV</span><span class="p">,</span> <span class="n">dFCdV</span><span class="p">]</span>
+
+<span class="n">FAf</span>   <span class="o">=</span> <span class="mf">3.7</span> <span class="c1">#mol/h</span>
+<span class="n">FBf</span>   <span class="o">=</span> <span class="mf">9.3</span> <span class="c1">#mol/h</span>
+<span class="n">FCf</span>   <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#mol/h</span>
+<span class="n">vspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">]</span>
+<span class="n">ans09</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P01</span><span class="p">,</span> <span class="n">vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">ans09</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FB</span>    <span class="o">=</span> <span class="n">ans09</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">XB</span>    <span class="o">=</span> <span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span><span class="p">)</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#plt.figure(1, figsize = (5,5))</span>
+<span class="c1">#plt.plot(V, FB, &#39;ro&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">XB</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span> <span class="mi">195</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">itp1</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XB</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">Vsol</span>  <span class="o">=</span> <span class="n">itp1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Vsol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/F22-587-L16_6_0.png" src="_images/F22-587-L16_6_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>179.7208703057815
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p>Consider the following liquid-phase, irreversible, homogeneous reaction that is occurring in an isothermal, well-mixed,  batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[A + B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. You may assume that the liquid inside of the reactor has a constant density (it is mostly solvent). Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6a1a8dbc-53b2-42ff-a9f0-905fa9eb995c">
+<span class="eqno">(73)<a class="headerlink" href="#equation-6a1a8dbc-53b2-42ff-a9f0-905fa9eb995c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k &amp;= 0.0975 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    C_{A0} &amp;= 0.62 \ \textrm{mol} \ \textrm{L}^{-1}\\
+    C_{B0} &amp;= 1.35 \ \textrm{mol} \ \textrm{L}^{-1}\\
+    V_0 &amp;= 17 \textrm{L}
+\end{align}\]</div>
+<p>What fractional conversion of species A is achieved after 16 hours?</p>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(X_A = 0.797\)</span></p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<p>We start with a balance on Species A in a well-mixed batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = R_AV\]</div>
+<p>We define <span class="math notranslate nohighlight">\(R_A\)</span> as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>We again have a single reaction, so:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r\]</div>
+<p>The problem statement tells us that the reaction is first order in A and first order in B, so:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -kC_AC_B\]</div>
+<p>We substitute this into the material balance to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = -kC_AC_BV\]</div>
+<p>We encounter the usual situation where we have a single ODE in 1 independent variable (time) and 3 dependent variables (NA, CA, CB).  We <em>can</em> use the approaches from lecture 14 and 15 to obtain a hand solution for this problem. That is, we can express NA, CA, and CB all as functions of fractional conversion.  But I am going to choose to solve it by writing balances on any species I need to keep track of.  Here, we only need to keep track of A and B.  Volume is constant, so the concentrations of species only depend on the number of moles of A and B in the system at any point in time.</p>
+<p>With this approach in mind, we write balances on A and B:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9bafce64-0d70-45a5-9b0d-bfb032a595db">
+<span class="eqno">(74)<a class="headerlink" href="#equation-9bafce64-0d70-45a5-9b0d-bfb032a595db" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dN_A}{dt} = R_AV \\
+    \frac{dN_B}{dt} = R_BV \\
+\end{align}\]</div>
+<p>Now I just make sure I define everything on the right hand side of those balance equations in terms of NA, NB, and/or t.  If I can do that, I can solve the problem.</p>
+<p>First, the production rates:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a3e0c273-007a-4687-beb8-eb25db0ba0ee">
+<span class="eqno">(75)<a class="headerlink" href="#equation-a3e0c273-007a-4687-beb8-eb25db0ba0ee" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A = -r \\
+    R_B = -r \\
+\end{align}\]</div>
+<p>The rate expression:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Now the concentrations:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ee11bc9a-c408-4ee7-ae56-6873757b6977">
+<span class="eqno">(76)<a class="headerlink" href="#equation-ee11bc9a-c408-4ee7-ae56-6873757b6977" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A = N_A/V \\
+    C_B = N_B/V \\
+\end{align}\]</div>
+<p>In this case, volume is constant at 17L, so we have basically solved the problem.  All we need to do is write up these equations as a function that we can integrate with solve_ivp.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P02</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">k</span>  <span class="o">=</span> <span class="mf">0.0975</span> <span class="c1">#L/mol/h</span>
+    <span class="n">V</span>  <span class="o">=</span> <span class="mf">17.0</span>   <span class="c1">#L</span>
+    
+    <span class="n">NA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    
+    <span class="n">dNAdt</span> <span class="o">=</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">dNBdt</span> <span class="o">=</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dNAdt</span><span class="p">,</span> <span class="n">dNBdt</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V0</span>  <span class="o">=</span> <span class="mf">17.0</span> <span class="c1">#L</span>
+<span class="n">CA0</span> <span class="o">=</span> <span class="mf">0.62</span> <span class="c1">#mol/L</span>
+<span class="n">CB0</span> <span class="o">=</span> <span class="mf">1.35</span> <span class="c1">#mol/L</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">V0</span> <span class="c1">#mol</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="n">CB0</span><span class="o">*</span><span class="n">V0</span> <span class="c1">#mol</span>
+
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="n">NA0</span><span class="p">,</span> <span class="n">NB0</span><span class="p">]</span>
+<span class="n">ans07</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">NA</span>    <span class="o">=</span> <span class="n">ans07</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">XA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7970008948936592
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L15.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 15</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L17.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 17</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By JQB<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

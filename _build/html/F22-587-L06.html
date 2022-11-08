@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Recitations" href="Recitations.html" />
+    <link rel="next" title="Lecture 07: Ammonia Equilibrium - Part 2" href="F22-587-L07.html" />
     <link rel="prev" title="Lecture 05" href="F22-587-L05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -128,17 +128,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
     </a>
    </li>
    <li class="toctree-l2">
@@ -154,6 +154,81 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
     </a>
    </li>
   </ul>
@@ -176,6 +251,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R02-Solution.html">
      Recitation 02
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-R03-Solution.html">
+     Recitation 03
     </a>
    </li>
   </ul>
@@ -577,11 +657,12 @@ Negative values of $\Delta H$ are favorable from a thermodynamic perspective, so
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HN2</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">HH2</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HN2</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HH2</span>  <span class="o">=</span> <span class="mi">0</span>
 <span class="n">HNH3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">45.940</span> <span class="c1">#kJ/mol</span>
-<span class="n">DH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HNH3</span> <span class="o">-</span> <span class="n">HN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH2</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta H is </span><span class="si">{</span><span class="n">DH</span><span class="si">}</span><span class="s1"> kJ/mole at 298K and 1 bar&#39;</span><span class="p">)</span>
+<span class="n">DH</span>   <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HNH3</span> <span class="o">-</span> <span class="n">HN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta H is </span><span class="si">{</span><span class="n">DH</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> kJ/mole at 298K and 1 bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -628,11 +709,12 @@ Negative values of $\Delta H$ are favorable from a thermodynamic perspective, so
 From an entropic perspective, ammonia synthesis at 298K and 1 bar is not favorable at all!
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SN2</span> <span class="o">=</span> <span class="mf">191.61</span> <span class="c1">#J/mol/K</span>
-<span class="n">SH2</span> <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SN2</span>  <span class="o">=</span> <span class="mf">191.61</span> <span class="c1">#J/mol/K</span>
+<span class="n">SH2</span>  <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
 <span class="n">SNH3</span> <span class="o">=</span> <span class="mf">192.77</span> <span class="c1">#J/mol/K</span>
-<span class="n">DS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SNH3</span> <span class="o">-</span> <span class="n">SN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH2</span> <span class="c1">#J/mol/K</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta S is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">DS</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1"> J/mol/K at 298K and 1 bar&#39;</span><span class="p">)</span>
+<span class="n">DS</span>   <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SNH3</span> <span class="o">-</span> <span class="n">SN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH2</span> <span class="c1">#J/mol/K</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta S is </span><span class="si">{</span><span class="n">DS</span><span class="si">:</span><span class="s1">6.2f</span><span class="si">}</span><span class="s1"> J/mol/K at 298K and 1 bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -659,12 +741,13 @@ Reactions with negative changes in Gibbs free energy are generally classified as
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
 <span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span><span class="o">*</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span> <span class="c1">#J/mol</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta G is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">DG</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s1"> J/mol at 298K and 1 bar&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Delta G is </span><span class="si">{</span><span class="n">DG</span><span class="si">:</span><span class="s1">5.0f</span><span class="si">}</span><span class="s1"> J/mol at 298K and 1 bar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta G is -32843.0 J/mol at 298K and 1 bar
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Delta G is -32843 J/mol at 298K and 1 bar
 </pre></div>
 </div>
 </div>
@@ -686,13 +769,14 @@ Consistent with our analysis of the Gibbs free energy change, this is extremely 
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="mf">8.314</span><span class="o">/</span><span class="mi">298</span><span class="p">)</span>
-<span class="n">K</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Thermodynamic Equilibrium Constant for this reaction is K = </span><span class="si">{</span><span class="n">K</span><span class="si">:</span><span class="s1">6.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>571609.9489132845
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Thermodynamic Equilibrium Constant for this reaction is K = 571610
 </pre></div>
 </div>
 </div>
@@ -789,7 +873,9 @@ Consistent with our analysis of the Gibbs free energy change, this is extremely 
 <section id="solve-using-numerical-methods-good-approach">
 <h3>Solve using numerical methods (good approach)<a class="headerlink" href="#solve-using-numerical-methods-good-approach" title="Permalink to this headline">#</a></h3>
 <p>Inspection of this equation reveals that we know everything except for the extent of reaction.  1 Equation, 1 unknow.  This can be solved with numerical methods; see below, we can use <code class="docutils literal notranslate"><span class="pre">opt.newton</span></code> from the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> package since this is a univariate function where our only unknown is the extent of reaction, <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
-<div class="cell docutils container">
+<div class = "alert alert-block alert-info">
+    <b>Notice:</b> In the cell below, we are NOT plugging in numbers to the equation as you'd have to do to solve in a calculator.  We are leaving it symbolic.  This gives us much more flexibility because the solution is now general, and we can easily solve for different reaction pressures or different starting quantities of Nitrogen, Hydrogen, and Ammonia!
+    </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
 
@@ -802,7 +888,7 @@ Consistent with our analysis of the Gibbs free energy change, this is extremely 
 
 <span class="n">obj1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">P0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">K</span>
 <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The extent of reaction at Equilibrium is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The extent of reaction at Equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -820,8 +906,8 @@ Consistent with our analysis of the Gibbs free energy change, this is extremely 
 <span class="n">yA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
 <span class="n">XN</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fractional conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -880,7 +966,7 @@ The fractional conversion of N2 is 0.968
 <span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
 <span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -937,7 +1023,7 @@ Conversion of N2 is 0.968, yA is 0.015, yB is 0.046, and yC is 0.938
 
 <span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Make sure that the solution converted</span>
 <span class="n">KCOMP</span><span class="p">,</span> <span class="n">XN</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">KCOMP</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>  <span class="c1">#This sends the final value of extent (the &quot;answer&quot;) back to the KCOMP function to compute y and XA</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1"> and mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> and mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -991,10 +1077,10 @@ Conversion of N2 is 0.968 and mole fractions for N2, H2, and NH3 are [0.015, 0.0
             <p class="prev-next-title">Lecture 05</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Recitations.html" title="next page">
+    <a class='right-next' id="next-link" href="F22-587-L07.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Recitations</p>
+        <p class="prev-next-title">Lecture 07: Ammonia Equilibrium - Part 2</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

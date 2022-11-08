@@ -46,11 +46,12 @@
 # In[1]:
 
 
-HN2 = 0
-HH2 = 0
+HN2  = 0
+HH2  = 0
 HNH3 = -45.940 #kJ/mol
-DH = 2*HNH3 - HN2 - 3*HH2
-print(f'Delta H is {DH} kJ/mole at 298K and 1 bar')
+DH   = 2*HNH3 - HN2 - 3*HH2
+
+print(f'Delta H is {DH:4.2f} kJ/mole at 298K and 1 bar')
 
 
 # ### Does the reaction lead to an increase or decrease in entropy?  
@@ -80,11 +81,12 @@ print(f'Delta H is {DH} kJ/mole at 298K and 1 bar')
 # In[2]:
 
 
-SN2 = 191.61 #J/mol/K
-SH2 = 130.68 #J/mol/K
+SN2  = 191.61 #J/mol/K
+SH2  = 130.68 #J/mol/K
 SNH3 = 192.77 #J/mol/K
-DS = 2*SNH3 - SN2 - 3*SH2 #J/mol/K
-print(f'Delta S is {round(DS,2)} J/mol/K at 298K and 1 bar')
+DS   = 2*SNH3 - SN2 - 3*SH2 #J/mol/K
+
+print(f'Delta S is {DS:6.2f} J/mol/K at 298K and 1 bar')
 
 
 # ### Is the reaction (thermodynamically) favorable at reaction conditions?
@@ -110,7 +112,8 @@ print(f'Delta S is {round(DS,2)} J/mol/K at 298K and 1 bar')
 
 T  = 298 #K
 DG = DH*1000 - T*DS #J/mol
-print(f'Delta G is {round(DG,0)} J/mol at 298K and 1 bar')
+
+print(f'Delta G is {DG:5.0f} J/mol at 298K and 1 bar')
 
 
 # ### What composition do I expect at chemical equilibrium? 
@@ -138,8 +141,9 @@ print(f'Delta G is {round(DG,0)} J/mol at 298K and 1 bar')
 
 
 import numpy as np
+
 K = np.exp(-DG/8.314/298)
-K
+print(f'The Thermodynamic Equilibrium Constant for this reaction is K = {K:6.0f}')
 
 
 # ### Calculating the Equilibrium Composition
@@ -224,6 +228,10 @@ K
 # ### Solve using numerical methods (good approach)
 # 
 # Inspection of this equation reveals that we know everything except for the extent of reaction.  1 Equation, 1 unknow.  This can be solved with numerical methods; see below, we can use `opt.newton` from the `scipy.optimize` package since this is a univariate function where our only unknown is the extent of reaction, $\varepsilon$.
+# 
+# <div class = "alert alert-block alert-info">
+#     <b>Notice:</b> In the cell below, we are NOT plugging in numbers to the equation as you'd have to do to solve in a calculator.  We are leaving it symbolic.  This gives us much more flexibility because the solution is now general, and we can easily solve for different reaction pressures or different starting quantities of Nitrogen, Hydrogen, and Ammonia!
+#     </div>
 
 # In[5]:
 
@@ -239,7 +247,7 @@ P   = 1 #bar
 
 obj1 = lambda ex: (NA0 + 2*ex)**2 * (NT0 - 2*ex)**2 / (NN0 - ex) / (NH0 - 3*ex)**3 * P0**2 / P**2 - K
 ans, info = opt.newton(obj1, 0.99, full_output = True)
-print(f'The extent of reaction at Equilibrium is {round(ans,3)}')
+print(f'The extent of reaction at Equilibrium is {ans:3.3f}')
 
 
 # Now that we know the reaction extent at equilibrium, it is easy enough to calculate the composition of the mixture by evaluating the molar quantities using our mole table and substituting them into the definition of mole fractions as in Equation [20](#mjx-eqn-eq20):
@@ -252,8 +260,8 @@ yH = (NH0 - 3*ans)/(NT0 - 2*ans)
 yA = (NA0 + 2*ans)/(NT0 - 2*ans)
 XN = ans/NN0
 
-print(f'Mole fractions for N2, H2, and NH3 are {round(yN, 3)}, {round(yH, 3)}, {round(yA, 3)}')
-print(f'The fractional conversion of N2 is {round(XN, 3)}')
+print(f'Mole fractions for N2, H2, and NH3 are {yN:3.3f}, {yH:3.3f}, {yA:3.3f}')
+print(f'The fractional conversion of N2 is {XN:3.3f}')
 
 
 # ### Solve using numerical methods (better approach?)
@@ -305,7 +313,7 @@ yN = NN/NT
 yH = NH/NT
 yA = NA/NT
 
-print(f'Conversion of N2 is {round(XN,3)}, yA is {round(yN, 3)}, yB is {round(yH, 3)}, and yC is {round(yA, 3)}')
+print(f'Conversion of N2 is {XN:3.3f}, yA is {yN:3.3f}, yB is {yH:3.3f}, and yC is {yA:3.3f}')
 
 
 # ### Solving using numerical methods (fancy approach!)
@@ -350,5 +358,5 @@ ans, info = opt.newton(obj2, 0.99, full_output = True)
 
 print(info, '\n') #Make sure that the solution converted
 KCOMP, XN, y = KCOMP(ans)  #This sends the final value of extent (the "answer") back to the KCOMP function to compute y and XA
-print(f'Conversion of N2 is {round(XN,3)} and mole fractions for N2, H2, and NH3 are {[round(val, 3) for val in y]}')
+print(f'Conversion of N2 is {XN:3.3f} and mole fractions for N2, H2, and NH3 are {[round(val, 3) for val in y]}')
 

@@ -128,17 +128,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L01.html">
-     Lecture 01
+     Lecture 01: Introduction and Stoichiometry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L02.html">
-     Lecture 02
+     Lecture 02: Extent and Conversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-L03.html">
-     Lecture 03
+     Lecture 03: Solving problems with numerical methods
     </a>
    </li>
    <li class="toctree-l2">
@@ -171,6 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
      Lecture 09: Chemical and Phase equilibria
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -185,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="F22-587-R01-Solution.html">
-     Recitation 01
+     Recitation 01: Jupyter and Python Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
@@ -692,24 +752,24 @@ title="Print to PDF"
 <span class="n">CPA</span> <span class="o">=</span> <span class="mf">35.64</span> <span class="c1">#J/mol/K</span>
 
 <span class="c1">#Calculate thermodynamic state functions at T not equal to T0 = 298</span>
-<span class="n">T</span>  <span class="o">=</span> <span class="mi">873</span>   <span class="c1">#K</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">873</span>   <span class="c1">#K</span>
 <span class="n">T0</span> <span class="o">=</span> <span class="mi">298</span>   <span class="c1">#K</span>
 <span class="n">R</span>  <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
 
-<span class="n">HN</span> <span class="o">=</span> <span class="n">HN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
-<span class="n">HH</span> <span class="o">=</span> <span class="n">HH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
-<span class="n">HA</span> <span class="o">=</span> <span class="n">HA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+<span class="n">HN</span> <span class="o">=</span> <span class="n">HN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+<span class="n">HH</span> <span class="o">=</span> <span class="n">HH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+<span class="n">HA</span> <span class="o">=</span> <span class="n">HA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
 
-<span class="n">SN</span> <span class="o">=</span> <span class="n">SN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
-<span class="n">SH</span> <span class="o">=</span> <span class="n">SH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
-<span class="n">SA</span> <span class="o">=</span> <span class="n">SA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+<span class="n">SN</span> <span class="o">=</span> <span class="n">SN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+<span class="n">SH</span> <span class="o">=</span> <span class="n">SH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+<span class="n">SA</span> <span class="o">=</span> <span class="n">SA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
 
 <span class="n">DH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HA</span> <span class="o">-</span> <span class="n">HN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH</span> <span class="c1">#J/mol</span>
 <span class="n">DS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SA</span> <span class="o">-</span> <span class="n">SN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH</span> <span class="c1">#J/mol/K</span>
-<span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span>        <span class="c1">#J/mol</span>
+<span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span> <span class="o">-</span> <span class="n">T1</span><span class="o">*</span><span class="n">DS</span>        <span class="c1">#J/mol</span>
 
-<span class="n">K1</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K1</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">K1</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T1</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K1</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -762,9 +822,7 @@ title="Print to PDF"
     <span class="n">K</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
     <span class="k">return</span> <span class="n">K</span>
 
-<span class="n">Tcurrent</span> <span class="o">=</span> <span class="mi">873</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K</span><span class="p">(</span><span class="n">Tcurrent</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -885,7 +943,7 @@ title="Print to PDF"
               <b>Notice</b>:  The only difference between this solution and the one in Lecture 06 is the value of the equilibrium constant.  Everything else in the problem is identical.  The strategies we've used to define activities, etc. is completely general, and it will apply for any condition we are interested in.  Also notice, I haven't plugged in numbers. The solution is left symbolic, which makes it much easier to modify to account for changes in the problem statement.
               </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="mi">873</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
 <span class="n">NN0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mole</span>
 <span class="n">NH0</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#moles</span>
 <span class="n">NA0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#moles</span>
@@ -896,7 +954,7 @@ title="Print to PDF"
 <span class="n">obj1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">P0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Kthermo</span>
 
 <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the extent of reaction at equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1"> moles&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the extent of reaction at equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1"> moles&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -917,8 +975,8 @@ title="Print to PDF"
 <span class="n">yA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
 <span class="n">XN</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, equilibrium mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, equilibrium mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -937,7 +995,7 @@ At T = 873K, the equilibrium fractional conversion of N2 is 7.99E-04
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj2</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
-    <span class="n">T</span>   <span class="o">=</span> <span class="mi">873</span>
+    <span class="n">T1</span>  <span class="o">=</span> <span class="mi">873</span>
     <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
     <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
     <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
@@ -957,7 +1015,7 @@ At T = 873K, the equilibrium fractional conversion of N2 is 7.99E-04
     <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
     <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
     
-    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
     <span class="n">KCOMP</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
        
     <span class="k">return</span> <span class="n">KCOMP</span> <span class="o">-</span> <span class="n">Kthermo</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
@@ -979,7 +1037,7 @@ At T = 873K, the equilibrium fractional conversion of N2 is 7.99E-04
 <span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
 <span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1051,16 +1109,16 @@ At T = 873K, the equilibrium conversion of N2 is 7.99E-04, yN is 0.250, yH is 0.
 <p>We can solve this equation as usual with any root finding algorithm.  I am literally copying the code from a few cells back, changing the objective function name to <code class="docutils literal notranslate"><span class="pre">obj3</span></code>, changing the reactor pressure to 10 bar, and then running opt.newton as before.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="mi">873</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
 <span class="n">NN0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mole</span>
 <span class="n">NH0</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#moles</span>
 <span class="n">NA0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#moles</span>
 <span class="n">P0</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
-<span class="n">P</span>   <span class="o">=</span> <span class="mi">10</span> <span class="c1">#bar</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#bar</span>
 
 <span class="n">obj3</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">P0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Kthermo</span>
 
-<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj3</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj3</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The extent of reaction at Equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1"> moles&#39;</span><span class="p">)</span>
 
 <span class="n">yN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
@@ -1068,15 +1126,15 @@ At T = 873K, the equilibrium conversion of N2 is 7.99E-04, yN is 0.250, yH is 0.
 <span class="n">yA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
 <span class="n">XN</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, equilibrium mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, the equilibrium fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, equilibrium mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, the equilibrium fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The extent of reaction at Equilibrium is 7.90E-03 moles
-At T = 873K and P = 10 bar, equilibrium mole fractions for N2, H2, and NH3 are 0.249, 0.747, 3.97E-03
-At T = 873K and P = 10 bar, the equilibrium fractional conversion of N2 is 7.90E-03
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The extent of reaction at Equilibrium is 3.80E-01 moles
+At T = 873K and P = 1000 bar, equilibrium mole fractions for N2, H2, and NH3 are 0.191, 0.574, 2.34E-01
+At T = 873K and P = 1000 bar, the equilibrium fractional conversion of N2 is 3.80E-01
 </pre></div>
 </div>
 </div>
@@ -1089,12 +1147,13 @@ At T = 873K and P = 10 bar, the equilibrium fractional conversion of N2 is 7.90E
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj4</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
 
     <span class="c1">#Specifications for this problem</span>
+    <span class="n">T1</span>  <span class="o">=</span> <span class="mi">873</span> <span class="c1">#K</span>
     <span class="n">P</span>   <span class="o">=</span> <span class="mf">1000.0</span> <span class="c1">#bar</span>
     <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
     <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
     <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
     <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
-    <span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="mi">873</span><span class="p">)</span>
+    <span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
     
     <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
     <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
@@ -1127,7 +1186,7 @@ At T = 873K and P = 10 bar, the equilibrium fractional conversion of N2 is 7.90E
 <span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
 <span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, equilibrium conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, equilibrium conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1138,7 +1197,7 @@ At T = 873K and P = 10 bar, the equilibrium fractional conversion of N2 is 7.90E
      iterations: 8
            root: 0.37970588722227583 
 
-At T = 873K and P = 10 bar, equilibrium conversion of N2 is 0.3797, yA is 0.1914, yB is 0.5742, and yC is 0.2343
+At T = 873K and P = 1000 bar, equilibrium conversion of N2 is 0.3797, yA is 0.1914, yB is 0.5742, and yC is 0.2343
 </pre></div>
 </div>
 </div>
@@ -1198,18 +1257,18 @@ At T = 873K and P = 10 bar, equilibrium conversion of N2 is 0.3797, yA is 0.1914
 <p>The reason the addition of a catalyst benefits this process so much is that it allows us to achieve a faster rate of reaction (relative to the non-catalytic system) at a given temperature.  Another way to think of this is that the catalytic system will not require as a high a temperature to achieve the same rate as the non-catalytic system.  So, for example, if kinetics force us to operate ammonia synthesis at 873K without a catalyst, perhaps we can achieve the same rate at 673K with a catalyst.  Since ammonia synthesis is exothermic, this reduction in operating temperature is extremely beneficial toward improving the equilibrium limitation.  We illustrate this effect in the cell below, which is just code copied from above, but we can adjust temperature and pressure to see how it impacts chemical equilibrium.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tcurrent</span> <span class="o">=</span> <span class="mi">673</span> <span class="c1">#K</span>
-<span class="n">Pcurrent</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#bar</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T2</span> <span class="o">=</span> <span class="mi">673</span> <span class="c1">#K</span>
+<span class="n">P2</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#bar</span>
 
 <span class="k">def</span> <span class="nf">obj5</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
 
     <span class="c1">#Specifications for this problem</span>
-    <span class="n">P</span>   <span class="o">=</span> <span class="n">Pcurrent</span> <span class="c1">#bar</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="n">P2</span> <span class="c1">#bar</span>
     <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
     <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
     <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
     <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
-    <span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">Tcurrent</span><span class="p">)</span>
+    <span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span>
     
     <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
     <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
@@ -1242,18 +1301,18 @@ At T = 873K and P = 10 bar, equilibrium conversion of N2 is 0.3797, yA is 0.1914
 <span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
 <span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">Tcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">Pcurrent</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
            flag: &#39;converged&#39;
- function_calls: 9
-     iterations: 8
-           root: 0.37975427392261457 
+ function_calls: 6
+     iterations: 5
+           root: 0.5119797716314257 
 
-At T = 673K and P = 100 bar, the equilibrium conversion of N2 is 0.380, yA is 0.191, yB is 0.574, and yC is 0.234
+At T = 673K and P = 200 bar, the equilibrium conversion of N2 is 0.512, yA is 0.164, yB is 0.492, and yC is 0.344
 </pre></div>
 </div>
 </div>

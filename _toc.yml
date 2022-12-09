@@ -3,38 +3,13 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: Lectures
+chapters: 
+- file: Chapter1
   sections:
-  - file: F22-587-L01
-  - file: F22-587-L02
-  - file: F22-587-L03
-  - file: F22-587-L04
-  - file: F22-587-L05
-  - file: F22-587-L06
-  - file: F22-587-L07
-  - file: F22-587-L08
-  - file: F22-587-L09
-  - file: F22-587-L10
-  - file: F22-587-L11
-  - file: F22-587-L12
-  - file: F22-587-L13
-  - file: F22-587-L14
-  - file: F22-587-L15
-  - file: F22-587-L16
-  - file: F22-587-L17
-  - file: F22-587-L18
-  - file: F22-587-L19
-  - file: F22-587-L20
-  - file: F22-587-L21
-  - file: F22-587-L22
-  
-- file: Recitations
+  - file: Supplements/Module 01 - The Basics
+- file: Chapter2
   sections:
-  - file: F22-587-R01
-  - file: F22-587-R02
-  - file: F22-587-R03
-  - file: F22-587-R04
-  - file: F22-587-R05
-  - file: F22-587-R06
-  - file: F22-587-R07
+  - file: Lectures/F22-587-L02
+- file: Chapter3
+  sections:
+  - file: Recitation/F22-587-R01

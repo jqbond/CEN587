@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Root Finding: Univariate Functions &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Supplements/Module 09 - Root Finding 01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FSupplements/Module 09 - Root Finding 01.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Supplements/Module 09 - Root Finding 01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-methods">
+   Numerical Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   Root Finding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding-for-univariate-functions">
+   Root Finding for Univariate Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-basic-problem">
+     The basic problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-utility-of-graphing-your-functions">
+     The Utility of Graphing your Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-pyplot">
+       Importing pyplot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-the-function">
+       Defining the function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-the-function-in-base-python-using-lists">
+       Plotting the function in base Python using lists
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays-are-probably-what-you-want">
+     Numpy arrays are probably what you want…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays-support-broadcasting-so-you-can-pass-them-to-a-function">
+     Numpy arrays support broadcasting, so you can pass them to a function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recall-there-is-an-analytical-solution-to-this-equation">
+     Recall: there is an analytical solution to this equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-very-crude-numerical-method-guess-and-check">
+     A very crude numerical method (guess and check)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-raphson-method">
+     Newton-Raphson Method**
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-raphson-is-much-better-than-guess-and-check">
+     Newton-Raphson is much better than guess and check
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probably-we-should-leave-numerical-method-scripts-to-the-professionals">
+     Probably we should leave numerical method scripts to the professionals…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   Scipy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-scipy-optimize">
+     Import
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Scipy.optimize()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-for-root-finding-in-univariate-scalar-functions">
+     Methods for root finding in univariate, scalar functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-true-newton-raphson-iteration-in-opt-newton">
+     A true Newton-Raphson iteration in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.newton()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#displaying-more-information">
+     Displaying more information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-different-algorithms-for-solving-univariate-problems">
+     Selecting different algorithms for solving univariate problems.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opt-root-scalar">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.root_scalar()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-root-finding-is-difficult">
+     Numerical root finding is difficult…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-a-difficult-problem-with-homebrew-newton-raphson">
+     Solving a difficult problem with homebrew Newton-Raphson
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-difficult-problem-with-scipy-s-newton-raphson">
+     Solving the difficult problem with Scipy’s Newton-Raphson
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trying-a-secant-method-for-the-difficult-problem">
+     Trying a secant method for the difficult problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-great-place-for-anonymous-lambda-functions">
+   A great place for anonymous (lambda functions)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#closing-thoughts-on-root-finding-for-univariate-functions">
+   Closing thoughts on Root finding for univariate functions
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Root Finding: Univariate Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numerical-methods">
+   Numerical Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding">
+   Root Finding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#root-finding-for-univariate-functions">
+   Root Finding for Univariate Functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-basic-problem">
+     The basic problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-utility-of-graphing-your-functions">
+     The Utility of Graphing your Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#importing-pyplot">
+       Importing pyplot
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#defining-the-function">
+       Defining the function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-the-function-in-base-python-using-lists">
+       Plotting the function in base Python using lists
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays-are-probably-what-you-want">
+     Numpy arrays are probably what you want…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays-support-broadcasting-so-you-can-pass-them-to-a-function">
+     Numpy arrays support broadcasting, so you can pass them to a function
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recall-there-is-an-analytical-solution-to-this-equation">
+     Recall: there is an analytical solution to this equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-very-crude-numerical-method-guess-and-check">
+     A very crude numerical method (guess and check)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-raphson-method">
+     Newton-Raphson Method**
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-raphson-is-much-better-than-guess-and-check">
+     Newton-Raphson is much better than guess and check
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probably-we-should-leave-numerical-method-scripts-to-the-professionals">
+     Probably we should leave numerical method scripts to the professionals…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scipy">
+   Scipy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-scipy-optimize">
+     Import
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Scipy.optimize()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-for-root-finding-in-univariate-scalar-functions">
+     Methods for root finding in univariate, scalar functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-true-newton-raphson-iteration-in-opt-newton">
+     A true Newton-Raphson iteration in
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.newton()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#displaying-more-information">
+     Displaying more information
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-different-algorithms-for-solving-univariate-problems">
+     Selecting different algorithms for solving univariate problems.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opt-root-scalar">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.root_scalar()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-root-finding-is-difficult">
+     Numerical root finding is difficult…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-a-difficult-problem-with-homebrew-newton-raphson">
+     Solving a difficult problem with homebrew Newton-Raphson
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-difficult-problem-with-scipy-s-newton-raphson">
+     Solving the difficult problem with Scipy’s Newton-Raphson
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trying-a-secant-method-for-the-difficult-problem">
+     Trying a secant method for the difficult problem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-great-place-for-anonymous-lambda-functions">
+   A great place for anonymous (lambda functions)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#closing-thoughts-on-root-finding-for-univariate-functions">
+   Closing thoughts on Root finding for univariate functions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="root-finding-univariate-functions">
+<h1>Root Finding: Univariate Functions<a class="headerlink" href="#root-finding-univariate-functions" title="Permalink to this headline">#</a></h1>
+<section id="numerical-methods">
+<h2>Numerical Methods<a class="headerlink" href="#numerical-methods" title="Permalink to this headline">#</a></h2>
+<p>The majority of our prior courses in algebra, calculus, physics, chemistry, and engineering present us with problems that are difficult to formulate but straightforward to solve.  What I mean is that we may struggle to develop the model equation that describes our system, but once we have that equation, it is usually easy for us to solve. Often, we are even able to solve that equation <em><strong>analytically</strong></em>. What do we mean by solving a problem analytically?  This is when we are able to use methods from algebra, trigonometry, calculus, etc. to “solve for x”, i.e., to obtain a closed form solution that explicitly states the value of my variable of interest. Some examples to clarify that point.  The following equation:</p>
+<div class="math notranslate nohighlight">
+\[0 = x^2 - 25\]</div>
+<p>Can be solved <em><strong>analytically</strong></em> by factoring or by simply moving 25 to the left hand side of the equation and taking the square root, giving:</p>
+<div class="math notranslate nohighlight">
+\[x = 5 \ \textrm{or} \ x = -5\]</div>
+<p>If not that, we could use a quadratic equation to get an explicit solution for x.</p>
+<p>Another example from calculus:  Let’s say I want to compute the area under the curve given by <span class="math notranslate nohighlight">\(y = 3x^3\)</span> from x = 0 to x = 10.  It is straightforward to evaluate that definite integral:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Area} = \int_0^{10}(3 x^3 dx) = \frac{3}{4} \cdot x^4 \big|_0^{10}\]</div>
+<p>Which is evaluated as:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Area} = \left(\frac{3}{4} \cdot 10^4\right) - \left(\frac{3}{4} \cdot 0^4\right) = 7500\]</div>
+<p>Most of us are comfortable with these types of analytical solutions because it is what we’ve been trained to do. As we begin to deal with more advanced topics, we often need to solve problems where it may be tedious, difficult, or even impossible to find an analytical solution. This is where <em><strong>numerical solutions</strong></em> come in.  Generally speaking, numerical methods are algorithms that employ simple operations (addition, subtraction, multiplication, and division) to provide approximate solutions to problems that do not have tractable analytical solutions. The basic operations at the core of numerical methods (addition, subtraction, multiplication, and division) are repeated iteratively, often many, many times, until we obtain a solution that is within our precision tolerance for a particular problem.</p>
+<p><strong>The iterative nature of numerical methods makes them very tedious on paper but extremely efficient in most programming languages.</strong></p>
+<p>When we first encounter numerical methods, many of us are uncomfortable with them because they look so different from the analytical solutions that have been ingrained in our minds as the way we will solve problems.  But fear not!  Most of them are conceputally very simple! Further, their are packages available in Python that automate most numerical methods for us, so once we get the hang of syntax, they are very, very easy to use.</p>
+<p>First, we will see what is under the hood with numerical methods for a couple of test problems to get a feel for how they work, and then we’ll introduce some packages available in Python that handle numerical solutions for us in a very efficient and robust way.</p>
+<p>Exercises on general Numerical Methods are covered in Supplements 09 - 14. They address four broad classes of problems that are essential for engineers to know:</p>
+<ol class="simple">
+<li><p>Root finding – Supplements 09 and 12</p></li>
+<li><p>Optimization (finding minima and maxima) – Supplements 10 and 11</p></li>
+<li><p>Solving differential equations (initial value problems) Supplement 14</p></li>
+<li><p>Numerical Quadrature (integrating a univariate function or discrete data set) Supplement 14</p></li>
+</ol>
+<p>To build confidence when trying to learn a new method for problem solving, I advocate testing it out on a problem that we already know how to solve to make sure we get the correct answer. Once you master that, then apply the methods to increasingly complex problems.</p>
+<p>A final note about why you should embrace numerical methods:  Once you <em>get</em> them, they are really easy - often times they are <em>much</em> easier than developing an analytical solution.  You can write a code to handle them, and then reuse that code over and over and over by adapting it to suit the problem at hand.  They will greatly expand your ability to solve problems, and I guarantee that you will be able to use them in the rest of your engineering curricula.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="root-finding">
+<h2>Root Finding<a class="headerlink" href="#root-finding" title="Permalink to this headline">#</a></h2>
+<p>Let’s start with the most straightforward case first - using numerical methods to find the root of a function. All we mean by root finding is that we are finding the value of the function argument(s) where the function is equal to zero.</p>
+</section>
+<section id="root-finding-for-univariate-functions">
+<h2>Root Finding for Univariate Functions<a class="headerlink" href="#root-finding-for-univariate-functions" title="Permalink to this headline">#</a></h2>
+<p>We will start with the case of root finding with a <em><strong>univariate function</strong></em>, which basically means <em><strong>a function that only has one independent variable</strong></em>. For example,</p>
+<div class="math notranslate nohighlight">
+\[y(x) = x^2 + exp(x) - 7x + 5\]</div>
+<p>is only a function of x.  Once I specify a value of x, I can evaluate the corresponding value of y.  y is thus a univariate function of x. We actually introduced a test univariate function in Supplement 06 (While Loops), and we used a simple numerical method to solve it, so let’s pick up that example, use it again here, and expand our toolkit.</p>
+<section id="the-basic-problem">
+<h3>The basic problem<a class="headerlink" href="#the-basic-problem" title="Permalink to this headline">#</a></h3>
+<p>We have a <em>univariate</em> function,</p>
+<div class="math notranslate nohighlight">
+\[y = f(x) = 5x^2 + 8x - 23\]</div>
+<p>We would like to find the <strong>roots</strong> for that function. By that, we mean the values of x where y = 0. So, when we discuss “root finding” for this equation, we are simply solving the equation below for x:</p>
+<div class="math notranslate nohighlight">
+\[0 = 5x^2 + 8x - 23\]</div>
+<p>This is an important thing to remember as we move forward. The equations that we see and develop in our models will take many different forms, but when we write programs that use numerical methods to solve them, for a univariate function, we will always be solving 0 = f(x), and so we will have to write our code accordingly.</p>
+</section>
+<section id="the-utility-of-graphing-your-functions">
+<h3>The Utility of Graphing your Functions<a class="headerlink" href="#the-utility-of-graphing-your-functions" title="Permalink to this headline">#</a></h3>
+<p>Anytime I can do so (and I can typically do so with univariate functions), I will graph the function of interest on various domains (ranges of x values) so that I can see where roots might be located. As we consider the use of numerical methods, we will see how important it is to provide good initial guesses for the root or a reasonable range of x-values where we think we are likely to find the root. So if it is possible, start by graphing the function of interest.</p>
+<p>We haven’t talked much about graphing functions. It seems straightforward until you go to do it in base Python, and then you might scratch your head a bit as to how you’d actually use a function to generate a large set of y values from a large set of x values. So let’s cover a bit of syntax using lists (which we are familiar with), and then cover some of the utility of numpy arrays in these types of operations.</p>
+<section id="importing-pyplot">
+<h4>Importing pyplot<a class="headerlink" href="#importing-pyplot" title="Permalink to this headline">#</a></h4>
+<p>First, let’s import pyplot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-the-function">
+<h4>Defining the function<a class="headerlink" href="#defining-the-function" title="Permalink to this headline">#</a></h4>
+<p>Next, let’s define the function of interest in the form of 0 = f(x)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
+</pre></div>
+</div>
+</section>
+<section id="plotting-the-function-in-base-python-using-lists">
+<h4>Plotting the function in base Python using lists<a class="headerlink" href="#plotting-the-function-in-base-python-using-lists" title="Permalink to this headline">#</a></h4>
+<p>I can use that function to calculate the value of y for any value of x. If you ever end up working with Python in detail, you need to be familiar with lists and how to use them since they are a major part of base Python. If I wanted to prepare a set of x values and their corresponding y values using this function, I would probably do so with a pair of list comprehensions (or for loops), whichever you prefer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xplot_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">31</span><span class="p">)]</span>     <span class="c1">#Create a list of x-values</span>
+<span class="n">yplot_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xplot_list</span><span class="p">]</span>  <span class="c1">#Create a list of y-values for each x value</span>
+</pre></div>
+</div>
+<p>Now I have my set of (x,y) pairs in two separate lists. I can plot them using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">,</span> <span class="n">yplot_list</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span> <span class="c1">#Adding a y = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>I can see from that graph that there are two roots (which is the most we can have for a quadratic).  There is one between -4 and -3, and there is another between 1 and 2.</p>
+</section>
+</section>
+<section id="numpy-arrays-are-probably-what-you-want">
+<h3>Numpy arrays are probably what you want…<a class="headerlink" href="#numpy-arrays-are-probably-what-you-want" title="Permalink to this headline">#</a></h3>
+<p>Now that we’ve used a function for graphing collections that are structured as lists, we should remember that it is often easier to use numpy arrays. They natively support element-wise/vectorized operations, so I don’t necessarily need to use loops or comprehensions. They also make it easy to generate evenly spaces sets of floating point decimals, whereas list/range will generally force me to work with integers.</p>
+<p>For an illustration of element-wise operations, let’s create the exact same set of x-values using <code class="docutils literal notranslate"><span class="pre">numpy.linspace()</span></code>, which creates a set of evenly spaced floating point numbers on the interval specified.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">xplot_ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="numpy-arrays-support-broadcasting-so-you-can-pass-them-to-a-function">
+<h3>Numpy arrays support broadcasting, so you can pass them to a function<a class="headerlink" href="#numpy-arrays-support-broadcasting-so-you-can-pass-them-to-a-function" title="Permalink to this headline">#</a></h3>
+<p>By default, numpy arrays will have element-wise operations for addition, subtraction, multiplication (including raising to a power), and division. This means that I can easily pass a numpy array as an argument to a function and have that function operate element-by-element on the array. If I was using lists, as we saw above, we would write a for loop or a list comprehension to do this, whereas with a numpy array, we can pass it directly as a function argument.</p>
+<p>Using numpy arrays with our function y to generate and x,y pairs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">yplot_ndarray</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">xplot_ndarray</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot_ndarray</span><span class="p">,</span> <span class="n">yplot_ndarray</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span> <span class="c1">#Adding a y = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Alternatively, if it is convenient, you can pass the array directly to the function as an argument in plot (i.e., it isn’t absolutely necessary to create another array just for plotting).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot_ndarray</span><span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">xplot_ndarray</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span> <span class="c1">#Adding a y = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">xplot_list</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>They are equivalent.</p>
+<p>This behavior of numpy arrays is a lot like what you see in Matlab where vectors and matrices both handle element-wise operations well. Indeed, even the syntax (linspace) is the same as Matlab. In many ways, numpy <em>feels</em> like a Matlab extension for Python.</p>
+</section>
+<section id="recall-there-is-an-analytical-solution-to-this-equation">
+<h3>Recall: there is an analytical solution to this equation<a class="headerlink" href="#recall-there-is-an-analytical-solution-to-this-equation" title="Permalink to this headline">#</a></h3>
+<p>We know from Assignment 5 (or just recalling our math background) that we can solve this problem exactly using the quadratic equation:</p>
+<div class="math notranslate nohighlight">
+\[x = \frac{-8 \pm \sqrt{8^2 - 4\cdot5\cdot-23}}{2\cdot5}\]</div>
+<p>Solving this, we find:</p>
+<div class="math notranslate nohighlight">
+\[x = 1.489 \ \ \textrm{or} \ \ x = -3.089\]</div>
+<p>This is absolutely consistent with our graphical analysis, as it should be! For me, this is a hugely important step when learning a new method:  we are establishing the correct answer using a method we are comfortable with <em>before</em> we start writing code to implement a method that is unfamiliar too us.</p>
+</section>
+<section id="a-very-crude-numerical-method-guess-and-check">
+<h3>A very crude numerical method (guess and check)<a class="headerlink" href="#a-very-crude-numerical-method-guess-and-check" title="Permalink to this headline">#</a></h3>
+<p>Back in Module 05, you may recall that we wrote a while loop to solve this problem:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>    
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">23.0</span>  
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.1</span><span class="p">:</span>       
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>            
+    <span class="n">x</span> <span class="o">+=</span> <span class="mf">0.01</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The above is basically a small piece of code that automates an uninformed, brute force guess-and-check iteration. At its core, you’ll see there is no complex mathematical analysis: we guess a value for x, and we use simple operations to calculate the resulting value of y. We continue changing our value of x until we are close enough to y = 0 that we are satisfied with the solution. This is a very basic numerical method!</p>
+<p>I don’t advocate you use this one - it is crude in terms of tolerance, slow to converge, and rather unstable.  We really just used it to illustrate the function of a while loop. There are far better strategies for root finding. For example:</p>
+</section>
+<section id="newton-raphson-method">
+<h3>Newton-Raphson Method**<a class="headerlink" href="#newton-raphson-method" title="Permalink to this headline">#</a></h3>
+<p>A common entry point to numerical root finding is the Newton-Raphson Method. As with most numerical analysis, this is an iterative method, but it uses information about the function value and the derivative value to make more informed iterations. The general “formula” for the Newton-Raphson iteration is:</p>
+<div class="math notranslate nohighlight">
+\[x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)}\]</div>
+<p>In other words, you make a guess for x (<span class="math notranslate nohighlight">\(x_i\)</span>), you evaluate the function at that value of x, <span class="math notranslate nohighlight">\(f(x_i)\)</span>, and you evaluate the derivative of the function at that value of x, <span class="math notranslate nohighlight">\(f^\prime(x_i)\)</span>  You subract the function value divided by its derivative value from the current value of x, and that gives you the updated value of x. You proceed with this iteration until your function value is sufficiently close to zero that you are satisfied with the solution, i.e., you are within your precision tolerance. This algorithm is <em>much</em> more efficient than the simple guess and check method we used above.  We can write a Newton-Raphson iteration to solve our example problem. Because this is a far faster and more robust method, I will set a much tighter tolerance. You will notice that it takes far fewer iterations, and it converges to much closer to the value to the true root(s).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">23.0</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+    <span class="n">y</span>  <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
+    <span class="n">x</span>  <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="o">/</span><span class="n">dy</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="newton-raphson-is-much-better-than-guess-and-check">
+<h3>Newton-Raphson is much better than guess and check<a class="headerlink" href="#newton-raphson-is-much-better-than-guess-and-check" title="Permalink to this headline">#</a></h3>
+<p>Wow! I first learned the Newton-Raphson method in about 1999, where I had to write out several iterations by hand on green graph paper and solve it with a TI-89. After all these years, it still blows my mind how well it works.</p>
+<p>A couple of things you should get used to: First, this method will return a single root.  The one that it finds is largely determiend by my initial guess. If you know there are multiple roots, you can usually locate them by making different initial guesses in the range where you know the root to be - this is why a graphical analysis is useful. Second, in the above example, I wrote out the expressions for y and the derivative of y inside the body of the while loop, but I could just as easily define them as external functions.  This will be really handy in that we can test many methods on a single function (which we will do later in this Module).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
+<span class="k">def</span> <span class="nf">dy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You should get used to that interchangability and how you can use an externally defined function over and over again throughout your code.</p>
+<p>Finally, for a cool visualization of how iterative root finding algorithms proceed, run this code: It will give you a graphical output of the initial guess and the updated root location after each iteration. We start it out with a rather poor initial guess (x = 10), but eventually, you’ll see that it settles in and stops at the value of the true root.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
+<span class="k">def</span> <span class="nf">dy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
+
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">yplot</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
+<span class="n">xrange</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<span class="n">yrange</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">xlist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ylist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
+    <span class="n">xlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">yplot</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span><span class="n">yrange</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span> <span class="n">ylist</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="probably-we-should-leave-numerical-method-scripts-to-the-professionals">
+<h3>Probably we should leave numerical method scripts to the professionals…<a class="headerlink" href="#probably-we-should-leave-numerical-method-scripts-to-the-professionals" title="Permalink to this headline">#</a></h3>
+<p>So that’s a simple and efficient numerical method for root finding! It’s elegant, and there isn’t much complicated about it in practice!</p>
+<p>We used basic operations (add, subtract, multiple, and divide) in an iterative loop to solve a nonlinear equation. Now, it is entertaining to write a Newton-Raphson method in a script. It’s fine to do, but usually, I would advocate for taking advantage of methods available already in Python.  First, they have been optimized by mathematicians and computer scientists, and so, in general, I would expect faster and more stable performance from a Python root finding algorithm than one I have written from scratch. Second, the Newton-Raphson method is not always going to be the right choice.  It is not guaranteed to converge, and it may give you poor stability in solving certain equations.  There are many other options you might want to try, they are pretty much all built into Python packages, and they all use pretty much interchangeable syntax, which makes it easy to try a different method when the first fails. You’ll find most of these root finding tools in the Scipy package, specificially in scipy.optimize. Feel free to do a deep dive on root finding algorithms in your spare time.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Root-finding_algorithms">https://en.wikipedia.org/wiki/Root-finding_algorithms</a></p>
+</section>
+</section>
+<section id="scipy">
+<h2>Scipy<a class="headerlink" href="#scipy" title="Permalink to this headline">#</a></h2>
+<p>Scipy is a package that includes numerical methods and optimization routines, and it includes multiple options for root finding with univariate functions.</p>
+<p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/optimize.html">https://docs.scipy.org/doc/scipy/reference/optimize.html</a></p>
+<p>Don’t worry too much if the documentation is overwhelming right now; it will become more clear as we go through examples.  I think in the Scipy documentation, they use the term “scalar” functions similarly to how I’ve been using “univariate” functions here.  What they mean is a function that produces a scalar output, not a list, array, tuple, etc.  “Scalar function” might be a better way to describe them than “univariate functions,” but for our purposes, they are roughly the same - you’ll use them to solve a single equation, 0 = f(x), where there is a single independent variable.</p>
+<section id="import-scipy-optimize">
+<h3>Import <code class="docutils literal notranslate"><span class="pre">Scipy.optimize()</span></code><a class="headerlink" href="#import-scipy-optimize" title="Permalink to this headline">#</a></h3>
+<p>First, let’s import scipy.optimize:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</section>
+<section id="methods-for-root-finding-in-univariate-scalar-functions">
+<h3>Methods for root finding in univariate, scalar functions<a class="headerlink" href="#methods-for-root-finding-in-univariate-scalar-functions" title="Permalink to this headline">#</a></h3>
+<p>We’ll start in this module with methods available for root finding in univariate scalar functions.  These are functions that take a single argument (e.g., “x”) and return a single output (e.g., “y”). Methods for finding the root(s) of a univariate scalar function are included in the <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> package, which we have aliased as <code class="docutils literal notranslate"><span class="pre">opt</span></code> here; they have a few common syntax conversions:</p>
+<p>The Scipy implementation of “Newton-Raphson” (<code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>) includes the Newton-Raphson iteration that we demonstrated above, a secant method, and Halley’s method; the choice of which it uses is determined by the inputs you give to the problem. At a minimum, it requires a function and an intial guess at the solution:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">initial_guess</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this format, it is critically important that the function that we have written takes a single, scalar argument, and it returns the “left hand side” of the function that we want to be equal to zero.  For example, our function above called <code class="docutils literal notranslate"><span class="pre">y</span></code> takes a single argument <code class="docutils literal notranslate"><span class="pre">x</span></code>, and it returns the value of <span class="math notranslate nohighlight">\(5x^2 + 8x - 23\)</span>.  That equation should result in zero once we have found the root.</p>
+<p>This version of “newton” actually uses a secant method, not a true NR iteration since we provide no information about the derivative. For this particular example, all we provide is our function handle (y) and our initial guess at the root value (0):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output of the specific syntax above will just give me the value of the root. Try it out and see; it should give you the result you expect based on the quadratic formula</p>
+</section>
+<section id="a-true-newton-raphson-iteration-in-opt-newton">
+<h3>A true Newton-Raphson iteration in <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code><a class="headerlink" href="#a-true-newton-raphson-iteration-in-opt-newton" title="Permalink to this headline">#</a></h3>
+<p>If you wanted to run an identical Newton-Raphson iteration to what you wrote in the while loop, you have to supply the derivative as a function of x to newton using the fprime keyword argument. Fortunately, we already wrote a function for the derivative (dy):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">dy</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="displaying-more-information">
+<h3>Displaying more information<a class="headerlink" href="#displaying-more-information" title="Permalink to this headline">#</a></h3>
+<p>It may sometimes be of interest to have more information about the progress made during the iterations. Usually, I like to know if the method converged or not, and by “converged” we mean did it find a value of x where y is sufficiently close to zero that it was within our tolerance. Sometimes you will notice a numerical method gives you a solution that you know to be incorrect.  When this happens, it is usualy a safe bet that the method did not converge, so you should get in the habit of looking at the convergence of the solution. You can do that by adding options. Here, we request a Newton-Raphson iteration (by providing the derivative) as well as a full output.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">dy</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We won’t cover the full options available, but you have a lot of flexibility in terms of adjusting tolerance, passing extra parameters as function arguments, etc.  In general, scipy root finding algorithms can probably handle whatever you have in mind.</p>
+</section>
+<section id="selecting-different-algorithms-for-solving-univariate-problems">
+<h3>Selecting different algorithms for solving univariate problems.<a class="headerlink" href="#selecting-different-algorithms-for-solving-univariate-problems" title="Permalink to this headline">#</a></h3>
+<p>As mentioned above, Scipy’s “newton” includes Newton-Raphson, a secant method, and Halley’s method (you can read about them if you like), and I’ve had pretty good luck with it in solving nonlinear scalar equations. I would say that <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> without specifying a derivative is probably a good default choice for univariate root finding.</p>
+<p>There are other options available that are generally based on some sort of bracketing method where you specify the endpoints of the range that you want to search for a root. These include <code class="docutils literal notranslate"><span class="pre">opt.brentq()</span></code>, <code class="docutils literal notranslate"><span class="pre">opt.brenth()</span></code>, <code class="docutils literal notranslate"><span class="pre">opt.ridder()</span></code>, <code class="docutils literal notranslate"><span class="pre">opt.bisect()</span></code>, and <code class="docutils literal notranslate"><span class="pre">opt.toms748()</span></code>. You may want to use these if <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> fails to converge; they all have advantages and disadvantages. <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>, for example, is a relatively fast method, but it is not guaranteed to converge, whereas bracketing methods, such as <code class="docutils literal notranslate"><span class="pre">opt.brentq()</span></code> are relatively slow and slighly more difficult to provide brackets for, but they are guaranteed to converge.</p>
+<p>The bracketing methods are all called with the following basic syntax.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">algorithm_name</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">lower_limit</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, to use <code class="docutils literal notranslate"><span class="pre">opt.brentq()</span></code>, we provide the function handle (y), the lower bracket of the interval where we want to look for a root, and the upper bracket of the interval where we want to look for a root. For bracketing methods, the function value at the lower limit (f(lower)) and the function value at the upper limit f(upper) need to have opposite signs. We can easily determine this by looking at a graph. For example, we can see that x = -2, y(-2) = -19 and at x = 2, y(2) = 13…so -2 and 2 is a good range to specify for a bracketing algorithm like brentq.  It should locate a root between x = -2 and x = 2:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And as above with newton, I have the option of requesting a full output using keyword arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="opt-root-scalar">
+<h3><code class="docutils literal notranslate"><span class="pre">opt.root_scalar()</span></code><a class="headerlink" href="#opt-root-scalar" title="Permalink to this headline">#</a></h3>
+<p>You may notice another solver called root_scalar if you look at the scipy documentation. Its syntax is a little more complicated, but it seems to be an option that lets you change methods as you see fit by only changing the method option, initial guess, and/or brackets.  It’s also a nice bridge function to the methods we will consider for multivariate functions (these are the methods we’ll use to solve nonlinear systems of equations), so it’s worth introducing <code class="docutils literal notranslate"><span class="pre">opt.root_scalar()</span></code> usage in a few simple cases.  For example, if I want to use a newton method through <code class="docutils literal notranslate"><span class="pre">opt.root_scalar()</span></code>, I need to specify the function, the starting point, the derivative, and the method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">dy</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;newton&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If I wanted to use the brentq method, I need the function, a bracket, and the method name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bracket</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;brentq&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And if brentq was no good, you can try toms748:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">bracket</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;toms748&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class = "alert alert-block alert-info">
+    <b>Note</b>: As far as I can tell, there is no difference in the algorithms employed by <code>opt.root_scalar()</code> and the direct calls to a specific algorithm using syntax like <code>opt.newton()</code>, <code>opt.brentq()</code>, etc. They invoke the same machinery using slightly different syntax, and they output a slightly different solution structure. I do like the universal interface of root_scalar, and I suspect it may eventually reach a point where everything but root_scalar becomes deprecated, so it is worth considering it here. Also, using root scalar is a good place to get some practice with specifying options using keyword arguments (bracket = [-2, 2] for example)</div></section>
+<section id="numerical-root-finding-is-difficult">
+<h3>Numerical root finding is difficult…<a class="headerlink" href="#numerical-root-finding-is-difficult" title="Permalink to this headline">#</a></h3>
+<p>Now we will add some trouble to the system. The above example is really well-behaved. It is a robust 2nd order polynomial, and pretty much anything we use - graphical, quadratic, or any available numerical methods will solve it easily. Further, you can guess almost anything for your initial value of x, or provide reasonable brackets for the solver, and the algorithm will find the correct root.  This isn’t always the case.  Some equations are more difficult to handle than others, and you may have to pay close attention to your initial guess or even your choice of solver.  This example is a bit contrived, but it will illustrate the point:</p>
+<p>Consider the function:</p>
+<div class="math notranslate nohighlight">
+\[g(t) = -0.74 + 0.765t + 1.1t^2 - 3.55t^3\]</div>
+<p>When approaching a new problem that I will try to solve numerically, it is always helpful to graph it. Go ahead and do so to see if you can narrow down the range where you should look for a root.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">0.74</span>  <span class="o">+</span> <span class="mf">0.765</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">1.1</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">3.55</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span>
+<span class="k">def</span> <span class="nf">dg</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.765</span> <span class="o">+</span> <span class="mf">2.2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="mf">3.55</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">tset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">g</span><span class="p">(</span><span class="n">tset</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span> <span class="c1">#Adding a y = 0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="solving-a-difficult-problem-with-homebrew-newton-raphson">
+<h3>Solving a difficult problem with homebrew Newton-Raphson<a class="headerlink" href="#solving-a-difficult-problem-with-homebrew-newton-raphson" title="Permalink to this headline">#</a></h3>
+<p>From the graph, I can see there is a root somewhere between -0.5 and -0.8.  Let’s try to find it using our homebrew Newton-Raphson iteration, but we’ll start with a bad initial guess on purpose:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">0.74</span>  <span class="o">+</span> <span class="mf">0.765</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="mf">1.1</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">3.55</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">3</span>
+<span class="k">def</span> <span class="nf">dg</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">0.765</span> <span class="o">+</span> <span class="mf">2.2</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="mf">3.55</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">t</span> <span class="o">=</span>  <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-6</span><span class="p">:</span>
+    <span class="n">t</span>  <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="n">dg</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="nb">round</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Run it and see what happens! Remember you can use the stop button to interrup code execution if you seem to be stuck in a loop. Now try again with different initial guesses and see if you can get it to converge on the root.</p>
+</section>
+<section id="solving-the-difficult-problem-with-scipy-s-newton-raphson">
+<h3>Solving the difficult problem with Scipy’s Newton-Raphson<a class="headerlink" href="#solving-the-difficult-problem-with-scipy-s-newton-raphson" title="Permalink to this headline">#</a></h3>
+<p>Ok, so now let’s see if Scipy’s tools fare any better. Try finding the root of g(t) using Scipy’s Newton-Raphson iteration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="n">fprime</span> <span class="o">=</span> <span class="n">dg</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="trying-a-secant-method-for-the-difficult-problem">
+<h3>Trying a secant method for the difficult problem<a class="headerlink" href="#trying-a-secant-method-for-the-difficult-problem" title="Permalink to this headline">#</a></h3>
+<p>No surprise there - it used the same algorithm we wrote in our homebrew script, so it hits the same snag.  At least Scipy throws an error after we exceed the max iterations, which avoids getting stuck in the loop. Let’s try the “newton” method with default options in Scipy (this actually uses a secant method):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_3824\2483426031.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;g&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why does that work?  We provided <em>less</em> information to the solver? Simply because <em>newton</em> defaults to a secant method if we don’t provide the derivative, and the secant method is better than an NR iteration for this particular example.  Feel free to try some of the other bracketing methods, your homebrew method with different initial guesses, and Scipy’s NR iteration with different initial guesses to get a feel for how things change when you switch algorithms and initial guesses.</p>
+<p>What’s the point?  First, to introduce the idea that numerical methods for root finding are often very sensitive to initial guesses and that bad initial guesses will often prevent a numerical root finding algorithm from succeeding.  Usually, when numerical methods fail for solving algebraic equations (root finding), the first thing I do is try a different initial guess. Second, to get you used to the idea that there are many  algorithms for root-finding, and it will generally require an informed decision on your part to find the one that works best for your particular problem.</p>
+<p><strong>In summary:</strong> when your root finding algorithm fails, it’s probably a bad combination of algorithm, initial guess, and/or bracketing range. Most algorithms will work if you provide the right initial guesses or brackets. Try graphing and changing specifications first; if that doesn’t work, consider using a different algorithm.</p>
+</section>
+</section>
+<section id="a-great-place-for-anonymous-lambda-functions">
+<h2>A great place for anonymous (lambda functions)<a class="headerlink" href="#a-great-place-for-anonymous-lambda-functions" title="Permalink to this headline">#</a></h2>
+<p>Numerical root finding for univariate functions is a great place to get practice with writing and using lambda functions.  For example, let’s say I want to solve the function below using an initial guess of x = 10:</p>
+<div class="math notranslate nohighlight">
+\[e^x = x^4 + 75.457\]</div>
+<p>First, I need to make sure I convert this expression into a form 0 = f(x):</p>
+<div class="math notranslate nohighlight">
+\[0 = x^4 - e^x + 75.457\]</div>
+<p>Now, I <em>could</em> go through the usual, long form function definition of that function that I want to set equal to zero; this will use the <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, indent structure we’re used to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">k</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">75.457</span> 
+<span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But I don’t necessarily need to do that since the function is so simple. This is a great place to use an anonymous function.  I have a few options.  I can use the lambda convention to bind the function to the variable k; this creates the same function k(x) as above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">75.457</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or I can dispense with assigning the function handle altogether and just use the lambda function inline.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">75.457</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Take your pick! Whichever makes sense to you.  They all accomplish the same end result.</p>
+</section>
+<section id="closing-thoughts-on-root-finding-for-univariate-functions">
+<h2>Closing thoughts on Root finding for univariate functions<a class="headerlink" href="#closing-thoughts-on-root-finding-for-univariate-functions" title="Permalink to this headline">#</a></h2>
+<p>I know we did it here for illustration purposes, but in general, I don’t advocate writing your own numerical methods. Instead, I would go to methods available in the language that I’m using. Matlab has options, as does Python. My reason for saying this is that numerical method algorithms have been written in those languages by very smart people (mathemeticians and computer scientists) that are usually better at a) numerical methods and b) coding than we are. The packages available in Python will generally run faster and more stably than anything we write on our own. Finally, you can see that writing <code class="docutils literal notranslate"><span class="pre">opt.newton(y,0)</span></code> is a lot less work than writing your own while loop.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

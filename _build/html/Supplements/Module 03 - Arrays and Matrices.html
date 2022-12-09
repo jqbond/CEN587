@@ -1,0 +1,1116 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Arrays and Matrices &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Supplements/Module 03 - Arrays and Matrices.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FSupplements/Module 03 - Arrays and Matrices.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Supplements/Module 03 - Arrays and Matrices.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy">
+   Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensions-of-numpy-arrays">
+   Dimensions of numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attributes-of-numpy-arrays">
+   Attributes of numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-2d-numpy-array">
+   Creating a 2D numpy array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-in-python">
+   Matrices in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hstack-and-vstack">
+   hstack and vstack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-operations-and-linear-algebra">
+   Matrix operations and Linear Algebra
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transpose-of-an-array">
+     Transpose of an array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-inversion">
+     Matrix Inversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-in-arrays">
+   Indexing in Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negative-indexing-in-arrays">
+     Negative Indexing in Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-in-arrays">
+     Slicing in arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automated-array-generation">
+   Automated array generation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-iterables">
+     Using Iterables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-linspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.linspace()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-number-format-and-specifying-number-format">
+     Default Number Format and Specifying Number Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-logspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.logspace()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-zeros">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.zeros()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-ones">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.ones()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-identity-matrix">
+     The Identity Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#math-on-numpy-arrays">
+   Math on Numpy arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elementwise-operations-broadcasting">
+     Elementwise operations (broadcasting)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-math">
+     Matrix Math
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-multiplication">
+       Matrix Multiplication
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solving-systems-of-linear-equations">
+       Solving systems of linear equations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-least-squares">
+       Linear Least Squares
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Arrays and Matrices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numpy">
+   Numpy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dimensions-of-numpy-arrays">
+   Dimensions of numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#attributes-of-numpy-arrays">
+   Attributes of numpy arrays
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-a-2d-numpy-array">
+   Creating a 2D numpy array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-in-python">
+   Matrices in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hstack-and-vstack">
+   hstack and vstack
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrix-operations-and-linear-algebra">
+   Matrix operations and Linear Algebra
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transpose-of-an-array">
+     Transpose of an array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-inversion">
+     Matrix Inversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing-in-arrays">
+   Indexing in Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negative-indexing-in-arrays">
+     Negative Indexing in Arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slicing-in-arrays">
+     Slicing in arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#automated-array-generation">
+   Automated array generation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-iterables">
+     Using Iterables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-linspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.linspace()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-number-format-and-specifying-number-format">
+     Default Number Format and Specifying Number Format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-logspace">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.logspace()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-zeros">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.zeros()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#np-ones">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       np.ones()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-identity-matrix">
+     The Identity Matrix
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#math-on-numpy-arrays">
+   Math on Numpy arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elementwise-operations-broadcasting">
+     Elementwise operations (broadcasting)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matrix-math">
+     Matrix Math
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-multiplication">
+       Matrix Multiplication
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solving-systems-of-linear-equations">
+       Solving systems of linear equations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-least-squares">
+       Linear Least Squares
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="arrays-and-matrices">
+<h1>Arrays and Matrices<a class="headerlink" href="#arrays-and-matrices" title="Permalink to this headline">#</a></h1>
+<p>The following exercises cover the basics of how you will create and work with “matrices” in Python.  Here, we will actually be working with ndarrays (numpy arrays).  For our purposes, we can generally treat them as matrices.</p>
+<section id="numpy">
+<h2>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">#</a></h2>
+<p>We need to learn how to build arrays of different sizes and shapes (generaly “n-dimensional arrays” or “ndarrays” in Python. We will do this using numpy arrays, so we’ll have to import the numpy package.  I’m going to use the shorthand np to make it a bit less cumbersome.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</section>
+<section id="dimensions-of-numpy-arrays">
+<h2>Dimensions of numpy arrays<a class="headerlink" href="#dimensions-of-numpy-arrays" title="Permalink to this headline">#</a></h2>
+<p>Numpy arrays are a bit different than what you’re used to working with in Matlab. Unless you take special steps to define a higher dimensional structure, pretty much everything in Matlab is treated as a matrix by default in that it has 2 dimensions: rows and columns.  Even a “scalar” in Matlab is a 1x1 matrix.  So, if you are coming to Python from Matlab, you’re probably used to a language where everything has a row and column specification. Numpy is a little different.</p>
+<p>If we want to work with scalars, we define them as in Module 01:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Scal</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>“Row” and “Column” vectors are a little different in Python (<code class="docutils literal notranslate"><span class="pre">numpy</span></code>). It is important to understand that rows (<span class="math notranslate nohighlight">\(1 \times n\)</span>) and columns (<span class="math notranslate nohighlight">\(m \times 1\)</span>) have 2 dimensions. A Row has 1 row and n columns, and a column has m rows and 1 column. Usually, we don’t <em>actually</em> need a structure that has the true 2D shape of a row or a column. Unless we are doing something particular with a linear algebra operation, we probably aren’t very concerned we aren’t overly concerned about whether things are rows are columns, so we can typically get away with creating a 1 dimensional array. It is important to understand that, with a 1D array, there is only a length associated with it; it does not have a second dimension, so it is neither a row nor a column.  It is a 1 dimensional array–when I last worked in Matlab, there was no such thing as a 1D array, so this dimensionality was new to me in Python and thus confusing.</p>
+<p>We learned how to create arrays using numpy in Module 02. I would create a 1D array by passing a bracketed [list] of scalars into the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> constructor:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="attributes-of-numpy-arrays">
+<h2>Attributes of numpy arrays<a class="headerlink" href="#attributes-of-numpy-arrays" title="Permalink to this headline">#</a></h2>
+<p>Now that we have created an array, there are some built in attributes of an array that we may be interested in accessing.  For example, if you want to know more about more about dimensionality, size and shape of that array, you can do so with the following array attributes, which are accessed using the notation <code class="docutils literal notranslate"><span class="pre">array_name.attribute_name</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">size</span>  <span class="c1">#Returns the &quot;size&quot; of the array, i.e., the number of elements in it</span>
+<span class="n">A</span><span class="o">.</span><span class="n">ndim</span>  <span class="c1">#Returns the number of dimensions; should be 1 here</span>
+<span class="n">A</span><span class="o">.</span><span class="n">shape</span> <span class="c1">#Returns a tuple of dimensions of (4, ) (elements in 1st dimension (rows), elements in 2nd (columns), etc)</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-a-2d-numpy-array">
+<h2>Creating a 2D numpy array<a class="headerlink" href="#creating-a-2d-numpy-array" title="Permalink to this headline">#</a></h2>
+<p>As mentioned above, usually a 1D array will suffice in instances where we need to collect an array of scalars without a specific 2D shape to their layout or organization (where we might have used a row [1, 2, 3, 4] or a column [1; 2; 3; 4] in Matlab). If we ever need to create either a row or a column in Python, we have to remember that each of these things has a two dimensional shape associated with it.</p>
+<p>I rarely actually need to be particular about creating a row or a column in Python, but if you need to, you have to make sure you create a 2D array; this is done similar to creating a list of lists.  The general idea is that each “row” in the 2D structure you’re building is comprised of a list of scalars. Basically, you need brackets inside of brackets to make a 2D array.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>       <span class="c1">#this is a row shape = (1,4)</span>
+<span class="n">col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">]])</span> <span class="c1">#this is a column with shape (4,1) </span>
+</pre></div>
+</div>
+<p>You should create the above listed row and column and check their size, shape, and ndimto confirm that they are behaving as 4-element (size) rows and columns; they should have two dimensions and be shape (1,4) and (4,1), respectively.</p>
+</section>
+<section id="matrices-in-python">
+<h2>Matrices in Python<a class="headerlink" href="#matrices-in-python" title="Permalink to this headline">#</a></h2>
+<p>Now that we know how to create a 2D array, it is pretty straightforward to create a matrix.  We basically do this by stacking rows together with a list-of-lists layout. Note again the bracket inside of brackets for a 2D system <code class="docutils literal notranslate"><span class="pre">np.array([[]])</span></code> – when creating a matrix in the array environment, each row of the matrix should be passed to the array constructor as a comma separated list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Create this matrix and check is size, shape, and dimensionality to make sure it aligns with your understanding.</p>
+</section>
+<section id="hstack-and-vstack">
+<h2>hstack and vstack<a class="headerlink" href="#hstack-and-vstack" title="Permalink to this headline">#</a></h2>
+<p>Sometimes we need to stack rows or columns to create a matrix; we can do this with <code class="docutils literal notranslate"><span class="pre">np.vstack()</span></code> (stack rows) and <code class="docutils literal notranslate"><span class="pre">np.hstack()</span></code> (stack columns).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">row</span><span class="p">,</span> <span class="n">row</span><span class="p">])</span>
+<span class="n">mat3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">col</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Again, you should confirm that this is creating structures that have the shapes you anticipate:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mat2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="matrix-operations-and-linear-algebra">
+<h2>Matrix operations and Linear Algebra<a class="headerlink" href="#matrix-operations-and-linear-algebra" title="Permalink to this headline">#</a></h2>
+<p>I always struggle some in teaching Python because I am never actually teaching linear algebra, so I never want to go into a lot of detail about matrix/vector/row operations; however, my typical courses are in reactor design and kinetics, which benefit from knowing and using linear algebra.  In addition, similar to Matlab, most of the numerical methods you’ll want to use in Python will give you some output that is an array, so, in generaly, you do need to have a working understanding of arrays, dimensionality, and matrix operations in Python.</p>
+<section id="transpose-of-an-array">
+<h3>Transpose of an array<a class="headerlink" href="#transpose-of-an-array" title="Permalink to this headline">#</a></h3>
+<p>You can transpose a numpy array by using either the <code class="docutils literal notranslate"><span class="pre">np.transpose()</span></code> function or the  transpose attribute (<code class="docutils literal notranslate"><span class="pre">.T</span></code>) of the numpy arary. These options are shown below for various rows, columns, and matrices.</p>
+<p>This will transpose a column into a row</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will transpose a matrix by switching rows and columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">mat1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note that transpose require you to have an actual 2D structure (rows and columns at a minimum).  The transpose of a 1D structure is equal to itself.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="matrix-inversion">
+<h3>Matrix Inversion<a class="headerlink" href="#matrix-inversion" title="Permalink to this headline">#</a></h3>
+<p>Sometimes, we will need to find the inverse of a matrix.  We can do this in Python using <code class="docutils literal notranslate"><span class="pre">np.linalg.inv()</span></code> Note that only square, non-singular (i.e., the determinant is not zero) matrices are invertible.  Analogously, we can find the determinant of a matrix using the <code class="docutils literal notranslate"><span class="pre">np.linalg.det()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">square_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span> <span class="c1">#create a square matrix</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square_mat</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">square_mat</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#determinant; is it nonzero? Then we can invert.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">square_mat</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#invert matrix </span>
+</pre></div>
+</div>
+<div class="highlight-{note}Note notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="indexing-in-arrays">
+<h2>Indexing in Arrays<a class="headerlink" href="#indexing-in-arrays" title="Permalink to this headline">#</a></h2>
+<p>When you work with arrays as your primary data type, you will frequently need to access or reference specific elements in those arrays. You do so by specifying their index in (row,column) format.  For example, if I wanted to see what was in the 3rd row, 2nd column in my <code class="docutils literal notranslate"><span class="pre">mat1</span></code>, I would do so by asking for that index as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This would return the element in the third row (index 2) and second column (index 1)</p>
+<p>In addition, numpy arrays retain their list-like characteristics in terms of indexing, and I can also use the list-of-lists indexing structure to access a specific element. It is worth being familiar with both.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This is a more list-like syntax that accesses the second element in the third list comprising <code class="docutils literal notranslate"><span class="pre">mat1</span></code>.</p>
+<section id="negative-indexing-in-arrays">
+<h3>Negative Indexing in Arrays<a class="headerlink" href="#negative-indexing-in-arrays" title="Permalink to this headline">#</a></h3>
+<p>Remember: Python supports negative indexing, so it is usually straightforward to extract the final element of a 1D array, row, column, or matrix. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>          <span class="c1">#final element in 1D array</span>
+<span class="n">col</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>     <span class="c1">#final row in a column vector</span>
+<span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1">#final columin in a row vector</span>
+<span class="n">mat3</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1">#third row in the final column of a matrix</span>
+<span class="n">mat1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>     <span class="c1">#second column in the final row of a matrix</span>
+<span class="n">mat2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#final column in final row of a matrix</span>
+</pre></div>
+</div>
+</section>
+<section id="slicing-in-arrays">
+<h3>Slicing in arrays<a class="headerlink" href="#slicing-in-arrays" title="Permalink to this headline">#</a></h3>
+<p>Next, we will introduce a few more  useful shorthands in Python; you should definitely be aware of these.  You can slice arrays and matrices by specifying ranges of indices.  For example, I’ll create a 1D array that contains the numbers 5 through 14:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>If I wanted to extract the first 4 elements (indices 0 to 3), I would type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="c1">#Remember, Python excludes the final index in this notation</span>
+</pre></div>
+</div>
+<p>If I want to extract the last five elements (indices 5 to 9):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="c1">#With this notation, we return the last element</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="automated-array-generation">
+<h2>Automated array generation<a class="headerlink" href="#automated-array-generation" title="Permalink to this headline">#</a></h2>
+<section id="using-iterables">
+<h3>Using Iterables<a class="headerlink" href="#using-iterables" title="Permalink to this headline">#</a></h3>
+<p>You can generally create an array from any sort of iterable; if you’re familiar with base python and the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function, you an quickly create an array of integers this way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="np-linspace">
+<h3><code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code><a class="headerlink" href="#np-linspace" title="Permalink to this headline">#</a></h3>
+<p>It is, of course, cumbersome to create rows, columns, and matrices by typing entries directly into array constructors.  There are a few built functions in Python that can help out.  For example, let’s say I want to create a 1D array of floating point numbers from 0 to 50, incrementing by 5 between each number.  The easiest way to do this is usually with <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code></p>
+<p>It has the general syntax <code class="docutils literal notranslate"><span class="pre">np.linspace(lower,</span> <span class="pre">upper,</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">elements)</span></code></p>
+<p>For this example, the following will create the desired array of 11 numbers from 0 to 50 in steps of 5:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fives</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This command returns a 1D array, which you can confirm with <code class="docutils literal notranslate"><span class="pre">.shape</span></code>, <code class="docutils literal notranslate"><span class="pre">.size</span></code>, and <code class="docutils literal notranslate"><span class="pre">.ndim</span></code> attributes.</p>
+</section>
+<section id="default-number-format-and-specifying-number-format">
+<h3>Default Number Format and Specifying Number Format<a class="headerlink" href="#default-number-format-and-specifying-number-format" title="Permalink to this headline">#</a></h3>
+<p>You should be aware that, by default, numpy will return floating point decimals when you use any of these convenience functions. In general, you can change the format by specifying it using the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> keyword argument at the stage where you construct the array.  The default is a floating point decimal if you do not otherwise specify the format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fives_float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But I could, for example, generate the 11 <em>integers</em> with a spacing of 5 between 0 and 50 by changing the dtype:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fives_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Just be careful with spacing because this will force conversion of floats to integers, so you may not get the result you’re expecting. I wouldn’t usually convert a linspace array to integers, but the syntax is pretty universal with numpy, so I point it out here, and you can generalize it to the various convenience functions below.</p>
+</section>
+<section id="np-logspace">
+<h3><code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code><a class="headerlink" href="#np-logspace" title="Permalink to this headline">#</a></h3>
+<p>Sometimes it is handy to generate arrays of numbers that are evenly spaced on a logarithmic scale. We use <code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code> for this; it has the syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logspace</span><span class="p">(</span><span class="n">lower_power_of_base</span><span class="p">,</span> <span class="n">upper_power_of_base</span><span class="p">,</span> <span class="n">number</span> <span class="n">of</span> <span class="n">elements</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For example, to create a set of 11 numbers spaced at <span class="math notranslate nohighlight">\(10^{-5}\)</span>, <span class="math notranslate nohighlight">\(10^4\)</span>, etc., up to <span class="math notranslate nohighlight">\(10^5\)</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">logset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code> is base 10, so it returns spacing in decades (powers of 10).  You can change this to any base that you want using the base keyword argument:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lnset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="np-zeros">
+<h3><code class="docutils literal notranslate"><span class="pre">np.zeros()</span></code><a class="headerlink" href="#np-zeros" title="Permalink to this headline">#</a></h3>
+<p>Often, we want to define matrices or vectors that contain zero.  These are easy to generate in Python (<code class="docutils literal notranslate"><span class="pre">numpy.zeros</span></code>), and you can generalize to high dimensions.  The general syntax is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Where shape is either an integer (for a 1D array) or a tuple for an ND array</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>       <span class="c1">#1D array with 3 zeros</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>   <span class="c1">#2D array (1x3 row) with 3 zeros</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>   <span class="c1">#2D array (3x1 column) with 3 zeros</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>   <span class="c1">#2D array (3x3 matrix) with 9 zeros</span>
+<span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">#3D array (3 copies of 3x3 matrix, each with 9 zeros)</span>
+</pre></div>
+</div>
+</section>
+<section id="np-ones">
+<h3><code class="docutils literal notranslate"><span class="pre">np.ones()</span></code><a class="headerlink" href="#np-ones" title="Permalink to this headline">#</a></h3>
+<p>Similarly, you can generate the same structures filled with 1’s.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>As an example, this might be a more common place to request integer format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-identity-matrix">
+<h3>The Identity Matrix<a class="headerlink" href="#the-identity-matrix" title="Permalink to this headline">#</a></h3>
+<p>Finally, you can easily construct an identity matrix using <code class="docutils literal notranslate"><span class="pre">numpy.identity()</span></code>.  It has the syntax where you give it the number of rows, and it will return a square identity matrix, e.g., a 5x5 identity matrix:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">np.eye()</span></code> is similar, but it allows you to pass both row and column dimensions (if desired).  It adds a one on the diagonal, regardless of the dimensions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Though it may not be apparent yet, there are many reasons to make these types of structures.  A common one is to pre-allocate space to store values.  One convenient way to do that is to create a matrix of zeros that has the size of the output you want, and then you can store elements in each index.</p>
+</section>
+</section>
+<section id="math-on-numpy-arrays">
+<h2>Math on Numpy arrays<a class="headerlink" href="#math-on-numpy-arrays" title="Permalink to this headline">#</a></h2>
+<section id="elementwise-operations-broadcasting">
+<h3>Elementwise operations (broadcasting)<a class="headerlink" href="#elementwise-operations-broadcasting" title="Permalink to this headline">#</a></h3>
+<p>When performing mathematical operations on numpy arrays, <em><strong>the default is that they use element-by-element operations instead of linear algebra operations (e.g., matrix multiplication, matrix exponential, etc.)</strong></em>.  This is best illustrated with an example.  Look at the output of the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">col</span><span class="o">+</span><span class="n">col</span> <span class="c1">#This will add each element of col to itself</span>
+<span class="n">col</span><span class="o">*</span><span class="n">col</span> <span class="c1">#same as above with multiplication</span>
+<span class="n">col</span><span class="o">**</span><span class="mi">3</span>  <span class="c1">#same as above, but cubing each element of column</span>
+<span class="n">col</span><span class="o">/</span><span class="n">col</span> <span class="c1">#divide each element of col by each element of column</span>
+<span class="n">col</span><span class="o">*</span><span class="n">row</span> <span class="c1">#you might think this is matrix multiplication, but it&#39;s not; it is element by element</span>
+<span class="n">mat1</span><span class="o">*</span><span class="n">mat1</span> <span class="c1">#this is also not a matrix multiplication, it is element by element operation</span>
+</pre></div>
+</div>
+</section>
+<section id="matrix-math">
+<h3>Matrix Math<a class="headerlink" href="#matrix-math" title="Permalink to this headline">#</a></h3>
+<p>If you want to multiply two matrices using linear algebra rules, it has special syntax.  First, you have to remember that dimensions are important when multiplying rows, columns, and matrices.  They all have to be correct. Their product returns a new matrix where each element (i,j) is the dot product of  row (i) and column (j). For this reason, the two matrices you intend to multiply must have dimensions (m x n) * (n x p), and their product returns a new matrix of dimensions (m x p).  As an illustration, a matrix can be multiplied by its transpose to return a square matrix (but the order matters):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span>       <span class="c1">#A 3x2 matrix</span>
+<span class="n">mat1</span><span class="o">.</span><span class="n">T</span>     <span class="c1">#A 2x3 matrix</span>
+</pre></div>
+</div>
+<section id="matrix-multiplication">
+<h4>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h4>
+<p>There are various ways to perform matrix multiplication; all are more-or-less equivalent for our purposes; I generally use the &#64; syntax since it is the cleanest and easiest to understand when I read the code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span> <span class="n">mat1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#their product is a 3x3 matrix</span>
+<span class="n">mat1</span><span class="nd">@mat1</span><span class="o">.</span><span class="n">T</span>             <span class="c1">#equivalent to above; recent addition to python as of 3.5</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span> <span class="n">mat1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>    <span class="c1">#dot product of rows and columns; similar to above.</span>
+</pre></div>
+</div>
+<p>The big thing to remember is that our typical operators will usually do elementwise things to a numpy array, and if you want matrix math, you have to use special linear algebra syntax. For example, it is perfectly fine to multiple each element of a row (1 x 4) by elements in a different row (1 x 4):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">row</span><span class="o">*</span><span class="n">col</span><span class="o">.</span><span class="n">T</span>  <span class="c1">#(1 x 4) row * (1 x 4) row, elementwise</span>
+</pre></div>
+</div>
+<p>But you cannot matrix multiply a row by a different row</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">row</span><span class="nd">@col</span><span class="o">.</span><span class="n">T</span> <span class="c1">#(1 x 4) x (1 x 4) matrix product; will return an error</span>
+</pre></div>
+</div>
+</section>
+<section id="solving-systems-of-linear-equations">
+<h4>Solving systems of linear equations<a class="headerlink" href="#solving-systems-of-linear-equations" title="Permalink to this headline">#</a></h4>
+<p>In many cases, our systems can be described using a system of nonlinear equations.  An example that I use all the time in Kinetics is linear regression, which involves solving a linear system of equations by matrix inversion.  Since this is so commonly encountered, we’ll briefly introduce it here.</p>
+<p>Let’s say we have the following system of equations:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9613e9ba-6419-4d89-8caa-8272d7204e95">
+<span class="eqno">()<a class="headerlink" href="#equation-9613e9ba-6419-4d89-8caa-8272d7204e95" title="Permalink to this equation">#</a></span>\[\begin{align}
+    2x + 3y + 4z &amp;= 25 \\
+    15x + 12y - 10z &amp;= 11 \\
+    1.6x - 4y + 23.2z &amp;= -5
+\end{align}\]</div>
+<p>This could be expressed in Matrix Form:</p>
+<div class="math notranslate nohighlight">
+\[AX = B\]</div>
+<p>Where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = 
+    \begin{bmatrix} 
+    2 &amp; 3 &amp; 4 \\
+    15 &amp; 12 &amp; -10 \\
+    1.6 &amp; 4 &amp; 23.2 \\
+    \end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = 
+    \begin{bmatrix} 
+    x \\
+    y \\
+    z \\
+    \end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}B = 
+    \begin{bmatrix} 
+    25 \\
+    11 \\
+    -5 \\
+    \end{bmatrix}
+\end{split}\]</div>
+<p>This problem can be solved for X as follows:</p>
+<div class="math notranslate nohighlight">
+\[X = A^{-1}B\]</div>
+<p>But it is generally computationally inefficient to invert matrices, so the preferred solution in Python is using <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">23.2</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">25</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="c1">#functionally equivalent to np.linalg.inv(A)@B</span>
+<span class="n">A</span><span class="nd">@X</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-least-squares">
+<h4>Linear Least Squares<a class="headerlink" href="#linear-least-squares" title="Permalink to this headline">#</a></h4>
+<p>A linear least squares problem is essentially characterized as having more equations (measurements) than unknowns (coefficients).  This results in a “tall” matrix that we can’t invert to find a unique solution as above with a 3x3 linear system of equations.</p>
+<p>An example would be a case where we want to fit a straight line to a set of 20 observed values of Y, where observations were made at a corresponding set of X values.  In this case, the X matrix would be 20 x 2; the Y matrix would be 20 x 1, and we would be trying to find unknown coefficients for the straight line (slope and intercept) that solves this equation:</p>
+<div class="math notranslate nohighlight">
+\[XA = Y\]</div>
+<p>Here, X would be a 20 x 2 matrix, A is a 2 x 1 column, and Y is a 20 x 1 column.  The least squares solution for the coefficient set is:</p>
+<div class="math notranslate nohighlight">
+\[A = (X^\prime X)^{-1}X^\prime Y\]</div>
+<p>Where <span class="math notranslate nohighlight">\(X^\prime\)</span> is the transpose of X.</p>
+<p>The least squares solution in Python can be obtained using either <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code>.  Both are implemented below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span>       <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">b</span>       <span class="o">=</span> <span class="mi">25</span>
+<span class="n">xdata</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ydata</span>   <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">xdata</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">X</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">xdata</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">xdata</span>
+<span class="n">Y</span>       <span class="o">=</span> <span class="n">ydata</span>
+<span class="n">A1</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span>
+<span class="n">A2</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">rcond</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span> <span class="n">A2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

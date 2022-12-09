@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>While Loops in Python &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Supplements/Module 06 - While Loops.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FSupplements/Module 06 - While Loops.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Supplements/Module 06 - While Loops.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remember-how-for-loops-work">
+   Remember how for loops work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-to-do-the-same-thing-with-a-while-loop">
+   Try to do the same thing with a while loop
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#increment-operators">
+   Increment operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-for-loops-and-while-loops-for-creating-a-list">
+   Comparing for loops and while loops for creating a list
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-01-a-brute-force-solution-to-an-algebraic-equation">
+   Example 01: A Brute Force Solution to an Algebraic Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graph-the-function-if-you-can">
+     Graph the function if you can
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-don-t-forget-the-quadratic-formula">
+     And don’t forget the quadratic formula
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#guess-and-check">
+     Guess and check?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-02-steady-state-suffering">
+   Example 02: Steady state suffering
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>While Loops in Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#remember-how-for-loops-work">
+   Remember how for loops work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#try-to-do-the-same-thing-with-a-while-loop">
+   Try to do the same thing with a while loop
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#increment-operators">
+   Increment operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-for-loops-and-while-loops-for-creating-a-list">
+   Comparing for loops and while loops for creating a list
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-01-a-brute-force-solution-to-an-algebraic-equation">
+   Example 01: A Brute Force Solution to an Algebraic Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graph-the-function-if-you-can">
+     Graph the function if you can
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-don-t-forget-the-quadratic-formula">
+     And don’t forget the quadratic formula
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#guess-and-check">
+     Guess and check?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-02-steady-state-suffering">
+   Example 02: Steady state suffering
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="while-loops-in-python">
+<h1>While Loops in Python<a class="headerlink" href="#while-loops-in-python" title="Permalink to this headline">#</a></h1>
+<p>Module 04 focuses mostly on <strong>for loops</strong>, so we should have a good feel for how they work. The main feature of a for loop is that it will iterate over all of the elements in a pre-defined set or range. A <strong>while loop</strong> is fundamentally different from a for loop in that it continues to loop through iterations as long as the criteria specified in the conditional statement at the start of the while loop remains true. This opens up some new possibilities in how we use them.</p>
+<p>Before we get into while loop-specific action, a good way to highlight the difference between a for loop and a while loop is to use them to do the exact same thing.</p>
+<section id="remember-how-for-loops-work">
+<h2>Remember how for loops work?<a class="headerlink" href="#remember-how-for-loops-work" title="Permalink to this headline">#</a></h2>
+<p>We will use a for loop to print all of the integers from 1 to 11 (without first creating that list of integers manually).  We will not store those integers in a list, we will just print their values to indicate passes through the for loop.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="try-to-do-the-same-thing-with-a-while-loop">
+<h2>Try to do the same thing with a while loop<a class="headerlink" href="#try-to-do-the-same-thing-with-a-while-loop" title="Permalink to this headline">#</a></h2>
+<p>Now the same with a while loop. We will initiate the while loop by defining n as the first integer we are interested in printing (1) and then increment the value of n until I reach an integer value of 11:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Just like a for loop, a while loop starts with a keyword, <strong>while</strong> in this case. After the keyword, we have to specify what criteria we want to use to make a decision about the range that we iterate over.  In this case, I want to continue iterations until I reach the integer 11. While statements are a type of conditional statement (<strong>Module 05</strong>); they tell the program to execute the commands inside of the loop as long as certain criteria are met. In general, we set these criteria using statements involving comparison operators: greater than (&gt;), less than (&lt;), equal to (==), greater than or equal to (&gt;=), less than or equal to (&lt;=), and not equal to (!=). Optionally, they may be combined with logical operators (and, or, not) if we need to satisfy multiple criteria to continue executing the while loop.</p>
+<p>Here, I’ve chosen to run iterations as long as n &lt; 12. After the condition(s) for the while loop to continue is defined, we terminate the first line with a colon, just as we would with a function or a for loop. Subsequent lines are then indented to indicate that they are inside of the while loop. Once you return to flush left, the code is outside of the while loop and will not be exectued until the while loop is completed.</p>
+<p>In this example, we initialize the loop by defining n = 1. At the start, n = 1, so when the interpreter hits the comparison in the while statement, it finds that the criteria that n &lt; 12 is true. It then continues into the while loop and executes the commands in the body of the loop. The value of n (1) is printed to the screen, and then we add 1 to the value of n and return to the start of the loop. Now n = 2, which is still less than 12, so things continue and repeat in the same way until it gets to n = 11.  Since 11 &lt; 12, it makes another pass through the loop, prints 11 to the screen, and then updates the value of n one last time.  Here, it calculates that n = 12, so n &lt; 12 is no longer satisfied, and the loop does not proceed through the next iteration.</p>
+<p>Compare the for and while loop versions to get a feel for how they work and the differences between them.</p>
+</section>
+<section id="increment-operators">
+<h2>Increment operators<a class="headerlink" href="#increment-operators" title="Permalink to this headline">#</a></h2>
+<p>Now, some useful Python shorthand. <strong>For loops</strong> always iterate automatically over the range we specify at the start, so we don’t control the value of the iterator once we have defined the set to iterate over. With a <strong>while loop</strong>, we generally update the value the quantity used to establish the while loop criteria on each pass. In the above example, we wanted to add 1 to our counter on every pass, and I include that in the loop by writing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>It looks strange to define n as an implicit function of itself, but in a programming language, this syntax evaluates the right hand side using the current value of n, and then it over-writes the current value of n with whatever the right hand side evaluates to. For example, in our first pass through the above loop, n = 1. Then we hit the increment step, and we say n = n + 1, which is evaluated as n = 1 + 1, so n is redefined as 2 at the end of the first pass. At the end of the second pass, when we hit the increment, the current state is n = 2, so we evaluate n = 2 + 1, and n is redefined as 3.  This continues until our counter reaches whatever threshold we specify.</p>
+<p>On to the shorthand:</p>
+<p>We write increments like this so frequently, there are a number of ways we can specify them with shorthand.  For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Can be expressed as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>And</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">5</span>
+</pre></div>
+</div>
+<p>Can be written as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+<p>You could even write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">*=</span> <span class="n">i</span>
+</pre></div>
+</div>
+<p>To update the current value of i by multiplying it by itself, i.e., you square i (though you may not want to start this one out with i = 1. If you do, you’ll get stuck in the loop because 1*1 is always 1, and you’ll never reach 12).</p>
+<p>The link below includes a number of these operations. They can be generally extended to whatever math operation you have in mind.  This is extremely common syntax in programming, so it is worth becoming familiar with the notation now. <strong>Note</strong>: We will most likely not use bitwise operators, at least not as they are presented here.</p>
+<p><a class="reference external" href="https://www.w3schools.com/python/python_operators.asp">https://www.w3schools.com/python/python_operators.asp</a></p>
+<p>Try out a few of these different assignment operators to see how they change the behavior of your while loop in the cell below.</p>
+</section>
+<section id="comparing-for-loops-and-while-loops-for-creating-a-list">
+<h2>Comparing for loops and while loops for creating a list<a class="headerlink" href="#comparing-for-loops-and-while-loops-for-creating-a-list" title="Permalink to this headline">#</a></h2>
+<p>Now one more illustration of using for loops and while loops to accomplish the same task:</p>
+<p>Generating a list of integers between 10 and -10 with a for loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Generating the same list of integers with a while loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In both cases, we start with an empty list and use the append() method to add values to it, but take a minute to think about the fundamentally different nature of for and while loops.</p>
+<p>Both loops give you the same result, they just have different architectures, which makes them suited to different tasks. For example, if I measured 100 discrete data points, and I wanted to perform operations on all of them, then a for loop makes sense because I’m working with an existing set. If, on the other hand, I have an application that requires me to repeat an iteration until I cross some specific threshold, then I would choose a while loop. While loops really shine when I don’t have a great idea about how many iterations my loop will take, I just know that I have a conditions that needs to remain true or I have some idea of what the endpoint needs to be. We’ll work through a few totally random examples of engineering-type problems that you could handle by applying convergence thresholds in a while loop.</p>
+</section>
+<section id="example-01-a-brute-force-solution-to-an-algebraic-equation">
+<h2>Example 01: A Brute Force Solution to an Algebraic Equation<a class="headerlink" href="#example-01-a-brute-force-solution-to-an-algebraic-equation" title="Permalink to this headline">#</a></h2>
+<p>In subsequent modules, we’ll cover <strong>efficient and stable</strong> ways to solve an algebraic equation using an iterative approach.  For now, we will use an <strong>inefficient and dangerous</strong> approach just to demonstrate what a while loop can do, and to introduce you to the idea of a tolerance on your solution.</p>
+<p>We have a function, <span class="math notranslate nohighlight">\(y = 5x^2 + 8x - 23\)</span>. We would like to find the <strong>roots</strong> for that function.  By that, I mean the values of x where y = 0.  We can do this in a number of ways.</p>
+<section id="graph-the-function-if-you-can">
+<h3>Graph the function if you can<a class="headerlink" href="#graph-the-function-if-you-can" title="Permalink to this headline">#</a></h3>
+<p>I almost always start by graphing if it is univariate (one argument).  Let’s do this with numpy arrays.  Here, we are choosing numpy arrays because they allow us to broadcast operations, so it makes it easy to calculate corresponding y-values for a given set of x-values.  With lists, we’d have to write a for loop or a comprehension.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">yvals</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">xvals</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">xvals</span> <span class="o">-</span> <span class="mi">23</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xvals</span><span class="p">,</span> <span class="n">yvals</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span> <span class="c1">#add y = 0 line</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x values&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y values&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>From the graph, we can clearly see there are two roots, one between -2 and -4, and one between 0 and 2.</p>
+</section>
+<section id="and-don-t-forget-the-quadratic-formula">
+<h3>And don’t forget the quadratic formula<a class="headerlink" href="#and-don-t-forget-the-quadratic-formula" title="Permalink to this headline">#</a></h3>
+<p>Alternatively, for this particular problem, the quadratic formula is a good choice, and it tells us that y = 0 when:</p>
+<div class="math notranslate nohighlight">
+\[x = 1.489\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[x = -3.089\]</div>
+</section>
+<section id="guess-and-check">
+<h3>Guess and check?<a class="headerlink" href="#guess-and-check" title="Permalink to this headline">#</a></h3>
+<p>But let’s pretend we do not know a solution method like factoring or the quadratic formula.  We might revert to an iterative method like guess-and-check.  This is simple, but tedious.  The idea is that we guess a value of x, evaluate the function, and check the value of y. If the value of y is not equal to zero, then we update the value of x and try again.  In general, we will make informed guesses or use an efficient algorithm like Newton-Raphson, but for now, let’s just use a while loop.</p>
+<p>The first thing to decide is what is our tolerance on that solution, in other words, we are iterating to find the value of x where y = 0….but what exactly are we ready to accept as “equal to zero.”  2 decimal places?  8 decimal places?  This is our tolerance on the solution. Since we are using a very crude approach, we will set a loose tolerance and say that we will be satified if we can find the value of x where y is between -0.1 and 0.1. A simple way to do this is with the <code class="docutils literal notranslate"><span class="pre">abs()</span></code> function in Python, which returns the absolute value of a number.  We can set this tolerance by saying we want to continue looking for the solution as long as <code class="docutils literal notranslate"><span class="pre">abs(y)</span> <span class="pre">&gt;</span> <span class="pre">0.1</span></code>. For our purposes, we’ll call that “close enough” to zero that we’ve found a solution.  Also, we graphed this function, and it tells us that there is a root between -4 and -2, and another root between 2 and 4.  We will look for the positive root here.</p>
+<p>OK then, how does that look in a while loop:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 0.0                     #we need an initial guess for x
+y = -23.0                   #y at x = 0. Set an initial y for comparison test below
+while abs(y) &gt; 1:         #as long abs(y) &gt; 0.1, keep going. 
+    y = 5*x**2 + 8*x - 23   #calculate the value of y at current x
+    print(f&#39;At x = {x:0.2f}, y = {0.2f}&#39;) #Print result of iteration to check progress
+    x += 0.05               #increment x by 0.01 units.
+</pre></div>
+</div>
+<div class = "alert alert-block alert-danger">
+    <b>Caution</b>: we have to be careful with this type of iteration.  The tolerance we set may require us to take smaller and smaller steps with x, otherwise we can jump right over the solution and the loop will continue infinitely.  For an example of this, try changing your tolerance to 0.01 without changing your step size in x and see what happens and why.  If you need to break the loop execution, you can do so with the stop icon in the menu bar.
+    </div>
+</section>
+</section>
+<section id="example-02-steady-state-suffering">
+<h2>Example 02: Steady state suffering<a class="headerlink" href="#example-02-steady-state-suffering" title="Permalink to this headline">#</a></h2>
+<p>As engineers, we are frequently interested in processes that are operating at steady state.  This means that conditions for that process - temperatures, concentrations, pressures, etc. - are not changing as a function of time. But it is unusual for a process to <em>start</em> at steady state.  Let’s look at how long it takes for your body to reach steady state on a run!</p>
+<p>Imagine you go out for a run.  You start out at what you feel is a decent running pace. For the first few minutes, you feel pretty good. Your heart rate is low, your breathing rate is low, you aren’t really perspiring very much…and that all lasts for awhile. Then everything starts to catch up to your effort.  Your pulse increases, you are breathing more rapidly, you are beginning to perspire.  You can hang in there, you just feel like you’re working now. You keep your pace/effort steady. Now, you’re 20 minutes in. You’re flushed, you’re gasping for breath, and you are certain that death is just around the corner. You somehow keep going…keeping both your pace and your level of suffering right about constant.</p>
+<p>Now you’ve arrived at what it feels like to run at that pace - <em>that is steady state</em>. Your work output, breathing, and metabolism are all in balance and nothing is changing as a function of time (as long as you keep your effort steady). Surely you’ve seen this - it takes some time for the level of pain to catch up to your level of effort, but eventually everything settles in.</p>
+<p>Anytime you make a perturbation to a system (in this case, the perturbation is you getting off the couch and starting to run), it takes time for the system to reach steady state. One way that we watch the approach to steady state is to monitor a variable that responds to perturbation as a function of time. In the running example, we could look at your heart rate, blood lactate concentration, or respiration rate.  Eventually, they will reach steady state, and we can roughly figure out how long it took to get there.  Next week, when we start on analyzing real data sets, I’ll try to supply a power/heart rate data set vs. time for a bike race so that you all can process a big data set with pandas, but for now, let’s just look at that approach to steady state in blood lactate levels.</p>
+<p>Let’s assume your blood lactate obeys the following model:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Lactate = Lactate_{SS} + (Lactate_0 - Lactate_{SS})}\exp{(-kt)}\]</div>
+<p>Here, Lactate is your blood lactate concentration in millimoles per liter (mM) at a given time since you started running. Lactate<sub>SS</sub> is the steady state blood lactate concentration at your current, near-death exertion level when running at a steady pace, and Lactate<sub>0</sub> is your blood lactate concentration at your more comfortable, sitting on the couch level when you started this run.</p>
+<p>Let’s say for simplicity Lactate<sub>0</sub> = 0.75 mM, Lactate<sub>SS</sub> = 12 mM, and k is a time constant that specifies the time scales over which your blood lactate concentration responds to your change in effort from couch to 10K.</p>
+<p>We can use a while loop to determine how long it takes for you to reach peak, steady state suffering.  How will I determine when I’m at steady state?  I will set an absolute error tolerance of 0.01. Once I get within 0.01 mM of my known steady state lactate concentration (12 mM), I will say that I have reached steady state. This bit of code then prints out the time needed to hit steady state and also plots blood lactate as a function of time. It works by initializing time, tolerance, and your lactate level, and then it updates all of them on each pass of the loop.  Here, we increment time by a single minute with every step; you may need to adjust that step size depending on the time scale of your process.  You may question why I picked a starting tolerance of 100.  I can pick anything as long as it is larger than my threshold tolerance.  I just need something bigger than 0.01 so that I can start the loop. <strong>Another quick reminder:</strong>  exp is not in base Python; you can either import it from the math package or use numpy.exp</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">LSS</span>     <span class="o">=</span> <span class="mi">12</span>    <span class="c1">#mM</span>
+<span class="n">L0</span>      <span class="o">=</span> <span class="mf">0.75</span>  <span class="c1">#mM</span>
+<span class="n">k</span>       <span class="o">=</span> <span class="mf">0.286</span> <span class="c1">#1/min</span>
+<span class="n">Lactate</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Tol</span>     <span class="o">=</span> <span class="mi">100</span>
+<span class="n">t</span>       <span class="o">=</span> <span class="mi">0</span> <span class="c1">#min</span>
+<span class="n">step</span>    <span class="o">=</span> <span class="mi">1</span> <span class="c1">#min</span>
+
+<span class="k">while</span> <span class="n">Tol</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">Lactate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LSS</span> <span class="o">+</span> <span class="p">(</span><span class="n">L0</span> <span class="o">-</span> <span class="n">LSS</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+    <span class="n">Tol</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Lactate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">LSS</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">+=</span> <span class="n">step</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;It will take t = </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> minutes to reach steady state&#39;</span><span class="p">)</span>
+<span class="n">tset</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Lactate</span><span class="p">))</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span><span class="n">Lactate</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At time = </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> minutes, you are </span><span class="si">{</span><span class="p">(</span><span class="n">LSS</span> <span class="o">-</span> <span class="n">Lactate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">LSS</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">% from steady state&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

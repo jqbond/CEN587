@@ -112,13 +112,6 @@ Losses = result.count('Total Party Kill')
 # ## Analyze the results of your combat simulation
 # 
 # At this point, we've counted the number of times our simulation gave us a win and The probability that we win is given by: 
-# 
-# ```python
-# odds = Wins/(Wins + Losses)
-# print(odds)
-# ```
-# 
-# This is all we need in order to figure out our chances against Acererak.  But we've also generated enough data to get a full probability distribution out of this Monte Carlo simulation. Learning a bit about probability distributions and how to analyze them is generally useful. Just ask any Reaction Engineering student after they cover residence time distributions for nonideal reactor design.
 
 # In[4]:
 
@@ -128,6 +121,8 @@ print(odds)
 print(Wins + Losses)
 
 
+# This is all we need in order to figure out our chances against Acererak.  But we've also generated enough data to get a full probability distribution out of this Monte Carlo simulation. Learning a bit about probability distributions and how to analyze them is generally useful. Just ask any Reaction Engineering student after they cover residence time distributions for nonideal reactor design.
+
 # ## Generating a Probability distribution from the simulation
 # 
 # At this point in the script, you have a set of n damage rolls, and you have a list of whether you won or lost each of your n combat attempts. We will process this a just little in order to generate a probability distribution that represents the likelihood of events with this particular damage roll. This might *sound* complicated, but it is actually straightforward to generate a probability distribution for a set of discrete events (i.e., damage rolls of 13, 14, 15, .... 61, 62, 63). 
@@ -136,20 +131,7 @@ print(Wins + Losses)
 # 
 # ### Counting the results
 # 
-# Let's initialize the list where we tally the number of times we made each roll. We'll also want a list of roll values that correspond to each tally.
-# 
-# ```python
-# tally = []
-# roll  = []
-# ```
-# 
-# Now use a for loop to count the number of times we hit each damage total and add it to the tally list.
-# 
-# ```python
-# for x in range(13,64,1):          #Consider all rolls between 13 (min) and 63 (max)
-#     roll.append(x)                #Add value of damage roll you're counting to the roll list
-#     tally.append(damage.count(x)) #Add number of times you rolled that value to tally list
-# ```
+# Let's initialize the list where we tally the number of times we made each roll. We'll also want a list of roll values that correspond to each tally. Then we'll write a for loop to count the number of times we hit each damage total and add it to the tally list.
 
 # In[5]:
 
@@ -175,29 +157,20 @@ for x in range(13, 64, 1):
 # plt.show()
 # ```
 #     
-# Or, if you prefer, you can create a histogram using a bar chart:
-# 
-# ```python
-# plt.figure(1, figsize = (6, 5))
-# plt.bar(roll, tally, color = 'none', edgecolor = 'black')
-# plt.xlabel('Total Damage Roll', fontsize = 12)
-# plt.ylabel('Number of Times Rolled', fontsize = 12)
-# plt.title(f'Histogram of Damage Rolls in {n:d} simulations')
-# plt.show()
-# ```
-#     
-# Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren't satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls.
+# Or, if you prefer, you can create a histogram using a bar chart as shown below:
 
 # In[6]:
 
 
-plt.figure(1, figsize = (6, 5))
+plt.figure(1, figsize = (5, 4))
 plt.bar(roll, tally, color = 'none', edgecolor = 'black')
 plt.xlabel('Total Damage Roll', fontsize = 12)
 plt.ylabel('Number of Times Rolled', fontsize = 12)
 plt.title(f'Histogram of Damage Rolls in {n:d} simulations')
 plt.show()
 
+
+# Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren't satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls.
 
 # ### Integrating the histogram
 # 
@@ -207,20 +180,7 @@ plt.show()
 # 
 # https://en.wikipedia.org/wiki/Trapezoidal_rule
 # 
-# As usual, with base Python and list collections, we'll do this with a for loop and flex some of those increment operators we learned with while loops.  Note that we could also do this by making a list of the area of each trapezoid at each step in the for loop and summing their values external to the for loop, but this illustration shows you another way to use increment operators.  Note the loop includes a calculation involving the j+1 element, so were only going to go up to the second to last element in the set of possible rolls.
-# 
-# ```python
-# integral = 0                     #Initialize the integrated area under the curve at 0.
-# for j in range(0,len(roll)-1):   #Integrate the result of tally for all 51 entries (13 to 63)
-#     integral += (tally[j] + tally[j+1])/2*(roll[j+1] - roll[j]) #Area of a trapezoid
-# ```
-#         
-# Once this loop is done, we have the total area under the curve.  For this particular example, it should be roughly equal to the total number of rolls that we made.  You can double check just to make sure; see if you can rationalize why this is so based on the way you are calculating the integral:
-# 
-# ```python
-# print(integral)
-# print(n)
-# ```
+# As usual, with base Python and list collections, we'll do this with a for loop and flex some of those increment operators we learned with while loops.  Note that we could also do this by making a list of the area of each trapezoid at each step in the for loop and summing their values external to the for loop, but this illustration shows you another way to use increment operators.  Note the loop includes a calculation involving the j+1 element, so were only going to go up to the second to last element in the set of possible rolls. Once this loop is done, we have the total area under the curve.  For this particular example, it should be roughly equal to the total number of rolls that we made.  You can double check just to make sure; see if you can rationalize why this is so based on the way you are calculating the integral:
 
 # In[7]:
 
@@ -234,46 +194,27 @@ print(n)
 
 # ### Normalizing to unit area
 # 
-# Now that we have the normalizing integral, we can convert our raw count into a probability distribution by dividing each count in tally by the normalizing integral.
-# 
-# ```python
-# prob = [value/integral for value in tally]
-# ```
-# 
-# Now that we have a probability distribution, we definitely should plot it. The total given by rolling multiple dice and adding them together should have a Gaussian distribution, so plot it and see how much it looks like a Bell-shaped Gaussian distribution (or not):
-# 
-# ```python
-# plt.figure(1, figsize = (6, 5))
-# plt.scatter(roll, prob, color = 'none', edgecolor = 'black')
-# plt.xlabel('Total Damage Roll', fontsize = 12)
-# plt.ylabel('Number of Times Rolled', fontsize = 12)
-# plt.title(f'Damage Rolls in {n:d} simulations')
-# plt.show()
-# ```
-#     
-# or, a bar chart:
-# ```python
-# plt.figure(1, figsize = (6, 5))
-# plt.bar(roll, prob, color = 'none', edgecolor = 'black')
-# plt.xlabel('Total Damage Roll', fontsize = 12)
-# plt.ylabel('Number of Times Rolled', fontsize = 12)
-# plt.title(f'Histogram of Damage Rolls in {n:d} simulations')
-# plt.show()
-# ```
+# Now that we have the normalizing integral, we can convert our raw count into a probability distribution by dividing each count in tally by the normalizing integral. 
 
 # In[8]:
 
 
 prob = [value/integral for value in tally]
 
-plt.figure(1, figsize = (6, 5))
+
+# Now that we have a probability distribution, we definitely should plot it. The total given by rolling multiple dice and adding them together should have a Gaussian distribution, so plot it and see how much it looks like a Bell-shaped Gaussian distribution (or not):
+
+# In[9]:
+
+
+plt.figure(1, figsize = (5, 4))
 plt.scatter(roll, prob, color = 'none', edgecolor = 'black')
 plt.xlabel('Total Damage Roll', fontsize = 12)
 plt.ylabel('Fraction of the time rolled rolled', fontsize = 12)
 plt.title(f'Probability distribution from {n:d} simulations')
 plt.show()
 
-plt.figure(1, figsize = (6, 5))
+plt.figure(1, figsize = (5, 4))
 plt.bar(roll, prob, color = 'none', edgecolor = 'black')
 plt.xlabel('Total Damage Roll', fontsize = 12)
 plt.ylabel('Fraction of the time rolled', fontsize = 12)
@@ -284,16 +225,8 @@ plt.show()
 # ### Check your normalization...
 # 
 # Before we go any further, let's check our normalization by integrating the probability distribution from the minimum value (13) to the maximum value (63). If we've done everything correctly, it should integrate to 1 since there is a 100% chance we obtain a results between 13 and 63.  We can again approximate that area with the trapezoidal rule. We'll add another plot of the distribution below because we'll talk bout it in the next cell.
-# 
-# ```python
-# norm = 0 
-# for j in range(0,len(roll)-1):
-#         norm += (prob[j] + prob[j+1])/2*(roll[j+1] - roll[j])
-# print(norm)
-# plt.bar(roll,prob)
-# ```
 
-# In[9]:
+# In[10]:
 
 
 norm = 0 
@@ -319,30 +252,15 @@ plt.show()
 # 
 # $$\bar{r} = \int_{13}^{63}rP(r)dr$$
 # 
-# Using the trapezoidal rule:
-# 
-# ```python
-# mean = 0 #Initialize the mean.
-# for j in range(0,len(roll)):
-#     mean += (roll[j+1] + roll[j])/2*(prob[j] + prob[j+1])/2*(roll[j+1] - roll[j])
-# print(mean)
-# ```
+# We can approxoimate that integral using the trapezoidal rule, which we've done a homebrew version of in the cell below (for educational purposes):
 # 
 # You may also note that for a discrete probability distribution such as this one, you can also calculate the mean value from the following summation:
 # 
 # $$\bar{r} = \sum_{i = 13}^{63} r_i P_i$$
 # 
-# Whis is done with the following list comprehension:
-# 
-# ```python
-# mean = sum([rval*pval for rval, pval in zip(roll, prob)])
-# ```
-# 
-# These will give roughly the same results here as long as we've done a reasonable number of simulations. We can print the result and see how close it is to the true mean (38).
-# 
-# 
+# Whis is done in the cell below using a list comprehension, again for educational purposes. These will give roughly the same results here as long as we've done a reasonable number of simulations. We can print the result and see how close it is to the true mean (38).
 
-# In[10]:
+# In[11]:
 
 
 mean = 0 #Initialize the mean.
@@ -359,29 +277,13 @@ sum([rval*pval for rval, pval in zip(roll, prob)])
 # 
 # $$\sigma^2 = \int_{13}^{63}(r - \bar{r})^2P(r)dr$$
 # 
-# Using the trapezoidal rule:
-# 
-# ```python
-# var = 0 #Initialize the variance.
-# for j in range(0,len(roll)-1):
-#     var += ((roll[j+1] + roll[j])/2 - mean)**2 *(prob[j] + prob[j+1])/2*(roll[j+1] - roll[j])
-# ```
-# 
-# Or, since it is a discrete distribution, you can calculate the variance with the following summation:
+# Using either the trapezoidal rule or, since it is a discrete distribution, you can calculate the variance with the following summation:
 # 
 # $$\sigma^2 = \sum_{i = 13}^{63} (r_i - \bar{r})^2 P_i$$
 # 
-# ```python
-# var = sum([(rval - mean)**2*pval for rval, pval in zip(roll, prob)])
-# ```
-# 
-# Note that the standard deviation is given by the square root of variance:
-# 
-# ```python
-# sigma = var**(1/2)
-# ```
+# Note that the standard deviation is given by the square root of variance.
 
-# In[11]:
+# In[12]:
 
 
 var = 0 #Initialize the variance.
@@ -390,21 +292,15 @@ for j in range(0,len(roll)-1):
 sigma = var**(1/2)
 print(sigma)
 
+var = sum([(rval - mean)**2*pval for rval, pval in zip(roll, prob)])
+print(var**(1/2))
+
 
 # ### Calculating the percent chance of success
 # 
 # Finally, we can calculate our percent chance of success by integrating the probability distribution from the lowest successful roll, 28, to the maximum possible roll of 63.
-# 
-# ```python
-# success = 0 #Initialize the integrated area under the curve at 0.
-# for j in range(0,len(roll)-1):
-#     if roll[j] < 28:
-#         pass               #pass just says "do nothing"
-#     elif roll[j] >= 28:
-#         success += (prob[j+1] + prob[j])/2*(roll[j+1] - roll[j])
-# ```
 
-# In[12]:
+# In[13]:
 
 
 success = 0 #Initialize the integrated area under the curve at 0.
@@ -418,14 +314,8 @@ for j in range(0,len(roll)-1):
 # ### Assessing the results
 # 
 # Now that we've collected all of that information, let's display the results all in one place.  We'll check to see how your analysis of the probability distribution compares with the odds you calculated directly by counting wins and losses.
-# 
-#     print('By counting the wins and losses, the odds that we win are ', odds)
-#     print('The probability of success by integrating the probability distribution is ', success)
-#     print('The mean damage roll is ', mean)
-#     print('The standard deviation on the damage roll is ', var**(1/2))
-#     print('The total are under the curve for the probability distribution is ', norm)
 
-# In[13]:
+# In[14]:
 
 
 print('By counting the wins and losses, the odds that we win the battle are ', round(odds,3))
@@ -455,7 +345,7 @@ print('The total are under the curve for the probability distribution is ', roun
 # 
 # Write a Monte carlo Simulation to figure out your chance for success in this scenario. You do not need to generate a probability distribution as we did above - that was a distribution for the damage roll alone.  Here you have 3 separate events that combine to determine a binary outcome (win or lose).  So your probability distribution here is just what fraction of times you win + what fraction of times you lose.
 
-# In[14]:
+# In[15]:
 
 
 n = 1000000
@@ -492,7 +382,7 @@ Wins = result.count('Acererak Has Fallen!')
 Losses = result.count('Total Party Kill!')
 
 
-# In[15]:
+# In[16]:
 
 
 odds = Wins/(Wins + Losses)
@@ -517,7 +407,7 @@ print(odds)
 # 
 # Write a Monte Carlo simulation to analyze the best course of action.
 
-# In[16]:
+# In[17]:
 
 
 n = 100000
@@ -579,7 +469,7 @@ print(f'If switch = {switch:s}, you have a {odds*100:4.2f}% chance of winning')
 # 
 # Here's an illustration of a few of those distributions:
 
-# In[17]:
+# In[18]:
 
 
 Gaussian   = [random.gauss(0,2) for i in range(0,100000)]
@@ -661,42 +551,8 @@ plt.show()
 # ```
 # 
 # Now, I have enough information to run a monte carlo simulation to figure out my typical net calories in a given day.  I would do this with a for loop that runs through maybe 10<sup>6</sup> iterations.  On each pass, I'll draw a random value for BMR, Donuts, D_Cal, and Training, then I'll add them up to get my net total.  Once that's done we can create a histogram from the data, which gives us a pretty good representation of our probability distribution my daily net calorie intake.
-# 
-# ```python
-# net = []
-# for n in range(0,1000000):
-#     BMR = random.gauss(1600,125) #kcal
-#     Donuts = ceil(random.gauss(7,3)) #kcal
-#     if Donuts < 2:
-#         Donuts = 2
-#     D_Cal  = random.gauss(350,140) #kcal
-#     if D_Cal < 350:
-#         D_Cal = 350
-#     Training = random.triangular(400,800) #kcal
-#     net.append(Donuts*D_Cal - BMR - Training)
-# 
-# #Create a histogram   
-# values = [i for i in range(-4000,8000,100)]
-# count_cal = []
-# for i in values:
-#     lower = i - 50
-#     upper = i + 50
-#     temp  = []
-#     for n in range(0,len(net)):
-#         if lower <= net[n] <= upper:
-#             temp.append(net[n])
-#     count_cal.append(len(temp))
-# 
-# #Convert to a probability distribution
-# integral = 0
-# for j in range(0,len(values)-1):
-#     integral += (count_cal[j] + count_cal[j+1])/2*(values[j+1] - values[j])
-# 
-# prob = [cals/integral for cals in count_cal]
-# plt.plot(values,prob)
-# ```
 
-# In[18]:
+# In[19]:
 
 
 BMR = random.gauss(1600,125) #kcal

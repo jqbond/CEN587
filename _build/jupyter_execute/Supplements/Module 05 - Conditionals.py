@@ -17,21 +17,17 @@
 # Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of 0, None, or any type of empty set (), [], {}, etc., converts to a boolean "false", and any else converts to a boolean "true".
 # 
 # Let's just check what various types of collections and scalars evaluate as when we convert to booleans.  To do that, we'll use the bool() function, which converts any argument into its boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:
-# 
-# ```python
-# bool(0)
-# bool(1)
-# bool([1])
-# bool([])
-# bool([10.0])
-# bool({})
-# bool('RTJ 3')
-# ```
 
-# In[ ]:
+# In[1]:
 
 
-
+print(bool(0))
+print(bool(1))
+print(bool([1]))
+print(bool([]))
+print(bool([10.0]))
+print(bool({}))
+print(bool('RTJ 3'))
 
 
 # ## Comparison Operators
@@ -59,56 +55,44 @@
 # ```
 #     
 # We use those comparison operators to test whether a condition is true or not.  These can be applied to scalars or lists in an almost infinite number of ways, but here are a few examples to try out and see what True or False values they return.
-# 
-# ```python
-# 10 > 5
-# 5  > 10
-# 10 == 10
-# 10 != 15
-# type('Hello!') == str
-# type('10') != float
-# ```
 
-# In[ ]:
+# In[2]:
 
 
-
+print(10 > 5)
+print(5  > 10)
+print(10 == 10)
+print(10 != 15)
+print(type('Hello!') == str)
+print(type('10') != float)
 
 
 # ### Logical operators (and, or, not)
 # 
 # Frequently, we have more than one criteria that we would like to test in order to determine if a condition is true or not. We can do this in a couple of ways. Python supports usage of logical operators **and**, **or**, and **not**.  For example:
-# 
-# ```python
-# 10 > 5  and 10 < 25
-# 10 > 15 and 10 < 25
-# 10 > 15 or  10 < 25
-# 10 > 15 or  29 < 25
-# not 10 > 15
-# not 15 > 10
-# ```
 
-# In[ ]:
+# In[3]:
 
 
-
+print(10 > 5  and 10 < 25)
+print(10 > 15 and 10 < 25)
+print(10 > 15 or  10 < 25)
+print(10 > 15 or  29 < 25)
+print(not 10 > 15)
+print(not 15 > 10)
 
 
 # ### Chaining comparisons
 # 
 # We can also chain comparison operators as you might do when expressing a range concisely - expressions in these logical tests can get complicated if we need them to:
-# 
-# ```python
-# z = 20
-# 10 < z <= 30
-# 10 < z <= 30 and type(z) == int
-# 10 < z <= 30 and type(z) == int or type(z) == float
-# ```
 
-# In[ ]:
+# In[4]:
 
 
-
+z = 20
+print(10 < z <= 30)
+print(10 < z <= 30 and type(z) == int)
+print(10 < z <= 30 and type(z) == int or type(z) == float)
 
 
 # ## Functions that use logical tests
@@ -147,7 +131,7 @@
 # 
 # This goes back to the comment about Python being vast and powerful - there may be tools out there that help you to perform the test you are thinking about doing.  Don't be shy about looking for them.  Try out `any()`, `all()`, and `isalpha()` on the relevant lists/strings below.
 
-# In[1]:
+# In[5]:
 
 
 A = [0,0,0,0,0,False,[]]
@@ -156,6 +140,10 @@ C = [1,1,True,1,0,1,1]
 D = [1,1,True,1,1,1,1]
 K = 'abcdefg'
 M = 'abcdef3'
+
+print(any(A))
+print(all(A))
+print(K.isalpha())
 
 
 # ## Controling flow
@@ -171,178 +159,135 @@ M = 'abcdef3'
 # ### If Statement
 # 
 # In general, both types of statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:
-# 
-# ```python
-# Bowei = 'Great TA'
-# if Bowei != 'Great TA':
-#     print('Bowei is Not A Great TA!')
-# ```
 
-# In[ ]:
+# In[6]:
 
 
-
+Bowei = 'Great TA'
+if Bowei == 'Great TA':
+    print('Bowei is A Great TA!')
 
 
 # ### Elif and else statements
 # 
 # Or the following categorization of A, which makes use of the `elif` and `else` keywords:
-# 
-# ```python
-# A = 100
-# if 5 < A < 35:
-#     print("A is between 5 and 35!")
-# elif 35 < A < 70:
-#     print("A is between 35 and 70!")
-# else:
-#     print("A is higher than I can count")
-# ```
 
-# In[ ]:
+# In[7]:
 
 
-
+A = 100
+if 5 < A < 35:
+    print("A is between 5 and 35!")
+elif 35 < A < 70:
+    print("A is between 35 and 70!")
+else:
+    print("A is higher than I can count")
 
 
 # This one will print a statement only if all of the characters in K are letters.
-# 
-# ```python
-# if K.isalpha() == True:
-#     print('All of the characters in K are letters')
-# ```
 
-# In[ ]:
+# In[8]:
 
 
-
+if K.isalpha() == True:
+    print('All of the characters in K are letters')
 
 
 # This one will wish me happy birthday once a year.
 # 
-# ```python
-# import datetime
-# x = datetime.datetime.now()
-# if x.month == 5 and x.day == 28:
-#     print("Happy Birthday Jesse!")
-# ```
 
-# In[ ]:
+# In[9]:
 
 
-
+import datetime
+x = datetime.datetime.now()
+if x.month == 5 and x.day == 28:
+    print("Happy Birthday Jesse!")
 
 
 # ### A While Loop Example
 # 
 # Here's a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).
-# 
-# ```python
-# n = 0.0
-# while n <= 10.0:
-#     print(n)
-#     n = n + 1.0
-# ```
 
-# In[ ]:
+# In[10]:
 
 
-
+n = 0.0
+while n <= 10.0:
+    print(n)
+    n = n + 1.0
 
 
 # ### Nesting if statements in a while loop
 # 
 # Finally, here's an example of a while loop with nested if statements. You can get very complex with the logical flow of your program!
-# 
-# ```python
-# x = 0
-# while x < 20:
-#     if x < 10:
-#         print('x is less than 10, it is', x)
-#     elif x >= 10 & x < 20:
-#         print('x is between 10 and 20, it is', x)
-#     x += 1
-# ```
 
-# In[ ]:
+# In[11]:
 
 
-
+x = 0
+while x < 20:
+    if x < 10:
+        print('x is less than 10, it is', x)
+    elif x >= 10 & x < 20:
+        print('x is between 10 and 20, it is', x)
+    x += 1
 
 
 # ## Some Applications for Logical Tests
 # 
 # Logical tests become extremely powerful when processing large data sets.  For example, let's just generate a set of 1000 random integers.  I am using pyplot for visualization. 
-# 
-# ```python
-# import matplotlib.pyplot as plt
-# import random
-# random.seed(1)
-# X = list(range(0, 1000))
-# A = [random.randint(-100,100) for i in X]
-# plt.figure(1, figsize = (6, 6))
-# plt.scatter(X, A, marker = 'o', color = 'none', edgecolor = 'blue')
-# plt.xlim(0, 1000)
-# plt.ylim(-100, 100)
-# plt.title('1000 Random Integers between -100 and 100')
-# plt.xlabel('Sample Index', fontsize = 14)
-# plt.ylabel('Sample Value', fontsize = 14)
-# plt.show()
-# ```
 
-# In[ ]:
+# In[12]:
 
 
-
+import matplotlib.pyplot as plt
+import random
+X = list(range(0, 1000))
+A = [random.randint(-100,100) for i in X]
+plt.figure(1, figsize = (6, 6))
+plt.scatter(X, A, marker = 'o', color = 'none', edgecolor = 'blue')
+plt.xlim(0, 1000)
+plt.ylim(-100, 100)
+plt.title('1000 Random Integers between -100 and 100')
+plt.xlabel('Sample Index', fontsize = 14)
+plt.ylabel('Sample Value', fontsize = 14)
+plt.show()
 
 
 # ### Using Logical Tests to Only Retain Desired Data
 # 
 # So let's pretend that data has just been handed off to us, and we didn't have flexibility in specifying its range when it was created.  Let's say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements (note also, this is not the only way to slice the data set, but it is one way you can use these tools).
-# 
-# ```python
-# B = []
-# for i in A:
-#     if (i >= 0) and (i <= 25):
-#         B.append(i)
-# X2 = list(range(0, len(B))
-# plt.figure(1, figsize = (6, 6))
-# plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'blue')
-# plt.xlim(0, 1000)
-# plt.ylim(-100, 100)
-# plt.title('1000 Random Integers between -100 and 100')
-# plt.xlabel('Sample Index', fontsize = 14)
-# plt.ylabel('Sample Value', fontsize = 14)
-# plt.show()
-# print(max(B))
-# print(min(B))
-# ```
 
-# In[105]:
+# In[13]:
 
 
-
-
-
-# In[ ]:
-
-
-
+B = []
+for i in A:
+    if (i >= 0) and (i <= 25):
+        B.append(i)
+X2 = list(range(0, len(B)))
+plt.figure(1, figsize = (6, 6))
+plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'blue')
+plt.xlim(0, len(B))
+plt.ylim(-100, 100)
+plt.title('The Integers between 0 and 25')
+plt.xlabel('Sample Index', fontsize = 14)
+plt.ylabel('Sample Value', fontsize = 14)
+plt.show()
+print(max(B))
+print(min(B))
 
 
 # ### Boolean masks with numpy arrays
 # 
 # If I'm working with numpy arrays, I would probably take advantage of their elementwise operations and do this by extracting all of the indices in the array where a condition is true.  For example, let's convert A into a numpy array and then we'll accomplish the same thing as the above loop with vectorized (element-wise) operations.
-# 
-# ```python
-# import numpy as np
-# Aarray = np.array(A)
-# print(Aarray)
-# ```
 
-# In[ ]:
+# In[14]:
 
 
-
+import numpy as np
+Aarray = np.array(A)
 
 
 # This next bit of code creates what is called a "Boolean mask," a set of Trues and Falses where the criteria I'm interested in are satisfied.  What I'm doing here will work with numpy arrays, but not with lists (you need to use a loop or a comprehension with lists).  You also need a bitwise and operator `&` instead of the `and` keyword here.
@@ -352,32 +297,29 @@ M = 'abcdef3'
 # index
 # ```
 
-# In[ ]:
+# In[15]:
 
 
-
+index = (Aarray >= 0) & (Aarray <= 25)
+index[0:20]
 
 
 # Now you can pass that boolean mask as a set of indices to the array -- it will basically extract any value where the index is "True," i.e., any value between 0 and 25. The code below overlays the results obtained with a loop and with a boolean mask using numpy arrays.  You'll see they are identical.
-# 
-# ```python
-# Barray = Aarray[index]
-# plt.figure(1, figsize = (6, 6))
-# plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'red')
-# plt.scatter(X2, Barray, marker = 's', color = 'none', edgecolor = 'blue')
-# plt.xlim(0, len(B))
-# plt.ylim(-100, 100)
-# plt.title('Truncated set between 0 and 25')
-# plt.xlabel('Sample Index', fontsize = 14)
-# plt.ylabel('Sample Value', fontsize = 14)
-# plt.show()
-# print(f'Of the {len(A)} initial values, {len(Barray):d} are between 0 and 25')
-# print(f'The maximum value contained in B is {max(Barray):d}')
-# print(f'The minimum value contained in B is {min(Barray):d}')
-# ```
 
-# In[ ]:
+# In[16]:
 
 
-
+Barray = Aarray[index]
+plt.figure(1, figsize = (6, 6))
+plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'red')
+plt.scatter(X2, Barray, marker = 's', color = 'none', edgecolor = 'blue')
+plt.xlim(0, len(B))
+plt.ylim(-100, 100)
+plt.title('Truncated set between 0 and 25')
+plt.xlabel('Sample Index', fontsize = 14)
+plt.ylabel('Sample Value', fontsize = 14)
+plt.show()
+print(f'Of the {len(A)} initial values, {len(Barray):d} are between 0 and 25')
+print(f'The maximum value contained in B is {max(Barray):d}')
+print(f'The minimum value contained in B is {min(Barray):d}')
 

@@ -698,6 +698,8 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
 <span class="n">xset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">## Graphing function</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xset</span><span class="p">,</span> <span class="n">y</span><span class="p">(</span><span class="n">xset</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
@@ -775,19 +777,7 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="math notranslate nohighlight">
 \[x_{i+1} = x_i - \frac{f^\prime(x_i)}{f^{\prime\prime}(x_i)}\]</div>
 <p>Based on that expression, you can see that iterations will converge once the <em><strong>derivative</strong></em> of the function is zero, which is the criteria we typically look for in finding extrema in a function. In contrast, a Newton-Raphson root finding iteration converges when the <em><strong>function itself</strong></em> is zero.</p>
-<p>Similar to a Newton-Raphson algorithm, this Newton’s method looks like something we could implement in a loop! We won’t worry right now about finding a maximum or minimum specifically, just extrema in general. To do that, all we need to do is let the while loop proceed until our derivative value is close enough to zero that we are satisfied.  It may not be completely clear how to do this just yet, so we’ll walk through this example together.  Just as a refresher, we’ll use lambda functions to define the function itself (y), its first derivative (dy), and its second derivative (ddy):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
-<span class="n">dy</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
-<span class="n">ddy</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
-</pre></div>
-</div>
-<p>But note, you can also use the long form function definitions using the def keyword:  there is nothing magic about a lambda function other than convenience!  Now for the loop:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">100.0</span>
-<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">ddy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>   
-</pre></div>
-</div>
+<p>Similar to a Newton-Raphson algorithm, this Newton’s method looks like something we could implement in a loop! We won’t worry right now about finding a maximum or minimum specifically, just extrema in general. To do that, all we need to do is let the while loop proceed until our derivative value is close enough to zero that we are satisfied.  It may not be completely clear how to do this just yet, so we’ll walk through this example together.  Just as a refresher, we’ll use lambda functions to define the function itself (y), its first derivative (dy), and its second derivative (ddy). But note, you can also use the long form function definitions using the def keyword:  there is nothing magic about a lambda function other than convenience!  Once you’ve done that, you can write the Newton-Raphson Iteration as a while loopNow for the loop:</p>
 <p>Go ahead and run this for a couple of initial guesses and watch the algorithm find the extrema in this function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -842,56 +832,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">ddy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">23</span>
-<span class="n">dy</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">8</span>
-<span class="n">ddy</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mf">1.6</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">10</span>
-
-<span class="n">xrange</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">yrange</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">xplot</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xrange</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xrange</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10000</span><span class="p">)</span>
-<span class="n">yplot</span>  <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
-<span class="n">xlist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">ylist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e-8</span><span class="p">:</span>
-    <span class="n">xlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">ylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span><span class="n">yplot</span><span class="p">,</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xrange</span><span class="p">,</span><span class="n">yrange</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span> <span class="n">ylist</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#Add a 2 second pause before going on to next iteration</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">dy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">ddy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/Module 10 - Optimization 01_11_0.png" src="../_images/Module 10 - Optimization 01_11_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3 41.2 -65.2
-</pre></div>
-</div>
-<img alt="../_images/Module 10 - Optimization 01_11_2.png" src="../_images/Module 10 - Optimization 01_11_2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.3196 -21.1736 -13.5542
-</pre></div>
-</div>
-<img alt="../_images/Module 10 - Optimization 01_11_4.png" src="../_images/Module 10 - Optimization 01_11_4.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7216 -25.568 -1.7162
-</pre></div>
-</div>
-<img alt="../_images/Module 10 - Optimization 01_11_6.png" src="../_images/Module 10 - Optimization 01_11_6.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6203 -25.6567 -0.0493
-</pre></div>
-</div>
-<img alt="../_images/Module 10 - Optimization 01_11_8.png" src="../_images/Module 10 - Optimization 01_11_8.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6172 -25.6567 -0.0
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="optimization-routines-in-scipy">
@@ -910,10 +850,7 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here we just run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Here we just run <code class="docutils literal notranslate"><span class="pre">opt.minimize_scalar(y)</span></code></p>
 <p>For this very simple minimization, you should see that it returns both our minimum x location and the minimum function value.  You can consult the scipy docs above for options that you can provide to <code class="docutils literal notranslate"><span class="pre">opt.minimze_scalar()</span></code>; most of them are passed using keyword arguments as we did with <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>, <code class="docutils literal notranslate"><span class="pre">opt.brentq()</span></code>, etc in Module 09.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -935,18 +872,26 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 </section>
 <section id="exploring-the-solution-structure-from-minimize-scalar">
 <h3>Exploring the solution structure from <code class="docutils literal notranslate"><span class="pre">minimize_scalar()</span></code><a class="headerlink" href="#exploring-the-solution-structure-from-minimize-scalar" title="Permalink to this headline">#</a></h3>
-<p>All of these optimization routines will return some type of solution structure, where each attribute of the structure can be accessed using a dot operator.  For example, if I run</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<p>All of these optimization routines will return some type of solution structure, where each attribute of the structure can be accessed using a dot operator.  For example, if I run <code class="docutils literal notranslate"><span class="pre">sol</span> <span class="pre">=</span> <span class="pre">opt.minimize_scalar(y)</span></code>, it will store that solution structure in sol (an arbitrary name).  I can then access the function value (fun), the number of function evaluations (nfev), the number of iterations (11), the convergence status (success), and the value of x at the minimum (x) using the following notation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">nfev</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">nit</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It will store that solution structure in sol (an arbitrary name).  I can then access the function value (fun), the number of function evaluations (nfev), the number of iterations (11), the convergence status (success), and the value of x at the minimum (x) using the following notation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">fun</span>
-<span class="n">sol</span><span class="o">.</span><span class="n">nfev</span>
-<span class="n">sol</span><span class="o">.</span><span class="n">nit</span>
-<span class="n">sol</span><span class="o">.</span><span class="n">success</span>
-<span class="n">sol</span><span class="o">.</span><span class="n">x</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: -25.656739046884304
+ message: &#39;\nOptimization terminated successfully;\nThe returned value satisfies the termination criteria\n(using xtol = 1.48e-08 )&#39;
+    nfev: 15
+     nit: 11
+ success: True
+       x: -0.6171691124890302
+-25.656739046884304 15 11 True -0.6171691124890302
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -959,11 +904,7 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">initial_guess_for_optimum_location</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For this example, we’ll minimize the function y and we’ll specify that we think x = -1 is a reasonable guess for the x location of the minimum in y(x):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This command will run opt.minimize with a default optimization algorithm (either BFGS, L-BFGS-B, or SLSQP depending on the specific nature of the problem) starting at an initial guess of -1 to find the minimum value of y.  <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> will return a solution structure similar to <code class="docutils literal notranslate"><span class="pre">opt.minimize_scalar()</span></code></p>
+<p>For this example, we’ll minimize the function y and we’ll specify that we think x = -1 is a reasonable guess for the x location of the minimum in y(x), <code class="docutils literal notranslate"><span class="pre">opt.minimize(y,-1)</span></code>. This command will run opt.minimize with a default optimization algorithm (either BFGS, L-BFGS-B, or SLSQP depending on the specific nature of the problem) starting at an initial guess of -1 to find the minimum value of y.  <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> will return a solution structure similar to <code class="docutils literal notranslate"><span class="pre">opt.minimize_scalar()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -990,9 +931,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <h3>Changing algorithms with <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code><a class="headerlink" href="#changing-algorithms-with-opt-minimize" title="Permalink to this headline">#</a></h3>
 <p>As your optimization problems get more difficult, you may find that default solvers do not perform well, and it may be necessary to test a new algorithm. Selecting the right algorithm is actually a pretty advanced topic, one that is far beyond the scope of this module, but be aware that each algorithm will use different methods that are often suited to a specific type of problem.  Regardless, once you decide on the algorithm you want to use, it is very easy to change with a keyword argument. This is similar to adding specifications to root finding algorithms or to the pyplot interface.</p>
 <p>For example, to repeat the minimization above with a Nelder-Mead algorithm:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;Nelder-Mead&#39;</span><span class="p">)</span>
@@ -1018,9 +956,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <h3>Adding additional options and inputs to <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code><a class="headerlink" href="#adding-additional-options-and-inputs-to-opt-minimize" title="Permalink to this headline">#</a></h3>
 <p>You may find that some algorithms require additional inputs, similar to a Newton-Raphson algorithm needing a derivative input in the root finding assignment. For example, the <em><strong>dogleg</strong></em> algorithm requires you to provide the <em><strong>Jacobian</strong></em>, which is the set of partial deriviatives of the objective function with respect to each one of its arguments (e.g., “x” in this case), and the <em><strong>Hessian</strong></em>, which is the set of second partial derivatives of the objective function with respect to each of its arguments. For a simple univariate scalar function like this, the Jacobian is just the derivative <span class="math notranslate nohighlight">\(y^{\prime}(x)\)</span>, and the Hessian is just the second derivative <span class="math notranslate nohighlight">\(y^{\prime\prime}(x)\)</span>. Don’t get used to that level of simplicity. More commonly, we will use numerical optimization routines on multivariate functions, and Jacobians and Hessians are generally going to be vector functions for multivariate objectives.</p>
 <p>For this example, to give you a feel for how to add more options, we are also adding the options keyword argument, which takes name : value pairs in a dictionary.  Here, I’m using it to turn on the display of results for intermediate iterations (not just the final output).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;dogleg&#39;</span><span class="p">,</span> <span class="n">jac</span> <span class="o">=</span> <span class="n">dy</span><span class="p">,</span> <span class="n">hess</span> <span class="o">=</span> <span class="n">ddy</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;disp&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;dogleg&#39;</span><span class="p">,</span> <span class="n">jac</span> <span class="o">=</span> <span class="n">dy</span><span class="p">,</span> <span class="n">hess</span> <span class="o">=</span> <span class="n">ddy</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;disp&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
@@ -1056,8 +991,26 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <h3>Bounds and Constraints<a class="headerlink" href="#bounds-and-constraints" title="Permalink to this headline">#</a></h3>
 <p>There are two more useful things to add into optimization routines: bounds and constraints. <strong>Bounds</strong> are strict limits on the actual values of the arguments that we are minimizing with respect to. These are straightforward to add into an optimization function in Python by using the bounds keyword, which generally takes the form of pairs of lower bounds and upper bounds in a tuple.</p>
 <p>For instance, if we wanted to find the local minimum of y(x) on the domain x = [0, 1], we could do so by specifying upper and lower bounds on x in line when we call <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)])</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: -23.0
+ hess_inv: &lt;1x1 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([7.99999995])
+  message: &#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 2
+      nit: 0
+     njev: 1
+   status: 0
+  success: True
+        x: array([0.])
+</pre></div>
+</div>
+</div>
 </div>
 <p>In the general <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> syntax each tuple in the “bounds” keyword argument is a pair of (lower bound, upper bound) for the variable that you’re optimizing. In the above example, I want to only search for a minimum between x = 0 and x = 1, so I set the bounds accordingly. You’ll see this finds the minimum value of y on the specified domain, which is y = -23 at x = 0. This is not the same as the local minimum over the full domain we are considering because we have prevented x from going below 0 by setting bounds on it.  Why might this be useful? Let’s say x is a physical quantity like mass, concentration, or temperature, where a negative value is the mathematically correct solution, but it is physically impossible to attain.  In these cases, you may want to impose a bound on that variable, and you can do so easily with the bounds keyword.</p>
 <div class = "alert alert-block alert-info">
@@ -1110,25 +1063,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <section id="this-one-s-for-atherton-wing">
 <h4>This one’s for Atherton Wing<a class="headerlink" href="#this-one-s-for-atherton-wing" title="Permalink to this headline">#</a></h4>
 <p>Let’s say for the sake of argument that I captain a rogue Firefly class cargo ship named <em><strong>Serenity</strong></em>. My crew and I are moving a herd of cattle off of Persephone and out to The Rim Planets for Sir Warrick.  Our cut on the job is 30% of the total sale price of the cattle, which sell for 8000 credits per head. However, each additional cow has a dramatic impact on my fuel economy. My fuel costs come to <span class="math notranslate nohighlight">\(100 \times \textrm{cows}^2\)</span> credits. In addition, I have to pay a bribe to a crooked Alliance customs agent to get the cattle off of Persephone in the first place. The bribe cost can be modeled as a decaying exponential function, <span class="math notranslate nohighlight">\((500\cdot e^\left(\textrm{-cows*0.5}\right) + 32)\cdot \textrm{cows}\)</span>.  It would be reasonble for me to create the following objective function, which returns my negative profit as a univariate function of cows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">cows</span><span class="p">):</span>
-    <span class="n">Revenue</span> <span class="o">=</span> <span class="mf">0.3</span><span class="o">*</span><span class="mi">8000</span><span class="o">*</span><span class="n">cows</span>
-    <span class="n">Fuel</span>    <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">cows</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">Bribe</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cows</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="n">cows</span>
-    <span class="n">Profit</span>  <span class="o">=</span> <span class="n">Revenue</span> <span class="o">-</span> <span class="n">Fuel</span> <span class="o">-</span> <span class="n">Bribe</span>
-    <span class="n">objective</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Profit</span>
-    <span class="k">return</span> <span class="n">objective</span>
-</pre></div>
-</div>
-<p>Recall that Scipy optimization routines will minimize your objective function.  I want to maximize profit, so I am returning its negative in this objective.</p>
-<p>I’m going to make an initial guess (complete wild guess here) that 16 cows will net me maximum profit. For some insight, I arrived at this number because I think that is about how many cows Malcolm Reynolds took onto Serenity in the Firefly Episode “Shindig.”</p>
-<p>From there, we’ll start the optimization routine and see what we get:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># np.floor rounds down to nearest integer</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span>  <span class="c1">#np.ceiling rounds up to nearest integer</span>
-</pre></div>
-</div>
-<p>As formulated, you can easily minimize this objective using any of the above approaches; I show a basic, unbounded, unconstrained optimization above. It may be of interest to print out values of Revenue, Fuel Costs, Bribe Costs, and Profit to get a feel for how the optimization responds to various changes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">cows</span><span class="p">):</span>
@@ -1138,8 +1072,16 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
     <span class="n">Profit</span>  <span class="o">=</span> <span class="n">Revenue</span> <span class="o">-</span> <span class="n">Fuel</span> <span class="o">-</span> <span class="n">Bribe</span>
     <span class="n">objective</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Profit</span>
     <span class="k">return</span> <span class="n">objective</span>
-
-<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recall that Scipy optimization routines will minimize your objective function.  I want to maximize profit, so I am returning its negative in this objective.</p>
+<p>I’m going to make an initial guess (complete wild guess here) that 16 cows will net me maximum profit. For some insight, I arrived at this number because I think that is about how many cows Malcolm Reynolds took onto Serenity in the Firefly Episode “Shindig.”</p>
+<p>From there, we’ll start the optimization routine and see what we get. As formulated, you can easily minimize this objective using any of the above approaches; I show a basic, unbounded, unconstrained optimization above. It may be of interest to print out values of Revenue, Fuel Costs, Bribe Costs, and Profit to get a feel for how the optimization responds to various changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># np.floor rounds down to nearest integer</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)))</span>  <span class="c1">#np.ceiling rounds up to nearest integer</span>
@@ -1171,9 +1113,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 </pre></div>
 </div>
 <p>In this case, we have a single inequality constraint:  the Alliance contact won’t accept a bribe of less than 700 credits; we can formulate that as a function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraintfun1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">cows</span><span class="p">:</span> <span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cows</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="n">cows</span> <span class="o">-</span> <span class="mi">700</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">constraintfun1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">cows</span><span class="p">:</span> <span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cows</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="n">cows</span> <span class="o">-</span> <span class="mi">700</span>
@@ -1185,9 +1124,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="math notranslate nohighlight">
 \[\textrm{Bribe} - 700 \geqslant 0\]</div>
 <p>We will use this constraint function to build a constraint dictionary that we can then add to our optimization routine. The type of constraint is, again, an inequality.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraint_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;ineq&#39;</span> <span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">constraintfun1</span><span class="p">}</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">constraint_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;ineq&#39;</span> <span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">constraintfun1</span><span class="p">}</span>
@@ -1199,9 +1135,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <section id="not-all-algorithms-will-accept-constraints-on-optimization-problems">
 <h4>Not all algorithms will accept constraints on optimization problems<a class="headerlink" href="#not-all-algorithms-will-accept-constraints-on-optimization-problems" title="Permalink to this headline">#</a></h4>
 <p>We then add this constraint_dictionary to our optimization routine as shown below; we’ll use SLSQP since it is a constrained optimization algorithm that takes either inequality or equality constraints.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">(</span><span class="n">constraint_dictionary</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class = "alert alert-block alert-info">
     <b>Important</b>: only SLSQP, COBYLA, and trust-constr algorithms accept constraints.
     </div><div class="cell docutils container">
@@ -1226,11 +1159,6 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 </div>
 <p>Ouch! That really cuts into our profit! We meet the constraint if we move 21.8 cows, but of course that rounds up to 22, where we find our total profit comes down to about 3696 credits.</p>
 <p>In this situation, the only reasonable thing to do is ask Jayne Cobb to <em>talk</em> to the Alliance contact.  After the conversation, the contact agrees to accept a bribe cost of exactly 500 credits.  While there are other ways that we could build this change into our model (saying explicitly Bribe = 500 being the best), I’ll illustrate how to do this by a simple change in our constraint equation.  We will change it to an equality constraint, and we will write it so that it evaluates to zero:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">constraintfun2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">cows</span><span class="p">:</span> <span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cows</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="n">cows</span> <span class="o">-</span> <span class="mi">500</span>
-<span class="n">constraint_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;eq&#39;</span> <span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">constraintfun2</span><span class="p">}</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;SLSQP&#39;</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">(</span><span class="n">constraint_dictionary</span><span class="p">))</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">constraintfun2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">cows</span><span class="p">:</span> <span class="p">(</span><span class="mi">500</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cows</span><span class="o">*</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span><span class="o">*</span><span class="n">cows</span> <span class="o">-</span> <span class="mi">500</span>
@@ -1266,35 +1194,61 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
-<span class="n">xset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xset</span><span class="p">,</span> <span class="n">k</span><span class="p">(</span><span class="n">xset</span><span class="p">))</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">kplot</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xset</span><span class="p">,</span> <span class="n">kplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x25dfe461370&gt;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_4376\3485460638.py</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">kplot</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xset</span><span class="p">,</span> <span class="n">kplot</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\pyplot.py</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2767</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2768</span> <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2769</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2770</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2771</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1630</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1631</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
+<span class="ne">-&gt; </span><span class="mi">1632</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1633</span><span class="s2">         for line in lines:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1634</span><span class="s2">             self.add_line(line)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">                 this += args[0],</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">                 args = args[1:]</span>
+<span class="ne">--&gt; </span><span class="mi">312</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">     def get_next_color(self):</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs, return_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
+<span class="ne">--&gt; </span><span class="mi">498</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
+
+<span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (100,) and (1000,)
 </pre></div>
 </div>
-<img alt="../_images/Module 10 - Optimization 01_39_1.png" src="../_images/Module 10 - Optimization 01_39_1.png" />
+<img alt="../_images/Module 10 - Optimization 01_40_1.png" src="../_images/Module 10 - Optimization 01_40_1.png" />
 </div>
 </div>
 <p>Clearly, there are many local minima on this domain, but only one global minimum somewhere around <span class="math notranslate nohighlight">\(x = 0.53\)</span>.  How to find it exactly?  Try out some of our above optimization routines with varied initial guesses.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
-<span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">kplot</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">kplot</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Notice how hard it is to get these routines to locate the true global minimum.  It is almost a question of a lucky combination of algorithm, initial guess, and/or bounds at this point…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
-<span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">kplot</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
-<span class="n">xguess</span> <span class="o">=</span> <span class="mf">0.25</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xguess</span> <span class="o">=</span> <span class="mf">0.25</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">xguess</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">kplot</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;k(x)&#39;</span><span class="p">)</span>
@@ -1309,21 +1263,17 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The for an initial guess of 0.25, the minimum we find is a value of k = -0.232 at x = 1.547.
 </pre></div>
 </div>
-<img alt="../_images/Module 10 - Optimization 01_41_1.png" src="../_images/Module 10 - Optimization 01_41_1.png" />
+<img alt="../_images/Module 10 - Optimization 01_42_1.png" src="../_images/Module 10 - Optimization 01_42_1.png" />
 </div>
 </div>
+<p>Notice how hard it is to get these routines to locate the true global minimum.  It is almost a question of a lucky combination of algorithm, initial guess, and/or bounds at this point…</p>
 <section id="you-may-want-to-try-a-global-optimization-algorithm">
 <h3>You may want to try a global optimization algorithm…<a class="headerlink" href="#you-may-want-to-try-a-global-optimization-algorithm" title="Permalink to this headline">#</a></h3>
 <p>This is the type of case where we might be interested in trying out a global optimization routine, of which there are several available in Scipy: <code class="docutils literal notranslate"><span class="pre">basinhopping</span></code>, <code class="docutils literal notranslate"><span class="pre">brute</span></code>, <code class="docutils literal notranslate"><span class="pre">differential_evolution</span></code>, <code class="docutils literal notranslate"><span class="pre">shgo</span></code>, and <code class="docutils literal notranslate"><span class="pre">dual_annealing</span></code>.  They all have fairly similar syntax. You will typically supply the function name (all algorithms), an initial guess (basinhopping), and/or the bounds on the variable(s) (all other algorithms). Here, the syntax for bounds is similar to what we used for opt.minimize, except that we don’t need a bounds keyword.</p>
 <p>For example, to look for a minimum with this function using basinhopping:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>opt.basinhopping(k,1)
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">kplot</span> <span class="o">=</span> <span class="n">k</span><span class="p">(</span><span class="n">xplot</span><span class="p">)</span>
-<span class="n">xguess</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xguess</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">sol</span>   <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">basinhopping</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xplot</span><span class="p">,</span> <span class="n">kplot</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;k(x)&#39;</span><span class="p">)</span>
@@ -1338,13 +1288,10 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The for an initial guess of 1, the minimum we find is a value of k = -2.874 at x = 0.144.
 </pre></div>
 </div>
-<img alt="../_images/Module 10 - Optimization 01_43_1.png" src="../_images/Module 10 - Optimization 01_43_1.png" />
+<img alt="../_images/Module 10 - Optimization 01_44_1.png" src="../_images/Module 10 - Optimization 01_44_1.png" />
 </div>
 </div>
 <p>Whereas if you wanted to use dual_annealing, you would supply the function and a range to consider:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>opt.dual_annealing(k, [(0.1,2.5)])
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1363,7 +1310,7 @@ The second derivative of the function at these locations are ypp = [ 15.92 -15.9
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The minimum we find is a value of k = -2.874 at x = 0.144.
 </pre></div>
 </div>
-<img alt="../_images/Module 10 - Optimization 01_45_1.png" src="../_images/Module 10 - Optimization 01_45_1.png" />
+<img alt="../_images/Module 10 - Optimization 01_46_1.png" src="../_images/Module 10 - Optimization 01_46_1.png" />
 </div>
 </div>
 <p>Once you get the hang of the basic optimization interface, it is pretty straightforward to switch between optimization methods, but you should check their documentation to confirm as you can find slightly different syntax in each case.</p>

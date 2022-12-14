@@ -411,6 +411,11 @@ title="Print to PDF"
      </code>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-solver-algorithms">
+     Changing Solver Algorithms
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -419,9 +424,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-final-useful-skill">
-   One final useful skill
+  <a class="reference internal nav-link" href="#one-final-useful-example">
+   One final useful Example
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-function-that-encodes-the-system-of-equations">
+     Define the function that encodes the system of equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-a-function-that-calculates-jacobian">
+     Define a function that calculates Jacobian
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#least-squares-revisited-opt-least-squares">
@@ -537,6 +554,11 @@ title="Print to PDF"
      </code>
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-solver-algorithms">
+     Changing Solver Algorithms
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -545,9 +567,21 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#one-final-useful-skill">
-   One final useful skill
+  <a class="reference internal nav-link" href="#one-final-useful-example">
+   One final useful Example
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-the-function-that-encodes-the-system-of-equations">
+     Define the function that encodes the system of equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#define-a-function-that-calculates-jacobian">
+     Define a function that calculates Jacobian
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#least-squares-revisited-opt-least-squares">
@@ -620,8 +654,8 @@ title="Print to PDF"
 <div class = "alert alert-block alert-warning">
     <b>Important</b>: In this assignment we are covering best practices for solving systems of <b>nonlinear equations</b>.  You can apply these methods to a system of linear equations, but there are much more efficient, closed-form analytical solutions based on linear algebra. If you are dealing with linear systems, then you want to use linear methods since they are more efficient and stable than the iterative, numerical solutions we'll use here.
     </div>
-<div class="amsmath math notranslate nohighlight" id="equation-92c18879-68d1-4d47-9b6f-4afa68fdb6f5">
-<span class="eqno">()<a class="headerlink" href="#equation-92c18879-68d1-4d47-9b6f-4afa68fdb6f5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2b2f521a-2b88-4563-ae60-41eb0418fea7">
+<span class="eqno">()<a class="headerlink" href="#equation-2b2f521a-2b88-4563-ae60-41eb0418fea7" title="Permalink to this equation">#</a></span>\[\begin{align}
     x^2 - 3y &amp;= 14.75z - w^4 \\
     25 &amp;= x^3 - z \\ 
     0 &amp;= \ln(z) - z^2 + 2x + 3 \\
@@ -630,8 +664,8 @@ title="Print to PDF"
 <p>It is clear that we cannot solve any one equation above to determine the values for w, x, y, and z that satisfy these equations. We have to solve all four of them together, as a system, to do that.  We do have analytical methods that are useful - most students default to a substitution method, for example.  In general, this is fine if you want an analytical solution but we should note two problems with the approach.  First, soliving large nonlinear systems this way requires extensive algebraic manipulations, which is both extremely tedious and extremely error-prone. Second, it isn’t always possible to solve a system of nonlinear equations using analytical methods. More frequently, we will rely on numerical methods to solve nonlinear systems.  Similar to the cases we’ve already considered (e.g., a Newton-Raphson iteration), they are based on iterative solutions that proceed until the system reaches some convergence threshold. Just like with univariate equations, our convergence threshold is that we want the equations to evaluate to zero, it’s just in this case, we want each and every equation to equal zero.</p>
 <p>Now that we have a basic familiarity, we’ll jump straight into the root finding algorithms available in Python. Solving nonlinear systems numerically is, in general, very difficult, and it requires both good algorithms and good initial guesses, so we’ll skip writing our own routines like we did with univariate functions, but it is important to know that the basic approach of iteratively updating variable values until reaching your convergence threshold is the same.</p>
 <p>When we solve a system of equations numerically in Python (or in most softwares), we need to write that system as a set of equations that should evaluate to zero once we find our solution. So no matter how the functions are presented to me, I will convert them into a form where the left-hand-side is zero, and the right hand side specifies the function. Following this logic, I would write the above system as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb1077ce-4919-4700-b27b-32b52626327c">
-<span class="eqno">()<a class="headerlink" href="#equation-eb1077ce-4919-4700-b27b-32b52626327c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4fd93b6a-5388-4dff-81e0-e713c174d7a3">
+<span class="eqno">()<a class="headerlink" href="#equation-4fd93b6a-5388-4dff-81e0-e713c174d7a3" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= -x^2 - + 3y + 14.75z - w^4 \\
     0 &amp;= x^2 - z - 25 \\
     0 &amp;= \ln(z) - z^2 + 2x + 3 \\
@@ -641,14 +675,6 @@ title="Print to PDF"
 <section id="an-intuitive-function-definition-to-define-this-system">
 <h2>An intuitive function definition to define this system<a class="headerlink" href="#an-intuitive-function-definition-to-define-this-system" title="Permalink to this headline">#</a></h2>
 <p>Just as in root finding and optimization for scalar equations, we want to construct a function that encodes this system and returns the left hand side of our equation(s). No problem, right?  We know how to create a multivariate function, so this is straightforward.  We will walk through the way we would probably do this intuitively, and then we’ll explain what that won’t work for a numerical solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
-    <span class="n">eq1</span> <span class="o">=</span>  <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mf">14.75</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">**</span><span class="mi">4</span>
-    <span class="n">eq2</span> <span class="o">=</span>   <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">25</span>
-    <span class="n">eq3</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-    <span class="n">eq4</span> <span class="o">=</span>   <span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">w</span> <span class="o">-</span> <span class="mi">74</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">,</span> <span class="n">eq3</span><span class="p">,</span> <span class="n">eq4</span><span class="p">]</span>   <span class="c1">#Technically, this will return a list [eq1, eq2, eq3, eq4]</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -670,9 +696,6 @@ title="Print to PDF"
 </div>
 </div>
 <p>Now, I can run that function for any (w,x,y,z) set and see the LHS value returned by each equation.  There is about a 0% chance they are all equal to zero.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -696,22 +719,6 @@ title="Print to PDF"
 <section id="defining-a-multivariate-vector-function-for-compatibility-with-opt-root">
 <h3>Defining a multivariate vector function for compatibility with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code><a class="headerlink" href="#defining-a-multivariate-vector-function-for-compatibility-with-opt-root" title="Permalink to this headline">#</a></h3>
 <p>Taking both of these things together, we are now working with a <em><strong>multivariate vector function</strong></em>.  It is multivariate because it depends on 4 different independent variables, and it is a vector function because it returns a vector quantity instead of a scalar quantity.  It’s easy to do, we just need to understand the two above points, which is what the root finding algorithm needs from us.  With that in mind, we’ll construct our system as a multivariate vector function (with a vector argument). Python is actually pretty forgiving in terms of whether you provide inputs as lists, arrays, tuples, or a mix thereof, but in general, I prefer to use a consistent type and dimensionality for inputs and outputs:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">var</span><span class="p">):</span> <span class="c1">#the name &quot;var&quot; is arbitrary; it is name of local variable that contains w, x, y, and z</span>
-
-    <span class="c1">#We&#39;ll work with our &quot;vector&quot; argument var</span>
-
-    <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">var</span>   <span class="c1">#I like to relabel elements of the vector variable for readability</span>
-
-    <span class="c1">#Now we&#39;ll define our &quot;vector&quot; output; I&#39;ll work with a list</span>
-
-    <span class="n">LHS1</span> <span class="o">=</span>  <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mf">14.75</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">**</span><span class="mi">4</span>
-    <span class="n">LHS2</span> <span class="o">=</span>   <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">25</span>
-    <span class="n">LHS3</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
-    <span class="n">LHS4</span> <span class="o">=</span>   <span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">w</span> <span class="o">-</span> <span class="mi">74</span>
-    <span class="n">retval</span> <span class="o">=</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">,</span> <span class="n">LHS3</span><span class="p">,</span> <span class="n">LHS4</span><span class="p">]</span> <span class="c1">#I&#39;m using a list, but you can return a tuple or array just as easily.</span>
-    <span class="k">return</span> <span class="n">retval</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
@@ -730,9 +737,6 @@ title="Print to PDF"
 <section id="confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output">
 <h3>Confirm that this function will accept an array input and return an array output<a class="headerlink" href="#confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output" title="Permalink to this headline">#</a></h3>
 <p>Now, if we want to run this function for the same input as last time, we need to provide a vector argument. I’ll use a list.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>F([1,2,3,4]) #Using a 4-element list because it is consistent with my return structure.
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
@@ -748,12 +752,7 @@ title="Print to PDF"
 </section>
 <section id="solve-system-with-opt-root">
 <h3>Solve system with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code><a class="headerlink" href="#solve-system-with-opt-root" title="Permalink to this headline">#</a></h3>
-<p>Now that we’ve constructed the function, the syntax for the root finding algorithm is straightforward.  We’ll use scipy.optimize.root. This is the multivariate analog of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>, which we used in Module 09. As usual, I have aliased <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> as <code class="docutils literal notranslate"><span class="pre">opt</span></code>, so my syntax is:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1">#This is a list with my 4 initial guesses at the &quot;roots&quot; for w, x, y, and z</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>At a minimum, I have to provide the function name (F) and my initial guess at the roots (w, x, y, and z) that give F = 0.</p>
+<p>Now that we’ve constructed the function, the syntax for the root finding algorithm is straightforward.  We’ll use scipy.optimize.root. This is the multivariate analog of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>, which we used in Module 09. As usual, I have aliased <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> as <code class="docutils literal notranslate"><span class="pre">opt</span></code>, so my syntax is in the following cell.  At a minimum, I have to provide the function name (F) and my initial guess at the roots (w, x, y, and z) that give F = 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1">#This is a list with my 4 initial guesses at the &quot;roots&quot; for w, x, y, and z</span>
@@ -784,9 +783,44 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="changing-solver-algorithms">
+<h3>Changing Solver Algorithms<a class="headerlink" href="#changing-solver-algorithms" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> is quite flexible as it includes several root finding algorithms (<code class="docutils literal notranslate"><span class="pre">hybrid</span></code>, <code class="docutils literal notranslate"><span class="pre">levenberg-marquardt</span></code>, <code class="docutils literal notranslate"><span class="pre">kyrlov</span></code>, etc.). Method selection is easy with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code>; similar to everything we’ve seen with <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>, you can select the algorithm using the method keyword.  So if I wanted to change from the default <code class="docutils literal notranslate"><span class="pre">hybr</span></code> method to <code class="docutils literal notranslate"><span class="pre">Levenberg-Marquardt</span></code>, I would do so by adding the method keyword argument and passing the string <code class="docutils literal notranslate"><span class="pre">LM</span></code>, which specifies Levenberg-Marquardt.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   cov_x: array([[ 9.35903829e-02, -2.32494542e-02,  2.77010862e+02,
+        -1.36618666e-02],
+       [-2.32494542e-02,  9.26047878e-03, -6.88054870e+01,
+         4.15265487e-03],
+       [ 2.77010862e+02, -6.88054870e+01,  8.19903354e+05,
+        -4.05188398e+01],
+       [-1.36618666e-02,  4.15265487e-03, -4.05188398e+01,
+         1.92554021e-02]])
+    fjac: array([[ 8.87998432e+03, -0.00000000e+00, -0.00000000e+00,
+        -6.05253303e-04],
+       [ 1.07571604e+01, -1.70163000e+01,  1.17534364e-01,
+         7.66247096e-01],
+       [-1.47493852e+01,  7.42031699e-01,  7.61320794e+00,
+        -2.39975562e-01],
+       [-2.99999942e+00, -1.39132074e-03,  3.76237457e-04,
+        -1.10438034e-03]])
+     fun: array([7.27595761e-12, 3.55271368e-15, 1.77635684e-15, 0.00000000e+00])
+    ipvt: array([1, 2, 4, 3], dtype=int32)
+ message: &#39;The relative error between two consecutive iterates is at most 0.000000&#39;
+    nfev: 528
+     qtf: array([ 2.25658836e-04,  1.38654350e-07, -3.58586763e-08,  1.27840531e-07])
+  status: 2
+ success: True
+       x: array([1.30451990e+01, 5.37463986e+00, 9.64394731e+03, 3.88675366e+00])
+</pre></div>
+</div>
+</div>
 </div>
 <p>As with minimization routines, the algorithms are all highly configurable using various options and keyword arguments, but these n-dimensional root finding algorithms using have algorithm specific options rather than options that are universal to all algorithms.  You’ll need to consult the specific algoritm to see what options are available for that particular method, but each uses the same basic syntax of keyword arguments and/or options dictionaries, both of which are covered in Modules 09 - 11.</p>
 </section>
@@ -795,23 +829,32 @@ title="Print to PDF"
 <h2>A Word of Caution<a class="headerlink" href="#a-word-of-caution" title="Permalink to this headline">#</a></h2>
 <p>Solving algebraic systems of nonlinear equations using numerical methods is incredibly difficult; you need a good algorithm and good-to-very good initial guesses.  Unfortunately, it can be difficult to provide good initial guesses. We should use our physical insights about the systems we are studying to make initial guesses that we think will be very close to the actual solution, otherwise, it is unlikely that our solvers will converge for difficult nonlinear systems.  In fact, the first example in this worksheet is only easily solved by the <code class="docutils literal notranslate"><span class="pre">hybr</span></code> and <code class="docutils literal notranslate"><span class="pre">LM</span></code> algorithms, whereas others won’t converge easily.</p>
 </section>
-<section id="one-final-useful-skill">
-<h2>One final useful skill<a class="headerlink" href="#one-final-useful-skill" title="Permalink to this headline">#</a></h2>
+<section id="one-final-useful-example">
+<h2>One final useful Example<a class="headerlink" href="#one-final-useful-example" title="Permalink to this headline">#</a></h2>
 <p>Providing a Jacobian is usually a good idea when you are solving systems of equations numerically. It can be essential to performance and stability for difficult systems.  Most of the algorithms available in <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> will accept a Jacobian input.  Since it is such an essential skill, we’ll demonstrate its usage.  The Jacobian is the set of partial derivatives of each function in your system with respect to each variable. In the system above, that means my Jacobian will be a 4x4 matrix since I’d have to take a partial derivative of each equation with respect to w, x, y, and z.  It isn’t <em>hard</em>, but it is tedious (although you may want to look at symbolic, numerical, and/or automatica differentiation methods for generating Jacobians, which can make it much easier.  We won’t cover that here). We’ll go through a simpler example and create the corresponding Jacobian analytically.</p>
 <p>Here’s a simple system of equations written as functions of (a,b):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3268757d-19cf-429c-9e8b-c2679b305075">
-<span class="eqno">()<a class="headerlink" href="#equation-3268757d-19cf-429c-9e8b-c2679b305075" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-969949c5-810e-4302-8055-60c3894b321e">
+<span class="eqno">()<a class="headerlink" href="#equation-969949c5-810e-4302-8055-60c3894b321e" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= a^3 - e^{-b} \\
     0 &amp;= ab - b^2 + 5
 \end{align}\]</div>
-<p>We can encode that a multivariate vector function in Python.  Here, I am choosing to return the left hand side of these equations in a numpy array:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<section id="define-the-function-that-encodes-the-system-of-equations">
+<h3>Define the function that encodes the system of equations<a class="headerlink" href="#define-the-function-that-encodes-the-system-of-equations" title="Permalink to this headline">#</a></h3>
+<p>We can encode that a multivariate vector function in Python.  Here, I am choosing to call it q(v) and return the left hand side of these equations in a numpy array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">eq1</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
     <span class="n">eq2</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="define-a-function-that-calculates-jacobian">
+<h3>Define a function that calculates Jacobian<a class="headerlink" href="#define-a-function-that-calculates-jacobian" title="Permalink to this headline">#</a></h3>
 <p>Now for the Jacobian, we need to calculate partial derivatives. a is my first variable, b is my second variable.  So I need to create a matrix that is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}J = \begin{vmatrix}
@@ -825,31 +868,9 @@ title="Print to PDF"
 b &amp; a - 2b
 \end{vmatrix}\end{split}\]</div>
 <p>This can be defined as a function in Python as follows (using np.arrays):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
-    <span class="n">jac11</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">jac12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">jac21</span> <span class="o">=</span> <span class="n">b</span>
-    <span class="n">jac22</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span>
-    <span class="n">jac</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">jac11</span><span class="p">,</span> <span class="n">jac12</span><span class="p">],</span> <span class="p">[</span><span class="n">jac21</span><span class="p">,</span> <span class="n">jac22</span><span class="p">]])</span>
-    <span class="k">return</span> <span class="n">jac</span>
-</pre></div>
-</div>
-<p>Note:  The reason I’m using np.arrays here is that they index like a matrix, and I’m most comfortable treating a Jacobian as a matrix.  But you could do this with a list or a tuple if you wanted to.</p>
-<p>Then we add the jacobian to the optimization routine using the <code class="docutils literal notranslate"><span class="pre">jac</span></code> keyword argument with following syntax:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;hybr&#39;</span><span class="p">,</span> <span class="n">jac</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
-    <span class="n">eq1</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
-    <span class="n">eq2</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">])</span>
-
-<span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">jac11</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">jac12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
@@ -857,8 +878,15 @@ b &amp; a - 2b
     <span class="n">jac22</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span>
     <span class="n">jac</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">jac11</span><span class="p">,</span> <span class="n">jac12</span><span class="p">],</span> <span class="p">[</span><span class="n">jac21</span><span class="p">,</span> <span class="n">jac22</span><span class="p">]])</span>
     <span class="k">return</span> <span class="n">jac</span>
-
-<span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note:  The reason I’m using np.arrays above is that they index like a matrix, and I’m most comfortable treating a Jacobian as a matrix. But you could do this with a list or a tuple if you wanted to.</p>
+<p>Then we add the jacobian to the optimization routine using the <code class="docutils literal notranslate"><span class="pre">jac</span></code> keyword argument with following syntax; this solves the problem with the optional jacobian provided to the <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> solver using the <code class="docutils literal notranslate"><span class="pre">hybr</span></code> algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;hybr&#39;</span><span class="p">,</span> <span class="n">jac</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -880,6 +908,7 @@ b &amp; a - 2b
 </div>
 </div>
 </section>
+</section>
 <section id="least-squares-revisited-opt-least-squares">
 <h2>Least Squares Revisited: <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code><a class="headerlink" href="#least-squares-revisited-opt-least-squares" title="Permalink to this headline">#</a></h2>
 <p>Now that we have started working with multivariate vector functions, there is one final tool I want to cover from <code class="docutils literal notranslate"><span class="pre">Scipy.optimize</span></code> - least_squares.</p>
@@ -895,16 +924,6 @@ b &amp; a - 2b
 <section id="write-a-multivariate-vector-function-that-returns-an-array-of-residuals">
 <h3>Write a multivariate vector function that returns an array of residuals<a class="headerlink" href="#write-a-multivariate-vector-function-that-returns-an-array-of-residuals" title="Permalink to this headline">#</a></h3>
 <p>Now we’ll set up the least squares problem by creating a function that returns a <em>vector</em> of residuals for each data point; we still need it to take variable parameters (<span class="math notranslate nohighlight">\(V_{max}\)</span> and <span class="math notranslate nohighlight">\(K_m\)</span>) as a vector input, and we have to pass that input as the first argument to the function.  We also need to pass our experimental concentrations and rates in order to calculate model predictions and residuals:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resid</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">,</span> <span class="n">rexp</span><span class="p">):</span>
-    <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span> <span class="o">=</span> <span class="n">par</span>
-    <span class="n">rmod</span>     <span class="o">=</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
-    <span class="n">residual</span> <span class="o">=</span> <span class="p">(</span><span class="n">rexp</span> <span class="o">-</span> <span class="n">rmod</span><span class="p">)</span>
-    <span class="k">return</span>     <span class="n">residual</span>
-<span class="n">par0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
-<span class="n">resid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]),</span> <span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>    
-</pre></div>
-</div>
-<p>The bottom line in that section of code is just running the function for an initial guess of <span class="math notranslate nohighlight">\(V_{max} = 7\)</span> and <span class="math notranslate nohighlight">\(K_m = 0.4\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resid</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">,</span> <span class="n">rexp</span><span class="p">):</span>
@@ -912,6 +931,8 @@ b &amp; a - 2b
     <span class="n">rmod</span>     <span class="o">=</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
     <span class="n">residual</span> <span class="o">=</span> <span class="p">(</span><span class="n">rexp</span> <span class="o">-</span> <span class="n">rmod</span><span class="p">)</span>
     <span class="k">return</span>     <span class="n">residual</span>
+
+<span class="c1">#Test the function for an initial guess of $V_{max} = 7$ and $K_m = 0.4$.</span>
 <span class="n">par0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
 <span class="n">resid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]),</span> <span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span> 
 </pre></div>
@@ -929,11 +950,7 @@ b &amp; a - 2b
 </section>
 <section id="find-best-fit-parameters-using-opt-least-squares">
 <h3>Find best fit parameters using <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code><a class="headerlink" href="#find-best-fit-parameters-using-opt-least-squares" title="Permalink to this headline">#</a></h3>
-<p>Now that we have a function that returns residuals when we provide 1) the parameter set, 2) experimental concentrations, and 3) experimental rates, we are ready to use opt.least_squares to find optimal values for <span class="math notranslate nohighlight">\(V_{max}\)</span> and <span class="math notranslate nohighlight">\(K_m\)</span>.  I’m using the args keyword to pass CS and rate to the function, and I’m adding the verbose keyword to ask for a detailed output of iteration progress.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">par0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
-<span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Now that we have a function that returns residuals when we provide 1) the parameter set, 2) experimental concentrations, and 3) experimental rates, we are ready to use opt.least_squares to find optimal values for <span class="math notranslate nohighlight">\(V_{max}\)</span> and <span class="math notranslate nohighlight">\(K_m\)</span>.  I’m using the args keyword to pass CS and rate to the function, and I’m adding the <code class="docutils literal notranslate"><span class="pre">verbose</span></code> keyword to ask for a detailed output of iteration progress.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">par0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
@@ -985,11 +1002,7 @@ Function evaluations 4, initial cost 5.9187e-01, final cost 5.5471e-01, first-or
 </section>
 <section id="adding-bounds-to-opt-least-squares-parameters">
 <h3>Adding bounds to <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code> parameters<a class="headerlink" href="#adding-bounds-to-opt-least-squares-parameters" title="Permalink to this headline">#</a></h3>
-<p>You can add bounds to this routine when using either trf or dogbox algorithms:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trf&#39;</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)])</span>
-</pre></div>
-</div>
-<p>Note that the structure of the bounds here is different from <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>; it is like the convention used for <code class="docutils literal notranslate"><span class="pre">opt.curve_fit()</span></code>. Here, the bounds argument is always formatted as <span class="math notranslate nohighlight">\([(\textrm{lower bounds}), (\textrm{upper bounds})]\)</span>, where lower bounds and upper bounds are tuples that contain the lower bound on each parameter (in the same sequence as the parameters are packed into par), and upper bound contains the corresponding upper bounds.</p>
+<p>You can add bounds to this routine when using either trf or dogbox algorithms. Note that the structure of the bounds here is different from <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>; it is like the convention used for <code class="docutils literal notranslate"><span class="pre">opt.curve_fit()</span></code>. Here, the bounds argument is always formatted as <span class="math notranslate nohighlight">\([(\textrm{lower bounds}), (\textrm{upper bounds})]\)</span>, where lower bounds and upper bounds are tuples that contain the lower bound on each parameter (in the same sequence as the parameters are packed into par), and upper bound contains the corresponding upper bounds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;trf&#39;</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)])</span>
@@ -1043,16 +1056,6 @@ Function evaluations 6, initial cost 5.9187e-01, final cost 5.5471e-01, first-or
 <section id="why-would-i-use-opt-least-squares-instead-of-opt-minimize">
 <h3>Why would I use <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>?<a class="headerlink" href="#why-would-i-use-opt-least-squares-instead-of-opt-minimize" title="Permalink to this headline">#</a></h3>
 <p>One thing I can point to is that this algorithm will return the Jacobian/Hessian approximations, which you can use to estimate confidence intervals on your parameters (not covered here).  Another nice features of <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code> is that it provides you with a few options for generating the loss function for more robust curve fitting. The default option is ‘linear’, which generates a standard SSE as the cost function. There are also <code class="docutils literal notranslate"><span class="pre">soft_l1</span></code>, <code class="docutils literal notranslate"><span class="pre">huber</span></code>, <code class="docutils literal notranslate"><span class="pre">cauchy</span></code>, and <code class="docutils literal notranslate"><span class="pre">arctan</span></code>, which may do a better job of handling outliers in the data set.  As an illustration, here is the optimal fit generated using default options; we will plot it against the experimental data; we’ll also print out the parameter values and the loss function value at the optimum.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vmax and Km are&#39;</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function is&#39;</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
-<span class="n">modfun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">:</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
-<span class="n">Cmodel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1061,8 +1064,16 @@ Function evaluations 6, initial cost 5.9187e-01, final cost 5.5471e-01, first-or
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function is&#39;</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
 <span class="n">modfun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">:</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
 <span class="n">Cmodel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Substrate Concentration (mmol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mmol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1071,35 +1082,13 @@ Function evaluations 6, initial cost 5.9187e-01, final cost 5.5471e-01, first-or
 The minimum of the objective function is 0.5547124699052083
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x265af69ce50&gt;
-</pre></div>
-</div>
-<img alt="../_images/Module 12 - Root Finding 02_26_2.png" src="../_images/Module 12 - Root Finding 02_26_2.png" />
+<img alt="../_images/Module 12 - Root Finding 02_29_1.png" src="../_images/Module 12 - Root Finding 02_29_1.png" />
 </div>
 </div>
 <p>Now let’s contrast that with soft_l1 and cauchy loss functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">default</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
-<span class="n">soft</span>    <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;soft_l1&#39;</span><span class="p">)</span>
-<span class="n">cauchy</span>  <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;cauchy&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vmax and Km using standard sum of squares are&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vmax and Km using soft_l1 are&#39;</span><span class="p">,</span> <span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vmax and Km using cauchy are&#39;</span><span class="p">,</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function using standard sum of squares is&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function using soft_l1 is&#39;</span><span class="p">,</span> <span class="n">soft</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function using cauchy is&#39;</span><span class="p">,</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
-<span class="n">modfun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">:</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
-<span class="n">Cmodel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">default</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">default</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
 <span class="n">soft</span>    <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;soft_l1&#39;</span><span class="p">)</span>
 <span class="n">cauchy</span>  <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;cauchy&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Vmax and Km using standard sum of squares are&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
@@ -1110,10 +1099,18 @@ The minimum of the objective function is 0.5547124699052083
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The minimum of the objective function using cauchy is&#39;</span><span class="p">,</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">cost</span><span class="p">)</span>
 <span class="n">modfun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span><span class="p">,</span> <span class="n">Cexp</span><span class="p">:</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">Cexp</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">Cexp</span><span class="p">)</span>
 <span class="n">Cmodel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">default</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Default&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">soft</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Soft_l1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cmodel</span><span class="p">,</span> <span class="n">modfun</span><span class="p">(</span><span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cauchy</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">Cmodel</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Cauchy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Substrate Concentration (mmol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mmol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1126,10 +1123,7 @@ The minimum of the objective function using soft_l1 is 0.4933646113402903
 The minimum of the objective function using cauchy is 0.4321935995722679
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x265af7ce5b0&gt;
-</pre></div>
-</div>
-<img alt="../_images/Module 12 - Root Finding 02_28_2.png" src="../_images/Module 12 - Root Finding 02_28_2.png" />
+<img alt="../_images/Module 12 - Root Finding 02_31_1.png" src="../_images/Module 12 - Root Finding 02_31_1.png" />
 </div>
 </div>
 <p>You should see a small difference in the parameter values and model fits and notice that the <code class="docutils literal notranslate"><span class="pre">soft_l1</span></code> and <code class="docutils literal notranslate"><span class="pre">cauchy</span></code> cost functions minimize the influence of what appears to be an outlier at about 2.0 mmol/L. I would not take a decrease in the cost function from <code class="docutils literal notranslate"><span class="pre">linear</span></code> to <code class="docutils literal notranslate"><span class="pre">soft_l1</span></code> to <code class="docutils literal notranslate"><span class="pre">cauchy</span></code> to be evidence of a better fit.  They formulate different cost functions, and so there is no good way to directly compare between them.  You would need to look at an <span class="math notranslate nohighlight">\(R^2\)</span> for the model, confidence intervals on parameter estimates, and consider whether outlier rejection is appropriate or not based on statistical analysis - all of which is far beyond the scope of this Module.</p>

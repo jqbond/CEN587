@@ -41,6 +41,8 @@ import time
 
 y = lambda x: -1.6*x**3 + 5*x**2 + 8*x - 23
 xset = np.linspace(-2.3, 4, 100)
+
+## Graphing function
 plt.figure(1, figsize = (5,5))
 plt.plot(xset, y(xset))
 plt.hlines(0, -2.3, 4, linestyle = 'dashed', color = 'black', linewidth = 0.75)
@@ -104,23 +106,8 @@ print(f'The second derivative of the function at these locations are ypp = {np.r
 # 
 # Based on that expression, you can see that iterations will converge once the ***derivative*** of the function is zero, which is the criteria we typically look for in finding extrema in a function. In contrast, a Newton-Raphson root finding iteration converges when the ***function itself*** is zero.
 # 
-# Similar to a Newton-Raphson algorithm, this Newton's method looks like something we could implement in a loop! We won't worry right now about finding a maximum or minimum specifically, just extrema in general. To do that, all we need to do is let the while loop proceed until our derivative value is close enough to zero that we are satisfied.  It may not be completely clear how to do this just yet, so we'll walk through this example together.  Just as a refresher, we'll use lambda functions to define the function itself (y), its first derivative (dy), and its second derivative (ddy):
+# Similar to a Newton-Raphson algorithm, this Newton's method looks like something we could implement in a loop! We won't worry right now about finding a maximum or minimum specifically, just extrema in general. To do that, all we need to do is let the while loop proceed until our derivative value is close enough to zero that we are satisfied.  It may not be completely clear how to do this just yet, so we'll walk through this example together.  Just as a refresher, we'll use lambda functions to define the function itself (y), its first derivative (dy), and its second derivative (ddy). But note, you can also use the long form function definitions using the def keyword:  there is nothing magic about a lambda function other than convenience!  Once you've done that, you can write the Newton-Raphson Iteration as a while loopNow for the loop:
 # 
-# ```python
-# y   = lambda x: -1.6*x**3 + 5*x**2 + 8*x - 23
-# dy  = lambda x: -3*1.6*x**2 + 10*x + 8
-# ddy = lambda x: -2*3*1.6*x + 10
-# ```
-# 
-# But note, you can also use the long form function definitions using the def keyword:  there is nothing magic about a lambda function other than convenience!  Now for the loop:
-# 
-# ```python
-# x = 100.0
-# while abs(dy(x)) > 1e-8:
-#     print(round(x,4), round(y(x),4), round(dy(x),4))
-#     x = x - dy(x)/ddy(x)   
-# ```
-#     
 # Go ahead and run this for a couple of initial guesses and watch the algorithm find the extrema in this function.
 
 # In[6]:
@@ -163,33 +150,6 @@ while abs(dy(x)) > 1e-8:
 #     x = x - dy(x)/ddy(x)
 # ```
 
-# In[7]:
-
-
-y   = lambda x: -1.6*x**3 + 5*x**2 + 8*x - 23
-dy  = lambda x: -3*1.6*x**2 + 10*x + 8
-ddy = lambda x: -2*3*1.6*x + 10
-
-xrange = [-3, 4]
-yrange = [0, 0]
-xplot  = np.linspace(xrange[0], xrange[1], 10000)
-yplot  = y(xplot)
-
-x = -3
-xlist = []
-ylist = []
-while abs(dy(x)) > 1e-8:
-    xlist.append(x)
-    ylist.append(y(x))
-    plt.plot(xplot,yplot,color = 'black', linewidth = 1)
-    plt.plot(xrange,yrange, linestyle = 'dashed', linewidth = 1)
-    plt.scatter(xlist, ylist, color = 'red', marker = 'o')
-    plt.show()
-    print(round(x,4), round(y(x),4), round(dy(x),4))
-    time.sleep(2) #Add a 2 second pause before going on to next iteration
-    x = x - dy(x)/ddy(x)
-
-
 # ## Optimization Routines in Scipy
 # 
 # As with root finding in the last exercise, I don't recommend we write our own minimization routines outside of doing so to learn more about how they work. In general, it can be difficult to get optimization routines to converge rapidly and stably, and more sophisticated methods are available in the Scipy.optimize package. 
@@ -212,15 +172,11 @@ while abs(dy(x)) > 1e-8:
 # opt.minimize_scalar(function_name)
 # ```
 #     
-# Here we just run:
-# 
-# ```python
-# opt.minimize_scalar(y)
-# ```
+# Here we just run `opt.minimize_scalar(y)`
 #     
 # For this very simple minimization, you should see that it returns both our minimum x location and the minimum function value.  You can consult the scipy docs above for options that you can provide to `opt.minimze_scalar()`; most of them are passed using keyword arguments as we did with `opt.newton()`, `opt.brentq()`, etc in Module 09.
 
-# In[8]:
+# In[7]:
 
 
 opt.minimize_scalar(y)
@@ -228,27 +184,14 @@ opt.minimize_scalar(y)
 
 # ### Exploring the solution structure from `minimize_scalar()`
 # 
-# All of these optimization routines will return some type of solution structure, where each attribute of the structure can be accessed using a dot operator.  For example, if I run
-# 
-# ```python
-# sol = opt.minimize_scalar(y)
-# print(sol)
-# ```
-# 
-# It will store that solution structure in sol (an arbitrary name).  I can then access the function value (fun), the number of function evaluations (nfev), the number of iterations (11), the convergence status (success), and the value of x at the minimum (x) using the following notation:
-# 
-# ```python
-# sol.fun
-# sol.nfev
-# sol.nit
-# sol.success
-# sol.x
-# ```
+# All of these optimization routines will return some type of solution structure, where each attribute of the structure can be accessed using a dot operator.  For example, if I run `sol = opt.minimize_scalar(y)`, it will store that solution structure in sol (an arbitrary name).  I can then access the function value (fun), the number of function evaluations (nfev), the number of iterations (11), the convergence status (success), and the value of x at the minimum (x) using the following notation:
 
-# In[ ]:
+# In[8]:
 
 
-
+sol = opt.minimize_scalar(y)
+print(sol)
+print(sol.fun, sol.nfev, sol.nit, sol.success, sol.x)
 
 
 # ## Introducing `opt.minimize()`
@@ -263,13 +206,7 @@ opt.minimize_scalar(y)
 # opt.minimize(function_name, initial_guess_for_optimum_location)
 # ```
 # 
-# For this example, we'll minimize the function y and we'll specify that we think x = -1 is a reasonable guess for the x location of the minimum in y(x):
-# 
-# ```python
-# opt.minimize(y,-1)
-# ```
-#     
-# This command will run opt.minimize with a default optimization algorithm (either BFGS, L-BFGS-B, or SLSQP depending on the specific nature of the problem) starting at an initial guess of -1 to find the minimum value of y.  `opt.minimize()` will return a solution structure similar to `opt.minimize_scalar()`
+# For this example, we'll minimize the function y and we'll specify that we think x = -1 is a reasonable guess for the x location of the minimum in y(x), `opt.minimize(y,-1)`. This command will run opt.minimize with a default optimization algorithm (either BFGS, L-BFGS-B, or SLSQP depending on the specific nature of the problem) starting at an initial guess of -1 to find the minimum value of y.  `opt.minimize()` will return a solution structure similar to `opt.minimize_scalar()`
 
 # In[9]:
 
@@ -282,10 +219,6 @@ opt.minimize(y, -1)
 # As your optimization problems get more difficult, you may find that default solvers do not perform well, and it may be necessary to test a new algorithm. Selecting the right algorithm is actually a pretty advanced topic, one that is far beyond the scope of this module, but be aware that each algorithm will use different methods that are often suited to a specific type of problem.  Regardless, once you decide on the algorithm you want to use, it is very easy to change with a keyword argument. This is similar to adding specifications to root finding algorithms or to the pyplot interface.
 # 
 # For example, to repeat the minimization above with a Nelder-Mead algorithm:
-# 
-# ```python
-# opt.minimize(y, -1, method = 'Nelder-Mead')
-# ```
 
 # In[10]:
 
@@ -298,10 +231,6 @@ opt.minimize(y, -1, method = 'Nelder-Mead')
 # You may find that some algorithms require additional inputs, similar to a Newton-Raphson algorithm needing a derivative input in the root finding assignment. For example, the ***dogleg*** algorithm requires you to provide the ***Jacobian***, which is the set of partial deriviatives of the objective function with respect to each one of its arguments (e.g., "x" in this case), and the ***Hessian***, which is the set of second partial derivatives of the objective function with respect to each of its arguments. For a simple univariate scalar function like this, the Jacobian is just the derivative $y^{\prime}(x)$, and the Hessian is just the second derivative $y^{\prime\prime}(x)$. Don't get used to that level of simplicity. More commonly, we will use numerical optimization routines on multivariate functions, and Jacobians and Hessians are generally going to be vector functions for multivariate objectives.  
 # 
 # For this example, to give you a feel for how to add more options, we are also adding the options keyword argument, which takes name : value pairs in a dictionary.  Here, I'm using it to turn on the display of results for intermediate iterations (not just the final output).
-# 
-# ```python
-# opt.minimize(y, -1, method = 'dogleg', jac = dy, hess = ddy, options = {'disp' : True})
-# ```
 
 # In[11]:
 
@@ -314,23 +243,19 @@ opt.minimize(y, -1, method = 'dogleg', jac = dy, hess = ddy, options = {'disp' :
 # There are two more useful things to add into optimization routines: bounds and constraints. **Bounds** are strict limits on the actual values of the arguments that we are minimizing with respect to. These are straightforward to add into an optimization function in Python by using the bounds keyword, which generally takes the form of pairs of lower bounds and upper bounds in a tuple. 
 # 
 # For instance, if we wanted to find the local minimum of y(x) on the domain x = [0, 1], we could do so by specifying upper and lower bounds on x in line when we call `opt.minimize()`:
-# 
-# ```python
-# opt.minimize(y, -1, bounds = [(0,1)])
-# ```
-#     
+
+# In[12]:
+
+
+opt.minimize(y, -1, bounds = [(0,1)])
+
+
 # In the general `opt.minimize()` syntax each tuple in the "bounds" keyword argument is a pair of (lower bound, upper bound) for the variable that you're optimizing. In the above example, I want to only search for a minimum between x = 0 and x = 1, so I set the bounds accordingly. You'll see this finds the minimum value of y on the specified domain, which is y = -23 at x = 0. This is not the same as the local minimum over the full domain we are considering because we have prevented x from going below 0 by setting bounds on it.  Why might this be useful? Let's say x is a physical quantity like mass, concentration, or temperature, where a negative value is the mathematically correct solution, but it is physically impossible to attain.  In these cases, you may want to impose a bound on that variable, and you can do so easily with the bounds keyword.  
 # 
 # 
 # <div class = "alert alert-block alert-info">
 #     <b>Note</b>: The above syntax for the bounds keyword is relatively universal for <code>opt.minimize()</code> as well as the global optimization methods from scipy. That said, there may be a little flexibility in how you specify bounds for a particular routine, so double check the documentation to make sure your syntax is correct and doing what you want it to do.  The least squares optimization routines use a different syntax, IIRC.
 #     </div>
-
-# In[81]:
-
-
-
-
 
 # ### A bit of practice with `opt.minimize()`
 # 
@@ -341,7 +266,7 @@ opt.minimize(y, -1, method = 'dogleg', jac = dy, hess = ddy, options = {'disp' :
 # 3. Minimize y(x) using the SLSQP algorithm but place a lower bound of 1 on x.
 # 4. Minimize y(x) using the BFGS method; set the tolerance to 1e-8; set the max iterations to 1000, and turn the display on.
 
-# In[12]:
+# In[13]:
 
 
 opt.minimize(y, 1, method = 'Powell')
@@ -357,33 +282,8 @@ opt.minimize(y, 1.0, method = 'BFGS', tol = 1e-8, options = {'disp' : True, 'max
 # #### This one's for Atherton Wing
 # 
 # Let's say for the sake of argument that I captain a rogue Firefly class cargo ship named ***Serenity***. My crew and I are moving a herd of cattle off of Persephone and out to The Rim Planets for Sir Warrick.  Our cut on the job is 30% of the total sale price of the cattle, which sell for 8000 credits per head. However, each additional cow has a dramatic impact on my fuel economy. My fuel costs come to $100 \times \textrm{cows}^2$ credits. In addition, I have to pay a bribe to a crooked Alliance customs agent to get the cattle off of Persephone in the first place. The bribe cost can be modeled as a decaying exponential function, $(500\cdot e^\left(\textrm{-cows*0.5}\right) + 32)\cdot \textrm{cows}$.  It would be reasonble for me to create the following objective function, which returns my negative profit as a univariate function of cows: 
-# 
-# ```python
-# def obj(cows):
-#     Revenue = 0.3*8000*cows
-#     Fuel    = 100*cows**2
-#     Bribe   = (500*np.exp(-cows*0.5) + 32)*cows
-#     Profit  = Revenue - Fuel - Bribe
-#     objective = - Profit
-#     return objective
-# ```
-# 
-# Recall that Scipy optimization routines will minimize your objective function.  I want to maximize profit, so I am returning its negative in this objective.
-# 
-# I'm going to make an initial guess (complete wild guess here) that 16 cows will net me maximum profit. For some insight, I arrived at this number because I think that is about how many cows Malcolm Reynolds took onto Serenity in the Firefly Episode "Shindig."  
-# 
-# From there, we'll start the optimization routine and see what we get:
-# 
-# ```python
-# sol = opt.minimize(obj, 16)
-# print(sol.x)
-# print(obj(np.floor(sol.x))) # np.floor rounds down to nearest integer
-# print(obj(np.ceil(sol.x)))  #np.ceiling rounds up to nearest integer
-# ```
-# 
-# As formulated, you can easily minimize this objective using any of the above approaches; I show a basic, unbounded, unconstrained optimization above. It may be of interest to print out values of Revenue, Fuel Costs, Bribe Costs, and Profit to get a feel for how the optimization responds to various changes.
 
-# In[13]:
+# In[14]:
 
 
 def obj(cows):
@@ -393,6 +293,16 @@ def obj(cows):
     Profit  = Revenue - Fuel - Bribe
     objective = - Profit
     return objective
+
+
+# Recall that Scipy optimization routines will minimize your objective function.  I want to maximize profit, so I am returning its negative in this objective.
+# 
+# I'm going to make an initial guess (complete wild guess here) that 16 cows will net me maximum profit. For some insight, I arrived at this number because I think that is about how many cows Malcolm Reynolds took onto Serenity in the Firefly Episode "Shindig."  
+# 
+# From there, we'll start the optimization routine and see what we get. As formulated, you can easily minimize this objective using any of the above approaches; I show a basic, unbounded, unconstrained optimization above. It may be of interest to print out values of Revenue, Fuel Costs, Bribe Costs, and Profit to get a feel for how the optimization responds to various changes.
+
+# In[15]:
+
 
 sol = opt.minimize(obj, 16)
 print(sol.x)
@@ -423,12 +333,8 @@ print(obj(np.ceil(sol.x)))  #np.ceiling rounds up to nearest integer
 # ```
 # 
 # In this case, we have a single inequality constraint:  the Alliance contact won't accept a bribe of less than 700 credits; we can formulate that as a function:
-# 
-# ```python
-# constraintfun1 = lambda cows: (500*np.exp(-cows*0.5) + 32)*cows - 700
-# ```
 
-# In[14]:
+# In[16]:
 
 
 constraintfun1 = lambda cows: (500*np.exp(-cows*0.5) + 32)*cows - 700
@@ -439,12 +345,8 @@ constraintfun1 = lambda cows: (500*np.exp(-cows*0.5) + 32)*cows - 700
 # $$\textrm{Bribe} - 700 \geqslant 0$$
 # 
 # We will use this constraint function to build a constraint dictionary that we can then add to our optimization routine. The type of constraint is, again, an inequality.
-# 
-# ```python
-# constraint_dictionary = {'type' : 'ineq' , 'fun' : constraintfun1}
-# ```
 
-# In[15]:
+# In[17]:
 
 
 constraint_dictionary = {'type' : 'ineq' , 'fun' : constraintfun1}
@@ -454,15 +356,11 @@ constraint_dictionary = {'type' : 'ineq' , 'fun' : constraintfun1}
 # 
 # We then add this constraint_dictionary to our optimization routine as shown below; we'll use SLSQP since it is a constrained optimization algorithm that takes either inequality or equality constraints.
 #    
-# ```python
-# opt.minimize(obj, 20, method = 'SLSQP', constraints = (constraint_dictionary))
-# ```
-# 
 # <div class = "alert alert-block alert-info">
 #     <b>Important</b>: only SLSQP, COBYLA, and trust-constr algorithms accept constraints.
 #     </div>
 
-# In[16]:
+# In[18]:
 
 
 opt.minimize(obj, 20, method = 'SLSQP', constraints = (constraint_dictionary))
@@ -471,14 +369,8 @@ opt.minimize(obj, 20, method = 'SLSQP', constraints = (constraint_dictionary))
 # Ouch! That really cuts into our profit! We meet the constraint if we move 21.8 cows, but of course that rounds up to 22, where we find our total profit comes down to about 3696 credits.
 # 
 # In this situation, the only reasonable thing to do is ask Jayne Cobb to *talk* to the Alliance contact.  After the conversation, the contact agrees to accept a bribe cost of exactly 500 credits.  While there are other ways that we could build this change into our model (saying explicitly Bribe = 500 being the best), I'll illustrate how to do this by a simple change in our constraint equation.  We will change it to an equality constraint, and we will write it so that it evaluates to zero:
-# 
-# ```python
-# constraintfun2 = lambda cows: (500*np.exp(-cows*0.5) + 32)*cows - 500
-# constraint_dictionary = {'type' : 'eq' , 'fun' : constraintfun2}
-# opt.minimize(obj, 15, method = 'SLSQP', constraints = (constraint_dictionary))
-# ```
 
-# In[17]:
+# In[19]:
 
 
 constraintfun2 = lambda cows: (500*np.exp(-cows*0.5) + 32)*cows - 500
@@ -488,12 +380,6 @@ opt.minimize(obj, 15, method = 'SLSQP', constraints = (constraint_dictionary))
 
 # OK, not too bad! If we move 15.5 (rounded up to 16) cows to The Rim, we clear 12285 credits in profit without any hassle from customs on Persephone!  Thanks Jayne! In a nutshell, that is how you use constrained optimization routines to simulate the Cattle Smuggling caper from *Firefly*.
 
-# In[ ]:
-
-
-
-
-
 # ## Finding global optima
 # 
 # As a final example, we want to talk about finding global optima in a function that may have many local optima.  Generally speaking, the higher dimensional your optimization problem becomes (i.e., the more parameters you are trying to fit), the more likely you are to have many, many local minima.  But what you are actually interested in is a global minimum...and these can be very difficult to find.  As a simple example, we'll look at a univariate function of x that has many local minima but only one global minimum:
@@ -502,35 +388,23 @@ opt.minimize(obj, 15, method = 'SLSQP', constraints = (constraint_dictionary))
 # 
 # Plot the function on the domain $x = [0.1, 2.5]$; see for yourself!
 
-# In[18]:
+# In[20]:
 
 
 k = lambda x: np.sin(10*np.pi*x)/2/x + (x - 1)**4
-xset = np.linspace(0.1, 2.5, 1000)
-plt.plot(xset, k(xset))
+xplot = np.linspace(0.1, 2.5, 1000)
+kplot = k(xplot)
+plt.plot(xset, kplot)
+plt.show()
 
 
 # Clearly, there are many local minima on this domain, but only one global minimum somewhere around $x = 0.53$.  How to find it exactly?  Try out some of our above optimization routines with varied initial guesses.  
 # 
 # For example: 
-# 
-# ```python
-# k = lambda x: np.sin(10*np.pi*x)/2/x + (x - 1)**4
-# xplot = np.linspace(0.1, 2.5, 100)
-# kplot = k(xplot)
-# sol = opt.minimize(k,1, bounds = [(0.1, 2.5)])
-# plt.plot(xplot, kplot, color = 'black', linewidth = 1)
-# plt.scatter(sol.x[0], sol.fun, color = 'red', marker = 'o')
-# ```
-# 
-# Notice how hard it is to get these routines to locate the true global minimum.  It is almost a question of a lucky combination of algorithm, initial guess, and/or bounds at this point...
 
-# In[19]:
+# In[26]:
 
 
-k = lambda x: np.sin(10*np.pi*x)/2/x + (x - 1)**4
-xplot = np.linspace(0.1, 2.5, 100)
-kplot = k(xplot)
 xguess = 0.25
 sol = opt.minimize(k,xguess, bounds = [(0.1, 2.5)])
 plt.figure(1, figsize = (5, 5))
@@ -541,19 +415,17 @@ plt.legend()
 print(f'The for an initial guess of {xguess}, the minimum we find is a value of k = {k(sol.x[0]):3.3f} at x = {sol.x[0]:3.3f}.')
 
 
+# Notice how hard it is to get these routines to locate the true global minimum.  It is almost a question of a lucky combination of algorithm, initial guess, and/or bounds at this point...
+# 
 # ### You may want to try a global optimization algorithm...
 # 
 # This is the type of case where we might be interested in trying out a global optimization routine, of which there are several available in Scipy: `basinhopping`, `brute`, `differential_evolution`, `shgo`, and `dual_annealing`.  They all have fairly similar syntax. You will typically supply the function name (all algorithms), an initial guess (basinhopping), and/or the bounds on the variable(s) (all other algorithms). Here, the syntax for bounds is similar to what we used for opt.minimize, except that we don't need a bounds keyword. 
 # 
 # For example, to look for a minimum with this function using basinhopping:
-# 
-#     opt.basinhopping(k,1)
 
-# In[20]:
+# In[27]:
 
 
-xplot = np.linspace(0.1, 2.5, 100)
-kplot = k(xplot)
 xguess = 1
 sol   = opt.basinhopping(k, 1)
 plt.figure(1, figsize = (5, 5))
@@ -565,10 +437,8 @@ print(f'The for an initial guess of {xguess}, the minimum we find is a value of 
 
 
 # Whereas if you wanted to use dual_annealing, you would supply the function and a range to consider:
-# 
-#     opt.dual_annealing(k, [(0.1,2.5)])
 
-# In[21]:
+# In[28]:
 
 
 xplot = np.linspace(0.1, 2.5, 100)

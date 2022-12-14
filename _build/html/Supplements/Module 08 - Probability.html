@@ -680,11 +680,6 @@ title="Print to PDF"
 <section id="analyze-the-results-of-your-combat-simulation">
 <h2>Analyze the results of your combat simulation<a class="headerlink" href="#analyze-the-results-of-your-combat-simulation" title="Permalink to this headline">#</a></h2>
 <p>At this point, we’ve counted the number of times our simulation gave us a win and The probability that we win is given by:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">odds</span> <span class="o">=</span> <span class="n">Wins</span><span class="o">/</span><span class="p">(</span><span class="n">Wins</span> <span class="o">+</span> <span class="n">Losses</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">odds</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This is all we need in order to figure out our chances against Acererak.  But we’ve also generated enough data to get a full probability distribution out of this Monte Carlo simulation. Learning a bit about probability distributions and how to analyze them is generally useful. Just ask any Reaction Engineering student after they cover residence time distributions for nonideal reactor design.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">odds</span> <span class="o">=</span> <span class="n">Wins</span><span class="o">/</span><span class="p">(</span><span class="n">Wins</span> <span class="o">+</span> <span class="n">Losses</span><span class="p">)</span>
@@ -694,12 +689,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.928689
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.929176
 1000000
 </pre></div>
 </div>
 </div>
 </div>
+<p>This is all we need in order to figure out our chances against Acererak.  But we’ve also generated enough data to get a full probability distribution out of this Monte Carlo simulation. Learning a bit about probability distributions and how to analyze them is generally useful. Just ask any Reaction Engineering student after they cover residence time distributions for nonideal reactor design.</p>
 </section>
 <section id="generating-a-probability-distribution-from-the-simulation">
 <h2>Generating a Probability distribution from the simulation<a class="headerlink" href="#generating-a-probability-distribution-from-the-simulation" title="Permalink to this headline">#</a></h2>
@@ -707,17 +703,7 @@ title="Print to PDF"
 <p>What we want to plot to visualize the probability distribution is the <em>percentage of times we hit each damage roll</em> on the y axis against the <em>damage roll</em> itself on the x-axis. The first step is to just to count the number of times we hit each possible result between 13 and 63 when we made our n damage rolls in the Monte Carlo simulation. Again, we’ll use the list method count() to do this, this time in a for loop since we want to count multiple different events in our tally.</p>
 <section id="counting-the-results">
 <h3>Counting the results<a class="headerlink" href="#counting-the-results" title="Permalink to this headline">#</a></h3>
-<p>Let’s initialize the list where we tally the number of times we made each roll. We’ll also want a list of roll values that correspond to each tally.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tally</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">roll</span>  <span class="o">=</span> <span class="p">[]</span>
-</pre></div>
-</div>
-<p>Now use a for loop to count the number of times we hit each damage total and add it to the tally list.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>          <span class="c1">#Consider all rolls between 13 (min) and 63 (max)</span>
-    <span class="n">roll</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                <span class="c1">#Add value of damage roll you&#39;re counting to the roll list</span>
-    <span class="n">tally</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">damage</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="c1">#Add number of times you rolled that value to tally list</span>
-</pre></div>
-</div>
+<p>Let’s initialize the list where we tally the number of times we made each roll. We’ll also want a list of roll values that correspond to each tally. Then we’ll write a for loop to count the number of times we hit each damage total and add it to the tally list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tally</span> <span class="o">=</span> <span class="p">[]</span>
@@ -742,19 +728,10 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Or, if you prefer, you can create a histogram using a bar chart:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">tally</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Times Rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histogram of Damage Rolls in </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1"> simulations&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren’t satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls.</p>
+<p>Or, if you prefer, you can create a histogram using a bar chart as shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">tally</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Times Rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -764,26 +741,17 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_11_0.png" src="../_images/Module 08 - Probability_11_0.png" />
+<img alt="../_images/Module 08 - Probability_12_0.png" src="../_images/Module 08 - Probability_12_0.png" />
 </div>
 </div>
+<p>Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren’t satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls.</p>
 </section>
 <section id="integrating-the-histogram">
 <h3>Integrating the histogram<a class="headerlink" href="#integrating-the-histogram" title="Permalink to this headline">#</a></h3>
 <p>The next part is less intuitive unless you’ve already taken a probability and statistics course. To convert our raw tally into probability, we want to normalize it such that the total area under the probability distribution curve is 1.  We will do that by dividing each result in our <strong>tally column</strong> by the <strong>integral of tally as a function of roll</strong> evaluated from our minimum roll (13) to our maximum roll (63).</p>
 <p>This is tough because we are dealing with a set of discrete events, so we can’t calculate an integral in the way we may be used to with a continuous function.  That said, we have numerical quadrature methods, such as the trapezoidal rule, which basically uses geometry to <em>approximate</em> the area under a curve:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Trapezoidal_rule">https://en.wikipedia.org/wiki/Trapezoidal_rule</a></p>
-<p>As usual, with base Python and list collections, we’ll do this with a for loop and flex some of those increment operators we learned with while loops.  Note that we could also do this by making a list of the area of each trapezoid at each step in the for loop and summing their values external to the for loop, but this illustration shows you another way to use increment operators.  Note the loop includes a calculation involving the j+1 element, so were only going to go up to the second to last element in the set of possible rolls.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>                     <span class="c1">#Initialize the integrated area under the curve at 0.</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>   <span class="c1">#Integrate the result of tally for all 51 entries (13 to 63)</span>
-    <span class="n">integral</span> <span class="o">+=</span> <span class="p">(</span><span class="n">tally</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">tally</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="c1">#Area of a trapezoid</span>
-</pre></div>
-</div>
-<p>Once this loop is done, we have the total area under the curve.  For this particular example, it should be roughly equal to the total number of rolls that we made.  You can double check just to make sure; see if you can rationalize why this is so based on the way you are calculating the integral:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">integral</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>As usual, with base Python and list collections, we’ll do this with a for loop and flex some of those increment operators we learned with while loops.  Note that we could also do this by making a list of the area of each trapezoid at each step in the for loop and summing their values external to the for loop, but this illustration shows you another way to use increment operators.  Note the loop includes a calculation involving the j+1 element, so were only going to go up to the second to last element in the set of possible rolls. Once this loop is done, we have the total area under the curve.  For this particular example, it should be roughly equal to the total number of rolls that we made.  You can double check just to make sure; see if you can rationalize why this is so based on the way you are calculating the integral:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
@@ -795,7 +763,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>999997.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>999998.0
 1000000
 </pre></div>
 </div>
@@ -805,39 +773,24 @@ title="Print to PDF"
 <section id="normalizing-to-unit-area">
 <h3>Normalizing to unit area<a class="headerlink" href="#normalizing-to-unit-area" title="Permalink to this headline">#</a></h3>
 <p>Now that we have the normalizing integral, we can convert our raw count into a probability distribution by dividing each count in tally by the normalizing integral.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="o">/</span><span class="n">integral</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tally</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Now that we have a probability distribution, we definitely should plot it. The total given by rolling multiple dice and adding them together should have a Gaussian distribution, so plot it and see how much it looks like a Bell-shaped Gaussian distribution (or not):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Times Rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Damage Rolls in </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1"> simulations&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>or, a bar chart:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Times Rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Histogram of Damage Rolls in </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1"> simulations&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="n">value</span><span class="o">/</span><span class="n">integral</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">tally</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have a probability distribution, we definitely should plot it. The total given by rolling multiple dice and adding them together should have a Gaussian distribution, so plot it and see how much it looks like a Bell-shaped Gaussian distribution (or not):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of the time rolled rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Probability distribution from </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1"> simulations&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fraction of the time rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -847,21 +800,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_15_0.png" src="../_images/Module 08 - Probability_15_0.png" />
-<img alt="../_images/Module 08 - Probability_15_1.png" src="../_images/Module 08 - Probability_15_1.png" />
+<img alt="../_images/Module 08 - Probability_19_0.png" src="../_images/Module 08 - Probability_19_0.png" />
+<img alt="../_images/Module 08 - Probability_19_1.png" src="../_images/Module 08 - Probability_19_1.png" />
 </div>
 </div>
 </section>
 <section id="check-your-normalization">
 <h3>Check your normalization…<a class="headerlink" href="#check-your-normalization" title="Permalink to this headline">#</a></h3>
 <p>Before we go any further, let’s check our normalization by integrating the probability distribution from the minimum value (13) to the maximum value (63). If we’ve done everything correctly, it should integrate to 1 since there is a 100% chance we obtain a results between 13 and 63.  We can again approximate that area with the trapezoidal rule. We’ll add another plot of the distribution below because we’ll talk bout it in the next cell.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span> <span class="o">=</span> <span class="mi">0</span> 
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">norm</span> <span class="o">+=</span> <span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">norm</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span> <span class="o">=</span> <span class="mi">0</span> 
@@ -882,7 +828,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area under the probability distribution is 1.000
 </pre></div>
 </div>
-<img alt="../_images/Module 08 - Probability_17_1.png" src="../_images/Module 08 - Probability_17_1.png" />
+<img alt="../_images/Module 08 - Probability_21_1.png" src="../_images/Module 08 - Probability_21_1.png" />
 </div>
 </div>
 </section>
@@ -895,21 +841,11 @@ title="Print to PDF"
 <p>We can calculate the mean and standard deviation of this event once we have the probability distribution. The mean value of the damage roll is given by the “first moment” of the probability distribution, which is the integral of (roll * probability * delta_roll) from the minimum value (13) to the maximum value (63):</p>
 <div class="math notranslate nohighlight">
 \[\bar{r} = \int_{13}^{63}rP(r)dr\]</div>
-<p>Using the trapezoidal rule:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the mean.</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">roll</span><span class="p">)):</span>
-    <span class="n">mean</span> <span class="o">+=</span> <span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>We can approxoimate that integral using the trapezoidal rule, which we’ve done a homebrew version of in the cell below (for educational purposes):</p>
 <p>You may also note that for a discrete probability distribution such as this one, you can also calculate the mean value from the following summation:</p>
 <div class="math notranslate nohighlight">
 \[\bar{r} = \sum_{i = 13}^{63} r_i P_i\]</div>
-<p>Whis is done with the following list comprehension:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">rval</span><span class="o">*</span><span class="n">pval</span> <span class="k">for</span> <span class="n">rval</span><span class="p">,</span> <span class="n">pval</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">)])</span>
-</pre></div>
-</div>
-<p>These will give roughly the same results here as long as we’ve done a reasonable number of simulations. We can print the result and see how close it is to the true mean (38).</p>
+<p>Whis is done in the cell below using a list comprehension, again for educational purposes. These will give roughly the same results here as long as we’ve done a reasonable number of simulations. We can print the result and see how close it is to the true mean (38).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the mean.</span>
@@ -922,10 +858,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.9891429674289
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.994519989039965
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.98925696777091
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.994595989191986
 </pre></div>
 </div>
 </div>
@@ -936,22 +872,10 @@ title="Print to PDF"
 <p>Now that we have the mean, we can also calculate the variance (<span class="math notranslate nohighlight">\(\sigma\)</span><sup>2</sup>), which is given by the second moment of the probability distribution, i.e, the integral of ( (roll - mean_roll)<sup>2</sup> * (probability) * delta_roll) from 13 to 63:</p>
 <div class="math notranslate nohighlight">
 \[\sigma^2 = \int_{13}^{63}(r - \bar{r})^2P(r)dr\]</div>
-<p>Using the trapezoidal rule:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the variance.</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">var</span> <span class="o">+=</span> <span class="p">((</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span><span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Or, since it is a discrete distribution, you can calculate the variance with the following summation:</p>
+<p>Using either the trapezoidal rule or, since it is a discrete distribution, you can calculate the variance with the following summation:</p>
 <div class="math notranslate nohighlight">
 \[\sigma^2 = \sum_{i = 13}^{63} (r_i - \bar{r})^2 P_i\]</div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">rval</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pval</span> <span class="k">for</span> <span class="n">rval</span><span class="p">,</span> <span class="n">pval</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">)])</span>
-</pre></div>
-</div>
-<p>Note that the standard deviation is given by the square root of variance:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sigma</span> <span class="o">=</span> <span class="n">var</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Note that the standard deviation is given by the square root of variance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the variance.</span>
@@ -959,11 +883,15 @@ title="Print to PDF"
     <span class="n">var</span> <span class="o">+=</span> <span class="p">((</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span><span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="n">var</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="n">var</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">rval</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">pval</span> <span class="k">for</span> <span class="n">rval</span><span class="p">,</span> <span class="n">pval</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">prob</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.100048845414952
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.094560179116688
+7.07701096069296
 </pre></div>
 </div>
 </div>
@@ -972,14 +900,6 @@ title="Print to PDF"
 <section id="calculating-the-percent-chance-of-success">
 <h3>Calculating the percent chance of success<a class="headerlink" href="#calculating-the-percent-chance-of-success" title="Permalink to this headline">#</a></h3>
 <p>Finally, we can calculate our percent chance of success by integrating the probability distribution from the lowest successful roll, 28, to the maximum possible roll of 63.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the integrated area under the curve at 0.</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">28</span><span class="p">:</span>
-        <span class="k">pass</span>               <span class="c1">#pass just says &quot;do nothing&quot;</span>
-    <span class="k">elif</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">28</span><span class="p">:</span>
-        <span class="n">success</span> <span class="o">+=</span> <span class="p">(</span><span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">prob</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">roll</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">success</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#Initialize the integrated area under the curve at 0.</span>
@@ -996,13 +916,6 @@ title="Print to PDF"
 <section id="assessing-the-results">
 <h3>Assessing the results<a class="headerlink" href="#assessing-the-results" title="Permalink to this headline">#</a></h3>
 <p>Now that we’ve collected all of that information, let’s display the results all in one place.  We’ll check to see how your analysis of the probability distribution compares with the odds you calculated directly by counting wins and losses.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(&#39;By counting the wins and losses, the odds that we win are &#39;, odds)
-print(&#39;The probability of success by integrating the probability distribution is &#39;, success)
-print(&#39;The mean damage roll is &#39;, mean)
-print(&#39;The standard deviation on the damage roll is &#39;, var**(1/2))
-print(&#39;The total are under the curve for the probability distribution is &#39;, norm)
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;By counting the wins and losses, the odds that we win the battle are &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">odds</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
@@ -1017,7 +930,7 @@ print(&#39;The total are under the curve for the probability distribution is &#3
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>By counting the wins and losses, the odds that we win the battle are  0.929
 The probability of success we calculated by integrating the probability distribution is  0.918
 The mean damage roll is  37.99
-The standard deviation on the damage roll is  7.1
+The standard deviation on the damage roll is  7.08
 The total are under the curve for the probability distribution is  1.0
 </pre></div>
 </div>
@@ -1082,7 +995,7 @@ The total are under the curve for the probability distribution is  1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21054
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.209986
 </pre></div>
 </div>
 </div>
@@ -1149,11 +1062,11 @@ The total are under the curve for the probability distribution is  1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33099
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33398
 100000
 0
 100000
-If switch = no, you have a 33.10% chance of winning
+If switch = no, you have a 33.40% chance of winning
 </pre></div>
 </div>
 </div>
@@ -1216,9 +1129,9 @@ If switch = no, you have a 33.10% chance of winning
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_32_0.png" src="../_images/Module 08 - Probability_32_0.png" />
-<img alt="../_images/Module 08 - Probability_32_1.png" src="../_images/Module 08 - Probability_32_1.png" />
-<img alt="../_images/Module 08 - Probability_32_2.png" src="../_images/Module 08 - Probability_32_2.png" />
+<img alt="../_images/Module 08 - Probability_36_0.png" src="../_images/Module 08 - Probability_36_0.png" />
+<img alt="../_images/Module 08 - Probability_36_1.png" src="../_images/Module 08 - Probability_36_1.png" />
+<img alt="../_images/Module 08 - Probability_36_2.png" src="../_images/Module 08 - Probability_36_2.png" />
 </div>
 </div>
 <p>The heart of Monte Carlo simulations is figuring out which of those distributions apply to the uncertain parameters in your model, and then drawing random numbers from that distribution weighted by the probability of that event occuring.</p>
@@ -1242,39 +1155,6 @@ If switch = no, you have a 33.10% chance of winning
 </pre></div>
 </div>
 <p>Now, I have enough information to run a monte carlo simulation to figure out my typical net calories in a given day.  I would do this with a for loop that runs through maybe 10<sup>6</sup> iterations.  On each pass, I’ll draw a random value for BMR, Donuts, D_Cal, and Training, then I’ll add them up to get my net total.  Once that’s done we can create a histogram from the data, which gives us a pretty good representation of our probability distribution my daily net calorie intake.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000000</span><span class="p">):</span>
-    <span class="n">BMR</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
-    <span class="n">Donuts</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">#kcal</span>
-    <span class="k">if</span> <span class="n">Donuts</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">Donuts</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">D_Cal</span>  <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">140</span><span class="p">)</span> <span class="c1">#kcal</span>
-    <span class="k">if</span> <span class="n">D_Cal</span> <span class="o">&lt;</span> <span class="mi">350</span><span class="p">:</span>
-        <span class="n">D_Cal</span> <span class="o">=</span> <span class="mi">350</span>
-    <span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span> <span class="c1">#kcal</span>
-    <span class="n">net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Donuts</span><span class="o">*</span><span class="n">D_Cal</span> <span class="o">-</span> <span class="n">BMR</span> <span class="o">-</span> <span class="n">Training</span><span class="p">)</span>
-
-<span class="c1">#Create a histogram   </span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4000</span><span class="p">,</span><span class="mi">8000</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
-<span class="n">count_cal</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
-    <span class="n">lower</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">50</span>
-    <span class="n">upper</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">50</span>
-    <span class="n">temp</span>  <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">net</span><span class="p">)):</span>
-        <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">net</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">upper</span><span class="p">:</span>
-            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">net</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-    <span class="n">count_cal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span>
-
-<span class="c1">#Convert to a probability distribution</span>
-<span class="n">integral</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">integral</span> <span class="o">+=</span> <span class="p">(</span><span class="n">count_cal</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">count_cal</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">values</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-
-<span class="n">prob</span> <span class="o">=</span> <span class="p">[</span><span class="n">cals</span><span class="o">/</span><span class="n">integral</span> <span class="k">for</span> <span class="n">cals</span> <span class="ow">in</span> <span class="n">count_cal</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">values</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMR</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
@@ -1323,7 +1203,7 @@ If switch = no, you have a 33.10% chance of winning
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_34_0.png" src="../_images/Module 08 - Probability_34_0.png" />
+<img alt="../_images/Module 08 - Probability_38_0.png" src="../_images/Module 08 - Probability_38_0.png" />
 </div>
 </div>
 </section>

@@ -861,50 +861,103 @@ print(...)
 </div>
 </div>
 </div>
-<p>Alternatively, you can pass multiple arguments to <code class="docutils literal notranslate"><span class="pre">print()</span></code>, e.g.,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">D</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+<p>Alternatively, you can pass multiple arguments to <code class="docutils literal notranslate"><span class="pre">print()</span></code>. For example, the syntax below will print the type of A, B, C, D, and E as the output of a single <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">B</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">D</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Which will display everything on a single line</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt; &lt;class &#39;float&#39;&gt; &lt;class &#39;complex&#39;&gt; &lt;class &#39;bool&#39;&gt; &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="mathematical-operators-and-interactions-with-scalars">
 <h2>Mathematical Operators (and interactions with scalars…)<a class="headerlink" href="#mathematical-operators-and-interactions-with-scalars" title="Permalink to this headline">#</a></h2>
 <p>Now that we have variables defined, we can use them in all of our typical operations within the Python language.  There are probably an infinite number of ways that you might use a variable once it is defined, but some of the most basic would be simple calculations. Math operations (at least in the way that you are familiar with them), can be performed as expected on integers, floats, or complex numbers. If you perform a math operation on a Boolean value, it will be treated as either 0 (False) or 1 (True) for the purpose of that operation.  Math operations are not directly applicable to strings - instead, they generally will <strong>concatenate</strong> strings. We will cover concatenation later in the worksheet.</p>
 <p>Some basic operators that you are familiar with will work directly; these include <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, and <code class="docutils literal notranslate"><span class="pre">/</span></code>. In Python, one can perform math operations on numbers of different types, so there is no issue with multiplying an integer by a float, dividing a complex number by an integer, or even adding a Boolean to a float. This is not true by default, so it is good to be aware of what types of operations are permissible on what types of scalars.</p>
 <p>In the cell below, try the following – note these are embedded in a <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to ensure the output displays to screen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span> <span class="o">-</span> <span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">/</span><span class="n">B</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">*</span><span class="n">C</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+8.0
+(4.6+2j)
+0.14285714285714285
+(5.6+2j)
+</pre></div>
+</div>
+</div>
+</div>
 <section id="exponents-in-python">
 <h3>Exponents in Python<a class="headerlink" href="#exponents-in-python" title="Permalink to this headline">#</a></h3>
-<p>If you’re coming from Matlab or lots of Excel experience, you’ll find base Python a bit quirky in that if you want to raise a number to a power, you do not use the <em>^</em> symbol, which you’re probably familiar with from most modern math/spreadsheet software. In base Python, you use two multiplication operators to indicate an exponent:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#This gives you the square of B = 7, so 49.  B^2 is a  different operation; don&#39;t use it as an exponent</span>
+<p>If you’re coming from Matlab or lots of Excel experience, you’ll find base Python a bit quirky in that if you want to raise a number to a power, you do not use the <em>^</em> symbol, which you’re probably familiar with from most modern math/spreadsheet software. In base Python, you use two multiplication operators, <code class="docutils literal notranslate"><span class="pre">**</span></code>, to indicate an exponent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#This gives you the square of B = 7, so 49.  </span>
+<span class="c1">#B^2 is a bitwise operation; don&#39;t use it as an exponent</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49.0
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="how-are-booleans-handled-in-mathematical-operations">
 <h3>How are Booleans handled in mathematical operations?<a class="headerlink" href="#how-are-booleans-handled-in-mathematical-operations" title="Permalink to this headline">#</a></h3>
-<p>Next, we will do some math on a Boolean value of True:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> print(B+D)
+<p>Next, we will do some math on a Boolean value of True. You will see that the value of True stored in D is treated as a 1 for the purpose of the math operation. Analogously, False would be treated as a 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="o">+</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You will see that the value of True stored in D is treated as a 1 for the purpose of the math operation. Analogously, False would be treated as a 0.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="how-are-strings-handled-in-mathematical-operations">
 <h3>How are strings handled in mathematical operations?<a class="headerlink" href="#how-are-strings-handled-in-mathematical-operations" title="Permalink to this headline">#</a></h3>
-<p>If you attempt to combine a string and a number in a math operations, it will either take you very literally (if your operation is a logical concatenation):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">E</span> <span class="o">+</span> <span class="n">E</span><span class="p">)</span>
+<p>If you attempt to combine a string and a number in a math operations, Python will attempt to concatenate the string. So math operations on strings in Python will either taken very literally (if your operation is a logical concatenation):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">E</span> <span class="o">+</span> <span class="n">E</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">E</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Or you will get an error if it is not.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">E</span><span class="o">+</span><span class="mi">17</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mf">3.75</span><span class="o">*</span><span class="n">E</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obviously, you&#39;re not a golfer.Obviously, you&#39;re not a golfer.
+Obviously, you&#39;re not a golfer.Obviously, you&#39;re not a golfer.Obviously, you&#39;re not a golfer.
 </pre></div>
+</div>
+</div>
+</div>
+<p>Or they will throw an error if there is no logical concatenation that corresponds to the operation you requested.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(E+17) # returns an error</span>
+<span class="c1"># print(3.75*E) # returns an error</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>We will cover the basics of string concatenation in a later cell.</p>
 </section>
@@ -916,99 +969,235 @@ print(...)
 <li><p>Their characters are indexed by their position in the string.</p></li>
 <li><p>Indexing in Python starts at 0, not at 1 as you would use in Matlab or Julia.</p></li>
 <li><p>A string is what we call <strong>immutable</strong>, which means we cannot alter the contents of that string after it is defined.</p></li>
-<li><p>We can, howver extract the components of the string using their indices.</p></li>
+<li><p>We can, however extract the components of the string using their indices.</p></li>
 </ol>
 <p>For an example of how this works,  I will define a variable called animal that will be the string ‘dog’</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class="o">=</span> <span class="s1">&#39;dog&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span> <span class="o">=</span> <span class="s1">&#39;dog&#39;</span>
 </pre></div>
+</div>
+</div>
 </div>
 <section id="indexing">
 <h3>Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Python Indexing Conventions:</strong> The first and possibly most important thing to remember about indexing in Python is that it begins indexing at 0, not at 1. The second and possibly most important thing to remember about indexing in Python is that one references an index with bracket notation <code>[]</code>.  Parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are used either for creating a Tuple (See Module 02) or for passing arguments to a function (See Module 04).</p>
+</div>
 <p>Considering that Python indexing starts at 0, the first character in the string <strong>animal</strong> would be extracted by typing:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;d&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Similarly, the 2nd and 3rd elements of <strong>animal</strong> would be recalled by typing:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Try printing each character individually in the cell below, i.e., type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>o
+g
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can print each character individually on separate lines in the cell below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Again, you also have the option of providing multiple arguments to the print function.  If written as above, d, o, and g will be displayed on different lines.  If I wanted to instead return each character on a single line, I could do so by typing:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d
+o
+g
 </pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you also have the option of providing multiple arguments to the print function.  If written as above, d, o, and g will be displayed on different lines. If I wanted to instead return each character on a single line, I could do so by passing multiple arguments to <code class="docutils literal notranslate"><span class="pre">print()</span></code>.  This is a useful thing to know as it permits you to develop relatively complex print statements to suit specific purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>d o g
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="the-len-function">
 <h3>The <code class="docutils literal notranslate"><span class="pre">len()</span></code> function<a class="headerlink" href="#the-len-function" title="Permalink to this headline">#</a></h3>
-<p>When things are indexed, like strings, you can determine the total number of elements or characters in that item using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function; for example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
+<p>When things are indexed, like strings, you can determine the total number of elements or characters in that item using the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, which will confirm that there are 3 characters in ‘dog.’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Will confirm that there are 3 characters in ‘dog.’</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="slicing">
 <h3>Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h3>
-<p>You are not restricted to extracting a single element of a string at a time.  You can easily access multiple elements from a string by specifying a range with the colon operator.  For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<p>You are not restricted to extracting a single element of a string at a time.  You can easily access multiple elements from a string by specifying a range with the colon operator <code class="docutils literal notranslate"><span class="pre">:</span></code>, which is used to indicate that operations should be performed for all elements between the first and last in the range. For example, the syntax below says ‘extract the first and second elements from <strong>animal</strong>, i.e., this will extract ‘do’ from ‘dog’. :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>says ‘extract the first and second elements from <strong>animal</strong>, i.e., this will extract ‘do’ from ‘dog’. At first glance, it seems like this operation should extract the first, second, and third elements because it includes indices 0 to 2.  Not so in Python.  By default, Python will include the first element in a range but exclude the final element in a range. If you wanted to extract ‘dog’ in this example, you would need to type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;do&#39;
 </pre></div>
 </div>
-<p>This is counterintuitive because we know that animal has only 3 characters, and it looks like we are asking for 4 to be returned, but again, by default, Python excludes the last element from a range.</p>
-<p>Try it out below to get a feel for range specifications in Python! Remember: if you want to see the results of multiple character extractions in a single cell, you will need to use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>
+</div>
+</div>
+<p>At first glance, it seems like the above operation, <code class="docutils literal notranslate"><span class="pre">animal[0:2]</span></code>, should extract the first, second, and third elements because it includes indices 0 to 2.  This is not so in Python.  By default, Python will include the first element in a range but exclude the final element in a range. If you wanted to extract ‘dog’ in this example, you would need to use the syntax in the cell below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dog&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This seems counterintuitive at first because we know that animal has only 3 characters, and it looks like we are asking for 4 to be returned, but again, by default, Python excludes the last element from a range.</p>
 </section>
 <section id="python-syntax-with-indexing-and-slicing-shorthands">
 <h3>Python syntax with indexing and slicing – shorthands<a class="headerlink" href="#python-syntax-with-indexing-and-slicing-shorthands" title="Permalink to this headline">#</a></h3>
-<p>Next, we will introduce some useful shorthands in Python; you should definitely be aware of these.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<p>Next, we will introduce some useful shorthands in Python; you should definitely be aware of these. The following will extract all elements from the beginning of <strong>animal</strong> up to (but not including, see note above) the character at index = 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>will extract all elements from the beginning of <strong>animal</strong> up to (but not including, see note above) the character at index = 2.</p>
-<p>whereas</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;do&#39;
 </pre></div>
 </div>
-<p>will extract everything from the first element to the last element of <strong>animal</strong>.  Of special significance, this operation <strong>does</strong> include the last character in <strong>animal</strong>, unlike a typical range where the upper limit is explicitly given.</p>
+</div>
+</div>
+<p>In contrast, the following will extract everything from the first element to the last element of <strong>animal</strong>.  Of special significance, this operation <strong>does</strong> include the last character in <strong>animal</strong>, unlike a typical range where the upper limit is explicitly given.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dog&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="negative-indexing-in-python">
 <h3>Negative Indexing in Python<a class="headerlink" href="#negative-indexing-in-python" title="Permalink to this headline">#</a></h3>
-<p>Python supports negative indexing, which starts from the last element in a set.  So, I can type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+<p>Python supports negative indexing, which starts from the last element in a set.  So, to return the last element in an indexed set, i.e., ‘g’ in this example, I can type <code class="docutils literal notranslate"><span class="pre">animal[-1]</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
 </pre></div>
 </div>
-<p>to return the last element, i.e., ‘g’ in this example and</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;g&#39;
 </pre></div>
 </div>
-<p>to return the second-to-last element, ‘o’ in this example.  These are very useful – essentially, [-1] will replace the [end] indexing you may be familiar with in something like Matlab.</p>
+</div>
+</div>
+<p>This is a very useful thing to know since we are often interested in the final element of an array. If you are coming to Python from Matlab, [-1] basically replaces [end] indexing. If you were interested in knowing the 2nd-to-last element of a set and would intuitively think to use an index of [end - 1], that would be replaced by [-2] in Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animal</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;o&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="concatenation">
 <h3>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this headline">#</a></h3>
-<p>Finally, an example of <strong>concatenation</strong>. Loosely, concatenation means to combine multiple <em>things</em> to form a new single <em>thing</em> that is comprised of those parts. We can <strong>concatenate</strong> strings and parts of strings very easily in Python using math operators - the most straightforward way is using the <strong>+</strong> operator.  For example, I could rearrange the letters in dog to create a new string called <strong>nonsense</strong> by typing</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nonsense</span> <span class="o">=</span> <span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<p>Finally, an example of <strong>concatenation</strong>. Loosely, concatenation means to combine multiple <em>things</em> to form a new single <em>thing</em> that is comprised of those parts. We can <strong>concatenate</strong> strings and parts of strings very easily in Python using math operators - the most straightforward way is using the <strong>+</strong> operator.  For example, I could rearrange the letters in dog to create a new string called <strong>nonsense</strong> by typing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nonsense</span> <span class="o">=</span> <span class="n">animal</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">animal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">animal</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nonsense</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>odg
+</pre></div>
+</div>
+</div>
 </div>
 <p>And I could make something completely new by concatenating ‘dog’ with a comma string, a period string, and part of the above quote from a Cohen brothers movie:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original_port_huron_statement</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="mi">11</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">animal</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_port_huron_statement</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="mi">11</span><span class="p">:</span><span class="mi">30</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">animal</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original_port_huron_statement</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Define and print the strings in nonsense and port_huron_statement in the cell below.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>you&#39;re not a golfer, dog.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="be-careful-with-strings-and-math-operators">
 <h3>Be careful with strings and math operators…<a class="headerlink" href="#be-careful-with-strings-and-math-operators" title="Permalink to this headline">#</a></h3>
 <p>If you ever needed to duplicate a string, you could do so with multiplication; however, you have to recall that this is a concatenation of a string.  Multiplication between a string an a floating point number is not permissible because it is unclear what, e.g., 0.75*’dog’ <em>is</em> exactly, whereas we can provide a logical output for 3*’dog’. Print the results for the operations below and consider why they behave as they do.  This is an example of type specificity in Python.  Frequently, we will encounter errors that arise from our trying to use a floating point decimal where Python is expecting an integer (or vice versa), or perhaps trying to perform an operation on string that has no logical interpretation.  This provides an early illustration of why it is important to understand that there are different types of scalars and how to get information on the class of a scalar.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">animal</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">animal</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">echo</span><span class="p">)</span>
 <span class="n">moar_echo</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">animal</span><span class="o">+</span><span class="n">E</span><span class="p">)</span>
-<span class="n">error</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">*</span><span class="n">animal</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">moar_echo</span><span class="p">)</span>
+<span class="c1"># error = 5.0*animal #returns an error</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dogdogdogdogdog
+dogObviously, you&#39;re not a golfer.dogObviously, you&#39;re not a golfer.dogObviously, you&#39;re not a golfer.dogObviously, you&#39;re not a golfer.dogObviously, you&#39;re not a golfer.
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="strings-are-the-only-scalar-that-is-indexed">
@@ -1028,6 +1217,17 @@ print(...)
 </pre></div>
 </div>
 <p>Doing either will return an error. <strong>Strings are the only type of scalar that we can slice via indexing.</strong> It is good to know what different types of errors look like in Python, so give it a try with an integer below!!!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="mi">12345</span>
+<span class="c1"># print(F[0]) # returns an error</span>
+<span class="c1"># print(F[1]) # returns an error</span>
+<span class="c1"># print(F[2]) # returns an error</span>
+<span class="c1"># print(len(F)) # returns an error</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>

@@ -552,14 +552,29 @@ title="Print to PDF"
 </div>
 <p>Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of 0, None, or any type of empty set (), [], {}, etc., converts to a boolean “false”, and any else converts to a boolean “true”.</p>
 <p>Let’s just check what various types of collections and scalars evaluate as when we convert to booleans.  To do that, we’ll use the bool() function, which converts any argument into its boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">bool</span><span class="p">([])</span>
-<span class="nb">bool</span><span class="p">([</span><span class="mf">10.0</span><span class="p">])</span>
-<span class="nb">bool</span><span class="p">({})</span>
-<span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;RTJ 3&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="mf">10.0</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">({}))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;RTJ 3&#39;</span><span class="p">))</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+True
+False
+True
+False
+True
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="comparison-operators">
@@ -585,34 +600,73 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>We use those comparison operators to test whether a condition is true or not.  These can be applied to scalars or lists in an almost infinite number of ways, but here are a few examples to try out and see what True or False values they return.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span>
-<span class="mi">5</span>  <span class="o">&gt;</span> <span class="mi">10</span>
-<span class="mi">10</span> <span class="o">==</span> <span class="mi">10</span>
-<span class="mi">10</span> <span class="o">!=</span> <span class="mi">15</span>
-<span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span>
-<span class="nb">type</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span>  <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">!=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">float</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+True
+True
+True
+</pre></div>
+</div>
+</div>
 </div>
 <section id="logical-operators-and-or-not">
 <h3>Logical operators (and, or, not)<a class="headerlink" href="#logical-operators-and-or-not" title="Permalink to this headline">#</a></h3>
 <p>Frequently, we have more than one criteria that we would like to test in order to determine if a condition is true or not. We can do this in a couple of ways. Python supports usage of logical operators <strong>and</strong>, <strong>or</strong>, and <strong>not</strong>.  For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span>  <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span>
-<span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span>
-<span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">or</span>  <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span>
-<span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">or</span>  <span class="mi">29</span> <span class="o">&lt;</span> <span class="mi">25</span>
-<span class="ow">not</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span>
-<span class="ow">not</span> <span class="mi">15</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">5</span>  <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">and</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">or</span>  <span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="ow">or</span>  <span class="mi">29</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="mi">15</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+False
+True
+False
+True
+False
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="chaining-comparisons">
 <h3>Chaining comparisons<a class="headerlink" href="#chaining-comparisons" title="Permalink to this headline">#</a></h3>
 <p>We can also chain comparison operators as you might do when expressing a range concisely - expressions in these logical tests can get complicated if we need them to:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span>
-<span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span>
-<span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="n">z</span> <span class="o">&lt;=</span> <span class="mi">30</span> <span class="ow">and</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+True
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -648,6 +702,17 @@ title="Print to PDF"
 <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="kc">True</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">K</span> <span class="o">=</span> <span class="s1">&#39;abcdefg&#39;</span>
 <span class="n">M</span> <span class="o">=</span> <span class="s1">&#39;abcdef3&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
+True
 </pre></div>
 </div>
 </div>
@@ -662,16 +727,27 @@ title="Print to PDF"
 <section id="if-statement">
 <h3>If Statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">#</a></h3>
 <p>In general, both types of statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Bowei</span> <span class="o">=</span> <span class="s1">&#39;Great TA&#39;</span>
-<span class="k">if</span> <span class="n">Bowei</span> <span class="o">!=</span> <span class="s1">&#39;Great TA&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bowei is Not A Great TA!&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Bowei</span> <span class="o">=</span> <span class="s1">&#39;Great TA&#39;</span>
+<span class="k">if</span> <span class="n">Bowei</span> <span class="o">==</span> <span class="s1">&#39;Great TA&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bowei is A Great TA!&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bowei is A Great TA!
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="elif-and-else-statements">
 <h3>Elif and else statements<a class="headerlink" href="#elif-and-else-statements" title="Permalink to this headline">#</a></h3>
 <p>Or the following categorization of A, which makes use of the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> keywords:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">if</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is between 5 and 35!&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="mi">35</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">:</span>
@@ -680,33 +756,74 @@ title="Print to PDF"
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is higher than I can count&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A is higher than I can count
+</pre></div>
+</div>
+</div>
+</div>
 <p>This one will print a statement only if all of the characters in K are letters.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All of the characters in K are letters&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>All of the characters in K are letters
+</pre></div>
+</div>
+</div>
+</div>
 <p>This one will wish me happy birthday once a year.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">day</span> <span class="o">==</span> <span class="mi">28</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday Jesse!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="a-while-loop-example">
 <h3>A While Loop Example<a class="headerlink" href="#a-while-loop-example" title="Permalink to this headline">#</a></h3>
 <p>Here’s a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mf">0.0</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mf">10.0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mf">1.0</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+1.0
+2.0
+3.0
+4.0
+5.0
+6.0
+7.0
+8.0
+9.0
+10.0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="nesting-if-statements-in-a-while-loop">
 <h3>Nesting if statements in a while loop<a class="headerlink" href="#nesting-if-statements-in-a-while-loop" title="Permalink to this headline">#</a></h3>
 <p>Finally, here’s an example of a while loop with nested if statements. You can get very complex with the logical flow of your program!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x is less than 10, it is&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -715,14 +832,41 @@ title="Print to PDF"
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x is less than 10, it is 0
+x is less than 10, it is 1
+x is less than 10, it is 2
+x is less than 10, it is 3
+x is less than 10, it is 4
+x is less than 10, it is 5
+x is less than 10, it is 6
+x is less than 10, it is 7
+x is less than 10, it is 8
+x is less than 10, it is 9
+x is between 10 and 20, it is 10
+x is between 10 and 20, it is 11
+x is between 10 and 20, it is 12
+x is between 10 and 20, it is 13
+x is between 10 and 20, it is 14
+x is between 10 and 20, it is 15
+x is between 10 and 20, it is 16
+x is between 10 and 20, it is 17
+x is between 10 and 20, it is 18
+x is between 10 and 20, it is 19
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="some-applications-for-logical-tests">
 <h2>Some Applications for Logical Tests<a class="headerlink" href="#some-applications-for-logical-tests" title="Permalink to this headline">#</a></h2>
 <p>Logical tests become extremely powerful when processing large data sets.  For example, let’s just generate a set of 1000 random integers.  I am using pyplot for visualization.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">random</span>
-<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
 <span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -735,19 +879,26 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 05 - Conditionals_23_0.png" src="../_images/Module 05 - Conditionals_23_0.png" />
+</div>
+</div>
 <section id="using-logical-tests-to-only-retain-desired-data">
 <h3>Using Logical Tests to Only Retain Desired Data<a class="headerlink" href="#using-logical-tests-to-only-retain-desired-data" title="Permalink to this headline">#</a></h3>
 <p>So let’s pretend that data has just been handed off to us, and we didn’t have flexibility in specifying its range when it was created.  Let’s say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements (note also, this is not the only way to slice the data set, but it is one way you can use these tools).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">):</span>
         <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">X2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;1000 Random Integers between -100 and 100&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The Integers between 0 and 25&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Index&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sample Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -755,22 +906,51 @@ title="Print to PDF"
 <span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 05 - Conditionals_25_0.png" src="../_images/Module 05 - Conditionals_25_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+0
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="boolean-masks-with-numpy-arrays">
 <h3>Boolean masks with numpy arrays<a class="headerlink" href="#boolean-masks-with-numpy-arrays" title="Permalink to this headline">#</a></h3>
 <p>If I’m working with numpy arrays, I would probably take advantage of their elementwise operations and do this by extracting all of the indices in the array where a condition is true.  For example, let’s convert A into a numpy array and then we’ll accomplish the same thing as the above loop with vectorized (element-wise) operations.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">Aarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Aarray</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>This next bit of code creates what is called a “Boolean mask,” a set of Trues and Falses where the criteria I’m interested in are satisfied.  What I’m doing here will work with numpy arrays, but not with lists (you need to use a loop or a comprehension with lists).  You also need a bitwise and operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword here.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span>
 <span class="n">index</span>
 </pre></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False, False, False,  True,  True, False,
+       False, False, False, False, False, False, False, False, False,
+       False, False])
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now you can pass that boolean mask as a set of indices to the array – it will basically extract any value where the index is “True,” i.e., any value between 0 and 25. The code below overlays the results obtained with a loop and with a boolean mask using numpy arrays.  You’ll see they are identical.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Barray</span> <span class="o">=</span> <span class="n">Aarray</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Barray</span> <span class="o">=</span> <span class="n">Aarray</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Barray</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
@@ -784,6 +964,16 @@ title="Print to PDF"
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum value contained in B is </span><span class="si">{</span><span class="nb">max</span><span class="p">(</span><span class="n">Barray</span><span class="p">)</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The minimum value contained in B is </span><span class="si">{</span><span class="nb">min</span><span class="p">(</span><span class="n">Barray</span><span class="p">)</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 05 - Conditionals_31_0.png" src="../_images/Module 05 - Conditionals_31_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the 1000 initial values, 128 are between 0 and 25
+The maximum value contained in B is 25
+The minimum value contained in B is 0
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>

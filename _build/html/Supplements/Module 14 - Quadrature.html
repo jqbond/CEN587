@@ -516,11 +516,7 @@ title="Print to PDF"
 \[\frac{x^3}{3} \bigg|_0^{10} = \frac{10^3}{3} - \frac{0^3}{3} = 333.33\]</div>
 <p>We can also integrate this using gaussian quadrature, which provides a numerical approximation. We will not go into detail about how gaussian quadrature works, but if you’re interested, it is basically done by calculating the function value at very specific locations of the independent variable, multiplying those values by very specific weight factors, and summing up all of the results:</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Gaussian_quadrature">https://en.wikipedia.org/wiki/Gaussian_quadrature</a></p>
-<p>In Python, easy gaussian quadrature is available in Scipy, specifically, scipy.integrate.quadrature:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
-</pre></div>
-</div>
-<p>Read more about it here:</p>
+<p>In Python, easy gaussian quadrature is available in Scipy, specifically, <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quadrature</span></code>. Read more about it here:</p>
 <p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quadrature.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quadrature.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,10 +530,6 @@ title="Print to PDF"
 <section id="defining-the-integrand-for-use-with-integrate-quadrature">
 <h3>Defining the integrand for use with <code class="docutils literal notranslate"><span class="pre">integrate.quadrature()</span></code><a class="headerlink" href="#defining-the-integrand-for-use-with-integrate-quadrature" title="Permalink to this headline">#</a></h3>
 <p>The basic usage is that we first define the integrand as a function (the integrand is just what we are going to integrate).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrand</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -554,9 +546,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>It returns both the value of the integral and the error associated with the numerical integration. For this example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int_val</span><span class="p">,</span> <span class="n">err_val</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quadrature</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_val</span><span class="p">,</span> <span class="n">err_val</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quadrature</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -575,15 +564,11 @@ title="Print to PDF"
 <section id="integrating-discrete-data-trapezoidal-and-simpson-s">
 <h2>Integrating discrete data: Trapezoidal and Simpson’s<a class="headerlink" href="#integrating-discrete-data-trapezoidal-and-simpson-s" title="Permalink to this headline">#</a></h2>
 <p>Simpson’s rule and the trapezoidal rule work for discrete sets of data that we need to integrate.  So, for example, if I just calculated some discrete values of <span class="math notranslate nohighlight">\(y = x^2\)</span> on the domain <span class="math notranslate nohighlight">\(x = [0,10]\)</span>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>    
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
@@ -603,11 +588,7 @@ title="Print to PDF"
 <p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html</a></p>
 <section id="trapezoidal-rule">
 <h3>Trapezoidal Rule<a class="headerlink" href="#trapezoidal-rule" title="Permalink to this headline">#</a></h3>
-<p>If I wanted to calculate an approximate integral using the trapezoidal rule, would do so as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This will return the approximate integrated area of y(x)dx over the domain of x that we’ve sampled.</p>
+<p>If I wanted to calculate an approximate integral using the trapezoidal rule, would do so as in the following cell; this will return the approximate integrated area of y(x)dx over the domain of x that we’ve sampled.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="o">.</span><span class="n">trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
@@ -624,9 +605,6 @@ title="Print to PDF"
 <section id="simpson-s-rule">
 <h3>Simpson’s Rule<a class="headerlink" href="#simpson-s-rule" title="Permalink to this headline">#</a></h3>
 <p>Alternatively, the analogous integration using Simpson’s rule:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
@@ -642,12 +620,7 @@ title="Print to PDF"
 </section>
 <section id="cumulative-integration-with-the-trapezoidal-rule">
 <h3>Cumulative integration with the trapezoidal rule<a class="headerlink" href="#cumulative-integration-with-the-trapezoidal-rule" title="Permalink to this headline">#</a></h3>
-<p>Finally, we commonly need to know the cumulative value of the integral at each value of the independent variable. This is very common in working with probability or residence time distributions. We can get this using the following syntax, which will only use a trazezoidal rule:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ctrapz</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">cumulative_trapezoid</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">ctrapz</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>You’ll see that this generates an array of integral values.  Basically, it keeps a running tab of the integrated area as you move through the set.</p>
+<p>Finally, we commonly need to know the cumulative value of the integral at each value of the independent variable. This is very common in working with probability or residence time distributions. We can get this using the following syntax, which will only use a trazezoidal rule. You’ll see that this generates an array of integral values.  Basically, it keeps a running tab of the integrated area as you move through the set.</p>
 <p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.cumulative_trapezoid.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.cumulative_trapezoid.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -664,7 +637,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 14 - Quadrature_15_0.png" src="../_images/Module 14 - Quadrature_15_0.png" />
+<img alt="../_images/Module 14 - Quadrature_14_0.png" src="../_images/Module 14 - Quadrature_14_0.png" />
 </div>
 </div>
 </section>

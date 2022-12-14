@@ -438,6 +438,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#increasing-precision">
+     Increasing Precision
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#returning-the-solution-at-specific-times">
      Returning the solution at specific times
     </a>
@@ -445,6 +450,16 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#returning-a-polynomial-approximation-for-the-ode-solution">
      Returning a polynomial approximation for the ODE solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-the-continuous-approximation-to-the-ode-solution">
+     Accessing the continuous approximation to the ODE solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#you-can-pass-arrays-to-the-interpolating-polynomial-approximation">
+     You can pass arrays to the interpolating polynomial approximation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -567,6 +582,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#increasing-precision">
+     Increasing Precision
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#returning-the-solution-at-specific-times">
      Returning the solution at specific times
     </a>
@@ -574,6 +594,16 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#returning-a-polynomial-approximation-for-the-ode-solution">
      Returning a polynomial approximation for the ODE solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accessing-the-continuous-approximation-to-the-ode-solution">
+     Accessing the continuous approximation to the ODE solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#you-can-pass-arrays-to-the-interpolating-polynomial-approximation">
+     You can pass arrays to the interpolating polynomial approximation
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -625,6 +655,18 @@ title="Print to PDF"
 <p>It is very common that we need to solve differential equations in science and engineering. The broad class of “differential equations” comprises many types of initial value problems and boundary value problems, both of which might involve ordinary or partial differential equations.  Here, we will focus only on numerical solutions of initial value problems in the form of ordinary differential equations or systems of ordinary differential equations.</p>
 <p>The general idea with an initial value problem is that we have information about the rate of change of a quantity of interest (i.e., we know the derivative of a function), we know the starting value of that quantity of interest, and we would like to, based only on information about starting value and the derivative, predict the quantity of interest at some future time, position, Temperature, or other independent variable that describes our system.</p>
 <p>We’ll do a very basic demonstration of how this works, but it is based on the idea that if you know the derivative, you can use the value of the deriviative to estimate how much your dependent variable (e.g., “y”) will change over a small step in the independent variable (e.g., “x”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="the-euler-method">
 <h2>The Euler Method<a class="headerlink" href="#the-euler-method" title="Permalink to this headline">#</a></h2>
 <p>The most basic approach is the Euler method, which is basically just an algebraic rearrangement of the classic definition of a slope (m) of a function:</p>
@@ -654,29 +696,13 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[y(x) = 10 e^{-x}\]</div>
 <p>Plot the solution to this IVP, y(x), over the domain x = [0, 6] in order to visualize how y changes as a function of x. Note, I called my function “ytrue(x)”, and I evaluated it on a numpy array of x-values from 0 to 6 called “xtrue.”  If you see those labels subsequently in this worksheet, it just means that I am using the analytical solution to this initial value problem, <span class="math notranslate nohighlight">\(y(x) = 10e^{-x}\)</span></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ytrue</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">xtrue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">))</span>
-</pre></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
-<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ytrue</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
 <span class="n">xtrue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">## Plot solution</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytical solution&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -690,35 +716,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 13 - ODEs_2_0.png" src="../_images/Module 13 - ODEs_2_0.png" />
+<img alt="../_images/Module 13 - ODEs_3_0.png" src="../_images/Module 13 - ODEs_3_0.png" />
 </div>
 </div>
 </section>
 <section id="an-approximate-solution-with-the-euler-method">
 <h3>An approximate solution with the Euler Method<a class="headerlink" href="#an-approximate-solution-with-the-euler-method" title="Permalink to this headline">#</a></h3>
 <p>Now, if we <em>didn’t</em> know how to solve that equation, or if we could otherwise could not solve it analytically, we would need to use a numerical method. The Euler method is the most simple way to numerically solve a differential equation. We’ll implement it to solve this example using a while loop.  I’ve also added in a bit of visualization to show how the Euler step works.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xstep</span> <span class="o">=</span> <span class="mf">0.75</span>               <span class="c1">#I get to choose the size of the step for the independent variable</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>                      <span class="c1">#initial x</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>                     <span class="c1">#initial y</span>
-<span class="n">xlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>                <span class="c1">#I&#39;m going to store all x values in a list; initializing that list here</span>
-<span class="n">ylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>               <span class="c1">#Initialize a list containing y values for each x value</span>
-
-<span class="k">while</span> <span class="n">xlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>       <span class="c1">#I want to continue iterating until I reach x = 6</span>
-    <span class="n">dydx</span> <span class="o">=</span> <span class="o">-</span><span class="n">y</span>              <span class="c1">#derivative of y with respect to x   </span>
-    <span class="n">y</span>    <span class="o">=</span>  <span class="n">y</span> <span class="o">+</span> <span class="n">xstep</span><span class="o">*</span><span class="n">dydx</span> <span class="c1">#update y value using an Euler step</span>
-    <span class="n">x</span>    <span class="o">=</span>  <span class="n">x</span> <span class="o">+</span> <span class="n">xstep</span>      <span class="c1">#update x value using step size</span>
-    <span class="n">xlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c1">#append new value of x</span>
-    <span class="n">ylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1">#append new value of y</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">))</span> <span class="c1">#plot true solution</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">xlist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xlist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">ylist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ylist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1">#illustrate numerical steps in y</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>             <span class="c1">#show plot</span>
-    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>          <span class="c1">#pause for 2 seconds before next iteration</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">))</span> <span class="c1">#plot true solution after exiting while loop</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span><span class="n">ylist</span><span class="p">)</span>      <span class="c1">#plot full set of numerical estimates of y for values in xlist</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xstep</span> <span class="o">=</span> <span class="mf">0.75</span>               <span class="c1">#I get to choose the size of the step for the independent variable</span>
@@ -733,36 +737,70 @@ title="Print to PDF"
     <span class="n">x</span>    <span class="o">=</span>  <span class="n">x</span> <span class="o">+</span> <span class="n">xstep</span>      <span class="c1">#update x value using step size</span>
     <span class="n">xlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c1">#append new value of x</span>
     <span class="n">ylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1">#append new value of y</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">))</span> <span class="c1">#plot true solution</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">xlist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">xlist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xlist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">ylist</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">ylist</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]],</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1">#illustrate numerical steps in y</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>             <span class="c1">#show plot</span>
-    <span class="c1">#time.sleep(2)          #pause for 2 seconds before next iteration</span>
+<span class="c1">#     plt.plot(xtrue, ytrue(xtrue)) #plot true solution</span>
+<span class="c1">#     for i in range(0, len(xlist)-1):</span>
+<span class="c1">#         plt.plot([xlist[i], xlist[i+1]], [ylist[i], ylist[i+1]],&#39;:&#39;, color = &#39;k&#39;) #illustrate numerical steps in y</span>
+<span class="c1">#     plt.show()             #show plot</span>
+<span class="c1">#     time.sleep(2)          #pause for 2 seconds before next iteration</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">))</span> <span class="c1">#plot true solution after exiting while loop</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span><span class="n">ylist</span><span class="p">)</span>      <span class="c1">#plot full set of numerical estimates of y for values in xlist</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytical solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span> <span class="n">ylist</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler solution&#39;</span><span class="p">)</span>      <span class="c1">#plot full set of numerical estimates of y for values in xlist</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to a First order ODE&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 13 - ODEs_4_0.png" src="../_images/Module 13 - ODEs_4_0.png" />
-<img alt="../_images/Module 13 - ODEs_4_1.png" src="../_images/Module 13 - ODEs_4_1.png" />
-<img alt="../_images/Module 13 - ODEs_4_2.png" src="../_images/Module 13 - ODEs_4_2.png" />
-<img alt="../_images/Module 13 - ODEs_4_3.png" src="../_images/Module 13 - ODEs_4_3.png" />
-<img alt="../_images/Module 13 - ODEs_4_4.png" src="../_images/Module 13 - ODEs_4_4.png" />
-<img alt="../_images/Module 13 - ODEs_4_5.png" src="../_images/Module 13 - ODEs_4_5.png" />
-<img alt="../_images/Module 13 - ODEs_4_6.png" src="../_images/Module 13 - ODEs_4_6.png" />
-<img alt="../_images/Module 13 - ODEs_4_7.png" src="../_images/Module 13 - ODEs_4_7.png" />
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x2aa2b35d880&gt;
-</pre></div>
-</div>
-<img alt="../_images/Module 13 - ODEs_4_9.png" src="../_images/Module 13 - ODEs_4_9.png" />
+<img alt="../_images/Module 13 - ODEs_5_0.png" src="../_images/Module 13 - ODEs_5_0.png" />
 </div>
 </div>
 </section>
 <section id="a-breakdown-of-the-method">
 <h3>A breakdown of the method<a class="headerlink" href="#a-breakdown-of-the-method" title="Permalink to this headline">#</a></h3>
 <p>Generally speaking, this is how a numerical differential equation solver works. It calculates the slope(s) at the current values for all function arguments, it takes a step in independent variable, and it predicts the value of the function based on the slope. With the step size I chose above (xstep = 0.75), you can see that the Euler method does a very bad job of approximating the true solution. You can probably already see the reason for this:  the Euler Method calculates the value of the derivative at <span class="math notranslate nohighlight">\(x_i\)</span>, and then it tacitly assumes that this derivative value is constant over the entire step in x, but we know this isn’t true here (nor for most differential equations that we need to use numerical methods for). You can improve the accuracy of the Euler Method by taking smaller steps; go ahead and experiment to figure out how small of a step you need to make before you are satisified that the numerical solution is roughly the same as the analytical solution.  Supress the looped plotting to keep it a bit more tidy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xstep</span> <span class="o">=</span> <span class="mf">0.05</span>               <span class="c1">#I get to choose the size of the step for the independent variable</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>                      <span class="c1">#initial x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>                     <span class="c1">#initial y</span>
+<span class="n">xlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>                <span class="c1">#I&#39;m going to store all x values in a list; initializing that list here</span>
+<span class="n">ylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>               <span class="c1">#Initialize a list containing y values for each x value</span>
+
+<span class="k">while</span> <span class="n">xlist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>       <span class="c1">#I want to continue iterating until I reach x = 6</span>
+    <span class="n">dydx</span> <span class="o">=</span> <span class="o">-</span><span class="n">y</span>              <span class="c1">#derivative of y with respect to x   </span>
+    <span class="n">y</span>    <span class="o">=</span>  <span class="n">y</span> <span class="o">+</span> <span class="n">xstep</span><span class="o">*</span><span class="n">dydx</span> <span class="c1">#update y value using an Euler step</span>
+    <span class="n">x</span>    <span class="o">=</span>  <span class="n">x</span> <span class="o">+</span> <span class="n">xstep</span>      <span class="c1">#update x value using step size</span>
+    <span class="n">xlist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c1">#append new value of x</span>
+    <span class="n">ylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>        <span class="c1">#append new value of y</span>
+<span class="c1">#     plt.plot(xtrue, ytrue(xtrue)) #plot true solution</span>
+<span class="c1">#     for i in range(0, len(xlist)-1):</span>
+<span class="c1">#         plt.plot([xlist[i], xlist[i+1]], [ylist[i], ylist[i+1]],&#39;:&#39;, color = &#39;k&#39;) #illustrate numerical steps in y</span>
+<span class="c1">#     plt.show()             #show plot</span>
+<span class="c1">#     time.sleep(2)          #pause for 2 seconds before next iteration</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytical solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xlist</span><span class="p">,</span> <span class="n">ylist</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler solution&#39;</span><span class="p">)</span>      <span class="c1">#plot full set of numerical estimates of y for values in xlist</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to a First order ODE&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 13 - ODEs_7_0.png" src="../_images/Module 13 - ODEs_7_0.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="higher-order-methods-runge-kutta">
@@ -783,11 +821,6 @@ title="Print to PDF"
 <li><p>The function should return the deriviative of each depedent variable with respect to the single independent variable in a vector-like structure (array, tuple, list). If it is a single ODE, simply return a scalar.</p></li>
 </ol>
 <p>For the simple first order example above, this would be an appropriate way to format your function to pass to the ODE solver; you’ll see that it adhere’s to the rules above:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>        <span class="c1">#function declaration - function should be of form f(independent variable, dependent variable)</span>
-    <span class="n">dydx</span> <span class="o">=</span> <span class="o">-</span><span class="n">y</span>       <span class="c1">#Calculate the value of the derivative of y at the current value of x</span>
-    <span class="k">return</span> <span class="n">dydx</span>     <span class="c1">#return the value of the derivative of y at the current value of x</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>        <span class="c1">#function declaration - function should be of form f(independent variable, dependent variable)</span>
@@ -812,15 +845,7 @@ title="Print to PDF"
 <li><p>The initial value(s) for the dependent variables must be in a 1-D array like structure, even if you are only solving 1 ODE.</p></li>
 <li><p>The function should return an array-like structure containing the derivatives of each dependent variable with respect to the independent variable</p></li>
 </ol>
-<p>For this specific example, we are starting at y(0) = 10, and we are integrating from x = 0 to x = 6. Putting that into a format that works with <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
-<span class="n">xspan</span> <span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We can then pass our function, integration span, and initial value for y to <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>, which will solve the differential equation numerically.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>For this specific example, we are starting at y(0) = 10, and we are integrating from x = 0 to x = 6. Putting that into a format that works with <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>, we would say <code class="docutils literal notranslate"><span class="pre">y0</span> <span class="pre">=</span> <span class="pre">[10]</span></code> and <code class="docutils literal notranslate"><span class="pre">xspan</span> <span class="pre">=(0,</span> <span class="pre">6)</span></code>. We can then pass our function, integration span, and initial value for y to <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>, which will solve the differential equation numerically: <code class="docutils literal notranslate"><span class="pre">solve_ivp(D,</span> <span class="pre">xspan,</span> <span class="pre">y0)</span></code>.</p>
 <p>Running this bit of code, you’ll see that <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> returns a solution structure, similar to what we would get from <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> or <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>.  You can access any attribute from that structure using the dot operator.  Probably the most interesting parts are <code class="docutils literal notranslate"><span class="pre">.t</span></code>, which contains your independent variable values, and <code class="docutils literal notranslate"><span class="pre">.y</span></code>, which contains your dependent variable values. No matter the decisions you make about inputs, these are formatted as numpy arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -849,11 +874,6 @@ title="Print to PDF"
 </div>
 </div>
 <p>Often, I save the output, which enables convenient post-analysis (plotting, etc.)</p>
-<p>sol = solve_ivp(D, xspan, y0)        #numerical solution of ODE
-print(sol.t)                   #print independent variable values, loosely called “t” in many solvers
-print(sol.y)                   #print dependent variable values, loosely called “y” in many solvers
-plt.plot(xtrue, ytrue(xtrue))  #Plot analytical solution to ODE from a few cells back
-plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol.y is (1,9). Grab first row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>  <span class="c1">#numerical solution of ODE</span>
@@ -880,27 +900,17 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
    0.10653333  0.04423023  0.02486609]]
 </pre></div>
 </div>
-<img alt="../_images/Module 13 - ODEs_12_1.png" src="../_images/Module 13 - ODEs_12_1.png" />
+<img alt="../_images/Module 13 - ODEs_13_1.png" src="../_images/Module 13 - ODEs_13_1.png" />
 </div>
 </div>
 </section>
 <section id="step-size-in-solvers">
 <h3>Step size in solvers<a class="headerlink" href="#step-size-in-solvers" title="Permalink to this headline">#</a></h3>
-<p>You may notice from the plot that the solver did not take even steps in x.  That is fine - some solvers use adaptive step sizes.  In general, they are far better at deciding on a good step size than we are.  This is why we only specify the starting and ending point for integration.  The solver decides on the intermediate points, not us.  That said, you may wish to get higher resolution and view the solution to the differential equation at additional points in the domain where you solved it.  You can do this in a few ways by adjusting options in solve_ivp.</p>
-<p>Sometimes we don’t care so much about specific time steps as we care about having closely space time steps; the easiest way to force more closely spaced time steps is to adjust the precision of our solution using the <code class="docutils literal notranslate"><span class="pre">atol</span></code> and <code class="docutils literal notranslate"><span class="pre">rtol</span></code> keywork arguments, which respectively set absolute and relative tolerances on the state variables.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytical solution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Solve_ivp solution&#39;</span><span class="p">)</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to a First order ODE&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>You may notice from the plot that the solver did not take even steps in x.  That is fine - some solvers use adaptive step sizes.  In general, they are far better at deciding on a good step size than we are.  This is why we only specify the starting and ending point for integration.  The solver decides on the intermediate points, not us.  That said, you may wish to get higher resolution and view the solution to the differential equation at additional points in the domain where you solved it.  You can do this in a few ways by adjusting options in <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>.</p>
+</section>
+<section id="increasing-precision">
+<h3>Increasing Precision<a class="headerlink" href="#increasing-precision" title="Permalink to this headline">#</a></h3>
+<p>Sometimes we don’t care so much about specific time steps as we care about having closely space time steps; the easiest way to force more closely spaced time steps is to adjust the precision of our solution using the <code class="docutils literal notranslate"><span class="pre">atol</span></code> and <code class="docutils literal notranslate"><span class="pre">rtol</span></code> keyword arguments, which respectively set absolute and relative tolerances on the state variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
@@ -918,28 +928,13 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 13 - ODEs_14_0.png" src="../_images/Module 13 - ODEs_14_0.png" />
+<img alt="../_images/Module 13 - ODEs_15_0.png" src="../_images/Module 13 - ODEs_15_0.png" />
 </div>
 </div>
 </section>
 <section id="returning-the-solution-at-specific-times">
 <h3>Returning the solution at specific times<a class="headerlink" href="#returning-the-solution-at-specific-times" title="Permalink to this headline">#</a></h3>
-<p>Alternatively, Let’s say I wanted to plot the numerical solution on an evenly spaced set of x-values using a step size of 0.1.  I can do that using the t_eval keyword argument, which allows me to specify where I want to see the solution.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">61</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">xgrid</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xtrue</span><span class="p">,</span> <span class="n">ytrue</span><span class="p">(</span><span class="n">xtrue</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;analytical solution&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Solve_ivp solution&#39;</span><span class="p">)</span> 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to a First order ODE&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>You’ll see that this returns the values at the specified x-values (even though it does not affect the steps taken by the ode solver).</p>
+<p>Alternatively, Let’s say I wanted to plot the numerical solution on an evenly spaced set of x-values using a step size of 0.1.  I can do that using the <code class="docutils literal notranslate"><span class="pre">t_eval</span></code> keyword argument, which allows me to specify where I want to see the solution. You’ll see that this returns the values at the specified x-values (even though it does not affect the steps taken by the ode solver).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">61</span><span class="p">)</span>
@@ -958,17 +953,13 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 13 - ODEs_16_0.png" src="../_images/Module 13 - ODEs_16_0.png" />
+<img alt="../_images/Module 13 - ODEs_17_0.png" src="../_images/Module 13 - ODEs_17_0.png" />
 </div>
 </div>
 </section>
 <section id="returning-a-polynomial-approximation-for-the-ode-solution">
 <h3>Returning a polynomial approximation for the ODE solution<a class="headerlink" href="#returning-a-polynomial-approximation-for-the-ode-solution" title="Permalink to this headline">#</a></h3>
 <p>It is important to recognize that these step-based ODE solvers will provide a discrete set of y-values for a discrete set of t-values; they are not a continuous function y(t).  Another nice feature of <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> is that you can get it to generate a continuous function for y(x). It does this by fitting an interpolating polynomial to the ODE solution.using interpolating polynomials. You do this with the <code class="docutils literal notranslate"><span class="pre">dense_output</span></code> keyword argument:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dense_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dense_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -981,7 +972,7 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
      nfev: 50
      njev: 0
       nlu: 0
-      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x000002AA2B414520&gt;
+      sol: &lt;scipy.integrate._ivp.common.OdeSolution object at 0x000001DD087FEA90&gt;
    status: 0
   success: True
         t: array([0.        , 0.100002  , 1.03168058, 1.90730319, 2.78642162,
@@ -994,11 +985,11 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
 </div>
 </div>
 </div>
+</section>
+<section id="accessing-the-continuous-approximation-to-the-ode-solution">
+<h3>Accessing the continuous approximation to the ODE solution<a class="headerlink" href="#accessing-the-continuous-approximation-to-the-ode-solution" title="Permalink to this headline">#</a></h3>
 <p>Once you print out the solution, you’ll see it returns a sneaky attribute also called “sol,” which makes my choice of “sol” as the name of the solution structure unfortunate.  In any event, just like sol.t or sol.y, you can call sol.sol</p>
 <p>sol.sol is a <em>function</em> that returns the value of your dependent variable(s) for any value(s) of your independent variable.  This is a really great add on for a numerical ode solver as it saves you from having to create your own function using interpolating polynomials.  For example, let’s say I wanted to know y at x = 3:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -1011,10 +1002,10 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
 </div>
 </div>
 </div>
+</section>
+<section id="you-can-pass-arrays-to-the-interpolating-polynomial-approximation">
+<h3>You can pass arrays to the interpolating polynomial approximation<a class="headerlink" href="#you-can-pass-arrays-to-the-interpolating-polynomial-approximation" title="Permalink to this headline">#</a></h3>
 <p>Let’s say I wanted data at x = 1, 2.6, 3.175, and 4:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.175</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="c1">#pass a list of x values; can also use a tuple or an array</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span><span class="o">.</span><span class="n">sol</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mf">3.175</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -1033,10 +1024,33 @@ plt.scatter(sol.t,sol.y)  #plot the numerical solution to ODE. sol.t is (9,) sol
 <h3>Options in <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code><a class="headerlink" href="#options-in-solve-ivp" title="Permalink to this headline">#</a></h3>
 <p>The options available for solve_ivp are <em>extensive</em>.  We will not cover all of them for a few reasons.  First, we don’t have the time and space to devote to this.  Second, generally speaking, the default options on things like function tolerance or maximum step sizes are pretty good.  Changing them requires a good understanding of how they work and why they are important.  Changing them haphazardly can be dangerous.  I would suggest researching the options available and putting serious thought into the ones that are relevant to your problem and <em>might</em> be worth changing.</p>
 <p>The only other one that we’ll mention is the method keyword.  Most of the time, the default method will be fine for you.  Sometimes, you will encounter <em>stiff</em> systems of differential equations. In high level terms, what that means is you have two or more coupled dependent variables that are changing as functions of the indepdendent variable. If those two variables change on extremely different scales, then you have what is called a stiff system, and they require specialized solvers.  When might you see this?  When the derivative of one variable is much, much larger than the derivative of the other variable.  In these cases, you will probably want to adjust your solver using the method keyword.  For example, the default solver in <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> is RK45, an explicit Runge–Kutta–Fehlberg method (4th order method, 5th order error estimate). It is not efficient for stiff systems, so you would want to change to Radau, BDF, or LSODA methods if you need to solve a stiff system:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;Radau&#39;</span><span class="p">)</span>
-<span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;BDF&#39;</span><span class="p">)</span>
-<span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;LSODA&#39;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">xspan</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;Radau&#39;</span><span class="p">)</span>
+<span class="c1"># solve_ivp(D, xspan, y0, method = &#39;BDF&#39;)</span>
+<span class="c1"># solve_ivp(D, xspan, y0, method = &#39;LSODA&#39;)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 92
+     njev: 2
+      nlu: 6
+      sol: None
+   status: 0
+  success: True
+        t: array([0.        , 0.05623554, 0.61859092, 1.1809463 , 1.74330169,
+       2.30565707, 2.86801245, 3.43036784, 3.99272322, 4.5550786 ,
+       5.11743399, 5.67978937, 6.        ])
+ t_events: None
+        y: array([[10.        ,  9.45316451,  5.38705158,  3.06990582,  1.74943967,
+         0.99694888,  0.5681288 ,  0.32375816,  0.18449927,  0.10514014,
+         0.05991595,  0.03414416,  0.02478853]])
+ y_events: None
+</pre></div>
+</div>
+</div>
 </div>
 <p>How can you tell when you need to change solvers?  Usually the default option (RK45) is a good choice.  If you notice that it is taking a long time to run, making an unusually large number of steps, or failing to converge altogether, you probably are solving a stiff system.  Try one of the stiff ODE solvers instead.</p>
 </section>
@@ -1054,13 +1068,6 @@ y(0) &amp;= 3 \\
 <p>A typical question we might ask about this system is <strong>what are the values of x and y at t = 10?</strong></p>
 <p>I see that dx/dt is a function of x and y, and dy/dt is also a function of x and y.  I cannot solve one without solving the other. Though it is sometimes possible to solve a coupled system analytically, the vast majority of cases must be handled with numerical methods.  Fortunately, the framework we established above for solving a single differential equation is very general, and it is super easy to extend it to systems of differential equations.</p>
 <p>We just need to formulate our system of differential equations as multivariate vector functions of the form f(t,y) or, in other words, f(independent variable, dependent variable). Both of our dependent variables, (x and y in this case), need to be passed to the function in a single, vector-like structure. The function also needs to return dx/dt and dy/dt in a vector-like structure (tuple, array, list). For this example, the following is an acceptable way to define that function using lists:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">var</span>
-    <span class="n">dxdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">dydt</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">y</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dydt</span><span class="p">]</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">var</span><span class="p">):</span>
@@ -1073,13 +1080,6 @@ y(0) &amp;= 3 \\
 </div>
 </div>
 <p>Now that the function is defined, we can integrate it on the domain t = [0, 10].  We follow the same conventions as above.  The span of the independent variable must be a two-element array, and the initial values of x and y must be passed to the function as an array-like structure.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1">#Integration span</span>
-<span class="n">x0</span>    <span class="o">=</span> <span class="mi">0</span>
-<span class="n">y0</span>    <span class="o">=</span> <span class="mi">3</span>
-<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">]</span>  <span class="c1">#initial values for x and y, using a list</span>
-<span class="n">solve_ivp</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span> <span class="c1">#use solve_ivp to solve the system of ODEs</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1">#Integration span</span>
@@ -1119,24 +1119,6 @@ y(0) &amp;= 3 \\
 <section id="the-solution-structure-for-systems-of-odes">
 <h3>The solution structure for Systems of ODEs<a class="headerlink" href="#the-solution-structure-for-systems-of-odes" title="Permalink to this headline">#</a></h3>
 <p>You can see the solution structure has a lot of useful information, exactly as in the case of a single ODE.  The only major difference here is that the <code class="docutils literal notranslate"><span class="pre">.y</span></code> values are now a larger array where the first row is values of x, and the second row is values of y at each time point in <code class="docutils literal notranslate"><span class="pre">.t</span></code>.  We can plot them as a function of t easily.  To illustrate the way things are stored, I’ll extract x and y values from <code class="docutils literal notranslate"><span class="pre">sol.y</span></code>. I’ll also request a much higher resolution in the output, taking 1000 steps between 0 and 10 for making a nice, smooth plot. I’ve also added labels and a legend so we can easily distinguish between the graphs.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">tgrid</span><span class="p">)</span>
-<span class="n">t</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span>
-<span class="n">x</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">y</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to Coupled ODEs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1174,37 +1156,6 @@ x(0) &amp;= 0 \\
 y(0) &amp;= 3 \\
 \end{align*}\]</div>
 <p>Where a, b, and c are constant coefficients.  For the values (a,b,c) = (0.2, 1.3, 8), what are the values of x and y at t = 10?  What about for (a,b,c) = (1.5, 0.3, -0.1)?</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">var</span>
-    <span class="n">dxdt</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span>
-    <span class="n">dydt</span> <span class="o">=</span> <span class="o">-</span><span class="n">c</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">dxdt</span><span class="p">,</span> <span class="n">dydt</span><span class="p">]</span>
-
-<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>   <span class="c1">#Integration span</span>
-<span class="n">x0</span>    <span class="o">=</span> <span class="mi">0</span>
-<span class="n">y0</span>    <span class="o">=</span> <span class="mi">3</span>
-<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">]</span>  <span class="c1">#initial values for x and y</span>
-<span class="n">a</span>     <span class="o">=</span> <span class="mf">0.2</span>
-<span class="n">b</span>     <span class="o">=</span> <span class="mf">1.3</span>
-<span class="n">c</span>     <span class="o">=</span> <span class="mi">8</span>
-
-<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
-<span class="n">t</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">t</span>
-<span class="n">x</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
-<span class="n">y</span>   <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Solutions to Coupled ODEs&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diffs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>

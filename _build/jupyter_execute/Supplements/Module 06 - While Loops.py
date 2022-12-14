@@ -10,28 +10,28 @@
 # ## Remember how for loops work?
 # 
 # We will use a for loop to print all of the integers from 1 to 11 (without first creating that list of integers manually).  We will not store those integers in a list, we will just print their values to indicate passes through the for loop.
-# 
-# ```python
-# for i in range(1,12):
-#     print(i)
-# ```
 
-# In[ ]:
+# In[1]:
 
 
-
+for i in range(1,12):
+    print(i)
 
 
 # ## Try to do the same thing with a while loop
 # 
 # Now the same with a while loop. We will initiate the while loop by defining n as the first integer we are interested in printing (1) and then increment the value of n until I reach an integer value of 11: 
-# 
-# ```python
-# n = 1
-# while n < 12:
-#     print(n)
-#     n = n + 1
-# ```
+
+# In[2]:
+
+
+n = 1
+while n < 12:
+    print(n)
+    n = n + 1
+
+
+# ### Breaking down the while loop
 # 
 # Just like a for loop, a while loop starts with a keyword, **while** in this case. After the keyword, we have to specify what criteria we want to use to make a decision about the range that we iterate over.  In this case, I want to continue iterations until I reach the integer 11. While statements are a type of conditional statement (**Module 05**); they tell the program to execute the commands inside of the loop as long as certain criteria are met. In general, we set these criteria using statements involving comparison operators: greater than (>), less than (<), equal to (==), greater than or equal to (>=), less than or equal to (<=), and not equal to (!=). Optionally, they may be combined with logical operators (and, or, not) if we need to satisfy multiple criteria to continue executing the while loop. 
 # 
@@ -40,12 +40,6 @@
 # In this example, we initialize the loop by defining n = 1. At the start, n = 1, so when the interpreter hits the comparison in the while statement, it finds that the criteria that n < 12 is true. It then continues into the while loop and executes the commands in the body of the loop. The value of n (1) is printed to the screen, and then we add 1 to the value of n and return to the start of the loop. Now n = 2, which is still less than 12, so things continue and repeat in the same way until it gets to n = 11.  Since 11 < 12, it makes another pass through the loop, prints 11 to the screen, and then updates the value of n one last time.  Here, it calculates that n = 12, so n < 12 is no longer satisfied, and the loop does not proceed through the next iteration. 
 # 
 # Compare the for and while loop versions to get a feel for how they work and the differences between them.
-
-# In[ ]:
-
-
-
-
 
 # ## Increment operators
 # 
@@ -97,42 +91,33 @@
 # 
 # Try out a few of these different assignment operators to see how they change the behavior of your while loop in the cell below.
 
-# In[ ]:
+# In[3]:
 
 
-
+n = 1
+while n < 12:
+    print(n)
+    n *= 3
 
 
 # ## Comparing for loops and while loops for creating a list
 # 
-# Now one more illustration of using for loops and while loops to accomplish the same task:
-# 
-# Generating a list of integers between 10 and -10 with a for loop:
-# 
-# ```python
-# A = []
-# for i in range(10,-11,-1):
-#     A.append(i)
-# print(A)
-# ```
-# 
-# Generating the same list of integers with a while loop:
-# 
-# ```python
-# B = []
-# n = 10
-# while n >= -10:
-#     B.append(n)
-#     n -= 1
-# print(B)
-# ```
-# 
-# In both cases, we start with an empty list and use the append() method to add values to it, but take a minute to think about the fundamentally different nature of for and while loops.
+# Now one more illustration of using for loops and while loops to accomplish the same task: generating a list of integers between 10 and -10. In both cases, we start with an empty list and use the append() method to add values to it, but take a minute to think about the fundamentally different nature of for and while loops.
 
-# In[ ]:
+# In[4]:
 
 
+A = []
+for i in range(10,-11,-1):
+    A.append(i)
+print(A)
 
+B = []
+n = 10
+while n >= -10:
+    B.append(n)
+    n -= 1
+print(B)
 
 
 # Both loops give you the same result, they just have different architectures, which makes them suited to different tasks. For example, if I measured 100 discrete data points, and I wanted to perform operations on all of them, then a for loop makes sense because I'm working with an existing set. If, on the other hand, I have an application that requires me to repeat an iteration until I cross some specific threshold, then I would choose a while loop. While loops really shine when I don't have a great idea about how many iterations my loop will take, I just know that I have a conditions that needs to remain true or I have some idea of what the endpoint needs to be. We'll work through a few totally random examples of engineering-type problems that you could handle by applying convergence thresholds in a while loop.
@@ -146,27 +131,23 @@
 # ### Graph the function if you can
 # 
 # I almost always start by graphing if it is univariate (one argument).  Let's do this with numpy arrays.  Here, we are choosing numpy arrays because they allow us to broadcast operations, so it makes it easy to calculate corresponding y-values for a given set of x-values.  With lists, we'd have to write a for loop or a comprehension.
-# 
-# ```python
-# import matplotlib.pyplot as plt
-# import numpy as np
-# xvals = np.linspace(-5, 5)
-# yvals = 5*xvals**2 + 8*xvals - 23
-# plt.figure(1, figsize = (5, 5))
-# plt.plot(xvals, yvals, linestyle = 'solid', color = 'black', linewidth = 1)
-# plt.hlines(0, -5, 5, color = 'red', linestyles = 'dashed', linewidth = 0.75) #add y = 0 line
-# plt.xlim(-5, 5)
-# plt.xticks(range(-5, 6, 1))
-# plt.ylim(-50, 150)
-# plt.xlabel('x values', fontsize = 12)
-# plt.ylabel('y values', fontsize = 12)
-# plt.show()
-# ```
 
-# In[ ]:
+# In[5]:
 
 
-
+import matplotlib.pyplot as plt
+import numpy as np
+xvals = np.linspace(-5, 5)
+yvals = 5*xvals**2 + 8*xvals - 23
+plt.figure(1, figsize = (5, 5))
+plt.plot(xvals, yvals, linestyle = 'solid', color = 'black', linewidth = 1)
+plt.hlines(0, -5, 5, color = 'red', linestyles = 'dashed', linewidth = 0.75) #add y = 0 line
+plt.xlim(-5, 5)
+plt.xticks(range(-5, 6, 1))
+plt.ylim(-50, 150)
+plt.xlabel('x values', fontsize = 12)
+plt.ylabel('y values', fontsize = 12)
+plt.show()
 
 
 # From the graph, we can clearly see there are two roots, one between -2 and -4, and one between 0 and 2.
@@ -187,24 +168,22 @@
 # 
 # The first thing to decide is what is our tolerance on that solution, in other words, we are iterating to find the value of x where y = 0....but what exactly are we ready to accept as "equal to zero."  2 decimal places?  8 decimal places?  This is our tolerance on the solution. Since we are using a very crude approach, we will set a loose tolerance and say that we will be satified if we can find the value of x where y is between -0.1 and 0.1. A simple way to do this is with the `abs()` function in Python, which returns the absolute value of a number.  We can set this tolerance by saying we want to continue looking for the solution as long as `abs(y) > 0.1`. For our purposes, we'll call that "close enough" to zero that we've found a solution.  Also, we graphed this function, and it tells us that there is a root between -4 and -2, and another root between 2 and 4.  We will look for the positive root here.  
 # 
-# OK then, how does that look in a while loop:
-# 
-#     x = 0.0                     #we need an initial guess for x
-#     y = -23.0                   #y at x = 0. Set an initial y for comparison test below
-#     while abs(y) > 1:         #as long abs(y) > 0.1, keep going. 
-#         y = 5*x**2 + 8*x - 23   #calculate the value of y at current x
-#         print(f'At x = {x:0.2f}, y = {0.2f}') #Print result of iteration to check progress
-#         x += 0.05               #increment x by 0.01 units.
+# OK then, how does that look in a while loop?
 #         
 # <div class = "alert alert-block alert-danger">
 #     <b>Caution</b>: we have to be careful with this type of iteration.  The tolerance we set may require us to take smaller and smaller steps with x, otherwise we can jump right over the solution and the loop will continue infinitely.  For an example of this, try changing your tolerance to 0.01 without changing your step size in x and see what happens and why.  If you need to break the loop execution, you can do so with the stop icon in the menu bar.
 #     </div>
 # 
 
-# In[ ]:
+# In[6]:
 
 
-
+x = 0.0                     #we need an initial guess for x
+y = -23.0                   #y at x = 0. Set an initial y for comparison test below
+while abs(y) > 1:           #as long abs(y) > 1, keep going. 
+    y = 5*x**2 + 8*x - 23   #calculate the value of y at current x
+    print(f'At x = {x:0.2f}, y = {y:0.2f}') #Print result of iteration to check progress
+    x += 0.1                #increment x by 0.1 units.
 
 
 # ## Example 02: Steady state suffering
@@ -226,30 +205,26 @@
 # 
 # Let's say for simplicity Lactate<sub>0</sub> = 0.75 mM, Lactate<sub>SS</sub> = 12 mM, and k is a time constant that specifies the time scales over which your blood lactate concentration responds to your change in effort from couch to 10K.
 # 
-# We can use a while loop to determine how long it takes for you to reach peak, steady state suffering.  How will I determine when I'm at steady state?  I will set an absolute error tolerance of 0.01. Once I get within 0.01 mM of my known steady state lactate concentration (12 mM), I will say that I have reached steady state. This bit of code then prints out the time needed to hit steady state and also plots blood lactate as a function of time. It works by initializing time, tolerance, and your lactate level, and then it updates all of them on each pass of the loop.  Here, we increment time by a single minute with every step; you may need to adjust that step size depending on the time scale of your process.  You may question why I picked a starting tolerance of 100.  I can pick anything as long as it is larger than my threshold tolerance.  I just need something bigger than 0.01 so that I can start the loop. **Another quick reminder:**  exp is not in base Python; you can either import it from the math package or use numpy.exp
-# 
-# ```python
-# LSS     = 12    #mM
-# L0      = 0.75  #mM
-# k       = 0.286 #1/min
-# Lactate = []
-# Tol     = 100
-# t       = 0 #min
-# step    = 1 #min
-# 
-# while Tol > 1:
-#     Lactate.append(LSS + (L0 - LSS)*np.exp(-k*t))
-#     Tol = abs(Lactate[-1] - LSS)
-#     t += step
-# 
-# print(f'It will take t = {t:0.2f} minutes to reach steady state')
-# tset  = np.linspace(0, t, len(Lactate)) 
-# plt.plot(tset,Lactate)
-# print(f'At time = {t:4.2f} minutes, you are {(LSS - Lactate[-1])/LSS*100:4.2f}% from steady state')
-# ```
+# We can use a while loop to determine how long it takes for you to reach peak, steady state suffering.  How will I determine when I'm at steady state?  I will set an absolute error tolerance of 0.01. Once I get within 0.01 mM of my known steady state lactate concentration (12 mM), I will say that I have reached steady state. This bit of code then prints out the time needed to hit steady state and also plots blood lactate as a function of time. It works by initializing time, tolerance, and your lactate level, and then it updates all of them on each pass of the loop.  Here, we increment time by a single minute with every step; you may need to adjust that step size depending on the time scale of your process.  You may question why I picked a starting tolerance of 100.  I can pick anything as long as it is larger than my threshold tolerance.  I just need something bigger than 0.01 so that I can start the loop. **Another quick reminder:**  exp is not in base Python; you can either import it from the math package or use `numpy.exp()`
 
-# In[ ]:
+# In[7]:
 
 
+LSS     = 12    #mM
+L0      = 0.75  #mM
+k       = 0.286 #1/min
+Lactate = []
+Tol     = 100
+t       = 0 #min
+step    = 1 #min
 
+while Tol > 0.01:
+    Lactate.append(LSS + (L0 - LSS)*np.exp(-k*t))
+    Tol = abs(Lactate[-1] - LSS)
+    t += step
+
+print(f'It will take t = {t:0.2f} minutes to reach steady state')
+tset  = np.linspace(0, t, len(Lactate)) 
+plt.plot(tset,Lactate)
+print(f'At time = {t:4.2f} minutes, you are {(LSS - Lactate[-1])/LSS*100:4.2f}% from steady state')
 

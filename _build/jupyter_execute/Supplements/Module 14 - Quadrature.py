@@ -24,13 +24,7 @@
 # 
 # https://en.wikipedia.org/wiki/Gaussian_quadrature
 # 
-# In Python, easy gaussian quadrature is available in Scipy, specifically, scipy.integrate.quadrature:
-# 
-# ```python
-# from scipy import integrate
-# ```
-# 
-# Read more about it here:
+# In Python, easy gaussian quadrature is available in Scipy, specifically, `scipy.integrate.quadrature`. Read more about it here:
 # 
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quadrature.html
 
@@ -45,11 +39,6 @@ import numpy as np
 # ### Defining the integrand for use with `integrate.quadrature()`
 # 
 # The basic usage is that we first define the integrand as a function (the integrand is just what we are going to integrate). 
-# 
-# ```python
-# def integrand(x):
-#     return x**2
-# ```
 
 # In[2]:
 
@@ -67,10 +56,6 @@ def integrand(x):
 # ```
 # 
 # It returns both the value of the integral and the error associated with the numerical integration. For this example:
-# 
-# ```python
-# int_val, err_val = integrate.quadrature(integrand, 0, 10)
-# ```
 
 # In[3]:
 
@@ -82,18 +67,13 @@ print(int_val, err_val)
 # ## Integrating discrete data: Trapezoidal and Simpson's
 # 
 # Simpson's rule and the trapezoidal rule work for discrete sets of data that we need to integrate.  So, for example, if I just calculated some discrete values of $y = x^2$ on the domain $x = [0,10]$:
-# 
-# ```python
-# x = np.linspace(0, 10, 15)
-# y = x**2    
-# plt.scatter(x,y)
-# ```
 
 # In[4]:
 
 
 x = np.linspace(0, 10, 15)
 y = x**2    
+
 plt.figure(1, figsize = (5, 5))
 plt.scatter(x, y, marker = 'o', color = 'none', edgecolor = 'black')
 plt.xlim(0, 12)
@@ -109,21 +89,9 @@ plt.show()
 # 
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html
 
-# In[ ]:
-
-
-
-
-
 # ### Trapezoidal Rule
 # 
-# If I wanted to calculate an approximate integral using the trapezoidal rule, would do so as follows:
-# 
-# ```python
-# integrate.trapezoid(y, x)
-# ```
-#     
-# This will return the approximate integrated area of y(x)dx over the domain of x that we've sampled.
+# If I wanted to calculate an approximate integral using the trapezoidal rule, would do so as in the following cell; this will return the approximate integrated area of y(x)dx over the domain of x that we've sampled.
 
 # In[5]:
 
@@ -134,10 +102,6 @@ integrate.trapezoid(y, x)
 # ### Simpson's Rule
 # 
 # Alternatively, the analogous integration using Simpson's rule:
-# 
-# ```python
-# integrate.simpson(y, x) 
-# ```
 
 # In[6]:
 
@@ -147,14 +111,7 @@ integrate.simpson(y, x)
 
 # ### Cumulative integration with the trapezoidal rule
 # 
-# Finally, we commonly need to know the cumulative value of the integral at each value of the independent variable. This is very common in working with probability or residence time distributions. We can get this using the following syntax, which will only use a trazezoidal rule:
-# 
-# ```python
-# ctrapz = integrate.cumulative_trapezoid(y, x)
-# plt.plot(x[1:], ctrapz)
-# ```
-#     
-# You'll see that this generates an array of integral values.  Basically, it keeps a running tab of the integrated area as you move through the set.
+# Finally, we commonly need to know the cumulative value of the integral at each value of the independent variable. This is very common in working with probability or residence time distributions. We can get this using the following syntax, which will only use a trazezoidal rule. You'll see that this generates an array of integral values.  Basically, it keeps a running tab of the integrated area as you move through the set.
 # 
 # https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.cumulative_trapezoid.html
 

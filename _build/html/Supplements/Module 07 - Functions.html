@@ -402,8 +402,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wait-how-would-you-do-this-with-a-list">
-   Wait…How would you do this with a list??
+  <a class="reference internal nav-link" href="#wait-how-would-you-do-this-with-values-in-a-list-or-a-tuple">
+   Wait…How would you do this with values in a list or a tuple??
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -503,8 +503,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wait-how-would-you-do-this-with-a-list">
-   Wait…How would you do this with a list??
+  <a class="reference internal nav-link" href="#wait-how-would-you-do-this-with-values-in-a-list-or-a-tuple">
+   Wait…How would you do this with values in a list or a tuple??
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -572,29 +572,20 @@ title="Print to PDF"
 <p>This is a simple <em>univariate scalar</em> function. We call it univariate because it has only one argument (x).  We call it scalar because for a given input of x, it returns a single output value for y. But we will see in a moment that functions are far more general and flexible.  In Python, we follow a few important rules to define a function.</p>
 <section id="function-syntax">
 <h2>Function syntax<a class="headerlink" href="#function-syntax" title="Permalink to this headline">#</a></h2>
-<p>To start, you declare a function with the <strong>def</strong> keyword, and you always use the following syntax:</p>
+<p>To start, the most traditional way to declare a function is with the <strong>def</strong> keyword, and you always use the following syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
 </pre></div>
 </div>
-<p>Where <code class="docutils literal notranslate"><span class="pre">function_name</span></code> can be anything you want it to be, and <code class="docutils literal notranslate"><span class="pre">inputs</span></code> can be zero, one, or more arguments that you will provide to the function in order for it to perform its operations. Of the parts you see here, the only things that are non negotiable in a function definition are <code class="docutils literal notranslate"><span class="pre">def</span></code> and <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">function_name</span></code> can be anything you want it to be, and <code class="docutils literal notranslate"><span class="pre">inputs</span></code> can be zero, one, or more arguments that you will provide to the function in order for it to perform its operations. Of the parts you see here, the only things that are non negotiable in this type of function definition are <code class="docutils literal notranslate"><span class="pre">def</span></code> and <code class="docutils literal notranslate"><span class="pre">:</span></code></p>
 <p><strong>The next bit is important:</strong> Every line after the first one in the function (the one with <code class="docutils literal notranslate"><span class="pre">def</span></code> and <code class="docutils literal notranslate"><span class="pre">:</span></code> in it), all the way up to the end of your function, <em>must be indented from the left margin</em>. This is the same syntax as <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, <code class="docutils literal notranslate"><span class="pre">for</span></code> loops, and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops. If a line is indented beyond the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword, that means that line is inside of the function’s scope.  Once you return to the left margin, you are no longer writing code inside of that function. Python uses indentation to define a function scope instead of something like an <strong>end</strong> keyword that you see in many languages. In Python, indentation is what distinguishes a bit of code from being inside of a function (or loop) and being outside of that function (or loop). Typically a good editor will auto-indent the next line for you once it sees a : at the end of a line.  Jupyter, for example, does this by default.</p>
-<p><strong>It is also important to know</strong>:  if you want a function to accept an input from you, you have to specify which inputs you will give it.  Conversely, if you want it to return an output, you will need to tell it which outputs to return.</p>
-<div class = "alert alert-block alert-info">
-    <b>Note</b>: If you do not specify what the function returns in Python, it will return the last thing computed by the function as the default return.
-    </div>
-<p>This is accomplished in the cell below.  It will create a function called <code class="docutils literal notranslate"><span class="pre">y1</span></code> that accepts an input, which is called <code class="docutils literal notranslate"><span class="pre">x</span></code> locally inside of the function. It uses that value of <code class="docutils literal notranslate"><span class="pre">x</span></code> to perform the required operations, and it returns the value of <code class="docutils literal notranslate"><span class="pre">result</span></code> as an output.</p>
+<p>With the above rules and caveats in mind, in the cells below, we create a function called <code class="docutils literal notranslate"><span class="pre">y1</span></code> that accepts an argument (an input), which is called <code class="docutils literal notranslate"><span class="pre">x</span></code> locally inside of the function. It uses that value of <code class="docutils literal notranslate"><span class="pre">x</span></code> to perform the required operations, and it returns the value of <code class="docutils literal notranslate"><span class="pre">result</span></code> as an output.  We also will go ahead an import the packages we will need later in this module. Function definitions themselves are part of base Python, but we’ll also need <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>, and <code class="docutils literal notranslate"><span class="pre">random</span></code> to complete the exercises in this module.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>    
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">y1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
     <span class="k">return</span> <span class="n">result</span>
 </pre></div>
@@ -604,7 +595,7 @@ title="Print to PDF"
 </section>
 <section id="it-is-helpful-to-think-like-a-computer">
 <h2>It is helpful to think like a computer<a class="headerlink" href="#it-is-helpful-to-think-like-a-computer" title="Permalink to this headline">#</a></h2>
-<p>Let’s get used to thinking through how a piece of code will work - you really cannot learn to program until you understand how code is executed, so this is good practice. In this example, any time I want to evaluate the answer for y(x), I give a value of x to the function, i.e., I provide the necessary <strong>input</strong> to my function. The function then computes the “result” for that value of the input using whatever operations I specify, and then it <strong>returns</strong> that result as its <strong>output</strong>. I can set that result equal to a variable, I can print it to the screen, and I can use it for all manner of operations once I’ve run the function. This is a fairly easy function to evaluate, and I can see that for x = 10, this function should give me the result that y = 25.  Let’s try it in the cell below; we’ll pass the arugment 10 to our function y(x) and see what it returns. You pass an argument to a function using parentheses <strong>()</strong> in Python–pay attention to how this looks different from passing an index to an array using brackets <strong>[]</strong>:</p>
+<p>Let’s get used to thinking through how a piece of code will work - you really cannot learn to program until you understand how code is executed, so this is good practice. In this example, any time I want to evaluate the answer for y(x), I give a value of x to the function, i.e., I provide the necessary <strong>input</strong> to my function. The function then computes the “result” for that value of the input using whatever operations I specify, and then it <strong>returns</strong> that result as its <strong>output</strong>. This is a fairly easy function to evaluate, and I can see that for x = 10, this function should give me the result that y = 25.  Let’s try it in the cell below; we’ll pass the arugment 10 to our function y(x) and see what it returns. You pass an argument to a function using parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> in Python–pay attention to how this looks different from passing an index to an array using brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -635,7 +626,7 @@ np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\n
 output     int         25
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
-y1         function    &lt;function y1 at 0x0000027107BB8F70&gt;
+y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
 </pre></div>
 </div>
 </div>
@@ -644,8 +635,11 @@ y1         function    &lt;function y1 at 0x0000027107BB8F70&gt;
 <section id="lambda-functions">
 <h2>lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h2>
 <p>Most languages will allow you to define an inline or anonymous function. In Python, these are called lambda functions. These are functions that you can write without going through the <code class="docutils literal notranslate"><span class="pre">def</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, indent syntax outlined above. A key feature of a lambda function is that we do not have to bind it to a variable or function name (though you are not prevented from doing so).</p>
-<p>In general, lambda function definitions are best suited to simple functions, of which the above qualifies.  I can write y2(x) using the lambda function syntax as shown in the cell below, and then I can pass an input value for x just as I normally would.
-Because lambda functions are generally written as one liners, they are best suited to simple functions of one or two variables; however, they are extremely useful in many situations, so you’ll want to understand their syntax and how to construct lambda functions.</p>
+<p>The basic syntax for constructing a lambda function is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">arg_1</span><span class="p">,</span> <span class="n">arg_2</span><span class="p">,</span> <span class="n">arg_3</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="n">arg_final</span><span class="p">:</span> <span class="n">function</span> <span class="n">operations</span>
+</pre></div>
+</div>
+<p>I can extend that logic to write <span class="math notranslate nohighlight">\(y_2(x) = 2x+5\)</span> using the lambda function syntax as shown in the cell below, and then I can pass an input value for x just as I normally would. Because lambda functions are generally written as one liners, they are best suited to simple functions of one or two variables; however, they are extremely useful in many situations, so you’ll want to understand their syntax and how to construct lambda functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
@@ -719,9 +713,7 @@ Because lambda functions are generally written as one liners, they are best suit
 </div>
 </div>
 </div>
-<p>We can generally pass them to a function and have our function operate on each element in the array without using something like a loop or a comprehension.  This ends up being very convenient in most of our course; hence the recommendation to <em>usually</em> work with numpy arrays in engineering courses.</p>
-<p>You <em>can</em> use lists or tuples to do this, but in those cases, you’ll probably need to write a loop to evaluate the function at each point; numpy arrays are much cleaner for broadcasting operations to multiple entires in a collection.</p>
-<p>Because we have defined xvals and yvals as numpy arrays, we can pass either of these directly into our functions, and have them return collections of outputs.  In other words, they are now vector functions because we are passing vectors (arrays) of inputs to them.  Try evaluating:</p>
+<p>We can generally pass them to a function and have our function operate on each element in the array without using something like a loop or a comprehension.  This ends up being very convenient in most of our course; hence the recommendation to <em>usually</em> work with numpy arrays in engineering courses.  Because we have defined xvals and yvals as numpy arrays, we can pass either of these directly into our functions, and have them return collections of outputs.  In other words, they are now vector functions because we are passing vectors (arrays) of inputs to them.  Try evaluating:</p>
 <p>You should see that what this is doing is evaluating your function for every value in the arrays that you’re passing into the function.  This is super useful!!!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -740,14 +732,15 @@ Because lambda functions are generally written as one liners, they are best suit
 </div>
 </div>
 </section>
-<section id="wait-how-would-you-do-this-with-a-list">
-<h2>Wait…How would you do this with a list??<a class="headerlink" href="#wait-how-would-you-do-this-with-a-list" title="Permalink to this headline">#</a></h2>
+<section id="wait-how-would-you-do-this-with-values-in-a-list-or-a-tuple">
+<h2>Wait…How would you do this with values in a list or a tuple??<a class="headerlink" href="#wait-how-would-you-do-this-with-values-in-a-list-or-a-tuple" title="Permalink to this headline">#</a></h2>
 <p>Just so you recognize that it is an issue, let’s say I wanted to pass the following set of values into my function y1(x), and I naively create it as a list, thinking that I can pass it directly as a function argument:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">y1</span><span class="p">(</span><span class="n">xlist</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>You will get an error because lists do not work with element-wise, “vectorized” operations by default.  You would have to use a loop to work with this as a list.  Hence, numpy arrays are slightly cleaner for the type of work we usually do. It’s worth knowing how to handle this situation since it can be a very useful skill. This can be done with a for loop:</p>
+<p>You will get an error because lists do not work with element-wise, “vectorized” operations by default.  You can either use a loop to work with this as a list, or you can map the function onto all of the elements in your list.  For this reason, numpy arrays are slightly cleaner for the type of work we usually do in engineering courses, but it is worth knowing how to handle broadcasting a function to all elements in, e.g., a list or a tuple.</p>
+<p>It can be done using a for loop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -764,7 +757,7 @@ Because lambda functions are generally written as one liners, they are best suit
 </div>
 </div>
 </div>
-<p>Or, once you get the hang of it, the generally preferred way to do this in Python is with a comprehension:</p>
+<p>Though it would probably be preferable to do this with in Python is with a comprehension:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_out</span> <span class="o">=</span> <span class="p">[</span><span class="n">y1</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">xlist</span><span class="p">]</span>
@@ -781,12 +774,12 @@ Because lambda functions are generally written as one liners, they are best suit
 </section>
 <section id="more-complex-functions-multiple-operations-and-outputs">
 <h2>More complex functions, multiple operations and outputs<a class="headerlink" href="#more-complex-functions-multiple-operations-and-outputs" title="Permalink to this headline">#</a></h2>
-<p>The above are all fine examples of functions, but I want everyone to learn to think more abstractly about what functions are and what they can do, so we need to break the habit of always thinking that by “function” we mean some sort of “polynomial” as in the examples above.</p>
-<p>The general definition, again, is that functions are code modules that take inputs and use those inputs to generate and return outputs. They can be very large and complex, they can take many inputs, they can do lots of different operations, and they can return many outputs.</p>
-<p>So let’s try something more complex - we will create a function called <strong>f</strong> that takes x, y, and z as inputs; uses those inputs to calculate the corresponding values of A, B, and C; and returns A, B, and C as outputs. Technically, it will (by default) return a tuple of comma separated values for A, B, and C unless we specify otherwise.</p>
+<p>The above are all fine examples of functions, everyone would benefit from learning to think more abstractly about what functions are and what they can do, so we need to break the habit of always thinking that by “function” we mean some sort of “polynomial” as in the examples above.</p>
+<p>The general idea is that functions are code modules that take inputs from us, use those inputs to generate outputs, and then and return those outputs to us. They can be very large and complex, they can take many inputs, they can do lots of different operations, and they can return many outputs.</p>
+<p>So let’s try something more complex - we will create a function called <strong>f1</strong> that takes x, y, and z as inputs (it is a multivariate function); uses those inputs to calculate the corresponding values of A, B, and C; and returns A, B, and C as outputs (it is a vector function). Technically, it will (by default) return a tuple of comma separated values for A, B, and C unless we specify otherwise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">*</span><span class="mi">5</span>
     <span class="n">C</span> <span class="o">=</span> <span class="n">z</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">B</span>
@@ -809,10 +802,10 @@ Because lambda functions are generally written as one liners, they are best suit
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">])</span>  <span class="c1">#Numpy array with A, B, and C as its elements. </span>
 </pre></div>
 </div>
-<p>Now that I’ve defined the function, I can use it function to calculate A, B, and C for x = 1, y = 2, and z = 3.  As the next example shows, you must define the outputs if you want to store them in the workspace; otherwise, the function will just return them without storing the values. Try this example in the cell below for x, y, z = 1, 2, 3; it should return three numbers, the last of which is, by pure serendipity, the answer to the ultimate question of life, the universe, and everything. Confirm that you are getting the correct result before proceeding.</p>
+<p>Now that we’ve defined the function, we can use it function to calculate <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">C</span></code> for <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">3</span></code>.  As the next example shows, you must define the outputs if you want to store them in the workspace; otherwise, the function will just return them without storing the values. Try this example in the cell below for <code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span> <span class="pre">=</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3</span></code>; it should return three numbers, the last of which is, by pure serendipity, the answer to the ultimate question of life, the universe, and everything. Confirm that you are getting the correct result before proceeding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="o">%</span><span class="k">whos</span>
 </pre></div>
 </div>
@@ -821,18 +814,18 @@ Because lambda functions are generally written as one liners, they are best suit
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 15, 42)
 Variable   Type        Data/Info
 --------------------------------
-f          function    &lt;function f at 0x0000027109E72670&gt;
+f1         function    &lt;function f1 at 0x0000017EB7357280&gt;
 np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\numpy\\__init__.py&#39;&gt;
 output     int         25
-p1         function    &lt;function &lt;lambda&gt; at 0x0000027109E72550&gt;
-p2         function    &lt;function p2 at 0x0000027107BB8E50&gt;
+p1         function    &lt;function &lt;lambda&gt; at 0x0000017EB9612310&gt;
+p2         function    &lt;function p2 at 0x0000017EB96124C0&gt;
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
 value      int         10
 xlist      list        n=4
 xvals      ndarray     10: 10 elems, type `float64`, 80 bytes
-y1         function    &lt;function y1 at 0x0000027107BB8F70&gt;
-y2         function    &lt;function &lt;lambda&gt; at 0x0000027107BB8CA0&gt;
+y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
+y2         function    &lt;function &lt;lambda&gt; at 0x0000017EB7357820&gt;
 y_out      list        n=4
 yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </pre></div>
@@ -841,7 +834,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">#We can get A, B, and C assigned separately this way.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1">#We can get A, B, and C assigned separately this way.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
 <span class="o">%</span><span class="k">whos</span>
 </pre></div>
@@ -854,18 +847,18 @@ Variable   Type        Data/Info
 A          int         3
 B          int         15
 C          int         42
-f          function    &lt;function f at 0x0000027109E72670&gt;
+f1         function    &lt;function f1 at 0x0000017EB7357280&gt;
 np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\numpy\\__init__.py&#39;&gt;
 output     int         25
-p1         function    &lt;function &lt;lambda&gt; at 0x0000027109E72550&gt;
-p2         function    &lt;function p2 at 0x0000027107BB8E50&gt;
+p1         function    &lt;function &lt;lambda&gt; at 0x0000017EB9612310&gt;
+p2         function    &lt;function p2 at 0x0000017EB96124C0&gt;
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
 value      int         10
 xlist      list        n=4
 xvals      ndarray     10: 10 elems, type `float64`, 80 bytes
-y1         function    &lt;function y1 at 0x0000027107BB8F70&gt;
-y2         function    &lt;function &lt;lambda&gt; at 0x0000027107BB8CA0&gt;
+y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
+y2         function    &lt;function &lt;lambda&gt; at 0x0000017EB7357820&gt;
 y_out      list        n=4
 yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </pre></div>
@@ -878,8 +871,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 <h2>What is your Coat of Arms anyway?<a class="headerlink" href="#what-is-your-coat-of-arms-anyway" title="Permalink to this headline">#</a></h2>
 <p><strong>It’s also educational to combine things…like functions, random number generation, and list comprehensions.</strong></p>
 <p>I was trying to come up with a fun and completely general example of something you can do with a function…and it occurred to me that you never know when you will need a set of polyhedral dice (that means many sided dice) on a moment’s notice.  You may have none on hand and really need to roll a d12 for something.</p>
-<p>Seriously, <strong>Has this ever happened to you?</strong></p>
-<p>Sure, you can Google something. But how about we impress…<em>almost no one</em>…by writing our own dice roller in Python?</p>
+<p>Seriously, <strong>has this ever happened to you?</strong> Sure, you can Google something. But how about we impress…<em>almost no one</em>…by writing our own dice roller in Python?</p>
 <p>We will do this using a function. This function will accept two inputs from you:  The number of <strong>sides</strong> that your dice have, and the number of <strong>dice</strong> you wish to roll. It will produce one output: a list of your dice rolls. First, though, we have to learn a few things and import a new module.</p>
 <section id="random-number-generation">
 <h3>Random number generation<a class="headerlink" href="#random-number-generation" title="Permalink to this headline">#</a></h3>
@@ -895,12 +887,16 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </section>
 <section id="generating-random-integers-in-a-range-roll-the-dice">
 <h3>Generating random integers in a range (roll the dice)<a class="headerlink" href="#generating-random-integers-in-a-range-roll-the-dice" title="Permalink to this headline">#</a></h3>
-<p>Now that we have imported this package, we can use the modules included in that package.  The one we are interested in is called <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code>.  We want <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> here because it returns integers, which is the same as a dice roll. <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> takes two inputs - the smallest number you want included in your random set (we will call this <strong>a</strong>), and the largest number you want included in your random set (we will call this <strong>b</strong>). <strong>Note</strong> unlike ranges, <code class="docutils literal notranslate"><span class="pre">randint()</span></code> includes both endpoints!</p>
+<p>Now that we have imported this package, we can use the modules included in that package.  The one we are interested in is called <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code>.  We want <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> here because it returns integers, which is the same as a dice roll. <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> takes two inputs - the smallest number you want included in your random set (we will call this <strong>a</strong>), and the largest number you want included in your random set (we will call this <strong>b</strong>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike ranges, <code class="docutils literal notranslate"><span class="pre">randint()</span></code> includes both endpoints!</p>
+</div>
 <p>When you want to generate a random integer between (and including) a and b, you would type:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Try it in the cell below for a single d6, for which a = 1 and b = 6.</p>
+<p>We’ll demonstrate this in the cell below for a single d6, for which a = 1 and b = 6.  If you execute this cell repeatedly, you’ll see that it returns the integers 1 through 6, as you’d expect from a d6 roll.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
@@ -908,7 +904,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -918,17 +914,17 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 <h3>How about you roll the dice a lot of times…<a class="headerlink" href="#how-about-you-roll-the-dice-a-lot-of-times" title="Permalink to this headline">#</a></h3>
 <p>OK, so that gives us a result for a single dice roll for a d6.  Now let’s abstract this idea a bit and create a function that will allow us to roll any type of die we want as many times as we want.</p>
 <p>The core of this function is going to be a list comprehension. Recall from Module 04 that list comprehensions provide a concise way to create a list of numbers easily using any (relatively simple) operation that you have in mind. In the first exercise, we used them to generate a large list of squares and to convert a list of integers into strings…but we can just as easily use it to create a list of random integers between (and including) <strong>a</strong> and <strong>b</strong>…or, relevant here, a set of 15 rolls on a d6:</p>
-<p>This is accomplished in the cell below using a list comprehension that is making 15 random rolls for each element in the iterable <code class="docutils literal notranslate"><span class="pre">range(1,16)</span></code>, and it stores each one in a list called <strong>roll</strong>. As usual, <code class="docutils literal notranslate"><span class="pre">range()</span></code> excludes the upper limit from iterations, so we go to 16 instead of 15.</p>
+<p>This is accomplished in the cell below using a list comprehension that is making 15 random rolls for each element in the iterable <code class="docutils literal notranslate"><span class="pre">range(0,15)</span></code>, and it stores each one in a list called <strong>roll</strong>. As usual, <code class="docutils literal notranslate"><span class="pre">range()</span></code> excludes the upper limit from iterations, so we go from 0 to 14.</p>
 <p>Try it out in the cell below; if you print the result, you should see a set of 15 random numbers all between (and including) 1 and 6.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roll</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">16</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roll</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">roll</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 5, 6, 2, 5, 5, 6, 3, 1, 3, 6, 4, 4, 1, 6]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 4, 1, 2, 1, 2, 5, 6, 6, 3, 3, 5, 3, 3, 4]
 </pre></div>
 </div>
 </div>
@@ -936,11 +932,11 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </section>
 <section id="let-s-make-this-more-flexible-so-that-we-can-roll-things-other-than-a-d6">
 <h3>Let’s make this more flexible so that we can roll things other than a d6<a class="headerlink" href="#let-s-make-this-more-flexible-so-that-we-can-roll-things-other-than-a-d6" title="Permalink to this headline">#</a></h3>
-<p>Now we’re getting somewhere!  Let’s see if we can put that list comprehension inside of a function in a way that will let us use this function to calculate any number of roll outcomes for any type of die. To do this, we will construct a function that takes two inputs from us:  the number of <strong>sides</strong> that our dice have, and the number of <strong>dice</strong> we want to roll. Then we use our list comprehension and random integer generator to get the result of those dice rolls. The way I have written this range will give me the exact number of rolls I want, i.e., the range between the first roll (1) and up to but not including the last roll (dice+1).  The result is a number of rolls = dice as desired. Go ahead and define this function in the cell below.</p>
+<p>Now we’re getting somewhere!  Let’s see if we can put that list comprehension inside of a function in a way that will let us use this function to calculate any number of roll outcomes for any type of die. To do this, we will construct a function that takes two inputs from us:  the number of <strong>sides</strong> that our dice have, and the number of <strong>dice</strong> we want to roll. Then we use our list comprehension and random integer generator to get the result of those dice rolls. The way I have written this range will give me the exact number of rolls I want, i.e., the range between the first roll (index = 0) and up to the last roll (index = dice - 1).  The result is a number of rolls = dice as desired. Go ahead and define this function in the cell below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">roller</span><span class="p">(</span><span class="n">sides</span><span class="p">,</span> <span class="n">dice</span><span class="p">):</span>
-    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dice</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dice</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">roll</span>
 </pre></div>
 </div>
@@ -956,12 +952,12 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 <p>Try it for all the dice/sides combinations given above, and print your results to the screen, and then consult the next markdown cell…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roller</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roller</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[20, 5, 13, 10, 13]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11, 5, 2, 8]
 </pre></div>
 </div>
 </div>
@@ -986,13 +982,11 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">sides</span><span class="p">,</span> <span class="n">dice</span><span class="p">):</span>
-    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dice</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dice</span><span class="p">)]</span>
     <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">roll</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">roll</span><span class="p">,</span> <span class="n">index</span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">roll</span><span class="p">,</span> <span class="n">index</span>  <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">roll</span><span class="p">,</span> <span class="n">index</span>  <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">color</span>        <span class="o">=</span> <span class="n">list1</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="n">animal</span>       <span class="o">=</span> <span class="n">list2</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">attribute</span>    <span class="o">=</span> <span class="n">list3</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
@@ -1000,8 +994,8 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 <span class="n">labels</span>       <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;animal&#39;</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="s1">&#39;kingdom&#39;</span><span class="p">]</span>
 <span class="n">coat_of_arms</span> <span class="o">=</span> <span class="p">[</span><span class="n">color</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">kingdom</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Youre rolls were </span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;This gives indices of </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Your rolls from 4d20 were     </span><span class="si">{</span><span class="n">roll</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The corresponding indices are </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your coat of arms must include the following:&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">detail</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">coat_of_arms</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    </span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">9s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">detail</span><span class="si">:</span><span class="s1">s</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -1009,13 +1003,13 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Youre rolls were [15, 8, 1, 20]
-This gives indices of [14, 7, 0, 19]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your rolls from 4d20 were     [5, 13, 16, 12]
+The corresponding indices are [4, 12, 15, 11]
 Your coat of arms must include the following:
-    color     = green
-    animal    = chtulu
-    attribute = bridgewater
-    kingdom   = Mount Sentvoor
+    color     = cornflower
+    animal    = dire mouse
+    attribute = raniform
+    kingdom   = Gran March
 </pre></div>
 </div>
 </div>
@@ -1041,7 +1035,7 @@ Your coat of arms must include the following:
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#This is our dice roller</span>
 <span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">sides</span><span class="p">,</span> <span class="n">dice</span><span class="p">):</span>
-    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dice</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dice</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">roll</span>
 
 <span class="c1">#We will start the experiment by rolling 4 dice </span>
@@ -1055,7 +1049,7 @@ Your coat of arms must include the following:
 <span class="k">while</span> <span class="n">threshold</span> <span class="o">&gt;</span> <span class="mf">0.001</span><span class="p">:</span>         <span class="c1">#Run the commands below as long as threshold is &gt; 0.001</span>
     <span class="n">counter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>            <span class="c1">#You&#39;ve started the experiment; you roll &quot;n&quot; dice this time.</span>
     <span class="n">total</span> <span class="o">=</span> <span class="p">[]</span>                   <span class="c1">#Initialize a list &#39;total&#39; to store results of all n rolls</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>         <span class="c1">#Use a for loop to make n damage rolls and store the result</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>        <span class="c1">#Use a for loop to make n damage rolls and store the result</span>
         <span class="n">roll1</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#This is your 4d12 roll</span>
         <span class="n">roll2</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">2</span><span class="p">)</span> <span class="c1">#This is your 2d4 roll</span>
         <span class="n">base</span>  <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">roll1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>   <span class="c1">#Adding modifier to base</span>
@@ -1066,7 +1060,7 @@ Your coat of arms must include the following:
 
     <span class="n">averages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_result_for_n_rolls</span><span class="p">)</span>  <span class="c1">#append the mean of n rolls onto running total </span>
     <span class="n">mean_result_for_all_rolls</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">averages</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">averages</span><span class="p">)</span> <span class="c1">#Mean of every roll.</span>
-
+    
     <span class="c1">#For threshold check the difference in the mean of &quot;n&quot; rolls and the mean of every roll.  </span>
     <span class="n">threshold</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mean_result_for_all_rolls</span> <span class="o">-</span> <span class="n">mean_result_for_n_rolls</span><span class="p">)</span>
 
@@ -1074,27 +1068,25 @@ Your coat of arms must include the following:
     <span class="n">n</span> <span class="o">+=</span><span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We converge on the true mean after making </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s1">d</span><span class="si">}</span><span class="s1"> damage rolls&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The average damage calculated from this simulation is </span><span class="si">{</span><span class="n">averages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We converged to within </span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s1"> deviation from the true mean&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The average damage calculated from this simulation is </span><span class="si">{</span><span class="n">averages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">4.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We converged to within </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">averages</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">38</span><span class="p">)</span><span class="si">}</span><span class="s1"> deviation from the true mean&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">counter</span><span class="p">,</span> <span class="n">averages</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">counter</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of damage rolls made&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Damage Estimate from Monte Carlo Simulation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We converge on the true mean after making 72 damage rolls
-The average damage calculated from this simulation is 37.99
-We converged to within 0.0004126180891219633 deviation from the true mean
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We converge on the true mean after making 189 damage rolls
+The average damage calculated from this simulation is 37.9840
+We converged to within 0.015957446808513964 deviation from the true mean
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Damage Estimate from Monte Carlo Simulation&#39;)
-</pre></div>
-</div>
-<img alt="../_images/Module 07 - Functions_42_2.png" src="../_images/Module 07 - Functions_42_2.png" />
+<img alt="../_images/Module 07 - Functions_42_1.png" src="../_images/Module 07 - Functions_42_1.png" />
 </div>
 </div>
 </section>

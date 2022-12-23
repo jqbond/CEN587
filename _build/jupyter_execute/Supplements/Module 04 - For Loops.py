@@ -3,7 +3,7 @@
 
 # # For Loops, Vectorization, and Plotting
 # 
-# One of the places that computers shine most is in automating repetitive tasks. When faced with calculations over large sets, we frequently handle them using loops. To truly appreciate the benefit of a loop, you have to think big - if you need to do one or ten iterations to get an answer, then it might be reasonable to solve your problem by hand, using a calculator, or using a spreadsheet. But when you have to perform an operation hundreds or thousands of times, then you'll want to use a programming language, and you will probably consider looping those calculations to automate iterations so that you don't have to write them out line by line.
+# One of the places that computers shine most is in automating repetitive tasks. When faced with calculations over large sets, we frequently handle them using loops. To truly appreciate the benefit of a loop, you have to think big -- if you need to do one or ten iterations to get an answer, then it might be reasonable to solve your problem by hand, using a calculator, or using a spreadsheet. But when you have to perform an operation hundreds or thousands of times, then you'll want to use a programming language, and you will probably consider looping those calculations to automate iterations so that you don't have to write them out line by line.
 # 
 # We will use two types of loops: **for loops** and **while loops**. At a high level, they are similar in that they will repeat an operation in a cyclic fashion until they meet some criteria that we have specified, at which point, they terminate and exit, returning any outputs that we generated over the coures of the loop.
 # 
@@ -11,7 +11,9 @@
 # 
 # As usual, the best way to get a feel for this is with some examples.  
 # 
-# **An important note before we start:**  for loops and while loops are really just general tools that you can use in solving problems and processing data. Both are almost infinitely flexible in how they are used. It is important to remember this in going through the next examples. These will illustrate some examples of using loops, but they are intended to get you familiar with their architechure, syntax, logic, and execution. Do not get stuck in thinking "This is always how I should use a for loop" or "I can only use a while loop in this situation." You really can abstract both types of loops to solve many different problems, it only requires that you think about how to adapt the basic architecture of the loop to solve the problem at hand.
+# ```{note}
+# For loops and while loops are just general tools that you can use in solving problems and processing data. Both are almost infinitely flexible in how they are used. It is important to remember this in going through examples in Module 04 and Module 06, which illustrate some ways that one can use for loops and while loops. More importantly, these examples will get you familiar with loop architechure, syntax, logic, and execution. Do not get stuck in thinking "This is always how I should use a for loop" or "I can only use a while loop in this situation." You can abstract both types of loops to solve many different problems. Doing so only requires that you think about how to adapt the basic architecture of the loop to solve the problem at hand.
+# ```
 
 # In[1]:
 
@@ -22,7 +24,7 @@ import numpy as np
 # 
 # ## For Loops
 # 
-# Let's start with a basic for loop.  Again, the key thing about a for loop is that it will perform the specified operation for each  element in a collection, in the order that the elements appear in the collection. The "collection" in a for loop is called the iterable: it is what the loop "iterates" over. Common things that we iterate over in a for loop are lists, ranges, and numpy arrays. 
+# Let's start with a basic for loop.  The key thing about a for loop is that it will perform the specified operation for each  element in a collection, in the order that the elements appear in the collection. The "collection" in a for loop is called the iterable: it is what the loop "iterates" over. Common things that we iterate over in a for loop are lists, ranges, and numpy arrays, but you can iterate over pretty much any type of collection. 
 # 
 # For example, let's say I have a list of the integers between 1 and 11. Let's create and print that list out so we can see the output. Notice how it returns the full list on a single line, wrapped in brackets and separated by commas and looking just like a list? 
 
@@ -58,7 +60,7 @@ print(A)
 
 # ### For loop syntax
 # 
-# Here are a few important notes about **for loop** syntax:  My choices of the word "value" and the letter "A" to represent my list are arbitrary.  You can use almost any strings you like here.  Otherwise, the first line in a for loop always looks like we have written it above. It starts flush left with the **for** keyword.  Then it always takes the form: 
+# Here are a few important notes about **for loop** syntax:  The choices above of the word "value" and the letter "A" to represent the list are arbitrary.  You can use almost any strings you like here.  Otherwise, the first line in a for loop always looks like we have written it above. It starts flush left with the **for** keyword.  Then it always takes the form: 
 # 
 # ```python
 # for variable in iterable:
@@ -66,11 +68,11 @@ print(A)
 # #for loop ends when you return flush left
 # ```
 # 
-# The first line in a for loop is terminated by a colon; the colon is non-negotiable. Finally, every line inside the body of a for loop is indented relative to the for keyword. This is how you designate that a bit of code is inside the for loop or outside of the loop. Once you are done defining the scope of the for loop, you return to writing code flush left, which signals to the interpreter that you are no longer inside of the for loop.
+# The first line in a for loop is terminated by a colon; the colon is non-negotiable. Finally, every line inside the body of a for loop is indented relative to the for keyword. This is how you designate that a bit of code is inside the scope of the for loop or outside the scope of the loop. Once you are done defining the scope of the for loop, you return to writing code flush left, which signals to the interpreter that you are no longer inside of the for loop.
 # 
-# <div class = "alert alert-block alert-info">
-#     The basic syntatic structure of a for loop is shared by many other constructs in Python. If statements, while loops, and functions all will use the same colon-indent structure to specify their scope.
-#     </div>
+# ```{note}
+# The basic syntatic structure of a for loop is shared by many other constructs in Python. If statements, while loops, and functions also use the same colon-indent structure to specify their scopes.
+# ```
 
 # ### Adding complexity to the loop
 # 
@@ -80,27 +82,26 @@ print(A)
 # 2. Use the iterable as an index to reference elements in data sets for operations in a for loop.
 # 
 # Our simple print example was the first kind - we had a list of integers in A, and we printed out each integer in A by cycling its values into a print() function on each pass through a for loop. For other examples of this type of behavior, one could try: 
-# 
-# ```python
-# for value in A:
-#     print(value**2) #Print the square of each element in the list A
-# ```
-#     
-# ```python
-# for value in A:
-#     print(value - 74) #Print the value of each element in the list A minus 74
-# ```
-# 
-# ```python
-# for value in A:
-#     print(value%2) #Print the remainder of each element in A divided by 2
-# ```
 
 # In[5]:
 
 
 for value in A:
-    print(value**2)
+    print(value**2) #Print the square of each element in the list A
+
+
+# In[6]:
+
+
+for value in A:
+    print(value - 74) #Print the value of each element in the list A minus 74
+
+
+# In[7]:
+
+
+for value in A:
+    print(value%2) #Print the remainder of each element in A divided by 2
 
 
 # ### Using the iterator as an index in your for loop
@@ -109,29 +110,29 @@ for value in A:
 # 
 # Let's imagine we have a set of 8 measurements that we made experimentally, we'll call them **meas**.  Just to ground this, let's say these are 8 mass transfer coefficients that we measured at 8 different liquid velocities. They have units of cm/sec.  Let's store these in a list.
 
-# In[6]:
+# In[8]:
 
 
-meas = [10.75, 12.52, 17.90, 18.4, 22.36, 35.10, 56.2, 74.95] 
+meas = [10.75, 12.52, 17.90, 18.4, 22.36, 35.10, 56.2, 74.95] #cm/sec
 
 
 # As we often do in engineering, we are developing a model that is supposed to predict the value of each of those mass transfer coefficients at a given fluid velocity. Without getting into the specifics of that model, let's just say that our model predicts that those 8 mass transfer coefficients at those same 8 fluid velocities have the following values, which we store in a separate list called **pred**.
 
-# In[7]:
+# In[9]:
 
 
-pred = [9.4, 13.62, 15.89, 19.23, 21.75, 36.24, 59.46, 73.13]
+pred = [9.4, 13.62, 15.89, 19.23, 21.75, 36.24, 59.46, 73.13] #cm/sec
 
 
 # To figure out how well our model agrees with our measurements, we generally calculate the residual error, i.e., the difference between the model's prediction and the measurement's value. I see that I have two lists, both of which are 8 elements long. I want to subtract the values in these lists element by element...but I can't do that directly with lists. Lists are not the same thing as numpy arrays, and they do not natively support elementwise operations like a numpy array would. 
 # 
-# <div class = "alert alert-block alert-info">
-#     <b>Remember</b> Math operators applied directly to a list or string will concatenate their values, not add, subract or multiply their values.
-#     </div>
+# ```{caution}
+# Math operators applied directly to a list or string will concatenate their values, not add, subract or multiply their values.
+# ```
 # 
-# When I am working with lists in Python, the way I would compute the difference between model and measurement using lists is with a for loop. Unlike the first example, though, I don't want to use either **ex** or **mod** as the iterable because I want to perform operations that use **both** of their values, i.e., I want to find the difference between each value in the two lists. One way to handle this is to use the iterable as an index to extract elements of the data sets that you are working with.  This is relatively straightforward - we just create an iterable that starts at 0 (the first index in Python), increases by 1 at every pass through the loop, and includes the same number of elements as my list, which is 8 in this case. We can do this using the `range()` function, which creates an interable from a starting integer to an ending integer.  The endpoint is excluded, and it takes steps of 1 integer unit by default. A convenient way to do this without counting large lists is to use the len() function to define the upper limit of your range.  For example:
+# When I am working with lists in Python, the way I would compute the difference between model and measurement using lists is with a for loop. Unlike the first example, though, I don't want to use either **ex** or **mod** as the iterable because I want to perform operations that use **both** of their values, i.e., I want to find the difference between each value in the two lists. One way to handle this is to use the iterable as an index to extract elements of the data sets that you are working with.  This is relatively straightforward - we just create an iterable that starts at 0 (the first index in Python), increases by 1 at every pass through the loop, and includes the same number of elements as my list, which is 8 in this case. We can do this using the `range()` function, which creates an interable from a starting integer to an ending integer.  The endpoint is excluded, and it takes steps of 1 integer unit by default. A convenient way to do this without counting large lists is to use the `len()` function to define the upper limit of your range.  For example:
 
-# In[8]:
+# In[10]:
 
 
 for k in range(0, len(meas)):
@@ -143,7 +144,7 @@ for k in range(0, len(meas)):
 # 
 # Take a moment to think about why that range specification works.  Each list is 8 elements long, so my range function is range(0,8); range excludes the ending value, so it will iterate from 0 to 7, which are the correct 8 indices for an 8 element list in Python.
 
-# ### THe `range()` function in more detail
+# ### The `range()` function in more detail
 # 
 # Above, we used `range()` to define the iterable without really saying much about how it works. The syntax of range is:
 # 
@@ -155,7 +156,7 @@ for k in range(0, len(meas)):
 # 
 # Range does not create a list directly, it defines the space over which we want to carry out an iteration. In fact, if you print a range, you will see that it really just echos your definition back to you. Try, for example:
 
-# In[9]:
+# In[11]:
 
 
 range(0, 10, 2)
@@ -163,7 +164,7 @@ range(0, 10, 2)
 
 # A range is definitely not a list! But if needed, you can use it to create a list (or an np array) by passing it to the list constructor:
 
-# In[10]:
+# In[12]:
 
 
 list(range(0,10,2))
@@ -171,7 +172,7 @@ list(range(0,10,2))
 
 # Or, to the analogous numpy array constructor:
 
-# In[11]:
+# In[13]:
 
 
 np.array(range(0,10,2))
@@ -185,7 +186,7 @@ np.array(range(0,10,2))
 # 
 # We will start by creating an empty list B. Then we use a for loop to append the integers from 10 to -10 to the end of that list.  Note that this is not best practice nor the most memory efficient way to create this list, but it is illustrative for educational purposes.
 
-# In[12]:
+# In[14]:
 
 
 B = []
@@ -201,11 +202,11 @@ print(B)
 # 
 # Let's go back to our example of trying to compare measured data (**meas**) with model data (**pred**). This is the basis for regression analysis, where we try to find the model and model parameters that best describe our data. When we perform a regression analysis (trendline in Excel, for example), we often do so by calculating the sum of squares of residual errors.  I can easily do this by modifying my for loop above to store the square of the residual values; then, we can use the built in `sum()` function to sum them. Again, this is probably not the most efficient way to calculate the sum of squares; it is intended as an illustrative example.
 # 
-# <div class = "alert alert-block alert-info">
-#     <b>Remember</b>: In base Python, the ^ operator you typically associate with power operations is a bitwise XOR, not an exponent. Instead, you use ** to indicate raising something to a power.
-#     </div>
+# ```{caution}
+# **Remember**: In base Python, the `^` operator you might typically associate with power operations is a bitwise XOR, not an exponent. Instead, you use `**` to indicate raising something to a power.
+# ```
 
-# In[13]:
+# In[15]:
 
 
 SE = []                           #initialize by creating an empty list
@@ -219,49 +220,58 @@ print(SSE)                        #display sum of squares
 
 # ### Vectorized operations with numpy arrays can sometimes replace for loops
 # 
-# As we defined them above, **meas** and **pred** are both lists, so we cannot do math element-by-element on them without writing some type of loop. Just remember: numpy arrays *will* support elementwise operations by default so, for example, if I turned these two lists into numpy arrays:
+# As we defined them above, **meas** and **pred** are both lists, so we cannot do math element-by-element on them without writing some type of loop. But remember: 
+# 
+# ```{note}
+# numpy arrays *will* support elementwise operations by default
+# ```
+# 
+#  So, for example, if I turned these two lists into numpy arrays:
 
-# In[14]:
+# In[16]:
 
 
-measarray = np.array(meas)
+measarray  = np.array(meas)
 predarray  = np.array(pred)
 
 
 # Then I could calculate residual error and then sum of squares directly *without* using a loop; this is probably closer to best practice if you are able to work with numpy arrays as your data format.  
 
-# In[15]:
+# In[17]:
 
 
 residualarray = measarray - predarray
-SE = residualarray**2
-SSE = np.sum(residualarray) #numpy's implementation of sum()
+SE  = residualarray**2
+SSE = np.sum(SE) #numpy's implementation of sum()
+print(SSE)
 
 
 # Once you get the hang of element-wise operations, you can write pretty concise code; for example, the line belwo is equivalent to the three above. You can see how this can make for (potentially) more efficient and readable code compared to for loops.
 
-# In[16]:
+# In[18]:
 
 
 SSE = np.sum((measarray - predarray)**2)
 print(SSE)
 
 
-# I'm including this just so you can get a better feel for the differences between lists and arrays and the ways that elementwise operations can be useful in programming, particularly for math problems.
+# Considering the contrast between a for loop and a vectorized operation should help you to get a better feel for the differences between lists and arrays and the ways that elementwise operations can be useful in programming, particularly for math problems.
 
 # ### List Comprehensions
 # 
-# Another tool that is worth demonstrating is a list comprehension. Let's say you want to create a large list of numbers that meet some criteria. For example, I need a list of the squares of all of the numbers between 1 and 745.  That's hard to do manually. It is even cumbersome in something like Excel.  In a programming languague, we might use a **for loop** to do this. Let's say we are working with lists in Python; our intuition might be to write a for loop that looks like this, wherein we iterate through a range and append values to an ever-growing list. 
+# Another tool that is worth demonstrating is a list comprehension. Let's say you want to create a large list of numbers that meet some criteria. For example, I need a list of the squares of all of the numbers between 1 and 50.  That's hard to do manually. It is even cumbersome in something like Excel.  In a programming languague, we might use a **for loop** to do this. Let's say we are working with lists in Python; our intuition might be to write a for loop that looks like this, wherein we iterate through a range and append values to an ever-growing list. 
 
-# In[17]:
+# In[19]:
 
 
 squares = []
-for x in range(1, 746):
+for x in range(1, 51):
     squares.append(x**2)
+print(squares, '\n')
+print(squares[-1]**(1/2))
 
 
-# The usage of range here includes the first element (1) but it does not include the last element, so we go to 746. By default, range increments by 1, so this for loop will compute:
+# The usage of range here includes the first element (1) but it does not include the last element, so we go to 51. By default, range increments by 1, so this for loop will compute:
 # 
 # ```python
 # 1**2
@@ -273,33 +283,32 @@ for x in range(1, 746):
 # And so forth all the way up to
 # 
 # ```python
-# 745**2
+# 50**2
 # ```
 # 
-# Next, we print both the list and the square root of the last element using the command below to see if it behaved as we expect. Again note the use of a -1 index in Python will return the last element in an ordered collection.
+# In the final lines, we print both the list and the square root of the last element using the command below to see if it behaved as we expect. Again note the use of a -1 index in Python will return the last element in an ordered collection.
+# 
+# The above loop is intuitive but somewhat cumbersome. In general, we like to avoid having a collection change size on every pass through a loop. A list comprehension provides a shorthand syntax that automates a **for loop** to generate a list from a desired operation in a single, simple line of code. For our example above, I could create the same list using the following syntax. It works in a slightly different way than the above for loop, but it accomplishes exactly the same outcome with a more concise syntax and without needing to change the list size on every pass through a loop with append. This is the most "Python" way to create the requested set of squares.  It is called a list comprehension, and you see them all the time in Python.
 
-# In[18]:
+# In[20]:
 
 
-#print(squares)
+squares = [x**2 for x in range(1, 51)]
+print(squares, '\n')
 print(squares[-1]**(1/2))
-
-
-# The above loop is intuitive, but cumbersome. In general, we like to avoid having a collection change size on every pass through a loop. A list comprehension provides a shorthand syntax that automates a **for loop** to generate a list from a desired operation in a single, simple line of code. For our example above, I could create the same list using the following syntax. It works in a slightly different way than the above for loop, but it accomplishes exactly the same outcome with a more concise syntax and without needing to change the list size on every pass through a loop with append. This is the most "Python" way to create the requested set of squares.  It is called a list comprehension, and you see them all the time in Python.
-
-# In[19]:
-
-
-squares = [x**2 for x in range(1,746)]
 
 
 # ### Practice with List Comprehensions
 # 
-# List comprehensions are extremely useful; they can quickly generate large lists by automating any simple operation on a range. This can afford flexibility that you don't have with things like `np.linspace()`, `np.logspace()`, `np.arange()`, etc.  So they are a useful tool that you should be aware of, if for no other reason than the following: If you ever need to work seriously with Python, and you interact with others that write code in Python, it is almost inevitable that you will come across list comprehensions, so you should know your way around them.  Just remember: it is easy to convert a list into a numpy array if you need to; all you do is pass the list as an argument to the `np.array()` function. 
+# List comprehensions are extremely useful; they can quickly generate large lists by automating any simple operation on a range. This can afford flexibility that you don't have with things like `np.linspace()`, `np.logspace()`, `np.arange()`, etc.  So they are a useful tool that you should be aware of!
 # 
-# Create and print the lists below to see the outputs they create and get a feel for how list comprehensions work. In the last example, notice how we used an existing list to create the iterable that the list comprehension iterates over.  This is totally acceptable - it is a nice way to perform a simple operation on the values in one list to convert it into something else entirely.
+# ```{note}
+# If you ever need to work seriously with Python, and you interact with others that write code in Python, it is almost inevitable that you will come across list comprehensions, so you should know your way around them.  **Remember**: it is easy to convert a list into a numpy array if you need to; all you do is pass the list as an argument to the `np.array()` function. 
+# ```
+# 
+# The cell below shows a few different list comprehensions to generate relatively complicated lists. In the last example, notice how we are using an existing list to create the iterable that the list comprehension iterates over.  This is totally acceptable - it is a nice way to perform a simple operation on the values in one list to convert it into something else entirely.
 
-# In[20]:
+# In[21]:
 
 
 K = [n for n in range(0,31)]
@@ -307,42 +316,46 @@ L = [x for x in range(0,31,2)]
 M = [p**3 for p in range(0,31,5)]
 N = [2, 14, 64, 212, 123.6, 4.57 + 3j]
 O = [j**2 for j in N]
-print(K)
-print(L)
-print(M)
-print(N)
-print(O)
+print(K, '\n')
+print(L, '\n')
+print(M, '\n')
+print(N, '\n')
+print(O, '\n')
 
 
 # ### Know that there are alternatives with numpy arrays
 # 
-# <div class = "alert alert-block alert-info">
-#     <b>Note</b>: List comprehensions generate lists, not numpy arrays. 
-#     </div>
+# ```{caution}
+# List comprehensions generate lists, not numpy arrays. 
+# ```
 # 
 # If you wanted to convert a list to a numpy array, you certainly can:
 
-# In[21]:
+# In[22]:
 
 
 squaresarray = np.array(squares)
 
 
-# However, if I knew that I wanted to work with numpy arrays in the end, I'd probably just do this with elementwise operations on the array, which is arguably slicker and more efficient:
+# However, if I knew that I wanted to work with numpy arrays in the end, I'd probably just create my set of sqaures as an array using elementwise operations on the array, which is arguably slicker and more efficient:
 
-# In[22]:
+# In[23]:
 
 
-squaresarray = np.linspace(1, 745, 745)**2
+squaresarray = np.linspace(1, 50, 50, dtype = 'int')**2
+print(squaresarray, '\n')
+print(squares[-1]**(1/2))
 
 
 # It can be confusing to consider lists and numpy arrays side by side, especially for students...but I find that it is worse to not know the differences between the two because sometimes, in Python, you'll find yourself needing to work with a list, so it is best to understand that it is not a numpy array and that it behaves differently from a numpy array. 
 
 # ### Flexibility is powerful, but it can be frustrating
 # 
-# It is important to embrace the following about programming: There is not really one "correct" way to perform a complex operation.  Like the examples above of creating create a list of integers from 10 to -10 or square a bunch of numbers from 1 to 745. We did them with for loops, elementwise operations in numpy arrays, and list comprehensions above, but there are many possibilities.  Some are more elegant, more concise, cleaner, more human-readable, logical, faster, etc. There are usually at least half a dozen ways to do any one thing in programming, and that is OK.  Perhaps not only OK, it is one of the best things about programming. It affords you the flexibility to solve a given problem in a manner that suits that problem.  You do this with the toolkit that you have available at the moment, and that toolkit will continue to grow as you get more practice. You will get used to this, you will learn different ways to do things as you mature, you will become a better programmer, you will use the best approach available to you at the time, and then you will learn from more experienced programmers how to continue improving your codes.
+# It is important to embrace the following about programming: There is not really one "correct" way to perform a complex operation.  Like the examples above of creating create a list of integers from 10 to -10 or square a bunch of numbers from 1 to 50. We did them with for loops, elementwise operations in numpy arrays, and list comprehensions above, but there are many possibilities.  Some are more elegant, more concise, cleaner, more human-readable, logical, faster, etc. There are usually at least half a dozen ways to do any one thing in programming, and that is OK.  Perhaps not only OK, it is one of the best things about programming. It affords you the flexibility to solve a given problem in a manner that suits that problem.  You do this with the toolkit that you have available at the moment, and that toolkit will continue to grow as you get more practice. You will get used to this, you will learn different ways to do things as you mature, you will become a better programmer, you will use the best approach available to you at the time, and then you will learn from more experienced programmers how to continue improving your codes.
 # 
-# So: you may be wondering "when should I use a for loop...when should I try to write that same idea as a list comprehension...and when should I use elementwise operations?"  
+# ```{note}
+# You may be wondering "when should I use a for loop...when should I try to write that same idea as a list comprehension...and when should I use elementwise operations?"
+# ```
 # 
 # It's a great question, there is not really a universally correct answer.  That ambiguity can be frustrating, but it is that very same flexibility that makes Python so powerful. Embrace it, learn a bit about the strengths and weaknesses of each method, and use whichever is appropriate for your problem. 
 # 
@@ -350,55 +363,42 @@ squaresarray = np.linspace(1, 745, 745)**2
 
 # ### You can iterate over lots of things...
 # 
-# Now, let's try to abstract the idea of a for loop a bit more by covering different types of iterables. We'll do a little exploration by writing a generic bit of code that we can modify to test out different types of iterables. 
-
-# In[23]:
-
-
-test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] #this is a list
-iterable = test
-for var in iterable:
-    print(var)
-
-
-# We've already seen that a list works in this, but write out the code above to get a feel for the test code. Once you confirm that this works, then re-define test as indicated below - you can just redefine it in the same cell, this is just to give you feedback on what works as an iterable and what doesn't work as an iterable.
-# 
-# ```python
-# test = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)           #this is a tuple
-# test = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) #this is a numpy array
-# test = range(1, 12)                                  #this is a range
-# test = 'These go to eleven'                          #this is a string
-# ```
-# 
-# The last example is interesting to me. Before I started using Python, it never occured to me to iterate over a string, but we can certainly do it!  Remember, a string is an ordered set of characters, where each character has a specific index.  So it is a perfectly suitable iterable, and one that we may find very useful depending on the type(s) of problems we are solving or data we are processing.
+# Now, let's try to abstract the idea of a for loop a bit more by covering different types of iterables. We'll do a little exploration by writing a generic bit of code that we can modify to test out different types of iterables. Confirm that this print loop works on the list testcase, then re-define test as the various types of iterables given below by uncommenting them. This is to give you feedback on what works as an iterable and what doesn't work as an iterable.
 
 # In[24]:
 
 
-test = 'These go to eleven'
+test = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]           #this is a list
+test = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)           #this is a tuple
+# test = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) #this is a numpy array
+# test = range(1, 12)                                  #this is a range
+# test = 'These go to eleven'                          #this is a string
+
 iterable = test
 for var in iterable:
     print(var)
 
 
-# Now for some things that we can't iterate over:  Put simply, any scalar other than a string is not a valid iterable. To get a feel for the type of error message this generates (which gives you a feel for how to fix said error messages when you see them)  Try it out for:
+# The last example is interesting to me. Before I started using Python, it never occured to me to iterate over a string, but we can certainly do it!  Remember, a string is an ordered set of characters, where each character has a specific index.  So it is a perfectly suitable iterable, and one that we may find very useful depending on the type(s) of problems we are solving or data we are processing.
 # 
-# ```python
-# test = 7         #An integer
+# Now for some things that we can't iterate over:  Put simply, any scalar other than a string is not a valid iterable. To get a feel for the type of error message this generates (which gives you a feel for how to fix said error messages when you see them)  Try it out for:
+
+# In[25]:
+
+
+test = 7         #An integer
 # test = 7.0       #A floating point decimal
 # test = True      #A boolean
 # test = 4.75 + 3j #A complex number
-# ```
 
-# In[ ]:
-
-
-
+iterable = test
+for var in iterable:
+    print(var)
 
 
 # ### A more complex example
 # 
-# Circling back to that comment about loops really shining when you need to repeat an operation over a large set. Here's an example that is relevant to chemistry and engineering. This example requires a bit of background in thermodynamics, but it should be at least somewhat familiar if you've taken general chemistry, finished material and energy balances, or heard of "Hess's Law". Even if none of those things are familar, fear not - the details and "why" of the calculations are less important than the fact that we will do a lot of them and automate the process using a for loop.
+# Circling back to that comment about loops really shining when you need to repeat an operation over a large set. Here's an example that is relevant to chemistry and engineering. This example requires a bit of background in thermodynamics, but it should be at least somewhat familiar if you've taken general chemistry, finished material and energy balances, or heard of "Hess's Law". Even if none of those things are familar, fear not -- for this module, which is focused on Python skill building, the details and "why" of the calculations are less important than the fact that we will do a lot of them and automate the process using a for loop.
 # 
 # #### Context
 # 
@@ -414,23 +414,27 @@ for var in iterable:
 # 
 # Where exp is the standard exponential function and R is the gas constant in appropriate units. The equilibrium constant is important because it allows us to determine the composition of our reacting mixture at chemical equilibrium. That seems like something that would be really important for any chemical process, so why not catalytic cracking? To do that for an FCC unit, we would need to calculate all 100 equilibrium constants - there is one unique K for each reaction. 
 # 
-# That sounds like a ton of tedious work to me. But it turns out that if we know a bit of Python, it is really easy. The worst part, by far, is finding the thermodynamic data for these reactions. We are going to take the lazy approach for finding thermodynamic data, which is to make it up completely for the purpose of solving this example. To this end, I will use a random integer generator to create a list of 100 *reasonable* enthalpy changes of reaction and 100 *reasonable* entropy changes of reaction. **Professor's note: This will never fly in your thermo or mass and energy courses, please understand that I am just doing this to demonstrate how to use a for loop to process a large data set.**
+# That sounds like a ton of tedious work to me. But it turns out that if we know a bit of Python, it is really easy. The worst part, by far, is finding the thermodynamic data for these reactions. We are going to take the lazy approach for finding thermodynamic data, which is to make it up completely for the purpose of solving this example. To this end, I will use a random integer generator to create a list of 100 *reasonable* enthalpy changes of reaction and 100 *reasonable* entropy changes of reaction. 
+# 
+# ```{warning}
+# Doing this will never fly in your thermo or mass and energy courses, please understand that we are randomly generating thermochemistry data here just doing this to demonstrate how to use a for loop to process a large data set.
+# ```
 # 
 # ### An Example of this in base Python using lists
-# 
-# <div class = "alert alert-block alert-warning">
-#     <b>Notice</b>: These are lists, not numpy arrays, so I have to use loops to perform element-by-element operations on them.
-#     </div>
 
-# In[25]:
+# In[68]:
 
 
 import random
-random.seed(1)
+random.seed(1) #This sets the seed for the random number generator so that we always get the same "random" set of enthalpies and entropies
 DS = [random.randint(-75,75) for s in range(0,100,1)] #units all in J/mol/K
 DH = [random.randint(-100000,100000) for h in range(0,100,1)] #units all in J/mol
 
 
+# ```{caution}
+# These are lists, not numpy arrays, so I have to use loops to perform element-by-element operations on them.
+# ```
+# 
 # Now that the very difficult work of finding enthalpies and entropies of reaction is done, we can automate application of those two simple formulas above to calculate the equilibrium constant for each reaction:
 # 
 # \begin{align}
@@ -442,11 +446,11 @@ DH = [random.randint(-100000,100000) for h in range(0,100,1)] #units all in J/mo
 # 
 # Referencing again my two general ways that I might use an iterable, in this case, I want to use individual elements of both $\Delta S$ and $\Delta H$ to calculate equilibrium constants, so I will treat my iterable as an index, and I will use that index to extract relevant elements from $\Delta S$ and $\Delta H$ on each pass through the loop.
 # 
-# I have 100 elements in $\Delta S$ and 100 in $\Delta H$, and I want to perform the calculations for each of those elements to calculate 100 different equilibrium constants, so I want an iterable contains the integers from 0 to 99 (remember, for a 100 element list, indices in Python go from 0 to 99). Then I can use those numbers as indices to perform operations on each element. **Note:** To use the exponential function, I have to import it from `math` or `numpy`.
+# I have 100 elements in $\Delta S$ and 100 in $\Delta H$, and I want to perform the calculations for each of those elements to calculate 100 different equilibrium constants, so I want an iterable that contains the integers from 0 to 99 (remember, for a 100 element list, indices in Python go from 0 to 99). Then I can use those numbers as indices to perform operations on each element. **Note:** To use the exponential function, I have to import it from `math` or `numpy`.
 # 
 # We initialize the calculation with an empty list for K, and then we use the append module to add each calculated equilibrium constant to the set. Also notice how we use the current value of i as an index that goes from 0 to 99 to allow us to use specific elements from $\Delta H$ and $\Delta S$ in each pass through the loop. Give it a try below! The last line in the code will return K to the screen so you can get a feel for the size of the data sets you're starting to work with.
 
-# In[26]:
+# In[71]:
 
 
 T = 500 #K
@@ -459,11 +463,13 @@ for i in range(0,100):
 # K
 
 
+# Next we'll look at a few alternative ways to accomplish exactly the same result using different strategies. None are "right" or "wrong" and they are all worth knowing as the one that you use will depend on the specifics of the problem you're solving.
+# 
 # ### Alternative syntax using `zip()`
 # 
-# A more "python" version of that loop would probably be to use the zip function to iterate over both DH and DS; this will give an equivalent result to the loop above.
+# A more "python" version of that loop would probably be to use the `zip()` function to iterate over both $\Delta H$ and $\Delta S$ simultaneously; this will give an equivalent result to the loop above.
 
-# In[27]:
+# In[73]:
 
 
 T = 500 #K
@@ -480,9 +486,9 @@ for dh, ds in zip(DH, DS):
 # 
 # ### An equivalent version with comprehensions
 # 
-# The above for loop translated to list comprehensions is given below; note the use of `zip()`, which allows us to loop over multiple iterables simultaneously.
+# The above loop can also be translated to list comprehensions as shown below; note again the use of `zip()`, which allows us to loop over multiple iterables simultaneously.
 
-# In[28]:
+# In[74]:
 
 
 DG = [dh - T*ds for dh, ds in zip (DH, DS)]
@@ -491,9 +497,9 @@ K  = [np.exp(-dg/R/T) for dg in DG]
 
 # ### The elementwise version with numpy arrays
 # 
-# We can frequently replace a loop with element-wise operations.  For example, if I convert $\Delta H$ and $\Delta S$ into numpy arrays (or otherwise use numpy's random number generators to generate a list of DH and DS values). Then, I can very easily calculate $\Delta G$ and $K$ for all 100 reactions:
+# As we pointed out earlier, we can often replace a loop with vectorized, element-wise operations.  For example, if we just convert $\Delta H$ and $\Delta S$ into numpy arrays (or otherwise use numpy's random number generators to generate a list of DH and DS values). Then, we can very easily calculate $\Delta G$ and $K$ for all 100 reactions:
 
-# In[29]:
+# In[75]:
 
 
 DHarray = np.array(DH)
@@ -512,7 +518,7 @@ Karray  = np.exp(-DGarray/R/T)
 # 
 # First, I will create a list of the start and end temperatures I'm interested in. I want to take steps of 2K and go from 300 to 900K. You could use either a list constructor or a comprehension here; I'll use the constructor. 
 
-# In[30]:
+# In[77]:
 
 
 Temperature = list(range(300, 901, 2))
@@ -522,22 +528,28 @@ Temperature = list(range(300, 901, 2))
 # 
 # Now, we have to do a bit of abstraction and see if we can generalize our last for loop to run not just on one temperature, but on all 301 temperatures. As usual, you can come up with many ways to do this, but in base Python and working with lists as my data structure, I will do this with pair of for loops, one nested inside of the other. Notice that when I create nested for loops, each **for** keyword is indented from the current level (i.e., spacing from the left margin).
 # 
-# The logic:  I want to run my original for loop for every Temperature in the list of temperatures we just created. So, I will create two for loops.  The first one will specify the current reaction, and the second will specify the current temperature. Ultimately I will store a list of lists, the latter of which will be equilibrium constants for reaction i at all 301 temperatures:
+# **The logic**:  I want to run my original for loop for every Temperature in the list of temperatures we just created. So, I will create two for loops.  The first one will specify the current reaction, and the second will specify the current temperature. Ultimately I will store a list of lists, the latter of which will be equilibrium constants for reaction i at all 301 temperatures.
 # 
-# ```python
-# K = []       
-# for i in range(0,100):        
-#     Krxn = []                 
-#     for T in Temperature:     
-#         DG = DH[i] - T*DS[i]  
-#         temp = np.exp(-DG/R/T)   
-#         Krxn.append(temp)     
-#     K.append(Krxn)            
+# ```{warning}
+# In the example below, I have assumed that $\Delta C_p = 0$ such that $\Delta H$ and $\Delta S$ are constant even though temperature is changing.  This is not generally true, it is a simplification that I have applied to make the problem a bit more straightforward. In a real thermodynamic analysis, you would generally need to include heat capacity effects in these calculations.
 # ```
-# 
-# or the arguably more pythonic:
 
-# In[31]:
+# In[79]:
+
+
+K = []       
+for i in range(0,100):        
+    Krxn = []                 
+    for T in Temperature:     
+        DG = DH[i] - T*DS[i]  
+        temp = np.exp(-DG/R/T)   
+        Krxn.append(temp)     
+    K.append(Krxn)            
+
+
+# Alternatively, you can use the arguably more Pythonic sytnax given below to accomplish the same thing:
+
+# In[80]:
 
 
 K = []                        
@@ -550,15 +562,15 @@ for dh, ds in zip(DH, DS):
     K.append(Krxn) 
 
 
-# **Note** The end result here is going to be 100 different equilibrium constants calculated at 301 different temperatures, i.e., a 100x301 set of equilibrium constants. It is a list of lists - there are 100 lists inside of this list.  Each of these interior lists is 301 elements long. Each list (inside of the master list K) represents the 301 equilibrium constants for that reaction at all 301 reaction temperatures.  For example, K\[0\]\[:\] is the complete set of equilibrium constansts for the first reaction at all 301 temperatures, K\[1\]\[:\] is the analogous set for reaction 2, etc. 
+# No matter how you write the loops, the end result is going to be equilibrium constants for 100 different reactions calculated at 301 different temperatures, i.e., a 100x301 set of equilibrium constants. It is a list of lists - there are 100 lists inside of this list.  Each of these interior lists is 301 elements long. Each list (inside of the master list K) represents the 301 equilibrium constants for that reaction at all 301 reaction temperatures.  For example, `K[0][:]` is the complete set of equilibrium constansts for the first reaction at all 301 temperatures, `K[1][:]` is the analogous set for reaction 2, etc. 
 # 
-# I do not suggest printing K.  At this point, the best way to visualize the data is graphically; we will introduce this briefly below.
+# I do not suggest printing K.  At this point, the best way to visualize the data is graphically; we will introduce this briefly below. To add in graphical capabilities, we need to add a plotting package.  We'll use Pyplot, which we import in the next cell.
 
 # ### Importing pyplot
 # 
 # Let's import pyplot from matplotlib.
 
-# In[32]:
+# In[81]:
 
 
 import matplotlib.pyplot as plt
@@ -587,28 +599,29 @@ import matplotlib.pyplot as plt
 # 
 # Will extract the equilibrium constant for the 11th reaction at all 301 temperatures, etc.
 # 
-# So, if I wanted to plot the equilibrium constant for the first reaction as a function of temperature using pyplot, I could write:
+# So, if I wanted to plot the equilibrium constant for the first reaction as a function of temperature using pyplot, I could write the lines of code below; the first line `plt.plot()` constructs the plot. It uses linear axis scaling by default. The second line `plt.show()` forces display of the current figure.
 
-# In[33]:
+# In[86]:
 
 
 plt.plot(Temperature,K[0][:])
+plt.show()
 
 
 # ### A semilog plot
 # 
 # Now that is not a very informative graph.  The thing about equilibrium constants is that they are such a strong function of temperature that they change over orders of magnitude.  For example, if we print:
 
-# In[34]:
+# In[83]:
 
 
 print(K[0][1])
 print(K[0][-1])
 
 
-# Which gives us the equilibrium constant for the first reaction at 300K and at 900K, respectively, we will see that they can be different by orders of magnitude (depends on the randomly generated DH and DS values you get).  This sounds like a job for a semilog plot.
+# Which gives us the equilibrium constant for the first reaction at 300K and at 900K, respectively, we will see that they can be different by orders of magnitude (the exact amount depends on the randomly generated $\Delta H$ and $\Delta S$ for each reaction).  This sounds like a job for a semilog plot, which we can build using a slightly different syntax in pyplot.
 
-# In[35]:
+# In[87]:
 
 
 plt.semilogy(Temperature, K[0][:])
@@ -617,26 +630,18 @@ plt.show()
 
 # ### Stacking plots
 # 
-# By default, Python will continue updating your current plot as you layer additional plot commands on top of the first one.  So if I were to enter in the cell below:
-
-# In[36]:
-
-
-plt.semilogy(Temperature, K[0])
-plt.semilogy(Temperature, K[1])
-plt.show()
-
-
-# This would include equilibrium constants for the first and second reaction as a function of temperature on the same graph. It is treated equivalently to typing:
+# By default, Python will continue updating your current plot as you layer additional plot commands on top of the first one.  So if I were to run the code in the cell below, it would plot equilibrium constants for the first and second reaction as a function of temperature on the same axis (graph). It is treated equivalently to typing:
 # 
 # ```python
 # plt.semilogy(Temperature, K[0], Temperature, K[1])
 # ```
 
-# In[ ]:
+# In[89]:
 
 
-
+plt.semilogy(Temperature, K[0])
+plt.semilogy(Temperature, K[1])
+plt.show()
 
 
 # ### Stacking a lot of plots...
@@ -647,7 +652,7 @@ plt.show()
 #     
 # If I have a good understanding about how my loops and indices are working, I can do this easily in my for loop by taking advantage of Python's layering sequential plots onto each other.  Let's modify that last loop just a bit to include a plot command:
 
-# In[37]:
+# In[90]:
 
 
 K = []                        
@@ -660,3 +665,5 @@ for i in range(0,100):
     K.append(Krxn)             
     plt.semilogy(Temperature,K[i][:])  #This adds the 301 equilibrium constants for the current reaction to the plot.
 
+
+# These are a very cursory introduction to plotting using Pyplot; as we cover examples in the next few modules, we will add complexity to our plotting commands and learn how to construct better, more informative graphs.

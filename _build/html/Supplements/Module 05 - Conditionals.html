@@ -550,8 +550,8 @@ title="Print to PDF"
 <span class="kc">False</span>
 </pre></div>
 </div>
-<p>Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of 0, None, or any type of empty set (), [], {}, etc., converts to a boolean “false”, and any else converts to a boolean “true”.</p>
-<p>Let’s just check what various types of collections and scalars evaluate as when we convert to booleans.  To do that, we’ll use the bool() function, which converts any argument into its boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:</p>
+<p>Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>, or any type of empty set <code class="docutils literal notranslate"><span class="pre">()</span></code>, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, <code class="docutils literal notranslate"><span class="pre">{}</span></code>, etc., converts to a boolean <code class="docutils literal notranslate"><span class="pre">False</span></code>, and anything else converts to a boolean <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Let’s just check what various types of collections and scalars evaluate as when we convert to Booleans.  To do that, we’ll use the <code class="docutils literal notranslate"><span class="pre">bool()</span></code> function, which converts any argument into its Boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
@@ -705,6 +705,12 @@ True
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">C</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -712,6 +718,12 @@ True
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 False
+True
+False
+True
+False
+True
+True
 True
 </pre></div>
 </div>
@@ -726,17 +738,17 @@ True
 <p>A <strong>while</strong> statement creates a loop that will evaluate cyclically as long as the conditions specified in the while statement is true.  While loops are covered in detail in Supplement 06.</p>
 <section id="if-statement">
 <h3>If Statement<a class="headerlink" href="#if-statement" title="Permalink to this headline">#</a></h3>
-<p>In general, both types of statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:</p>
+<p>In general, both If statements and While statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Bowei</span> <span class="o">=</span> <span class="s1">&#39;Great TA&#39;</span>
-<span class="k">if</span> <span class="n">Bowei</span> <span class="o">==</span> <span class="s1">&#39;Great TA&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Bowei is A Great TA!&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span> <span class="o">=</span> <span class="s1">&#39;Great Programming Language&#39;</span>
+<span class="k">if</span> <span class="n">Python</span> <span class="o">==</span> <span class="s1">&#39;Great Programming Language&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Python is a great programming language!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bowei is A Great TA!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python is a great programming language!
 </pre></div>
 </div>
 </div>
@@ -744,10 +756,10 @@ True
 </section>
 <section id="elif-and-else-statements">
 <h3>Elif and else statements<a class="headerlink" href="#elif-and-else-statements" title="Permalink to this headline">#</a></h3>
-<p>Or the following categorization of A, which makes use of the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> keywords:</p>
+<p>Or the following categorization of A, which makes use of the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> keywords. In simple terms, <code class="docutils literal notranslate"><span class="pre">elif</span></code> is a truncated form of “else if”.  It should follow and <code class="docutils literal notranslate"><span class="pre">if</span></code> statement.  In a case where criteria in the first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement are not met, the program will then check the criteria in the <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement and decide if these criteria are met.  An <code class="docutils literal notranslate"><span class="pre">else</span></code> statement serves as a catchall that applies in the event that none of the criteria specified in prior statements apply.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">if</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">35</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A is between 5 and 35!&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="mi">35</span> <span class="o">&lt;</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">:</span>
@@ -758,12 +770,12 @@ True
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A is higher than I can count
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A is between 5 and 35!
 </pre></div>
 </div>
 </div>
 </div>
-<p>This one will print a statement only if all of the characters in K are letters.</p>
+<p>The cell below uses the <code class="docutils literal notranslate"><span class="pre">.isalpha()</span></code> attribute test to print a statement only if all of the characters in K are letters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">K</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
@@ -777,13 +789,13 @@ True
 </div>
 </div>
 </div>
-<p>This one will wish me happy birthday once a year.</p>
+<p>The following cell will wish a happy birthday to Neil Young once a year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">day</span> <span class="o">==</span> <span class="mi">28</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday Jesse!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">11</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">day</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Happy Birthday Neil!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -791,7 +803,7 @@ True
 </section>
 <section id="a-while-loop-example">
 <h3>A While Loop Example<a class="headerlink" href="#a-while-loop-example" title="Permalink to this headline">#</a></h3>
-<p>Here’s a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).</p>
+<p>As mentioned above, a while loop will continue to execute as long as criteria specified in the while statement are satisfied. Below, we have a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -862,7 +874,7 @@ x is between 10 and 20, it is 19
 </section>
 <section id="some-applications-for-logical-tests">
 <h2>Some Applications for Logical Tests<a class="headerlink" href="#some-applications-for-logical-tests" title="Permalink to this headline">#</a></h2>
-<p>Logical tests become extremely powerful when processing large data sets.  For example, let’s just generate a set of 1000 random integers.  I am using pyplot for visualization.</p>
+<p>Logical tests become extremely powerful when processing large data sets.  For example, let’s just generate a set of 1000 random integers.  We will use pyplot for visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -886,17 +898,23 @@ x is between 10 and 20, it is 19
 </div>
 <section id="using-logical-tests-to-only-retain-desired-data">
 <h3>Using Logical Tests to Only Retain Desired Data<a class="headerlink" href="#using-logical-tests-to-only-retain-desired-data" title="Permalink to this headline">#</a></h3>
-<p>So let’s pretend that data has just been handed off to us, and we didn’t have flexibility in specifying its range when it was created.  Let’s say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements (note also, this is not the only way to slice the data set, but it is one way you can use these tools).</p>
+<p>Let’s pretend that data has just been handed off to us, and we didn’t have flexibility in specifying its range when it was created. Let’s say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements.  In this example, we also introduce the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function, which offers complementary functionality to things like <code class="docutils literal notranslate"><span class="pre">range()</span></code> or <code class="docutils literal notranslate"><span class="pre">zip()</span></code> when we construct a for loop.  Specifically, <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> will return two details about the iterator that it operates on:  the index of the value, and the value itself:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iterator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is an extremely useful tool!!!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">):</span>
-        <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="n">X2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">):</span>
+        <span class="n">I</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;The Integers between 0 and 25&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Index&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
@@ -922,16 +940,13 @@ x is between 10 and 20, it is 19
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Xarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">Aarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>This next bit of code creates what is called a “Boolean mask,” a set of Trues and Falses where the criteria I’m interested in are satisfied.  What I’m doing here will work with numpy arrays, but not with lists (you need to use a loop or a comprehension with lists).  You also need a bitwise and operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword here.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">index</span>
-</pre></div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Aarray</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span>
@@ -940,9 +955,9 @@ x is between 10 and 20, it is 19
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False, False, False,  True,  True, False,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False, False, False, False, False,  True, False,
        False, False, False, False, False, False, False, False, False,
-       False, False])
+        True,  True])
 </pre></div>
 </div>
 </div>
@@ -950,11 +965,13 @@ x is between 10 and 20, it is 19
 <p>Now you can pass that boolean mask as a set of indices to the array – it will basically extract any value where the index is “True,” i.e., any value between 0 and 25. The code below overlays the results obtained with a loop and with a boolean mask using numpy arrays.  You’ll see they are identical.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Barray</span> <span class="o">=</span> <span class="n">Aarray</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Iarray</span> <span class="o">=</span> <span class="n">Xarray</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="n">Barray</span> <span class="o">=</span> <span class="n">Aarray</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">Barray</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Iarray</span><span class="p">,</span> <span class="n">Barray</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Truncated set between 0 and 25&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample Index&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
@@ -968,7 +985,7 @@ x is between 10 and 20, it is 19
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/Module 05 - Conditionals_31_0.png" src="../_images/Module 05 - Conditionals_31_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the 1000 initial values, 128 are between 0 and 25
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Of the 1000 initial values, 141 are between 0 and 25
 The maximum value contained in B is 25
 The minimum value contained in B is 0
 </pre></div>

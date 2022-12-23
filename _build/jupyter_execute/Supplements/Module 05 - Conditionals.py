@@ -14,9 +14,9 @@
 # False
 # ```
 #     
-# Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of 0, None, or any type of empty set (), [], {}, etc., converts to a boolean "false", and any else converts to a boolean "true".
+# Commonly, this binary state is represented as a 1 for True and a 0 for False, but anything has a boolean value associated with it. In general terms, a value of `0`, `None`, or any type of empty set `()`, `[]`, `{}`, etc., converts to a boolean `False`, and anything else converts to a boolean `True`.
 # 
-# Let's just check what various types of collections and scalars evaluate as when we convert to booleans.  To do that, we'll use the bool() function, which converts any argument into its boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:
+# Let's just check what various types of collections and scalars evaluate as when we convert to Booleans.  To do that, we'll use the `bool()` function, which converts any argument into its Boolean equivalent.  You can try it out for various scalars and collections, with some prompts given below:
 
 # In[1]:
 
@@ -143,6 +143,12 @@ M = 'abcdef3'
 
 print(any(A))
 print(all(A))
+print(any(B))
+print(all(B))
+print(any(C))
+print(all(C))
+print(any(D))
+print(all(D))
 print(K.isalpha())
 
 
@@ -158,24 +164,24 @@ print(K.isalpha())
 # 
 # ### If Statement
 # 
-# In general, both types of statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:
+# In general, both If statements and While statements will use one or more of the types of tests we discussed above, so in practice they will look like some of the following examples:
 
 # In[6]:
 
 
-Bowei = 'Great TA'
-if Bowei == 'Great TA':
-    print('Bowei is A Great TA!')
+Python = 'Great Programming Language'
+if Python == 'Great Programming Language':
+    print('Python is a great programming language!')
 
 
 # ### Elif and else statements
 # 
-# Or the following categorization of A, which makes use of the `elif` and `else` keywords:
+# Or the following categorization of A, which makes use of the `elif` and `else` keywords. In simple terms, `elif` is a truncated form of "else if".  It should follow and `if` statement.  In a case where criteria in the first `if` statement are not met, the program will then check the criteria in the `elif` statement and decide if these criteria are met.  An `else` statement serves as a catchall that applies in the event that none of the criteria specified in prior statements apply.
 
 # In[7]:
 
 
-A = 100
+A = 10
 if 5 < A < 35:
     print("A is between 5 and 35!")
 elif 35 < A < 70:
@@ -184,7 +190,7 @@ else:
     print("A is higher than I can count")
 
 
-# This one will print a statement only if all of the characters in K are letters.
+# The cell below uses the `.isalpha()` attribute test to print a statement only if all of the characters in K are letters.
 
 # In[8]:
 
@@ -193,21 +199,20 @@ if K.isalpha() == True:
     print('All of the characters in K are letters')
 
 
-# This one will wish me happy birthday once a year.
-# 
+# The following cell will wish a happy birthday to Neil Young once a year.
 
 # In[9]:
 
 
 import datetime
 x = datetime.datetime.now()
-if x.month == 5 and x.day == 28:
-    print("Happy Birthday Jesse!")
+if x.month == 11 and x.day == 12:
+    print("Happy Birthday Neil!")
 
 
 # ### A While Loop Example
 # 
-# Here's a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).
+# As mentioned above, a while loop will continue to execute as long as criteria specified in the while statement are satisfied. Below, we have a simple while loop that prints out all floating point decimals between 0.0 and 10.0 (in increments of 1.0).
 
 # In[10]:
 
@@ -236,7 +241,11 @@ while x < 20:
 
 # ## Some Applications for Logical Tests
 # 
-# Logical tests become extremely powerful when processing large data sets.  For example, let's just generate a set of 1000 random integers.  I am using pyplot for visualization. 
+# Logical tests become extremely powerful when processing large data sets.  For example, let's just generate a set of 1000 random integers.  We will use pyplot for visualization. 
+# 
+# ```{info}
+# Notice in the cell below, we are adding various formatting commands to the plots we generate using pyplot. You have almost an infinite amount of flexibility with formatting. Usually you can modify an aspect of a plot either by specifying that attribute using a `plt.attribute()` syntax as in the `plt.xlim()` and `plt.title()` lines in the cell below, or by adding a keyword argument when you generate the plot; this latter method is demonstrated by adding `marker`, `color`, and `edgecolor` keyword arguments to `plt.scatter()`.
+# ```
 
 # In[12]:
 
@@ -257,19 +266,26 @@ plt.show()
 
 # ### Using Logical Tests to Only Retain Desired Data
 # 
-# So let's pretend that data has just been handed off to us, and we didn't have flexibility in specifying its range when it was created.  Let's say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements (note also, this is not the only way to slice the data set, but it is one way you can use these tools).
+# Let's pretend that data has just been handed off to us, and we didn't have flexibility in specifying its range when it was created. Let's say that we are only interested in the values between 0 and 25.  We can easily extract a subset of those numbers using if statements.  In this example, we also introduce the `enumerate()` function, which offers complementary functionality to things like `range()` or `zip()` when we construct a for loop.  Specifically, `enumerate()` will return two details about the iterator that it operates on:  the index of the value, and the value itself:
+# 
+# ```python
+# index, value = enumerate(iterator)
+# ```
+# This is an extremely useful tool!!!
 
 # In[13]:
 
 
+I = []
 B = []
-for i in A:
-    if (i >= 0) and (i <= 25):
-        B.append(i)
-X2 = list(range(0, len(B)))
+for i, value in enumerate(A):
+    if (value >= 0) and (value <= 25):
+        I.append(i)
+        B.append(value)
 plt.figure(1, figsize = (6, 6))
-plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'blue')
-plt.xlim(0, len(B))
+plt.scatter(X, A, marker = 'o', color = 'none', edgecolor = 'blue')
+plt.scatter(I, B, marker = 's', color = 'none', edgecolor = 'red')
+plt.xlim(0, 1000)
 plt.ylim(-100, 100)
 plt.title('The Integers between 0 and 25')
 plt.xlabel('Sample Index', fontsize = 14)
@@ -287,15 +303,11 @@ print(min(B))
 
 
 import numpy as np
+Xarray = np.array(X)
 Aarray = np.array(A)
 
 
 # This next bit of code creates what is called a "Boolean mask," a set of Trues and Falses where the criteria I'm interested in are satisfied.  What I'm doing here will work with numpy arrays, but not with lists (you need to use a loop or a comprehension with lists).  You also need a bitwise and operator `&` instead of the `and` keyword here.
-# 
-# ```python
-# index = (Aarray >= 0) & (Aarray <= 25)
-# index
-# ```
 
 # In[15]:
 
@@ -309,11 +321,13 @@ index[0:20]
 # In[16]:
 
 
+Iarray = Xarray[index]
 Barray = Aarray[index]
 plt.figure(1, figsize = (6, 6))
-plt.scatter(X2, B, marker = 'o', color = 'none', edgecolor = 'red')
-plt.scatter(X2, Barray, marker = 's', color = 'none', edgecolor = 'blue')
-plt.xlim(0, len(B))
+plt.scatter(X, A, marker = 'o', color = 'none', edgecolor = 'blue')
+plt.scatter(I, B, marker = 's', color = 'none', edgecolor = 'red')
+plt.scatter(Iarray, Barray, marker = 'x', color = 'black', s = 100)
+plt.xlim(0, 1000)
 plt.ylim(-100, 100)
 plt.title('Truncated set between 0 and 25')
 plt.xlabel('Sample Index', fontsize = 14)

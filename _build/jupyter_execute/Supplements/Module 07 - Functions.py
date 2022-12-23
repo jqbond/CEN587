@@ -8,26 +8,25 @@
 # $$y(x) = 2x + 5$$
 # 
 # This is a simple *univariate scalar* function. We call it univariate because it has only one argument (x).  We call it scalar because for a given input of x, it returns a single output value for y. But we will see in a moment that functions are far more general and flexible.  In Python, we follow a few important rules to define a function. 
+
 # 
 # ## Function syntax
 # 
-# To start, you declare a function with the **def** keyword, and you always use the following syntax:
+# To start, the most traditional way to declare a function is with the **def** keyword, and you always use the following syntax:
 # 
 # ```python
 # def function_name(inputs):
 # ```
 #     
-# Where `function_name` can be anything you want it to be, and `inputs` can be zero, one, or more arguments that you will provide to the function in order for it to perform its operations. Of the parts you see here, the only things that are non negotiable in a function definition are `def` and `:` 
+# Where `function_name` can be anything you want it to be, and `inputs` can be zero, one, or more arguments that you will provide to the function in order for it to perform its operations. Of the parts you see here, the only things that are non negotiable in this type of function definition are `def` and `:` 
 # 
 # **The next bit is important:** Every line after the first one in the function (the one with `def` and `:` in it), all the way up to the end of your function, *must be indented from the left margin*. This is the same syntax as `if` statements, `for` loops, and `while` loops. If a line is indented beyond the `def` keyword, that means that line is inside of the function's scope.  Once you return to the left margin, you are no longer writing code inside of that function. Python uses indentation to define a function scope instead of something like an **end** keyword that you see in many languages. In Python, indentation is what distinguishes a bit of code from being inside of a function (or loop) and being outside of that function (or loop). Typically a good editor will auto-indent the next line for you once it sees a : at the end of a line.  Jupyter, for example, does this by default.
 # 
-# **It is also important to know**:  if you want a function to accept an input from you, you have to specify which inputs you will give it.  Conversely, if you want it to return an output, you will need to tell it which outputs to return.
+# ```{info}
+# If you want a function to accept an input from you, you have to specify which inputs you will give it.  Conversely, if you want it to return an output, you will need to tell it which outputs to return. If you do not specify what the function returns in Python, it will return the last thing computed by the function as the default return.
+# ```
 # 
-# <div class = "alert alert-block alert-info">
-#     <b>Note</b>: If you do not specify what the function returns in Python, it will return the last thing computed by the function as the default return.
-#     </div>
-# 
-# This is accomplished in the cell below.  It will create a function called `y1` that accepts an input, which is called `x` locally inside of the function. It uses that value of `x` to perform the required operations, and it returns the value of `result` as an output.
+# With the above rules and caveats in mind, in the cells below, we create a function called `y1` that accepts an argument (an input), which is called `x` locally inside of the function. It uses that value of `x` to perform the required operations, and it returns the value of `result` as an output.  We also will go ahead an import the packages we will need later in this module. Function definitions themselves are part of base Python, but we'll also need `numpy`, `pyplot`, and `random` to complete the exercises in this module.
 
 # In[1]:
 
@@ -36,10 +35,6 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt    
 
-
-# In[2]:
-
-
 def y1(x):
     result = 2*x + 5
     return result
@@ -47,9 +42,9 @@ def y1(x):
 
 # ## It is helpful to think like a computer
 # 
-# Let's get used to thinking through how a piece of code will work - you really cannot learn to program until you understand how code is executed, so this is good practice. In this example, any time I want to evaluate the answer for y(x), I give a value of x to the function, i.e., I provide the necessary **input** to my function. The function then computes the "result" for that value of the input using whatever operations I specify, and then it **returns** that result as its **output**. I can set that result equal to a variable, I can print it to the screen, and I can use it for all manner of operations once I've run the function. This is a fairly easy function to evaluate, and I can see that for x = 10, this function should give me the result that y = 25.  Let's try it in the cell below; we'll pass the arugment 10 to our function y(x) and see what it returns. You pass an argument to a function using parentheses **()** in Python--pay attention to how this looks different from passing an index to an array using brackets **[]**:
+# Let's get used to thinking through how a piece of code will work - you really cannot learn to program until you understand how code is executed, so this is good practice. In this example, any time I want to evaluate the answer for y(x), I give a value of x to the function, i.e., I provide the necessary **input** to my function. The function then computes the "result" for that value of the input using whatever operations I specify, and then it **returns** that result as its **output**. This is a fairly easy function to evaluate, and I can see that for x = 10, this function should give me the result that y = 25.  Let's try it in the cell below; we'll pass the arugment 10 to our function y(x) and see what it returns. You pass an argument to a function using parentheses `()` in Python--pay attention to how this looks different from passing an index to an array using brackets `[]`:
 
-# In[3]:
+# In[2]:
 
 
 y1(10)
@@ -59,7 +54,7 @@ y1(10)
 # 
 # Frequently, you'll want to store the result of that function in a new variable.  I would do this just as I would when defining a number; this will  store a new variable called "output" to the workspace (type `%whos` to confirm).  It will have a value of 25.
 
-# In[4]:
+# In[3]:
 
 
 output = y1(10)
@@ -70,10 +65,15 @@ get_ipython().run_line_magic('whos', '')
 # 
 # Most languages will allow you to define an inline or anonymous function. In Python, these are called lambda functions. These are functions that you can write without going through the `def`, `:`, indent syntax outlined above. A key feature of a lambda function is that we do not have to bind it to a variable or function name (though you are not prevented from doing so).
 # 
-# In general, lambda function definitions are best suited to simple functions, of which the above qualifies.  I can write y2(x) using the lambda function syntax as shown in the cell below, and then I can pass an input value for x just as I normally would.
-# Because lambda functions are generally written as one liners, they are best suited to simple functions of one or two variables; however, they are extremely useful in many situations, so you'll want to understand their syntax and how to construct lambda functions.
+# The basic syntax for constructing a lambda function is:
+# 
+# ```python
+# lambda arg_1, arg_2, arg_3, ... , arg_final: function operations
+# ```
+# 
+# I can extend that logic to write $y_2(x) = 2x+5$ using the lambda function syntax as shown in the cell below, and then I can pass an input value for x just as I normally would. Because lambda functions are generally written as one liners, they are best suited to simple functions of one or two variables; however, they are extremely useful in many situations, so you'll want to understand their syntax and how to construct lambda functions.
 
-# In[5]:
+# In[4]:
 
 
 y2 = lambda x: 2*x + 5
@@ -88,7 +88,7 @@ y2(10)
 # 
 # Using lambda function syntax, this, we can pass values of (x, y) = (10, 10) to get 210:
 
-# In[6]:
+# In[5]:
 
 
 p1 = lambda x, y: x**2 + y**2 + 10
@@ -97,7 +97,7 @@ p1(10,10)
 
 # That function could alternatively be defined in the conventional, long format. Functionally, these are the same, and you should use whichever is more convenient and/or readable for the program that you're writing.
 
-# In[7]:
+# In[6]:
 
 
 def p2(x,y):
@@ -115,7 +115,7 @@ p2(10, 10)
 # 
 # The easiest solution in Python is *probably* to build x and y as numpy arrays and pass them as arguments to our functions.  Recall that math operations, by default, operate element-wise on a numpy array.  This applys when we pass a numpy array as a function argument. We can create these collections pretty easily using `np.linspace()`. Remember to print both arrays to confirm they include the values you want.
 
-# In[8]:
+# In[7]:
 
 
 xvals = np.linspace(0, 1, 10)  
@@ -124,22 +124,18 @@ print(xvals)
 print(yvals)
 
 
-# We can generally pass them to a function and have our function operate on each element in the array without using something like a loop or a comprehension.  This ends up being very convenient in most of our course; hence the recommendation to *usually* work with numpy arrays in engineering courses. 
-# 
-# You *can* use lists or tuples to do this, but in those cases, you'll probably need to write a loop to evaluate the function at each point; numpy arrays are much cleaner for broadcasting operations to multiple entires in a collection.
-# 
-# Because we have defined xvals and yvals as numpy arrays, we can pass either of these directly into our functions, and have them return collections of outputs.  In other words, they are now vector functions because we are passing vectors (arrays) of inputs to them.  Try evaluating:
+# We can generally pass them to a function and have our function operate on each element in the array without using something like a loop or a comprehension.  This ends up being very convenient in most of our course; hence the recommendation to *usually* work with numpy arrays in engineering courses.  Because we have defined xvals and yvals as numpy arrays, we can pass either of these directly into our functions, and have them return collections of outputs.  In other words, they are now vector functions because we are passing vectors (arrays) of inputs to them.  Try evaluating:
 # 
 # You should see that what this is doing is evaluating your function for every value in the arrays that you're passing into the function.  This is super useful!!!  
 
-# In[9]:
+# In[8]:
 
 
 print(y1(xvals))
 print(p2(xvals, yvals))
 
 
-# ## Wait...How would you do this with a list??
+# ## Wait...How would you do this with values in a list or a tuple??
 # 
 # Just so you recognize that it is an issue, let's say I wanted to pass the following set of values into my function y1(x), and I naively create it as a list, thinking that I can pass it directly as a function argument:
 # 
@@ -148,9 +144,11 @@ print(p2(xvals, yvals))
 # y1(xlist)
 # ```
 #     
-# You will get an error because lists do not work with element-wise, "vectorized" operations by default.  You would have to use a loop to work with this as a list.  Hence, numpy arrays are slightly cleaner for the type of work we usually do. It's worth knowing how to handle this situation since it can be a very useful skill. This can be done with a for loop:
+# You will get an error because lists do not work with element-wise, "vectorized" operations by default.  You can either use a loop to work with this as a list, or you can map the function onto all of the elements in your list.  For this reason, numpy arrays are slightly cleaner for the type of work we usually do in engineering courses, but it is worth knowing how to handle broadcasting a function to all elements in, e.g., a list or a tuple.
+# 
+# It can be done using a for loop:
 
-# In[10]:
+# In[9]:
 
 
 xlist = [1, 3, 7, 10]
@@ -160,9 +158,9 @@ for value in xlist:
 y_out
 
 
-# Or, once you get the hang of it, the generally preferred way to do this in Python is with a comprehension:
+# Though it would probably be preferable to do this with in Python is with a comprehension:
 
-# In[11]:
+# In[10]:
 
 
 y_out = [y1(value) for value in xlist]
@@ -171,16 +169,16 @@ y_out
 
 # ## More complex functions, multiple operations and outputs
 # 
-# The above are all fine examples of functions, but I want everyone to learn to think more abstractly about what functions are and what they can do, so we need to break the habit of always thinking that by "function" we mean some sort of "polynomial" as in the examples above.  
+# The above are all fine examples of functions, everyone would benefit from learning to think more abstractly about what functions are and what they can do, so we need to break the habit of always thinking that by "function" we mean some sort of "polynomial" as in the examples above.  
 # 
-# The general definition, again, is that functions are code modules that take inputs and use those inputs to generate and return outputs. They can be very large and complex, they can take many inputs, they can do lots of different operations, and they can return many outputs.
+# The general idea is that functions are code modules that take inputs from us, use those inputs to generate outputs, and then and return those outputs to us. They can be very large and complex, they can take many inputs, they can do lots of different operations, and they can return many outputs.
 # 
-# So let's try something more complex - we will create a function called **f** that takes x, y, and z as inputs; uses those inputs to calculate the corresponding values of A, B, and C; and returns A, B, and C as outputs. Technically, it will (by default) return a tuple of comma separated values for A, B, and C unless we specify otherwise.
+# So let's try something more complex - we will create a function called **f1** that takes x, y, and z as inputs (it is a multivariate function); uses those inputs to calculate the corresponding values of A, B, and C; and returns A, B, and C as outputs (it is a vector function). Technically, it will (by default) return a tuple of comma separated values for A, B, and C unless we specify otherwise.
 
-# In[12]:
+# In[11]:
 
 
-def f(x, y, z):
+def f1(x, y, z):
     A = x + y
     B = A*5
     C = z**3 + B
@@ -203,19 +201,19 @@ def f(x, y, z):
 #     return np.array([A, B, C])  #Numpy array with A, B, and C as its elements. 
 # ```
 
-# Now that I've defined the function, I can use it function to calculate A, B, and C for x = 1, y = 2, and z = 3.  As the next example shows, you must define the outputs if you want to store them in the workspace; otherwise, the function will just return them without storing the values. Try this example in the cell below for x, y, z = 1, 2, 3; it should return three numbers, the last of which is, by pure serendipity, the answer to the ultimate question of life, the universe, and everything. Confirm that you are getting the correct result before proceeding.
+# Now that we've defined the function, we can use it function to calculate `A`, `B`, and `C` for `x = 1`, `y = 2`, and `z = 3`.  As the next example shows, you must define the outputs if you want to store them in the workspace; otherwise, the function will just return them without storing the values. Try this example in the cell below for `x, y, z = 1, 2, 3`; it should return three numbers, the last of which is, by pure serendipity, the answer to the ultimate question of life, the universe, and everything. Confirm that you are getting the correct result before proceeding.
+
+# In[12]:
+
+
+print(f1(1, 2, 3))
+get_ipython().run_line_magic('whos', '')
+
 
 # In[13]:
 
 
-print(f(1, 2, 3))
-get_ipython().run_line_magic('whos', '')
-
-
-# In[14]:
-
-
-A, B, C = f(1, 2, 3)  #We can get A, B, and C assigned separately this way.
+A, B, C = f1(1, 2, 3)  #We can get A, B, and C assigned separately this way.
 print(A, B, C)
 get_ipython().run_line_magic('whos', '')
 
@@ -228,9 +226,7 @@ get_ipython().run_line_magic('whos', '')
 # 
 # I was trying to come up with a fun and completely general example of something you can do with a function...and it occurred to me that you never know when you will need a set of polyhedral dice (that means many sided dice) on a moment's notice.  You may have none on hand and really need to roll a d12 for something. 
 # 
-# Seriously, **Has this ever happened to you?**  
-# 
-# Sure, you can Google something. But how about we impress...*almost no one*...by writing our own dice roller in Python?  
+# Seriously, **has this ever happened to you?** Sure, you can Google something. But how about we impress...*almost no one*...by writing our own dice roller in Python?  
 # 
 # We will do this using a function. This function will accept two inputs from you:  The number of **sides** that your dice have, and the number of **dice** you wish to roll. It will produce one output: a list of your dice rolls. First, though, we have to learn a few things and import a new module.  
 # 
@@ -240,7 +236,7 @@ get_ipython().run_line_magic('whos', '')
 # 
 # To start, let's import the random package by typing the following in the cell below.
 
-# In[15]:
+# In[14]:
 
 
 import random
@@ -248,17 +244,21 @@ import random
 
 # #### Generating random integers in a range (roll the dice)
 # 
-# Now that we have imported this package, we can use the modules included in that package.  The one we are interested in is called `random.randint()`.  We want `random.randint()` here because it returns integers, which is the same as a dice roll. `random.randint()` takes two inputs - the smallest number you want included in your random set (we will call this **a**), and the largest number you want included in your random set (we will call this **b**). **Note** unlike ranges, `randint()` includes both endpoints!
+# Now that we have imported this package, we can use the modules included in that package.  The one we are interested in is called `random.randint()`.  We want `random.randint()` here because it returns integers, which is the same as a dice roll. `random.randint()` takes two inputs - the smallest number you want included in your random set (we will call this **a**), and the largest number you want included in your random set (we will call this **b**). 
+# 
+# ```{note}
+# Unlike ranges, `randint()` includes both endpoints!
+# ```
 # 
 # When you want to generate a random integer between (and including) a and b, you would type:
 # 
 # ```python
-# random.randint(a,b)
+# random.randint(a, b)
 # ```
 # 
-# Try it in the cell below for a single d6, for which a = 1 and b = 6.
+# We'll demonstrate this in the cell below for a single d6, for which a = 1 and b = 6.  If you execute this cell repeatedly, you'll see that it returns the integers 1 through 6, as you'd expect from a d6 roll.
 
-# In[16]:
+# In[15]:
 
 
 random.randint(1,6)
@@ -271,26 +271,26 @@ random.randint(1,6)
 # The core of this function is going to be a list comprehension. Recall from Module 04 that list comprehensions provide a concise way to create a list of numbers easily using any (relatively simple) operation that you have in mind. In the first exercise, we used them to generate a large list of squares and to convert a list of integers into strings...but we can just as easily use it to create a list of random integers between (and including) **a** and **b**...or, relevant here, a set of 15 rolls on a d6:
 # 
 # 
-# This is accomplished in the cell below using a list comprehension that is making 15 random rolls for each element in the iterable `range(1,16)`, and it stores each one in a list called **roll**. As usual, `range()` excludes the upper limit from iterations, so we go to 16 instead of 15.  
+# This is accomplished in the cell below using a list comprehension that is making 15 random rolls for each element in the iterable `range(0,15)`, and it stores each one in a list called **roll**. As usual, `range()` excludes the upper limit from iterations, so we go from 0 to 14.  
 # 
 # Try it out in the cell below; if you print the result, you should see a set of 15 random numbers all between (and including) 1 and 6.
 
-# In[17]:
+# In[16]:
 
 
-roll = [random.randint(1,6) for i in range(1,16)]
+roll = [random.randint(1,6) for i in range(0,15)]
 print(roll)
 
 
 # #### Let's make this more flexible so that we can roll things other than a d6
 # 
-# Now we're getting somewhere!  Let's see if we can put that list comprehension inside of a function in a way that will let us use this function to calculate any number of roll outcomes for any type of die. To do this, we will construct a function that takes two inputs from us:  the number of **sides** that our dice have, and the number of **dice** we want to roll. Then we use our list comprehension and random integer generator to get the result of those dice rolls. The way I have written this range will give me the exact number of rolls I want, i.e., the range between the first roll (1) and up to but not including the last roll (dice+1).  The result is a number of rolls = dice as desired. Go ahead and define this function in the cell below.
+# Now we're getting somewhere!  Let's see if we can put that list comprehension inside of a function in a way that will let us use this function to calculate any number of roll outcomes for any type of die. To do this, we will construct a function that takes two inputs from us:  the number of **sides** that our dice have, and the number of **dice** we want to roll. Then we use our list comprehension and random integer generator to get the result of those dice rolls. The way I have written this range will give me the exact number of rolls I want, i.e., the range between the first roll (index = 0) and up to the last roll (index = dice - 1).  The result is a number of rolls = dice as desired. Go ahead and define this function in the cell below.
 
-# In[18]:
+# In[17]:
 
 
 def roller(sides, dice):
-    roll  = [random.randint(1, sides) for i in range(1, dice+1)]
+    roll  = [random.randint(1, sides) for i in range(0, dice)]
     return roll
 
 
@@ -304,17 +304,17 @@ def roller(sides, dice):
 #     
 # Try it for all the dice/sides combinations given above, and print your results to the screen, and then consult the next markdown cell...
 
-# In[19]:
+# In[18]:
 
 
-roller(20, 5)
+roller(12, 4)
 
 
 # #### Generate a coat of arms
 # 
 # Now, let's use the dice roller to generate a set of random indices that will determine the all-important **coat of arms for our guild**. To do this, we will roll **4d20** and then cross reference the results with a couple of lists that are pre-generated in the cell below. Go ahead and run the next cell to store the lists, and then we will talk more about using the dice roller.
 
-# In[20]:
+# In[19]:
 
 
 list1 = ['red', 'orange', 'blue', 'gold', 'cornflower', 'burnt sienna','umber', 'silver', 'electric purple', 'puce', 'cyan', 'magenta', 'mountain dew yellow', 'cheeto orange', 'green', 'yellow', 'azure', 'cornsilk', 'brown', 'teal']
@@ -329,17 +329,15 @@ list4 = ["Keoland", "Molvar", "Azure Sea", "The Barony of Derevendt", "The Bitte
 # 
 # ***Very Important*** Before you proceed with your results, here are the rules. You may run this function as many times as you wish to see how it behaves, *but your coat of arms is determined by your first result only!* ***RESPECT THE DICE***
 
-# In[21]:
+# In[20]:
 
 
 def generator(sides, dice):
-    roll  = [random.randint(1, sides) for i in range(1, dice+1)]
+    roll  = [random.randint(1, sides) for i in range(0, dice)]
     index = [result - 1 for result in roll]
     return roll, index
 
-s = 20
-d = 4
-roll, index  = generator(s, d)
+roll, index  = generator(20, 4)
 color        = list1[index[0]]
 animal       = list2[index[1]]
 attribute    = list3[index[2]]
@@ -347,8 +345,8 @@ kingdom      = list4[index[3]]
 labels       = ['color', 'animal', 'attribute', 'kingdom']
 coat_of_arms = [color, animal, attribute, kingdom]
 
-print(f'Youre rolls were {roll}')
-print(f'This gives indices of {index}')
+print(f'Your rolls from 4d20 were     {roll}')
+print(f'The corresponding indices are {index}')
 print('Your coat of arms must include the following:')
 for label, detail in zip(labels, coat_of_arms):
     print(f'    {label:9s} = {detail:s}')
@@ -382,12 +380,12 @@ for label, detail in zip(labels, coat_of_arms):
 # 
 # What do you think? Stand your ground or retreat?
 
-# In[22]:
+# In[21]:
 
 
 #This is our dice roller
 def generator(sides, dice):
-    roll  = [random.randint(1,sides) for i in range(1,dice+1)]
+    roll  = [random.randint(1, sides) for i in range(0, dice)]
     return roll
 
 #We will start the experiment by rolling 4 dice 
@@ -401,7 +399,7 @@ counter  = [1,   2,  3]          #Seeding my counter with rolls 1, 2, and 3.
 while threshold > 0.001:         #Run the commands below as long as threshold is > 0.001
     counter.append(n)            #You've started the experiment; you roll "n" dice this time.
     total = []                   #Initialize a list 'total' to store results of all n rolls
-    for i in range(0,n):         #Use a for loop to make n damage rolls and store the result
+    for i in range(0, n):        #Use a for loop to make n damage rolls and store the result
         roll1 = generator(12, 4) #This is your 4d12 roll
         roll2 = generator(4,  2) #This is your 2d4 roll
         base  = sum(roll1) + 5   #Adding modifier to base
@@ -412,7 +410,7 @@ while threshold > 0.001:         #Run the commands below as long as threshold is
 
     averages.append(mean_result_for_n_rolls)  #append the mean of n rolls onto running total 
     mean_result_for_all_rolls = sum(averages)/len(averages) #Mean of every roll.
-
+    
     #For threshold check the difference in the mean of "n" rolls and the mean of every roll.  
     threshold = abs(mean_result_for_all_rolls - mean_result_for_n_rolls)
 
@@ -420,12 +418,13 @@ while threshold > 0.001:         #Run the commands below as long as threshold is
     n +=1
 
 print(f'We converge on the true mean after making {n:d} damage rolls')
-print(f'The average damage calculated from this simulation is {averages[-1]:4.2f}')
-print(f'We converged to within {threshold} deviation from the true mean')
+print(f'The average damage calculated from this simulation is {averages[-1]:4.4f}')
+print(f'We converged to within {abs(averages[-1]-38)} deviation from the true mean')
 plt.figure(1, figsize = (5, 5))
 plt.plot(counter, averages)
 plt.xlim(0, len(counter))
 plt.ylim(0, 80)
 plt.xlabel('Number of damage rolls made')
 plt.ylabel('Damage Estimate from Monte Carlo Simulation')
+plt.show()
 

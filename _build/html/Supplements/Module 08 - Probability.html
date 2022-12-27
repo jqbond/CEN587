@@ -587,9 +587,10 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="the-probability-of-the-fall-of-acererak">
 <h1>The Probability of the Fall of Acererak<a class="headerlink" href="#the-probability-of-the-fall-of-acererak" title="Permalink to this headline">#</a></h1>
 <p>Over the past few modules, we’ve learned the basics of loops and functions.  In the Functions Module (07), we used a function combined with a while loop to gauge how many times we would need to make a dice roll for the average of those rolls to approach the true mean (within our tolerance threshold). We ran that simulation many times, and, on average, it seemed to converge somewhere between 500 and 1000 rolls. Now, that probably gives us a pretty good idea of what the mean is, but I’m not convinced 1000 rolls is enough for us to get good enough statistics to confidently assess how our damage roll will play out  against <em><strong>Acererak the Archlich</strong></em>.</p>
-<p>To recap the situation you’re in, Acererak is down to 28 hit points. You are swinging a magic battle axe named <em><strong>Lichslayer III</strong></em>, and we are still going to assume that you hit Acererak (for now). Your axe does 4d12+5 base damage with 2d4+2 bonus damage to Liches. We know that your mean damage roll is 38, so, assuming you hit 38 or better 50% of the time, you have a pretty solid chance of winning this fight. But you don’t have a 100% chance of winning this fight, do you?  It’s entirely possible that your roll comes back less than 28, in which case, you are looking at a pretty anti-climactic TPK. We’re going to do a monte carlo-type simulation to see if we can better assess your chances.  First, we will figure out the probability distribution on the damage roll. By that I mean, what is the probability that you will make a certain damage roll between 13 (minimum) and 63 (maximum). Figuring out the probability that we’ll beat 28 based on the dice and modifiers is much more complicated than determining the average. We’ll visualize that probability distribution for the damage roll, and then do some basic analysis to figure out the mean (which we expect should be 38 if we’ve done everything correctly), the variance, and the percentage chance we have of winning the fight under the terms we’ve laid out here.</p>
-<p>This analysis is part of a basic interpretation of probability distributions, which is useful in statistics, data analysis, physical chemistry, reactor design, and many other areas of engineering.  It’s worth learning a bit about how we generate a probability distribution for a discrete random variable (i.e., dice rolls on a d6 are either 1,2,3,4,5,6…not a continuous variable that goes from 13 to 63) from a monte carlo simulation, having a look at a probability distribution, and learning how to analyze it just a little.</p>
-<p>Here, we will abandon the while loop and instead just use the inner for loop to simulate the outcome of each damage roll from 1 to n. For each roll we make, we will do two things.  First, we will record the total and append it to a running list of totals for damage rolls 1 to n.  Second, based on the result of each roll, we will record the binary result of the battle.  We either win or lose.  If our roll is 28 or better, we win.  If it is lower than 28, we lose.  We can easily do this with an if statement to direct the program to take a different course of action for each result.</p>
+<p>To recap the situation you’re in, Acererak is down to 28 hit points. You are swinging a magic battle axe named <em><strong>Lichslayer III</strong></em>, and we are still going to assume that you hit Acererak (for now). Your axe does 4d12+5 base damage with 2d4+2 bonus damage to Liches. We know that your mean damage roll is 38, so, assuming you hit 38 or better 50% of the time, you have a pretty solid chance of winning this fight. But you don’t have a 100% chance of winning this fight, do you?  It’s entirely possible that your roll comes back less than 28, in which case, you are looking at a pretty anti-climactic TPK.</p>
+<p>We are going to do a very basic Monte Carlo-type simulation to see if we can better assess your chances.  First, we will figure out the probability distribution on the damage roll. By that I mean, what is the probability that you will make a certain damage roll between 13 (minimum) and 63 (maximum). Figuring out the probability that we’ll beat 28 based on the dice and modifiers is much more complicated than determining the average. We’ll visualize that probability distribution for the damage roll, and then do some basic analysis to figure out the mean (which we expect should be 38 if we’ve done everything correctly), the variance, and the percentage chance we have of winning the fight under the terms we’ve laid out here.</p>
+<p>This analysis is part of a basic interpretation of probability distributions, which is useful in statistics, data analysis, physical chemistry, reactor design, and many other areas of engineering.  It’s worth learning a bit about how we generate a probability distribution for a discrete random variable (i.e., dice rolls on a d6 are either 1, 2, 3, 4, 5, 6…not a continuous variable that goes from 13 to 63) from a monte carlo simulation, having a look at a probability distribution, and learning how to analyze it just a little.</p>
+<p>Here, we will abandon the while loop we used to determine the mean roll in Module 07. Instead, we’ll just use a for loop to simulate the outcome of each damage roll from 1 to n (we decide the value of n when we start the simulation). For each roll we make, we will do two things.  First, we will record the total and append it to a running list of totals for damage rolls 1 to n.  Second, based on the result of each roll, we will record the binary result of the battle.  We either win or lose.  If our roll is 28 or better, we win.  If it is lower than 28, we lose.  We can easily do this with an if statement to direct the program to take a different course of action for each result.</p>
 <p>We will start by making 1,000 rolls and see how things look.  One important clarification that may be confusing:  We are making n “rolls”.  These refer to “n” damage rolls, each of which is 4d12+5 + 2d4+2, not “n” individual dice.  So for each damage roll, we are rolling 4d12’s and 2d4’s…then adding some modifiers to calculate the total damage roll.  This total is what gets stored on each pass through the for loop.</p>
 <p>We’ll go through the code together for this example and explain how it works, then we’ll have a more complex scenario that you can resolve by adapting the simulation.</p>
 <section id="importing-packages">
@@ -611,7 +612,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="n">sides</span><span class="p">,</span> <span class="n">dice</span><span class="p">):</span>
-    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dice</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">roll</span>  <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">sides</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dice</span><span class="p">)]</span>
     <span class="k">return</span> <span class="n">roll</span>
 </pre></div>
 </div>
@@ -621,36 +622,56 @@ title="Print to PDF"
 <section id="construct-a-rudimentary-monte-carlo-simulation">
 <h2>Construct a rudimentary Monte Carlo simulation<a class="headerlink" href="#construct-a-rudimentary-monte-carlo-simulation" title="Permalink to this headline">#</a></h2>
 <p>We are doing a very basic Monte Carlo simulation, which means we will roll the dice a lot of times, calculate the total for each time, and figure out how many times we won or lost based on those outcomes.  If we do it enough times, we get a reasonable approximation of the probability distribution for our damage roll and the probability that we win or lose this particular combat. Again, a disclaimer – this is probably not the most efficient way to run an MC simulation, but it is logical and clear, so it has educational value in learning how to structure functions, loops, and flow control.  You can work on optimizing it later if that is within the scope of your interests or your course.</p>
-<p>To start, we’ll use 1000 damage rolls and visualize how well that worked.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
-</pre></div>
-</div>
-<p>We are going to construct this simulation using a for loop.  Each pass through the for loop represents another damage roll.  Every time we make a roll, we will append its value to a list called <strong>damage</strong> that contains the results of each roll.  To start, we will initialize that list as an empty list.  In addition, we will decide after every roll whether we won or lost, and we’ll store that outcome as a string in a list called <strong>result</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">damage</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1">#Initialize list where we will store all damage rolls.</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1">#Initialize list where we will store binary result of combat (win or lose)</span>
-</pre></div>
-</div>
-<p>Now we’ll write the for loop to cycle through n total damage rolls.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>         <span class="c1">#A for loop to make n damage rolls and store the results</span>
+<p>To start, we’ll use 1000 damage rolls, so let’s set <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1000</span></code> and then write a for loop to cycle through n total damage rolls (for this first test, we have set <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1000</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">We are going to construct this simulation using a for loop.  </span>
+<span class="sd">Each pass through the for loop represents another damage roll.  </span>
+<span class="sd">Every time we make a roll, we append it to a list called damage. </span>
+<span class="sd">The damage list contains the results of each roll.  </span>
+<span class="sd">To start, we will initialize that list as an empty list.  </span>
+<span class="sd">In addition, we will decide after every roll whether we won or lost.</span>
+<span class="sd">We&#39;ll store that win/loss outcome as a string in a list called result. </span>
+<span class="sd">So we need to initialize that as well with an empty list.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">damage</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1">#Initialize list where we will store all damage rolls.</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1">#Initialize list where we will store binary result of combat (win or lose)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>         <span class="c1">#A for loop to make n damage rolls and store the results</span>
     <span class="n">roll1</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#This is your 4d12 roll</span>
     <span class="n">roll2</span> <span class="o">=</span> <span class="n">generator</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span>  <span class="mi">2</span><span class="p">)</span> <span class="c1">#This is your 2d4 roll</span>
     <span class="n">base</span>  <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">roll1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span>   <span class="c1">#Adding modifier to base</span>
     <span class="n">bonus</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">roll2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>   <span class="c1">#Adding modifer to bonus</span>
     <span class="n">total</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">bonus</span>     <span class="c1">#Result of the ith damage roll out of n damage rolls.</span>
     <span class="n">damage</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>     <span class="c1">#Append the ith damage total to list called &#39;total&#39;</span>
-</pre></div>
-</div>
-<p>At this point, we are still in the body of the for loop here, and we’ve just made the ith roll.  I want to now store the result of that roll as a string that tells us whether we won or lost.  We can do that easily with an if statement:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="mi">28</span><span class="p">:</span>
+    
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    At this point, we are still in the body of the for loop, and we&#39;ve just made the ith roll.  </span>
+<span class="sd">    I want to now store the result of that roll as a string that tells us whether we won or lost.  </span>
+<span class="sd">    We can do that easily with an if statement:</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;=</span> <span class="mi">28</span><span class="p">:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Acererak has Fallen!&#39;</span><span class="p">)</span> <span class="c1">#If you roll 28 or better, you win.</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Total Party Kill!&#39;</span><span class="p">)</span>    <span class="c1">#If you don&#39;t roll 28 or better, you lose.</span>
-</pre></div>
-</div>
-<p>Next, the easy part.  We are now returned flush left, and so we are outside of the for loop.  We’ve made our n damage rolls, and we are just going to count up the number of times we won and the number of times we lost over 1000 combat simulations. There is a built in list method called <strong>count()</strong> that does this for us.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Wins</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Acererak has Fallen!&#39;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;    </span>
+<span class="sd">We are now returned flush left, and so we are outside of the for loop.  </span>
+<span class="sd">We&#39;ve made our n damage rolls. </span>
+<span class="sd">We just need to count the number of times we won and lost over 1000 combat simulations. </span>
+<span class="sd">There is a built in list method called **count()** that does this for us.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">Wins</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Acererak has Fallen!&#39;</span><span class="p">)</span>
 <span class="n">Losses</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;Total Party Kill!&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -689,7 +710,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.929176
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.929178
 1000000
 </pre></div>
 </div>
@@ -719,7 +740,7 @@ title="Print to PDF"
 </section>
 <section id="visualizing-the-data">
 <h3>Visualizing the data<a class="headerlink" href="#visualizing-the-data" title="Permalink to this headline">#</a></h3>
-<p>At this point, it is helpful to visualize what we are working with: a tally that tells us the raw number of times we scored each result between 13 and 63 on our n damage rolls.  You can plot it as a scatter plot:</p>
+<p>At this point, it is helpful to visualize what we are working with: a tally that tells us the raw number of times we scored each result between 13 and 63 on our n damage rolls.  You can plot it as a scatter plot using the syntax below:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">tally</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -728,10 +749,10 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Or, if you prefer, you can create a histogram using a bar chart as shown below:</p>
+<p>Or, if you prefer, you can create a histogram using a bar chart as shown below (my preference for this example)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">roll</span><span class="p">,</span> <span class="n">tally</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Total Damage Roll&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Times Rolled&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -741,10 +762,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_12_0.png" src="../_images/Module 08 - Probability_12_0.png" />
+<img alt="../_images/Module 08 - Probability_13_0.png" src="../_images/Module 08 - Probability_13_0.png" />
 </div>
 </div>
-<p>Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren’t satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls.</p>
+<p>Each column or data point represents the number of times (in your n total rolls) you scored each result.  Thinking about this visualization helps us to understand the next step, which requires us to estimate the area under the tally vs. roll curve. If you aren’t satisfied at this point that your data set is sufficiently Gaussian, now is a good time to re-reun the simulation with more damage rolls – I generally see a pretty smooth distribution at about 100,000 damage rolls.</p>
 </section>
 <section id="integrating-the-histogram">
 <h3>Integrating the histogram<a class="headerlink" href="#integrating-the-histogram" title="Permalink to this headline">#</a></h3>
@@ -763,7 +784,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>999998.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>999998.5
 1000000
 </pre></div>
 </div>
@@ -800,8 +821,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_19_0.png" src="../_images/Module 08 - Probability_19_0.png" />
-<img alt="../_images/Module 08 - Probability_19_1.png" src="../_images/Module 08 - Probability_19_1.png" />
+<img alt="../_images/Module 08 - Probability_20_0.png" src="../_images/Module 08 - Probability_20_0.png" />
+<img alt="../_images/Module 08 - Probability_20_1.png" src="../_images/Module 08 - Probability_20_1.png" />
 </div>
 </div>
 </section>
@@ -828,7 +849,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The area under the probability distribution is 1.000
 </pre></div>
 </div>
-<img alt="../_images/Module 08 - Probability_21_1.png" src="../_images/Module 08 - Probability_21_1.png" />
+<img alt="../_images/Module 08 - Probability_22_1.png" src="../_images/Module 08 - Probability_22_1.png" />
 </div>
 </div>
 </section>
@@ -858,10 +879,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.994519989039965
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38.00179725269588
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37.994595989191986
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>38.00181600272402
 </pre></div>
 </div>
 </div>
@@ -890,8 +911,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.094560179116688
-7.07701096069296
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.101942413964413
+7.0843885544360194
 </pre></div>
 </div>
 </div>
@@ -929,7 +950,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>By counting the wins and losses, the odds that we win the battle are  0.929
 The probability of success we calculated by integrating the probability distribution is  0.918
-The mean damage roll is  37.99
+The mean damage roll is  38.0
 The standard deviation on the damage roll is  7.08
 The total are under the curve for the probability distribution is  1.0
 </pre></div>
@@ -995,7 +1016,7 @@ The total are under the curve for the probability distribution is  1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.209986
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.209965
 </pre></div>
 </div>
 </div>
@@ -1003,7 +1024,7 @@ The total are under the curve for the probability distribution is  1.0
 </section>
 <section id="i-ll-take-what-s-behind-door-number">
 <h2>I’ll take what’s behind door number….<a class="headerlink" href="#i-ll-take-what-s-behind-door-number" title="Permalink to this headline">#</a></h2>
-<p>You are on a game show. The host presents you with a choice between 3 doors, and the choice you make will determine your fate in life. Behind one of the doors is your dream job, your dream life. If you pick that door, you get to work at something satisfying, rewarding, and well paid for as long as you want to. Behind the other two doors is misery. If you pick one of them, you get to be a college professor. (<em><strong>I’m kidding</strong></em>). Imagine the job in the world you’d hate doing the most - that is what’s behind the other two doors…and once you pick it, you are obligated to do it until you are 95 because a) it has no retirement plan and b) once you take this job, you are ineligible for social security.</p>
+<p>You are on a game show. The host presents you with a choice between 3 doors, and the choice you make will determine your fate in life. Behind one of the doors is your dream job, your dream life. If you pick that door, you get to work at something satisfying, rewarding, and well paid for as long as you want to. Behind the other two doors is misery. If you pick one of them, you get to be a college professor. (<em><strong>I’m kidding</strong></em>). Imagine the job in the world you’d hate doing the most - that is what’s behind the other two doors…and once you pick it, you are obligated to do it until you are dead because a) it has no retirement plan and b) once you take this job, you are ineligible for social security.</p>
 <p>What lies beyond each door is determined randomly.  No one, including the game show host knows what lies behind each one.  <em><strong>You steel your nerve and pick one of the three doors</strong></em>, because even misery is better than being on a game show right?</p>
 <p>But <em><strong>just before you open the door that you picked</strong></em>, the game show host stops you from opening it and says “Wait wait, let’s make this a little more interesting!”</p>
 <p>The live studio audience roars.</p>
@@ -1016,7 +1037,7 @@ The total are under the curve for the probability distribution is  1.0
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">reject</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">switch</span> <span class="o">=</span> <span class="s1">&#39;no&#39;</span>
+<span class="n">switch</span> <span class="o">=</span> <span class="s1">&#39;yes&#39;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
     
     <span class="c1">#What&#39;s behind the doors: 1 is good, 0 is bad.</span>
@@ -1062,11 +1083,11 @@ The total are under the curve for the probability distribution is  1.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.33398
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.66968
 100000
 0
 100000
-If switch = no, you have a 33.40% chance of winning
+If switch = yes, you have a 66.97% chance of winning
 </pre></div>
 </div>
 </div>
@@ -1075,17 +1096,17 @@ If switch = no, you have a 33.40% chance of winning
 <section id="calories-in-calories-out">
 <h2>Calories in, calories out<a class="headerlink" href="#calories-in-calories-out" title="Permalink to this headline">#</a></h2>
 <p>For all of the above cases, we’ve been dealing with discrete random variables.  Again, that means that the values taken on by the variable are not a continuous function, they are discrete values.  In this case, a dice roll will always give you an integer between 1 and the number of sides on that die.</p>
-<p>Now we’re going to take this up just a little in intensity and present you with a framework that is generally useful in doing something like a monte carlo simulation where the important factors in your model obey some type of known probability distribution?  Gaussian is one example, but you might also have log normal, Poisson, Voigt, or many, many other types of distributions.</p>
+<p>Now we’re going to take this up just a little in intensity and present you with a framework that is generally useful in doing something like a Monte Carlo simulation where the important factors in your model obey some type of known probability distribution?  Gaussian is one example, but you might also have log normal, Poisson, Voigt, or many, many other types of distributions.</p>
 <p>There are quite a lot of them, both discrete and continuous.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/List_of_probability_distributions">https://en.wikipedia.org/wiki/List_of_probability_distributions</a></p>
 <p>Here’s an illustration of a few of those distributions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gaussian</span>   <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)]</span>
-<span class="n">Lognorm</span>    <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">lognormvariate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)]</span>
-<span class="n">Triangular</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gaussian</span>   <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)]</span>
+<span class="n">Lognorm</span>    <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">lognormvariate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)]</span>
+<span class="n">Triangular</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)]</span>
 
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
 
 <span class="c1">#Create a histogram of data generated by these random generators for visualization</span>
 <span class="n">countG</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1129,9 +1150,9 @@ If switch = no, you have a 33.40% chance of winning
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_36_0.png" src="../_images/Module 08 - Probability_36_0.png" />
-<img alt="../_images/Module 08 - Probability_36_1.png" src="../_images/Module 08 - Probability_36_1.png" />
-<img alt="../_images/Module 08 - Probability_36_2.png" src="../_images/Module 08 - Probability_36_2.png" />
+<img alt="../_images/Module 08 - Probability_37_0.png" src="../_images/Module 08 - Probability_37_0.png" />
+<img alt="../_images/Module 08 - Probability_37_1.png" src="../_images/Module 08 - Probability_37_1.png" />
+<img alt="../_images/Module 08 - Probability_37_2.png" src="../_images/Module 08 - Probability_37_2.png" />
 </div>
 </div>
 <p>The heart of Monte Carlo simulations is figuring out which of those distributions apply to the uncertain parameters in your model, and then drawing random numbers from that distribution weighted by the probability of that event occuring.</p>
@@ -1151,31 +1172,31 @@ If switch = no, you have a 33.40% chance of winning
 </pre></div>
 </div>
 <p>My workouts can be described with a triangular distribution centered at 800 calories, but going anywhere from 400 to 1200.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span> <span class="c1">#kcal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span> <span class="c1">#kcal</span>
 </pre></div>
 </div>
 <p>Now, I have enough information to run a monte carlo simulation to figure out my typical net calories in a given day.  I would do this with a for loop that runs through maybe 10<sup>6</sup> iterations.  On each pass, I’ll draw a random value for BMR, Donuts, D_Cal, and Training, then I’ll add them up to get my net total.  Once that’s done we can create a histogram from the data, which gives us a pretty good representation of our probability distribution my daily net calorie intake.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMR</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
-<span class="n">Donuts</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">#donuts</span>
-<span class="n">D_Cal</span>  <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">140</span><span class="p">)</span> <span class="c1">#kcal</span>
-<span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span> <span class="c1">#kcal</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BMR</span>      <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span> <span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
+<span class="n">Donuts</span>   <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1">#donuts</span>
+<span class="n">D_Cal</span>    <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span> <span class="c1">#kcal</span>
+<span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span> <span class="c1">#kcal</span>
 
 <span class="n">net</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000000</span><span class="p">):</span>
-    <span class="n">BMR</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span><span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
-    <span class="n">Donuts</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1">#kcal</span>
-    <span class="k">if</span> <span class="n">Donuts</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">BMR</span>    <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">1600</span><span class="p">,</span> <span class="mi">125</span><span class="p">)</span> <span class="c1">#kcal</span>
+    <span class="n">Donuts</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="c1">#kcal</span>
+    <span class="k">if</span> <span class="n">Donuts</span>  <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">Donuts</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="n">D_Cal</span>  <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">140</span><span class="p">)</span> <span class="c1">#kcal</span>
-    <span class="k">if</span> <span class="n">D_Cal</span> <span class="o">&lt;</span> <span class="mi">350</span><span class="p">:</span>
+    <span class="n">D_Cal</span>     <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">gauss</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">140</span><span class="p">)</span> <span class="c1">#kcal</span>
+    <span class="k">if</span> <span class="n">D_Cal</span>  <span class="o">&lt;</span> <span class="mi">350</span><span class="p">:</span>
         <span class="n">D_Cal</span> <span class="o">=</span> <span class="mi">350</span>
-    <span class="n">Training</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">800</span><span class="p">)</span> <span class="c1">#kcal</span>
+    <span class="n">Training</span>  <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span> <span class="c1">#kcal</span>
     <span class="n">net</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Donuts</span><span class="o">*</span><span class="n">D_Cal</span> <span class="o">-</span> <span class="n">BMR</span> <span class="o">-</span> <span class="n">Training</span><span class="p">)</span>
 
 <span class="c1">#Create a histogram   </span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4000</span><span class="p">,</span><span class="mi">8000</span><span class="p">,</span><span class="mi">100</span><span class="p">)]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)]</span>
 <span class="n">count_cal</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
     <span class="n">lower</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">50</span>
@@ -1203,7 +1224,7 @@ If switch = no, you have a 33.40% chance of winning
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Module 08 - Probability_38_0.png" src="../_images/Module 08 - Probability_38_0.png" />
+<img alt="../_images/Module 08 - Probability_39_0.png" src="../_images/Module 08 - Probability_39_0.png" />
 </div>
 </div>
 </section>

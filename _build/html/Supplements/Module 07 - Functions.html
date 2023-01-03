@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Probability of the Fall of Acererak" href="Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html" />
+    <link rel="prev" title="While Loops in Python" href="Module%2006%20-%20While%20Loops.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,20 +115,60 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="../Chapter1.html">
    Python Supplements
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
      The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
     </a>
    </li>
   </ul>
@@ -626,7 +668,7 @@ np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\n
 output     int         25
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
-y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
+y1         function    &lt;function y1 at 0x000001A1065A80D0&gt;
 </pre></div>
 </div>
 </div>
@@ -814,18 +856,18 @@ y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 15, 42)
 Variable   Type        Data/Info
 --------------------------------
-f1         function    &lt;function f1 at 0x0000017EB7357280&gt;
+f1         function    &lt;function f1 at 0x000001A1088559D0&gt;
 np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\numpy\\__init__.py&#39;&gt;
 output     int         25
-p1         function    &lt;function &lt;lambda&gt; at 0x0000017EB9612310&gt;
-p2         function    &lt;function p2 at 0x0000017EB96124C0&gt;
+p1         function    &lt;function &lt;lambda&gt; at 0x000001A106585EE0&gt;
+p2         function    &lt;function p2 at 0x000001A1065854C0&gt;
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
 value      int         10
 xlist      list        n=4
 xvals      ndarray     10: 10 elems, type `float64`, 80 bytes
-y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
-y2         function    &lt;function &lt;lambda&gt; at 0x0000017EB7357820&gt;
+y1         function    &lt;function y1 at 0x000001A1065A80D0&gt;
+y2         function    &lt;function &lt;lambda&gt; at 0x000001A106585F70&gt;
 y_out      list        n=4
 yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </pre></div>
@@ -847,18 +889,18 @@ Variable   Type        Data/Info
 A          int         3
 B          int         15
 C          int         42
-f1         function    &lt;function f1 at 0x0000017EB7357280&gt;
+f1         function    &lt;function f1 at 0x000001A1088559D0&gt;
 np         module      &lt;module &#39;numpy&#39; from &#39;C:\&lt;...&gt;ges\\numpy\\__init__.py&#39;&gt;
 output     int         25
-p1         function    &lt;function &lt;lambda&gt; at 0x0000017EB9612310&gt;
-p2         function    &lt;function p2 at 0x0000017EB96124C0&gt;
+p1         function    &lt;function &lt;lambda&gt; at 0x000001A106585EE0&gt;
+p2         function    &lt;function p2 at 0x000001A1065854C0&gt;
 plt        module      &lt;module &#39;matplotlib.pyplo&lt;...&gt;\\matplotlib\\pyplot.py&#39;&gt;
 random     module      &lt;module &#39;random&#39; from &#39;C:&lt;...&gt;aconda3\\lib\\random.py&#39;&gt;
 value      int         10
 xlist      list        n=4
 xvals      ndarray     10: 10 elems, type `float64`, 80 bytes
-y1         function    &lt;function y1 at 0x0000017EB7357CA0&gt;
-y2         function    &lt;function &lt;lambda&gt; at 0x0000017EB7357820&gt;
+y1         function    &lt;function y1 at 0x000001A1065A80D0&gt;
+y2         function    &lt;function &lt;lambda&gt; at 0x000001A106585F70&gt;
 y_out      list        n=4
 yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </pre></div>
@@ -904,7 +946,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -924,7 +966,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[6, 4, 1, 2, 1, 2, 5, 6, 6, 3, 3, 5, 3, 3, 4]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 2, 4, 3, 4, 6, 3, 4, 6, 1, 2, 1, 2, 5, 3]
 </pre></div>
 </div>
 </div>
@@ -957,7 +999,7 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[11, 5, 2, 8]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 1, 7, 6]
 </pre></div>
 </div>
 </div>
@@ -1003,13 +1045,13 @@ yvals      ndarray     10: 10 elems, type `float64`, 80 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your rolls from 4d20 were     [5, 13, 16, 12]
-The corresponding indices are [4, 12, 15, 11]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Your rolls from 4d20 were     [15, 9, 2, 11]
+The corresponding indices are [14, 8, 1, 10]
 Your coat of arms must include the following:
-    color     = cornflower
-    animal    = dire mouse
-    attribute = raniform
-    kingdom   = Gran March
+    color     = green
+    animal    = billy-bumbler
+    attribute = kalimba
+    kingdom   = The Lost Caverns of Tsojcanth
 </pre></div>
 </div>
 </div>
@@ -1081,9 +1123,9 @@ Your coat of arms must include the following:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We converge on the true mean after making 189 damage rolls
-The average damage calculated from this simulation is 37.9840
-We converged to within 0.015957446808513964 deviation from the true mean
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>We converge on the true mean after making 617 damage rolls
+The average damage calculated from this simulation is 37.9578
+We converged to within 0.04220779220779036 deviation from the true mean
 </pre></div>
 </div>
 <img alt="../_images/Module 07 - Functions_42_1.png" src="../_images/Module 07 - Functions_42_1.png" />
@@ -1119,6 +1161,20 @@ We converged to within 0.015957446808513964 deviation from the true mean
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Module%2006%20-%20While%20Loops.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">While Loops in Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Probability of the Fall of Acererak</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

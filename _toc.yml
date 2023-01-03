@@ -7,6 +7,19 @@ chapters:
 - file: Chapter1
   sections:
   - file: Supplements/Module 01 - The Basics
+  - file: Supplements/Module 02 - Lists, Tuples, Numpy Arrays, and Dictionaries
+  - file: Supplements/Module 03 - Arrays and Matrices
+  - file: Supplements/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting
+  - file: Supplements/Module 05 - Booleans, Conditionals, and Logical Tests
+  - file: Supplements/Module 06 - While Loops
+  - file: Supplements/Module 07 - Functions
+  - file: Supplements/Module 08 - Probability Distributions, D&D
+  - file: Supplements/Module 09 - Root Finding for Univariate Scalar Functions
+  - file: Supplements/Module 01 - Optimization of Univariate Scalar Functions
+  - file: Supplements/Module 01 - Root Finding for Nonlinear Systems of Equations (Multivariate Vector Functions)
+  - file: Supplements/Module 01 - Least Squares Data Fitting with Multivariate Vector Functions
+  - file: Supplements/Module 01 - Numerical Solution of Initial Value Problems (ODEs)
+  - file: Supplements/Module 01 - Gaussian Quadrature, Trapezoidal Rule, and Simpsons Rule
 - file: Chapter2
   sections:
   - file: Lectures/F22-587-L02

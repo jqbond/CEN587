@@ -1,0 +1,1107 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Minimization of Multivariate Functoins &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Supplements/Module 11 - Optimization of Multivariate Scalar Functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FSupplements/Module 11 - Optimization of Multivariate Scalar Functions.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Supplements/Module 11 - Optimization of Multivariate Scalar Functions.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-a-multivariate-function-with-a-surface-plot">
+   Visualizing a multivariate function with a surface plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analogous-syntax-for-contour-plots-and-filled-contour-plots">
+   Analogous syntax for contour plots and filled contour plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#passing-array-arguments-to-the-function">
+   Passing array arguments to the function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improving-human-readability">
+     Improving human readability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-bounds-on-variables">
+     Adding bounds on variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-constraints-in-multivariate-optimization">
+     Adding constraints in Multivariate Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-arguments-or-parameters">
+     Passing extra arguments or parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-problem-with-extra-arguments">
+     Solving the problem with extra arguments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#least-squares">
+   Least Squares
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enzyme-kinetics">
+     Enzyme Kinetics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proposing-a-nonlinear-model">
+     Proposing a nonlinear model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimizing-least-squares-for-michaelis-menten-kinetics">
+     Minimizing Least Squares for Michaelis-Menten Kinetics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-bounds-to-the-least-squares-regression">
+     Adding bounds to the least squares regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specialized-least-squares-minimizers-in-scipy">
+   Specialized Least Squares minimizers in Scipy
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Minimization of Multivariate Functoins</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-a-multivariate-function-with-a-surface-plot">
+   Visualizing a multivariate function with a surface plot
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analogous-syntax-for-contour-plots-and-filled-contour-plots">
+   Analogous syntax for contour plots and filled contour plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#passing-array-arguments-to-the-function">
+   Passing array arguments to the function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improving-human-readability">
+     Improving human readability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-bounds-on-variables">
+     Adding bounds on variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-constraints-in-multivariate-optimization">
+     Adding constraints in Multivariate Optimization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-arguments-or-parameters">
+     Passing extra arguments or parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-the-problem-with-extra-arguments">
+     Solving the problem with extra arguments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#least-squares">
+   Least Squares
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enzyme-kinetics">
+     Enzyme Kinetics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proposing-a-nonlinear-model">
+     Proposing a nonlinear model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimizing-least-squares-for-michaelis-menten-kinetics">
+     Minimizing Least Squares for Michaelis-Menten Kinetics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-bounds-to-the-least-squares-regression">
+     Adding bounds to the least squares regression
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specialized-least-squares-minimizers-in-scipy">
+   Specialized Least Squares minimizers in Scipy
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="minimization-of-multivariate-functoins">
+<h1>Minimization of Multivariate Functoins<a class="headerlink" href="#minimization-of-multivariate-functoins" title="Permalink to this headline">#</a></h1>
+<p>We now move into minimizing objectives that are multivariate functions.  They still return a single quantity that we wish to optimize, so they are scalar functions, but we will now move into the case of optimizing that objective function by iteratively varying <em><strong>more than one</strong></em> function argument. We encounter this type of problem all the time!</p>
+<p>Let’s start with a very basic example: we have a function that describes the value of z for values of x and y:</p>
+<div class="math notranslate nohighlight">
+\[z(x,y) = (x - 10)^2 + (y + 5)^2\]</div>
+<p>By inspection, we know that this function has a minimum value of z = 0 at x = 10, y = -5, but if we can, it’s a good idea to start with a visualization of the problem.  This is a 3D problem, so we are still able to visualize it reasonably well. Once we hit 4D, all bets are off!</p>
+<p>You can look up 3D plotting in matplotlib; I found the link below to be helpful.</p>
+<p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html">https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="visualizing-a-multivariate-function-with-a-surface-plot">
+<h2>Visualizing a multivariate function with a surface plot<a class="headerlink" href="#visualizing-a-multivariate-function-with-a-surface-plot" title="Permalink to this headline">#</a></h2>
+<p>The following code will create a surface plot for visualization:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This plot graphs the above function z in a 3d surface plot</span>
+
+<span class="n">z</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">x</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1">#we&#39;re making a surface plot, so we create a grid of (x,y) pairs</span>
+<span class="n">Z</span>    <span class="o">=</span> <span class="n">z</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>  <span class="c1">#generate the Z data on the meshgrid (X,Y) by evaluating f at each XY pair.</span>
+
+<span class="c1">#Create the figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
+<span class="c1">#Plot the surface.</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="c1">#Set properties</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Z values vs. X and Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 11 - Optimization of Multivariate Scalar Functions_3_0.png" src="../_images/Module 11 - Optimization of Multivariate Scalar Functions_3_0.png" />
+</div>
+</div>
+</section>
+<section id="analogous-syntax-for-contour-plots-and-filled-contour-plots">
+<h2>Analogous syntax for contour plots and filled contour plots<a class="headerlink" href="#analogous-syntax-for-contour-plots-and-filled-contour-plots" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot as contours</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A contour plot of Z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 11 - Optimization of Multivariate Scalar Functions_5_0.png" src="../_images/Module 11 - Optimization of Multivariate Scalar Functions_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot as filled contours</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A filled contour plot of Z&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;jet&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">50.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 11 - Optimization of Multivariate Scalar Functions_6_0.png" src="../_images/Module 11 - Optimization of Multivariate Scalar Functions_6_0.png" />
+</div>
+</div>
+</section>
+<section id="passing-array-arguments-to-the-function">
+<h2>Passing array arguments to the function<a class="headerlink" href="#passing-array-arguments-to-the-function" title="Permalink to this headline">#</a></h2>
+<p>This is a multivariate function, z(x,y), that returns a single output, z. We can minimize z by using any of the <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> routines or any of the global optimzation routines we tested on univariate functions. We just make a simple extention to our original syntax. I know that above, we’ve wrote this out as z(x,y), which is conceptually true, but there is a catch when working with <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>:</p>
+<p>It will only vary the value of the first argument when seeking an optimum, and it will treat any additional arguments we pass to the function as fixed parameters. So, if I were to give z(x,y) to an optimizer, it would vary the value of x while holding y fixed at the initial value. Instead, I have to create function that accepts an <em><strong>array</strong></em> as its first argument. That first argument should be a collection - usually a list, a numpy array, or a tuple - of variables that I want to adjust until I find the minimum value of my function.  So, instead of working with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>or it’s analogous lambda function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>We want to write this particular objective function such that its first argument is a collection of all of the variables we want to minimize with respect to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>or, it’s analgous lambda function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">var</span><span class="p">:</span> <span class="p">(</span><span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<section id="improving-human-readability">
+<h3>Improving human readability<a class="headerlink" href="#improving-human-readability" title="Permalink to this headline">#</a></h3>
+<p>Often, to improve readability in a complex function, I will use a long form function definition and redefine elements in “var” using the labels that are specific to the way we express our function on paper:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Note that Python will also allow you to unpack elements in an array as a set of comma separated values, which is a bit more concise (This is equivalent in practice to the above).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Any of the above options will work. Now that we’ve created an objective function that takes a single array argument, we can pass this objective function as an argument to <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>.  The only other catch is that we need an initial guess for the (x,y) pair, and it should be a collection of the same size and type that we used for our function argument - in fact, our initial guess is what sets the data type for var.  So, my full optimization script would look something like this. Just so that we can make the optimizer work for it, let’s start at an initial guess of [10, 50] for x and y, which we’ll pass as <code class="docutils literal notranslate"><span class="pre">var0</span> <span class="pre">=</span> <span class="pre">[10,</span> <span class="pre">50]</span></code>. As we saw in past exercises, <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> will output a solution structure, and I can access individual attributes of that solution structure using a dot operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>  <span class="c1">#Initial guess for x and y as a list; I could also use an array or tuple.</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 5.6362041652578235e-12
+ hess_inv: array([[1.        , 0.        ],
+       [0.        , 0.50000002]])
+      jac: array([ 1.49011612e-08, -4.73323707e-06])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 15
+      nit: 2
+     njev: 5
+   status: 0
+  success: True
+        x: array([10.        , -5.00000237])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-bounds-on-variables">
+<h3>Adding bounds on variables<a class="headerlink" href="#adding-bounds-on-variables" title="Permalink to this headline">#</a></h3>
+<p>Now that we have the basic example, we can add bounds just as we did with the univariate functions from Module 10. For example, let’s add bounds that allow us to find the minimum only between x = [1,10] and y = [20, 50]. Note that the lower and upper bounds are passed as a collection of (lower_bound, upper_bound) sets.  Their order should be the same as the variable arguments that are being passed to our objective function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)])</span> <span class="c1">#bounds = [(lower_x, upper_x), (lower_y, upper_y)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 625.0
+ hess_inv: &lt;2x2 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([-0.        , 50.00000142])
+  message: &#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 6
+      nit: 1
+     njev: 2
+   status: 0
+  success: True
+        x: array([10., 20.])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-constraints-in-multivariate-optimization">
+<h3>Adding constraints in Multivariate Optimization<a class="headerlink" href="#adding-constraints-in-multivariate-optimization" title="Permalink to this headline">#</a></h3>
+<p>We can also add equality or inequality constraints just as easily.  For example, let’s add the constraints that:</p>
+<div class="math notranslate nohighlight">
+\[x^2 + 2y \geqslant 10\]</div>
+<div class="math notranslate nohighlight">
+\[x - 12y^3 = 50\]</div>
+<p>For this example, to focus on constructing and adding constraints, we’ll remove the bounds on x and y. Remember: we have to specify each constraint in a separate function, and we stack those constraints up in a tuple of dictionaries. In the cell below, those second and third terms in the print statement look goofy, but it is your two constraints written as Boolean comparisons; If your optimization satisfied your constraints (within the precision of floating point arithmetic), both should print “True.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first constraint function</span>
+<span class="k">def</span> <span class="nf">conf1</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="mi">10</span>
+
+<span class="c1">#second constraint function</span>
+<span class="k">def</span> <span class="nf">conf2</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">50</span>
+
+<span class="c1">#construct constraints in dictionary</span>
+<span class="n">con1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;ineq&#39;</span> <span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">conf1</span><span class="p">}</span>
+<span class="n">con2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span> <span class="p">:</span> <span class="s1">&#39;eq&#39;</span>   <span class="p">,</span> <span class="s1">&#39;fun&#39;</span> <span class="p">:</span> <span class="n">conf2</span><span class="p">}</span>
+
+<span class="c1">#optimization</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">constraints</span> <span class="o">=</span> <span class="p">(</span><span class="n">con1</span><span class="p">,</span> <span class="n">con2</span><span class="p">))</span> <span class="c1">#Uses SLSQP by default</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span>  <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">12</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     fun: 12.291524027857486
+     jac: array([-0.08745086,  7.01130867])
+ message: &#39;Optimization terminated successfully&#39;
+    nfev: 50
+     nit: 16
+    njev: 16
+  status: 0
+ success: True
+       x: array([ 9.95627461, -1.49434569]) 
+
+12.291524027857486 True True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-extra-arguments-or-parameters">
+<h3>Passing extra arguments or parameters<a class="headerlink" href="#passing-extra-arguments-or-parameters" title="Permalink to this headline">#</a></h3>
+<p>Finally, you often will encounter an optimization problem wherein you need to minimize an objective function by varying a set of parameters, but you also need to pass additional information to the function.  As an example, let’s use the following function:</p>
+<div class="math notranslate nohighlight">
+\[q(x,y,a,b) = ax^2 + by^2 + x - y\]</div>
+<p>In this particular, example, a and b are coefficients, while x and y are the true “independent variables” that we are looking to optimize this function with respect to; however, our solution also will generally depend on the values of a and b, and we may need to consider the solution for multiple values of a and b.  To handle this type of function, we would construct the objective function in the cell below.</p>
+<p>In this form, we include the variables that we want to minimize with respect to (x,y) in the vector argument <code class="docutils literal notranslate"><span class="pre">var</span></code>; they still need to be passed to the objective function as elements in a single collection. In contrast, we pass a and b as additional function arguments that will not be varied by the optimization routine. <code class="docutils literal notranslate"><span class="pre">opt.minimize</span></code> will only change the values of elements in <code class="docutils literal notranslate"><span class="pre">var</span></code>. In a lot of languages, you’d probably use anonymous functions to handle this; that will work in Python as well.  That said, Python also gives you the convenient option of passing extra arguments using the args keyword.  <em><strong>This works for most numerical methods from Scipy</strong></em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solving-the-problem-with-extra-arguments">
+<h3>Solving the problem with extra arguments<a class="headerlink" href="#solving-the-problem-with-extra-arguments" title="Permalink to this headline">#</a></h3>
+<p>Here, we’ll solve the problem for a = 1 and b = 3. It might not yet be apparent why you’d want to do this, but keep working on optimization problems for awhile, and I’m sure you’ll find some examples. I rarely optimize a function that <em>doesn’t</em> use this convention these days. In fact, the next regression example uses this approach as a demonstration of best practice for working with local variables inside of a function scope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: -0.333333333331739
+ hess_inv: array([[ 0.50418015, -0.00211926],
+       [-0.00211926,  0.16774108]])
+      jac: array([-1.89989805e-06,  2.89082527e-06])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 33
+      nit: 9
+     njev: 11
+   status: 0
+  success: True
+        x: array([-0.50000096,  0.16666714])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can build almost infinitely from this basic framework of optimizing multivariate functions.  You can easily extend to optimize with respect to 3, 4, 5, or 15 parameters; however, just be aware that the more parameters you have, the more difficult it is to perform a meaningful optimization.</p>
+<p>Next, we’ll cover a very, very common example of optimization that most of us have used before, even if we aren’t necessarily aware of how it works: least squares regression.</p>
+</section>
+</section>
+<section id="least-squares">
+<h2>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">#</a></h2>
+<p>The basic problem should be familiar to everyone. You have a set of data, and you want to create a model that describes data well enough that it is reasonably predictive.</p>
+<section id="enzyme-kinetics">
+<h3>Enzyme Kinetics<a class="headerlink" href="#enzyme-kinetics" title="Permalink to this headline">#</a></h3>
+<p>Here’s a concrete example that is relevant to anyone working with biological processes: the kinetics of an enzyme catalyzed reaction. We know that the rate of an enzyme-catalyzed reaction will generally depend on the concentration of the reactant, let’s call it the substrate. We perform an experiment by varying the concentration of our substrate (<span class="math notranslate nohighlight">\(C_S\)</span>) and measuring the resultant reaction rate. I’ve loaded some typical laboratory data into the cell below for visualization; go ahead and plot them using a scatter plot to visualize the relationship between rate and substrate concentration in this system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1">#mmol/L</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.017537467</span><span class="p">,</span> <span class="mf">0.030941975</span><span class="p">,</span> <span class="mf">0.080327165</span><span class="p">,</span> <span class="mf">0.1643835</span><span class="p">,</span> <span class="mf">0.26569368</span><span class="p">,</span> <span class="mf">0.745442547</span><span class="p">,</span> <span class="mf">1.295792328</span><span class="p">,</span> <span class="mf">2.419014706</span><span class="p">,</span> <span class="mf">4.0402125</span><span class="p">,</span> <span class="mf">5.534947297</span><span class="p">,</span> <span class="mf">5.127217742</span><span class="p">,</span> <span class="mf">7.074911496</span><span class="p">])</span> <span class="c1">#mmol/L/min</span>
+
+<span class="c1">## Graphing the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Substrate Concentration (mmol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate (mmol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 11 - Optimization of Multivariate Scalar Functions_18_0.png" src="../_images/Module 11 - Optimization of Multivariate Scalar Functions_18_0.png" />
+</div>
+</div>
+</section>
+<section id="proposing-a-nonlinear-model">
+<h3>Proposing a nonlinear model<a class="headerlink" href="#proposing-a-nonlinear-model" title="Permalink to this headline">#</a></h3>
+<p>Looking at the data, I notice two things.  First, the data are not perfect.  This is typical of experimental data!  Second, I can see that, initially, increasing the substrate concentration increases the rate of reaction, but this only occurs up to a certain point. This is referred to as “saturation kinetics” wherein the rate eventually becomes insensitive to additional increases in substrate concentration. This data set looks typical of a Michaelis-Menten mechanism for an enzyme-catalyzed reaction, where the rate is usually described by:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{rate} = \frac{V_{max}C_S}{K_m + C_S}\]</div>
+<p>Inspecting the equation, it’s easy to see why the reaction rate becomes zero order in <span class="math notranslate nohighlight">\(C_S\)</span> at high concentrations.  In this limit, <span class="math notranslate nohighlight">\(C_S\)</span> is the dominant term in the denominator, and the rate approaches <span class="math notranslate nohighlight">\(V_{max}\)</span>, which should give you a hint as to why this parameter is called “<span class="math notranslate nohighlight">\(V_{max}\)</span>”.</p>
+<p>It would be useful to my group if we could figure out the values for <span class="math notranslate nohighlight">\(V_{max}\)</span> and <span class="math notranslate nohighlight">\(K_m\)</span> – once we know their values, we can predict the rate of that reaction for <em>any</em> substrate concentration, which will allow us to scale this reaction and implement it in any system that we need to.  But how do we do that? Looking at the graph, we can see that we have 13 different rate vs. <span class="math notranslate nohighlight">\(C_S\)</span> pairs, all of which are noisy and subject to measurement uncertainty.  We didn’t do anything wrong <em>per se</em>, this is just typical of a laboratory experiment, where there are many sources of error. Our first instinct might be to pick two rate vs. <span class="math notranslate nohighlight">\(C_S\)</span> pairs and plug them into the Michaelis-Menten rate equation (70% of my students do this on their exams). That would give us two equations and two unknowns (<span class="math notranslate nohighlight">\(V_{max}\)</span> and <span class="math notranslate nohighlight">\(K_m\)</span>), which we could easily solve using a root finding algorithm. Unfortunately, since none of our measurments are <em>exactly correct</em>, we will get different answers for every (<span class="math notranslate nohighlight">\(C_S\)</span>, rate) pair that we pick. Our system is over-determined, and it is incorrect (and honestly a bit lazy) to try to solve it as a system of equations. Instead, we have to solve it by <em>minimizing</em> the error between our measurements and our experiments. Usually, we do this by minimizing some form of the residual sum of squares, which quantifies the level of agreement between measurement values and model predictions. The most basic version is defined based only on the difference between the model and measurement:</p>
+<div class="math notranslate nohighlight">
+\[\textrm{SSE} = \sum_{i = 1}^n\left(\textrm{measurement}_i - \textrm{model}_i\right)^2\]</div>
+<p>But this is really just another example of minimizing an objective function! Which we already know how to do! In this case our objective function is the residual sum of squares. Minimizing that objective function by varying model parameters minimizes the residual sum of squares, which is the process of least squares regression. We use this method all the time! Every time you use a trendline in Excel, for example, you are performing a least squares regression (whether you knew it or not).</p>
+<p>Now, let’s look at how to formulate this problem in Python and solve it using the optimization tools in Scipy.</p>
+</section>
+<section id="minimizing-least-squares-for-michaelis-menten-kinetics">
+<h3>Minimizing Least Squares for Michaelis-Menten Kinetics<a class="headerlink" href="#minimizing-least-squares-for-michaelis-menten-kinetics" title="Permalink to this headline">#</a></h3>
+<p>The “saturation kinetics” that we observe in this system suggests a Michaelis-Menten mechanisms, which we model as:</p>
+<div class="math notranslate nohighlight">
+\[rate = \frac{V_{max}C_S}{K_m + C_S}\]</div>
+<p>Next, we need to build an objective function that calculates the residual sum of squares between the model prediction and the experimental measurment for our experimental set of substrate concentrations. In this case, our objective function will be a <em><strong>multivariate scalar function</strong></em>. It will accept two parameters that we want to find optimum values for – <span class="math notranslate nohighlight">\(K_m\)</span> and <span class="math notranslate nohighlight">\(V_{max}\)</span> – and it will return a single value that we wish to minimize, the residual sum of squares.</p>
+<p>As in in the first example of this worksheet, when I construct this objective function, I will need to pass all of the parameters I’m looking to vary in a single array-like structure, so I have to pack <span class="math notranslate nohighlight">\(K_m\)</span> and <span class="math notranslate nohighlight">\(V_{max}\)</span> into a  collection for this to work. Though it isn’t necessary to do so, I often rename them once inside the function scope to make it more readable.  Since I want that function to compute the error between model and measurement, I also need to access my experimental data inside of the function. Best practice is to work with local variables inside of a function (i.e., variables that are only defined inside of the function scope), so I add two extra arguments to my objective function, one representing substrate concentration, and one representing the reaction rate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="n">Vmax</span>  <span class="o">=</span> <span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">Km</span>    <span class="o">=</span> <span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">C</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">C</span><span class="p">)</span>
+    <span class="n">SSE</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">r</span> <span class="o">-</span> <span class="n">model</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that I have an objective function, I can use opt.minimize to minimize it.  We have to provide initial guesses for our parameters as some sort of collection.  Since we’re working with numpy arrays everywhere else, I’ll pass my initial guesses into the minimizer using a numpy array as well. I’ll also use the args keyworkd to send my experimental data into the objective function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">par0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+<span class="n">Vmax_opt</span><span class="p">,</span> <span class="n">KM_opt</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.109424939810448
+ hess_inv: array([[0.53640537, 0.08330392],
+       [0.08330392, 0.0200761 ]])
+      jac: array([-4.47034836e-07,  2.44379044e-06])
+  message: &#39;Optimization terminated successfully.&#39;
+     nfev: 90
+      nit: 13
+     njev: 30
+   status: 0
+  success: True
+        x: array([7.20658891, 0.40925668])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can overlay our “best fit” model with the experimental data, and you’ll generally observe that this particular parameter set does a good job of minimizing the error between our model predictions and the measurements that we have available.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Graphing the data, overlay the line of best fit</span>
+<span class="n">Cplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Cplot</span><span class="p">,</span> <span class="n">Vmax_opt</span><span class="o">*</span><span class="n">Cplot</span><span class="o">/</span><span class="p">(</span><span class="n">KM_opt</span> <span class="o">+</span> <span class="n">Cplot</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Substrate Concentration (mmol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate (mmol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 11 - Optimization of Multivariate Scalar Functions_24_0.png" src="../_images/Module 11 - Optimization of Multivariate Scalar Functions_24_0.png" />
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technical Aside that is important but probably not super interesting to you: strictly speaking,  once I’ve loaded them into the Python workspace, <code class="docutils literal notranslate"><span class="pre">CS</span></code> and <code class="docutils literal notranslate"><span class="pre">rate</span></code> are global variables, so both <code class="docutils literal notranslate"><span class="pre">CS</span></code> and <code class="docutils literal notranslate"><span class="pre">rate</span></code> are defined and accessible <em><strong>inside</strong></em> of the function scope. That said, <em>best practice</em> is to work only with local variables inside of the function and to pass experimental data as additional arguments. Since that is usually best practice, that’s what I did here.</p>
+<p>This is different from Matlab’s default behavior, which is to restrict function scope to local variables by default. In Matlab, I would need to either declare CS and rate as global variables (generally not recommended), nest the two functions somehow (generally not recommended), or pass CS and rate as arguments to the objective function by way of an anonymous function (recommended).<br />
+There are a lot of reasons why global variable declarations can be problematic.  Sometimes, for convenience, we leverage them, particularly in a language like Python and when working in a Jupyter notebook. But best practice is <em>usually</em> to work with local variables defined only within the scope of the particular function or subroutine you’re working on.  Just be careful.  I find it easy to be lazy about globals, particularly in Jupyter.</p>
+</div>
+</section>
+<section id="adding-bounds-to-the-least-squares-regression">
+<h3>Adding bounds to the least squares regression<a class="headerlink" href="#adding-bounds-to-the-least-squares-regression" title="Permalink to this headline">#</a></h3>
+<p>It is straightforward to bound both of my parameters with opt.minimize. Where bounds are input as a list of tuples.  The first tuple is (lower_bound, upper_bound) on argument 1 (<span class="math notranslate nohighlight">\(V_{max}\)</span>), the second is the (lower_bound, upper_bound) on argument 2 (<span class="math notranslate nohighlight">\(K_m\)</span>), etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mf">0.3</span><span class="p">],</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">),</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">7.4</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      fun: 1.1094249398113
+ hess_inv: &lt;2x2 LbfgsInvHessProduct with dtype=float64&gt;
+      jac: array([1.66533455e-06, 2.30926389e-06])
+  message: &#39;CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_&lt;=_PGTOL&#39;
+     nfev: 36
+      nit: 10
+     njev: 12
+   status: 0
+  success: True
+        x: array([7.20659004, 0.40925685])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="specialized-least-squares-minimizers-in-scipy">
+<h2>Specialized Least Squares minimizers in Scipy<a class="headerlink" href="#specialized-least-squares-minimizers-in-scipy" title="Permalink to this headline">#</a></h2>
+<p>The above is a homebrew least squares error minimization using <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>. This is generally what people are doing when they talk about “nonlinear regression.” There is nothing wrong with using <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> in this way; however, if you scan the documentation for <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>, you’ll find two specific routines cited for nonlinear regression; both are good and worth exploring.  The first is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">least_squares</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The second is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code> is a very nice method that is optimized for nonlinear least squares; however, it requires you to provide a vector function from which it generates the scalar objective function for least squares on its own.  We’ll save consideration of <code class="docutils literal notranslate"><span class="pre">opt.least_squares()</span></code> until after Module 12, where we will introduce vector functions and Python subroutines that are based on vector functions.</p>
+<p>The second one, <code class="docutils literal notranslate"><span class="pre">opt.curve_fit()</span></code>, is really great for simple model fitting (exactly like what we are doing with the Michaelis-Menten rate law here). This one has a pretty unique syntax relative to what we find elsewhere in <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code>, so we’ll go ahead and cover it here since it doesn’t require us to work with vector functions.</p>
+<p>Instead of writing a function to return your objective, you provide <code class="docutils literal notranslate"><span class="pre">opt.curvefit()</span></code> with a function that returns your model prediction only. <code class="docutils literal notranslate"><span class="pre">opt.curvefit()</span></code> then uses that model equation to generate the least squares objective function automatically. So that it can do this, you’ll also provide <code class="docutils literal notranslate"><span class="pre">opt.curvefit()</span></code> with your raw “xdata” and “ydata”, in our case, these are substrate concentration and rate respectively.  The basic syntax is straightforward, it’s just different from what you’d use with <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can also add a number of options as usual. For our specific problem, <code class="docutils literal notranslate"><span class="pre">xdata</span> <span class="pre">=</span> <span class="pre">CS</span></code>, <code class="docutils literal notranslate"><span class="pre">ydata</span> <span class="pre">=</span> <span class="pre">rate</span></code>, and <code class="docutils literal notranslate"><span class="pre">function</span></code> will be a function that returns the Michaelis-Menten rate at a specific value of CS, <span class="math notranslate nohighlight">\(V_{max}\)</span>, and <span class="math notranslate nohighlight">\(K_m\)</span>).</p>
+<p>I’ve also added some bounds to this one to illustrate that the general syntax looks very similar to <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> in that it accepts a list of tuples; however, in this case, the first tuple is a set of lower bounds for all variables, and the second tuple is a set of upper bounds for all variables. That is different from the <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> syntax, so be careful!</p>
+<p>I always debate whether to introduce different routines like <code class="docutils literal notranslate"><span class="pre">opt.curve_fit()</span></code> when the syntax for <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> feels more universal and in line with algebraic equation solvers.  I can think of two good reasons to do it:</p>
+<ol class="simple">
+<li><p>It is optimized for least squares problems, whereas <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> is a general routine</p></li>
+<li><p>It returns the covariance matrix, which makes it easy to calculate confidence intervals</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">Km</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">Vmax</span><span class="o">*</span><span class="n">C</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Km</span> <span class="o">+</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">CS</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">6.8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">(</span><span class="mf">7.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([7.20658895, 0.40925666]), array([[0.10782994, 0.01660871],
+       [0.01660871, 0.00407721]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Optimization is a very complex topic, and we have only presented a basic overview of <em>some</em> of the tools available here.  Still, it should give you a feel for the methods available to you, give you some appreciation for how they work, and provide you enough background to select appropriate algorithms and initial guesses, as well as bound your system in various ways.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

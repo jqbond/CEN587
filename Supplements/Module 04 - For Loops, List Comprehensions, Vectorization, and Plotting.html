@@ -1,0 +1,1684 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>For Loops, Vectorization, and Plotting &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logical Tests and Comparisons" href="Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html" />
+    <link rel="prev" title="Arrays and Matrices" href="Module%2003%20-%20Arrays%20and%20Matrices.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Supplements/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FSupplements/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Supplements/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-using-a-basic-for-loop">
+     Introduction using a basic for loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loop-syntax">
+     For loop syntax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-complexity-to-the-loop">
+     Adding complexity to the loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-iterator-as-an-index-in-your-for-loop">
+     Using the iterator as an index in your for loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-range-function-in-more-detail">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       range()
+      </span>
+     </code>
+     function in more detail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-range-function-as-the-iterable">
+     Using the range function as the iterable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-a-loop-to-calculate-the-residual-sum-of-squares-from-lists">
+     Using a loop to calculate the residual sum of squares from lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorized-operations-with-numpy-arrays-can-sometimes-replace-for-loops">
+     Vectorized operations with numpy arrays can sometimes replace for loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-comprehensions">
+     List Comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practice-with-list-comprehensions">
+     Practice with List Comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#know-that-there-are-alternatives-with-numpy-arrays">
+     Know that there are alternatives with numpy arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flexibility-is-powerful-but-it-can-be-frustrating">
+     Flexibility is powerful, but it can be frustrating
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#you-can-iterate-over-lots-of-things">
+     You can iterate over lots of things…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-more-complex-example">
+     A more complex example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#context">
+       Context
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-example-of-this-in-base-python-using-lists">
+     An Example of this in base Python using lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-syntax-using-zip">
+     Alternative syntax using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       zip()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-equivalent-version-with-comprehensions">
+     An equivalent version with comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-elementwise-version-with-numpy-arrays">
+     The elementwise version with numpy arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#increasing-the-dimensionality">
+     Increasing the dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-100-k-values-at-301-temperatures">
+     Calculate 100 K values at 301 temperatures…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-pyplot">
+     Importing pyplot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-graphing-syntax-in-pyplot">
+     Basic graphing syntax in pyplot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-semilog-plot">
+     A semilog plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacking-plots">
+     Stacking plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacking-a-lot-of-plots">
+     Stacking a lot of plots…
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>For Loops, Vectorization, and Plotting</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops">
+   For Loops
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-using-a-basic-for-loop">
+     Introduction using a basic for loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-loop-syntax">
+     For loop syntax
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-complexity-to-the-loop">
+     Adding complexity to the loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-iterator-as-an-index-in-your-for-loop">
+     Using the iterator as an index in your for loop
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-range-function-in-more-detail">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       range()
+      </span>
+     </code>
+     function in more detail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-range-function-as-the-iterable">
+     Using the range function as the iterable
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-a-loop-to-calculate-the-residual-sum-of-squares-from-lists">
+     Using a loop to calculate the residual sum of squares from lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vectorized-operations-with-numpy-arrays-can-sometimes-replace-for-loops">
+     Vectorized operations with numpy arrays can sometimes replace for loops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-comprehensions">
+     List Comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#practice-with-list-comprehensions">
+     Practice with List Comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#know-that-there-are-alternatives-with-numpy-arrays">
+     Know that there are alternatives with numpy arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flexibility-is-powerful-but-it-can-be-frustrating">
+     Flexibility is powerful, but it can be frustrating
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#you-can-iterate-over-lots-of-things">
+     You can iterate over lots of things…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-more-complex-example">
+     A more complex example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#context">
+       Context
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-example-of-this-in-base-python-using-lists">
+     An Example of this in base Python using lists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#alternative-syntax-using-zip">
+     Alternative syntax using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       zip()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#an-equivalent-version-with-comprehensions">
+     An equivalent version with comprehensions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-elementwise-version-with-numpy-arrays">
+     The elementwise version with numpy arrays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#increasing-the-dimensionality">
+     Increasing the dimensionality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculate-100-k-values-at-301-temperatures">
+     Calculate 100 K values at 301 temperatures…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-pyplot">
+     Importing pyplot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-graphing-syntax-in-pyplot">
+     Basic graphing syntax in pyplot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-semilog-plot">
+     A semilog plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacking-plots">
+     Stacking plots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stacking-a-lot-of-plots">
+     Stacking a lot of plots…
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="for-loops-vectorization-and-plotting">
+<h1>For Loops, Vectorization, and Plotting<a class="headerlink" href="#for-loops-vectorization-and-plotting" title="Permalink to this headline">#</a></h1>
+<p>One of the places that computers shine most is in automating repetitive tasks. When faced with calculations over large sets, we frequently handle them using loops. To truly appreciate the benefit of a loop, you have to think big – if you need to do one or ten iterations to get an answer, then it might be reasonable to solve your problem by hand, using a calculator, or using a spreadsheet. But when you have to perform an operation hundreds or thousands of times, then you’ll want to use a programming language, and you will probably consider looping those calculations to automate iterations so that you don’t have to write them out line by line.</p>
+<p>We will use two types of loops: <strong>for loops</strong> and <strong>while loops</strong>. At a high level, they are similar in that they will repeat an operation in a cyclic fashion until they meet some criteria that we have specified, at which point, they terminate and exit, returning any outputs that we generated over the coures of the loop.</p>
+<p>The fundamental difference between the two types of loops is this: <strong>For loops</strong> will cyclicly perform an operation on every element in a pre-defined set. <strong>While loops</strong> will cyclically perform an operation until threshold criteria are met.</p>
+<p>As usual, the best way to get a feel for this is with some examples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For loops and while loops are just general tools that you can use in solving problems and processing data. Both are almost infinitely flexible in how they are used. It is important to remember this in going through examples in Module 04 and Module 06, which illustrate some ways that one can use for loops and while loops. More importantly, these examples will get you familiar with loop architechure, syntax, logic, and execution. Do not get stuck in thinking “This is always how I should use a for loop” or “I can only use a while loop in this situation.” You can abstract both types of loops to solve many different problems. Doing so only requires that you think about how to adapt the basic architecture of the loop to solve the problem at hand.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="for-loops">
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">#</a></h2>
+<p>Let’s start with a basic for loop.  The key thing about a for loop is that it will perform the specified operation for each  element in a collection, in the order that the elements appear in the collection. The “collection” in a for loop is called the iterable: it is what the loop “iterates” over. Common things that we iterate over in a for loop are lists, ranges, and numpy arrays, but you can iterate over pretty much any type of collection.</p>
+<p>For example, let’s say I have a list of the integers between 1 and 11. Let’s create and print that list out so we can see the output. Notice how it returns the full list on a single line, wrapped in brackets and separated by commas and looking just like a list?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="introduction-using-a-basic-for-loop">
+<h3>Introduction using a basic for loop<a class="headerlink" href="#introduction-using-a-basic-for-loop" title="Permalink to this headline">#</a></h3>
+<p>Now lets print out the elements of this list using a for loop. To do that, I will ask my for loop to print the current value of A on each pass through the for loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Above, “value” refers to the current element in A on a given pass through the loop. On the first pass, value = 1, and this loop should print 1 to the screen.  Once it has done that, it has completed its first pass through the loop and it moves on to the next “value” in A.  Since there is a second element in A, the loop will return to the start and update “value” to 2.  On the second pass, value = 2, and we see this print to the screen.  This will continue until the operation(s) specified in the body of the for loop have been carried out for every element in the iterable, i.e., it continues until it reaches 11.</p>
+<p>Compare the result you get from the for loop to the result you get with <code class="docutils literal notranslate"><span class="pre">print(A)</span></code>. As you do this, try to reason through the difference between a print statement executed on each pass through a for loop and one executed on the full list. In the for loop, each time you see a single, integer value from within A print to the screen is a single pass through the for loop.  If you get this, you have a good enough grasp of for loops to work with them!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="for-loop-syntax">
+<h3>For loop syntax<a class="headerlink" href="#for-loop-syntax" title="Permalink to this headline">#</a></h3>
+<p>Here are a few important notes about <strong>for loop</strong> syntax:  The choices above of the word “value” and the letter “A” to represent the list are arbitrary.  You can use almost any strings you like here.  Otherwise, the first line in a for loop always looks like we have written it above. It starts flush left with the <strong>for</strong> keyword.  Then it always takes the form:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="c1">#operations in the scope of the for loop</span>
+<span class="c1">#for loop ends when you return flush left</span>
+</pre></div>
+</div>
+<p>The first line in a for loop is terminated by a colon; the colon is non-negotiable. Finally, every line inside the body of a for loop is indented relative to the for keyword. This is how you designate that a bit of code is inside the scope of the for loop or outside the scope of the loop. Once you are done defining the scope of the for loop, you return to writing code flush left, which signals to the interpreter that you are no longer inside of the for loop.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The basic syntatic structure of a for loop is shared by many other constructs in Python. If statements, while loops, and functions also use the same colon-indent structure to specify their scopes.</p>
+</div>
+</section>
+<section id="adding-complexity-to-the-loop">
+<h3>Adding complexity to the loop<a class="headerlink" href="#adding-complexity-to-the-loop" title="Permalink to this headline">#</a></h3>
+<p>There are an infinite number of ways to use a for loop. In very general terms, the two things that I do most commonly with for loops in Python are:</p>
+<ol class="simple">
+<li><p>Perform an operation directly on each element in the iterable</p></li>
+<li><p>Use the iterable as an index to reference elements in data sets for operations in a for loop.</p></li>
+</ol>
+<p>Our simple print example was the first kind - we had a list of integers in A, and we printed out each integer in A by cycling its values into a print() function on each pass through a for loop. For other examples of this type of behavior, one could try:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#Print the square of each element in the list A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+121
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="mi">74</span><span class="p">)</span> <span class="c1">#Print the value of each element in the list A minus 74</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-73
+-72
+-71
+-70
+-69
+-68
+-67
+-66
+-65
+-64
+-63
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="o">%</span><span class="k">2</span>) #Print the remainder of each element in A divided by 2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+0
+1
+0
+1
+0
+1
+0
+1
+0
+1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-iterator-as-an-index-in-your-for-loop">
+<h3>Using the iterator as an index in your for loop<a class="headerlink" href="#using-the-iterator-as-an-index-in-your-for-loop" title="Permalink to this headline">#</a></h3>
+<p>Looking at the printout, you will see that each of these performs an operation <strong>directly</strong> on each element in the iterable (A). Operating on an iterable is frequently useful, and we’ll continue to demonstrate applications below, but I want to briefly point out the difference in logic between this and using the iterable as an index.</p>
+<p>Let’s imagine we have a set of 8 measurements that we made experimentally, we’ll call them <strong>meas</strong>.  Just to ground this, let’s say these are 8 mass transfer coefficients that we measured at 8 different liquid velocities. They have units of cm/sec.  Let’s store these in a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meas</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.75</span><span class="p">,</span> <span class="mf">12.52</span><span class="p">,</span> <span class="mf">17.90</span><span class="p">,</span> <span class="mf">18.4</span><span class="p">,</span> <span class="mf">22.36</span><span class="p">,</span> <span class="mf">35.10</span><span class="p">,</span> <span class="mf">56.2</span><span class="p">,</span> <span class="mf">74.95</span><span class="p">]</span> <span class="c1">#cm/sec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we often do in engineering, we are developing a model that is supposed to predict the value of each of those mass transfer coefficients at a given fluid velocity. Without getting into the specifics of that model, let’s just say that our model predicts that those 8 mass transfer coefficients at those same 8 fluid velocities have the following values, which we store in a separate list called <strong>pred</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="p">[</span><span class="mf">9.4</span><span class="p">,</span> <span class="mf">13.62</span><span class="p">,</span> <span class="mf">15.89</span><span class="p">,</span> <span class="mf">19.23</span><span class="p">,</span> <span class="mf">21.75</span><span class="p">,</span> <span class="mf">36.24</span><span class="p">,</span> <span class="mf">59.46</span><span class="p">,</span> <span class="mf">73.13</span><span class="p">]</span> <span class="c1">#cm/sec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To figure out how well our model agrees with our measurements, we generally calculate the residual error, i.e., the difference between the model’s prediction and the measurement’s value. I see that I have two lists, both of which are 8 elements long. I want to subtract the values in these lists element by element…but I can’t do that directly with lists. Lists are not the same thing as numpy arrays, and they do not natively support elementwise operations like a numpy array would.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Math operators applied directly to a list or string will concatenate their values, not add, subract or multiply their values.</p>
+</div>
+<p>When I am working with lists in Python, the way I would compute the difference between model and measurement using lists is with a for loop. Unlike the first example, though, I don’t want to use either <strong>ex</strong> or <strong>mod</strong> as the iterable because I want to perform operations that use <strong>both</strong> of their values, i.e., I want to find the difference between each value in the two lists. One way to handle this is to use the iterable as an index to extract elements of the data sets that you are working with.  This is relatively straightforward - we just create an iterable that starts at 0 (the first index in Python), increases by 1 at every pass through the loop, and includes the same number of elements as my list, which is 8 in this case. We can do this using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function, which creates an interable from a starting integer to an ending integer.  The endpoint is excluded, and it takes steps of 1 integer unit by default. A convenient way to do this without counting large lists is to use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to define the upper limit of your range.  For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">meas</span><span class="p">)):</span>
+    <span class="n">residual</span> <span class="o">=</span> <span class="n">meas</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3499999999999996
+-1.0999999999999996
+2.009999999999998
+-0.8300000000000018
+0.6099999999999994
+-1.1400000000000006
+-3.259999999999998
+1.8200000000000074
+</pre></div>
+</div>
+</div>
+</div>
+<p>This for loop simply prints the difference betwee model and experiment for each condition tested, but this general concept is easily abstracted and applied to much more complex problems - we’ll see an example later.</p>
+<p>Take a moment to think about why that range specification works.  Each list is 8 elements long, so my range function is range(0,8); range excludes the ending value, so it will iterate from 0 to 7, which are the correct 8 indices for an 8 element list in Python.</p>
+</section>
+<section id="the-range-function-in-more-detail">
+<h3>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function in more detail<a class="headerlink" href="#the-range-function-in-more-detail" title="Permalink to this headline">#</a></h3>
+<p>Above, we used <code class="docutils literal notranslate"><span class="pre">range()</span></code> to define the iterable without really saying much about how it works. The syntax of range is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>“start” and “end” are function arguments (inputs). They tell you where range starts and where it stops. Of these two, only “end” is mandatory.  If you do not include “start”, range will start at 0 by default. “step” is an optional argument that tells you the size of the step you want to make between elements in the range. Inputs to the range function <strong>must be integers</strong>. The range will include the starting integer, but it will not include the ending integer. By default, the step size is 1, but you may change it to any positive or negative integer you like.</p>
+<p>Range does not create a list directly, it defines the space over which we want to carry out an iteration. In fact, if you print a range, you will see that it really just echos your definition back to you. Try, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 10, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>A range is definitely not a list! But if needed, you can use it to create a list (or an np array) by passing it to the list constructor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, to the analogous numpy array constructor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 2, 4, 6, 8])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-range-function-as-the-iterable">
+<h3>Using the range function as the iterable<a class="headerlink" href="#using-the-range-function-as-the-iterable" title="Permalink to this headline">#</a></h3>
+<p>One common usage of the range function is to generate the iterable in for loops as we did in the above example of calculating residual error. There is a lot of flexibility in how you do this.  As an example, let’s say I want to create a list that contains all of the integers from positive 10 to -10 in descending order.</p>
+<p>I can easily do this using the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function in a for loop. To reinforce on prior content, we will also take advantage of the append module in Python, which adds a value to the end of a list.</p>
+<p>We will start by creating an empty list B. Then we use a for loop to append the integers from 10 to -10 to the end of that list.  Note that this is not best practice nor the most memory efficient way to create this list, but it is illustrative for educational purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+[10]
+[10, 9]
+[10, 9, 8]
+[10, 9, 8, 7]
+[10, 9, 8, 7, 6]
+[10, 9, 8, 7, 6, 5]
+[10, 9, 8, 7, 6, 5, 4]
+[10, 9, 8, 7, 6, 5, 4, 3]
+[10, 9, 8, 7, 6, 5, 4, 3, 2]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6, -7]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creating an empty list, <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">=</span> <span class="pre">[]</span></code> may seem strange, but it is an important step. I am trying to create a list of integers, and <code class="docutils literal notranslate"><span class="pre">.append()</span></code> only works on a list. So I need to start with an empty list so that I have something to append to on the first pass through the loop.  Notice the difference between what we do here (create a list of integers from 10 to -10) and in the early example where we just print out the elements of a list.  We are actually modifying the list B using the append module on each pass through the function!  Notice that the first <code class="docutils literal notranslate"><span class="pre">print()</span></code> is within the scope of the for loop, and the second <code class="docutils literal notranslate"><span class="pre">print()</span></code> is flush with the for keyword at the left margin - this means that the first <code class="docutils literal notranslate"><span class="pre">print()</span></code> will be executed on each pass through the loop as the list grows, while the second <code class="docutils literal notranslate"><span class="pre">print()</span></code> will not be executed until after the loop is completed.</p>
+</section>
+<section id="using-a-loop-to-calculate-the-residual-sum-of-squares-from-lists">
+<h3>Using a loop to calculate the residual sum of squares from lists<a class="headerlink" href="#using-a-loop-to-calculate-the-residual-sum-of-squares-from-lists" title="Permalink to this headline">#</a></h3>
+<p>Let’s go back to our example of trying to compare measured data (<strong>meas</strong>) with model data (<strong>pred</strong>). This is the basis for regression analysis, where we try to find the model and model parameters that best describe our data. When we perform a regression analysis (trendline in Excel, for example), we often do so by calculating the sum of squares of residual errors.  I can easily do this by modifying my for loop above to store the square of the residual values; then, we can use the built in <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function to sum them. Again, this is probably not the most efficient way to calculate the sum of squares; it is intended as an illustrative example.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Remember</strong>: In base Python, the <code class="docutils literal notranslate"><span class="pre">^</span></code> operator you might typically associate with power operations is a bitwise XOR, not an exponent. Instead, you use <code class="docutils literal notranslate"><span class="pre">**</span></code> to indicate raising something to a power.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SE</span> <span class="o">=</span> <span class="p">[]</span>                           <span class="c1">#initialize by creating an empty list</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">meas</span><span class="p">)):</span>
+    <span class="n">residual</span> <span class="o">=</span> <span class="n">meas</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">pred</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>  <span class="c1">#calculate residual error</span>
+    <span class="n">SE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">residual</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>        <span class="c1">#append square of residual to SE list</span>
+<span class="n">SSE</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">SE</span><span class="p">)</span>                     <span class="c1">#calculate sum of squares   </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SE</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>                   <span class="c1">#display square errors</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>                        <span class="c1">#display sum of squares</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.8224999999999991, 1.2099999999999993, 4.040099999999992, 0.6889000000000031, 0.3720999999999993, 1.2996000000000012, 10.627599999999987, 3.312400000000027] 
+
+23.373200000000004
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="vectorized-operations-with-numpy-arrays-can-sometimes-replace-for-loops">
+<h3>Vectorized operations with numpy arrays can sometimes replace for loops<a class="headerlink" href="#vectorized-operations-with-numpy-arrays-can-sometimes-replace-for-loops" title="Permalink to this headline">#</a></h3>
+<p>As we defined them above, <strong>meas</strong> and <strong>pred</strong> are both lists, so we cannot do math element-by-element on them without writing some type of loop. But remember:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>numpy arrays <em>will</em> support elementwise operations by default</p>
+</div>
+<p>So, for example, if I turned these two lists into numpy arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measarray</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">meas</span><span class="p">)</span>
+<span class="n">predarray</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then I could calculate residual error and then sum of squares directly <em>without</em> using a loop; this is probably closer to best practice if you are able to work with numpy arrays as your data format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residualarray</span> <span class="o">=</span> <span class="n">measarray</span> <span class="o">-</span> <span class="n">predarray</span>
+<span class="n">SE</span>  <span class="o">=</span> <span class="n">residualarray</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">SE</span><span class="p">)</span> <span class="c1">#numpy&#39;s implementation of sum()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.373200000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once you get the hang of element-wise operations, you can write pretty concise code; for example, the line belwo is equivalent to the three above. You can see how this can make for (potentially) more efficient and readable code compared to for loops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">measarray</span> <span class="o">-</span> <span class="n">predarray</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.373200000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>Considering the contrast between a for loop and a vectorized operation should help you to get a better feel for the differences between lists and arrays and the ways that elementwise operations can be useful in programming, particularly for math problems.</p>
+</section>
+<section id="list-comprehensions">
+<h3>List Comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink to this headline">#</a></h3>
+<p>Another tool that is worth demonstrating is a list comprehension. Let’s say you want to create a large list of numbers that meet some criteria. For example, I need a list of the squares of all of the numbers between 1 and 50.  That’s hard to do manually. It is even cumbersome in something like Excel.  In a programming languague, we might use a <strong>for loop</strong> to do this. Let’s say we are working with lists in Python; our intuition might be to write a for loop that looks like this, wherein we iterate through a range and append values to an ever-growing list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600, 1681, 1764, 1849, 1936, 2025, 2116, 2209, 2304, 2401, 2500] 
+
+50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The usage of range here includes the first element (1) but it does not include the last element, so we go to 51. By default, range increments by 1, so this for loop will compute:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">**</span><span class="mi">2</span>
+<span class="mi">2</span><span class="o">**</span><span class="mi">2</span>
+<span class="mi">3</span><span class="o">**</span><span class="mi">2</span>
+<span class="mi">4</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>And so forth all the way up to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">50</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>In the final lines, we print both the list and the square root of the last element using the command below to see if it behaved as we expect. Again note the use of a -1 index in Python will return the last element in an ordered collection.</p>
+<p>The above loop is intuitive but somewhat cumbersome. In general, we like to avoid having a collection change size on every pass through a loop. A list comprehension provides a shorthand syntax that automates a <strong>for loop</strong> to generate a list from a desired operation in a single, simple line of code. For our example above, I could create the same list using the following syntax. It works in a slightly different way than the above for loop, but it accomplishes exactly the same outcome with a more concise syntax and without needing to change the list size on every pass through a loop with append. This is the most “Python” way to create the requested set of squares.  It is called a list comprehension, and you see them all the time in Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600, 1681, 1764, 1849, 1936, 2025, 2116, 2209, 2304, 2401, 2500] 
+
+50.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-with-list-comprehensions">
+<h3>Practice with List Comprehensions<a class="headerlink" href="#practice-with-list-comprehensions" title="Permalink to this headline">#</a></h3>
+<p>List comprehensions are extremely useful; they can quickly generate large lists by automating any simple operation on a range. This can afford flexibility that you don’t have with things like <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.logspace()</span></code>, <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code>, etc.  So they are a useful tool that you should be aware of!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you ever need to work seriously with Python, and you interact with others that write code in Python, it is almost inevitable that you will come across list comprehensions, so you should know your way around them.  <strong>Remember</strong>: it is easy to convert a list into a numpy array if you need to; all you do is pass the list as an argument to the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> function.</p>
+</div>
+<p>The cell below shows a few different list comprehensions to generate relatively complicated lists. In the last example, notice how we are using an existing list to create the iterable that the list comprehension iterates over.  This is totally acceptable - it is a nice way to perform a simple operation on the values in one list to convert it into something else entirely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">31</span><span class="p">)]</span>
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">**</span><span class="mi">3</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">5</span><span class="p">)]</span>
+<span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mf">123.6</span><span class="p">,</span> <span class="mf">4.57</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span><span class="p">]</span>
+<span class="n">O</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">N</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">O</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30] 
+
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30] 
+
+[0, 125, 1000, 3375, 8000, 15625, 27000] 
+
+[2, 14, 64, 212, 123.6, (4.57+3j)] 
+
+[4, 196, 4096, 44944, 15276.96, (11.884900000000002+27.42j)] 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="know-that-there-are-alternatives-with-numpy-arrays">
+<h3>Know that there are alternatives with numpy arrays<a class="headerlink" href="#know-that-there-are-alternatives-with-numpy-arrays" title="Permalink to this headline">#</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>List comprehensions generate lists, not numpy arrays.</p>
+</div>
+<p>If you wanted to convert a list to a numpy array, you certainly can:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squaresarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if I knew that I wanted to work with numpy arrays in the end, I’d probably just create my set of sqaures as an array using elementwise operations on the array, which is arguably slicker and more efficient:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squaresarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;int&#39;</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squaresarray</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   1    4    9   16   25   36   49   64   81  100  121  144  169  196
+  225  256  289  324  361  400  441  484  529  576  625  676  729  784
+  841  900  961 1024 1089 1156 1225 1296 1369 1444 1521 1600 1681 1764
+ 1849 1936 2025 2116 2209 2304 2401 2500] 
+
+50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>It can be confusing to consider lists and numpy arrays side by side, especially for students…but I find that it is worse to not know the differences between the two because sometimes, in Python, you’ll find yourself needing to work with a list, so it is best to understand that it is not a numpy array and that it behaves differently from a numpy array.</p>
+</section>
+<section id="flexibility-is-powerful-but-it-can-be-frustrating">
+<h3>Flexibility is powerful, but it can be frustrating<a class="headerlink" href="#flexibility-is-powerful-but-it-can-be-frustrating" title="Permalink to this headline">#</a></h3>
+<p>It is important to embrace the following about programming: There is not really one “correct” way to perform a complex operation.  Like the examples above of creating create a list of integers from 10 to -10 or square a bunch of numbers from 1 to 50. We did them with for loops, elementwise operations in numpy arrays, and list comprehensions above, but there are many possibilities.  Some are more elegant, more concise, cleaner, more human-readable, logical, faster, etc. There are usually at least half a dozen ways to do any one thing in programming, and that is OK.  Perhaps not only OK, it is one of the best things about programming. It affords you the flexibility to solve a given problem in a manner that suits that problem.  You do this with the toolkit that you have available at the moment, and that toolkit will continue to grow as you get more practice. You will get used to this, you will learn different ways to do things as you mature, you will become a better programmer, you will use the best approach available to you at the time, and then you will learn from more experienced programmers how to continue improving your codes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may be wondering “when should I use a for loop…when should I try to write that same idea as a list comprehension…and when should I use elementwise operations?”</p>
+</div>
+<p>It’s a great question, there is not really a universally correct answer.  That ambiguity can be frustrating, but it is that very same flexibility that makes Python so powerful. Embrace it, learn a bit about the strengths and weaknesses of each method, and use whichever is appropriate for your problem.</p>
+<p>Personally, I would use whichever is more convenient, easier to script without turning my brain into a pretzel, and (if it matters and there is an appreciable difference) runs faster. My rule of thumb is that if the operations in a for loop are simple and I can visualize the structure of the list comprehension without much thought–say I want to square all of the elements in a list or add 12 to all of the elements in the list–it is probably going to be much cleaner, easier, and faster to use a list comprehension. If the operations in the for loop are lengthy and complex–let’s say I need to solve a system of 12 nonlinear equations on each pass through the loop–it is probably best to expand the for loop line by line. It gets difficult to imagine how to pack so many complex operations into a single line of code. Even if you manage to do so just to convince yourself that you can, spare a thought for the other programmers that are going to eventually work with your code and need to interpret the logic in your one liner. Finally, if you are working with a numpy array, for any simple operations, it is almost always going to be cleaner to just use elementwise operations instead of loops or comprehensions.</p>
+</section>
+<section id="you-can-iterate-over-lots-of-things">
+<h3>You can iterate over lots of things…<a class="headerlink" href="#you-can-iterate-over-lots-of-things" title="Permalink to this headline">#</a></h3>
+<p>Now, let’s try to abstract the idea of a for loop a bit more by covering different types of iterables. We’ll do a little exploration by writing a generic bit of code that we can modify to test out different types of iterables. Confirm that this print loop works on the list testcase, then re-define test as the various types of iterables given below by uncommenting them. This is to give you feedback on what works as an iterable and what doesn’t work as an iterable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>           <span class="c1">#this is a list</span>
+<span class="n">test</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>           <span class="c1">#this is a tuple</span>
+<span class="c1"># test = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) #this is a numpy array</span>
+<span class="c1"># test = range(1, 12)                                  #this is a range</span>
+<span class="c1"># test = &#39;These go to eleven&#39;                          #this is a string</span>
+
+<span class="n">iterable</span> <span class="o">=</span> <span class="n">test</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></div>
+</div>
+</div>
+</div>
+<p>The last example is interesting to me. Before I started using Python, it never occured to me to iterate over a string, but we can certainly do it!  Remember, a string is an ordered set of characters, where each character has a specific index.  So it is a perfectly suitable iterable, and one that we may find very useful depending on the type(s) of problems we are solving or data we are processing.</p>
+<p>Now for some things that we can’t iterate over:  Put simply, any scalar other than a string is not a valid iterable. To get a feel for the type of error message this generates (which gives you a feel for how to fix said error messages when you see them)  Try it out for:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="mi">7</span>         <span class="c1">#An integer</span>
+<span class="c1"># test = 7.0       #A floating point decimal</span>
+<span class="c1"># test = True      #A boolean</span>
+<span class="c1"># test = 4.75 + 3j #A complex number</span>
+
+<span class="n">iterable</span> <span class="o">=</span> <span class="n">test</span>
+<span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_8500\4021572063.py</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">iterable</span> <span class="o">=</span> <span class="n">test</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;int&#39; object is not iterable
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-more-complex-example">
+<h3>A more complex example<a class="headerlink" href="#a-more-complex-example" title="Permalink to this headline">#</a></h3>
+<p>Circling back to that comment about loops really shining when you need to repeat an operation over a large set. Here’s an example that is relevant to chemistry and engineering. This example requires a bit of background in thermodynamics, but it should be at least somewhat familiar if you’ve taken general chemistry, finished material and energy balances, or heard of “Hess’s Law”. Even if none of those things are familar, fear not – for this module, which is focused on Python skill building, the details and “why” of the calculations are less important than the fact that we will do a lot of them and automate the process using a for loop.</p>
+<section id="context">
+<h4>Context<a class="headerlink" href="#context" title="Permalink to this headline">#</a></h4>
+<p>Let’s say I am in the proces engineer in charge of a Fluidized Catalytic Cracker (FCC). An FCC unit is something everyone should at least know about - it is type of reactor used extensively in an oil refinery. Crude oil contains a lot of heavy, high molecular weight species that are not much use as fuels or chemical feedstocks. An FCC unit “cracks” these high molecular weight hydrocarbons to make gasoline and light alkenes (ethylene, propylene, butene, butadiene), which are far more valuable. There are hundreds, if not thousands of chemical reactions happening inside of a catalytic cracker. For the purpose of this example, let’s say there are…100 different reactions.</p>
+<p>Each of these 100 reactions has a unique enthalpy change (<span class="math notranslate nohighlight">\(\Delta H\)</span>), a unique entropy change (<span class="math notranslate nohighlight">\(\Delta S\)</span>), and a unique Gibbs free energy change (<span class="math notranslate nohighlight">\(\Delta G\)</span>) associated with it. The enthalpy change, entropy change, and temperature determine the Gibbs free energy change according to the very simple equation below:</p>
+<div class="math notranslate nohighlight">
+\[\Delta G = \Delta H - T \Delta S\]</div>
+<p>We then use the Gibbs free energy change to calculate the equilibrium constant (K) for each reaction using another very simple equation.</p>
+<div class="math notranslate nohighlight">
+\[K = \exp{\left(-\Delta G/RT\right)}\]</div>
+<p>Where exp is the standard exponential function and R is the gas constant in appropriate units. The equilibrium constant is important because it allows us to determine the composition of our reacting mixture at chemical equilibrium. That seems like something that would be really important for any chemical process, so why not catalytic cracking? To do that for an FCC unit, we would need to calculate all 100 equilibrium constants - there is one unique K for each reaction.</p>
+<p>That sounds like a ton of tedious work to me. But it turns out that if we know a bit of Python, it is really easy. The worst part, by far, is finding the thermodynamic data for these reactions. We are going to take the lazy approach for finding thermodynamic data, which is to make it up completely for the purpose of solving this example. To this end, I will use a random integer generator to create a list of 100 <em>reasonable</em> enthalpy changes of reaction and 100 <em>reasonable</em> entropy changes of reaction.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Doing this will never fly in your thermo or mass and energy courses, please understand that we are randomly generating thermochemistry data here just doing this to demonstrate how to use a for loop to process a large data set.</p>
+</div>
+</section>
+</section>
+<section id="an-example-of-this-in-base-python-using-lists">
+<h3>An Example of this in base Python using lists<a class="headerlink" href="#an-example-of-this-in-base-python-using-lists" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#This sets the seed for the random number generator so that we always get the same &quot;random&quot; set of enthalpies and entropies</span>
+<span class="n">DS</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">75</span><span class="p">,</span><span class="mi">75</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="c1">#units all in J/mol/K</span>
+<span class="n">DH</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">100000</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span> <span class="c1">#units all in J/mol</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>These are lists, not numpy arrays, so I have to use loops to perform element-by-element operations on them.</p>
+</div>
+<p>Now that the very difficult work of finding enthalpies and entropies of reaction is done, we can automate application of those two simple formulas above to calculate the equilibrium constant for each reaction:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a460b79-1aa8-40be-84fe-3d84380e77ec">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0a460b79-1aa8-40be-84fe-3d84380e77ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \Delta G &amp;= \Delta H - T \Delta S \\
+    K &amp;= \exp{\left(-\Delta G/RT\right)}
+\end{align}\]</div>
+<p>For now, we’ll do this at a temperature of 500K. Working in units of Joules, moles, and K, the gas constant has a value of 8.314 J/mol/K. In engineering, you’ll never regret keeping careful track of units!</p>
+<p>Referencing again my two general ways that I might use an iterable, in this case, I want to use individual elements of both <span class="math notranslate nohighlight">\(\Delta S\)</span> and <span class="math notranslate nohighlight">\(\Delta H\)</span> to calculate equilibrium constants, so I will treat my iterable as an index, and I will use that index to extract relevant elements from <span class="math notranslate nohighlight">\(\Delta S\)</span> and <span class="math notranslate nohighlight">\(\Delta H\)</span> on each pass through the loop.</p>
+<p>I have 100 elements in <span class="math notranslate nohighlight">\(\Delta S\)</span> and 100 in <span class="math notranslate nohighlight">\(\Delta H\)</span>, and I want to perform the calculations for each of those elements to calculate 100 different equilibrium constants, so I want an iterable that contains the integers from 0 to 99 (remember, for a 100 element list, indices in Python go from 0 to 99). Then I can use those numbers as indices to perform operations on each element. <strong>Note:</strong> To use the exponential function, I have to import it from <code class="docutils literal notranslate"><span class="pre">math</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.</p>
+<p>We initialize the calculation with an empty list for K, and then we use the append module to add each calculated equilibrium constant to the set. Also notice how we use the current value of i as an index that goes from 0 to 99 to allow us to use specific elements from <span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span> in each pass through the loop. Give it a try below! The last line in the code will return K to the screen so you can get a feel for the size of the data sets you’re starting to work with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1">#K</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
+<span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">DG</span>   <span class="o">=</span> <span class="n">DH</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="c1"># K</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next we’ll look at a few alternative ways to accomplish exactly the same result using different strategies. None are “right” or “wrong” and they are all worth knowing as the one that you use will depend on the specifics of the problem you’re solving.</p>
+</section>
+<section id="alternative-syntax-using-zip">
+<h3>Alternative syntax using <code class="docutils literal notranslate"><span class="pre">zip()</span></code><a class="headerlink" href="#alternative-syntax-using-zip" title="Permalink to this headline">#</a></h3>
+<p>A more “python” version of that loop would probably be to use the <code class="docutils literal notranslate"><span class="pre">zip()</span></code> function to iterate over both <span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span> simultaneously; this will give an equivalent result to the loop above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mi">500</span> <span class="c1">#K</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
+<span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">dh</span><span class="p">,</span> <span class="n">ds</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">DH</span><span class="p">,</span> <span class="n">DS</span><span class="p">):</span>
+    <span class="n">dg</span>   <span class="o">=</span> <span class="n">dh</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">ds</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dg</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+<span class="c1"># K</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In any case, those loops are pretty sweet! They are just a few lines of code, they take less than a second to run, and they give us all 100 equilibrium constants! By far, the most difficult part of this in the real world would be the part that we skipped – finding accurate thermodynamic data (<span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span>) for 100 different reactions!</p>
+</section>
+<section id="an-equivalent-version-with-comprehensions">
+<h3>An equivalent version with comprehensions<a class="headerlink" href="#an-equivalent-version-with-comprehensions" title="Permalink to this headline">#</a></h3>
+<p>The above loop can also be translated to list comprehensions as shown below; note again the use of <code class="docutils literal notranslate"><span class="pre">zip()</span></code>, which allows us to loop over multiple iterables simultaneously.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DG</span> <span class="o">=</span> <span class="p">[</span><span class="n">dh</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">ds</span> <span class="k">for</span> <span class="n">dh</span><span class="p">,</span> <span class="n">ds</span> <span class="ow">in</span> <span class="nb">zip</span> <span class="p">(</span><span class="n">DH</span><span class="p">,</span> <span class="n">DS</span><span class="p">)]</span>
+<span class="n">K</span>  <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">dg</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span> <span class="k">for</span> <span class="n">dg</span> <span class="ow">in</span> <span class="n">DG</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-elementwise-version-with-numpy-arrays">
+<h3>The elementwise version with numpy arrays<a class="headerlink" href="#the-elementwise-version-with-numpy-arrays" title="Permalink to this headline">#</a></h3>
+<p>As we pointed out earlier, we can often replace a loop with vectorized, element-wise operations.  For example, if we just convert <span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span> into numpy arrays (or otherwise use numpy’s random number generators to generate a list of DH and DS values). Then, we can very easily calculate <span class="math notranslate nohighlight">\(\Delta G\)</span> and <span class="math notranslate nohighlight">\(K\)</span> for all 100 reactions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DHarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">DH</span><span class="p">)</span>
+<span class="n">DSarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">DS</span><span class="p">)</span>
+<span class="n">DGarray</span> <span class="o">=</span> <span class="n">DHarray</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DSarray</span>
+<span class="n">Karray</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DGarray</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>   
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="increasing-the-dimensionality">
+<h3>Increasing the dimensionality<a class="headerlink" href="#increasing-the-dimensionality" title="Permalink to this headline">#</a></h3>
+<p>But maybe that doesn’t quite impress you. I get it. You’re a die hard Excel fan and you know that, realistically, if you just made up 100 enthalpies and entropies of reaction too, it would be easy enough to calculate 100 equilibrium constants at 500K by autofilling the cells. Fair point. That’s probably true <em><strong>for a single temperature.</strong></em>  But what if you wanted to know how each of those equilibrium constants changed as smooth functions of temperature between, say, 300K and 900K? That’s a pretty big span…Let’s calculate those equilibrium constants at 300K, 302K, 304K, etc. all the way up to 900K to generate sets of equilibrium constants as a function of Temperature for each of our 100 reactions.</p>
+<p>Although it isn’t impossible, it gets unwieldy in a spreadsheet, but as we see below, I only have to modify my script slightly to do this in Python.</p>
+<p>The cells below go through doing this in base Python using lists; there are other approaches that you can develop using numpy arrays, but, in general, doing this element-wise becomes tricky and hard for a human reader to parse, so I prefer the solution that uses for loops.</p>
+<p>First, I will create a list of the start and end temperatures I’m interested in. I want to take steps of 2K and go from 300 to 900K. You could use either a list constructor or a comprehension here; I’ll use the constructor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Temperature</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-100-k-values-at-301-temperatures">
+<h3>Calculate 100 K values at 301 temperatures…<a class="headerlink" href="#calculate-100-k-values-at-301-temperatures" title="Permalink to this headline">#</a></h3>
+<p>Now, we have to do a bit of abstraction and see if we can generalize our last for loop to run not just on one temperature, but on all 301 temperatures. As usual, you can come up with many ways to do this, but in base Python and working with lists as my data structure, I will do this with pair of for loops, one nested inside of the other. Notice that when I create nested for loops, each <strong>for</strong> keyword is indented from the current level (i.e., spacing from the left margin).</p>
+<p><strong>The logic</strong>:  I want to run my original for loop for every Temperature in the list of temperatures we just created. So, I will create two for loops.  The first one will specify the current reaction, and the second will specify the current temperature. Ultimately I will store a list of lists, the latter of which will be equilibrium constants for reaction i at all 301 temperatures.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the example below, I have assumed that <span class="math notranslate nohighlight">\(\Delta C_p = 0\)</span> such that <span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span> are constant even though temperature is changing.  This is not generally true, it is a simplification that I have applied to make the problem a bit more straightforward. In a real thermodynamic analysis, you would generally need to include heat capacity effects in these calculations.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>       
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>        
+    <span class="n">Krxn</span> <span class="o">=</span> <span class="p">[]</span>                 
+    <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Temperature</span><span class="p">:</span>     
+        <span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>   
+        <span class="n">Krxn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>     
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Krxn</span><span class="p">)</span>            
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can use the arguably more Pythonic sytnax given below to accomplish the same thing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>                        
+<span class="k">for</span> <span class="n">dh</span><span class="p">,</span> <span class="n">ds</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">DH</span><span class="p">,</span> <span class="n">DS</span><span class="p">):</span>    
+    <span class="n">Krxn</span> <span class="o">=</span> <span class="p">[]</span>                 
+    <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Temperature</span><span class="p">:</span>     
+        <span class="n">DG</span> <span class="o">=</span> <span class="n">dh</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">ds</span>  
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>   
+        <span class="n">Krxn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>     
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Krxn</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>No matter how you write the loops, the end result is going to be equilibrium constants for 100 different reactions calculated at 301 different temperatures, i.e., a 100x301 set of equilibrium constants. It is a list of lists - there are 100 lists inside of this list.  Each of these interior lists is 301 elements long. Each list (inside of the master list K) represents the 301 equilibrium constants for that reaction at all 301 reaction temperatures.  For example, <code class="docutils literal notranslate"><span class="pre">K[0][:]</span></code> is the complete set of equilibrium constansts for the first reaction at all 301 temperatures, <code class="docutils literal notranslate"><span class="pre">K[1][:]</span></code> is the analogous set for reaction 2, etc.</p>
+<p>I do not suggest printing K.  At this point, the best way to visualize the data is graphically; we will introduce this briefly below. To add in graphical capabilities, we need to add a plotting package.  We’ll use Pyplot, which we import in the next cell.</p>
+</section>
+<section id="importing-pyplot">
+<h3>Importing pyplot<a class="headerlink" href="#importing-pyplot" title="Permalink to this headline">#</a></h3>
+<p>Let’s import pyplot from matplotlib.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-graphing-syntax-in-pyplot">
+<h3>Basic graphing syntax in pyplot<a class="headerlink" href="#basic-graphing-syntax-in-pyplot" title="Permalink to this headline">#</a></h3>
+<p>Pyplot syntax is very similar to Matlab. In general any type of plot you want to create is specified by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">independent_variable</span><span class="p">,</span><span class="n">dependent_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s say we want to plot the equilibrium constant for the first reaction as a function of temperature.  Our equilibrium constants are stored in a list of lists.  The list is 100 elements long, and each element is a 301 element list that contains the equilibrium constants we calculated at each temperature.  So:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#equivalent to K[0][:]</span>
+</pre></div>
+</div>
+<p>Will extract the equilibrium constant for the first reaction at all 301 temperatures;</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#equivalent to K[10][:]</span>
+</pre></div>
+</div>
+<p>Will extract the equilibrium constant for the 11th reaction at all 301 temperatures, etc.</p>
+<p>So, if I wanted to plot the equilibrium constant for the first reaction as a function of temperature using pyplot, I could write the lines of code below; the first line <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code> constructs the plot. It uses linear axis scaling by default. The second line <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> forces display of the current figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">][:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_74_0.png" src="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_74_0.png" />
+</div>
+</div>
+</section>
+<section id="a-semilog-plot">
+<h3>A semilog plot<a class="headerlink" href="#a-semilog-plot" title="Permalink to this headline">#</a></h3>
+<p>Now that is not a very informative graph.  The thing about equilibrium constants is that they are such a strong function of temperature that they change over orders of magnitude.  For example, if we print:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8392016768229527e-15
+4.2896854883352646e-07
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which gives us the equilibrium constant for the first reaction at 300K and at 900K, respectively, we will see that they can be different by orders of magnitude (the exact amount depends on the randomly generated <span class="math notranslate nohighlight">\(\Delta H\)</span> and <span class="math notranslate nohighlight">\(\Delta S\)</span> for each reaction).  This sounds like a job for a semilog plot, which we can build using a slightly different syntax in pyplot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">][:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_78_0.png" src="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_78_0.png" />
+</div>
+</div>
+</section>
+<section id="stacking-plots">
+<h3>Stacking plots<a class="headerlink" href="#stacking-plots" title="Permalink to this headline">#</a></h3>
+<p>By default, Python will continue updating your current plot as you layer additional plot commands on top of the first one.  So if I were to run the code in the cell below, it would plot equilibrium constants for the first and second reaction as a function of temperature on the same axis (graph). It is treated equivalently to typing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">K</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span> <span class="n">K</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_80_0.png" src="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_80_0.png" />
+</div>
+</div>
+</section>
+<section id="stacking-a-lot-of-plots">
+<h3>Stacking a lot of plots…<a class="headerlink" href="#stacking-a-lot-of-plots" title="Permalink to this headline">#</a></h3>
+<p>Well, of course now that we went and generated a 100 x 301 data set, I would really like to plot <strong>all</strong> 100 equilibrium constants as a function of temperature, but I really do not want to write a plot command for every element in that list of lists, e.g.,</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plt.plot(Temperature, K[0][:], Temperature, K[1][:], Temperature, K[2][:]...)
+</pre></div>
+</div>
+<p>If I have a good understanding about how my loops and indices are working, I can do this easily in my for loop by taking advantage of Python’s layering sequential plots onto each other.  Let’s modify that last loop just a bit to include a plot command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[]</span>                        
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>       
+    <span class="n">Krxn</span> <span class="o">=</span> <span class="p">[]</span>                 
+    <span class="k">for</span> <span class="n">T</span> <span class="ow">in</span> <span class="n">Temperature</span><span class="p">:</span>     
+        <span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>  
+        <span class="n">Krxn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>    
+    <span class="n">K</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Krxn</span><span class="p">)</span>             
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">Temperature</span><span class="p">,</span><span class="n">K</span><span class="p">[</span><span class="n">i</span><span class="p">][:])</span>  <span class="c1">#This adds the 301 equilibrium constants for the current reaction to the plot.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_82_0.png" src="../_images/Module 04 - For Loops, List Comprehensions, Vectorization, and Plotting_82_0.png" />
+</div>
+</div>
+<p>These are a very cursory introduction to plotting using Pyplot; as we cover examples in the next few modules, we will add complexity to our plotting commands and learn how to construct better, more informative graphs.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Module%2003%20-%20Arrays%20and%20Matrices.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Arrays and Matrices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Logical Tests and Comparisons</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

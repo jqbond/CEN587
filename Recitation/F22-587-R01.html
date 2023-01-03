@@ -1,0 +1,1484 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Recitation 01: Jupyter and Python Fundamentals &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Applications and Problem Solving in Python" href="../Chapter3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Fundamental Skills in Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Applications and Problem Solving in Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/F22-587-R01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/F22-587-R01.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Recitation/F22-587-R01.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists-and-numpy-arrays">
+   Lists and Numpy Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#making-a-list">
+       Making a List
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-print-command">
+       The print command
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#despite-appearances-lists-are-not-rows-columns-or-matrices">
+       Despite appearances, lists are not rows, columns, or matrices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-large-lists-with-the-range-command">
+       Creating large lists with the range command
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays">
+     Numpy Arrays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#making-a-numpy-array">
+       Making a numpy array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examining-the-numpy-array">
+       Examining the numpy array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numpy-arrays-have-a-lot-of-useful-features-built-into-them">
+       Numpy arrays have a lot of useful features built into them
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-and-nd-arrays">
+       2D and ND Arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#indexing-in-numpy-arrays">
+       Indexing in numpy arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-arrays-vs-rows-and-columns">
+       1D arrays vs. Rows and Columns
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tools-for-creating-large-numpy-arrays">
+       Tools for creating large numpy arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-vs-arrays-in-practice-math">
+     Lists vs. arrays in practice (math!)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#element-wise-calculations-are-easy-with-arrays">
+       Element-wise calculations are easy with arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-matrix-operations">
+       Basic Matrix Operations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#introducing-np-zeros">
+       Introducing np.zeros
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-for-loops">
+       Basic for loops
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-the-determinant-matrix-must-be-square">
+       Finding the determinant (matrix must be square)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-inverse-in-numpy">
+       Matrix inverse in numpy
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-and-graphing">
+   Functions and graphing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-form-function-definition">
+     Long form function definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-multivariate-function-using-a-lambda-function-definition">
+     A multivariate function using a lambda function definition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-plotting-syntax">
+       3D plotting syntax
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-arguments-and-multiple-returns">
+     Multiple arguments, and multiple returns
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-about-a-contour-plot">
+       How about a contour plot?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#you-can-create-very-complex-functions">
+   You can create very complex functions…
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Recitation 01: Jupyter and Python Fundamentals</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lists-and-numpy-arrays">
+   Lists and Numpy Arrays
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists">
+     Lists
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#making-a-list">
+       Making a List
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-print-command">
+       The print command
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#despite-appearances-lists-are-not-rows-columns-or-matrices">
+       Despite appearances, lists are not rows, columns, or matrices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creating-large-lists-with-the-range-command">
+       Creating large lists with the range command
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays">
+     Numpy Arrays
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#making-a-numpy-array">
+       Making a numpy array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#examining-the-numpy-array">
+       Examining the numpy array
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#numpy-arrays-have-a-lot-of-useful-features-built-into-them">
+       Numpy arrays have a lot of useful features built into them
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-and-nd-arrays">
+       2D and ND Arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#indexing-in-numpy-arrays">
+       Indexing in numpy arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-arrays-vs-rows-and-columns">
+       1D arrays vs. Rows and Columns
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tools-for-creating-large-numpy-arrays">
+       Tools for creating large numpy arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-vs-arrays-in-practice-math">
+     Lists vs. arrays in practice (math!)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#element-wise-calculations-are-easy-with-arrays">
+       Element-wise calculations are easy with arrays
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-matrix-operations">
+       Basic Matrix Operations
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#introducing-np-zeros">
+       Introducing np.zeros
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-for-loops">
+       Basic for loops
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-the-determinant-matrix-must-be-square">
+       Finding the determinant (matrix must be square)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrix-inverse-in-numpy">
+       Matrix inverse in numpy
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions-and-graphing">
+   Functions and graphing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#long-form-function-definition">
+     Long form function definition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-multivariate-function-using-a-lambda-function-definition">
+     A multivariate function using a lambda function definition
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-plotting-syntax">
+       3D plotting syntax
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-arguments-and-multiple-returns">
+     Multiple arguments, and multiple returns
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-about-a-contour-plot">
+       How about a contour plot?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#you-can-create-very-complex-functions">
+   You can create very complex functions…
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="recitation-01-jupyter-and-python-fundamentals">
+<h1>Recitation 01: Jupyter and Python Fundamentals<a class="headerlink" href="#recitation-01-jupyter-and-python-fundamentals" title="Permalink to this headline">#</a></h1>
+<p>Everyone should have completed the review materials (Supplements 01 - 07) by this point. Today, we will be getting familiar with the Jupyter Environment and basic Python. Here is an overview of the topics:</p>
+<ul class="simple">
+<li><p>Base Python vs. Numpy (lists vs. arrays)</p></li>
+<li><p>1D arrays, columns, rows, and matrices</p></li>
+<li><p>Basic math operators in Python</p></li>
+<li><p>Functions</p></li>
+<li><p>For Loops, While Loops</p></li>
+<li><p>Element-wise operations (broadcasting) vs. matrix operations</p></li>
+<li><p>Logical values and conditional statements</p></li>
+<li><p>Graphing</p></li>
+</ul>
+<p>We’ll go through some some practice exercises in the cells below.</p>
+<p><strong>Notes for 2023 Recitations</strong></p>
+<p>Recitations 11, 12, and 13 are on nonlinear regression. They need to be reworked; make sure 13 (Enzyme Inhibition) comes before HW 8 is due.  Can possibly condense; there was too much nonlinear regression in recitation for 2022 to the point it was redundant.</p>
+<section id="lists-and-numpy-arrays">
+<h2>Lists and Numpy Arrays<a class="headerlink" href="#lists-and-numpy-arrays" title="Permalink to this headline">#</a></h2>
+<p>If we’re going to work in Python, we need to discuss the differences between <em><strong>lists</strong></em> and <em><strong>numpy arrays</strong></em>.  It is easy to confuse these two types of data structures since they look similar, and we create them in similar ways.  But they have important differences.  We will usually want to work with numpy arrays in this course, but I want to communicate why they are a bit more convenient. To do that, we need to discuss lists first.</p>
+<section id="lists">
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h3>
+<p>When working with data, functions, and various types of analysis, we generally need to be able to store sets or collections of values instead of just scalars. In the base Python environment, the default type of collection is a list.</p>
+<section id="making-a-list">
+<h4>Making a List<a class="headerlink" href="#making-a-list" title="Permalink to this headline">#</a></h4>
+<p>If you are familiar with Matlab’s environment, creating a list is very similar to creating an array in Matlab.  For example, if we wanted to create a list containing the integers 1 to 5, we would do so as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="alert alert-block alert-warning">
+<b>Important:</b> Is everyone comfortable with indexing in Python to access specific elements?  Remember: Python is zero-indexed, which means the first element of any collection has an index of 0. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create list, display list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#whos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#indexing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#display attributes of list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#using attributes like reverse, sort, pop, insert</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-print-command">
+<h4>The print command<a class="headerlink" href="#the-print-command" title="Permalink to this headline">#</a></h4>
+<p>We can display the contents of that list and the length of that list.  We’ll also display the type.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">L1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="alert alert-block alert-warning">
+<b>Notice:</b> Python only displays the output of the last operation performed; if you want to see a value, you usually have to print it.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#L1, len, and type--what do they tell us?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="despite-appearances-lists-are-not-rows-columns-or-matrices">
+<h4>Despite appearances, lists are not rows, columns, or matrices<a class="headerlink" href="#despite-appearances-lists-are-not-rows-columns-or-matrices" title="Permalink to this headline">#</a></h4>
+<p>This <em>looks</em> like a row vector compared to what we are probably used to from Matlab, but it has very different properties.  Technically, it is a 1 dimensional object (it only has a length associated with it), whereas rows, columns, and matrices are 2D objects (they have both row and column dimensions).</p>
+<p>Let’s say we wanted to store a “2D” set of information in lists; we would do so by constructing a list of lists:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create L2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we print that list, we find it <em>looks</em> like a matrix:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print L2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if we ask for the length of that list, we find that it is only 2 elements long:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Length of L2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is <strong>not</strong> a 2x5 matrix, and if we tried to index it like a matrix (row, column), we get an error:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Indexing?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we wanted to access information in that list, we have to remember that it is not a matrix, but a list of lists…so if I wanted to recall the number 5, for example, from L2, that is not indexed as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>  <span class="c1">#5th column in first row of L2</span>
+</pre></div>
+</div>
+<p>As you might do in Matlab; rather, it is indexed as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span> <span class="c1">#5th element in first list of L2</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Correct indexing with lists</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<b>The moral of the story:</b> Lists are not matrices, and they do not index or behave like matrices.
+</div></section>
+<section id="creating-large-lists-with-the-range-command">
+<h4>Creating large lists with the range command<a class="headerlink" href="#creating-large-lists-with-the-range-command" title="Permalink to this headline">#</a></h4>
+<p>If we want to create a large list, such as the full set of integers between 1 and 50, we generally won’t type it out.  Instead, we’ll pass the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function into the <code class="docutils literal notranslate"><span class="pre">list()</span></code> constructor.  The basic syntax of range is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So for this example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#what does the range command do, note peculiarities with syntax</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="numpy-arrays">
+<h3>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">#</a></h3>
+<p>If we want a matrix like environment (and we’ll see some reasons for this below), this is best handled in Python using numpy arrays.  This is not in base Pyton – we have to import the numpy package to gain access to numpy arrays.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Aliasing:</b> This imports the package "numpy" under the alias "np."  So anywhere we'd normally call the package using "numpy," we can replace that with "np" instead.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#numpy is a package that adds extra functionalities to base Python; need to import</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="making-a-numpy-array">
+<h4>Making a numpy array<a class="headerlink" href="#making-a-numpy-array" title="Permalink to this headline">#</a></h4>
+<p>We create numpy arrays as in the following example.  Here, we create a 1D numpy array that contains the integers 1 to 5 (similar to the list above).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1">#equivalent to np.array(L1)</span>
+</pre></div>
+</div>
+<p>The way numpy arrays are created is that we actually pass a list into the array constructor. It is going to be very important to remember this when we create 2D arrays (similar to a matrix) or higher dimensional arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create numpy array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#whos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Indexing, length</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#attributes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="examining-the-numpy-array">
+<h4>Examining the numpy array<a class="headerlink" href="#examining-the-numpy-array" title="Permalink to this headline">#</a></h4>
+<p>Let’s print that array and check it’s properties and dimensions; we’ll compare it to the analogous list and consider some of the differences.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">A1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Print the above for both L1 and A1 for comparison</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="numpy-arrays-have-a-lot-of-useful-features-built-into-them">
+<h4>Numpy arrays have a lot of useful features built into them<a class="headerlink" href="#numpy-arrays-have-a-lot-of-useful-features-built-into-them" title="Permalink to this headline">#</a></h4>
+<p>Looking at numpy arrays, we can see that they have a lot more attributes than lists do; many of these are useful in mathematics, statistics, and engineering.  We can also use them to assess the size and shape of our arrays.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#show various attributes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-and-nd-arrays">
+<h4>2D and ND Arrays<a class="headerlink" href="#d-and-nd-arrays" title="Permalink to this headline">#</a></h4>
+<p>With numpy arrays, we can actually create 2D or higher dimensional structures (3D, 4D, etc.)  We’ll mostly stick with 1D and 2D in CEN 587.  For example, let’s recreate that list of lists above as a numpy array using the array constructor.</p>
+<p>The key thing to remember when you are creating a 2D array is that you still use the basic np.array() constructor syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+</pre></div>
+</div>
+<p>But <strong>every row in the array should be entered into the np.array() constructor as a list</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span> <span class="c1">#equivalent to np.array(L2)</span>
+</pre></div>
+</div>
+<p>If you look closely at this, you’ll see that the first “element” in that array is the list [1, 2, 3, 4, 5], and the second element is the list [6, 7, 8, 9, 10].  These “elements” in a numpy array correspond to rows in a matrix, so when you’re creating a matrix, you enter each row as a separate list.  Each list should be separated by a comma.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create 2D array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll look at that array and some of its associated properties and dimensions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(A2)
+print(len(A2))
+print(type(A2))
+print(A2.size)
+print(A2.shape)
+print(A2.ndim)
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Print 2D array compared to &quot;list of lists&quot; L2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexing-in-numpy-arrays">
+<h4>Indexing in numpy arrays<a class="headerlink" href="#indexing-in-numpy-arrays" title="Permalink to this headline">#</a></h4>
+<p>With a numpy array, we have the option of indexing it as we would a matrix using [row, column] indexing, so, with this numpy array, if I wanted to grab the fifth column in the first row, I can do so as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A2[0,4]  #5th column in first row
+</pre></div>
+</div>
+<p>or as I would with a list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A2[0][4] #5th element in first element
+</pre></div>
+</div>
+<p>So: a numpy array has size, shape, and index options that are similar to what we are probably used to with Matlab matrices.  Lists do not translate directly to matrix format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#numpy arrays are matrix like in many respects</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="d-arrays-vs-rows-and-columns">
+<h4>1D arrays vs. Rows and Columns<a class="headerlink" href="#d-arrays-vs-rows-and-columns" title="Permalink to this headline">#</a></h4>
+<p>If you are coming from a Matlab background, you are used to thinking of “vectors” of numbers or entries as either rows (horizontal set of values) or columns (vertical set of values).  It is important to remember that rows and columns are 2-dimensional structures – they both have a length (number of rows) and width (number of columns) associated with them.</p>
+<p>Specifically, a column is m rows x 1 column…and a row is 1 row x n columns.  <strong>These are 2D structures</strong> and they have the corresponding shapes associated with them.</p>
+<p>Whereas Matlab creates rows and columns by default using brackets [], spaces, or semicolons, Python is slightly different.</p>
+<p>Let’s go back to our original set of integers from 1 to 5.  If I create a numpy array as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>And print its values as well as its dimensions and shape:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A1</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will find that it is a true 1 dimensional structure.  It is a “line” of values, and it is neither a row or column in that it has no horizontal or vertical orientation associated with it.  This is what the somewhat strange notation (5,) communicates to us.  There is no 2nd dimension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Illustrate that these are true 1D arrays, which are neither rows nor columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usually, we’ll be fine working with 1D arrays.  They will typically behave either as a row or a column depending on context (if we need them to).  If we ever specifically need to create a row or a column, we have to deliberately create a 2D array.  For example, recreating that 1D array as a row looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Look at it closely and you’ll see that I’m still passing a list into the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> constructor with <code class="docutils literal notranslate"><span class="pre">[]</span></code>, and the first element in that list is another list enclosed in an additional set of <code class="docutils literal notranslate"><span class="pre">[]</span></code>.  This is how you create 2D arrays in Python with numpy arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a row</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we’ll print important aspects as usual:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">R1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R1</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, you see that we have a true row of shape (1, 5), i.e., 1 row and 5 columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#display attributes, etc.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In contrast, if we really need a column, we would have to create it as follows (again, as a 2D array):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Again, you’ll notice that I’m passing a list into an <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> constructor using a set of values enclosed in <code class="docutils literal notranslate"><span class="pre">[]</span></code>.  In this case, each element in that list is also a separate list enclosed in brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, and I’ve created several rows by entering every value as its own list separated by commas.  With numpy arrays, each new “list” separated by commas creates a new row, so in this example, we’ve made a column with 5 rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a column</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we display outputs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">C1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C1</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Which reveal that this is actually a column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#display attributes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>More often than not, we only need to work with 1D arrays and matrices, but it is important to understand what these shapes mean.  I found myself initially very confused by 1D arrays when I switched from Matlab to Python, so I thought the explanation was worthwhile.  If I run into an occasion where we actually need a row or a column, we’ll discuss it.  Most of the time, 1D numpy arrays will suffice where we think we need a row or a column.</p>
+</section>
+<section id="tools-for-creating-large-numpy-arrays">
+<h4>Tools for creating large numpy arrays<a class="headerlink" href="#tools-for-creating-large-numpy-arrays" title="Permalink to this headline">#</a></h4>
+<p>We want to create a 1D numpy array, A, that has the numbers 1 through 50 in it. We can do this in at least three ways:</p>
+<p>Write out the integers 1 to 50 separated by commas in an np.array constructor (not recommended).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">...</span> <span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> (good option, can be flaky with non-integer step sizes).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">step</span> <span class="n">size</span><span class="p">)</span> <span class="c1">#same as np.array(range(start, stop+1, step size) for int  </span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> to construct the array (returns floats; usually what we want; probably most useful option).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">number</span> <span class="n">of</span> <span class="n">elements</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#demo np tools for array creation</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lists-vs-arrays-in-practice-math">
+<h3>Lists vs. arrays in practice (math!)<a class="headerlink" href="#lists-vs-arrays-in-practice-math" title="Permalink to this headline">#</a></h3>
+<p>As a simple demonstration, let’s just try a few basic math operations on our 50 element array, A, and our 50 element list, L.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">L</span> <span class="o">+</span> <span class="mi">5</span>
+<span class="n">A</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">L</span><span class="o">*</span><span class="mi">5</span>
+<span class="n">A</span><span class="o">**</span><span class="mi">2</span>  <span class="c1">#A squared</span>
+<span class="n">L</span><span class="o">**</span><span class="mi">2</span>  <span class="c1">#L squared</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#step through operations on arrays and lists</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll create a second 1D array, B, that has the numbers 2 through 100 in increments of 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="element-wise-calculations-are-easy-with-arrays">
+<h4>Element-wise calculations are easy with arrays<a class="headerlink" href="#element-wise-calculations-are-easy-with-arrays" title="Permalink to this headline">#</a></h4>
+<p>Let’s take advange of element-wise operations (broadcasting) in numpy arrays to:</p>
+<ol class="simple">
+<li><p>Multiply each element in A by each element in B</p></li>
+<li><p>Raise each element in A to the third power</p></li>
+<li><p>Find the exponential of the cube root of each element in A</p></li>
+<li><p>Divide each element in B by each element in A</p></li>
+</ol>
+<p>Each should give a 50 element vector (why?)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Step through operations</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-matrix-operations">
+<h4>Basic Matrix Operations<a class="headerlink" href="#basic-matrix-operations" title="Permalink to this headline">#</a></h4>
+<p>Now we’ll get a look at Matrix operations in Python. To perform a matrix operation on something, we usually need a 2D array, so we’ll use our rows and columns for this.</p>
+<ol class="simple">
+<li><p>Look at the difference between C1 and its transpose. #use np.transpose(C1) or C1.T</p></li>
+<li><p>Look at the difference between R1 and its transpose. #use np.transpose(R1) or R1.T</p></li>
+<li><p>Multiply C1 by C1<span class="math notranslate nohighlight">\(^T\)</span> - this should give a 5x5 array (why?) #use C1&#64;C.T</p></li>
+<li><p>Multiply R1 by R1<span class="math notranslate nohighlight">\(^T\)</span> - this should give a 1x1 array (why?)       #use R1&#64;R.T</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Step through operations</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introducing-np-zeros">
+<h4>Introducing np.zeros<a class="headerlink" href="#introducing-np-zeros" title="Permalink to this headline">#</a></h4>
+<p>Create a 3x5 matrix of zeros, D; illustrate use of size to find rows and columns.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="c1">#Shape should be a tuple (immutable list, give or take).</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create zeros matrix; demonstrate ones matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="basic-for-loops">
+<h4>Basic for loops<a class="headerlink" href="#basic-for-loops" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Use a for loop to print all of the values in C1</p></li>
+<li><p>Use a for loop to fill in the values of D such that each element in D is equal to the sum of it’s (i,j) index pair.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create for loops; note Python specific syntax and indent conventions</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-the-determinant-matrix-must-be-square">
+<h4>Finding the determinant (matrix must be square)<a class="headerlink" href="#finding-the-determinant-matrix-must-be-square" title="Permalink to this headline">#</a></h4>
+<p>Find the determinant of:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    E = \begin{bmatrix}
+        1 &amp; 7 &amp; 9 \\
+        21 &amp; -4 &amp; 17 \\
+        -6 &amp; 22 &amp; 6\\
+        \end{bmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#determinant in np.linalg</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="matrix-inverse-in-numpy">
+<h4>Matrix inverse in numpy<a class="headerlink" href="#matrix-inverse-in-numpy" title="Permalink to this headline">#</a></h4>
+<p>Find the inverse of <span class="math notranslate nohighlight">\(E\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#inverse in np.linalg</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="functions-and-graphing">
+<h2>Functions and graphing<a class="headerlink" href="#functions-and-graphing" title="Permalink to this headline">#</a></h2>
+<p>This section covers some basic function definitions and plotting tools using pyplot</p>
+<section id="long-form-function-definition">
+<h3>Long form function definition<a class="headerlink" href="#long-form-function-definition" title="Permalink to this headline">#</a></h3>
+<p>Let’s create a function that accepts one input using a conventional function declaration.</p>
+<div class="math notranslate nohighlight">
+\[ y(x) = x^2\]</div>
+<p>Plot y(x) on the domain <span class="math notranslate nohighlight">\(x = [-10, 10]\)</span>; add labels for x and y axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Define using standard notation; note python specific syntax and indenting.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use function; bind output</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create x domain</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import pyplot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-multivariate-function-using-a-lambda-function-definition">
+<h3>A multivariate function using a lambda function definition<a class="headerlink" href="#a-multivariate-function-using-a-lambda-function-definition" title="Permalink to this headline">#</a></h3>
+<p>Now we’ll create a function that accepts two inputs; here, we’ll use an inline or anonymous function syntax.</p>
+<div class="math notranslate nohighlight">
+\[ f(x,y) = \sin(x) + \cos(y) \]</div>
+<p>What is the value of f at x = 10, y = 7?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create function using lamba syntax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="d-plotting-syntax">
+<h4>3D plotting syntax<a class="headerlink" href="#d-plotting-syntax" title="Permalink to this headline">#</a></h4>
+<p>Create a 3D plot of the surface on the domain <span class="math notranslate nohighlight">\(x = [-10, 10]\)</span> and <span class="math notranslate nohighlight">\(y = [-10,10]\)</span>; add labels and title.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
+
+<span class="c1">#Data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1">#we&#39;re making a surface plot, so we create a grid of (x,y) pairs</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>  <span class="c1">#generate the Z data on the meshgrid (X,Y) by evaluating f at each XY pair.</span>
+
+<span class="c1">#Plot the surface.</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_surface</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Z values vs. X and Y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Copy 3D plot code; step through with discussion</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multiple-arguments-and-multiple-returns">
+<h3>Multiple arguments, and multiple returns<a class="headerlink" href="#multiple-arguments-and-multiple-returns" title="Permalink to this headline">#</a></h3>
+<p>Now, let’s create a function, <span class="math notranslate nohighlight">\(g(x,t)\)</span>, that accepts multiple inputs and returns multiple outputs - value(s) for y and values for z as a function of <span class="math notranslate nohighlight">\((x,t)\)</span>.  We can look at this as a system of functions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} y(x,t) = x^2t \\
+   z(x,t) = x\cos(t)\end{split}\]</div>
+<p>Calculate the values of y and z at x = 10, t = 7.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Built more complex g function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="how-about-a-contour-plot">
+<h4>How about a contour plot?<a class="headerlink" href="#how-about-a-contour-plot" title="Permalink to this headline">#</a></h4>
+<p>Use the function <span class="math notranslate nohighlight">\(g(x,t)\)</span> to generate values for both <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> on the domain <span class="math notranslate nohighlight">\(x = [0, 10]\)</span> and <span class="math notranslate nohighlight">\(t = [0, 10]\)</span>; create a contour plot for <span class="math notranslate nohighlight">\(y(x,t)\)</span> and <span class="math notranslate nohighlight">\(z(x,t)\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">T</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">)</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Copy contour plot code, step through with discussion</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="you-can-create-very-complex-functions">
+<h2>You can create very complex functions…<a class="headerlink" href="#you-can-create-very-complex-functions" title="Permalink to this headline">#</a></h2>
+<p>Let’s add some complexity to that same function <span class="math notranslate nohighlight">\(g(x,t)\)</span>.  It still will take two inputs <span class="math notranslate nohighlight">\((x,t)\)</span>, but let’s add to the outputs.  Let’s have it return an 3x3 matrix of zeros; a 5x5 matrix of ones; and a character array that says IT’S A TRAP!</p>
+<p>Print the 5 outputs for the <span class="math notranslate nohighlight">\((x,t)\)</span> input pair <span class="math notranslate nohighlight">\((1,1)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create more complex g2 function</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Chapter3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Applications and Problem Solving in Python</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

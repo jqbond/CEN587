@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 42 &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 43" href="F22-587-L43.html" />
+    <link rel="prev" title="Lecture 41" href="F22-587-L41.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L42.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L42.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L42.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-balances-on-ideal-reactors">
+   Energy Balances on Ideal Reactors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-reactor">
+     Batch Reactor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr">
+     CSTR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pfr">
+     PFR
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 42</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-balances-on-ideal-reactors">
+   Energy Balances on Ideal Reactors
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-reactor">
+     Batch Reactor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr">
+     CSTR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pfr">
+     PFR
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-42">
+<h1>Lecture 42<a class="headerlink" href="#lecture-42" title="Permalink to this headline">#</a></h1>
+<p>This lecture continues with Energy Balance example problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="energy-balances-on-ideal-reactors">
+<h2>Energy Balances on Ideal Reactors<a class="headerlink" href="#energy-balances-on-ideal-reactors" title="Permalink to this headline">#</a></h2>
+<section id="batch-reactor">
+<h3>Batch Reactor<a class="headerlink" href="#batch-reactor" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a well-mixed batch reactor is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = R_jV\]</div>
+<p>In cases where we have either an incompressible fluid or our reactor operates at constant pressure, the energy balance on a batch reactor is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_{i} r_i V + \dot{Q}\]</div>
+<p>A few notation conventions:  the bar over a property here means it is an intensive molar property for a species and it has units of “per mole”.  <span class="math notranslate nohighlight">\(\dot{Q}\)</span> is the rate of heat exhange with the surroundings.  It is given by:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+</section>
+<section id="cstr">
+<h3>CSTR<a class="headerlink" href="#cstr" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{jf} - F_j + R_jV\]</div>
+<p>If we have an incompressible fluid or a reactor operating at constant pressure, the energy balance on a CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_{i} r_i V + \sum_j F_{jf}(\bar{H}_{jf} - \bar{H}_j) + \dot{Q}\]</div>
+<p>The rate of heat exchange is the same as in a batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+</section>
+<section id="pfr">
+<h3>PFR<a class="headerlink" href="#pfr" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a PFR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_j}{dV} = R_j\]</div>
+<p>If we have an ideal gas or a reactor operating without a pressure drop, the energy balance for a PFR is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j F_j \bar{C}_{p,j} \frac{dT}{dV} = -\sum_i \Delta H_{i} r_i + \dot{q}\]</div>
+<p>For a PFR, we express the rate of heat transfer per unit volume, and it has a symbol <span class="math notranslate nohighlight">\(\dot{q}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\dot{q} = Ua(T_a - T)\]</div>
+</section>
+</section>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>(Fogler, Example 12.5)</p>
+<p>This example considers non-isothermal operation of a PFR with multiple reactions.  Specifically, the following two gas phase reactions:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-972097f0-3b5e-4df8-9b9d-37ca233e26e8">
+<span class="eqno">(194)<a class="headerlink" href="#equation-972097f0-3b5e-4df8-9b9d-37ca233e26e8" title="Permalink to this equation">#</a></span>\[\begin{align}
+    A &amp;\longrightarrow B\\
+    2A &amp;\longrightarrow C
+\end{align}\]</div>
+<p>Where both reactions have elementary rate laws. Pure A (<span class="math notranslate nohighlight">\(C_{Af} = 0.1\)</span> moles per liter) is fed to the reactor at a rate of 100 moles per second and a temperature of 150<span class="math notranslate nohighlight">\(^\circ\)</span>C.  We additionally are provided the following information:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a5a450b9-29bb-4c9e-a788-9ba348667e83">
+<span class="eqno">(195)<a class="headerlink" href="#equation-a5a450b9-29bb-4c9e-a788-9ba348667e83" title="Permalink to this equation">#</a></span>\[\begin{align}		
+    k_{10}  &amp;= 10 \ \textrm{s}^{-1}  		    					               \\
+    k_{20}  &amp;= 0.045 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{s}^{-1}	           \\
+    \frac{E_{A1}}{R}  &amp;= 4000 \ \textrm{K}				    		               \\
+    \frac{E_{A2}}{R}  &amp;= 9000 \ \textrm{K} 							               \\
+    \Delta H_{10} &amp;= -20000 \ \textrm{J} \ \textrm{mol}^{-1}  		               \\ 
+    \Delta H_{20} &amp;= -120000 \ \textrm{J} \ \textrm{mol}^{-1}                      \\ 
+    C_{PA} &amp;= 90 \ \textrm{J} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}                \\
+    C_{PB} &amp;= 90 \ \textrm{J} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}                \\
+    C_{PC} &amp;= 180 \ \textrm{J} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}               \\
+    Ua &amp;= 4000  \ \textrm{J} \ \textrm{L}^{-1} \ \textrm{s}^{-1} \ \textrm{K}^{-1} \\
+    T_{a} &amp;= 100^\circ\textrm{C}
+\end{align}\]</div>
+<p><strong>Note:</strong> reported rate constants were measured at 300K</p>
+<p>Assume this PFR has a total volume <span class="math notranslate nohighlight">\(V = 1.0 \ \mathrm{L}\)</span> ; plot the molar flowrates of all species as well as the temperature as a function of reactor volume.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>We are asked to plot the flowrate of each species and the temperature as a function of reactor volume.  Clearly, we need to write material and energy balances.</p>
+<p>For this system, we have 3 species, so we write 3 material balances:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-71c77fac-b9b4-4fba-b00f-da318e2873c3">
+<span class="eqno">(196)<a class="headerlink" href="#equation-71c77fac-b9b4-4fba-b00f-da318e2873c3" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dF_A}{dV} = R_A \\
+    \frac{dF_B}{dV} = R_B \\
+    \frac{dF_C}{dV} = R_C \\
+\end{align}\]</div>
+<p>We also write an energy balance on the reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dT}{dV} = \frac{-\sum_i \Delta H_i r_i + \dot{q}}{\sum_j F_j \bar{C}_{p,j}}\]</div>
+<p>Now we just specify everything on the right hand side of those ODEs in terms of constants, the 4 dependent variables, or volume (our independent variable).</p>
+<p>Production rates:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-461517f1-ad8b-4396-9d41-1e292f838165">
+<span class="eqno">(197)<a class="headerlink" href="#equation-461517f1-ad8b-4396-9d41-1e292f838165" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A &amp;= -r_1 - 2r_2 \\
+    R_B &amp;= r_1 \\
+    R_C &amp;= r_2 \\
+\end{align}\]</div>
+<p>Rate expressions:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-02a4cd9c-8fa2-47db-8368-74949f992f2f">
+<span class="eqno">(198)<a class="headerlink" href="#equation-02a4cd9c-8fa2-47db-8368-74949f992f2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r_1 &amp;= k_1C_A\\
+    r_2 &amp;= k_2{C_A}^2
+\end{align}\]</div>
+<p>Concentration of A:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q}\]</div>
+<p>Use an equation of state to define Q:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_TRT}{P}\]</div>
+<p>Where R and P are both constant and expressed in appropriate units, and T is a state variable in the ODE system.  We define total molar flowrate in terms of individual species:</p>
+<div class="math notranslate nohighlight">
+\[F_T = F_A + F_B + F_C\]</div>
+<p>Next, we need to define our rate constants as functions of temperature; we do so using a van’t Hoff type expression (since we are given rate constants measured at a specific temperature).</p>
+<div class="amsmath math notranslate nohighlight" id="equation-24d6f077-9a7d-4371-9037-61aefacf8de5">
+<span class="eqno">(199)<a class="headerlink" href="#equation-24d6f077-9a7d-4371-9037-61aefacf8de5" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k_1 &amp;= k_{10}\exp\left[-\frac{E_{A1}}{R}\left(\frac{1}{T} - \frac{1}{T_0}\right)\right] \\
+    k_2 &amp;= k_{20}\exp\left[-\frac{E_{A2}}{R}\left(\frac{1}{T} - \frac{1}{T_0}\right)\right] \\
+\end{align}\]</div>
+<p>We also need to know the heats of reaction at the reaction temperature in order to complete the material balance.  We know that, generally:</p>
+<div class="math notranslate nohighlight">
+\[\Delta H(T) = \Delta H^\circ + \int_{T_0}^{T} \Delta C_p dT\]</div>
+<p>For both of these reactions, we find that <span class="math notranslate nohighlight">\(\Delta C_p = 0\)</span>, so we conclude that heats of reaction are temperature independent here.</p>
+<p>This is a non-isothermal reactor with heat exchange; we calculate the rate of heat exchange per unit volume (<span class="math notranslate nohighlight">\(\dot{q}\)</span>) as follows:</p>
+<div class="math notranslate nohighlight">
+\[\dot{q} = Ua(T_a - T)\]</div>
+<p>Where the temperature of the heat exchange fluid (<span class="math notranslate nohighlight">\(T_a\)</span>) and the product of the heat transfer coefficient (U) and the surface area-per-volume (a) are given in the problem statement.</p>
+<p>That should be it.  ODE system is fully specified and can be solved.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P01</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+   
+    <span class="c1">#Fixed values from problem statement</span>
+    <span class="n">Tf</span>   <span class="o">=</span> <span class="mi">150</span> <span class="o">+</span> <span class="mi">273</span> <span class="c1">#K</span>
+    <span class="n">Cf</span>   <span class="o">=</span> <span class="mf">0.1</span> <span class="c1">#mol/L</span>
+    <span class="n">R</span>    <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+    <span class="n">Pf</span>   <span class="o">=</span> <span class="n">Cf</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">Tf</span> <span class="c1">#atm</span>
+    <span class="n">P</span>    <span class="o">=</span> <span class="n">Pf</span> <span class="c1">#atm</span>
+    <span class="n">k10</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#1/s</span>
+    <span class="n">k20</span>  <span class="o">=</span> <span class="mf">0.045</span> <span class="c1">#L/mol/s</span>
+    <span class="n">DH1</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">20000</span> <span class="c1">#J/mol</span>
+    <span class="n">DH2</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">120000</span> <span class="c1">#J/mol</span>
+    <span class="n">EAR1</span> <span class="o">=</span> <span class="mi">4000</span> <span class="c1">#K</span>
+    <span class="n">EAR2</span> <span class="o">=</span> <span class="mi">9000</span> <span class="c1">#K</span>
+    <span class="n">CPA</span>  <span class="o">=</span> <span class="mi">90</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPB</span>  <span class="o">=</span> <span class="mi">90</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPC</span>  <span class="o">=</span> <span class="mi">180</span> <span class="c1">#J/mol/K</span>
+    <span class="n">Ua</span>   <span class="o">=</span> <span class="mi">4000</span> <span class="c1">#J/L/K/s</span>
+    <span class="n">Ta</span>   <span class="o">=</span> <span class="mi">100</span><span class="o">+</span><span class="mi">273</span> <span class="c1">#K</span>
+    <span class="n">T0</span>   <span class="o">=</span> <span class="mi">300</span> <span class="c1">#K</span>
+    
+    <span class="c1">#Quantities changing as a function of reactor volume.</span>
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">FB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">FC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span> <span class="c1">#mol/s</span>
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>     <span class="c1">#L/s</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>         <span class="c1">#mol/L</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">k10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR1</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span> <span class="c1">#1/s</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">k20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span> <span class="c1">#L/mol/s</span>
+    
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">k1</span><span class="o">*</span><span class="n">CA</span>     <span class="c1">#mol/L/s</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">k2</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="mi">2</span>  <span class="c1">#mol/L/s</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r2</span>  <span class="c1">#mol/L/s</span>
+    <span class="n">RB</span> <span class="o">=</span>  <span class="n">r1</span>         <span class="c1">#mol/L/s</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r2</span>         <span class="c1">#mol/L/s</span>
+    
+    <span class="n">qdot</span> <span class="o">=</span> <span class="n">Ua</span><span class="o">*</span><span class="p">(</span><span class="n">Ta</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span> <span class="c1">#J/L/s</span>
+    
+    <span class="n">DT</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">DH1</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="n">DH2</span><span class="o">*</span><span class="n">r2</span><span class="p">)</span> <span class="o">+</span> <span class="n">qdot</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">FA</span><span class="o">*</span><span class="n">CPA</span> <span class="o">+</span> <span class="n">FB</span><span class="o">*</span><span class="n">CPB</span> <span class="o">+</span> <span class="n">FC</span><span class="o">*</span><span class="n">CPC</span><span class="p">)</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span>
+    <span class="n">D4</span> <span class="o">=</span> <span class="n">DT</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FAf</span>  <span class="o">=</span> <span class="mi">100</span> <span class="c1">#mol/s</span>
+<span class="n">FBf</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FCf</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Tf</span>   <span class="o">=</span> <span class="mi">150</span> <span class="o">+</span> <span class="mi">273</span> <span class="c1">#K</span>
+<span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">,</span> <span class="n">Tf</span><span class="p">]</span>
+<span class="n">vspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="c1">#L</span>
+<span class="n">ans</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P01</span><span class="p">,</span> <span class="n">vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="n">V</span>             <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FA</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="n">FC</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">y</span>
+
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">FA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FA&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FB&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">FC</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;FC&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span>  <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span> 
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;V (L)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Fj (mol/s)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T (K)&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;center left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x2b023c5e910&gt;
+</pre></div>
+</div>
+<img alt="../_images/F22-587-L42_6_1.png" src="../_images/F22-587-L42_6_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L41.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 41</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L43.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 43</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

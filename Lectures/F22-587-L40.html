@@ -1,0 +1,1524 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 40 &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 41" href="F22-587-L41.html" />
+    <link rel="prev" title="Lecture 39" href="F22-587-L39.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L40.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L40.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L40.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-review-of-the-need-for-energy-balances">
+   Brief Review of the Need For Energy Balances
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-balances-for-ideal-reactor-archetypes-in-587">
+   Energy Balances for Ideal Reactor Archetypes in 587
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-reactor">
+     Batch Reactor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr">
+     CSTR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pfr">
+     PFR
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-04">
+   Example Problem 04
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-04">
+     Solution to Example Problem 04
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 40</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-review-of-the-need-for-energy-balances">
+   Brief Review of the Need For Energy Balances
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#energy-balances-for-ideal-reactor-archetypes-in-587">
+   Energy Balances for Ideal Reactor Archetypes in 587
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-reactor">
+     Batch Reactor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cstr">
+     CSTR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pfr">
+     PFR
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-04">
+   Example Problem 04
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-04">
+     Solution to Example Problem 04
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-40">
+<h1>Lecture 40<a class="headerlink" href="#lecture-40" title="Permalink to this headline">#</a></h1>
+<p>This lecture begins with example problems using Energy Balances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="brief-review-of-the-need-for-energy-balances">
+<h2>Brief Review of the Need For Energy Balances<a class="headerlink" href="#brief-review-of-the-need-for-energy-balances" title="Permalink to this headline">#</a></h2>
+<p>Until now, we’ve always considered isothermal reactors.  We have often considered the effect of changing temperature on a rate constant, but as far as the reactor is concerned, we have always assumed that the entire reactor exists at a single temperature that is equal to the temperature at the start of the run (in a batch reactor) or the temperatuer of the feed (in a flow reactor).  These would be <em>isothermal</em> reactors.</p>
+<p>We know after courses in mass and energy balances and thermodynamics that most reactions are not thermoneutral.  This means that most reactions have a non-zero heat of reaction (<span class="math notranslate nohighlight">\(\Delta H\)</span>), so they will either release energy to or absorb energy from the environment.  As this happens, we should anticipate that the temperature inside of the reactor may change considerably. From a strict chemistry standpoint, this is important for two reasons:</p>
+<ol class="simple">
+<li><p>Rate constants have an exponential dependence on temperature</p></li>
+<li><p>Equilibrium constants have an exponential dependence on temperature</p></li>
+</ol>
+<p>In other words, changing the reaction temperature over the course of reaction progress can dramatically impact how favorable reaction is (thermodynamics, equilibrium constant) and how fast the reaction occurs (kinetics, rate constant).  So it is extremely important that we understand how to anticipate changes in temperature as a function of reaction progress, reaction time, and/or reactor size.  We do this by writing energy balances on the reactor of interest.  We can use the same basic concept that we did for material balances – we envision a shell balance on the reactor, and we consider the energy entering, leaving, and accumulating in that control volume.</p>
+<p>If you are interested in the derivation of the reactor energy balances starting from a shell balance, please see Lecture 39, where the steps are outlined in detail. It is rare that we will need to go back to the starting point in general, and in all problems we will consider this semester, we will only work with the following, useful forms of the energy balance.</p>
+</section>
+<section id="energy-balances-for-ideal-reactor-archetypes-in-587">
+<h2>Energy Balances for Ideal Reactor Archetypes in 587<a class="headerlink" href="#energy-balances-for-ideal-reactor-archetypes-in-587" title="Permalink to this headline">#</a></h2>
+<section id="batch-reactor">
+<h3>Batch Reactor<a class="headerlink" href="#batch-reactor" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a well-mixed batch reactor is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = R_jV\]</div>
+<p>In cases where we have either an incompressible fluid or our reactor operates at constant pressure, the energy balance on a batch reactor is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_{i} r_i V + \dot{Q}\]</div>
+<p>A few notation conventions:  the bar over a property here means it is an intensive molar property for a species and it has units of “per mole”.  <span class="math notranslate nohighlight">\(\dot{Q}\)</span> is the rate of heat exhange with the surroundings.  It is given by:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+<p>Where <span class="math notranslate nohighlight">\(U\)</span> is an overall heat transfer coefficient, <span class="math notranslate nohighlight">\(A\)</span> is the heat exchange area, and <span class="math notranslate nohighlight">\(T_a\)</span> is the temperature of the heat exchange fluid.</p>
+</section>
+<section id="cstr">
+<h3>CSTR<a class="headerlink" href="#cstr" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{jf} - F_j + R_jV\]</div>
+<p>If we have an incompressible fluid or a reactor operating at constant pressure, the energy balance on a CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_{i} r_i V + \sum_j F_{jf}(\bar{H}_{jf} - \bar{H}_j) + \dot{Q}\]</div>
+<p>The rate of heat exchange is the same as in a batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+</section>
+<section id="pfr">
+<h3>PFR<a class="headerlink" href="#pfr" title="Permalink to this headline">#</a></h3>
+<p>The material balance for species j in a PFR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_j}{dV} = R_j\]</div>
+<p>If we have an ideal gas or a reactor operating without a pressure drop, the energy balance for a PFR is:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j F_j \bar{C}_{p,j} \frac{dT}{dV} = -\sum_i \Delta H_{i} r_i + \dot{q}\]</div>
+<p>For a PFR, we express the rate of heat transfer per unit volume, and it has a symbol <span class="math notranslate nohighlight">\(\dot{q}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\dot{q} = Ua(T_a - T)\]</div>
+<p><span class="math notranslate nohighlight">\(U\)</span> is an overall heat transfer coefficient as usual, and <span class="math notranslate nohighlight">\(a\)</span> is the ratio of surface area to volume for the reactor.  For a tube, this is usually given as:</p>
+<div class="math notranslate nohighlight">
+\[a = \frac{2}{R}\]</div>
+</section>
+</section>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>The exothermic elementary liquid-phase reaction (Rawlings and Ekerdt, E6.1):</p>
+<div class="math notranslate nohighlight">
+\[A + B \longrightarrow C\]</div>
+<p>is carried out in a batch reactor equipped with a cooling coil such that you can vary conditions between isothermal and adiabatic.  The reactor is initially charged with equal concentrations of A and B at 27<span class="math notranslate nohighlight">\(^\circ\)</span>C (300K), and both of their concentrations are 2.0 mol/L. The reaction is irreversible, and it is first order with respect to both A and B.</p>
+<div class="math notranslate nohighlight">
+\[r = k C_A C_B\]</div>
+<p>The rate constant can be computed from the following equation:</p>
+<div class="math notranslate nohighlight">
+\[k = k_0 \cdot exp\left(\frac{-E_A}{R}\left(\frac{1}{T}-\frac{1}{T_0}\right)\right)\]</div>
+<p>where: <span class="math notranslate nohighlight">\(k_0 = 0.01725 \, \textrm{L} \, \textrm{mol}^{-1} \, \textrm{min}^{-1} \textrm{at 300K and} \frac{E_A}{R} = 2660 \textrm{K}\)</span></p>
+<p>You additionally have the following data:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d1a195f8-552e-4fce-a9d2-b8d3d201597b">
+<span class="eqno">(182)<a class="headerlink" href="#equation-d1a195f8-552e-4fce-a9d2-b8d3d201597b" title="Permalink to this equation">#</a></span>\[\begin{align}		
+    \Delta H_{rxn} &amp;= -10 \ \textrm{kcal} \ \textrm{mol}^{-1} \\
+    C_{PA} &amp;= 20 \ \textrm{cal} \ \textrm{mol}^{-1} \ \textrm{K}^{-1} \\
+    C_{PB} &amp;= 20 \ \textrm{cal} \ \textrm{mol}^{-1} \ \textrm{K}^{-1} \\
+    C_{PC} &amp;= 40 \ \textrm{cal} \ \textrm{mol}^{-1} \ \textrm{K}^{-1} \\
+    V &amp;= 1200 \ \textrm{L}
+\end{align}\]</div>
+<p>If the reactor operates isothermally at 300K, how long does it take to achieve 95% conversion of species A? Plot XA and rate vs time for this solution.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>This is a problem we are already familiar with.  We’d like to solve for the time required to achieve a specific conversion in a well-mixed batch reactor.  There are many paths we can take, but they all involve writing material balances.  My approach here will be to write balances on all species and integrate the coupled system of ODEs numerically using solve_ivp.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8cb982fa-181d-40d5-a8a9-5a79965b2901">
+<span class="eqno">(183)<a class="headerlink" href="#equation-8cb982fa-181d-40d5-a8a9-5a79965b2901" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dN_A}{dt} = R_AV \\
+    \frac{dN_B}{dt} = R_BV \\
+    \frac{dN_C}{dt} = R_CV
+\end{align}\]</div>
+<p>We can express production rates in terms of the reaction rate:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-449da72c-0c50-4399-929d-44cab1f3191d">
+<span class="eqno">(184)<a class="headerlink" href="#equation-449da72c-0c50-4399-929d-44cab1f3191d" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A &amp;= -r \\
+    R_B &amp;= -r \\
+    R_C &amp;= r
+\end{align}\]</div>
+<p>This reaction follows elementary kinetics, so the rate law is:</p>
+<div class="math notranslate nohighlight">
+\[r = k C_A C_B\]</div>
+<p>We are solving ODEs in the time domain with 3 state (dependent) variables: NA, NB, and NC.  I can express my concentrations in terms of these quantities:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4796b152-8ffb-42b2-bc53-b7bed0df7869">
+<span class="eqno">(185)<a class="headerlink" href="#equation-4796b152-8ffb-42b2-bc53-b7bed0df7869" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A = \frac{N_A}{V} \\
+    C_B = \frac{N_B}{V}
+\end{align}\]</div>
+<p>And we know the rate constant for this system.  Since it is isothermal at 300K, the rate constant is always equal to the rate constant at 300K:</p>
+<div class="math notranslate nohighlight">
+\[k = k_0 = 0.01725 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{min}^{-1}\]</div>
+<p>That is everything we need to solve using an ODE solver; see cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">isothermal</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">NA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">NC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">V</span>  <span class="o">=</span> <span class="mi">1200</span> <span class="c1">#L</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">k0</span> <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">]</span>
+
+<span class="c1">##problem statement information</span>
+<span class="n">k0</span>    <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+<span class="n">V0</span>    <span class="o">=</span> <span class="mi">1200</span>
+<span class="n">CA0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CB0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CC0</span>   <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">NA0</span>   <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NB0</span>   <span class="o">=</span> <span class="n">CB0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NC0</span>   <span class="o">=</span> <span class="n">CC0</span><span class="o">*</span><span class="n">V0</span>
+
+<span class="c1">#set up IVP solver, solve problem</span>
+<span class="n">N0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">NA0</span><span class="p">,</span> <span class="n">NB0</span><span class="p">,</span> <span class="n">NC0</span><span class="p">]</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="n">ansa</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">isothermal</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">#Workup solution to get requested quantities</span>
+<span class="n">t</span>     <span class="o">=</span> <span class="n">ansa</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>    <span class="o">=</span> <span class="n">ansa</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">NB</span>    <span class="o">=</span> <span class="n">ansa</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">CB</span>    <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+
+<span class="n">T_iso</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">+</span> <span class="mi">300</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">+</span> <span class="n">k0</span>
+
+<span class="n">itpa</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">tsola</span> <span class="o">=</span> <span class="n">itpa</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For isothermal operation at 300K, it will take </span><span class="si">{</span><span class="n">tsola</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1"> minutes to achieve 95% conversion&#39;</span><span class="p">)</span>
+
+<span class="c1">##Plot of conversion vs. time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create plot with 2 yaxes to plot Conversion and Temperature vs. time</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;XA&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_iso</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate and temperature vs. time</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;rate&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_iso</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate constant and temperature vs. time</span>
+<span class="n">fig3</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">cons</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T_iso</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate constant (L/mol/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For isothermal operation at 300K, it will take 551 minutes to achieve 95% conversion
+</pre></div>
+</div>
+<img alt="../_images/F22-587-L40_5_1.png" src="../_images/F22-587-L40_5_1.png" />
+<img alt="../_images/F22-587-L40_5_2.png" src="../_images/F22-587-L40_5_2.png" />
+<img alt="../_images/F22-587-L40_5_3.png" src="../_images/F22-587-L40_5_3.png" />
+<img alt="../_images/F22-587-L40_5_4.png" src="../_images/F22-587-L40_5_4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p>If the reactor operates <em><strong>adiabatically</strong></em>, what is the maximum temperature that the reactor can reach during operation?</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<p>We’ll start this with the energy balance on the batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_i r_i V + \dot{Q}\]</div>
+<p>First, some simplifications that are specific to this problem.  It is adiabatic, so we know there is no heat exchange with the surroundings, and <span class="math notranslate nohighlight">\(\dot{Q} = 0\)</span>.  Second, there is only one reaction involved so the summation term involving heats of reaction involves only one term.</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\Delta H r V\]</div>
+<p>We’ll expand the summation of species on the left hand side:</p>
+<div class="math notranslate nohighlight">
+\[\left(N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}\right) \frac{dT}{dt} = -\Delta H r V\]</div>
+<p>And I’ll go ahead and move that summation to the right hand side; this is our starting point for this particular problem:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dT}{dt} = \frac{-\Delta H r V}{N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}} \]</div>
+<p>We could actually solve this as is by combining it with material balances on A, B, and C (see Example Problem 03 below), but the problem statement does not ask us anything about how long it takes to achieve a maximum temperature increase, it only asks what the maximum temperature increase is.  This means we don’t really need to integrate the problem in the time domain, we are really only interested in the increase in temperature as a function of reaction progress.  Clearly, the further this exothermic reaction goes toward completion (<span class="math notranslate nohighlight">\(X_A = 1\)</span>), the higher the temperature will increase. The relationship between temperature and conversion in an adiabatic process is usually called the “adiabatic temperature change” for a reaction, and it is a very important quantity for us to be able to estimate.  To facilitate an analytical solution, we’d like to reduce this to a single ODE instead of having to solve multiple, coupled ODEs.  We do this by substituting a material balance into the energy balance.</p>
+<p>Specifically, if we write a balance on species A, we find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = -rV\]</div>
+<p>We can express <span class="math notranslate nohighlight">\(N_A\)</span> as a function of fractional conversion:</p>
+<div class="math notranslate nohighlight">
+\[N_A = N_{A0} - N_{A0}X_A\]</div>
+<p>Substituting this into the material balance above, we get:</p>
+<div class="math notranslate nohighlight">
+\[N_{A0}\frac{dX_A}{dt} = rV\]</div>
+<p>We see that the rV product appears in our energy balance, so we’ll substitue this into the EB to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dT}{dt} = \frac{-\Delta H N_{A0}}{N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}}\frac{dX_A}{dt} \]</div>
+<p>We can multiply both sides by <span class="math notranslate nohighlight">\(dt\)</span>, which converts this from an ODE that describes how temperature changes with time to one that describes how temperature changes with fractional conversion of A:</p>
+<div class="math notranslate nohighlight">
+\[dT = \frac{-\Delta H N_{A0}}{N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}} dX_A \]</div>
+<p>That almost looks like an equation we can solve, but it isn’t 100% clear that it is a separable ODE just yet.  Specifically, I know for sure that <span class="math notranslate nohighlight">\(N_A\)</span>, <span class="math notranslate nohighlight">\(N_B\)</span>, and <span class="math notranslate nohighlight">\(N_C\)</span> depend on <span class="math notranslate nohighlight">\(X_A\)</span>, so we need to specify that dependence before we can integrate the right hand side.  Furthermore, I know that heat capacities and heats of reaction will generally change with temperature, so I need to figure out those functional dependencies and determine whether or not they need to be integrated with respect to temperature and/or conversion.</p>
+<p>We’ll do this term by term.</p>
+<p>First, in the problem statement, we are given heat capacities for each species.  They are all clearly constant.  They are temperature independent, so we can be confident that each heat capacity in the above ODE is a constant.</p>
+<p>Now we address the heat of reaction, which we always expect to change with temperature.</p>
+<div class="math notranslate nohighlight">
+\[\Delta H(T) = \Delta H^\circ + \int_{T_0}^{T} \Delta C_p dT\]</div>
+<p>Whether or not the heat of reaction changes with temperature depends on the value of <span class="math notranslate nohighlight">\(\Delta C_p\)</span> for that reaction.  We define the <span class="math notranslate nohighlight">\(\Delta C_p\)</span> for reaction <span class="math notranslate nohighlight">\(i\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\Delta C_{p,i} = \sum_j \nu_{i,j} C_{p,j}\]</div>
+<p>For this problem:</p>
+<div class="math notranslate nohighlight">
+\[\Delta C_p = C_{p,C} - C_{p,A} - C_{p,B}\]</div>
+<p>Substituting numbers:</p>
+<div class="math notranslate nohighlight">
+\[\Delta C_p = \big[40 - 20 - 20\big] \ \textrm{cal} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}\]</div>
+<p>Thus, for this specific case:</p>
+<div class="math notranslate nohighlight">
+\[\Delta C_p = 0\]</div>
+<p>And:</p>
+<div class="math notranslate nohighlight">
+\[\Delta H(T) = \Delta H^\circ = -10 \ \textrm{kcal} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}\]</div>
+<p>Next, we’ll look at the summation of molar quantities multiplied by heat capacities:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} = N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}\]</div>
+<p>We’ll express everything on the right hand side as a function of fractional conversion; this is based on a mole table, from which we get:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2f8be122-72aa-40d8-8dfd-3511c1c4d406">
+<span class="eqno">(186)<a class="headerlink" href="#equation-2f8be122-72aa-40d8-8dfd-3511c1c4d406" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A = N_{A0} - N_{A0}X_A \\ 
+    N_B = N_{B0} - N_{A0}X_A \\
+    N_C = N_{C0} + N_{A0}X_A \\
+\end{align}\]</div>
+<p>Substituting these into that summation term:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2a410a81-7bde-4eb7-a188-3e3befd3c7f1">
+<span class="eqno">(187)<a class="headerlink" href="#equation-2a410a81-7bde-4eb7-a188-3e3befd3c7f1" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \sum_j N_j \bar{C}_{p,j} = &amp;N_{A0}\bar{C}_{p,A} - \bar{C}_{p,A}N_{A0}X_A\\ 
+    + &amp;N_{B0}\bar{C}_{p,B} - \bar{C}_{p,B}N_{A0}X_A \\
+    \\
+    + &amp;N_{C0}\bar{C}_{p,C} + \bar{C}_{p,C}N_{A0}X_A \\
+\end{align}\]</div>
+<p>We can simplify that using summation notation:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} = \sum_j N_{j0} \bar{C}_{p,j} + N_{A0}X_A\sum_j \nu_j \bar{C}_{p,j}\]</div>
+<p>And the summation on the right hand side is just the <span class="math notranslate nohighlight">\(\Delta C_p\)</span> for this reaction, so:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} = \sum_j N_{j0} \bar{C}_{p,j} + \Delta C_p N_{A0}X_A\]</div>
+<p>For this specific reaction, we have proven that <span class="math notranslate nohighlight">\(\Delta C_p = 0\)</span>, so:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} = \sum_j N_{j0} \bar{C}_{p,j}\]</div>
+<p>In other words, this summation on the left hand side is dependent only on the initial numbers of moles in the system, and it is not a function of fractional conversion:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} = N_{A0} \bar{C}_{p,A} + N_{B0} \bar{C}_{p,B}\]</div>
+<p>With all of this, we return to our ODE and make appropriate substitutions:</p>
+<div class="math notranslate nohighlight">
+\[dT = \frac{-\Delta H N_{A0}}{N_{A0} \bar{C}_{p,A} + N_{B0} \bar{C}_{p,B}} dX_A \]</div>
+<p>All of the terms before <span class="math notranslate nohighlight">\(dX_A\)</span> on the right hand side are constants.  They depend neither on <span class="math notranslate nohighlight">\(X_A\)</span> or <span class="math notranslate nohighlight">\(T\)</span>, so we can easily solve the integral:</p>
+<div class="math notranslate nohighlight">
+\[\int_{T_0}^T dT = \int_{0}^{X_A} \frac{-\Delta H N_{A0}}{N_{A0} \bar{C}_{p,A} + N_{B0} \bar{C}_{p,B}} dX_A \]</div>
+<p>Because everything on the right hand side is constant, this becomes:</p>
+<div class="math notranslate nohighlight">
+\[\int_{T_0}^T dT = \frac{-\Delta H N_{A0}}{N_{A0} \bar{C}_{p,A} + N_{B0} \bar{C}_{p,B}} \int_{0}^{X_A} dX_A \]</div>
+<p>And the integral evaluation is straightforward:</p>
+<div class="math notranslate nohighlight">
+\[(T - T_0) = \frac{-\Delta H N_{A0}}{N_{A0} \bar{C}_{p,A} + N_{B0} \bar{C}_{p,B}} X_A\]</div>
+<p>The maximum temperature increase occurs when the reaction reaches completion at <span class="math notranslate nohighlight">\(X_A = 1\)</span>; plugging this and values from the problem statment into the solution, we find that:</p>
+<div class="math notranslate nohighlight">
+\[(T - T_0)_\textrm{max} = 250 \textrm{K}\]</div>
+</section>
+</section>
+<section id="example-problem-03">
+<h2>Example Problem 03<a class="headerlink" href="#example-problem-03" title="Permalink to this headline">#</a></h2>
+<p>If the reactor operates adiabatically, how long does it take to reach 95% conversion?  Plot <span class="math notranslate nohighlight">\(X_A\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, and rate vs time for this case. Compare your result to isothermal operation at 300K</p>
+<section id="solution-to-example-problem-03">
+<h3>Solution to Example Problem 03<a class="headerlink" href="#solution-to-example-problem-03" title="Permalink to this headline">#</a></h3>
+<p>Here, we have to work in the time domain; the problem asks how long it will take to achieve a certain conversion.  We approach this <em>almost</em> identically to part A.  We start by writing material balances:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d202e2bc-1525-4c43-8590-57e6e3d279a2">
+<span class="eqno">(188)<a class="headerlink" href="#equation-d202e2bc-1525-4c43-8590-57e6e3d279a2" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dN_A}{dt} = R_AV \\
+    \frac{dN_B}{dt} = R_BV \\
+    \frac{dN_C}{dt} = R_CV
+\end{align}\]</div>
+<p>We can express production rates in terms of the reaction rate:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd336cec-73b7-4f13-9fed-052ab0661384">
+<span class="eqno">(189)<a class="headerlink" href="#equation-dd336cec-73b7-4f13-9fed-052ab0661384" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A &amp;= -r \\
+    R_B &amp;= -r \\
+    R_C &amp;= r
+\end{align}\]</div>
+<p>This reaction follows elementary kinetics, so the rate law is:</p>
+<div class="math notranslate nohighlight">
+\[r = k C_A C_B\]</div>
+<p>We are solving ODEs in the time domain with 3 state (dependent) variables: NA, NB, and NC.  I can express my concentrations in terms of these quantities:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-39431aaf-1543-4f60-a84b-562ee52895ef">
+<span class="eqno">(190)<a class="headerlink" href="#equation-39431aaf-1543-4f60-a84b-562ee52895ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A = N_A/V \\
+    C_B = N_B/V
+\end{align}\]</div>
+<p>The only difference between this and part A is that the reaction temperature is changing (since the reactor is adiabatic).  For that reason, the rate constant is changing as a function of time.  It is no longer fixed, so we need a framework to calculate it as reaction time changes.  We have an expression for the rate constant given in the problem statement:</p>
+<div class="math notranslate nohighlight">
+\[k = k_0\exp\left[-\frac{E_A}{R}\left(\frac{1}{T} - \frac{1}{T_0}\right)\right]\]</div>
+<p>Almost everything is given in the problem statement.  We know EA/R, <span class="math notranslate nohighlight">\(k_0\)</span>, and <span class="math notranslate nohighlight">\(T_0\)</span>.  The only thing we don’t know yet is the reaction temperature.  It is changing as a function of time, so we need to write the energy balance to account for this.</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_i r_i V + \dot{Q}\]</div>
+<p>We start by setting <span class="math notranslate nohighlight">\(\dot{Q} = 0\)</span> since this reaction is adiabatic.  We also recognize that we only have a single reaction.  Finally, this system involves 3 species: A, B, and C, so we can expand the summation term on the left hand side.  This balance simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dT}{dt} = \frac{-\Delta H r V}{N_A \bar{C}_{p,A} + N_B \bar{C}_{p,B} + N_C \bar{C}_{p,C}} \]</div>
+<p>That may look a little new, but it’s fairly straightforward.  It’s a fourth time-domain differential equation that is coupled to the balances on A, B, and C.  We can solve all four ODEs simultaneously with solve_ivp as usual.  All of the terms on the right hand side are either constant (<span class="math notranslate nohighlight">\(\Delta H\)</span>, <span class="math notranslate nohighlight">\(C_{p,j}\)</span>, <span class="math notranslate nohighlight">\(V\)</span>), or they are being tracked by our ODE solver (<span class="math notranslate nohighlight">\(N_A\)</span>, <span class="math notranslate nohighlight">\(N_B\)</span>, and <span class="math notranslate nohighlight">\(N_C\)</span>).</p>
+<p>We have everything we need to solve the ODE system.  See below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adiabatic</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">NA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">NC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    
+    <span class="n">V</span>   <span class="o">=</span> <span class="mi">1200</span> <span class="c1">#L</span>
+    <span class="n">EAR</span> <span class="o">=</span> <span class="mi">2660</span> <span class="c1">#K </span>
+    <span class="n">DH</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#cal/mol</span>
+    <span class="n">CPA</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#cal/mol/K</span>
+    <span class="n">CPB</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#cal/mol/K</span>
+    <span class="n">CPC</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1">#cal/mol/K</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">k0</span> <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+    <span class="n">k</span>  <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    
+    <span class="n">r</span>  <span class="o">=</span>  <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">Qdot</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">DT</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">DH</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">V</span> <span class="o">+</span> <span class="n">Qdot</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NA</span><span class="o">*</span><span class="n">CPA</span> <span class="o">+</span> <span class="n">NB</span><span class="o">*</span><span class="n">CPB</span> <span class="o">+</span> <span class="n">NC</span><span class="o">*</span><span class="n">CPC</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">DT</span><span class="p">]</span>
+
+<span class="c1">##problem statement information</span>
+<span class="n">k0</span>    <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+<span class="n">EAR</span>   <span class="o">=</span> <span class="mi">2660</span> <span class="c1">#K</span>
+<span class="n">V0</span>    <span class="o">=</span> <span class="mi">1200</span>
+<span class="n">CA0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CB0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CC0</span>   <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">NA0</span>   <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NB0</span>   <span class="o">=</span> <span class="n">CB0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NC0</span>   <span class="o">=</span> <span class="n">CC0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">T0</span>    <span class="o">=</span> <span class="mi">300</span> <span class="c1">#K</span>
+
+<span class="c1">#set up IVP solver, solve problem</span>
+<span class="n">var0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">NA0</span><span class="p">,</span> <span class="n">NB0</span><span class="p">,</span> <span class="n">NC0</span><span class="p">,</span> <span class="n">T0</span><span class="p">]</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">50.0</span><span class="p">)</span>
+<span class="n">ansb</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">adiabatic</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">#Workup solution to get requested quantities</span>
+<span class="n">t</span>     <span class="o">=</span> <span class="n">ansb</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>    <span class="o">=</span> <span class="n">ansb</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">NB</span>    <span class="o">=</span> <span class="n">ansb</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">T</span>     <span class="o">=</span> <span class="n">ansb</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">CB</span>    <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+
+<span class="n">itpb</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">tsolb</span> <span class="o">=</span> <span class="n">itpb</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For adiabatic operation, it will take </span><span class="si">{</span><span class="n">tsolb</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1"> minutes to achieve 95% conversion&#39;</span><span class="p">)</span>
+
+
+<span class="c1">##Plot of conversion vs. time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create plot with 2 yaxes to plot Conversion and Temperature vs. time</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;XA&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate and temperature vs. time</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;rate&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate constant and temperature vs. time</span>
+<span class="n">fig3</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">cons</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate constant (L/mol/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For adiabatic operation, it will take  20 minutes to achieve 95% conversion
+</pre></div>
+</div>
+<img alt="../_images/F22-587-L40_10_1.png" src="../_images/F22-587-L40_10_1.png" />
+<img alt="../_images/F22-587-L40_10_2.png" src="../_images/F22-587-L40_10_2.png" />
+<img alt="../_images/F22-587-L40_10_3.png" src="../_images/F22-587-L40_10_3.png" />
+<img alt="../_images/F22-587-L40_10_4.png" src="../_images/F22-587-L40_10_4.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-04">
+<h2>Example Problem 04<a class="headerlink" href="#example-problem-04" title="Permalink to this headline">#</a></h2>
+<p>Assume the reactor operates nonadiabatically with heat exchange. For this case, UA = 12 kcal/min/K and the temperature of the heat transfer fluid is constant at 300K.  How long does it take to achieve 95% conversion?  Plot XA, T, and rate vs. time in this reactor; consider the impacts of changing heat transfer rates by adjusting the temperature of the heat transfer fluid or the value of UA (heat transfer coefficient times interfacial area)</p>
+<section id="solution-to-example-problem-04">
+<h3>Solution to Example Problem 04<a class="headerlink" href="#solution-to-example-problem-04" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">heatex</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">NA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">NC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    
+    <span class="n">V</span>   <span class="o">=</span> <span class="mi">1200</span> <span class="c1">#L</span>
+    <span class="n">EAR</span> <span class="o">=</span> <span class="mi">2660</span> <span class="c1">#K </span>
+    <span class="n">DH</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">10</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#cal/mol</span>
+    <span class="n">CPA</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#cal/mol/K</span>
+    <span class="n">CPB</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#cal/mol/K</span>
+    <span class="n">CPC</span> <span class="o">=</span> <span class="mi">40</span> <span class="c1">#cal/mol/K</span>
+    <span class="n">UA</span>  <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#cal/min/K</span>
+    <span class="n">Ta</span>  <span class="o">=</span> <span class="mi">300</span>  <span class="c1">#K</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">k0</span> <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+    <span class="n">k</span>  <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    
+    <span class="n">r</span>  <span class="o">=</span>  <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">Qdot</span> <span class="o">=</span> <span class="n">UA</span><span class="o">*</span><span class="p">(</span><span class="n">Ta</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">DT</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">DH</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">V</span> <span class="o">+</span> <span class="n">Qdot</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NA</span><span class="o">*</span><span class="n">CPA</span> <span class="o">+</span> <span class="n">NB</span><span class="o">*</span><span class="n">CPB</span> <span class="o">+</span> <span class="n">NC</span><span class="o">*</span><span class="n">CPC</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">DT</span><span class="p">]</span>
+
+
+<span class="c1">##problem statement information</span>
+<span class="n">k0</span>    <span class="o">=</span> <span class="mf">0.01725</span> <span class="c1">#L/mol/min</span>
+<span class="n">EAR</span>   <span class="o">=</span> <span class="mi">2660</span> <span class="c1">#K</span>
+<span class="n">V0</span>    <span class="o">=</span> <span class="mi">1200</span>
+<span class="n">CA0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CB0</span>   <span class="o">=</span> <span class="mf">2.0</span> <span class="c1">#mol/L</span>
+<span class="n">CC0</span>   <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">NA0</span>   <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NB0</span>   <span class="o">=</span> <span class="n">CB0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NC0</span>   <span class="o">=</span> <span class="n">CC0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">T0</span>    <span class="o">=</span> <span class="mi">300</span> <span class="c1">#K</span>
+
+<span class="c1">#set up IVP solver, solve problem</span>
+<span class="n">var0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">NA0</span><span class="p">,</span> <span class="n">NB0</span><span class="p">,</span> <span class="n">NC0</span><span class="p">,</span> <span class="n">T0</span><span class="p">]</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">500.0</span><span class="p">)</span>
+<span class="n">ansc</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">heatex</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">#Workup solution to get requested quantities</span>
+<span class="n">t</span>     <span class="o">=</span> <span class="n">ansc</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>    <span class="o">=</span> <span class="n">ansc</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">NB</span>    <span class="o">=</span> <span class="n">ansc</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="n">T</span>     <span class="o">=</span> <span class="n">ansc</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">,:]</span>
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">CB</span>    <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V0</span>
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">k0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">EAR</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+
+<span class="n">itpc</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">tsolc</span> <span class="o">=</span> <span class="n">itpc</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For operation with heat exchange, it will take </span><span class="si">{</span><span class="n">tsolc</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1"> minutes to achieve 95% conversion&#39;</span><span class="p">)</span>
+
+<span class="c1">##Plot of conversion vs. time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create plot with 2 yaxes to plot Conversion and Temperature vs. time</span>
+<span class="n">fig1</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">conv</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;XA&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate and temperature vs. time</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;rate&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">##Create a plot with two y axes to show rate constant and temperature vs. time</span>
+<span class="n">fig3</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">cons</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Operating Temperature&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rate constant (L/mol/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;T(K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For operation with heat exchange, it will take 455 minutes to achieve 95% conversion
+</pre></div>
+</div>
+<img alt="../_images/F22-587-L40_12_1.png" src="../_images/F22-587-L40_12_1.png" />
+<img alt="../_images/F22-587-L40_12_2.png" src="../_images/F22-587-L40_12_2.png" />
+<img alt="../_images/F22-587-L40_12_3.png" src="../_images/F22-587-L40_12_3.png" />
+<img alt="../_images/F22-587-L40_12_4.png" src="../_images/F22-587-L40_12_4.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L39.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 39</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L41.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 41</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

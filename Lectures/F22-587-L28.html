@@ -1,0 +1,1219 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 28 &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 31" href="F22-587-L31.html" />
+    <link rel="prev" title="Lecture 27" href="F22-587-L27.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L28.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L28.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L28.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-differential-analysis-of-batch-reactor-data">
+     A Differential Analysis of Batch Reactor Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finite-differences">
+       Finite Differences
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualizing-rate-as-a-function-of-ca">
+       Visualizing rate as a function of CA
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#attempting-linearization-of-rate-vs-ca-data">
+       Attempting Linearization of rate vs. CA data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#assessing-linearity-linear-regression">
+       Assessing linearity; linear regression
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 28</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-differential-analysis-of-batch-reactor-data">
+     A Differential Analysis of Batch Reactor Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finite-differences">
+       Finite Differences
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualizing-rate-as-a-function-of-ca">
+       Visualizing rate as a function of CA
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#attempting-linearization-of-rate-vs-ca-data">
+       Attempting Linearization of rate vs. CA data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#assessing-linearity-linear-regression">
+       Assessing linearity; linear regression
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-28">
+<h1>Lecture 28<a class="headerlink" href="#lecture-28" title="Permalink to this headline">#</a></h1>
+<p>Here, we will get into kinetic analysis.  This lecture covers differential analysis of data collected in a constant volume batch reactor.</p>
+<p><strong>for 2023: Consider doing linearization attempts first, then adding nonlinear regression second instead of doing them side by side for every problem; it gets confusing as is currently presented.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>Analysis of Data Collected in a Constant Volume Batch Reactor.</p>
+<p>The following reaction is carried out in a well-mixed, constant volume batch reactor. The concentration of species A in the tank is initially 10M, and the fluid inside of the reactor has constant density.</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow B\]</div>
+<p>You measure the concentration of species A in this reactor, monitoring how it changes with time.  The data you collect are given in the table below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>time (min)</strong></p></th>
+<th class="text-align:center head"><p><strong>C<span class="math notranslate nohighlight">\(_A\)</span> (mol/L)</strong></p></th>
+<th class="text-align:center head"><p><strong>time (min)</strong></p></th>
+<th class="text-align:center head"><p><strong>C<span class="math notranslate nohighlight">\(_A\)</span> (mol/L)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>10.0</p></td>
+<td class="text-align:center"><p>10</p></td>
+<td class="text-align:center"><p>3.68</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>9.05</p></td>
+<td class="text-align:center"><p>12</p></td>
+<td class="text-align:center"><p>3.01</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>8.19</p></td>
+<td class="text-align:center"><p>15</p></td>
+<td class="text-align:center"><p>2.23</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>3</p></td>
+<td class="text-align:center"><p>7.41</p></td>
+<td class="text-align:center"><p>20</p></td>
+<td class="text-align:center"><p>1.35</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>6.70</p></td>
+<td class="text-align:center"><p>25</p></td>
+<td class="text-align:center"><p>0.821</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>5</p></td>
+<td class="text-align:center"><p>6.07</p></td>
+<td class="text-align:center"><p>30</p></td>
+<td class="text-align:center"><p>0.498</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>6</p></td>
+<td class="text-align:center"><p>5.49</p></td>
+<td class="text-align:center"><p>45</p></td>
+<td class="text-align:center"><p>0.111</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>7</p></td>
+<td class="text-align:center"><p>4.97</p></td>
+<td class="text-align:center"><p>60</p></td>
+<td class="text-align:center"><p>0.0248</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>8</p></td>
+<td class="text-align:center"><p>4.49</p></td>
+<td class="text-align:center"><p>90</p></td>
+<td class="text-align:center"><p>0.00123</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>9</p></td>
+<td class="text-align:center"><p>4.07</p></td>
+<td class="text-align:center"><p>120</p></td>
+<td class="text-align:center"><p>6.14 <span class="math notranslate nohighlight">\(\times\)</span> 10<span class="math notranslate nohighlight">\(^{-5}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Assuming the rate law is described by power law kinetics,</p>
+<div class="math notranslate nohighlight">
+\[r = kC_A^{\alpha}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is an integer, determine the reaction order in A and the rate constant for this reaction.</p>
+<p>In the cell below, we compile this set of measurements.  In this type of system, it is common to start the system with a known quantity of total moles and a known concentration of reacting species.  Then we allow time to proceed, and we measure the concentrations of reactants and products as a function of time.</p>
+<p>We know the following:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-51dfdcc7-ca03-4ef0-af95-f0a1e7f62f36">
+<span class="eqno">(148)<a class="headerlink" href="#equation-51dfdcc7-ca03-4ef0-af95-f0a1e7f62f36" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_{A0} &amp;= 10 \ \textrm{mol} \ \textrm{L}^{-1} \\
+    C_{B0} &amp;= 0 \ \textrm{mol} \ \textrm{L}^{-1} \\
+    T &amp;= \textrm{constant}
+\end{align}\]</div>
+<p>Usually, when we have batch data, we’re looking at something like this…where we’ve monitored the concentration of A in the reactor as time progresses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span> <span class="c1">#time in minutes</span>
+<span class="n">CA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.05</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.41</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">6.07</span><span class="p">,</span> <span class="mf">5.49</span><span class="p">,</span> <span class="mf">4.97</span><span class="p">,</span> <span class="mf">4.49</span><span class="p">,</span> <span class="mf">4.07</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">0.821</span><span class="p">,</span> <span class="mf">0.498</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">,</span> <span class="mf">0.0248</span><span class="p">,</span> <span class="mf">1.23E-3</span><span class="p">,</span> <span class="mf">6.14E-05</span><span class="p">])</span>
+<span class="c1">#Concentrations in moles per liter</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_3_0.png" src="../_images/F22-587-L28_3_0.png" />
+</div>
+</div>
+<p>Determine the rate law and kinetic parameters (k, <span class="math notranslate nohighlight">\(\alpha\)</span>) for this reaction.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>This is our introduction to an “inverse problem,” which involves our determining a model and the parameters for that model based on our observations of data. To this point, we’ve only used models (material balances, rate laws, etc.) in order to predict data (e.g., reactor volume required for a certain conversion).  Here, we have to work backwards and use the data to develop the correct model. Extracting information from data can be challenging, but we’ll work through a couple of methods and highlight some of the pifalls associated with each one to build experience.</p>
+<p>In this case, there is no reason to believe that this reaction is an elementary step, so, at best, we can propose that the rate of reaction depends on temperature (which we capture with a rate constant) and the concentration of the reactant, A, with some unknown order, i.e., we’ll propose a power law model:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>Now we have to make some decisions about how we’ll estimate those parameters (k, <span class="math notranslate nohighlight">\(\alpha\)</span>).  It all starts with the material balance on a constant volume batch reactor.  We’ll write one on species A:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = R_AV\]</div>
+<p>For a constant volume reactor, we can divide through by V and move it inside of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = R_A\]</div>
+<p>And for a single reaction, we know that <span class="math notranslate nohighlight">\(R_A = -r\)</span>, so:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -r\]</div>
+<p>We’ve proposed power law kinetics here, hence:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k{C_A}^\alpha\]</div>
+<p>Now we have options.  We can generally choose one of two strategies to approach the problem.  The first is called a <em><strong>differential</strong></em> method of analysis, wherein we attempt to approximate reaction rates by taking numerical derivatives of data.  The second is an <em><strong>integral</strong></em> method of analysis, where we attempt to solve the material balance and then regress parameters in the resultant model that best describe our data. Ideally, you’ll want to use both of them as each has advantages and disadvantages for the analysis of batch reactor data.</p>
+<p>Generally, an <em><strong>integral method of analysis</strong></em> is easiest if we are able to assume a reaction order (1, 2, 3…).  Once we do that, we know we can solve the differential equation symbolically in terms of k and <span class="math notranslate nohighlight">\(C_{A0}\)</span>. The hard part about this is there is no guarantee that our reaction will be integer or even positive order with respect to a particular variable, so it can be a bit tedious to consider many different reaction orders.</p>
+<p>A <em><strong>differential method of analysis</strong></em> is fast to apply, and it lets us estimate reaction orders and rate constants without solving a differential equation, but taking numerical derivatives is very imprecise and this method is prone to a lot of error, which can make it very difficult to apply to real world data.</p>
+<p>In reality, both methods have strengths and weaknesses, and I always use both of them to give me a complete picture of the system under consideration.  Usually, a combination of differential and integral methods will allow us to get a pretty good idea of the reaction order and any kinetic parameters we need.</p>
+</section>
+<section id="a-differential-analysis-of-batch-reactor-data">
+<h3>A Differential Analysis of Batch Reactor Data<a class="headerlink" href="#a-differential-analysis-of-batch-reactor-data" title="Permalink to this headline">#</a></h3>
+<section id="finite-differences">
+<h4>Finite Differences<a class="headerlink" href="#finite-differences" title="Permalink to this headline">#</a></h4>
+<p>We’ll start with a differential method of analysis.  This is based on approximating derivatives with a finite difference method.  This is really straightforward despite the fancy name.  We simply say that we can approximate derivatives from data using the discrete changes in that data that we observe:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} \approx \frac{\Delta C_A}{\Delta t}\]</div>
+<p>And that is convenient because we know the relationship between the concentration derivative and the reaction rate, namely:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -r\]</div>
+<p>So, by approximating the concentration derivative, we are actually getting a reasonable approximation of the reaction rate at a certain condition.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta C_A}{\Delta t} \approx -r\]</div>
+<p>Let’s start there, if we can take those finite differences, we’ll get an estimate of reaction rates.  I am specifically going to use a forward difference method here.  What this approximation says is that:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt}\bigg|_{C_{A_n}} \approx \frac{C_{A_{n+1}} - C_{A_{n}}}{t_{n+1} - t_n}\]</div>
+<p>I can quickly find differences between elements in an array using <code class="docutils literal notranslate"><span class="pre">numpy.diff()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DCA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">CA</span><span class="p">)</span>
+<span class="n">Dt</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">DCADT</span> <span class="o">=</span> <span class="n">DCA</span><span class="o">/</span><span class="n">Dt</span>
+<span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">DCADT</span>
+<span class="n">display</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([9.50000000e-01, 8.60000000e-01, 7.80000000e-01, 7.10000000e-01,
+       6.30000000e-01, 5.80000000e-01, 5.20000000e-01, 4.80000000e-01,
+       4.20000000e-01, 3.90000000e-01, 3.35000000e-01, 2.60000000e-01,
+       1.76000000e-01, 1.05800000e-01, 6.46000000e-02, 2.58000000e-02,
+       5.74666667e-03, 7.85666667e-04, 3.89533333e-05])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+</pre></div>
+</div>
+</div>
+</div>
+<p>So that is a pretty quick way to convert a concentration vs. time profile into approximate (sometimes very approximate) reaction rates.  As indicated by our definition of the forward difference, these entries represent the derivative at point “n”.  So the first rate is the rate at CA[0], the second rate is the rate at CA[1], etc.  The only catch is that I have 20 measurements. I can only get 19 derivatives out of 20 measurements based on the forward difference formula.  So the final rate in our rate array represents the rate at CA[18], i.e., the 19th concentration measurement.  In this case, we don’t have an estimate for the rate at CA[19] because we are using a forward difference algorithm at it would require us to know the 21st concentration, which we didn’t measure.</p>
+<p>This means we have an array of approximate rates at various values of concentration.  We know a model for how rate should vary with concentration:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+</section>
+<section id="visualizing-rate-as-a-function-of-ca">
+<h4>Visualizing rate as a function of CA<a class="headerlink" href="#visualizing-rate-as-a-function-of-ca" title="Permalink to this headline">#</a></h4>
+<p>Let’s plot rate against <span class="math notranslate nohighlight">\(C_A\)</span> and see what it looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Cmod</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#keep all but last CA entry</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Cmod</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_9_0.png" src="../_images/F22-587-L28_9_0.png" />
+</div>
+</div>
+</section>
+<section id="attempting-linearization-of-rate-vs-ca-data">
+<h4>Attempting Linearization of rate vs. CA data<a class="headerlink" href="#attempting-linearization-of-rate-vs-ca-data" title="Permalink to this headline">#</a></h4>
+<p>Well, OK…looks kind of like rate increases linearly with concentration.  But I’d like to be a bit more quantitative in specifying the reaction order.  We can do this by linearizing the model and regressing a slope and intercept, which we can relate directly to the reaction order and rate constant.  Specifically, we know:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>If we take logarithms of each side (i’ll use naturals here), we can linearize the model:</p>
+<div class="math notranslate nohighlight">
+\[\ln{r} = \alpha\ln{C_A} + \ln{k}\]</div>
+<p>It may not look like it at first glance, but that is just a normal, <span class="math notranslate nohighlight">\(y = mx + b\)</span> model, where our slope gives the reaction order <span class="math notranslate nohighlight">\(\alpha\)</span>, and the y-intercept gives the logarithm of the rate constant.  So, if we plot <span class="math notranslate nohighlight">\(\ln{r}\)</span> on the y-axis against <span class="math notranslate nohighlight">\(\ln{C_A}\)</span> on the x-axis, we should see a straight line if our power law model holds.  Let’s do that below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Cmod</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;CA(M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_11_0.png" src="../_images/F22-587-L28_11_0.png" />
+</div>
+</div>
+</section>
+<section id="assessing-linearity-linear-regression">
+<h4>Assessing linearity; linear regression<a class="headerlink" href="#assessing-linearity-linear-regression" title="Permalink to this headline">#</a></h4>
+<p>Is that linear? I really can’t tell.  It looks like parts of it are. The best way to tell is for me to fit a line to the data.  Clearly, there are 19 rate vs. CA pairs, so I can’t find a single line that goes through all of them.  I can, however, regress the best fit line using any number of methods we discussed during recitation.  I can create a Vandermonde matrix and use linear algebra.  I can use <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code>.  Or I can use the least squares version of <code class="docutils literal notranslate"><span class="pre">np.linalg.solve()</span></code>, which is called <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code>.  All give the exact same slope and intercept values.  We’ll discuss more what these various tools are doing during recitation this week.  For now, consider them similar to Excel’s trendline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Cmod</span><span class="p">)</span>
+<span class="c1">#X = np.vander(xdata, 2) #Vandermonde for first order regression</span>
+<span class="c1">#Y = ydata</span>
+<span class="c1">#A1 = np.linalg.solve(X.T@X, X.T@Y)</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">)</span>
+<span class="c1">#A3, SSE, COV, SING = np.linalg.lstsq(X, Y, rcond = None)</span>
+<span class="c1">#print(A1, A2, A3)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.14883277 -2.63663575]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Personally, I like the polyfit approach here because it is the easiest to implement, but it is worth knowing the other two as polyfit only works for true polynomials of varying order in your independent variable, and this won’t always be the case.  Let’s plot the result to see just how straight that line is.  Note that we’ll use <code class="docutils literal notranslate"><span class="pre">np.polyval()</span></code> here, which takes the coefficients of a polynomial and the values of independent variable as arguments and returns the value of the dependent variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.6366357519164865
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">xdata</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln(CA(M))&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(rate (mol/L/min))&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_16_0.png" src="../_images/F22-587-L28_16_0.png" />
+</div>
+</div>
+<p>OK, so it looks <em>sort of</em> linear…let’s see what the slope and intercept are…this should tell us the reaction order and rate constant, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lnk</span>   <span class="o">=</span> <span class="n">A2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">lnk</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1488327656208202 0.07160175086329895
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alright, so according to that analysis, this is a 1.15 order reaction and the rate constant is 0.072 inverse minutes (or so).</p>
+<p>The problem is: I don’t buy it.  Now is the time to tell you that I generated this data by simulating a batch reactor with the following information:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3291f37a-e1b5-4d10-9593-09e63aa8fb67">
+<span class="eqno">(149)<a class="headerlink" href="#equation-3291f37a-e1b5-4d10-9593-09e63aa8fb67" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r &amp; = kC_A \\
+    k &amp;= 0.1 \ \textrm{min}^{-1} \\
+    C_{A0} &amp;= 10 \ \textrm{mol} \ \textrm{L}^{-1} \\
+\end{align}\]</div>
+<p>In other words, I generated this by simulating a 100% first order reaction, and I don’t like that I’m getting 1.15 order from my differential analysis.  This is actually a common problem when using differential analysis, which is why I chose to highlight it.  The fundamental problem is that we are treating our rates as if we actually measured them, but remember: we estimated them using a finite difference method (similar to an Euler step…):</p>
+<div class="math notranslate nohighlight">
+\[r|_{C_{A_n}} = \frac{dC_A}{dt}\bigg|_{C_{A_n}} \approx \frac{C_{A_{n+1}} - C_{A_{n}}}{t_{n+1} - t_n}\]</div>
+<p>That approximation basically assumes that the derivative of concentration with respect to time is constant between <span class="math notranslate nohighlight">\(t_n\)</span> and <span class="math notranslate nohighlight">\(t_{n+1}\)</span>. That can be a pretty good approximation if we consider small changes in time and concentration. That approximation can actually be pretty bad if we assume it is true over large changes in time and/or concentration.  So if we look back at our raw data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">125</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_20_0.png" src="../_images/F22-587-L28_20_0.png" />
+</div>
+</div>
+<p>It kind of looks like we made some bad decisions.  That forward difference is probably a good approximation for derivatives/rates below about 10 - 15 minutes, where we were sampling frequently, and we are considering fairly small changes in concentration and time.  Beyond about 20 minutes, the time steps start to get larger between our measurments…and it is very unlikely we can treat the derivative as constant over that entire range.  I know it is hard to see on a log scale, but if we go back to that linearized form (our plot of ln(rate) vs ln(CA)):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span> <span class="n">xdata</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln(CA)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(r)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_22_0.png" src="../_images/F22-587-L28_22_0.png" />
+</div>
+</div>
+<p>We can see that the data looks pretty linear between ln(CA) from about 1 to a bit more than 2.  So, those are high concentrations of A.  Things get a bit chaotic when we look at ln(CA) below about 1, where we start to see a lot more deviation and scatter.  Those are the low concentrations of A, and we have really poor estimates of the rate here because we applied a finite difference over a very large time step (30 minutes, 45 minutes), etc.  So, our data in the CA vs. time graph is actually a perfect data set–I generated it by simulation.  Yet because we’ve carelessly applied finite differences and treated them as actual derivatives, we’ve gotten ourselves into a confusing situation.  What should we do?  In this case, I would recommend that we extract the linear portion of the ln(r) vs. ln(CA) plot.  I suggest we do this with a justifiable method, not just throwing out noisy data.  I want to retain all data where the time step was 1 minute or less, because at that point, I see that my concentrations are changing by less than 10% with every measurement.  That is enough to be experimentally distinguishable, but not so much that my finite difference is a terrible approximation.  I can prove that to myself by looking at the np.diff() of CA divided by CA–this gives me percent changes, and you can see where it goes to &gt; 10% at about 10 minutes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">changes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">CA</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">Cmod</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">changes</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ΔCA (M)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_24_0.png" src="../_images/F22-587-L28_24_0.png" />
+</div>
+</div>
+<p>With that, I can justify that the data obtained above 10 minutes are not reliable <strong>in the context of a differential analysis</strong> (they are perfect data otherwise, so do not throw them out!).  It’s just that the time steps are too large for a finite difference to be a good approximation.  Let’s trim the data set and re-do our differential analysis.  I’m only going to keep derivative approximations for concentrations measured at times = 0 to 9 minutes.  I’m doing this because, to get the derivative estimate at 9 minutes, I use the data at 9 minutes and the data at 10 minutes.  To the get the esimtate at 10 minutes, I’d need to use the data at 10 minutes and the next point at 12 minutes, which we’ve determined has an unacceptably large change in time/concentration for the finite difference to be reliable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tnew</span>  <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span> 
+<span class="n">CAnew</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tnew</span><span class="p">,</span> <span class="n">CAnew</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.   10.  ]
+ [ 1.    9.05]
+ [ 2.    8.19]
+ [ 3.    7.41]
+ [ 4.    6.7 ]
+ [ 5.    6.07]
+ [ 6.    5.49]
+ [ 7.    4.97]
+ [ 8.    4.49]
+ [ 9.    4.07]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xdata2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CA</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">ydata2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">A4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">xdata2</span><span class="p">,</span> <span class="n">ydata2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A4</span><span class="p">)</span>
+<span class="n">order</span> <span class="o">=</span> <span class="n">A4</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">A4</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0.99891865 -2.35052037]
+0.9989186513365713 0.09531954798315573
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, I note that the order and rate constant are <em>much closer</em> to their true values.  They still aren’t exact because this whole method is based on finite difference <em>approximations</em> to derivatives, but they are pretty good!!</p>
+<p>We can overlay the model and linearized data set to see how it looks; visual analysis is great for assessing model fit.  This actually does a great job, and we reasoned our way through which data should and should not be used for a differential analysis.  You can see that finite differences cause problems even for perfect data.  A differential analysis is great, but you do have to beward the limits of precision you run into with the method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata2</span><span class="p">,</span> <span class="n">ydata2</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experiment&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">A4</span><span class="p">,</span> <span class="n">xdata2</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln(CA(M))&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(rate (mol/L/min))&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L28_29_0.png" src="../_images/F22-587-L28_29_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L27.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 27</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L31.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 31</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 25 &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 26" href="F22-587-L26.html" />
+    <link rel="prev" title="Lecture 24" href="F22-587-L24.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L25.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L25.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L25.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-more-closely-at-yield-and-selectivity-in-flow-reactors">
+   Looking more closely at Yield and Selectivity in flow reactors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantaneous-selectivity">
+   Instantaneous Selectivity
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 25</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-more-closely-at-yield-and-selectivity-in-flow-reactors">
+   Looking more closely at Yield and Selectivity in flow reactors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantaneous-selectivity">
+   Instantaneous Selectivity
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-25">
+<h1>Lecture 25<a class="headerlink" href="#lecture-25" title="Permalink to this headline">#</a></h1>
+<p>This lecture continues with a discussion of yield, selectivity, and optimization. We also discuss instantaneous selectivity and how we can use it to inform reactor selection and ideal operating conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="looking-more-closely-at-yield-and-selectivity-in-flow-reactors">
+<h2>Looking more closely at Yield and Selectivity in flow reactors<a class="headerlink" href="#looking-more-closely-at-yield-and-selectivity-in-flow-reactors" title="Permalink to this headline">#</a></h2>
+<p><strong>Rawlings, Example 4.5</strong>:</p>
+<p>You are carrying out Benzene Pyrolysis in a Plug Flow Reactor operating at 1033K and 1.0 atm.  The two reactions occurring in this system are benzene coupling to form diphenyl and hydrogen followed by a secondary reaction between benzene and diphenyl to form triphenyl and hydrogen:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;2B \longleftrightarrow D + H_2\\
+&amp;B + D \longleftrightarrow T + H_2
+\end{align*}\]</div>
+<p>Both reactions are reversible and <em><strong>follow elementary rate laws</strong></em>.  Rate constants and equilibrium concentration ratios (<span class="math notranslate nohighlight">\(K_C\)</span>) are given below.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;k_1 = 7.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+&amp;k_2 = 4.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+&amp;K_{C_1} = 0.31\\
+&amp;K_{C_2} = 0.48
+\end{align*}\]</div>
+<p>If pure benzene is fed into the reactor at 60,000 moles per hour, find the PFR volume required to maximize the yield to diphenyl.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P01</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">FB</span><span class="p">,</span> <span class="n">FD</span><span class="p">,</span> <span class="n">FH</span><span class="p">,</span> <span class="n">FT</span> <span class="o">=</span> <span class="n">var</span>
+
+    <span class="n">R</span>  <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="mi">1033</span> <span class="c1">#K</span>
+    <span class="n">P</span>  <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1">#atm</span>
+    <span class="n">kf1</span> <span class="o">=</span> <span class="mf">7e5</span> <span class="c1">#L/mol/h</span>
+    <span class="n">kf2</span> <span class="o">=</span> <span class="mf">4e5</span> <span class="c1">#L/mol/h</span>
+    <span class="n">KC1</span> <span class="o">=</span> <span class="mf">0.31</span>
+    <span class="n">KC2</span> <span class="o">=</span> <span class="mf">0.48</span>
+    <span class="n">kr1</span> <span class="o">=</span> <span class="n">kf1</span><span class="o">/</span><span class="n">KC1</span>
+    <span class="n">kr2</span> <span class="o">=</span> <span class="n">kf2</span><span class="o">/</span><span class="n">KC2</span>
+
+    <span class="n">FTot</span> <span class="o">=</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FD</span> <span class="o">+</span> <span class="n">FH</span> <span class="o">+</span> <span class="n">FT</span>
+
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FTot</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CD</span> <span class="o">=</span> <span class="n">FD</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CH</span> <span class="o">=</span> <span class="n">FH</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CT</span> <span class="o">=</span> <span class="n">FT</span><span class="o">/</span><span class="n">Q</span>
+
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">kf1</span><span class="o">*</span><span class="n">CB</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">kr1</span><span class="o">*</span><span class="n">CD</span><span class="o">*</span><span class="n">CH</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">kf2</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CD</span> <span class="o">-</span> <span class="n">kr2</span><span class="o">*</span><span class="n">CT</span><span class="o">*</span><span class="n">CH</span>
+
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RD</span> <span class="o">=</span>    <span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RH</span> <span class="o">=</span>    <span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span>
+    <span class="n">RT</span> <span class="o">=</span>         <span class="n">r2</span>
+
+    <span class="n">dFBdV</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">dFDdV</span> <span class="o">=</span> <span class="n">RD</span>
+    <span class="n">dFHdV</span> <span class="o">=</span> <span class="n">RH</span>
+    <span class="n">dFTdV</span> <span class="o">=</span> <span class="n">RT</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">dFBdV</span><span class="p">,</span> <span class="n">dFDdV</span><span class="p">,</span> <span class="n">dFHdV</span><span class="p">,</span> <span class="n">dFTdV</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#This cell solves the ODE system (an initial value problem) using solve_ivp</span>
+<span class="n">FBf</span>     <span class="o">=</span> <span class="mi">60000</span> <span class="c1">#mol/h</span>
+<span class="n">FDf</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FHf</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FTf</span>     <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#Solve the problem</span>
+<span class="n">vspan</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span> <span class="c1">#L</span>
+<span class="n">var0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">FBf</span><span class="p">,</span> <span class="n">FDf</span><span class="p">,</span> <span class="n">FHf</span><span class="p">,</span> <span class="n">FTf</span><span class="p">]</span>
+<span class="n">solMR01</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P01</span><span class="p">,</span> <span class="n">vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-12</span><span class="p">)</span>
+
+<span class="c1">#Extract data from the solution structure.</span>
+<span class="n">Vout</span>    <span class="o">=</span> <span class="n">solMR01</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FBout</span>   <span class="o">=</span> <span class="n">solMR01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FDout</span>   <span class="o">=</span> <span class="n">solMR01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FHout</span>   <span class="o">=</span> <span class="n">solMR01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">FTout</span>   <span class="o">=</span> <span class="n">solMR01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">#Calculate conversion</span>
+<span class="n">XBout</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#Calculate diphenyl/triphenyl yield</span>
+<span class="n">YDB</span>     <span class="o">=</span> <span class="n">FDout</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="n">FBf</span>
+<span class="n">YTB</span>     <span class="o">=</span> <span class="n">FTout</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#Calculate diphenyl selectivity</span>
+<span class="n">SDB</span>     <span class="o">=</span> <span class="n">FDout</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+<span class="n">STB</span>     <span class="o">=</span> <span class="n">FTout</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+
+<span class="c1">#Plot yields vs. volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Diphenyl Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YTB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Triphenyl Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_5244\3103956950.py:27: RuntimeWarning: invalid value encountered in true_divide
+  SDB     = FDout*2/(FBf - FBout)
+C:\Users\jqbond\AppData\Local\Temp\ipykernel_5244\3103956950.py:28: RuntimeWarning: invalid value encountered in true_divide
+  STB     = FTout*3/(FBf - FBout)
+</pre></div>
+</div>
+<img alt="../_images/F22-587-L25_4_1.png" src="../_images/F22-587-L25_4_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indexP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">YDB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl yield in a PFR is </span><span class="si">{</span><span class="n">YDB</span><span class="p">[</span><span class="n">indexP</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a Volume of </span><span class="si">{</span><span class="n">Vout</span><span class="p">[</span><span class="n">indexP</span><span class="p">]</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The maximum diphenyl yield in a PFR is 0.41 at a Volume of 488L.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Rawlings, Example 4.5 in a CSTR</strong>:</p>
+<p>You are carrying out Benzene Pyrolysis in a CSTR operating at 1033K and 1.0 atm.  The two reactions occurring in this system are benzene coupling to form diphenyl and hydrogen followed by a secondary reaction between benzene and diphenyl to form triphenyl and hydrogen:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;2B \longleftrightarrow D + H_2\\
+&amp;B + D \longleftrightarrow T + H_2
+\end{align*}\]</div>
+<p>Both reactions are reversible and follow elementary rate laws.  Rate constants and equilibrium concentration ratios (<span class="math notranslate nohighlight">\(K_C\)</span>) are given below.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;k_1 = 7.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+&amp;k_2 = 4.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+&amp;K_{C_1} = 0.31\\
+&amp;K_{C_2} = 0.48
+\end{align*}\]</div>
+<p>If pure benzene is fed into the reactor at 60,000 moles per hour, find the CSTR volume required to maximize diphenyl yield.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P02</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+    <span class="c1">#Unknowns</span>
+    <span class="n">e1</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">e2</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1">#Parameters and constants from problem statement.</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">1033</span>    <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1">#atm</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+    <span class="n">k1f</span> <span class="o">=</span> <span class="mf">7.0e5</span>   <span class="c1">#L/mol/h</span>
+    <span class="n">k2f</span> <span class="o">=</span> <span class="mf">4.0e5</span>   <span class="c1">#L/mol/h</span>
+    <span class="n">KC1</span> <span class="o">=</span> <span class="mf">0.31</span>
+    <span class="n">KC2</span> <span class="o">=</span> <span class="mf">0.48</span>
+    <span class="n">k1r</span> <span class="o">=</span> <span class="n">k1f</span><span class="o">/</span><span class="n">KC1</span> <span class="c1">#L/mol/h</span>
+    <span class="n">k2r</span> <span class="o">=</span> <span class="n">k2f</span><span class="o">/</span><span class="n">KC2</span> <span class="c1">#L/mol/h</span>
+    <span class="n">FBf</span> <span class="o">=</span> <span class="mi">60000</span>   <span class="c1">#mol/h</span>
+    <span class="n">FDf</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">FHf</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">FTf</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">FB</span>   <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">e1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">e2</span>
+    <span class="n">FD</span>   <span class="o">=</span> <span class="n">FDf</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">e1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">e2</span>
+    <span class="n">FH</span>   <span class="o">=</span> <span class="n">FHf</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">e1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">e2</span>
+    <span class="n">FT</span>   <span class="o">=</span> <span class="n">FTf</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="n">e1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">e2</span>
+    
+    <span class="n">FTOT</span> <span class="o">=</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FD</span> <span class="o">+</span> <span class="n">FH</span> <span class="o">+</span> <span class="n">FT</span>
+    <span class="n">Q</span>    <span class="o">=</span> <span class="n">FTOT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CB</span>   <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CD</span>   <span class="o">=</span> <span class="n">FD</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CH</span>   <span class="o">=</span> <span class="n">FH</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CT</span>   <span class="o">=</span> <span class="n">FT</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r1</span>   <span class="o">=</span> <span class="n">k1f</span><span class="o">*</span><span class="n">CB</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">k1r</span><span class="o">*</span><span class="n">CD</span><span class="o">*</span><span class="n">CH</span>
+    <span class="n">r2</span>   <span class="o">=</span> <span class="n">k2f</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CD</span> <span class="o">-</span> <span class="n">k2r</span><span class="o">*</span><span class="n">CT</span><span class="o">*</span><span class="n">CH</span>
+    
+    <span class="n">RB</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RD</span>   <span class="o">=</span>    <span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RH</span>   <span class="o">=</span>    <span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span>
+    <span class="n">RT</span>   <span class="o">=</span>         <span class="n">r2</span>
+    
+    <span class="n">XB</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span><span class="p">)</span><span class="o">/</span><span class="n">FBf</span>
+    
+    <span class="c1">#Constraint equations</span>
+    <span class="n">F1</span>   <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">F2</span>   <span class="o">=</span> <span class="n">FDf</span> <span class="o">-</span> <span class="n">FD</span> <span class="o">+</span> <span class="n">RD</span><span class="o">*</span><span class="n">V</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">F1</span><span class="p">,</span> <span class="n">F2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Create a list of volumes we&#39;re interested in solving, we&#39;ll just go from 1 to 25000L</span>
+<span class="c1">#We&#39;ll do this in 100 elements.  Basically, we&#39;re going to have to solve the above system for 100 different volumes.</span>
+<span class="n">V</span>       <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">extent</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">vol</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">V</span><span class="p">):</span> 
+    <span class="n">obj02</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">var</span><span class="p">:</span> <span class="n">P02</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">vol</span><span class="p">)</span>
+    <span class="n">var0</span>    <span class="o">=</span> <span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+    <span class="n">solMR04</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">obj02</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+    <span class="n">extent</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>  <span class="o">=</span> <span class="n">solMR04</span><span class="o">.</span><span class="n">x</span>
+<span class="n">extent</span>
+
+<span class="n">FB</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FD</span> <span class="o">=</span> <span class="n">FDf</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FH</span> <span class="o">=</span> <span class="n">FHf</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FT</span> <span class="o">=</span> <span class="n">FTf</span> <span class="o">+</span> <span class="mi">0</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">extent</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#Calculate conversion</span>
+<span class="n">XBout</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span><span class="p">)</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#Calculate diphenyl/triphenyl yield</span>
+<span class="n">YDB</span>     <span class="o">=</span> <span class="n">FD</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="n">FBf</span>
+<span class="n">YTB</span>     <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#Calculate diphenyl selectivity</span>
+<span class="n">SDB</span>     <span class="o">=</span> <span class="n">FDout</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+<span class="n">STB</span>     <span class="o">=</span> <span class="n">FTout</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_5244\1502422857.py:26: RuntimeWarning: invalid value encountered in true_divide
+  SDB     = FDout*2/(FBf - FBout)
+C:\Users\jqbond\AppData\Local\Temp\ipykernel_5244\1502422857.py:27: RuntimeWarning: invalid value encountered in true_divide
+  STB     = FTout*3/(FBf - FBout)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot yields vs. volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Diphenyl Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">YTB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Triphenyl Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">V</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Yield&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L25_9_0.png" src="../_images/F22-587-L25_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indexC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">YDB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl yield in a CSTR is </span><span class="si">{</span><span class="n">YDB</span><span class="p">[</span><span class="n">indexC</span><span class="p">]</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a Volume of </span><span class="si">{</span><span class="n">V</span><span class="p">[</span><span class="n">indexC</span><span class="p">]</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The maximum diphenyl yield in a CSTR is 0.33 at a Volume of 1415L.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The main takeaway: the PFR is intrinsically more selective for diphenyl production than the CSTR.  Next, we’ll learn why that is and how to make predictions about which reactors will be more selective (for parallel reactions like this one) without needing to solve material balances.</p>
+</section>
+<section id="instantaneous-selectivity">
+<h2>Instantaneous Selectivity<a class="headerlink" href="#instantaneous-selectivity" title="Permalink to this headline">#</a></h2>
+<p>When we start working with multiple reactions, we have to make a lot of considerations in order to maximize yield and selectivity to a desired pathway and minimize side reactions.  There are a lot of ways for us to do this.  Above, we considered how to operate one reactor in order to maximize yield for a series reaction.  Another important decision will be the type of reactor that we use and our selection of operating conditions.  Much of this can be determined by considering instantaneous selectivities for the simple case of two, irreversible parallel reactions.  As reactions become more complex (series, equilibrium limited, etc.), we have to consider additional aspects of reactor operation, but the general conclusions we’ll make by considering two irreversible reactions occcuring in parallel will always hold, so these are useful insights.</p>
+<p>Let’s start with a general definition of instantaneous selectivity.  It is a quantity that is defined not based on total moles or molar flowrates, but on the rates at which specific products are formed.  Specifically, we define the instantaneous selectivity as a ratio of the rate at which one species is formed or consumed to the rate at which another species is formed or consumed.</p>
+<p>We will consider two irreversible reactions occuring in parallel.  A and B can react to form a desired product, D, and an undesired product, U:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-94ac923d-ce58-45ca-a78a-ed07fc6e6f44">
+<span class="eqno">(138)<a class="headerlink" href="#equation-94ac923d-ce58-45ca-a78a-ed07fc6e6f44" title="Permalink to this equation">#</a></span>\[\begin{align}
+    A + B \longrightarrow D \\
+    A + B \longrightarrow U \\
+\end{align}\]</div>
+<p>We would define the “instantaneous selectivity of D with respect to U” as the rate at which D is formed divided by the rate at which U is formed:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{R_D}{R_U}\]</div>
+<p><strong>Note</strong> that “instantaneous selectivity” is just a general concept comprising a ratio of production rates.  You could define similar ratios between any two species of interest, e.g., D with respect to A:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/A} = \frac{R_D}{R_A}\]</div>
+<p>U with respect to B:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{U/B} = \frac{R_U}{R_B}\]</div>
+<p>B with respect to A:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{B/A} = \frac{R_B}{R_A}\]</div>
+<p>Or A with respect to both U and D:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{A/UD} = \frac{R_A}{R_U + R_D}\]</div>
+<p>We can define an instantaneous selectivity for any ratio of rates that are important in our system.  Here, we only have two parallel reactions, and we’re only making U and D, so the most informative instantaneous selectivity to consider is the rate at which D forms relative to the rate at which U forms.  Ideally, we’d like to maximize that quantity:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{R_D}{R_U}\]</div>
+<p>Now we have to express production rates in terms of reaction rates.</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{r_1}{r_2}\]</div>
+<p>Here, we have two reactions, and we’ll say, generally, that their rates are given by a general expression:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-028a43a2-ff99-4687-932e-2a41b14bdc4b">
+<span class="eqno">(139)<a class="headerlink" href="#equation-028a43a2-ff99-4687-932e-2a41b14bdc4b" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r_1 = k_1{C_A}^{\alpha_1}{C_B}^{\beta_1} \\
+    r_2 = k_2{C_A}^{\alpha_2}{C_B}^{\beta_2} \\
+\end{align}\]</div>
+<p>The reaction orders are as yet unspecified, and we’ll state explicitly that <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> are both functions of temperature, and their dependency is given by an Arrhenius expression so that:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3ebaf687-02f5-4edc-85ad-e09e36fcab53">
+<span class="eqno">(140)<a class="headerlink" href="#equation-3ebaf687-02f5-4edc-85ad-e09e36fcab53" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k_1 = A_1 \exp \left(\frac{-E_{A1}}{RT}\right) \\
+    \\
+    k_2 = A_2 \exp \left(\frac{-E_{A2}}{RT}\right) \\
+\end{align}\]</div>
+<p>With that in mind, the instantaneous selectivity expression of interest becomes:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{k_1{C_A}^{\alpha_1}{C_B}^{\beta_1}}{k_2{C_A}^{\alpha_2}{C_B}^{\beta_2}}\]</div>
+<p>And we again note that both rate constants are implicit functions of temperature given by an Arrhenius expression.</p>
+<p>We can also express that quantity as follows, which highlights that <em>differences</em> in reaction orders and rate constants are important in determining instantaneous selectivities.</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{k_1}{k_2}{C_A}^{(\alpha_1 - \alpha_2)}{C_B}^{(\beta_1 - \beta_1)}\]</div>
+<p>We can’t make any further decisions until we know more about the reaction orders and rate constants, so now we’ll specify cases we’d like to consider.</p>
+<p><strong>Case 1:</strong>  <span class="math notranslate nohighlight">\(k_1 = k_2\)</span>, <span class="math notranslate nohighlight">\(\alpha_1 &gt; \alpha_2\)</span>, <span class="math notranslate nohighlight">\(\beta_1 &gt; \beta_2\)</span></p>
+<p>For this scenario, we conclude that:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_1 - \alpha_2) = a\)</span>, and a is positive</p></li>
+<li><p><span class="math notranslate nohighlight">\((\beta_1 - \beta_2) = b\)</span>, and b is positive</p></li>
+<li><p>rate constants cancel from the instantaneous selectivity expression</p></li>
+</ol>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = {C_A}^{a}{C_B}^{b}\]</div>
+<p>Where both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive. We consider limiting behavior:</p>
+<p>As <span class="math notranslate nohighlight">\(C_A, C_B \longrightarrow 0\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow 0\)</span><br />
+As <span class="math notranslate nohighlight">\(C_A, C_B \longrightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow \infty\)</span></p>
+<p>In this case, we can see that we favor selectivity to the desired product by operating at maximum concentrations of A and B. For this reason, we want to chose a reactor that allows us to operate at maximum concentrations of reacting species for as long as possible, and we want to operate that reactor such that we maintain concentrations as high as possible.</p>
+<ol class="simple">
+<li><p>Reactor Selection: Consider a PFR or a Batch Reactor; CSTR is a poor choice for selectivity.</p></li>
+<li><p>Operating conditions: Gas Phase (high pressure, no diluent); liquid phase (high concentration; no solvent)</p></li>
+<li><p>Caveats: Safety, pumping, miscibility, etc.</p></li>
+</ol>
+<p><strong>Case 2:</strong>  <span class="math notranslate nohighlight">\(k_1 = k_2\)</span>, <span class="math notranslate nohighlight">\(\alpha_1 &lt; \alpha_2\)</span>, <span class="math notranslate nohighlight">\(\beta_1 &lt; \beta_2\)</span></p>
+<p>For this scenario, we conclude that:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_1 - \alpha_2) = -a\)</span>, (a is positive)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\beta_1 - \beta_2) = -b\)</span>, (b is positive)</p></li>
+<li><p>rate constants cancel from the instantaneous selectivity expression</p></li>
+</ol>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = {C_A}^{-a}{C_B}^{-b}\]</div>
+<p>Where both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive. We rearrange this as follows, which shows the dependency more clearly:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{1}{{C_A}^{a}{C_B}^{b}}\]</div>
+<p>We consider limiting behavior:</p>
+<p>As <span class="math notranslate nohighlight">\(C_A, C_B \longrightarrow 0\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow \infty\)</span><br />
+As <span class="math notranslate nohighlight">\(C_A, C_B \longrightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow 0\)</span></p>
+<p>In this case, we can see that we favor selectivity to the desired product by operating at minimum concentrations of A and B. For this reason, we want to chose a reactor that allows us to operate at minimum concentrations of reacting species for as long as possible, and we want to operate that reactor such that we maintain concentrations as low as possible.</p>
+<ol class="simple">
+<li><p>Reactor Selection: Consider a CSTR; PFRs and Batch reactors go from high concentration to low concentration and will be worse for selectivity.</p></li>
+<li><p>Operating conditions: Gas Phase (low pressure, add diluent N2 or other inert); liquid phase (low concentration in a solvent)</p></li>
+<li><p>Caveats: As concentrations go to zero, rates also go to zero, and reactor volume goes to infinity.</p></li>
+</ol>
+<p><strong>Case 3:</strong>  <span class="math notranslate nohighlight">\(k_1 = k_2\)</span>, <span class="math notranslate nohighlight">\(\alpha_1 &gt; \alpha_2\)</span>, <span class="math notranslate nohighlight">\(\beta_1 &lt; \beta_2\)</span></p>
+<p>For this scenario, we conclude that:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_1 - \alpha_2) = a\)</span>, (a is positive)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\beta_1 - \beta_2) = -b\)</span>, (b is positive)</p></li>
+<li><p>rate constants cancel from the instantaneous selectivity expression</p></li>
+</ol>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = {C_A}^{a}{C_B}^{-b}\]</div>
+<p>Where both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive. We rearrange this as follows, which shows the dependency more clearly:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{{C_A}^{a}}{{C_B}^{b}}\]</div>
+<p>In this case, we see that we essentially want as high a concentration of A as possible and as low a concentration of B as possible.  Here, conventional CSTR, PFR, or Batch reactors don’t make much sense.  We <em>can</em> operate this way, but we would end up having very low conversion of A per pass (since B would be so dilute), that we’d end up with a large amount of recycle and inefficient operation.  So we would probably achieve high selectivity to D, but the reactor configuration would be too expensive to be practical. Here is where you may see some less conventional reactor designs:</p>
+<ol class="simple">
+<li><p>Semi-batch reactor for liquids:  Fill with A initially; add B at low flowrate.</p></li>
+<li><p>Membrane reactor for gases:  Flow A at high pressure through inner channel, diffuse B across membrane into reactor.</p></li>
+</ol>
+<p><strong>Case 4:</strong>  <span class="math notranslate nohighlight">\(k_1 = k_2\)</span>, <span class="math notranslate nohighlight">\(\alpha_1 &lt; \alpha_2\)</span>, <span class="math notranslate nohighlight">\(\beta_1 &gt; \beta_2\)</span></p>
+<p>For this scenario, we conclude that:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_1 - \alpha_2) = -a\)</span>, (a is positive)</p></li>
+<li><p><span class="math notranslate nohighlight">\((\beta_1 - \beta_2) = b\)</span>, (b is positive)</p></li>
+<li><p>rate constants cancel from the instantaneous selectivity expression</p></li>
+</ol>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = {C_A}^{-a}{C_B}^{b}\]</div>
+<p>Where both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are positive. We rearrange this as follows, which shows the dependency more clearly:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{{C_B}^{b}}{{C_A}^{a}}\]</div>
+<p>This is the mirror image of Case 3.  We would make similar conclusions.</p>
+<ol class="simple">
+<li><p>Semi-batch reactor for liquids:  Fill with B initially; add A at low flowrate.</p></li>
+<li><p>Membrane reactor for gases:  Flow B at high pressure through inner channel, diffuse A across membrane into reactor.</p></li>
+</ol>
+<p><strong>Case 5:</strong>  <span class="math notranslate nohighlight">\(k_1 \neq k_2\)</span>, <span class="math notranslate nohighlight">\(\alpha_1 = \alpha_2\)</span>, <span class="math notranslate nohighlight">\(\beta_1 = \beta_2\)</span></p>
+<p>For this scenario, we conclude that:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_1 - \alpha_2) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\beta_1 - \beta_2) = 0\)</span></p></li>
+<li><p>rate constants remain in the instantaneous selectivity expression</p></li>
+</ol>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{k_1}{k_2}\]</div>
+<p>To go further, we have to express the rate constants in terms of their Arrhenius parameters:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{A_1 \exp \left(\frac{-E_{A1}}{RT}\right)}{A_2 \exp \left(\frac{-E_{A2}}{RT}\right)}\]</div>
+<p>Which we can also express as:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = \frac{A_1}{A_2}\exp \left(\frac{-\left(E_{A1} - E_{A2}\right)}{RT}\right)\]</div>
+<p>We can see that the critical operating parameter here is the treaction temperature–we don’t have much control over anything else. In general, pre-exponential factors (<span class="math notranslate nohighlight">\(A_1\)</span> and <span class="math notranslate nohighlight">\(A_2\)</span>) and barriers (<span class="math notranslate nohighlight">\(E_{A1}\)</span> and <span class="math notranslate nohighlight">\(E_{A2}\)</span>) are weak functions of temperature, so we can consider them to be constant as we vary the reaction temperature.  So, the ratio of pre-exponentials never really changes as we vary temperature.  For simplicity, we’ll say it is fixed:</p>
+<div class="math notranslate nohighlight">
+\[\frac{A_1}{A_2} = A\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = A\exp \left(\frac{-\left(E_{A1} - E_{A2}\right)}{RT}\right)\]</div>
+<p>So, the impact of temperature on instantaneous selectivity is determined by the difference in barriers for the two processes.  We’ll consider a few sub-cases:</p>
+<p><strong>Case 5a:</strong> <span class="math notranslate nohighlight">\(E_{A1} = E_{A2}\)</span></p>
+<p>If the two barriers are equal, we find that our selectivity expression becomes:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = A\exp \left(0\right) = A\]</div>
+<p>Here, we can change temperature all we want to, and the rates of each reaction will increase and decrease in exactly the same way, so instantaneous selectivity is indpenedent of temperature.</p>
+<p><strong>Case 5b:</strong> <span class="math notranslate nohighlight">\(E_{A1} &gt; E_{A2}\)</span></p>
+<p>Then, we find that <span class="math notranslate nohighlight">\((E_{A1} - E_{A2}) = E\)</span>, where E is a positive number.  So:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = A\exp \left(\frac{-E}{RT}\right)\]</div>
+<p>Examining limiting behavior, we find:</p>
+<p>As <span class="math notranslate nohighlight">\(T \longrightarrow 0\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow 0\)</span><br />
+As <span class="math notranslate nohighlight">\(T \longrightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow A\)</span></p>
+<ol class="simple">
+<li><p>We want to operate at the highest temperature possible to maximize selectivity toward the desired product</p></li>
+<li><p>Temperature favors the higher barrier process.</p></li>
+<li><p>Caveat: cost of heating; as temperature gets too high, we usually “turn on” more side reactions, so approach with caution.</p></li>
+</ol>
+<p><strong>Case 5c:</strong> <span class="math notranslate nohighlight">\(E_{A1} &lt; E_{A2}\)</span></p>
+<p>Then, we find that <span class="math notranslate nohighlight">\((E_{A1} - E_{A2}) = -E\)</span>, where E is a positive number.  So:</p>
+<div class="math notranslate nohighlight">
+\[\tilde{S}_{D/U} = A\exp \left(\frac{E}{RT}\right)\]</div>
+<p>Examining limiting behavior, we find:</p>
+<p>As <span class="math notranslate nohighlight">\(T \longrightarrow 0\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow \infty\)</span><br />
+As <span class="math notranslate nohighlight">\(T \longrightarrow \infty\)</span>, <span class="math notranslate nohighlight">\(\tilde{S}_{D/U} \longrightarrow A\)</span></p>
+<ol class="simple">
+<li><p>We want to operate at the lowest temperature possible to maximize selectivity toward the desired product</p></li>
+<li><p>Temperature favors the higher barrier process.</p></li>
+<li><p>Caveat: as Temperature goes to zero, so does reaction rate, so there are practical limits to this strategy.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L24.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 24</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L26.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 26</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

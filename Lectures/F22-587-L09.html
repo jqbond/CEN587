@@ -1,0 +1,1535 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 09: Chemical and Phase equilibria &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 10" href="F22-587-L10.html" />
+    <link rel="prev" title="Lecture 08: Multi-reaction equilibria" href="F22-587-L08.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L09.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L09.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L09.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-01">
+   Example 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#developing-the-solution">
+     Developing the Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accounting-for-temperature-effects-on-k-van-t-hoff-equation">
+     Accounting for Temperature effects on K: van’t Hoff Equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addressing-composition-and-pressure-dependencies-through-activities">
+     Addressing composition and pressure dependencies through activities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-02">
+   Example 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Developing the Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-chemical-equilibrium-problem-liquid-phase">
+     The Chemical Equilibrium Problem (liquid phase)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-liquid-phase-only">
+     System of Equations for Liquid phase only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-phase-equilibrium-problem-vapor-phase">
+     The Phase Equilibrium Problem (vapor-phase)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibrium">
+     System of equations for simultaneous chemical and phase equilibrium
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-03">
+   Example 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states">
+     System of equations for simultaneous chemical and phase equilibria with multiple reactions and mixed reference states
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 09: Chemical and Phase equilibria</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-01">
+   Example 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#developing-the-solution">
+     Developing the Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accounting-for-temperature-effects-on-k-van-t-hoff-equation">
+     Accounting for Temperature effects on K: van’t Hoff Equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addressing-composition-and-pressure-dependencies-through-activities">
+     Addressing composition and pressure dependencies through activities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-02">
+   Example 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Developing the Solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-chemical-equilibrium-problem-liquid-phase">
+     The Chemical Equilibrium Problem (liquid phase)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-liquid-phase-only">
+     System of Equations for Liquid phase only
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-phase-equilibrium-problem-vapor-phase">
+     The Phase Equilibrium Problem (vapor-phase)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibrium">
+     System of equations for simultaneous chemical and phase equilibrium
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-03">
+   Example 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states">
+     System of equations for simultaneous chemical and phase equilibria with multiple reactions and mixed reference states
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-09-chemical-and-phase-equilibria">
+<h1>Lecture 09: Chemical and Phase equilibria<a class="headerlink" href="#lecture-09-chemical-and-phase-equilibria" title="Permalink to this headline">#</a></h1>
+<p>This lecture covers increasingly complex equilibrium problems with, e.g., unknown operating conditions.  It also covers equilibrium problems for liquid phase reactions and adds in an analysis of phase equilibria.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span> 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-01">
+<h2>Example 01<a class="headerlink" href="#example-01" title="Permalink to this headline">#</a></h2>
+<p>The two reactions below represent possible products that can form in the alkylation of isobutane with 1-butene.  This is actually a really important industrial process for converting relatively low-value butane into high octane gasoline additives (triptane, also called iso-octante).</p>
+<div class="amsmath math notranslate nohighlight" id="equation-123837d9-d21a-4a0d-9fba-7a58f4dea83a">
+<span class="eqno">(38)<a class="headerlink" href="#equation-123837d9-d21a-4a0d-9fba-7a58f4dea83a" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,3-trimethylpentane (g)} \\
+    (2) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,4-trimethylpentane (g)} \\
+\end{align}\]</div>
+<p>It is common in reactor design that we represent reaction systems with generic notation to simplify labelling.  We will represent these reactions more succinctly as:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8db43b76-d038-4d80-ac1e-c05599a08a69">
+<span class="eqno">(39)<a class="headerlink" href="#equation-8db43b76-d038-4d80-ac1e-c05599a08a69" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{C (g)} \\ 
+    (2) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{D (g)} \\
+\end{align}\]</div>
+<p>We have the following data available about these reactions involving pure gases at 1 bar and 400K:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\(\text{Reaction}\)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\(\Delta G_i \ (\text{kcal} \ \text{mol}^{-1})\)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\(\Delta H_i \ (\text{kcal} \ \text{mol}^{-1})\)</span>$</p></th>
+<th class="text-align:center head"><p>$<span class="math notranslate nohighlight">\(\Delta C_{p,i} \ (\text{kcal} \ \text{mol}^{-1} \ \text{K}^{-1})\)</span>$</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(-3.72\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(-20.1\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(8.20 \times 10^{-4}\)</span>$</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(-4.49\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(-21.0\)</span>$</p></td>
+<td class="text-align:center"><p>$<span class="math notranslate nohighlight">\(1.48 \times 10^{-3}\)</span>$</p></td>
+</tr>
+</tbody>
+</table>
+<p>Both reactions are occurring in a system that is held at a constant pressure of 1875.16 Torr (2.5 bar). The system is initially charged with an equimolar quantity of isobutane (A) and 1-butene (B).  Under these conditions, you may assume that all species are in the gas phase, and that all gases behave ideally. For kinetic reasons, it is desirable to run the reaction at as high a temperature as possible, but this might prevent a high conversion since the reactions are both exothermic. What is the maximum temperature that the reactor can operate and still achieve an isobutane conversion of 70%?</p>
+<section id="developing-the-solution">
+<h3>Developing the Solution<a class="headerlink" href="#developing-the-solution" title="Permalink to this headline">#</a></h3>
+<p>We are trying to determine the system composition at chemical equilibrium from thermodynamic data.  As usual, we do this by considering the following relationship:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-{\Delta G}^\circ_i}{RT}\right) = K_i = \prod_{j = 1}^{N_S}a_j^{\nu_{i,j}} \label{eq1}\tag{1}\]</div>
+<p>We write one copy of this equation for every reaction occuring:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5177c1cf-8a28-4269-9809-3d124abde1cc">
+<span class="eqno">(40)<a class="headerlink" href="#equation-5177c1cf-8a28-4269-9809-3d124abde1cc" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \exp\left(\frac{-{\Delta G}^\circ_1}{RT}\right) &amp;= K_1 = \frac{a_C}{a_A a_B} \label{eq2}\tag{2}\\
+    \\
+    \exp\left(\frac{-{\Delta G}^\circ_2}{RT}\right) &amp;= K_2 = \frac{a_D}{a_A a_B} \label{eq3}\tag{3}\\
+\end{align}\]</div>
+</section>
+<section id="accounting-for-temperature-effects-on-k-van-t-hoff-equation">
+<h3>Accounting for Temperature effects on K: van’t Hoff Equation<a class="headerlink" href="#accounting-for-temperature-effects-on-k-van-t-hoff-equation" title="Permalink to this headline">#</a></h3>
+<p>As before, we use the van’t Hoff equation to define the temperature dependence of each equilibrium constant:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d \ln{K}}{dT} = \frac{\Delta H}{RT^2} \label{eq4}\tag{4}\]</div>
+<p>As shown in detail in Lecture 08, we solve the differential equation by separating variables and applying integration limits as below:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\ln{K_0}}^{\ln{K}}d \ln{K} = \int_{T_0}^T\frac{\Delta H}{RT^2}dT \label{eq5}\tag{5}\]</div>
+<p>The solution of which is:</p>
+<div class="math notranslate nohighlight">
+\[K = K_0\exp\left[\frac{-(\Delta H_R - \Delta C_p T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_p}{R} \ln\left(\frac{T}{T_0}\right)\right] \label{eq6}\tag{6}\]</div>
+<p>We write a copy of that equation for each reaction, which defines both equilibrium constants as functions of temperature.</p>
+<p>Here, we do not know the reaction temperature.  We know that once we specify the reaction temperature, we can easily calculate <span class="math notranslate nohighlight">\(K_1\)</span> and <span class="math notranslate nohighlight">\(K_2\)</span> using the van’t Hoff Equation:</p>
+<div class="math notranslate nohighlight">
+\[K_1(T) = K_{1_0}\exp\left[\frac{-(\Delta H_{1_R} - \Delta C_{p_1} T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_p}{R} \ln\left(\frac{T}{T_0}\right)\right] \label{eq7}\tag{7}\]</div>
+<div class="math notranslate nohighlight">
+\[K_2(T) = K_{2_0}\exp\left[\frac{-(\Delta H_{2_R} - \Delta C_{p_2} T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_p}{R} \ln\left(\frac{T}{T_0}\right)\right] \label{eq8}\tag{8}\]</div>
+<p>But that is as far as we can go right now in calculating the equilibrium constants.</p>
+</section>
+<section id="addressing-composition-and-pressure-dependencies-through-activities">
+<h3>Addressing composition and pressure dependencies through activities<a class="headerlink" href="#addressing-composition-and-pressure-dependencies-through-activities" title="Permalink to this headline">#</a></h3>
+<p>We ultimately need to solve these equations:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b7c5450f-587d-48c4-a66c-6a75c03e46b4">
+<span class="eqno">(41)<a class="headerlink" href="#equation-b7c5450f-587d-48c4-a66c-6a75c03e46b4" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad K_1 &amp;= \frac{a_C}{a_A a_B} \\
+    \\
+    (2) \qquad K_2 &amp;= \frac{a_D}{a_A a_B} \\
+\end{align}\]</div>
+<p>As usual, activities are defined as:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ} \label{eq9}\tag{9}\]</div>
+<p>For this system, which is at relatively low pressure (and for a reference state of pure species at T = Trxn and P = 1bar), this reduces to:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j P}{P^\circ} \label{eq10}\tag{10}\]</div>
+<p>We define each mole fraction in terms of numbers of moles:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{\sum N_j} \label{eq11}\tag{11}\]</div>
+<p>We express each of the molar quantities as functions of extents:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Species</p></th>
+<th class="text-align:center head"><p>In</p></th>
+<th class="text-align:center head"><p>Change</p></th>
+<th class="text-align:center head"><p>End</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>A</p></td>
+<td class="text-align:center"><p>NA0</p></td>
+<td class="text-align:center"><p>- 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+<td class="text-align:center"><p>NA0 - 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>B</p></td>
+<td class="text-align:center"><p>NB0</p></td>
+<td class="text-align:center"><p>- 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+<td class="text-align:center"><p>NB0 - 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>C</p></td>
+<td class="text-align:center"><p>NC0</p></td>
+<td class="text-align:center"><p>+ 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> + 0<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+<td class="text-align:center"><p>NC0 + 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> + 0<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>D</p></td>
+<td class="text-align:center"><p>ND0</p></td>
+<td class="text-align:center"><p>+ 0<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> + 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+<td class="text-align:center"><p>ND0 + 0<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> + 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Total</p></td>
+<td class="text-align:center"><p>NT0</p></td>
+<td class="text-align:center"><p>- 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+<td class="text-align:center"><p>NT0 - 1<span class="math notranslate nohighlight">\(\varepsilon_1\)</span> - 1<span class="math notranslate nohighlight">\(\varepsilon_2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>And we substitute those definitions of mole numbers back into the activity equations.  Ultimately, this ensures that the right hand side of these two equations are only a function of <span class="math notranslate nohighlight">\(\varepsilon_1\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_2\)</span> (once we specify that P = 2.5 bar):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c1705f8-93f7-49eb-869c-1b89e768966c">
+<span class="eqno">(42)<a class="headerlink" href="#equation-4c1705f8-93f7-49eb-869c-1b89e768966c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad K_1 &amp;= \frac{a_C}{a_A a_B} \\
+    \\
+    (2) \qquad K_2 &amp;= \frac{a_D}{a_A a_B} \\
+\end{align}\]</div>
+<p>We know that we can assign a basis of:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8d6a6f8e-ef42-4d85-a047-e5e10bbd903e">
+<span class="eqno">(43)<a class="headerlink" href="#equation-8d6a6f8e-ef42-4d85-a047-e5e10bbd903e" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_{A0} = N_{B0} = 1.0 \\
+    N_{C0} = N_{D0} = 0.0 \\
+\end{align}\]</div>
+<p>But, we can’t solve the problem yet.  All of the mole numbers are quantified in terms of the basis and two extents of reaction, but we don’t know the value of either equilibrium constant.  So this is 2 equations and 4 unknowns.</p>
+<p>We solve this problem by realizing that, technically, since we’ve written van’t Hoff relations:</p>
+<div class="math notranslate nohighlight">
+\[K_1(T) = K_{1_0}\exp\left[\frac{-(\Delta H_{1_R} - \Delta C_{p_1} T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_{p_1}}{R} \ln\left(\frac{T}{T_0}\right)\right]\]</div>
+<div class="math notranslate nohighlight">
+\[K_2(T) = K_{2_0}\exp\left[\frac{-(\Delta H_{2_R} - \Delta C_{p_2} T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_{p_2}}{R} \ln\left(\frac{T}{T_0}\right)\right]\]</div>
+<p>We don’t have two unknown equilibrium constants — we have one unknown temperature.  Once that is specified, we can calculate the value of both equilibrium constants.</p>
+<p>Still…we have 2 objective functions that we’re trying to solve:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-21ac2511-cf43-488a-873e-a0c6ad2aebf6">
+<span class="eqno">(44)<a class="headerlink" href="#equation-21ac2511-cf43-488a-873e-a0c6ad2aebf6" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad 0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
+    \\
+    (2) \qquad 0 &amp;= K_2 - \frac{a_D}{a_A a_B} \\
+\end{align}\]</div>
+<p>But we have 3 unknowns: <span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>We need one more equation to add to our objective function.  We get that from our process specification that the fractional conversion of A must be equal to 70%.  Based on that, I can write the following—my third and final “equation” in my objective function:</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{N_{A0} - N_A}{N_{A0}} = 0.7 \label{eq12}\tag{12}\]</div>
+<p>Or, as a system of equations, I am trying to solve these three, which are entirely determined by the value of my three unknowns (<span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(T\)</span>):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-31cf48a5-e003-4440-bd54-a2a40f4c7601">
+<span class="eqno">(45)<a class="headerlink" href="#equation-31cf48a5-e003-4440-bd54-a2a40f4c7601" title="Permalink to this equation">#</a></span>\[\begin{align}
+    (1) \qquad 0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
+    \\
+    (2) \qquad 0 &amp;= K_2 - \frac{a_D}{a_A a_B} \\
+    \\
+    (3) \qquad 0 &amp;= \frac{N_{A0} - N_A}{N_{A0}} - 0.7\\ 
+\end{align}\]</div>
+<p>Just work through the equations that came before and convince yourself that every single thing in those three equations is defined in terms of things either given in the problem statement or that we already know (<span class="math notranslate nohighlight">\(N_{A0}\)</span>, <span class="math notranslate nohighlight">\(N_{B0}\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(P^\circ\)</span>, <span class="math notranslate nohighlight">\(\Delta H_i\)</span>, <span class="math notranslate nohighlight">\(\Delta C_{p_i}\)</span>, etc.) or our three unknowns (<span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(T\)</span>).</p>
+<p>We can totally set this up as a system of equations and solve with <code class="docutils literal notranslate"><span class="pre">scipy.opimize.root()</span></code>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ1</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    
+    <span class="n">ex1</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ex2</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    
+    <span class="n">DG1</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">3.72</span>      <span class="c1">#kcal/mol</span>
+    <span class="n">DG2</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">4.49</span>      <span class="c1">#kcal/mol</span>
+    <span class="n">DH1</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">20.1</span><span class="p">;</span> <span class="c1">#kcal/mol</span>
+    <span class="n">DH2</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">21.0</span><span class="p">;</span> <span class="c1">#kcal/mol</span>
+    <span class="n">DCP1</span> <span class="o">=</span>  <span class="mf">8.20e-4</span><span class="p">;</span> <span class="c1">#kcal/mol/K</span>
+    <span class="n">DCP2</span> <span class="o">=</span> <span class="mf">1.48e-3</span><span class="p">;</span> <span class="c1">#kcal/mol/K</span>
+    <span class="n">R</span>    <span class="o">=</span> <span class="mf">1.987e-3</span>   <span class="c1">#kcal/mol/K</span>
+    <span class="n">T0</span>   <span class="o">=</span> <span class="mi">400</span>        <span class="c1">#K, reference temp for K0</span>
+    <span class="n">TR</span>   <span class="o">=</span> <span class="mi">400</span>        <span class="c1">#K, reference temp for DH</span>
+    <span class="c1">#T    = 600       #K, actual reaction temperature, given as function argument now.  it is an unknown we are solving for.</span>
+    <span class="n">P</span>    <span class="o">=</span> <span class="mf">1875.16</span>    <span class="c1">#Torr</span>
+    <span class="n">P</span>    <span class="o">=</span> <span class="n">P</span><span class="o">/</span><span class="mi">750</span>      <span class="c1">#convert to bar</span>
+    <span class="n">P0</span>   <span class="o">=</span> <span class="mi">1</span>          <span class="c1">#bar</span>
+    <span class="n">NA0</span>  <span class="o">=</span> <span class="mi">1</span>          <span class="c1">#mole</span>
+    <span class="n">NB0</span>  <span class="o">=</span> <span class="mi">1</span>          <span class="c1">#mole</span>
+    <span class="n">NC0</span>  <span class="o">=</span> <span class="mi">0</span>          <span class="c1">#moles</span>
+    <span class="n">ND0</span>  <span class="o">=</span> <span class="mi">0</span>          <span class="c1">#moles</span>
+    
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex1</span> <span class="o">-</span> <span class="n">ex2</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex1</span> <span class="o">-</span> <span class="n">ex2</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex1</span>
+    <span class="n">ND</span>  <span class="o">=</span> <span class="n">ND0</span>       <span class="o">+</span> <span class="n">ex2</span>
+    
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span> <span class="o">+</span> <span class="n">ND</span>
+    
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yD</span>  <span class="o">=</span> <span class="n">ND</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aD</span>  <span class="o">=</span> <span class="n">yD</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">K1A</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">K2A</span> <span class="o">=</span> <span class="n">aD</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    
+    <span class="n">K10</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG1</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span>
+    <span class="n">K20</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG2</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span>
+
+    <span class="c1">#The long messy integrated form of the van&#39;t Hoff equation</span>
+    <span class="n">K1</span> <span class="o">=</span> <span class="n">K10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">DH1</span> <span class="o">-</span> <span class="n">DCP1</span><span class="o">*</span><span class="n">TR</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">DCP1</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">K2</span> <span class="o">=</span> <span class="n">K20</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">DH2</span> <span class="o">-</span> <span class="n">DCP2</span><span class="o">*</span><span class="n">TR</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="o">+</span> <span class="n">DCP2</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>    
+
+    <span class="c1">#Define a fractional conversion as a function of ex1, ex2, and T</span>
+    <span class="n">XA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+    
+    <span class="c1">#3 returns for objective function</span>
+    <span class="n">LHS1</span> <span class="o">=</span> <span class="n">K1</span> <span class="o">-</span> <span class="n">K1A</span>
+    <span class="n">LHS2</span> <span class="o">=</span> <span class="n">K2</span> <span class="o">-</span> <span class="n">K2A</span>
+    <span class="n">LHS3</span> <span class="o">=</span> <span class="n">XA</span> <span class="o">-</span> <span class="mf">0.70</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">,</span> <span class="n">LHS3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mi">450</span><span class="p">])</span>
+<span class="n">ans</span>  <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">EQ1</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+<span class="n">ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-0.44061879, -0.89757879,  0.01440135],
+       [ 0.89723898, -0.44084952, -0.0247773 ],
+       [-0.02858841, -0.00200411, -0.99958926]])
+     fun: array([-1.38999923e-13, -6.68798350e-13,  0.00000000e+00])
+ message: &#39;The solution converged.&#39;
+    nfev: 17
+     qtf: array([-3.62855385e-08, -9.41639772e-09, -2.89366685e-10])
+       r: array([ 6.94379326e+01,  9.13374134e+01,  5.42079410e-02,  1.27286703e+01,
+       -1.54561923e-02,  1.16410849e-03])
+  status: 1
+ success: True
+       x: array([2.20687826e-01, 4.79312174e-01, 4.85292490e+02])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Now a bit of post processing that solution to get the requested compositions:</span>
+<span class="n">e1</span>  <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">e2</span>  <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">T</span>   <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">NA0</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1">#mole</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="mi">1</span>          <span class="c1">#mole</span>
+<span class="n">NC0</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1">#moles</span>
+<span class="n">ND0</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c1">#moles</span>
+
+<span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">e1</span> <span class="o">-</span> <span class="n">e2</span>
+<span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">e1</span> <span class="o">-</span> <span class="n">e2</span>
+<span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">e1</span>
+<span class="n">ND</span>  <span class="o">=</span> <span class="n">ND0</span>      <span class="o">+</span> <span class="n">e2</span>
+
+<span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span> <span class="o">+</span> <span class="n">ND</span>
+
+<span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yD</span>  <span class="o">=</span> <span class="n">ND</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="n">XA</span>  <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">-</span> <span class="n">NA</span><span class="p">)</span><span class="o">/</span><span class="n">NA0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At a temperature of </span><span class="si">{</span><span class="n">T</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">, the system achieves a fractional conversion of A of </span><span class="si">{</span><span class="n">XA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The mole fractions of A, B, C, and D are </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and </span><span class="si">{</span><span class="n">yD</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At a temperature of 485, the system achieves a fractional conversion of A of 0.700
+The mole fractions of A, B, C, and D are 0.231, 0.231, 0.170, and 0.369
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-02">
+<h2>Example 02<a class="headerlink" href="#example-02" title="Permalink to this headline">#</a></h2>
+<p>Consider the following liquid phase reaction.
+$<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoons C \ (l)\)</span>$</p>
+<p>In this particular system, A and C are miscible but do not interact with B. That is, you have two liquid phases:  one comprised of a mixture of A and C and a second comprised of pure B.  You also have a vapor space in the reactor in which A, B, and C are all present.  You have the following data available to you:</p>
+<p><span class="math notranslate nohighlight">\(K_1\)</span> = 1.0 at 298K and 1 bar<br />
+<span class="math notranslate nohighlight">\(x_B\)</span> = 1.0 (That is, the B phase is always pure B)</p>
+<p>The A + C solution is strongly nonideal, and activity coefficients for this system can be calculated according to the Margules Equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b4a8d6a7-9816-4dd1-84df-94093f871f39">
+<span class="eqno">(46)<a class="headerlink" href="#equation-b4a8d6a7-9816-4dd1-84df-94093f871f39" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \ln \gamma_A &amp;= x_C^2 \left[A_{AC}+2(A_{CA}-A_{AC})x_A \right] \label{eq13}\tag{13}\\
+    \ln \gamma_C &amp;= x_A^2 \left[A_{CA}+2(A_{AC}-A_{CA})x_C \right] \label{eq14}\tag{14}\\
+\end{align}\]</div>
+<p>Margules Constants are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3389812-7ecf-48be-9f5e-a0e5c09ee254">
+<span class="eqno">(47)<a class="headerlink" href="#equation-c3389812-7ecf-48be-9f5e-a0e5c09ee254" title="Permalink to this equation">#</a></span>\[\begin{align}
+    A_{AC} = 1.4 \\
+    A_{CA} = 2.0 \\
+\end{align}\]</div>
+<p>The vapor pressures of each component at 298K are additionally given:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0c273bba-d064-44d4-9ae8-7698ac32952e">
+<span class="eqno">(48)<a class="headerlink" href="#equation-0c273bba-d064-44d4-9ae8-7698ac32952e" title="Permalink to this equation">#</a></span>\[\begin{align}
+    P_A^\circ = 0.65 \ \textrm{bar} \\
+    P_B^\circ = 0.50 \ \textrm{bar} \\
+    P_C^\circ = 0.50 \ \textrm{bar} \\
+\end{align}\]</div>
+<p>Calculate the equilibrium composition of each phase in this system, which is at 298K.</p>
+<section id="id1">
+<h3>Developing the Solution<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>At first glance, this problem seems underspecified, and one is tempted to assign a basis; however, we are not able to do this in this particular problem because there are no degrees of freedom.  For a formal assessment, consider the Gibbs Phase Rule:</p>
+<div class="math notranslate nohighlight">
+\[F = 2 - \pi + N - R \label{eq15}\tag{15}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F\)</span> is the degrees of freedom, <span class="math notranslate nohighlight">\(\pi\)</span> is the number of phases present, <span class="math notranslate nohighlight">\(N\)</span> is the number of species present, and <span class="math notranslate nohighlight">\(R\)</span> is the number of reactions occuring.  Substituting relevant quantities for this system, we find:</p>
+<div class="math notranslate nohighlight">
+\[F = 2 - 3 + 3 - 1 = 1 \ \textrm{Degree of Freedom} \label{eq16}\tag{16}\]</div>
+<p>This means we can specify one thing: Temperature, pressure, or starting composition.  After we make that specification, the system can be fully solved in terms of (T, P, <span class="math notranslate nohighlight">\(\chi_j\)</span>).  Here, we are given an operating temperature, <span class="math notranslate nohighlight">\(T = 298\)</span>K.  We’ll just have to work with that…</p>
+<p>We generally start with the usual relationship between thermodynamics and composition at equilibrium:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-{\Delta G}^\circ_1}{RT}\right) = K_1 = \prod_{j = 1}^{N_S}a_j^{\nu_{1,j}} \label{eq17}\tag{17}\]</div>
+<p>Here, we are given the relevant value of the equilibrium constant at reaction temperature, 1 bar pressure, and for species as pure liquids:</p>
+<div class="math notranslate nohighlight">
+\[K_1 = 1.0 \label{eq18}\tag{18}\]</div>
+</section>
+<section id="the-chemical-equilibrium-problem-liquid-phase">
+<h3>The Chemical Equilibrium Problem (liquid phase)<a class="headerlink" href="#the-chemical-equilibrium-problem-liquid-phase" title="Permalink to this headline">#</a></h3>
+<p>We can now address the composition and pressure dependencies on the right hand side by expanding:</p>
+<div class="math notranslate nohighlight">
+\[ K_1 = \prod_{j = 1}^{N_S}a_j^{\nu_{1,j}} \label{eq19}\tag{19}\]</div>
+<p>This gives:</p>
+<div class="math notranslate nohighlight">
+\[ K_1 = \frac{a_C}{a_A a_B} \label{eq20}\tag{20}\]</div>
+<p>As usual, thermodynamic activities are given by:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ} \label{eq21}\tag{21}\]</div>
+<p>The reacting species here are all liquids.  When we work with liquids, our reference state is a pure liquid at the reaction temperature (here, 298K) and a pressure of 1 bar.  Fugacities for liquids in a mixture are generally given by the following equation, which assumes saturation pressures are not very high and that the Poynting factor is generally <span class="math notranslate nohighlight">\(\approx\)</span> 1:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j = \gamma_j x_j P_j^\textrm{sat} \label{eq22}\tag{22}\]</div>
+<p>In the reference state (pure species), we find:</p>
+<div class="math notranslate nohighlight">
+\[f_j^\circ = P_j^\textrm{sat} \label{eq23}\tag{23}\]</div>
+<p>Thus, for liquids in this system, we have:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \gamma_j x_j \label{eq24}\tag{24}\]</div>
+<p>We have three liquids to consider: A, B, and C.  A and C exist together as a solution; B is a pure phase.  A and C therefore have nonideal phase behavior that depends on composition (and we are given Margules model parameters to account for this).  Since B is present as a pure phase, it is essentially present in its reference state, which is thermodynamically ideal.  So, we find:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e8e1bc6a-b99a-495a-8ce9-f99d7e15995c">
+<span class="eqno">(49)<a class="headerlink" href="#equation-e8e1bc6a-b99a-495a-8ce9-f99d7e15995c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    a_A &amp;= \gamma_A x_A \label{eq25}\tag{25}\\
+    a_B &amp;= 1.0 \label{eq26}\tag{26}\\
+    a_C &amp;= \gamma_C x_C \label{eq27}\tag{27}\\
+\end{align}\]</div>
+<p>Where both activity coefficients are defined using the Margules models.  A quick inspection of the Margules equations reveals that they are only functions of fixed parameters (<span class="math notranslate nohighlight">\(A_{i,j}\)</span>) and the mole fractions of A and C; therefore, this does not add additional unknowns.</p>
+<p>Taking score, then, we find we have one equation to solve:</p>
+<div class="math notranslate nohighlight">
+\[0 = K_1 - \frac{a_C}{a_A a_B} \label{eq28}\tag{28}\]</div>
+<p>It is a function of two unknowns:  <span class="math notranslate nohighlight">\(x_A\)</span> and <span class="math notranslate nohighlight">\(x_C\)</span> (remember, B is in a pure phase so <span class="math notranslate nohighlight">\(x_B\)</span> = 1).</p>
+<p>We can relate these with a composition tie:</p>
+<div class="math notranslate nohighlight">
+\[0 = 1 - x_A - x_C \label{eq29}\tag{29}\]</div>
+<p>So the following two equations can be solved simultaneously to determine the composition of the liquid phase:</p>
+</section>
+<section id="system-of-equations-for-liquid-phase-only">
+<h3>System of Equations for Liquid phase only<a class="headerlink" href="#system-of-equations-for-liquid-phase-only" title="Permalink to this headline">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-fed71dae-271a-4b6e-b8b4-6a18cd904819">
+<span class="eqno">(50)<a class="headerlink" href="#equation-fed71dae-271a-4b6e-b8b4-6a18cd904819" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
+    0 &amp;= 1 - x_A - x_C
+\end{align}\]</div>
+<p>Unknowns: <span class="math notranslate nohighlight">\(x_A\)</span>, and <span class="math notranslate nohighlight">\(x_C\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ2a</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    
+    <span class="c1">#Liquid mole fractions</span>
+    <span class="n">xA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xB</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">xC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1">#Activity Coefficients</span>
+    <span class="n">AAC</span>    <span class="o">=</span> <span class="mf">1.4</span>
+    <span class="n">ACA</span>    <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="n">gammaA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xC</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">-</span> <span class="n">AAC</span><span class="p">)</span><span class="o">*</span><span class="n">xA</span><span class="p">))</span>
+    <span class="n">gammaC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">-</span> <span class="n">ACA</span><span class="p">)</span><span class="o">*</span><span class="n">xC</span><span class="p">))</span> 
+    
+    <span class="c1">#Thermodynamic activities</span>
+    <span class="n">aA</span>     <span class="o">=</span> <span class="n">gammaA</span><span class="o">*</span><span class="n">xA</span>
+    <span class="n">aB</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">aC</span>     <span class="o">=</span> <span class="n">gammaC</span><span class="o">*</span><span class="n">xC</span>
+    
+    <span class="c1">#KA&#39;s</span>
+    <span class="n">KA1</span>    <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    
+    <span class="c1">#KThermo</span>
+    <span class="n">K1</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    
+    <span class="c1">#Objective</span>
+    <span class="n">LHS1</span>   <span class="o">=</span> <span class="n">K1</span> <span class="o">-</span> <span class="n">KA1</span>
+    <span class="n">LHS2</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xC</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">EQ2a</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+<span class="n">ans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-0.94561024,  0.32530181],
+       [-0.32530181, -0.94561024]])
+     fun: array([0., 0.])
+ message: &#39;The solution converged.&#39;
+    nfev: 9
+     qtf: array([8.75042294e-11, 3.01025545e-11])
+       r: array([-3.07406839, -1.61931735,  0.50045264])
+  status: 1
+ success: True
+       x: array([0.3497002, 0.6502998])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-phase-equilibrium-problem-vapor-phase">
+<h3>The Phase Equilibrium Problem (vapor-phase)<a class="headerlink" href="#the-phase-equilibrium-problem-vapor-phase" title="Permalink to this headline">#</a></h3>
+<p>But that isn’t everything the problem asked for.  We also have a vapor phase present in the reactor, which contains species A, B, and C.  We want to also determine the composition of the vapor phase.  We know that the system is at full equilibrium (chemical equilibrium <em>and</em> phase equilibrium).</p>
+<p>The criteria for phase equilibrium is that every species, <span class="math notranslate nohighlight">\(j\)</span>, is present at the same chemical potential, <span class="math notranslate nohighlight">\(\mu_j\)</span>, in each phase that is present at equilibrium.  Here we have a vapor phase containing all three species, one liquid phase containing A and C, and second liquid phase containing only B.  So we write three phase equilibrium constraints, one for each species.</p>
+<p>A consequence of equal chemical potential of species <span class="math notranslate nohighlight">\(j\)</span> in the two equilibrated phases is that the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> is equal in each phase.  We recall that we express fugacities for species in the liquid phase as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j = \gamma_j x_j P_j^\textrm{sat} \label{eq30}\tag{30}\]</div>
+<p>And for species in the vapor phase as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j = y_j \phi_j P \label{eq31}\tag{31}\]</div>
+<p>Looking at the saturation pressures of these species, they are all relatively small, so we can assume the pressure in the tank will not be all that high, and we can set <span class="math notranslate nohighlight">\(\phi_j = 1.0\)</span> to simplify the problem.  This gives the following three equations that describe phase equilibria:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e9e8ab9e-2f08-4056-a204-8b3a67a9b3c1">
+<span class="eqno">(51)<a class="headerlink" href="#equation-e9e8ab9e-2f08-4056-a204-8b3a67a9b3c1" title="Permalink to this equation">#</a></span>\[\begin{align}
+    y_A P &amp;= \gamma_A x_A P_A^\textrm{sat} \label{eq32}\tag{32}\\
+    y_B P &amp;= P_B^\textrm{sat} \label{eq33}\tag{33}\\
+    y_C P &amp;= \gamma_C x_C P_C^\textrm{sat} \label{eq34}\tag{34}\\
+\end{align}\]</div>
+<p>So we have to add these three equations to our 1 equation/1 unknown situation that describes the liquid phase.  The only catch is that these three equations are expressed in terms of 4 new unknowns: <span class="math notranslate nohighlight">\(y_A\)</span>, <span class="math notranslate nohighlight">\(y_B\)</span>, <span class="math notranslate nohighlight">\(y_C\)</span>, and P.  So we need one more equation that constrains the system.  We can use another composition tie for the gas phase, specifically:</p>
+<div class="math notranslate nohighlight">
+\[1 = y_A + y_B + y_C \label{eq35}\tag{35}\]</div>
+<p>With that, we have a perfectly specified problem (6 equations, 6 unknowns), and we can solve with scipy.optimize.root.</p>
+</section>
+<section id="system-of-equations-for-simultaneous-chemical-and-phase-equilibrium">
+<h3>System of equations for simultaneous chemical and phase equilibrium<a class="headerlink" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibrium" title="Permalink to this headline">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-6a6da671-9b56-4cd3-88cc-2198e0e3fda9">
+<span class="eqno">(52)<a class="headerlink" href="#equation-6a6da671-9b56-4cd3-88cc-2198e0e3fda9" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
+    0 &amp;= 1.0 - x_A - x_C \\
+    0 &amp;= y_A P - \gamma_A x_A P_A^\textrm{sat} \\
+    0 &amp;= y_B P - P_B^\textrm{sat} \\
+    0 &amp;= y_C P - \gamma_C x_C P_C^\textrm{sat} \\
+    0 &amp;= 1.0 - y_A - y_B - y_C \\
+\end{align}\]</div>
+<p>Unknowns:  <span class="math notranslate nohighlight">\(x_A\)</span>, <span class="math notranslate nohighlight">\(x_C\)</span>, <span class="math notranslate nohighlight">\(y_A\)</span>, <span class="math notranslate nohighlight">\(y_B\)</span>, <span class="math notranslate nohighlight">\(y_C\)</span>, <span class="math notranslate nohighlight">\(P\)</span></p>
+<p>We write this system as an objective function below.  Just notice that every single definition we make in the function below is either something that is fixed and given in the problem statement, or it is a function of any combination of these 6 unknowns.  Hence, I call this one 6 equations and 6 unknowns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ2</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    
+    <span class="c1">#Liquid mole fractions</span>
+    <span class="n">xA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xB</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">xC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">yA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">yB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">yC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">P</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    
+    <span class="c1">#Saturation pressures</span>
+    <span class="n">PAsat</span> <span class="o">=</span> <span class="mf">0.65</span> <span class="c1">#bar</span>
+    <span class="n">PBsat</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="c1">#bar</span>
+    <span class="n">PCsat</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="c1">#bar</span>
+    
+    <span class="c1">#Activity Coefficients</span>
+    <span class="n">AAC</span>    <span class="o">=</span> <span class="mf">1.4</span>
+    <span class="n">ACA</span>    <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="n">gammaA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xC</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">-</span> <span class="n">AAC</span><span class="p">)</span><span class="o">*</span><span class="n">xA</span><span class="p">))</span>
+    <span class="n">gammaC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">-</span> <span class="n">ACA</span><span class="p">)</span><span class="o">*</span><span class="n">xC</span><span class="p">))</span> 
+    
+    <span class="c1">#Thermodynamic activities</span>
+    <span class="n">aA</span>     <span class="o">=</span> <span class="n">gammaA</span><span class="o">*</span><span class="n">xA</span>
+    <span class="n">aB</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">aC</span>     <span class="o">=</span> <span class="n">gammaC</span><span class="o">*</span><span class="n">xC</span>
+    
+    <span class="c1">#KA&#39;s</span>
+    <span class="n">KA1</span>    <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    
+    <span class="c1">#KThermo</span>
+    <span class="n">K1</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    
+    <span class="c1">#Objective</span>
+    <span class="n">LHS1</span>   <span class="o">=</span> <span class="n">K1</span> <span class="o">-</span> <span class="n">KA1</span>
+    <span class="n">LHS2</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xC</span>
+    <span class="n">LHS3</span>   <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">gammaA</span><span class="o">*</span><span class="n">xA</span><span class="o">*</span><span class="n">PAsat</span>
+    <span class="n">LHS4</span>   <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">PBsat</span>
+    <span class="n">LHS5</span>   <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">gammaC</span><span class="o">*</span><span class="n">xC</span><span class="o">*</span><span class="n">PCsat</span>
+    <span class="n">LHS6</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">yA</span> <span class="o">-</span> <span class="n">yB</span> <span class="o">-</span> <span class="n">yC</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">,</span> <span class="n">LHS3</span><span class="p">,</span> <span class="n">LHS4</span><span class="p">,</span> <span class="n">LHS5</span><span class="p">,</span> <span class="n">LHS6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">EQ2</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+<span class="n">xA</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">yA</span><span class="p">,</span> <span class="n">yB</span><span class="p">,</span> <span class="n">yC</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The gas phase mole fractions of A, B, and C are </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The liquid phase mole fractions of A and C are </span><span class="si">{</span><span class="n">xA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">xC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The system pressure is </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution converged.
+The gas phase mole fractions of A, B, and C are 0.359, 0.365, 0.276
+The liquid phase mole fractions of A and C are 0.350 and 0.650
+The system pressure is 1.368 bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-03">
+<h2>Example 03<a class="headerlink" href="#example-03" title="Permalink to this headline">#</a></h2>
+<p>Adding complexity to Example 2 above, we learn that that species A decomposes in a side reaction to form species D. So now we have two reactions occuring in this system:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fa411ecc-9f8b-4441-ab9c-b693eed85c91">
+<span class="eqno">(53)<a class="headerlink" href="#equation-fa411ecc-9f8b-4441-ab9c-b693eed85c91" title="Permalink to this equation">#</a></span>\[\begin{align}
+    &amp;(1) \qquad A \ (l) + B \ (l) \leftrightharpoons C \ (l) \\
+    &amp;(2) \qquad A \ (l) \leftrightharpoons 2D \ (g) \\
+\end{align}\]</div>
+<p>Thermodynamic data is available for the reaction occurring as written, i.e., A in a pure liquid reference state decomposes to form B in a pure gas reference state. We know that, at T = 298K and P = 1bar:</p>
+<div class="math notranslate nohighlight">
+\[K_2 = 3.7\]</div>
+<p>Species D is non-condensable, and it is insoluble in both liquid phases that are present.  This means that species D is only present in the gas phase. Calculate the equilibrium composition of each phase in this system, which is at 298K and 1 bar.</p>
+<p>This basically adds one additional unknown to our system, the gas-phase mole fraction of species D.  There is no species D in the liquid phase.  We only need to add one equation to the last case to solve for this – that will be the chemical equilibrium specification for reaction 2:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-{\Delta G}^\circ_2}{RT}\right) = K_2 = \prod_{j = 1}^{N_S}a_j^{\nu_{2,j}} \label{eq36}\tag{36}\]</div>
+<p>We are already given <span class="math notranslate nohighlight">\(K_2\)</span> at the appropriate temperature and pressure, so we focus on the right hand side to find:</p>
+<div class="math notranslate nohighlight">
+\[K_2 = \frac{a_D^2}{a_A} \label{eq37}\tag{37}\]</div>
+<p>As usual:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ} \label{eq38}\tag{38}\]</div>
+<p>Here, we see mixed reference states in reaction 2.  Thermodynamic data is provided for the reaction as written, which means for species A as a pure liquid and for species B as a pure gas.  So we use different activity definitions for each.  We just have to make sure our reference states in the activity definitions are exactly the same as those used in defining the equilibrium constant.  For the gas (species D), we have:</p>
+<div class="math notranslate nohighlight">
+\[a_D = \frac{y_D \phi_D P}{P^\circ} \label{eq39}\tag{39}\]</div>
+<p>But we already know the pressure of the system is not too high, so we say that the fugacity coefficient for species D is 1, giving:</p>
+<div class="math notranslate nohighlight">
+\[a_D = \frac{y_D P}{P^\circ} \label{eq40}\tag{40}\]</div>
+<p>For species A, we actually already defined the activity in the solution for the first part of this problem:</p>
+<div class="math notranslate nohighlight">
+\[a_A = \gamma_A x_A \label{eq41}\tag{41}\]</div>
+<p>With that, we’re all set.  Here’s the system of equations we now have to solve:</p>
+<section id="system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states">
+<h3>System of equations for simultaneous chemical and phase equilibria with multiple reactions and mixed reference states<a class="headerlink" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states" title="Permalink to this headline">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-9487ef0c-e8ab-466f-9e70-b7b11fdf8ad0">
+<span class="eqno">(54)<a class="headerlink" href="#equation-9487ef0c-e8ab-466f-9e70-b7b11fdf8ad0" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
+    0 &amp;= 1.0 - x_A - x_C \\
+    0 &amp;= y_A P - \gamma_A x_A P_A^\textrm{sat} \\
+    0 &amp;= y_B P - P_B^\textrm{sat} \\
+    0 &amp;= y_C P - \gamma_C x_C P_C^\textrm{sat} \\
+    0 &amp;= 1.0 - y_A - y_B - y_C - y_D \\
+    0 &amp;= K_2 - \frac{a_D^2}{a_A} \\
+\end{align}\]</div>
+<p>Unknowns:  <span class="math notranslate nohighlight">\(x_A\)</span>, <span class="math notranslate nohighlight">\(x_C\)</span>, <span class="math notranslate nohighlight">\(y_A\)</span>, <span class="math notranslate nohighlight">\(y_B\)</span>, <span class="math notranslate nohighlight">\(y_C\)</span>, <span class="math notranslate nohighlight">\(y_D\)</span>, <span class="math notranslate nohighlight">\(P\)</span></p>
+<p>We write this system as an objective function below.  Again, notice that every single definition in this objective function is either a value that is constant (e.g., saturation pressures), or it is a function of our unknowns.  With that in mind, this is 7 constraint equations, 7 unknowns, and we can solve it with scipy.opimize.root. We’ll just modify the objective function from about to expand the number of unknowns and constraint equations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">EQ3</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    
+    <span class="c1">#Liquid mole fractions</span>
+    <span class="n">xA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xB</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">xC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">yA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">yB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">yC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">yD</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">P</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+    
+    <span class="c1">#Reference pressure</span>
+    <span class="n">P0</span>    <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1">#bar</span>
+    
+    <span class="c1">#Saturation pressures</span>
+    <span class="n">PAsat</span> <span class="o">=</span> <span class="mf">0.65</span> <span class="c1">#bar</span>
+    <span class="n">PBsat</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="c1">#bar</span>
+    <span class="n">PCsat</span> <span class="o">=</span> <span class="mf">0.50</span> <span class="c1">#bar</span>
+    
+    <span class="c1">#Activity Coefficients</span>
+    <span class="n">AAC</span>    <span class="o">=</span> <span class="mf">1.4</span>
+    <span class="n">ACA</span>    <span class="o">=</span> <span class="mf">2.0</span>
+    <span class="n">gammaA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xC</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">-</span> <span class="n">AAC</span><span class="p">)</span><span class="o">*</span><span class="n">xA</span><span class="p">))</span>
+    <span class="n">gammaC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">ACA</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">AAC</span> <span class="o">-</span> <span class="n">ACA</span><span class="p">)</span><span class="o">*</span><span class="n">xC</span><span class="p">))</span> 
+    
+    <span class="c1">#Thermodynamic activities; A, B, and C as liquids</span>
+    <span class="n">aA</span>     <span class="o">=</span> <span class="n">gammaA</span><span class="o">*</span><span class="n">xA</span>
+    <span class="n">aB</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">aC</span>     <span class="o">=</span> <span class="n">gammaC</span><span class="o">*</span><span class="n">xC</span>
+    
+    <span class="c1">#Thermodyanmic activities; D as a gas</span>
+    <span class="n">aD</span>    <span class="o">=</span> <span class="n">yD</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="c1">#KA&#39;s</span>
+    <span class="n">KA1</span>    <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">KA2</span>    <span class="o">=</span> <span class="n">aD</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aA</span>
+    
+    <span class="c1">#KThermo</span>
+    <span class="n">K1</span>     <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">K2</span>     <span class="o">=</span> <span class="mf">3.7</span>
+    
+    <span class="c1">#Objective</span>
+    <span class="n">LHS1</span>   <span class="o">=</span> <span class="n">K1</span> <span class="o">-</span> <span class="n">KA1</span>
+    <span class="n">LHS2</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">xA</span> <span class="o">-</span> <span class="n">xC</span>
+    <span class="n">LHS3</span>   <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">gammaA</span><span class="o">*</span><span class="n">xA</span><span class="o">*</span><span class="n">PAsat</span>
+    <span class="n">LHS4</span>   <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">PBsat</span>
+    <span class="n">LHS5</span>   <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span> <span class="o">-</span> <span class="n">gammaC</span><span class="o">*</span><span class="n">xC</span><span class="o">*</span><span class="n">PCsat</span>
+    <span class="n">LHS6</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">yA</span> <span class="o">-</span> <span class="n">yB</span> <span class="o">-</span> <span class="n">yC</span> <span class="o">-</span> <span class="n">yD</span>
+    <span class="n">LHS7</span>   <span class="o">=</span> <span class="n">K2</span>  <span class="o">-</span> <span class="n">KA2</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">,</span> <span class="n">LHS3</span><span class="p">,</span> <span class="n">LHS4</span><span class="p">,</span> <span class="n">LHS5</span><span class="p">,</span> <span class="n">LHS6</span><span class="p">,</span> <span class="n">LHS7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">EQ3</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+<span class="n">xA</span><span class="p">,</span> <span class="n">xC</span><span class="p">,</span> <span class="n">yA</span><span class="p">,</span> <span class="n">yB</span><span class="p">,</span> <span class="n">yC</span><span class="p">,</span> <span class="n">yD</span><span class="p">,</span> <span class="n">P</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The gas phase mole fractions of A, B, C, and D are </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yD</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The liquid phase mole fractions of A and C are </span><span class="si">{</span><span class="n">xA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> and </span><span class="si">{</span><span class="n">xC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The system pressure is </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution converged.
+The gas phase mole fractions of A, B, C, and D are 0.161, 0.165, 0.124, 0.550
+The liquid phase mole fractions of A and C are 0.350 and 0.650
+The system pressure is 3.039 bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L08.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 08: Multi-reaction equilibria</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L10.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 10</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

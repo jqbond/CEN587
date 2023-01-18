@@ -1,0 +1,1587 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 26 &#8212; Using Python in Chemical Engineering Curricula</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 27" href="F22-587-L27.html" />
+    <link rel="prev" title="Lecture 25" href="F22-587-L25.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2001%20-%20The%20Basics.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2002%20-%20Lists%2C%20Tuples%2C%20Numpy%20Arrays%2C%20and%20Dictionaries.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2003%20-%20Arrays%20and%20Matrices.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2004%20-%20For%20Loops%2C%20List%20Comprehensions%2C%20Vectorization%2C%20and%20Plotting.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2005%20-%20Booleans%2C%20Conditionals%2C%20and%20Logical%20Tests.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2006%20-%20While%20Loops.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2007%20-%20Functions.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2008%20-%20Probability%20Distributions%2C%20D%26D.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2009%20-%20Root%20Finding%20for%20Univariate%20Scalar%20Functions.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/Module%2010%20-%20Optimization%20of%20Univariate%20Scalar%20Functions.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="F22-587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/F22-587-R01.html">
+     Recitation 01: Jupyter and Python Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/F22-587-L26.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/F22-587-L26.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/F22-587-L26.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#material-balances">
+       Material Balances
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#always-assess-equilibrium-limits-for-reversible-reactions">
+       Always assess equilibrium limits for reversible reactions!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#increasing-the-attainable-equilibrium-conversion">
+       Increasing the attainable equilibrium conversion
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#returning-to-the-material-balances-under-conditions-where-we-can-reach-95-conversion">
+       Returning to the material balances under conditions where we can reach 95% conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-overall-process">
+       Analysis of the overall process
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-splitter">
+       Analysis of the Splitter
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-separator">
+       Analysis of the separator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-mixer">
+       Analysis of the mixer
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-reactor">
+       Analysis of the reactor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solve-the-material-balance-for-a-lower-target-single-pass-conversion">
+       Solve the Material Balance for a lower target single pass conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 26</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#material-balances">
+       Material Balances
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#always-assess-equilibrium-limits-for-reversible-reactions">
+       Always assess equilibrium limits for reversible reactions!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#increasing-the-attainable-equilibrium-conversion">
+       Increasing the attainable equilibrium conversion
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#returning-to-the-material-balances-under-conditions-where-we-can-reach-95-conversion">
+       Returning to the material balances under conditions where we can reach 95% conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-overall-process">
+       Analysis of the overall process
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-splitter">
+       Analysis of the Splitter
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-separator">
+       Analysis of the separator
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-mixer">
+       Analysis of the mixer
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-the-reactor">
+       Analysis of the reactor
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solve-the-material-balance-for-a-lower-target-single-pass-conversion">
+       Solve the Material Balance for a lower target single pass conversion
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-26">
+<h1>Lecture 26<a class="headerlink" href="#lecture-26" title="Permalink to this headline">#</a></h1>
+<p>This lecture solves reactor design problems involving semi-batch reactors; membrane reactors; recycle reactors, and packed beds with pressure drops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>The synthesis of Methyl Bromide is carried out in the liquid phase using a well-mixed tank reactor.</p>
+<div class="math notranslate nohighlight">
+\[C\!N\!Br + C\!H_3N\!H_2 \longrightarrow C\!H_3Br + N\!C\!N\!H_2\]</div>
+<p>The tank is initially filled with 5L of a solvent solution containing Bromine Cyanide (A) at a concentration of 0.05M.  At time zero, you turn on the feed to the reactor, which is a solvent solution containing methylamine (B) at 0.025M; the feed enters the reactor at a total volumetric flowrate of 0.05 L s<span class="math notranslate nohighlight">\(^{-1}\)</span>. This reaction is first order in A and first order in B, and we are given a rate constant of:</p>
+<div class="math notranslate nohighlight">
+\[k = 2.2 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{s}^{-1}\]</div>
+<p>All species are dissolved in an inert solvent and present at relatively low concentrations, so we can assume that the density of all fluid in the system is approximately equal to the density of the solvent. Plot the concentrations of all species in the reactor as well as the rate of reaction as a function of time.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>We’ll use the shorthand:</p>
+<div class="math notranslate nohighlight">
+\[A + B \longrightarrow C + D\]</div>
+<p>Write balances on species:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-340f5197-bd58-4cb6-ac4b-97b1e5d9d96e">
+<span class="eqno">(141)<a class="headerlink" href="#equation-340f5197-bd58-4cb6-ac4b-97b1e5d9d96e" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dN_A}{dt} &amp;= R_AV \\
+    \frac{dN_B}{dt} &amp;= F_{Bf} + R_BV \\
+    \frac{dN_C}{dt} &amp;= R_CV \\
+    \frac{dN_D}{dt} &amp;= R_DV
+\end{align}\]</div>
+<p>The only new concept above is that, for species B, we have an inlet molar flowrate, so that (with respect to species B), this looks like a transient CSTR balance with no outflow. We can calculate the value of the feed molar flowrate of B using information in the problem statement:</p>
+<div class="math notranslate nohighlight">
+\[F_{Bf} = C_{Bf}Q_f\]</div>
+<p>Define Production rates <span class="math notranslate nohighlight">\(R_j\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7e54ff08-1177-48c0-86f3-c0c58bf3a4b3">
+<span class="eqno">(142)<a class="headerlink" href="#equation-7e54ff08-1177-48c0-86f3-c0c58bf3a4b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_A &amp;= -r \\
+    R_B &amp;= -r \\
+    R_C &amp;= r \\
+    R_D &amp;= r
+\end{align}\]</div>
+<p>Reaction rate is given by:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Concentrations are given by:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-227a7c14-1588-4667-9bbd-2747ac9624e0">
+<span class="eqno">(143)<a class="headerlink" href="#equation-227a7c14-1588-4667-9bbd-2747ac9624e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A = \frac{N_A}{V} \\
+    C_B = \frac{N_B}{V}
+\end{align}\]</div>
+<p>Volume is clearly not going to be constant in this reactor since we have an inlet flow and no outlet flow.  We aren’t given densities or molecular weights for these species, but we’re told that the density is constant.  This makes it relatively easy to derive an equation that describes the change in volume with time.  Starting with a total mass balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dm}{dt} = \dot{m}_{f}\]</div>
+<p>We can express mass (<span class="math notranslate nohighlight">\(m\)</span>) and mass flowrate (<span class="math notranslate nohighlight">\(\dot{m}_{f}\)</span>) in terms of volume (<span class="math notranslate nohighlight">\(V\)</span>), volumetric flowrate (<span class="math notranslate nohighlight">\(Q_f\)</span>), and density (<span class="math notranslate nohighlight">\(\rho\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{d(\rho V)}{dt} = \rho Q_f\]</div>
+<p>Since density is time invariant in this problem, the ODE simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dV}{dt} = Q_f\]</div>
+<p>This can be solved analytically since it is not coupled to any other time dependent terms to give:</p>
+<div class="math notranslate nohighlight">
+\[V = V_0 + Q_ft\]</div>
+<p>Alternatively, you can use <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> to integrated the volume differential equation alongside the material balances.  This approach is more general, so we’ll use that one to solve this problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V0</span>  <span class="o">=</span> <span class="mf">5.0</span> <span class="c1">#L</span>
+<span class="n">CA0</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1">#mol/L</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mf">0.05</span> <span class="c1">#L/s</span>
+<span class="n">CBf</span> <span class="o">=</span> <span class="mf">0.025</span> <span class="c1">#mol/L</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span><span class="o">*</span><span class="n">Qf</span>
+
+<span class="n">NA0</span> <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">V0</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">ND0</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">k</span>   <span class="o">=</span> <span class="mf">2.2</span>  <span class="c1">#L/mol/s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P01</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    
+    <span class="n">NA</span><span class="p">,</span> <span class="n">NB</span><span class="p">,</span> <span class="n">NC</span><span class="p">,</span> <span class="n">ND</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">Qf</span> <span class="o">=</span> <span class="n">par</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    <span class="n">RD</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">D1</span> <span class="o">=</span>       <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">+</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D3</span> <span class="o">=</span>       <span class="n">RC</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D4</span> <span class="o">=</span>       <span class="n">RD</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">D5</span> <span class="o">=</span> <span class="n">Qf</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D4</span><span class="p">,</span> <span class="n">D5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5000.0</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span><span class="p">,</span> <span class="n">NB0</span><span class="p">,</span> <span class="n">NC0</span><span class="p">,</span> <span class="n">ND0</span><span class="p">,</span> <span class="n">V0</span><span class="p">)</span>
+<span class="n">par0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">Qf</span><span class="p">)</span>
+<span class="n">ans1</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P01</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="n">t</span>     <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>    <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">NB</span>    <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">NC</span>    <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">ND</span>    <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">V</span>     <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">CA</span>    <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+<span class="n">CB</span>    <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+<span class="n">CC</span>    <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">V</span>
+<span class="n">CD</span>    <span class="o">=</span> <span class="n">ND</span><span class="o">/</span><span class="n">V</span>
+<span class="n">r</span>     <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CC</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CD</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CD&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="c1">#plt.ylim(0.0, 0.06)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reaction Rate (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="c1">#plt.ylim(0.0, 10)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reactor Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L26_6_0.png" src="../_images/F22-587-L26_6_0.png" />
+<img alt="../_images/F22-587-L26_6_1.png" src="../_images/F22-587-L26_6_1.png" />
+<img alt="../_images/F22-587-L26_6_2.png" src="../_images/F22-587-L26_6_2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p>You are designing a flow reactor in order to perform gas-phase propane dehydrogenation.  The purpose of this reaction is “on purpose” generation of propylene, which has historically been produced as a side product of ethylene synthesis via naptha cracking. One of the consequences of the shale gas boom is that it greatly expanded the supply of ethane (and thus decrease the cost of ethane).  Accordingly, the majority of our ethylene production has shifted to ethane pyrolysis, which does not produce significant quantities of propylene.  Hence your interest in an on-purpose synthesis of propylene!</p>
+<div class="math notranslate nohighlight">
+\[C_3H_8 \longleftrightarrow C_3H_6 + H_2\]</div>
+<p>The reaction has an elementary rate law, and it is performed at 500K and 8.2atm.  At this temperature, you find that the forward rate constant and the concentration-based equilibrium constant are:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    k_f  = 0.7  \ \textrm{min}^{-1} \\
+    K_C = 0.05 \ \textrm{mol} \ \textrm{L}^{-1}				
+\end{align*}\]</div>
+<p>If the feed rate of propane to the reactor is 10 moles per minute, find the PFR volume required to achieve 95% conversion.</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<section id="material-balances">
+<h4>Material Balances<a class="headerlink" href="#material-balances" title="Permalink to this headline">#</a></h4>
+<p>Our instinct for solving this problem is to write a balance on each species:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_j}{dV} = R_j\]</div>
+<p>We can then specify a production rate for each species in terms of the reaction rate:</p>
+<div class="math notranslate nohighlight">
+\[R_j = \sum_i \nu_{i,j}r_i\]</div>
+<p>The reaction rate in this problem is elementary, so:</p>
+<div class="math notranslate nohighlight">
+\[r = k_fC_A - k_rC_BC_C\]</div>
+<p>And we can define concentrations in terms of flowrates:</p>
+<div class="math notranslate nohighlight">
+\[C_j = \frac{F_j}{Q}\]</div>
+<p>Where Q is given by:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_T RT}{P}\]</div>
+<p>In terms of parameters, we are given <span class="math notranslate nohighlight">\(k_f\)</span>, <span class="math notranslate nohighlight">\(T\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, and <span class="math notranslate nohighlight">\(F_{Af}\)</span>.  We can infer that <span class="math notranslate nohighlight">\(F_{Bf}\)</span> and <span class="math notranslate nohighlight">\(F_{Cf}\)</span> are both zero.  Finally, we can calculate the reverse rate constant:</p>
+<div class="math notranslate nohighlight">
+\[k_r = \frac{k_f}{K_C}\]</div>
+<p>With this, we can solve the problem by integrating the coupled ODEs with <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> and using <code class="docutils literal notranslate"><span class="pre">interp1D()</span></code> to back out the volume where we hit our conversion target.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf</span> <span class="o">=</span> <span class="mf">0.7</span>  <span class="c1">#1/min</span>
+<span class="n">KC</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1">#mol/L</span>
+<span class="n">kr</span> <span class="o">=</span> <span class="n">kf</span><span class="o">/</span><span class="n">KC</span> <span class="c1">#L/mol/min</span>
+<span class="n">T</span>  <span class="o">=</span> <span class="mi">500</span> <span class="c1">#K</span>
+<span class="n">P</span>  <span class="o">=</span> <span class="mf">8.2</span> <span class="c1">#atm</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1">#mol/min</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">FCf</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">XA_target</span> <span class="o">=</span> <span class="mf">0.95</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P02</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    <span class="n">FA</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="n">FC</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="n">kf</span><span class="p">,</span> <span class="n">kr</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">par</span>
+    
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span>
+    
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">kf</span><span class="o">*</span><span class="n">CA</span> <span class="o">-</span> <span class="n">kr</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CC</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span>  <span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">dA</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">dB</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">dC</span> <span class="o">=</span> <span class="n">RC</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">dA</span><span class="p">,</span> <span class="n">dB</span><span class="p">,</span> <span class="n">dC</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vspan = (0.0, 100.0)</span>
+<span class="n">Vspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1000.0</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">)</span>
+<span class="n">par0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">kf</span><span class="p">,</span> <span class="n">kr</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">ans2</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02</span><span class="p">,</span> <span class="n">Vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span>  <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="n">V</span>     <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FA</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FB</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FC</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">Vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion of A&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L26_11_0.png" src="../_images/F22-587-L26_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itp1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="n">itp1</span><span class="p">(</span><span class="n">XA_target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_14012\1180215072.py</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">itp1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">itp1</span><span class="p">(</span><span class="n">XA_target</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\interpolate\_polyint.py</span> in <span class="ni">__call__</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2">         x, x_shape = self._prepare_x(x)</span>
+<span class="ne">---&gt; </span><span class="mi">78</span><span class="s2">         y = self._evaluate(x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="s2">         return self._finish_y(y, x_shape)</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="s2"> </span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py</span> in <span class="ni">_evaluate</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         y_new = self._call(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">         if not self._extrapolate:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">             below_bounds, above_bounds = self._check_bounds(x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             if len(y_new) &gt; 0:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 # Note fill_value must be broadcast up to the proper size</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py</span> in <span class="ni">_check_bounds</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">735</span><span class="s2">                              &quot;range.&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span><span class="s2">         if self.bounds_error and above_bounds.any():</span>
+<span class="ne">--&gt; </span><span class="mi">737</span><span class="s2">             raise ValueError(&quot;A value in x_new is above the interpolation &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">738</span><span class="s2">                              &quot;range.&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">739</span><span class="s2"> </span>
+
+<span class="ne">ValueError</span>: A value in x_new is above the interpolation range.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="always-assess-equilibrium-limits-for-reversible-reactions">
+<h4>Always assess equilibrium limits for reversible reactions!<a class="headerlink" href="#always-assess-equilibrium-limits-for-reversible-reactions" title="Permalink to this headline">#</a></h4>
+<p>We failed to consider the equilibrium limit before we asked for 95% conversion.  If we solve the equilibrium problem, we can see how attainable conversion depends on the specifications for this problem.  The best way to solve this is using the methods from Unit 02, where we solve an algebraic equation given by:</p>
+<div class="math notranslate nohighlight">
+\[K_C - \prod_j C_j^{\nu_j} = 0\]</div>
+<p>To do so, we can develop a mole table that relates all species flowrates to fractional conversion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eqns2a</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    
+    <span class="n">KC</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span> <span class="o">=</span> <span class="n">par</span>
+    
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FB</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">+</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FC</span> <span class="o">=</span> <span class="n">FCf</span> <span class="o">+</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span>
+    
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">Q</span>
+        
+    <span class="n">KC_comp</span> <span class="o">=</span> <span class="n">CC</span><span class="o">*</span><span class="n">CB</span><span class="o">/</span><span class="n">CA</span>
+    
+    <span class="n">eqn1</span>    <span class="o">=</span> <span class="n">KC_comp</span> <span class="o">-</span> <span class="n">KC</span>
+    <span class="k">return</span> <span class="n">eqn1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XAguess</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">par0</span>    <span class="o">=</span> <span class="n">KC</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span>
+<span class="n">ans3</span>    <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">eqns2a</span><span class="p">,</span> <span class="n">XAguess</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">))</span>
+<span class="n">ans3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4473444489882259
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="increasing-the-attainable-equilibrium-conversion">
+<h4>Increasing the attainable equilibrium conversion<a class="headerlink" href="#increasing-the-attainable-equilibrium-conversion" title="Permalink to this headline">#</a></h4>
+<p>From the above analysis of equilibrium limits for these conditions, we learn that it is impossible to attain the requested conversion under the given conditions. Since this is a reaction where the number of moles increase with reaction (assuming we do not change the temperature), the only way we can improve the equilibrium limit so that we can reach the requested 95% conversion is to either reduce the system pressure, add an inert gas diluent (which accomplishes the same thing as reducing the pressure in terms of the equilibrium analysis), or do some combination of the two if it is more practical.</p>
+<p>We adapt the equilibrium problem below by adding diluent and reducing the operating pressure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eqns2b</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    
+    <span class="n">KC</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">,</span> <span class="n">FIf</span> <span class="o">=</span> <span class="n">par</span>
+    
+    <span class="n">FA</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FB</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">+</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FC</span> <span class="o">=</span> <span class="n">FCf</span> <span class="o">+</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    <span class="n">FI</span> <span class="o">=</span> <span class="n">FIf</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span> <span class="o">+</span> <span class="n">FI</span>
+    
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">Q</span>
+        
+    <span class="n">KC_comp</span> <span class="o">=</span> <span class="n">CC</span><span class="o">*</span><span class="n">CB</span><span class="o">/</span><span class="n">CA</span>
+    
+    <span class="n">eqn1</span>    <span class="o">=</span> <span class="n">KC_comp</span> <span class="o">-</span> <span class="n">KC</span>
+    <span class="k">return</span> <span class="n">eqn1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Pb</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#atm</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">FAfb</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="c1">#mol/min</span>
+<span class="n">FBfb</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">FCfb</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">FIfb</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="c1">#mol/min</span>
+<span class="n">XA_target</span> <span class="o">=</span> <span class="mf">0.95</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XAguess</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">par0</span>    <span class="o">=</span> <span class="n">KC</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Pb</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FAfb</span><span class="p">,</span> <span class="n">FBfb</span><span class="p">,</span> <span class="n">FCfb</span><span class="p">,</span> <span class="n">FIfb</span>
+<span class="n">ans3</span>    <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">eqns2b</span><span class="p">,</span> <span class="n">XAguess</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">))</span>
+<span class="n">ans3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9622682252479771
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="returning-to-the-material-balances-under-conditions-where-we-can-reach-95-conversion">
+<h4>Returning to the material balances under conditions where we can reach 95% conversion<a class="headerlink" href="#returning-to-the-material-balances-under-conditions-where-we-can-reach-95-conversion" title="Permalink to this headline">#</a></h4>
+<p>Next, we re-solve the material balances with conditions where it will be possible to reach 95% conversion to solve for the required reactor volume.  Specifically, we reduce the system pressure to 1 atm, and we add a diluent (e.g., <span class="math notranslate nohighlight">\(N_2\)</span> gas) to the feed stream at 100 moles per minute.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P02b</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    <span class="n">FA</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="n">FC</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="n">kf</span><span class="p">,</span> <span class="n">kr</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FIf</span> <span class="o">=</span> <span class="n">par</span>
+    <span class="n">FI</span> <span class="o">=</span> <span class="n">FIf</span>
+    
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span> <span class="o">+</span> <span class="n">FI</span>
+    
+    <span class="n">Q</span>  <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r</span>  <span class="o">=</span> <span class="n">kf</span><span class="o">*</span><span class="n">CA</span> <span class="o">-</span> <span class="n">kr</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CC</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span> <span class="o">=</span>  <span class="n">r</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="n">r</span>
+    
+    <span class="n">dA</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">dB</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">dC</span> <span class="o">=</span> <span class="n">RC</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">dA</span><span class="p">,</span> <span class="n">dB</span><span class="p">,</span> <span class="n">dC</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">30000.0</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">FAfb</span><span class="p">,</span> <span class="n">FBfb</span><span class="p">,</span> <span class="n">FCfb</span><span class="p">)</span>
+<span class="n">par0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">kf</span><span class="p">,</span> <span class="n">kr</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">Pb</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">FIfb</span><span class="p">)</span>
+<span class="n">ans2</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02b</span><span class="p">,</span> <span class="n">Vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span>  <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="n">V</span>     <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FA</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FB</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FC</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">Vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion of A&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">itp1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="n">Vopt</span> <span class="o">=</span> <span class="n">itp1</span><span class="p">(</span><span class="n">XA_target</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Volume required for XA = </span><span class="si">{</span><span class="n">XA_target</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">Vopt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L26_22_0.png" src="../_images/F22-587-L26_22_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Volume required for XA = 0.95 is 28130L
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-problem-03">
+<h2>Example Problem 03<a class="headerlink" href="#example-problem-03" title="Permalink to this headline">#</a></h2>
+<p><strong>Note: Relabel flowrates FA0 through FA5 to be consistent with recitation; figures are in folder in GitHub</strong></p>
+<p><strong>Propylene Dehydrogenation with separation and recycle</strong></p>
+<p>An alternative approach is to use a recycle strategy.  Specifically, we will operate the reactor at a relatively low single pass conversion, but we will recycle a fraction of the unreacted propane back to the reactor inlet.  This allows us to achieve a higher overall conversion in the process even though we have a relatively low limit on the single pass conversion through the reactor.</p>
+<p>We will assume a very simple PFD here:  The propane feed into the process is combined with the recycle stream in a mixer; the combined feed goes into a PFR, where it is partially converted to H<span class="math notranslate nohighlight">\(_2\)</span> and propylene; the effluent from the reactor goes into a separator, where we assume propane is perfectly separated from H<span class="math notranslate nohighlight">\(_2\)</span> and propylene; and, finally, the unreacted propane enters a splitter, where a fraction of it <span class="math notranslate nohighlight">\((\alpha)\)</span> is recycled back to the mixer, and the remaining quantity exits the process.  This is illustrated below:</p>
+<p><img alt="PFRRecycle.jpg" src="Lectures/attachment:PFRRecycle.jpg" /></p>
+<p>Rate and equilibrium constants remain the same because we haven’t changed the temperature, and the propane feed to the entire process remains 10 moles per minute. We will re-set our system pressure to 8.2 atm to gain the benefit in reaction rate.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+k_f  &amp;= 0.7  \ \textrm{min}^{-1} \\
+K_C &amp;= 0.05 \ \textrm{mol} \ \textrm{L}^{-1}\\	
+\end{align*}\]</div>
+<ol class="simple">
+<li><p>Find the minimum recycle ratio required to achieve an overall conversion of 95% in the process described above</p></li>
+<li><p>For that recycle ratio, calculate the reactor volume required to achieve an overall conversion of 95% in this process</p></li>
+</ol>
+<section id="solution-to-example-problem-03">
+<h3>Solution to Example Problem 03<a class="headerlink" href="#solution-to-example-problem-03" title="Permalink to this headline">#</a></h3>
+<p>The most intuitive approach to this problem is to write material balances on all unit operations.  We’ll start by writing balances on species A (propane) and go from there…I find it easiest to start with a balance on the overall process and on the splitter for this problem:</p>
+<section id="analysis-of-the-overall-process">
+<h4>Analysis of the overall process<a class="headerlink" href="#analysis-of-the-overall-process" title="Permalink to this headline">#</a></h4>
+<p>If we draw a black box around the whole process, we know that it must achieve 95% conversion of the propane fed into the process at a flowrate of 10 mol/min.  We can therefore define the exit flowrate of propane in terms of the inlet flowrate and the overall conversion</p>
+<div class="math notranslate nohighlight">
+\[F_{A4} = F_{A0}\left(1 - X_{A_{ov}}\right)\]</div>
+</section>
+<section id="analysis-of-the-splitter">
+<h4>Analysis of the Splitter<a class="headerlink" href="#analysis-of-the-splitter" title="Permalink to this headline">#</a></h4>
+<p>A balance on the splitter gives:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A3} - F_{A4} - F_{A5}\]</div>
+<p>We can express the recycle flowrate as a fraction of the flow into the splitter, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[F_{A5} = \alpha F_{A3}\]</div>
+<p>Substituting this into the splitter balance, we find:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A3} - F_{A4} - \alpha F_{A3}\]</div>
+<p>We can solve for <span class="math notranslate nohighlight">\(F_{A3}\)</span> to find:</p>
+<div class="math notranslate nohighlight">
+\[F_{A3} = \frac{1}{1 - \alpha}F_{A4}\]</div>
+<p>And we can substitute this back into the definition for <span class="math notranslate nohighlight">\(F_{A5}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[F_{A5} = \frac{\alpha}{1 - \alpha} F_{A4}\]</div>
+</section>
+<section id="analysis-of-the-separator">
+<h4>Analysis of the separator<a class="headerlink" href="#analysis-of-the-separator" title="Permalink to this headline">#</a></h4>
+<p>A balance on the separator is straightforward and tells us that:</p>
+<div class="math notranslate nohighlight">
+\[F_{A2} = F_{A3}\]</div>
+</section>
+<section id="analysis-of-the-mixer">
+<h4>Analysis of the mixer<a class="headerlink" href="#analysis-of-the-mixer" title="Permalink to this headline">#</a></h4>
+<p>A balance on the mixer will give us the combined feed rate into the reactor, <span class="math notranslate nohighlight">\(F_{A0}\)</span></p>
+<div class="math notranslate nohighlight">
+\[F_{A1} = F_{A0} + F_{A5}\]</div>
+</section>
+<section id="analysis-of-the-reactor">
+<h4>Analysis of the reactor<a class="headerlink" href="#analysis-of-the-reactor" title="Permalink to this headline">#</a></h4>
+<p>If we look at the reactor, we can define a single pass fractional conversion in terms of <span class="math notranslate nohighlight">\(F_{A1}\)</span> and <span class="math notranslate nohighlight">\(F_{A2}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[X_{SP} = \frac{F_{A1} - F_{A2}}{F_{A1}}\]</div>
+<p>We still have a degree of freedom in this system, so we can’t solve it just yet.  But, once we specify the recycle ratio, we can fully solve for all flowrates and the single pass conversion through the PFR. The way I’m approaching the analysis here is that we know the equilibrium limit on this PFR at 500K and 8.2 atm is ~ 44% conversion, so we just have to find a recycle ratio that will allow us to operate with a PFR below 44% conversion.</p>
+<p>There are numerous other ways we can spec the problem, but this one allows for a straightforward analysis of the recycle situation.  We’ll consider more complex recycle examples in Recitation 09.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span>   <span class="o">=</span> <span class="mf">0.96</span>
+<span class="n">XOV</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">FA0</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/min</span>
+<span class="n">FA4</span> <span class="o">=</span> <span class="n">FA0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XOV</span><span class="p">)</span>
+<span class="n">FA3</span> <span class="o">=</span> <span class="n">FA4</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">α</span><span class="p">)</span>
+<span class="n">FA2</span> <span class="o">=</span> <span class="n">FA3</span>
+<span class="n">FA5</span> <span class="o">=</span> <span class="n">α</span><span class="o">*</span><span class="n">FA3</span>
+<span class="n">FA1</span> <span class="o">=</span> <span class="n">FA0</span> <span class="o">+</span> <span class="n">FA5</span>
+<span class="n">XSP</span> <span class="o">=</span> <span class="p">(</span><span class="n">FA1</span> <span class="o">-</span> <span class="n">FA2</span><span class="p">)</span><span class="o">/</span><span class="n">FA1</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;α&#39;</span><span class="p">,</span> <span class="s1">&#39;FAF&#39;</span><span class="p">,</span> <span class="s1">&#39;FA0&#39;</span><span class="p">,</span> <span class="s1">&#39;FA1&#39;</span><span class="p">,</span> <span class="s1">&#39;FA2&#39;</span><span class="p">,</span> <span class="s1">&#39;FA3&#39;</span><span class="p">,</span> <span class="s1">&#39;FAR&#39;</span><span class="p">,</span> <span class="s1">&#39;XSP&#39;</span><span class="p">,</span> <span class="s1">&#39;XOV&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">α</span><span class="p">,</span> <span class="n">FAF</span><span class="p">,</span> <span class="n">FA0</span><span class="p">,</span> <span class="n">FA1</span><span class="p">,</span> <span class="n">FA2</span><span class="p">,</span> <span class="n">FA3</span><span class="p">,</span> <span class="n">FAR</span><span class="p">,</span> <span class="n">XSP</span><span class="p">,</span> <span class="n">XOV</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s1">&#39;XSP&#39;</span> <span class="ow">and</span> <span class="n">label</span> <span class="o">!=</span> <span class="s1">&#39;XOV&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">3s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">5.2f</span><span class="si">}</span><span class="s1"> mol/min&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">5.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>α   =  0.96 mol/min
+FAF = 10.00 mol/min
+FA0 = 10.00 mol/min
+FA1 = 22.00 mol/min
+FA2 = 12.50 mol/min
+FA3 = 12.50 mol/min
+FAR = 12.00 mol/min
+XSP =  0.43
+XOV =  0.95
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-the-material-balance-for-a-lower-target-single-pass-conversion">
+<h4>Solve the Material Balance for a lower target single pass conversion<a class="headerlink" href="#solve-the-material-balance-for-a-lower-target-single-pass-conversion" title="Permalink to this headline">#</a></h4>
+<p>Once we know the recycle ratio, we can solve for the flowrate and determine the reactor size required to achieve the necessary single pass conversion</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def P02(V, var, par):</span>
+<span class="c1">#     FA, FB, FC = var</span>
+<span class="c1">#     kf, kr, T, P, R = par</span>
+    
+<span class="c1">#     FT = FA + FB + FC</span>
+    
+<span class="c1">#     Q  = FT*R*T/P</span>
+    
+<span class="c1">#     CA = FA/Q</span>
+<span class="c1">#     CB = FB/Q</span>
+<span class="c1">#     CC = FC/Q</span>
+    
+<span class="c1">#     r  = kf*CA - kr*CB*CC</span>
+    
+<span class="c1">#     RA = -r</span>
+<span class="c1">#     RB =  r</span>
+<span class="c1">#     RC =  r</span>
+    
+<span class="c1">#     dA = RA</span>
+<span class="c1">#     dB = RB</span>
+<span class="c1">#     dC = RC</span>
+    
+<span class="c1">#     return [dA, dB, dC]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span>   <span class="o">=</span> <span class="mf">8.2</span> <span class="c1">#atm</span>
+<span class="n">R</span>   <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="n">FA1</span> <span class="c1">#mol/min</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">FCf</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">Vspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">300.0</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">)</span>
+<span class="n">par0</span>  <span class="o">=</span> <span class="p">(</span><span class="n">kf</span><span class="p">,</span> <span class="n">kr</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+<span class="n">ans2</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02</span><span class="p">,</span> <span class="n">Vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span>  <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="n">V</span>     <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FA</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FB</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">FC</span>    <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">XA</span>    <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">XA</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">Vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion of A&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/F22-587-L26_28_0.png" src="../_images/F22-587-L26_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itp1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Volume required for a PFR single pass conversion of XA = </span><span class="si">{</span><span class="n">XSP</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">itp1</span><span class="p">(</span><span class="n">XSP</span><span class="p">)</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Volume required for a PFR single pass conversion of XA = 0.43 is 242L
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="F22-587-L25.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 25</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="F22-587-L27.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 27</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

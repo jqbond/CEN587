@@ -1,0 +1,109 @@
+Traceback (most recent call last):
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\jqbond\anaconda3\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+YIELD   = interp1d(W, YCA)  #This gives me yield as a continuous function of W
+#OBJ     = lambda W: YIELD(W)*-1  #I want to minimize negative yield.
+def OBJ(W):
+    if 0 <= W <= 1000:
+        print([W, YIELD(W)])
+    else:
+        print(f'Error: {W}kg of catalyst is outside interpolation range')
+    return -1*YIELD(W)
+
+answer2 = opt.minimize_scalar(OBJ)
+W_opt   = answer2.x
+
+print(f'The maximum yield of C is {YIELD(W_opt):0.2f} at a catalyst loading of {W_opt:0.0f}kg')
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+[1;32m~\AppData\Local\Temp\ipykernel_13288\1450459284.py[0m in [0;36m<cell line: 10>[1;34m()[0m
+[0;32m      8[0m     [1;32mreturn[0m [1;33m-[0m[1;36m1[0m[1;33m*[0m[0mYIELD[0m[1;33m([0m[0mW[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      9[0m [1;33m[0m[0m
+[1;32m---> 10[1;33m [0manswer2[0m [1;33m=[0m [0mopt[0m[1;33m.[0m[0mminimize_scalar[0m[1;33m([0m[0mOBJ[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     11[0m [0mW_opt[0m   [1;33m=[0m [0manswer2[0m[1;33m.[0m[0mx[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     12[0m [1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\optimize\_minimize.py[0m in [0;36mminimize_scalar[1;34m(fun, bracket, bounds, args, method, tol, options)[0m
+[0;32m    884[0m         [1;32mreturn[0m [0mmethod[0m[1;33m([0m[0mfun[0m[1;33m,[0m [0margs[0m[1;33m=[0m[0margs[0m[1;33m,[0m [0mbracket[0m[1;33m=[0m[0mbracket[0m[1;33m,[0m [0mbounds[0m[1;33m=[0m[0mbounds[0m[1;33m,[0m [1;33m**[0m[0moptions[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    885[0m     [1;32melif[0m [0mmeth[0m [1;33m==[0m [1;34m'brent'[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 886[1;33m         [1;32mreturn[0m [0m_minimize_scalar_brent[0m[1;33m([0m[0mfun[0m[1;33m,[0m [0mbracket[0m[1;33m,[0m [0margs[0m[1;33m,[0m [1;33m**[0m[0moptions[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m    887[0m     [1;32melif[0m [0mmeth[0m [1;33m==[0m [1;34m'bounded'[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    888[0m         [1;32mif[0m [0mbounds[0m [1;32mis[0m [1;32mNone[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\optimize\_optimize.py[0m in [0;36m_minimize_scalar_brent[1;34m(func, brack, args, xtol, maxiter, disp, **unknown_options)[0m
+[0;32m   2496[0m                   full_output=True, maxiter=maxiter, disp=disp)
+[0;32m   2497[0m     [0mbrent[0m[1;33m.[0m[0mset_bracket[0m[1;33m([0m[0mbrack[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2498[1;33m     [0mbrent[0m[1;33m.[0m[0moptimize[0m[1;33m([0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2499[0m     [0mx[0m[1;33m,[0m [0mfval[0m[1;33m,[0m [0mnit[0m[1;33m,[0m [0mnfev[0m [1;33m=[0m [0mbrent[0m[1;33m.[0m[0mget_result[0m[1;33m([0m[0mfull_output[0m[1;33m=[0m[1;32mTrue[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2500[0m [1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\optimize\_optimize.py[0m in [0;36moptimize[1;34m(self)[0m
+[0;32m   2266[0m         [1;31m# set up for optimization[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2267[0m         [0mfunc[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0mfunc[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2268[1;33m         [0mxa[0m[1;33m,[0m [0mxb[0m[1;33m,[0m [0mxc[0m[1;33m,[0m [0mfa[0m[1;33m,[0m [0mfb[0m[1;33m,[0m [0mfc[0m[1;33m,[0m [0mfuncalls[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0mget_bracket_info[0m[1;33m([0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2269[0m         [0m_mintol[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_mintol[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2270[0m         [0m_cg[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_cg[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\optimize\_optimize.py[0m in [0;36mget_bracket_info[1;34m(self)[0m
+[0;32m   2240[0m         [1;31m### carefully DOCUMENT any CHANGES in core ##[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2241[0m         [1;32mif[0m [0mbrack[0m [1;32mis[0m [1;32mNone[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2242[1;33m             [0mxa[0m[1;33m,[0m [0mxb[0m[1;33m,[0m [0mxc[0m[1;33m,[0m [0mfa[0m[1;33m,[0m [0mfb[0m[1;33m,[0m [0mfc[0m[1;33m,[0m [0mfuncalls[0m [1;33m=[0m [0mbracket[0m[1;33m([0m[0mfunc[0m[1;33m,[0m [0margs[0m[1;33m=[0m[0margs[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2243[0m         [1;32melif[0m [0mlen[0m[1;33m([0m[0mbrack[0m[1;33m)[0m [1;33m==[0m [1;36m2[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2244[0m             xa, xb, xc, fa, fb, fc, funcalls = bracket(func, xa=brack[0],
+
+[1;32m~\anaconda3\lib\site-packages\scipy\optimize\_optimize.py[0m in [0;36mbracket[1;34m(func, xa, xb, args, grow_limit, maxiter)[0m
+[0;32m   2790[0m         [1;32melif[0m [1;33m([0m[0mw[0m [1;33m-[0m [0mwlim[0m[1;33m)[0m[1;33m*[0m[1;33m([0m[0mwlim[0m [1;33m-[0m [0mxc[0m[1;33m)[0m [1;33m>=[0m [1;36m0.0[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2791[0m             [0mw[0m [1;33m=[0m [0mwlim[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2792[1;33m             [0mfw[0m [1;33m=[0m [0mfunc[0m[1;33m([0m[1;33m*[0m[1;33m([0m[1;33m([0m[0mw[0m[1;33m,[0m[1;33m)[0m [1;33m+[0m [0margs[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2793[0m             [0mfuncalls[0m [1;33m+=[0m [1;36m1[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2794[0m         [1;32melif[0m [1;33m([0m[0mw[0m [1;33m-[0m [0mwlim[0m[1;33m)[0m[1;33m*[0m[1;33m([0m[0mxc[0m [1;33m-[0m [0mw[0m[1;33m)[0m [1;33m>[0m [1;36m0.0[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\AppData\Local\Temp\ipykernel_13288\1450459284.py[0m in [0;36mOBJ[1;34m(W)[0m
+[0;32m      6[0m     [1;32melse[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m      7[0m         [0mprint[0m[1;33m([0m[1;34mf'Error: {W}kg of catalyst is outside interpolation range'[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m----> 8[1;33m     [1;32mreturn[0m [1;33m-[0m[1;36m1[0m[1;33m*[0m[0mYIELD[0m[1;33m([0m[0mW[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m      9[0m [1;33m[0m[0m
+[0;32m     10[0m [0manswer2[0m [1;33m=[0m [0mopt[0m[1;33m.[0m[0mminimize_scalar[0m[1;33m([0m[0mOBJ[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_polyint.py[0m in [0;36m__call__[1;34m(self, x)[0m
+[0;32m     76[0m         """
+[0;32m     77[0m         [0mx[0m[1;33m,[0m [0mx_shape[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_prepare_x[0m[1;33m([0m[0mx[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m---> 78[1;33m         [0my[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_evaluate[0m[1;33m([0m[0mx[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     79[0m         [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_finish_y[0m[1;33m([0m[0my[0m[1;33m,[0m [0mx_shape[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     80[0m [1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py[0m in [0;36m_evaluate[1;34m(self, x_new)[0m
+[0;32m    703[0m         [0my_new[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_call[0m[1;33m([0m[0mself[0m[1;33m,[0m [0mx_new[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    704[0m         [1;32mif[0m [1;32mnot[0m [0mself[0m[1;33m.[0m[0m_extrapolate[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 705[1;33m             [0mbelow_bounds[0m[1;33m,[0m [0mabove_bounds[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_check_bounds[0m[1;33m([0m[0mx_new[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m    706[0m             [1;32mif[0m [0mlen[0m[1;33m([0m[0my_new[0m[1;33m)[0m [1;33m>[0m [1;36m0[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    707[0m                 [1;31m# Note fill_value must be broadcast up to the proper size[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py[0m in [0;36m_check_bounds[1;34m(self, x_new)[0m
+[0;32m    735[0m                              "range.")
+[0;32m    736[0m         [1;32mif[0m [0mself[0m[1;33m.[0m[0mbounds_error[0m [1;32mand[0m [0mabove_bounds[0m[1;33m.[0m[0many[0m[1;33m([0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 737[1;33m             raise ValueError("A value in x_new is above the interpolation "
+[0m[0;32m    738[0m                              "range.")
+[0;32m    739[0m [1;33m[0m[0m
+
+[1;31mValueError[0m: A value in x_new is above the interpolation range.
+ValueError: A value in x_new is above the interpolation range.
+

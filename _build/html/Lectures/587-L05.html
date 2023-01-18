@@ -1,0 +1,1147 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 05: Chemical Equilibrium Part 2 &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 06" href="587-L06.html" />
+    <link rel="prev" title="Lecture 04: Chemical Equilibrium Part 1" href="587-L04.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L05.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L05.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/587-L05.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-concepts">
+   General Concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-states-and-fugacity-definitions">
+   Reference States and Fugacity Definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fugacities-and-activities-for-pure-gases">
+   Fugacities and Activities for Pure Gases
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-pure-gases">
+     Fugacities for Pure Gases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-pure-gases">
+     Activities for pure gases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gases-in-a-mixture">
+   Gases in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-gases-in-a-mixture">
+     Fugacities for gases in a mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-gases-in-a-mixture">
+     Activities for gases in a mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pure-liquids-and-pure-solids">
+   Pure Liquids and Pure Solids
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-pure-liquids-and-pure-solids">
+     Fugacities for Pure Liquids and Pure Solids
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-pure-liquids-and-pure-solids">
+     Activities for pure liquids and pure solids
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ideal-liquids-in-a-mixture">
+   Ideal Liquids in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-liquids-in-an-ideal-mixture">
+     Fugacities for liquids in an ideal mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-liquids-in-an-ideal-mixture">
+     Activities for liquids in an ideal mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-liquids-in-a-mixture">
+   Real Liquids in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-of-real-liquids-in-a-mixture">
+     Fugacities of Real Liquids in a Mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-real-liquids-in-a-mixture">
+     Activities for real liquids in a mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 05: Chemical Equilibrium Part 2</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-concepts">
+   General Concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-states-and-fugacity-definitions">
+   Reference States and Fugacity Definitions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fugacities-and-activities-for-pure-gases">
+   Fugacities and Activities for Pure Gases
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-pure-gases">
+     Fugacities for Pure Gases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-pure-gases">
+     Activities for pure gases
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gases-in-a-mixture">
+   Gases in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-gases-in-a-mixture">
+     Fugacities for gases in a mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-gases-in-a-mixture">
+     Activities for gases in a mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pure-liquids-and-pure-solids">
+   Pure Liquids and Pure Solids
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-pure-liquids-and-pure-solids">
+     Fugacities for Pure Liquids and Pure Solids
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-pure-liquids-and-pure-solids">
+     Activities for pure liquids and pure solids
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ideal-liquids-in-a-mixture">
+   Ideal Liquids in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-for-liquids-in-an-ideal-mixture">
+     Fugacities for liquids in an ideal mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-liquids-in-an-ideal-mixture">
+     Activities for liquids in an ideal mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#real-liquids-in-a-mixture">
+   Real Liquids in a mixture
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fugacities-of-real-liquids-in-a-mixture">
+     Fugacities of Real Liquids in a Mixture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#activities-for-real-liquids-in-a-mixture">
+     Activities for real liquids in a mixture
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-05-chemical-equilibrium-part-2">
+<h1>Lecture 05: Chemical Equilibrium Part 2<a class="headerlink" href="#lecture-05-chemical-equilibrium-part-2" title="Permalink to this headline">#</a></h1>
+<p>This lecture is the second part of the chemical equilibrium lectures (2 of 2).  This one covers definitions for fugacities so that we can relate the equilibrium constant to the composition of the system using thermodynamic activities.</p>
+<section id="general-concepts">
+<h2>General Concepts<a class="headerlink" href="#general-concepts" title="Permalink to this headline">#</a></h2>
+<p>For a single reaction at chemical equilibrium, we know that the following must be true:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j} \label{eq1}\tag{1}\]</div>
+<p>The left hand side of Equation (\ref{eq1}) is relatively straightforward for us after taking courses in Thermodynamics.  Specifically, we know that we can calculate:</p>
+<div class="math notranslate nohighlight">
+\[\Delta G^\circ = \sum_{j=1}^{N_s} \nu_j G_j^\circ \label{eq2}\tag{2}\]</div>
+<p>We can frequently look up standard state partial molar Gibbs free energies in thermodynamic databases.  If not, we usually can find enthalpies and entropies, and we know the general relationship between Gibbs Free Energy, Enthalpy, and Entropy:</p>
+<div class="math notranslate nohighlight">
+\[\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ \label{eq3}\tag{3}\]</div>
+<p>So this shouldn’t be a problem for us.  The right hand side of the Equation (\ref{eq1}) is a bit trickier.  This is where information about the composition of the system at equilibirum is contained.  To figure this out, we have to go back to the activity definition:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{f_j}{f_j^\circ} \label{eq4}\tag{4}\]</div>
+<p>Importantly, the fucacity in the numerator of Equation (\ref{eq4}), <span class="math notranslate nohighlight">\(f_j\)</span>, is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at <em><strong>system conditions of temperature, pressure, and composition</strong></em>, while the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in the denominator, <span class="math notranslate nohighlight">\(f_j^\circ\)</span>, is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at <em><strong>its reference state temperature, pressure, and composition.</strong></em> It is critical to remember that the standard state fugacity, <span class="math notranslate nohighlight">\(f_j^\circ\)</span>, should describe the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the state used in calculating <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span>.  In other words, just make sure that when we calculate <span class="math notranslate nohighlight">\(G_j^\circ\)</span> and <span class="math notranslate nohighlight">\(f_j^\circ\)</span> that <span class="math notranslate nohighlight">\(\circ\)</span> means the same thing in both cases.</p>
+<p>To recap, in this class, we’ll always follow a few rules:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at the Temperature that the reaction is occuring.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at a reference Pressure of 1 bar.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated for the phases of matter listed in our reaction.</p></li>
+</ol>
+<p>The appropriate phase for the reference state is indicated by the (g), (l), (s), (aq.) notation in a balanced chemical reaction. If we are going to calculate the Gibbs free energy change for the following reaction:</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the gas phase (g):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure gas at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the liquid phase (l):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure liquid at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in the solid phase (l):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> as a pure solid at 1 bar and the reaction temperature.</p>
+<p><strong>For species <span class="math notranslate nohighlight">\(j\)</span> in solution, e.g., for species dissolved in water (aq.):</strong></p>
+<p>We use the reference state of species <span class="math notranslate nohighlight">\(j\)</span> dissolved in the specified at a specified composition or concentration at 1 bar and the reaction temperature. There are three commonly used conventions for species in solution:</p>
+<ol class="simple">
+<li><p>Infinite dilution – the mole fraction of <span class="math notranslate nohighlight">\(j\)</span> approaches zero in the solvent (<span class="math notranslate nohighlight">\(x_j \rightarrow 0\)</span>)</p></li>
+<li><p>A 1 Molar solution of <span class="math notranslate nohighlight">\(j\)</span> in the solvent – the concentration of <span class="math notranslate nohighlight">\(j\)</span> in the solution is 1 mole per liter of solution.</p></li>
+<li><p>A 1 Molal solution of <span class="math notranslate nohighlight">\(j\)</span> in the solvent – the concentration of <span class="math notranslate nohighlight">\(j\)</span> in solution is 1 mole <span class="math notranslate nohighlight">\(j\)</span> per kg of solvent.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In our class, the reactions will always be given for pure species as either gases, liquids, or solids.  We will not use solution reference states in this course.</p>
+</div>
+<p>Reference state fugacities should be specified at these same conditions. To go further, there is no avoiding a discussion of fugacities…</p>
+</section>
+<section id="reference-states-and-fugacity-definitions">
+<h2>Reference States and Fugacity Definitions<a class="headerlink" href="#reference-states-and-fugacity-definitions" title="Permalink to this headline">#</a></h2>
+<p>The way that we define a fugacity depends on the system that we’re considering.  It can change quite a bit depending on the phase of matter we are considering. We may also decide on reference states based on their convenience for considering one type of system compared to another, and this can impact how we define a fugacity for that phase.</p>
+<p>In this course, we will only use pure species reference states.  Either pure species as gases, as liquids, or as solids.  We’ll make that decision based on the reaction we’re considering and the thermodynamic data available to us.  Next we’ll go through the various fugacity and activity definitions for each type of system we might consider: pure gases, pure liquids, pure solids, and also mixtures of gases, mixtures of liquids, and mixtures of solids.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Fugacities always have units of pressure, and thermodynamic activities are always dimensionless.</p>
+</div>
+</section>
+<section id="fugacities-and-activities-for-pure-gases">
+<h2>Fugacities and Activities for Pure Gases<a class="headerlink" href="#fugacities-and-activities-for-pure-gases" title="Permalink to this headline">#</a></h2>
+<section id="fugacities-for-pure-gases">
+<h3>Fugacities for Pure Gases<a class="headerlink" href="#fugacities-for-pure-gases" title="Permalink to this headline">#</a></h3>
+<p>You may recall from Thermodynamics that you would define the fugacity of a pure gas, <span class="math notranslate nohighlight">\(j\)</span>, at a pressure, <span class="math notranslate nohighlight">\(P\)</span>, as follows:</p>
+<div class="math notranslate nohighlight">
+\[f_j = \phi_j P \label{eq5}\tag{5}\]</div>
+<p>Here, the symbol <span class="math notranslate nohighlight">\(\phi_j\)</span> represents the “fugacity coefficient” for species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and composition under consideration. It quantifies the degree of non-ideality (i.e., the amount the system departs from it’s reference state). In general, the fugacity coefficient is defined in terms of the “Residual Gibbs Free Energy” of species <span class="math notranslate nohighlight">\(j\)</span>.  This represents the deviaton from thermodynamic ideality associated with moving the species <span class="math notranslate nohighlight">\(j\)</span> from its reference state to the state of the system under our current consideration.  As the species moves further away from its thermodynamic reference state, one expects deviations from thermodynamically ideal behavior.</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp{\left(\frac{G^R}{RT}\right)} \label{eq6}\tag{6}\]</div>
+<p>We won’t really use that definition much.  The biggest thing to remember about the fugacity coefficient is that it is really only sensitive to pressure (not temperature or composition). Gases behave ideally at low pressures, and they become nonideal at very high pressures.  When a gas is ideal, <span class="math notranslate nohighlight">\(G^R = 0\)</span>, and the fugacity coefficient is, <span class="math notranslate nohighlight">\(\phi\)</span>, is 1. Therefore, at low pressures, the fugacity of a pure gas, <span class="math notranslate nohighlight">\(f_j\)</span>, is given by:</p>
+<div class="math notranslate nohighlight">
+\[f_j \approx P \label{eq7}\tag{7}\]</div>
+<p>At high pressures, the Residual Gibbs energy can be greater or less than equal to zero, so, at high pressures <span class="math notranslate nohighlight">\(\phi \neq 1\)</span>. Therefore, at high pressures, we have to use the following definition for the fugacity of a pure gas <span class="math notranslate nohighlight">\(f_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f_j = \phi_j P \label{eq8}\tag{8}\]</div>
+</section>
+<section id="activities-for-pure-gases">
+<h3>Activities for pure gases<a class="headerlink" href="#activities-for-pure-gases" title="Permalink to this headline">#</a></h3>
+<p>With the above definitions of fugacity in mind, we can now define thermodynamic activities for pure gases, <span class="math notranslate nohighlight">\(a_j\)</span> in terms of the species fugacity at system conditions (<span class="math notranslate nohighlight">\(f_j\)</span>) and the species fugacity at its reference state (<span class="math notranslate nohighlight">\(f_j^\circ\)</span>).  Specifically:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{f_j}{f_j^\circ} \label{eq9}\tag{9}\]</div>
+<p>When we’re working with pure gases, we will use Equation (\ref{eq10}) below to define fugacities, and then we will simplify according to our knowledge about the various states we are considering:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\phi_j P}{{(\phi_j P)}^\circ} \label{eq10}\tag{10}\]</div>
+<p>Remember, a thermodynamic activity is defined by the ratio of the fugacity of the species as it exists in the real, reacting system at its Temperature, Pressure, and Composition <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span> to the fugacity of that species in its reference state.  The quantity in the numerator of Equation (\ref{eq10}) refers to the <em><strong>system</strong></em> conditions, which may be very high pressure. Until we know the pressure in the system, we have to keep the fugacity coefficient in our equation.  The reference state for a pure gas, however, is a pure gas at 1 bar.  Since that is a low pressure, we know the fugacity coefficient of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\phi_j\)</span>, in the reference state is 1, and we get the following definition for the activity of a pure gas, <span class="math notranslate nohighlight">\(a_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\phi_j P}{P^\circ} \label{eq11}\tag{11}\]</div>
+<p>Even though we are tempted to think that <span class="math notranslate nohighlight">\(P^\circ\)</span> has a numerical value of 1, this is only true if we are working in pressure units of bars. It is useful for us to keep it in the definition since it reminds us to include units and convert the system or reference pressures as needed to cancel units and give a dimensionless activity. At low pressures only, Equation (\ref{eq11}) simplifies to <span class="math notranslate nohighlight">\(a_j = P/P^\circ\)</span>.</p>
+</section>
+</section>
+<section id="gases-in-a-mixture">
+<h2>Gases in a mixture<a class="headerlink" href="#gases-in-a-mixture" title="Permalink to this headline">#</a></h2>
+<section id="fugacities-for-gases-in-a-mixture">
+<h3>Fugacities for gases in a mixture<a class="headerlink" href="#fugacities-for-gases-in-a-mixture" title="Permalink to this headline">#</a></h3>
+<p>The only tricky part about this next bit is that, even though our real system may contain gases in a mixture, our reference state is always a pure gas at 1 bar and the temperature of the reaction.  We’ll use this when we define thermodynamic activities. For a gas in a mixture, we define the fugacity of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(\hat{f}_j\)</span>, according to the Lewis-Randall rule, which says that the fugacity of a species in a mixture is given by the product of the mole fraction of that species and it’s pure species fugacity at the same conditions; therefore, for gases in a mixture:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j = y_j \phi_j P \label{eq12}\tag{12}\]</div>
+<p>You probably recognize the product of the mole fraction of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(y_j\)</span>, and the system pressure, <span class="math notranslate nohighlight">\(P\)</span>, as a partial pressure of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(p_j\)</span>, thus:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j = \phi_j p_j \label{eq13}\tag{13}\]</div>
+<p>At low pressures, we know that the fugacity coefficient is approximately 1, so the low pressure simplification of Equation \ref{eq13} is:</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}_j \approx p_j \label{eq14}\tag{14}\]</div>
+<p>In other words, at low pressure, the fugacity of a species, <span class="math notranslate nohighlight">\(f_j\)</span> is approximately equal to its partial pressure, <span class="math notranslate nohighlight">\(p_j\)</span>.</p>
+</section>
+<section id="activities-for-gases-in-a-mixture">
+<h3>Activities for gases in a mixture<a class="headerlink" href="#activities-for-gases-in-a-mixture" title="Permalink to this headline">#</a></h3>
+<p>Now that we have a fugacity definition for gases in a mixture, let’s go back to the activity definition from Equation (<a class="reference external" href="#mjx-eqn-eq9">9</a>)</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>We substitute Equation (\ref{eq12}) into the numerator.  For the denominator, we recall that the reference state for gases is always a pure gas at 1 bar and the temperature of the system.  So, the reference state fugacity here is still <span class="math notranslate nohighlight">\(P^\circ = 1\)</span> bar.</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{P^\circ} \label{eq15}\tag{15}\]</div>
+<p>Usually, in this course, we’re operating at low pressures so, we can use the following approximation for the thermodynamic activity of a gas in a mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j \approx \frac{y_j P}{P^\circ} \approx \frac{p_j}{P^\circ} \label{eq16}\tag{16}\]</div>
+<p>Again, we retain the reference state pressure in the equation because it has units, and it reminds us to do the appropriate unit conversions so that we have a dimensionless activity.</p>
+</section>
+</section>
+<section id="pure-liquids-and-pure-solids">
+<h2>Pure Liquids and Pure Solids<a class="headerlink" href="#pure-liquids-and-pure-solids" title="Permalink to this headline">#</a></h2>
+<section id="fugacities-for-pure-liquids-and-pure-solids">
+<h3>Fugacities for Pure Liquids and Pure Solids<a class="headerlink" href="#fugacities-for-pure-liquids-and-pure-solids" title="Permalink to this headline">#</a></h3>
+<p>Despite the fact that these phases are not gases, their fugacities are defined in terms of the vapor phases that exist in equilibrium with the pure liquid or the pure solid (i.e., saturation pressures). They must have units of pressure just like gas-phase fugacities.  In both of these cases (pure liquid, pure solid), we define the fugacity for the pure species at the temperature, <span class="math notranslate nohighlight">\(T\)</span>, and pressure, <span class="math notranslate nohighlight">\(P\)</span>, of the system we are considering as:</p>
+<div class="math notranslate nohighlight">
+\[f_j = \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \label{eq17}\tag{17}\]</div>
+<p>In Equation (\ref{eq17}), <span class="math notranslate nohighlight">\(\phi_j^\mathrm{sat}\)</span> is the fugacity coeffiient for species <span class="math notranslate nohighlight">\(j\)</span> at its saturation pressure; P<span class="math notranslate nohighlight">\(_j^\textrm{sat}\)</span> is the saturation pressure of species <span class="math notranslate nohighlight">\(j\)</span>; and <span class="math notranslate nohighlight">\(\exp\left[\frac{\bar{V_j}}{RT}\left(P - P_j^\textrm{sat}\right)\right]\)</span> is the Poynting correction, which accounts for the thermodynamic non-idealities associated with changing the pressure of the liquid or solid from its saturation pressure, <span class="math notranslate nohighlight">\(P_j^\textrm{sat}\)</span>, to the actual pressure of the system, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<p>It looks complicated, but a few things usually hold in this class:</p>
+<ol class="simple">
+<li><p>The saturation pressure of any liquids or solids we are considering are going to be low.  If the saturation pressure is low, then the vapor that exists at that pressure behaves as an ideal gas.  As such, we can usually say: <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat} \approx 1.0\)</span></p></li>
+<li><p>For both solids and for liquids, the molar volume is usually very small (<span class="math notranslate nohighlight">\(\bar{V}_j \approx 0\)</span>).</p></li>
+<li><p>The pressure of the system we are usually considering is close enough to the saturation pressure of species j that <span class="math notranslate nohighlight">\((P - P_j^\textrm{sat}) \approx 0.0\)</span>.</p></li>
+</ol>
+<p>Usually, for liquids and solids at modest pressures, points 2 and 3 will ensure:</p>
+<div class="math notranslate nohighlight">
+\[\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \approx 0.0 \label{eq18}\tag{18}\]</div>
+<p>As such, the value of the Poynting correction is usually about 1.</p>
+<div class="math notranslate nohighlight">
+\[\exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \approx 1.0 \label{eq19}\tag{19}\]</div>
+<p>With these things in mind, we arrive at the simplified, approximate definition of the fugacity of a pure liquid or a pure solid:</p>
+<div class="math notranslate nohighlight">
+\[f_j \approx P_j^\textrm{sat} \label{eq20}\tag{20}\]</div>
+<p>In other words, for a pure liquid or a pure solid, its fugacity at the temperature and pressure of the system under consideration is roughly equal to its saturation pressure at the temperature under consideration.  Equation (\ref{eq20}) will always hold for solids and liquids in this course.</p>
+</section>
+<section id="activities-for-pure-liquids-and-pure-solids">
+<h3>Activities for pure liquids and pure solids<a class="headerlink" href="#activities-for-pure-liquids-and-pure-solids" title="Permalink to this headline">#</a></h3>
+<p>Now that we have fugacities defined, we can define the activity of a pure liquid/pure solid at a particular temperature and system pressure in terms of its fugacity at the reaction <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span> and its fugacity at reference <span class="math notranslate nohighlight">\((T, P, \chi_j)^\circ\)</span> as usual from Equation (<a class="reference external" href="#mjx-eqn-eq9">9</a>):</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{f_j}{f_j^\circ}\]</div>
+<p>Making substitutions using Equation (<a class="reference external" href="#mjx-eqn-eq17">17</a>) to define fugacity:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq21}\tag{21}\]</div>
+<p>Focusing on the numerator, we’ll point out that, in this course, pressures in liquid or solid-phase reactions are usually not too high above saturation pressure.  So the Poynting correction is 1 in the numerator.  Further, saturation pressures are not generally high in the first place here, so <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat}\)</span> is also 1.</p>
+<p>Focusing on the denominator, the same things apply.  The reference pressure of 1 bar is not going to be much different from the saturation pressure, and we have a small molar volume, so the Poynting correction is also 1 in the reference state, as is the saturation pressure fugacity coefficient, <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat}\)</span>.  Making those approximations, we have:</p>
+<div class="math notranslate nohighlight">
+\[a_j \approx \frac{P_j^\textrm{sat}}{P_j^\textrm{sat}} \approx 1 \label{eq22}\tag{22}\]</div>
+<p>Note that those are both saturation pressures.  Saturation pressures are only a function of temperature, and both the system state (numerator) and the reference state (denominator) are specified at the reaction temperature; accordingly, the two saturation pressures in Equation (\ref{eq22}) are equal.</p>
+<p>We will use these definitions for fugacity and for thermodynamic activity in three cases:</p>
+<ol class="simple">
+<li><p>Pure liquids</p></li>
+<li><p>Pure solids</p></li>
+<li><p>Solids in a mixture (solids in a mixture are not “mixed” at the molecular level, so they are just a physical mixture of pure species)</p></li>
+</ol>
+</section>
+</section>
+<section id="ideal-liquids-in-a-mixture">
+<h2>Ideal Liquids in a mixture<a class="headerlink" href="#ideal-liquids-in-a-mixture" title="Permalink to this headline">#</a></h2>
+<section id="fugacities-for-liquids-in-an-ideal-mixture">
+<h3>Fugacities for liquids in an ideal mixture<a class="headerlink" href="#fugacities-for-liquids-in-an-ideal-mixture" title="Permalink to this headline">#</a></h3>
+<p>If you have a thermodynamically ideal mixture of liquids, you apply the Lewis-Randall rule directly, and express the fugacity of a component in that liquid mixture as the product of its mole fraction, <span class="math notranslate nohighlight">\(x_j\)</span>, and its pure species fugacity, <span class="math notranslate nohighlight">\(f_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{\hat{f}_j}^\textrm{ideal} = x_j f_j \label{eq23}\tag{23}\]</div>
+<p>In the previous cell, we developed an expression for the fugacity of a pure liquid in Equation (<a class="reference external" href="#mjx-eqn-eq17">17</a>) :</p>
+<div class="math notranslate nohighlight">
+\[f_j = \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]\]</div>
+<p>So we substitute this into the Lewis-Randall statement to get the fugacity of a liquid, <span class="math notranslate nohighlight">\(j\)</span>, in an ideal mixture of liquids.</p>
+<div class="math notranslate nohighlight">
+\[{\hat{f}_j}^\textrm{ideal} = x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \label{eq24}\tag{24}\]</div>
+<p>Most of the time, in liquid phase reactions, the pressure we’re considering is close to the saturation pressure, the molar volume of the liquid is small, and the saturation pressure is low.  For these reasons, both <span class="math notranslate nohighlight">\(\phi_j^\textrm{sat}\)</span> and the Poynting correction are going to be about 1.  This gives the fugacity for a species, <span class="math notranslate nohighlight">\(j\)</span>, in a thermodynamially ideal liquid mixture.</p>
+<div class="math notranslate nohighlight">
+\[{\hat{f}_j}^\textrm{ideal} \approx x_j P_j^\textrm{sat} \label{eq25}\tag{25}\]</div>
+</section>
+<section id="activities-for-liquids-in-an-ideal-mixture">
+<h3>Activities for liquids in an ideal mixture<a class="headerlink" href="#activities-for-liquids-in-an-ideal-mixture" title="Permalink to this headline">#</a></h3>
+<p>We return to our standard definition of an activity, which is the ratio of the fugacity <span class="math notranslate nohighlight">\(j\)</span> at system <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span> to the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{{\hat{f}_j}^\textrm{ideal}}{f_j^\circ} \label{eq26}\tag{26}\]</div>
+<p>Applying our definitions of fugacity for liquids in an ideal mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{x_j P_j^\textrm{sat}}{(x_j P_j^\textrm{sat})^\circ} \label{eq27}\tag{27}\]</div>
+<p>We also recall that our reference state for a liquid in a mixture is that liquid as a pure species at system temperature and a pressure of 1 bar, so the saturation pressures that appear in the numerator and denominator are the same.  This gives the result for the activity of a liquid in an ideal mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j = x_j \label{eq28}\tag{28}\]</div>
+</section>
+</section>
+<section id="real-liquids-in-a-mixture">
+<h2>Real Liquids in a mixture<a class="headerlink" href="#real-liquids-in-a-mixture" title="Permalink to this headline">#</a></h2>
+<section id="fugacities-of-real-liquids-in-a-mixture">
+<h3>Fugacities of Real Liquids in a Mixture<a class="headerlink" href="#fugacities-of-real-liquids-in-a-mixture" title="Permalink to this headline">#</a></h3>
+<p>When we say “real” liquids in a mixture, we mean liquids in a thermodynamically non-ideal mixture. Liquid densities are large relative to gases, and molecules in a liquid will generally have strong intermolecular interactions. For these reasons, it is pretty rare that liquid mixtures behave ideally.  To account for deviations from ideality in liquid mixtures, we introduce an activity coefficient, <span class="math notranslate nohighlight">\(\gamma_j\)</span>, which is the ratio of the fugacity in the real state to the fugacity in the ideal state:</p>
+<div class="math notranslate nohighlight">
+\[\gamma_j = \frac{{\hat{f}_j}^\textrm{real}}{{\hat{f}_j}^\textrm{ideal}} = \frac{{\hat{f}_j}^\textrm{real}}{x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]} \label{eq29}\tag{29} \]</div>
+<p>Therefore, the fugacity of a liquid in a “real” mixture is:</p>
+<div class="math notranslate nohighlight">
+\[{\hat{f}_j}^\textrm{real} = \gamma_j x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right] \label{eq30}\tag{30}\]</div>
+<p>As usual, we can simplify this to the following since we generally work under conditions where saturation pressures are low, system pressures are similar to saturation pressures, and the molar volume is small:</p>
+<div class="math notranslate nohighlight">
+\[{\hat{f}_j}^\textrm{real} \approx \gamma_j x_j P_j^\textrm{sat} \label{eq31}\tag{31}\]</div>
+<p>Formally, the activity coefficient is defined in terms of the Excess Gibbs free energy of species <span class="math notranslate nohighlight">\(j\)</span>, which reflects the deviation from thermodynamic ideality that occurs between the reference state of species <span class="math notranslate nohighlight">\(j\)</span> and species <span class="math notranslate nohighlight">\(j\)</span> as it exists under reaction conditions:</p>
+<div class="math notranslate nohighlight">
+\[\gamma_j = \exp\left(\frac{G_j^E}{RT}\right) \label{eq32}\tag{32}\]</div>
+</section>
+<section id="activities-for-real-liquids-in-a-mixture">
+<h3>Activities for real liquids in a mixture<a class="headerlink" href="#activities-for-real-liquids-in-a-mixture" title="Permalink to this headline">#</a></h3>
+<p>As usual, we start with the formal definition of a thermodynamic activity, Equation (<a class="reference external" href="#mjx-eqn-eq9">9</a>):</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j^\textrm{real}}{f_j^\circ} \label{eq33}\tag{33}\]</div>
+<p>The full expressions would be:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\gamma_j x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P - P_j^\textrm{sat}\right)\right]}{\left(\gamma_j x_j \phi_j^\textrm{sat} P_j^\textrm{sat} \exp\left[\frac{\bar{V}_j}{RT}\left(P^\circ - P_j^\textrm{sat}\right)\right]\right)^\circ} \label{eq34}\tag{34}\]</div>
+<p>This looks messy, but we apply the usual approximations for liquids:  Low saturation pressure, reference pressure and system pressure are both close to the saturation pressure, and the molar volume is small. We also note that our reference state of a pure liquid <span class="math notranslate nohighlight">\(j\)</span> is inherently thermodynamically ideal (the reference state is the definition of what thermodynamic ideality looks like), so <span class="math notranslate nohighlight">\(\gamma_j^\circ = 1.0\)</span>. The reference state and the real state are at the same temperature, so the vapor pressures are equal in the numerator and the denominator. Finally, since our reference state is a pure liquid, the reference state mole fraction of <span class="math notranslate nohighlight">\(j\)</span> is 1.  This gives the usual result for the thermodynamic activity of a liquid in a real mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j \approx \frac{\gamma_j x_j P_j^\textrm{sat}}{P_j^\textrm{sat}} \approx \gamma_j x_j \label{eq35}\tag{35}\]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-L04.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 04: Chemical Equilibrium Part 1</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-L06.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 06</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

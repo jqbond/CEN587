@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 15 &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 16" href="587-L16.html" />
+    <link rel="prev" title="Lecture 14" href="587-L14.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L15.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L15.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/587-L15.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-and-looking-ahead">
+     Summary and Looking Ahead
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 15</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-and-looking-ahead">
+     Summary and Looking Ahead
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-15">
+<h1>Lecture 15<a class="headerlink" href="#lecture-15" title="Permalink to this headline">#</a></h1>
+<p>This lecture solves more Material Balance Example Problems</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>Consider the following liquid-phase, irreversible, homogeneous reaction that is occurring in an isothermal plug flow reactor.</p>
+<div class="math notranslate nohighlight">
+\[2A + 3B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a159f18c-c31e-4046-b2a2-aec0fc8f8ed5">
+<span class="eqno">(66)<a class="headerlink" href="#equation-a159f18c-c31e-4046-b2a2-aec0fc8f8ed5" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k &amp;= 37.2 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    Q_f &amp;= 12 \ \textrm{L} \ \textrm{h}^{-1}\\
+    C_{Af} &amp;= 0.74 \textrm{mol} \ \textrm{L}^{-1}\\
+    C_{Bf} &amp;= 2.50 \textrm{mol} \ \textrm{L}^{-1}
+\end{align}\]</div>
+<p>Find the PFR volume required for a fractional conversion of 65% for species A.</p>
+<p><strong>Answer</strong>: V<span class="math notranslate nohighlight">\(_{PFR}\)</span> = 0.0823 L</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>We start with a balance on Species A in a PFR at Steady state:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_A}{dV} = R_A\]</div>
+<p>We define <span class="math notranslate nohighlight">\(R_A\)</span> as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>We again have a single reaction, so:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -2r\]</div>
+<p>The problem statement tells us that the reaction is first order in A and first order in B, so:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -2kC_AC_B\]</div>
+<p>We substitute this into the material balance to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_A}{dV} = -2kC_AC_B\]</div>
+<p>Here, we have 3 “dependent” variables that change as a function of Volume: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, and <span class="math notranslate nohighlight">\(C_B\)</span>.  If we want to solve this analytically, we need to reduce this ODE so that it has one independent variable (V) and one dependent variable.  We’ll chose to make that one dependent variable a fractional conversion.  We make this choice because we know that we can relate molar flowrates and concentrations to fractional conversion when we are working with a single reaction. With that decision made, we express concentrations in terms of flowrates:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{F_B}{Q}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_j\)</span> is the molar flowrate of <span class="math notranslate nohighlight">\(j\)</span> at position “V” in the reactor, and <span class="math notranslate nohighlight">\(Q\)</span> is the volumetric flowrate at position “V” in the reactor.  Both are generally functions of position in the reactor; however, for a flow reactor at steady state, we know that if density is constant:</p>
+<div class="math notranslate nohighlight">
+\[Q = Q_f\]</div>
+<p>In other words, the volumetric flowrate is constant as a function of position in the reactor.  This gives:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q_f}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{F_B}{Q_f}\]</div>
+<p>Which we substitute back into the balance equation to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_A}{dV} = -2k\frac{F_AF_B}{{Q_f}^2}\]</div>
+<p>This still isn’t separable because we have <span class="math notranslate nohighlight">\(F_A\)</span> and <span class="math notranslate nohighlight">\(F_B\)</span> both changing as a function of volume.  We write a mole table for all species as functions of fractional conversion of A. This gives:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2d4394b1-d43a-45fb-b6e1-cb979d8f7a1b">
+<span class="eqno">(67)<a class="headerlink" href="#equation-2d4394b1-d43a-45fb-b6e1-cb979d8f7a1b" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f} - F_{A,f}X_A \\
+    F_B &amp;= F_{B,f} - 3/2F_{A,f}X_A \\
+    F_C &amp;= F_{C,f} + 1/2F_{A,f}X_A \\
+    F_T &amp;= F_{T,f} - 2F_{A,f}X_A \\
+\end{align}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_{T,f} = F_{A,f} + F_{B,f} + F_{C,f}\)</span>. We can substitute these molar flowrates into our ODE to get:</p>
+<div class="math notranslate nohighlight">
+\[-F_{A,f}\frac{dX_A}{dV} = -\frac{2k}{Q_f^2}(F_{A,f} - F_{A,f}X_A)(F_{B,f} - 3/2F_{A,f}X_A)\]</div>
+<p>Unlike the last problem, we aren’t working with simple stoichiometry and a 1:1 feed ratio, so the problem remains a bit messy.
+This is a separable ODE, but the solution is probably not something you’ll just remember like with simple expressions. I don’t know the solution to this one off hand, but I do know that if I look at the integral table in the Appendix A of Scott Fogler’s textbook, I’ll find this integral:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^x \frac{1}{(1 - x)(\theta  - x)}dx = \frac{1}{\theta - 1} \ln\left(\frac{\theta - x}{\theta(1 - x)}\right)\]</div>
+<p>Looking at that integral that I have a solution for (from an integral table), I’m inspired to try to put the above ODE into this form since it is one I know the solution to.  This is not very hard, but it is tedious and mistake prone.  Take care to keep track of negative signs and groups that you factor out of the various expressions.  Starting with:</p>
+<div class="math notranslate nohighlight">
+\[-F_{A,f}\frac{dX_A}{dV} = -\frac{2k}{Q_f^2}(F_{A,f} - F_{A,f}X_A)(F_{B,f} - 3/2F_{A,f}X_A)\]</div>
+<p>We can do some factoring:</p>
+<div class="math notranslate nohighlight">
+\[-F_{A,f}\frac{dX_A}{dV} = -\frac{2kF_{A,f}3F_{A,f}}{2Q_f^2}(1 - X_A)(\theta_B - X_A)\]</div>
+<p>Where we have defined:</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = \frac{2}{3}\frac{F_{B,f}}{F_{A,f}}\]</div>
+<p>We can easily calculate the feed molar flowrates of species A and species B from information in the problem statement since <span class="math notranslate nohighlight">\(F_{j,f} = C_jQ_f\)</span>.  So <span class="math notranslate nohighlight">\(\theta_B\)</span> is just a number that we can calculate from the problem statement.  Cancelling terms, we get the following simplified expression.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_A}{dV} = \frac{3kF_{A,f}}{Q_f^2}(1 - X_A)(\theta_B - X_A)\]</div>
+<p>This is now a separable ODE and can be solved analytically:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{X_A}\frac{1}{(1 - X_A)(\theta_B - X_A)} dX_A = \int_0^{V_R}\frac{3kF_{A,f}}{Q_f^2} dV\]</div>
+<p>The right hand side is easy; the left hand side, we use the result from the integral table.  Applying limits of integration given in the problem statement, we find the following relationship between volume and fractional conversion:</p>
+<div class="math notranslate nohighlight">
+\[V = \frac{Q_f^2}{3kF_{A,f}}\left[\frac{1}{\theta_B - 1} \ln\left(\frac{\theta_B - X_A}{\theta_B(1 - X_A)}\right)\right]\]</div>
+<p>Everything on the right hand side is a number that we know at this point, so we can solve for Volume to find:</p>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(V = 0.0823\)</span> L</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>   <span class="o">=</span> <span class="mf">37.2</span>   <span class="c1">#L/mol/h</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mi">12</span>     <span class="c1">#L/h</span>
+<span class="n">CAf</span> <span class="o">=</span> <span class="mf">0.74</span>   <span class="c1">#mol/L</span>
+<span class="n">CBf</span> <span class="o">=</span> <span class="mf">2.50</span>   <span class="c1">#mol/L</span>
+<span class="n">XA</span>  <span class="o">=</span> <span class="mf">0.65</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="n">Qf</span> <span class="c1">#mol/h</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span><span class="o">*</span><span class="n">Qf</span> <span class="c1">#mol/h</span>
+<span class="n">θB</span>  <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">FBf</span><span class="o">/</span><span class="n">FAf</span> <span class="c1">#dimensionless</span>
+<span class="n">V</span>   <span class="o">=</span> <span class="n">Qf</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="n">FAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">θB</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">θB</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span><span class="o">/</span><span class="n">θB</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">XA</span><span class="p">)))</span> <span class="c1">#volume in L</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;To achieve a conversion of </span><span class="si">{</span><span class="n">XA</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">, the reactor volume must be </span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To achieve a conversion of 0.65, the reactor volume must be 0.0823L
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p>Consider the following gas-phase, irreversible, homogeneous reaction that is occurring in an isothermal plug flow reactor.</p>
+<div class="math notranslate nohighlight">
+\[A + B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    k &amp;= 25.3 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    T &amp;= 573 \ \textrm{K}\\
+    P &amp;= 1.0 \ \textrm{atm}\\
+    F_{Af} &amp;= 10 \ \textrm{mol} \ \textrm{h}^{-1}\\
+    F_{Bf} &amp;= 10 \ \textrm{mol} \ \textrm{h}^{-1}
+\end{align*}\]</div>
+<p>What PFR volume is required to achieve 85% conversion of species B?.</p>
+<p><strong>Answer</strong>: V<span class="math notranslate nohighlight">\(_{PFR}\)</span> = 9000 L</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<p>We start with a balance on Species B in a PFR at Steady state:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = R_B\]</div>
+<p>We define <span class="math notranslate nohighlight">\(R_B\)</span> as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_B = \sum_{i = 1}^{N_R} \nu_{i,B} \, r_i\]</div>
+<p>We again have a single reaction, so:</p>
+<div class="math notranslate nohighlight">
+\[R_B = -r\]</div>
+<p>The problem statement tells us that the reaction is first order in A and first order in B, so:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>Then:</p>
+<div class="math notranslate nohighlight">
+\[R_B = -kC_AC_B\]</div>
+<p>We substitute this into the material balance to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = -kC_AC_B\]</div>
+<p>We face the now familiar problem of having 3 “dependent” variables.  If we want an analytical solution, we’ll have to express them all as a function of a single dependent variable.  I’ll chose conversion of B since I can express the molar flowrates and concentrations of all species as a function of conversion of B.  With that in mind, we know we can express concentrations in terms of molar flowrates:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{F_A}{Q}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{F_B}{Q}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_j\)</span> is the molar flowrate of j at position “V” in the reactor, and Q is the volumetric flowrate at position “V” in the reactor.  Both are generally functions of position in the reactor. This problem is a little different from the last one because it is a gas phase reaction, and we have a change in number of moles from left to right.  If we write the ideal gas law for a flow process:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_{T}RT}{P}\]</div>
+<p>From that expression, you can see clearly that if the total molar flowrate changes as we move through the reactor, then volumetric flowrate also changes.  This means, for a gas phase problem where there is a change in moles from left to right, we cannot assume a constant volumetric flowrate:</p>
+<div class="math notranslate nohighlight">
+\[Q \neq Q_f\]</div>
+<p>And we will have to calculate concentrations using the ideal gas law and considering changes in the total molar flowrate as a function of fractional conversion of B.</p>
+<p>Substituting relevant quantities back into our material balance, we get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = -k\frac{F_AF_B}{F_T^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>This isn’t separable because we have <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(F_B\)</span>, and <span class="math notranslate nohighlight">\(F_T\)</span> changing as a function of volume.  We write a mole table for all species as functions of fractional conversion of B. This gives:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5f2225c3-8ab1-4f87-82a2-7a42913a5056">
+<span class="eqno">(68)<a class="headerlink" href="#equation-5f2225c3-8ab1-4f87-82a2-7a42913a5056" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f} - F_{B,f}X_B \\
+    F_B &amp;= F_{B,f} - F_{B,f}X_B \\
+    F_C &amp;= F_{C,f} + F_{B,f}X_B \\
+    F_T &amp;= F_{T,f} - F_{B,f}X_B \\
+\end{align}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(F_{T,f} = F_{A,f} + F_{B,f} + F_{C,f}\)</span>. We can substitute these molar flowrates into our ODE to get:</p>
+<div class="math notranslate nohighlight">
+\[-F_{B,f}\frac{dX_B}{dV} = -k\frac{(F_{A,f} - F_{B,f}X_B)(F_{B,f} - F_{B,f}X_B)}{(F_{T,f} - F_{B,f}X_B)^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>It’s separable, but we need to do some simplification before we can solve it.  Again, I check my integral tables and I find a solution that I think I will be able to use:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^X \frac{(1 + \varepsilon X)^2}{(1 - X)^2} = 2 \varepsilon (1 + \varepsilon) \ln (1 - X) + \varepsilon^2X + \frac{(1 + \varepsilon)^2X}{1 - X}\]</div>
+<p>Why do I like that integral?  Because it looks like a form I can get my ODE into.  Starting with the current version of the ODE:</p>
+<div class="math notranslate nohighlight">
+\[-F_{B,f}\frac{dX_B}{dV} = -k\frac{(F_{A,f} - F_{B,f}X_B)(F_{B,f} - F_{B,f}X_B)}{(F_{T,f} - F_{B,f}X_B)^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>Looking at the information in the problem statement, we can determine that:</p>
+<div class="math notranslate nohighlight">
+\[F_{A,f} = F_{B,f}\]</div>
+<p>And also that</p>
+<div class="math notranslate nohighlight">
+\[F_{T,f} = 2F_{B,f}\]</div>
+<p>We make those substitutions and factor terms out of the mole table expressions:</p>
+<div class="math notranslate nohighlight">
+\[-F_{B,f}\frac{dX_B}{dV} = -\frac{kF_{B,f}^2}{4F_{B,f}^2}\frac{(1 - X_B)(1 - X_B)}{(1 + \varepsilon X_B)^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\varepsilon = -1/2\)</span></p>
+<p>That simplifies to the following:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_B}{dV} = \frac{k}{4F_{B,f}}\frac{(1 - X_B)^2}{(1 + \varepsilon X_B)^2}\left(\frac{P}{RT}\right)^2\]</div>
+<p>Which is readily separable:</p>
+<div class="math notranslate nohighlight">
+\[\frac{(1 + \varepsilon X_B)^2}{(1 - X_B)^2}dX_B = \frac{k}{4F_{B,f}}\left(\frac{P}{RT}\right)^2 dV\]</div>
+<p>The left hand side is exactly the form we have from the integral table, and the right hand side is easy to solve since everything (other than dV) is a constant and can be removed from the integral.</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{X_B}\frac{(1 + \varepsilon X_B)^2}{(1 - X_B)^2}dX_B = \int_0^{V}\frac{k}{4F_{B,f}}\left(\frac{P}{RT}\right)^2 dV\]</div>
+<p>Integrating from lower limits to upper limits gives us the following:</p>
+<div class="math notranslate nohighlight">
+\[2 \varepsilon (1 + \varepsilon) \ln (1 - X_B) + \varepsilon^2X_B + \frac{(1 + \varepsilon)^2X_B}{1 - X_B} = \frac{k}{4F_{B,f}}\left(\frac{P}{RT}\right)^2 V\]</div>
+<p>Which we can solve for volume:</p>
+<div class="math notranslate nohighlight">
+\[V = \frac{4F_{B,f}}{k} \left(\frac{RT}{P}\right)^2 \left[2 \varepsilon (1 + \varepsilon) \ln (1 - X_B) + \varepsilon^2X_B + \frac{(1 + \varepsilon)^2X_B}{1 - X_B}\right]\]</div>
+<p>Everything on the right hand side is known from the problem statement or our scratch work, so we substitute in values to get:</p>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(V = 9000\)</span> L</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span>    <span class="c1">#L/mol/h</span>
+<span class="n">T</span>   <span class="o">=</span> <span class="mi">573</span>     <span class="c1">#K</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1">#atm</span>
+<span class="n">R</span>   <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1">#mol/h </span>
+<span class="n">ϵ</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">XB</span>  <span class="o">=</span> <span class="mf">0.85</span>
+<span class="n">V</span>   <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">FBf</span><span class="o">/</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ϵ</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">ϵ</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">XB</span><span class="p">)</span><span class="o">+</span><span class="n">ϵ</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">XB</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">ϵ</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">XB</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">XB</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;To achieve a conversion of </span><span class="si">{</span><span class="n">XB</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1">, the reactor volume must be </span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To achieve a conversion of 0.85, the reactor volume must be 9010L
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-03">
+<h2>Example Problem 03<a class="headerlink" href="#example-problem-03" title="Permalink to this headline">#</a></h2>
+<p>We carry out the following reversible, liquid-phase reaction in a well-mixed batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[A \leftrightharpoons B\]</div>
+<p>One may assume that the density of the liquid is constant and that the reaction has an elementary rate law. Parameters are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a67a5605-0dba-4698-b831-7709373f9eb6">
+<span class="eqno">(69)<a class="headerlink" href="#equation-a67a5605-0dba-4698-b831-7709373f9eb6" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k_f = 0.345 \ \mathrm{min^{-1}}\\
+    k_r = 0.226 \ \mathrm{min^{-1}}\\
+\end{align}\]</div>
+<p>If the reactor is initially charged with pure species A, what is the fractional conversion of species A after 7 minutes?</p>
+<p><strong>Answer</strong>: 0.199</p>
+<section id="solution-to-example-problem-03">
+<h3>Solution to Example Problem 03<a class="headerlink" href="#solution-to-example-problem-03" title="Permalink to this headline">#</a></h3>
+<p>We start with a material balance on species A in the well-mixed batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = R_AV\]</div>
+<p>We define <span class="math notranslate nohighlight">\(R_A\)</span> as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>For this case of a single reaction, this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r\]</div>
+<p>The problem statement indicates that this reaction follows an elementary rate law, so we can write the rate law by inspection of stoichiometry.  We also note that this reaciton is reversible, so the net rate of reaction is given by the difference in forward and reverse rates of reactions:</p>
+<div class="math notranslate nohighlight">
+\[r = k_fC_A - k_rC_B\]</div>
+<p>We can substitute this into our material balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = -(k_fC_A - k_rC_B)V\]</div>
+<p>For this problem, we’ll take advantage of the fact that the system volume is constant (due to constant density); therefore:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{V}\frac{dN_A}{dt} = -(k_fC_A - k_rC_B)\]</div>
+<p>Which further simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -(k_fC_A - k_rC_B)\]</div>
+<p>We find ourselves in the familiar spot of having multiple state variables (<span class="math notranslate nohighlight">\(C_A\)</span> and <span class="math notranslate nohighlight">\(C_B\)</span>) that are varying with time.  We can’t solve this by hand unless we reduce this to an ODE written in terms of a single state variable.  We’ll do that by expressing <span class="math notranslate nohighlight">\(C_A\)</span> and <span class="math notranslate nohighlight">\(C_B\)</span> as functions of fractional conversion of A, <span class="math notranslate nohighlight">\(X_A\)</span>.</p>
+<p>First, we note that:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{N_A}{V}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{N_B}{V}\]</div>
+<p>If we develop a mole table for this system, we find:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-03cdd6d4-2b7d-4164-894d-cdb358459322">
+<span class="eqno">(70)<a class="headerlink" href="#equation-03cdd6d4-2b7d-4164-894d-cdb358459322" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_A &amp;= N_{A0} - N_{A0}X_A \\
+    N_B &amp;= N_{B0} + N_{A0}X_A \\
+    N_T &amp;= N_{T0}
+\end{align}\]</div>
+<p>We substitute these into our concentration definitions:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{N_{A0} - N_{A0}X_A}{V} = C_{A0} - C_{A0}X_A = C_{A0}(1 - X_A)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{N_{B0} + N_{A0}X_A}{V} = C_{B0} + C_{A0}X_A\]</div>
+<p>Noting that the initial concentration of B, <span class="math notranslate nohighlight">\(C_{B0}\)</span> is zero:</p>
+<div class="math notranslate nohighlight">
+\[C_B = C_{A0}X_A\]</div>
+<p>We can then substitute these concentrations (written as functions of conversion) into the material balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}(C_{A0} - C_{A0}X_A) = -k_fC_{A0}(1 - X_A) + k_rC_{A0}X_A\]</div>
+<p>This simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_A}{dt} = k_f(1 - X_A) - k_rX_A\]</div>
+<p>Distributing the forward rate constant:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_A}{dt} = k_f - k_fX_A - k_rX_A\]</div>
+<p>Factoring and rearranging, we get a standard form of a first order ODE:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dX_A}{dt} + (k_f + k_r)X_A = k_f\]</div>
+<p>We can solve this using an integrating factor:</p>
+<div class="math notranslate nohighlight">
+\[I = \exp\left(\int(k_f + k_r)dt\right)\]</div>
+<p>Giving:</p>
+<div class="math notranslate nohighlight">
+\[I = \exp\left[(k_f + k_r)t\right]\]</div>
+<p>Multiplying both sides of the linear differential equation by the integrating factor:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left[(k_f + k_r)t\right]\frac{dX_A}{dt} + (k_f + k_r)\exp\left[(k_f + k_r)t\right]X_A = k_f\exp\left[(k_f + k_r)t\right]\]</div>
+<p>We recognize the left hand side as a product rule:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\exp\left[(k_f + k_r)t\right]X_A = k_f\exp\left[(k_f + k_r)t\right]\]</div>
+<p>And we integrate both sides to get:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left[(k_f + k_r)t\right]X_A = \frac{k_f}{k_f + k_r}\exp\left[(k_f + k_r)t\right] + C\]</div>
+<p>Where C is a constant of integration.  To find C, we apply the initial condition that, at <span class="math notranslate nohighlight">\(t = 0\)</span>, <span class="math notranslate nohighlight">\(X_A = 0\)</span>.  Therefore:</p>
+<div class="math notranslate nohighlight">
+\[C = \frac{-k_f}{k_f + k_r}\]</div>
+<p>Substitution into the ODE solution gives:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left[(k_f + k_r)t\right]X_A = \frac{k_f}{k_f + k_r}\exp\left[(k_f + k_r)t\right] + \frac{-k_f}{k_f + k_r}\]</div>
+<p>If we divide everything by <span class="math notranslate nohighlight">\(\exp\left[(k_f + k_r)t\right]\)</span> and factor terms on the right, we get a symbolic solution for <span class="math notranslate nohighlight">\(X_A = f(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{k_f}{k_f + k_r}\left(1 - \exp\left[-(k_f + k_r)t\right]\right)\]</div>
+<p>at 7 minutes, we find:</p>
+<div class="math notranslate nohighlight">
+\[X_A = 0.199\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf</span> <span class="o">=</span> <span class="mf">0.0345</span> <span class="c1">#1/min</span>
+<span class="n">kr</span> <span class="o">=</span> <span class="mf">0.0226</span> <span class="c1">#1/min</span>
+<span class="n">t</span>  <span class="o">=</span> <span class="mi">7</span> <span class="c1">#min</span>
+<span class="n">XA</span> <span class="o">=</span> <span class="n">kf</span><span class="o">/</span><span class="p">(</span><span class="n">kf</span><span class="o">+</span><span class="n">kr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">kf</span> <span class="o">+</span><span class="n">kr</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At a time of </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> minutes, the fractional conversion of A is </span><span class="si">{</span><span class="n">XA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At a time of 7.00 minutes, the fractional conversion of A is 0.199.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-and-looking-ahead">
+<h3>Summary and Looking Ahead<a class="headerlink" href="#summary-and-looking-ahead" title="Permalink to this headline">#</a></h3>
+<p>The steps we have taken above aren’t hard, but they are tedious, and it is easy to make mistakes when applying this approach.  The good part about this is that it allows us to solve the problem analytically.  We then are able to derive a function that tells us exactly what volume is required for a certain conversion.  There is no numerical instability to worry about here.  In general, we can follow this type of approach anytime we have an (isothermal) Batch Reactor or a (isothermal, isobaric) Tubular Reactor where there is only one reaction occuring.  We can always relate all properties of the system back to fractional conversion in those cases.  But sometimes, it really isn’t worth it.  In the next lecture, we’ll see that this approach quickly hits its limit, even for simple problems, when we add a little bit of complexity and are faced with something like non-1:1 stoichiometry, a change in number of moles, and reactant feed ratios that are not 1:1.  In these cases, even the simplified differential equation is messy, and an easy analytical solution is not forthcoming.  We’ll go through it just to illustrate where we hit a wall, what we have to do to get around it, and then we’ll consider a better approach for complex problems.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-L14.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 14</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-L16.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 16</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

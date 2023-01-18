@@ -1,0 +1,1168 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 37 &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 36" href="587-L38.html" />
+    <link rel="prev" title="Lecture 36" href="587-L36.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L17.html">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L37.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L37.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/587-L37.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heterogeneous-catalysis">
+   Heterogeneous Catalysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ammonia-synthesis">
+     Ammonia Synthesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#porous-materials">
+     Porous materials
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packed-bed-reactors">
+     Packed bed reactors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mechanisms-of-heterogeneous-catalytic-reactions">
+     Mechanisms of (Heterogeneous) Catalytic Reactions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-langmuir-isotherm">
+     The Langmuir Isotherm
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#molecular-adsorption">
+       Molecular Adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-difference-between-the-equilibrium-assumption-and-the-pssh">
+       The Difference Between The Equilibrium Assumption and the PSSH
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dissociative-adsorption">
+       Dissociative Adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distinguishing-between-molecular-and-dissociative-adsorption">
+       Distinguishing Between Molecular and Dissociative adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linearization-of-isotherms">
+       Linearization of Isotherms
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 37</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heterogeneous-catalysis">
+   Heterogeneous Catalysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ammonia-synthesis">
+     Ammonia Synthesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#porous-materials">
+     Porous materials
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#packed-bed-reactors">
+     Packed bed reactors
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mechanisms-of-heterogeneous-catalytic-reactions">
+     Mechanisms of (Heterogeneous) Catalytic Reactions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-langmuir-isotherm">
+     The Langmuir Isotherm
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#molecular-adsorption">
+       Molecular Adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-difference-between-the-equilibrium-assumption-and-the-pssh">
+       The Difference Between The Equilibrium Assumption and the PSSH
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dissociative-adsorption">
+       Dissociative Adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distinguishing-between-molecular-and-dissociative-adsorption">
+       Distinguishing Between Molecular and Dissociative adsorption
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linearization-of-isotherms">
+       Linearization of Isotherms
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-37">
+<h1>Lecture 37<a class="headerlink" href="#lecture-37" title="Permalink to this headline">#</a></h1>
+<p>This lecture considers the analysis of surface reactions (heterogeneous catalysis).  We introduce the reaction equilibrium assumption and develop the Langmuir-adsorption model, which has wide usage in catalysis and adsorption phenomena.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="heterogeneous-catalysis">
+<h2>Heterogeneous Catalysis<a class="headerlink" href="#heterogeneous-catalysis" title="Permalink to this headline">#</a></h2>
+<p>When we discuss heterogeneous catalysis, we are generally referring to overall gas- or liquid-phase reactions that occur through a series of intermediate steps on a solid surface.  The classic example that we’ve used in this course is that of ammonia synthesis in the Haber-Bosch process.</p>
+<section id="ammonia-synthesis">
+<h3>Ammonia Synthesis<a class="headerlink" href="#ammonia-synthesis" title="Permalink to this headline">#</a></h3>
+<p>Overall, that gas-phase reaction is this:</p>
+<div class="math notranslate nohighlight">
+\[N_2 + 3H_2 \rightleftharpoons 2NH_3\]</div>
+<p>However, what actually is happening is that <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> molecules from the gas phase are dissociating on exposed Fe or Ru atoms on the catalyst surface.  An illustration of that basic idea is given below.</p>
+<p><img alt="Ammonia.svg" src="Lectures/attachment:Ammonia.svg" /></p>
+<p>So, this is a bit what catalysis looks like on a metal surface.  The exposed atoms are “active sites” that facilitate reactions of species that are stable in the gas phase.  Things are a little more complicated in a real reactor.  The conversion we achieve in a catalytic reactor depends on the number of these “active sites” that are present in the reactor, which ultimately depends on the amount of catalyst surface area inside of the reactor. Bulk metal particles have very low surface area (few active sites per unit area), so, in order to achieve practical levels of fractional conversion, we would have to put a very large and expensive quantity of bulk Ni, Fe, Ru, Pt, etc. inside of our reactor.</p>
+</section>
+<section id="porous-materials">
+<h3>Porous materials<a class="headerlink" href="#porous-materials" title="Permalink to this headline">#</a></h3>
+<p>Our usual workaround for this is to use a very high surface area material as a “support.” High surface area materials are generally porous solids.  Imagine a sponge with pores that are on the nanometer scale.  Frequently these materials have massive surface areas, on the order of 100 - 1000 m<span class="math notranslate nohighlight">\(^2\)</span> per gram.  These porous materials allow you to pack a very large surface area into a reasonably sized reactor (because they have so much surface area per unit mass).  Pretty much any kind of industrial heterogeneous catalysis we can imagine is actually going to occur on the surface of these porous materials.  If it is an acid catalyzed reaction, we would have protons (H<span class="math notranslate nohighlight">\(^+\)</span>) distributed on the surface of these materials.  These protons would be our “active sites.”  A base catalyst would have electron rich species distributed on the surface (O<span class="math notranslate nohighlight">\(^{2-}\)</span>).  If we need a metal catalyst, we would usually “disperse” it onto this high surface area material.  Ultimately, this would look like many very small metal nanoparticles (1 - 20 nm) that are stabilized on the high surface area support (something like SiO<span class="math notranslate nohighlight">\(_2\)</span> or Al<span class="math notranslate nohighlight">\(_2\)</span>O<span class="math notranslate nohighlight">\(_3\)</span>).</p>
+<p><img alt="Ammonia3.svg" src="Lectures/attachment:Ammonia3.svg" /></p>
+<p>In this way, we can maximize the metal surface area (by virtue of having very small particles) and so make our catalyst cost effective and practical for use in an industrial reactor.</p>
+</section>
+<section id="packed-bed-reactors">
+<h3>Packed bed reactors<a class="headerlink" href="#packed-bed-reactors" title="Permalink to this headline">#</a></h3>
+<p>For practical reasons, we cannot fill a reactor with nanometer sized particles of high surface area support with catalystic sites on them, which would a) be generally costly and energy intensive to manufacture consistently and b) cause enormous pressure drops in the packed bed.  In reality, we are usually working with porous catalyst “pellets” (white spheres in the PBR below) that have macroscale dimensions on the order of centimeters or inches, and where the vast majority of “active sites” are embedded inside of the pores (see gray spheres inside of the inert porous pellet).</p>
+<p><img alt="PBRwPorosity.svg" src="Lectures/attachment:PBRwPorosity.svg" /></p>
+<p>This sets up an additional bit of complexity:</p>
+<p>Active sites are distributed throughout these inch-scale porous materials (see illustration of packed bed above), and there is no convective flow in their pores…so reacting species, in the course of flowing through the packed bed in the bulk gas phase or liquid phase, have to diffuse through the porous particle, to the active site before they can react.  Then, the products have to diffuse away from the active site and back into the bulk flow before we can recover them at the exit of the reactor.</p>
+<p>This actually means that you can have multiple phenomena controlling the rate at which the catalyst converts reactants into products.  If the rate of diffusion to and from the active sites is very fast (and reaction is relatively slow), then the process is usually controlled by adsorption and reaction on the active sites.  If you have very fast reactions (compared to diffusion), then the rate of mass transfer will control the rate at which reactants are converted to products.</p>
+<p>If you want to learn more about designing reactors where catalysts operate under conditions of heat or mass transfer, you can take my graduate course (CEN 786). For the rest of this analysis, we will make the following assumption when dealing with surface reactions:</p>
+<p><strong>We will assume that rates of heat and mass transfer in the reactor and the catalyst pellet are infinitely fast relative to rates of reaction</strong></p>
+<p>This means that the temperature and composition in the bulk fluid are identical to the temperature and composition at the active site inside of the porous pellet, and it makes our analysis much simpler.</p>
+</section>
+<section id="mechanisms-of-heterogeneous-catalytic-reactions">
+<h3>Mechanisms of (Heterogeneous) Catalytic Reactions<a class="headerlink" href="#mechanisms-of-heterogeneous-catalytic-reactions" title="Permalink to this headline">#</a></h3>
+<p>Now we’ll focus in on the mechanisms of catalytic reactions.  Sticking with ammonia synthesis, we can think of this conceptually as surface active sites facilitating dissociation of N<span class="math notranslate nohighlight">\(_2\)</span> and H<span class="math notranslate nohighlight">\(_2\)</span> to form N- and H- atoms bound to “active sites” on the catalyst surface.  The H atoms can add sequentially to N atoms to eventually form ammonia, which desorbs from the surface.  We can translate that into a set of elementary steps:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d5754a43-124d-4f17-b1d0-c83695b432d1">
+<span class="eqno">(169)<a class="headerlink" href="#equation-d5754a43-124d-4f17-b1d0-c83695b432d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_2 + 2* &amp;\rightleftharpoons 2N_* \\
+    H_2 + 2* &amp;\rightleftharpoons 2H_* \\
+    N_* + H_* &amp;\rightleftharpoons NH_* \\
+    NH_* + H_* &amp;\rightleftharpoons NH_{2_*} \\
+    NH_{2_*} + H_* &amp;\rightleftharpoons NH_{3_*} \\
+    NH_3 + * &amp;\rightleftharpoons NH_{3_*} \\
+\end{align}\]</div>
+<p>We use a specific notation in these elementary reactions.  Species present in the bulk (gas or liquid phase) are written without any specific subscripts.  The * symbol represents a vacant active site.  And a chemical species with a * as the subscript means that species is bound to the active site (*) on the catalyst surface.  When we write rate expressions for these elementary step, we’ll use a slightly different convention than usual.</p>
+<ol class="simple">
+<li><p>Rates depend on the concentration of species present in the bulk gas or liquid phase.  In this problem, that would be N<span class="math notranslate nohighlight">\(_2\)</span>, H<span class="math notranslate nohighlight">\(_2\)</span>, and NH<span class="math notranslate nohighlight">\(_3\)</span>.</p></li>
+<li><p>We make the “mean field approximation,” which assumes that surface species are randomly distributed on the surface (they do not segregate into islands, for example) and that their motion on the surface by diffusion is very, very fast relative to reaction rates.</p></li>
+<li><p>If the mean field approximation holds, rates depend on the <strong>fractional coverage</strong> of surface species or active sites just as they do concentrations for bulk species. The fractional coverage is defined as the number of surface species or vacant sites divided by the total number of active sites.  We use a symol <span class="math notranslate nohighlight">\(\theta_j\)</span> to represent the fractional coverage of the surface species (or vacant surface site).</p></li>
+</ol>
+<p>As an example, if we wanted to write a rate expression for step 1, we note that it involves the dissociation of an N<span class="math notranslate nohighlight">\(_2\)</span> molecule at 2 active sites to form 2 surface bound nitrogen atoms:</p>
+<div class="math notranslate nohighlight">
+\[r_1 = k_1C_{N_2}{\theta_*}^{2} - k_{-1}{\theta_N}^{2}\]</div>
+<p>And if I wanted to write a rate expression for the third step, we would write:</p>
+<div class="math notranslate nohighlight">
+\[r_3 = k_3\theta_{N}{\theta_H} - k_{-3}{\theta_{NH}}\]</div>
+<p>We’ll work our way back up to the analysis of full mechanisms, but first we will introduce a couple of concepts and simplifications that we frequently use in the analysis of catalytic reactions.</p>
+</section>
+<section id="the-langmuir-isotherm">
+<h3>The Langmuir Isotherm<a class="headerlink" href="#the-langmuir-isotherm" title="Permalink to this headline">#</a></h3>
+<p>In almost every catalytic reaction, we have to consider adsorption and desorption of species.  There are two types of adsorption:  molecular adsorption and dissociative adsorption.  We’ll illustrate both types below and see how they work out.</p>
+<p>As we do this, notice that desorption is simply adsorption in reverse, so I almost always write these as “adsorption” steps going from left-to-right.  You may see that other people write separate “desorption” steps, but they are just adsorption steps written in the right-to-left direction.</p>
+<section id="molecular-adsorption">
+<h4>Molecular Adsorption<a class="headerlink" href="#molecular-adsorption" title="Permalink to this headline">#</a></h4>
+<p>When a molecule adsorbs on a surface without any bonds breaking, this is usually called <em>molecular adsorption</em>.  For example, let’s say we have a molecule like ammonia that adsorbs on a surface without breaking any bonds, we would write that step as we did in step 6 for the HB mechanism of ammonia synthesis.</p>
+<div class="math notranslate nohighlight">
+\[NH_3 + * \rightleftharpoons NH_{3_*}\]</div>
+<p>That is a molecular adsorption step!  (Note that the reverse of this step would be described as the molecular desorption of ammonia.) We often represent adsorption steps generically as follows:</p>
+<div class="math notranslate nohighlight">
+\[A + * \rightleftharpoons A*\]</div>
+<p>Since this is an elementary step, we can write the rate of that reaction using the rules outlined above.  It will depend on the bulk concentration of A and on the surface coverage of vacant sites and molecularly adsorbed A:</p>
+<div class="math notranslate nohighlight">
+\[r = k_f C_A \theta_* - k_r \theta_A\]</div>
+<p>Molecular adsorption steps tend to be relatively fast. There is no real bond scission occuring, so we <em>usually</em> approximate them as having a 0 activation barrier.  This generally means a large rate constant. Often, on the timescales of reactions, fast adsorption processes are actually very nearly at equilibrium.  Not always, but frequently we will assume that adsorption steps are at equilibrium.  When a reaction is at equilibrium, we know that the rate in the forward direction is exactly the same as the rate in the reverse direction.  In other words, the net <em>rate of reaction</em> is zero.</p>
+<p>So, if a step is at equilbrium, we would write:</p>
+<div class="math notranslate nohighlight">
+\[0 = r = k_f C_A \theta_* - k_r \theta_A\]</div>
+<p>And one could solve this expression for the fractional coverage of species A in terms of the bulk concentration of A and the fractional coverage of vacant sites:</p>
+<div class="math notranslate nohighlight">
+\[\theta_A = \frac{k_f}{k_r} C_A \theta_*\]</div>
+<p>For an elementary step, we know that the ratio of the forward and reverse rate constant is equal to the equilibrium constant for that step, so:</p>
+<div class="math notranslate nohighlight">
+\[\theta_A = K_A C_A \theta_*\]</div>
+<p>We’ve run into this problem a lot – we have an expression of the coverage of A in terms of something, free (vacant) sites, that are difficult to measure/quantify/control in the laboratory. We would like to know the coverage of A in terms of bulk concentrations and kinetic parameters. But notice, this is the coverage (concentration) of a species bound to the catalyst, and we’ve expressed it as a function of the coverage (concentration) of vacant active sites (free catalyst).  We can resolve the coverage of vacant sites using a site balance.  For this system, the surface site exists in two states–it is either vacant, or it has species A bound to it, so the site balance for this system is:</p>
+<div class="math notranslate nohighlight">
+\[1 = \theta_* + \theta_A\]</div>
+<p>It’s still based on the same assumption as usual–that the total number of active sites is constant–but since we’ve expressed their concentrations as fractional coverages, the coverages of all species must always sum to 1.  We can substitute the expression for <span class="math notranslate nohighlight">\(\theta_A*\)</span> into the site balance:</p>
+<div class="math notranslate nohighlight">
+\[1 = \theta_* + K_A C_A \theta_*\]</div>
+<p>And now we’re in familiar territory from our work with enzymatic reactions.  We can solve this expression for the fraction of vacant sites:</p>
+<div class="math notranslate nohighlight">
+\[\theta_* = \frac{1}{1 + K_AC_A}\]</div>
+<p>With that, we can substitute it into the expression for <span class="math notranslate nohighlight">\(\theta_A\)</span> to get the coverage of A in terms of its bulk concentration and an equilibrium constant.</p>
+<div class="math notranslate nohighlight">
+\[\theta_A = \frac{K_AC_A}{1 + K_AC_A}\]</div>
+<p>This is the classic Langmuir adsorption isotherm, and it is used frequently to model adsorption processes.  We note that it has the following limiting behaviors:</p>
+<p>At low concentrations of A (<span class="math notranslate nohighlight">\(C_A \rightarrow 0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\theta_A = K_A C_A\]</div>
+<p>In other words, the coverage of A increases with a first order depedence on the concentration of A.</p>
+<p>At high concentrations of A (<span class="math notranslate nohighlight">\(C_A \rightarrow \infty\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\theta_A = 1\]</div>
+<p>In other words, it is zero order in A.  All of the surface sites are <em>saturated</em> with species A, and increasing the concentration of A can’t do anything to increase the coverage of A beyond saturation.</p>
+</section>
+<section id="the-difference-between-the-equilibrium-assumption-and-the-pssh">
+<h4>The Difference Between The Equilibrium Assumption and the PSSH<a class="headerlink" href="#the-difference-between-the-equilibrium-assumption-and-the-pssh" title="Permalink to this headline">#</a></h4>
+<p>A lot of students confuse the equilibrium assumption with the pseudo-steady state assumption. Briefly, <em>equilibrium</em> is something we assume about a <em>reaction</em>.  <em>Steady state</em> is something we assume about a <em>species</em>.  So, if I was making an equilibrium assumption, I would do so on a single reaction as I’ve done above.  Whereas I would make a steady state approximation about a species.</p>
+<p><strong>Equilibrium</strong></p>
+<div class="math notranslate nohighlight">
+\[r = 0\]</div>
+<p><strong>PSSH</strong></p>
+<div class="math notranslate nohighlight">
+\[R_{A_*} = 0\]</div>
+<p>These are fundamentally different approximations!  It is extremely important to recognize the difference if for no other reason that using equilibrium approximations make it <em>much</em> easier to develop rate expressions for surface reactions.  You <em>can</em> use PSSH approximations, but the algebra can quickly become impossible so that there is now way to solve the equations analytically.  <strong>The point</strong>: if you are allowed to make an equilibrium approximation about an elementary step in a surface reaction mechanism, do it.  Do not try to use a PSSH because you will get lost in the algebra.</p>
+</section>
+<section id="dissociative-adsorption">
+<h4>Dissociative Adsorption<a class="headerlink" href="#dissociative-adsorption" title="Permalink to this headline">#</a></h4>
+<p>Many molecules–like <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> in our Haber-Bosch example, dissociate (break bonds) when they adsorb on a catalyst surface. In those examples, <span class="math notranslate nohighlight">\(N_2\)</span> forms 2 surface-bound N atoms, and <span class="math notranslate nohighlight">\(H_2\)</span> forms 2 surface-bound H atoms. This type of adsorption is usually called <em>dissociative adsorption</em>.  Looking at the dissociative adsorption steps from the HB mechanism, you’ll see it is a bit unique in that it requires 2 vacant active sites–one for each species formed by the bond dissociation event.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-53aa9fb3-46db-4a88-a1ea-b2c1bf3f1803">
+<span class="eqno">(170)<a class="headerlink" href="#equation-53aa9fb3-46db-4a88-a1ea-b2c1bf3f1803" title="Permalink to this equation">#</a></span>\[\begin{align}
+    N_2 + 2* \rightleftharpoons 2N_* \\
+    H_2 + 2* \rightleftharpoons 2N_* \\
+\end{align}\]</div>
+<p>The reverse of these steps would be described as the <em>associative desorption</em> of N<span class="math notranslate nohighlight">\(_2\)</span> or H<span class="math notranslate nohighlight">\(_2\)</span>. We often represent a dissociative adsorption steps generically as follows:</p>
+<div class="math notranslate nohighlight">
+\[B_2 + 2* \rightleftharpoons 2B*\]</div>
+<p>Since this is an elementary step, we can write the rate of that reaction using our conventions for surface reactions under the mean field approximation.  It will depend on the bulk concentration of B<span class="math notranslate nohighlight">\(_2\)</span>, the surface coverage of vacant sites (*), and the surface coverage of B atoms:</p>
+<div class="math notranslate nohighlight">
+\[r = k_f C_{B_2} {\theta_*}^2 - k_r {\theta_A}^2\]</div>
+<p><strong>Notice</strong>:  Because this step involves two vacant sites and two surface atoms, when we write the rate expression, it will depend on the square of their coverages.</p>
+<p>Dissociative adsorption is a bit more kinetically difficult than molecular adsorption (we do have to break a bond here), so they may have an activation barrier. Even still, they are <em>usually</em> small barriers relative to surface reactions.  So even dissociative adsorption steps are <em>usually</em> fast compared to surface reactions. As in the case of molecular adsorption, we frequently assume that dissociative adsorption steps are at equilibrium (although this is a bad approximation for the specific example of N<span class="math notranslate nohighlight">\(_2\)</span>, which I’ve unfortunately chosen as an illustration case here).</p>
+<p>If we can assume a dissociative adsorption step is at equilibrium, then we say the net rate of that step is zero as we did with molecular adsorption:</p>
+<div class="math notranslate nohighlight">
+\[0 = r = k_f C_{B_2} {\theta_*}^2 - k_r {\theta_A}^2\]</div>
+<p>Keeping in mind that a convenient solution strategy for these mechanistic analyses is to solve for the coverage of a bound species as a function of vacant site coverage, we solve for <span class="math notranslate nohighlight">\(\theta_B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = \left(\frac{k_f}{k_r} C_{B_2}\right)^{\frac{1}{2}} \theta_*\]</div>
+<p>And we replace the rate constant ratio for a single elementary step with an equilibrium constant:</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = \left(K_B \, C_{B_2}\right)^{\frac{1}{2}} \theta_*\]</div>
+<p>And we’re in a familiar spot where we have the coverage of the bound species expressed as a linear function of bulk concentration, an equilibrium constant, and the free sites.  We resolve the free site coverage with a site balance as usual.  Again, we’ll assume the catalyst site can exist in two states.  It can either be vacant (*) or it can have a B adsorbed at it (B<span class="math notranslate nohighlight">\(_*\)</span>). Since the sum of all fractional coverages is 1:</p>
+<div class="math notranslate nohighlight">
+\[1 = \theta_* + \theta_B\]</div>
+<p>We then substitute the expression for <span class="math notranslate nohighlight">\(\theta_B*\)</span> into the site balance:</p>
+<div class="math notranslate nohighlight">
+\[1 = \theta_* + \left(K_B \, C_{B_2}\right)^{\frac{1}{2}} \theta_*\]</div>
+<p>Again, notice that we’ve approached the problem in such a way that all terms on the right hand side of our site balance have a linear dependence on vacant site coverage, so this is easy to solve for <span class="math notranslate nohighlight">\(\theta_*\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\theta_* = \frac{1}{1 + \left(K_B \, C_{B_2}\right)^{\frac{1}{2}}}\]</div>
+<p>With that, we can substitute it into the expression for <span class="math notranslate nohighlight">\(\theta_B\)</span> to get the coverage of B in terms of its bulk concentration and an equilibrium constant.</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = \frac{\left(K_B \, C_{B_2}\right)^{\frac{1}{2}}}{1 + \left(K_B \, C_{B_2}\right)^{\frac{1}{2}}}\]</div>
+<p>This is the Langmuir isotherm for dissociative adsorption!  It is definitely a result worth knowing.  We can also consider its behavior at high and low concentrations of the adsorbing species:</p>
+<p>At low concentrations of B<span class="math notranslate nohighlight">\(_2\)</span> (<span class="math notranslate nohighlight">\(C_{B_2} \rightarrow 0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = \left(K_B \, C_{B_2}\right)^{\frac{1}{2}}\]</div>
+<p>In other words, the coverage of B increases with a half-order depedence on the concentration of B<span class="math notranslate nohighlight">\(_2\)</span>.</p>
+<p>At high concentrations of B<span class="math notranslate nohighlight">\(_2\)</span> (<span class="math notranslate nohighlight">\(C_{B_2} \rightarrow \infty\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\theta_B = 1\]</div>
+<p>In other words, it is zero order in B<span class="math notranslate nohighlight">\(_2\)</span>.  All of the surface sites are <em>saturated</em> with species B, and increasing the concentration of B<span class="math notranslate nohighlight">\(_2\)</span> can’t do anything to increase the coverage of B beyond saturation.</p>
+</section>
+<section id="distinguishing-between-molecular-and-dissociative-adsorption">
+<h4>Distinguishing Between Molecular and Dissociative adsorption<a class="headerlink" href="#distinguishing-between-molecular-and-dissociative-adsorption" title="Permalink to this headline">#</a></h4>
+<p>There are a number of ways that we can do this, but all of them involve running experiments where we vary the bulk concentration (or, in the gas phase, partial pressure) of the adsorbing species, we allow the adsorption step to equilibrate, and we measure the quantity of species adsorbed on the catalyst surface. There are various methods of doing this. The most common is to quantify the decrease in bulk species and assume that any species lost from the bulk have adsorbed on the surface.  Another strategy can be to use a quartz crystal microbalance to actually detect the change in mass of the catalyst as species adsorb on the surface.  Finally, if you are careful to calibrate an infrared spectrometer using one of the above methods, you can use something like FTIR to quantify the amount of species adsorbed on a surface.  Once we do this, we will have a set of surface coverages at equilibrium with various gas- or liquid-phase concentrations, and we would work through our usual tools of data analysis and reconciliation of proposed models with experimental measurements.</p>
+<p>For example, you could perform <em>nonlinear regression</em> to fit the associative and dissociative adsorption models to data and determine which best fits your data set.  An example is shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CM_exp</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0001</span><span class="p">,</span> <span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.0005</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span> <span class="c1">#mol/L</span>
+<span class="n">thetaM_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.01231471</span><span class="p">,</span> <span class="mf">0.02450419</span><span class="p">,</span> <span class="mf">0.05662556</span><span class="p">,</span> <span class="mf">0.11536265</span><span class="p">,</span> <span class="mf">0.19374295</span><span class="p">,</span> <span class="mf">0.37952173</span><span class="p">,</span> <span class="mf">0.56262205</span><span class="p">,</span> <span class="mf">0.69767484</span><span class="p">,</span> <span class="mf">0.84451735</span><span class="p">,</span> <span class="mf">0.90949091</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CM_exp</span><span class="p">,</span> <span class="n">thetaM_exp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Experimental Coverage of species M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Bulk conentration of M (mol/L)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional coverage of M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L37_8_0.png" src="../_images/587-L37_8_0.png" />
+</div>
+</div>
+<p>Next we’ll fit molecular and dissociative adsorption models to see if one clearly fits better than the other.  We’ll do that using the following models for the fractional coverage of M:</p>
+<p><strong>Molecular Adsorption</strong></p>
+<div class="math notranslate nohighlight">
+\[\theta_M = \frac{K_MC_M}{1 + K_MC_M}\]</div>
+<p><strong>Dissociative Adsorption</strong></p>
+<div class="math notranslate nohighlight">
+\[\theta_M = \frac{\left(K_M \, C_{M}\right)^{\frac{1}{2}}}{1 + \left(K_M \, C_{M}\right)^{\frac{1}{2}}}\]</div>
+<p>I’m not doing anything new here: I’m just fitting two nonlinear models to our data by generating objective functions and minimizing the residual sum of squares (by varying the adsorption constant).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj_molecular</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">KM</span> <span class="o">=</span> <span class="n">par</span>
+    <span class="n">CM</span> <span class="o">=</span> <span class="n">CM_exp</span>
+    
+    <span class="n">thetaM_mod</span> <span class="o">=</span> <span class="n">KM</span><span class="o">*</span><span class="n">CM</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">KM</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span>
+    
+    <span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">thetaM_exp</span> <span class="o">-</span> <span class="n">thetaM_mod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+
+<span class="k">def</span> <span class="nf">obj_dissociative</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">KM</span> <span class="o">=</span> <span class="n">par</span>
+    <span class="n">CM</span> <span class="o">=</span> <span class="n">CM_exp</span>
+    
+    <span class="n">thetaM_mod</span> <span class="o">=</span> <span class="p">(</span><span class="n">KM</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">KM</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    
+    <span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">thetaM_exp</span> <span class="o">-</span> <span class="n">thetaM_mod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+
+<span class="n">ans_mol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj_molecular</span><span class="p">)</span>
+<span class="n">ans_dis</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj_dissociative</span><span class="p">)</span>
+
+<span class="n">KM_mol</span> <span class="o">=</span> <span class="n">ans_mol</span><span class="o">.</span><span class="n">x</span>
+<span class="n">KM_dis</span> <span class="o">=</span> <span class="n">ans_dis</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">SSE_mol</span> <span class="o">=</span> <span class="n">ans_mol</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">SSE_dis</span> <span class="o">=</span> <span class="n">ans_dis</span><span class="o">.</span><span class="n">fun</span>
+
+<span class="n">SST</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">thetaM_exp</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">thetaM_exp</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">R2_mol</span>  <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE_mol</span><span class="o">/</span><span class="n">SST</span>
+<span class="n">R2_dis</span>  <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE_dis</span><span class="o">/</span><span class="n">SST</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And then we can plot the models with our optimum results against our experimental data to assess goodness of fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CMfine</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">thetaM_mol</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">CM</span><span class="p">:</span> <span class="p">(</span><span class="n">KM_mol</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">KM_mol</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span>
+<span class="n">thetaM_dis</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">CM</span><span class="p">:</span> <span class="p">(</span><span class="n">KM_dis</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">KM_dis</span><span class="o">*</span><span class="n">CM</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For molecular adsorption   , we get KM = </span><span class="si">{</span><span class="n">KM_mol</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1"> L/mol, SSE = </span><span class="si">{</span><span class="n">SSE_mol</span><span class="si">:</span><span class="s1">3.2E</span><span class="si">}</span><span class="s1">, and R2 = </span><span class="si">{</span><span class="n">R2_mol</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For dissociative adsorption, we get KM = </span><span class="si">{</span><span class="n">KM_dis</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1"> L/mol, SSE = </span><span class="si">{</span><span class="n">SSE_dis</span><span class="si">:</span><span class="s1">3.2E</span><span class="si">}</span><span class="s1">, and R2 = </span><span class="si">{</span><span class="n">R2_dis</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CM_exp</span><span class="p">,</span> <span class="n">thetaM_exp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experimental data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CMfine</span><span class="p">,</span> <span class="n">thetaM_mol</span><span class="p">(</span><span class="n">CMfine</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Molecular Adsorption Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CMfine</span><span class="p">,</span> <span class="n">thetaM_dis</span><span class="p">(</span><span class="n">CMfine</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Dissociative Adsorption Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Experimental Coverage of species M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Bulk conentration of M (mol/L)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional coverage of M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For molecular adsorption   , we get KM = 121 L/mol, SSE = 7.78E-04, and R2 = 0.999
+For dissociative adsorption, we get KM = 105 L/mol, SSE = 1.24E-01, and R2 = 0.887
+</pre></div>
+</div>
+<img alt="../_images/587-L37_12_1.png" src="../_images/587-L37_12_1.png" />
+</div>
+</div>
+<p>You can visually determine that the molecular adsorption model provides a much better fit to this data set.  This is also borne out in quantative metrics like the SSE and the R2 value.</p>
+</section>
+<section id="linearization-of-isotherms">
+<h4>Linearization of Isotherms<a class="headerlink" href="#linearization-of-isotherms" title="Permalink to this headline">#</a></h4>
+<p>It is also useful to be able to linearize these models, which is relatively easy to do.  We see that both coverage expressions are monomial functions divided by a polynomial, so we can linearize these models by inversion.</p>
+<p><strong>Molecular Adsorption</strong></p>
+<div class="math notranslate nohighlight">
+\[\theta_M = \frac{K_MC_M}{1 + K_MC_M}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\theta_M} = \frac{1}{K_M}\frac{1}{C_M} + 1\]</div>
+<p><strong>Dissociative Adsorption</strong></p>
+<div class="math notranslate nohighlight">
+\[\theta_M = \frac{\left(K_M \, C_{M}\right)^{\frac{1}{2}}}{1 + \left(K_M \, C_{M}\right)^{\frac{1}{2}}}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\theta_M} = \frac{1}{{K_M}^\frac{1}{2}}\frac{1}{{C_M}^\frac{1}{2}} + 1\]</div>
+<p>If we have molecular adsorption, plotting coverage vs. inverse concentration should give a straight line.  If we have dissociative adsorption, we’ll see a straight line if we plot coverage vs. inverse square root of concentration.  This is illustrated below for the data set above (which we already determined is well-described by molecular adsorption).  You can see clearly that the data plotted against inverse concentration is linear, which agrees with the molecular adsorption model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span>     <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax2</span>          <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<span class="n">molecular</span>    <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CM_exp</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">thetaM_exp</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Molecular Adsorption&#39;</span><span class="p">)</span>
+<span class="n">dissociative</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CM_exp</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="o">/</span><span class="n">thetaM_exp</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Dissociative Adsorption&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;1/CM^(1/2)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;1/CM&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;1/thetaM&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L37_14_0.png" src="../_images/587-L37_14_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-L36.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 36</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-L38.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 36</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

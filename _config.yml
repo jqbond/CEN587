@@ -2,7 +2,7 @@
 # Configuration file for AICH2022_Python
 #######################################################################################
 # Book settings
-title                       : Using Python in Chemical Engineering Curricula
+title                       : Kinetics and Reaction Engineering
 author                      : Jesse Q. Bond, Syracuse University
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo                        : "JQB.png"  # A path to the book logo

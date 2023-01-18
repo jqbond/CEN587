@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\jqbond\anaconda3\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\jqbond\AppData\Roaming\Python\Python39\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+itp1 = interp1d(XA, V)
+itp1(XA_target)
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+[1;32m~\AppData\Local\Temp\ipykernel_12536\1180215072.py[0m in [0;36m<cell line: 2>[1;34m()[0m
+[0;32m      1[0m [0mitp1[0m [1;33m=[0m [0minterp1d[0m[1;33m([0m[0mXA[0m[1;33m,[0m [0mV[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m----> 2[1;33m [0mitp1[0m[1;33m([0m[0mXA_target[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_polyint.py[0m in [0;36m__call__[1;34m(self, x)[0m
+[0;32m     76[0m         """
+[0;32m     77[0m         [0mx[0m[1;33m,[0m [0mx_shape[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_prepare_x[0m[1;33m([0m[0mx[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m---> 78[1;33m         [0my[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_evaluate[0m[1;33m([0m[0mx[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     79[0m         [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_finish_y[0m[1;33m([0m[0my[0m[1;33m,[0m [0mx_shape[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     80[0m [1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py[0m in [0;36m_evaluate[1;34m(self, x_new)[0m
+[0;32m    703[0m         [0my_new[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_call[0m[1;33m([0m[0mself[0m[1;33m,[0m [0mx_new[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    704[0m         [1;32mif[0m [1;32mnot[0m [0mself[0m[1;33m.[0m[0m_extrapolate[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 705[1;33m             [0mbelow_bounds[0m[1;33m,[0m [0mabove_bounds[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0m_check_bounds[0m[1;33m([0m[0mx_new[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m    706[0m             [1;32mif[0m [0mlen[0m[1;33m([0m[0my_new[0m[1;33m)[0m [1;33m>[0m [1;36m0[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    707[0m                 [1;31m# Note fill_value must be broadcast up to the proper size[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m~\anaconda3\lib\site-packages\scipy\interpolate\_interpolate.py[0m in [0;36m_check_bounds[1;34m(self, x_new)[0m
+[0;32m    735[0m                              "range.")
+[0;32m    736[0m         [1;32mif[0m [0mself[0m[1;33m.[0m[0mbounds_error[0m [1;32mand[0m [0mabove_bounds[0m[1;33m.[0m[0many[0m[1;33m([0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 737[1;33m             raise ValueError("A value in x_new is above the interpolation "
+[0m[0;32m    738[0m                              "range.")
+[0;32m    739[0m [1;33m[0m[0m
+
+[1;31mValueError[0m: A value in x_new is above the interpolation range.
+ValueError: A value in x_new is above the interpolation range.
+

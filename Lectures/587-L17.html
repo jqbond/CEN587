@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 17 &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 18" href="587-L18.html" />
+    <link rel="prev" title="Lecture 16" href="587-L16.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L01.html">
+     Lecture 01: Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L02.html">
+     Lecture 02: Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L03.html">
+     Lecture 03: Numerical methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L04.html">
+     Lecture 04: Chemical Equilibrium Part 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L05.html">
+     Lecture 05: Chemical Equilibrium Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L06.html">
+     Lecture 06
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L07.html">
+     Lecture 07: Ammonia Equilibrium - Part 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L08.html">
+     Lecture 08: Multi-reaction equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L09.html">
+     Lecture 09: Chemical and Phase equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L10.html">
+     Lecture 10
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L11.html">
+     Lecture 11
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L12.html">
+     Lecture 12
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L13.html">
+     Lecture 13
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L14.html">
+     Lecture 14
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L15.html">
+     Lecture 15
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L16.html">
+     Lecture 16
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Lecture 17
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L18.html">
+     Lecture 18
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L19.html">
+     Lecture 19
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L20.html">
+     Lecture 20
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L22.html">
+     Lecture 22
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L23.html">
+     Lecture 23
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L24.html">
+     Lecture 24
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L25.html">
+     Lecture 25
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L26.html">
+     Lecture 26
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L27.html">
+     Lecture 27
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L28.html">
+     Lecture 28
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L31.html">
+     Lecture 31
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L32.html">
+     Lecture 32
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L33.html">
+     Lecture 33
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L34.html">
+     Lecture 34
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L35.html">
+     Lecture 35
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L36.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L37.html">
+     Lecture 37
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L38.html">
+     Lecture 36
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L39.html">
+     Lecture 39
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L40.html">
+     Lecture 40
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L41.html">
+     Lecture 41
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L42.html">
+     Lecture 42
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L43.html">
+     Lecture 43
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L17.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L17.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/587-L17.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-02-with-numerical-methods">
+     Solving Example Problem 02 with numerical methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#some-observations">
+       Some observations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Lecture 17</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solving-example-problem-02-with-numerical-methods">
+     Solving Example Problem 02 with numerical methods
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#some-observations">
+       Some observations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-17">
+<h1>Lecture 17<a class="headerlink" href="#lecture-17" title="Permalink to this headline">#</a></h1>
+<p>This lecture solves more Material Balance Example Problems</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p><strong>Note, this is the CSTR version of Example Problem 01 from Lecture 15</strong></p>
+<p>Consider the following liquid-phase, irreversible, homogeneous reaction that is occurring in perfectly-mixed CSTR.</p>
+<div class="math notranslate nohighlight">
+\[2A + 3B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f8720047-2224-473e-a30c-ddac1f050409">
+<span class="eqno">(80)<a class="headerlink" href="#equation-f8720047-2224-473e-a30c-ddac1f050409" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k &amp;= 37.2 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    Q_f &amp;= 12 \ \textrm{L} \ \textrm{h}^{-1}\\
+    C_{Af} &amp;= 0.74 \ \textrm{mol} \ \textrm{L}^{-1}\\
+    C_{Bf} &amp;= 2.50 \ \textrm{mol} \ \textrm{L}^{-1}
+\end{align}\]</div>
+<p>Find the CSTR volume required for a fractional conversion of 65% for species A.</p>
+<p><strong>Answer</strong>: V<span class="math notranslate nohighlight">\(_{CSTR}\)</span> = 0.168L.</p>
+<div class = "alert alert-block alert-info">
+    Compare to Example Problem 01 from Lecture 15, where we concluded that a PFR volume of 0.0823L will give 65% conversion. 	
+    </div>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>One important thing to recognize right away is that CSTRs at steady state will involve solving algebraic equations, so the strategies we use are different from Batch Reactors and Tubular Reactors, which both require solving differential equations.  The general concepts and approaches are the same, but just be mindful that there are different challenges associated with solving algebraic and differential equations.</p>
+<p>In general, with algebraic equations, I prefer to reduce the system to the smallest number of unknowns possible (instead of writing extra equations).  Writing extra equations is very easy when we’re solving ODEs numerically, but it can actually make things harder when we solve algebraic problems numerically.  So, usually, I reduce the number of unknowns as much as possible by solving CSTR problems (at steady state) in terms of extents of reaction or fractional conversions.</p>
+<p>First, we note that we can easily compute feed molar flowrates of A and B in this problem:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8072e42a-d020-4b15-9b47-7d237c97d797">
+<span class="eqno">(81)<a class="headerlink" href="#equation-8072e42a-d020-4b15-9b47-7d237c97d797" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_{A,f} = C_{A,f}Q_f \\
+    F_{B,f} = C_{B,f}Q_f \\
+\end{align}\]</div>
+<p>Since all of those concentrations and volumetric feedrate are given at the inlet condition, we can easily calculate molar flowrates of reactants.</p>
+<p>Now we write a balance on A:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A + R_AV\]</div>
+<p>We see an intensive production rate, <span class="math notranslate nohighlight">\(R_A\)</span>, which we define as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>And for this single reaction:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -2r\]</div>
+<p>We know the rate expression:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>So this gives</p>
+<div class="math notranslate nohighlight">
+\[R_A = -2kC_AC_B\]</div>
+<p>Which we can substitute into the material balance:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A - 2kC_AC_BV\]</div>
+<p>We have 4 unknowns in that equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>.  However, we do know the exit conversion is 65%, so we can actually solve for <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>:</p>
+<p>Specifically:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8ca3dbbc-95fd-4ad1-9aed-98f70016ce39">
+<span class="eqno">(82)<a class="headerlink" href="#equation-8ca3dbbc-95fd-4ad1-9aed-98f70016ce39" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f}(1 - X_A) \\
+    F_B &amp;= F_{B,f} - 3/2F_{A,f}X_A \\
+    C_A &amp;= F_A/Q \\
+    C_B &amp;= F_B/Q \\
+\end{align}\]</div>
+<p>Since the density is constant in this flow reactor, we know that <span class="math notranslate nohighlight">\(Q = Q_f\)</span>, so everything on the right hand side here can be solved to give the values of FA, CA, and CB at 65% conversion. That leaves us one unknown in the material balance (V), so we can solve for it:</p>
+<div class="math notranslate nohighlight">
+\[V = -\frac{F_{A,f} - F_A}{R_A}\]</div>
+<p>Plugging in values, we get:</p>
+<p><strong>V = 0.168L</strong></p>
+<div class = "alert alert-block alert-info">Compare this with Example Problem 01 from Lecture 15, where we found that a 0.0823L PFR is needed for a conversion of $X_A$ = 0.65 for identical conditions.
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>   <span class="o">=</span> <span class="mf">37.2</span>  <span class="c1">#L/mol/h</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mf">12.0</span> <span class="c1">#L/h</span>
+<span class="n">Q</span>   <span class="o">=</span> <span class="n">Qf</span>
+<span class="n">CAf</span> <span class="o">=</span> <span class="mf">0.74</span> <span class="c1">#mol/L</span>
+<span class="n">CBf</span> <span class="o">=</span> <span class="mf">2.50</span> <span class="c1">#mol/L</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="n">Qf</span> <span class="c1">#mol/h</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span><span class="o">*</span><span class="n">Qf</span> <span class="c1">#mol/h</span>
+<span class="n">XA</span>  <span class="o">=</span> <span class="mf">0.65</span>
+<span class="n">FA</span>  <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XA</span><span class="p">)</span> <span class="c1">#mol/h</span>
+<span class="n">FB</span>  <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">FAf</span><span class="o">*</span><span class="n">XA</span> <span class="c1">#mol/h</span>
+<span class="n">CA</span>  <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+<span class="n">CB</span>  <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+<span class="n">r</span>   <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+<span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span>
+<span class="n">V</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">RA</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1684223618256466
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p><strong>Note, this is the CSTR version of the PFR described in Example Problem 03 from Lecture 14.</strong></p>
+<p>Consider the following liquid-phase, irreversible, homogeneous reaction that is occurring in a perfectly-mixed CSTR.</p>
+<div class="math notranslate nohighlight">
+\[A + B \rightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1e1bf0d1-4e01-4bab-8361-0f7a70a67098">
+<span class="eqno">(83)<a class="headerlink" href="#equation-1e1bf0d1-4e01-4bab-8361-0f7a70a67098" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k &amp;= 25.3 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+    Q_f &amp;= 10 \ \textrm{L} \ \textrm{h}^{-1}\\
+    F_{Af} &amp;= 10 \ \textrm{mol} \ \textrm{h}^{-1}\\
+    F_{Bf} &amp;= 10 \ \textrm{mol} \ \textrm{h}^{-1}
+\end{align}\]</div>
+<p>What fractional conversion of species A is achieved in 1.24L CSTR?</p>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(X_A\)</span> = 0.573.</p>
+<div class = "alert alert-block alert-info">Compare this with Example Problem 03 from Lecture 14, where we found that a 1.24L PFR will give a conversion of $X_A$ = 0.758 for identical conditions.
+    </div><section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<p>We write a balance on A:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A + R_AV\]</div>
+<p>We see an intensive production rate, <span class="math notranslate nohighlight">\(R_A\)</span>, which we define as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>And for this single reaction:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r\]</div>
+<p>We know the rate expression:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>So this gives</p>
+<div class="math notranslate nohighlight">
+\[R_A = -kC_AC_B\]</div>
+<p>Which we can substitute into the material balance:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A - kC_AC_BV\]</div>
+<p>We have 3 unknowns in that equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>. We are given Volume in the problem statement (1.24L).  If we want to solve this by hand, we’ll need to express <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span> in terms of a single unknown.  I’ll choose to work with fractional conversion of A here.  Completing a mole table, we find:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-78c52698-e12d-41ed-ac78-70c4de583e12">
+<span class="eqno">(84)<a class="headerlink" href="#equation-78c52698-e12d-41ed-ac78-70c4de583e12" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f}(1 - X_A) \\
+    F_B &amp;= F_{B,f} - F_{A,f}X_A \\
+\end{align}\]</div>
+<p>But:  we see in the problem statement, that for this problem, <span class="math notranslate nohighlight">\(F_{A,f} = F_{B,F}\)</span>.  So, in this special case:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2a3e7fe7-44be-4441-9c11-4c87aa247a09">
+<span class="eqno">(85)<a class="headerlink" href="#equation-2a3e7fe7-44be-4441-9c11-4c87aa247a09" title="Permalink to this equation">#</a></span>\[\begin{align}
+    F_A &amp;= F_{A,f}(1 - X_A) \\
+    F_B &amp;= F_{A,f}(1 - X_A) \\
+\end{align}\]</div>
+<p>Then we define concentrations as usual; for a constant density flow reactor, <span class="math notranslate nohighlight">\(Q = Q_f\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-66541fe3-82ba-4776-bec4-5662a2369aba">
+<span class="eqno">(86)<a class="headerlink" href="#equation-66541fe3-82ba-4776-bec4-5662a2369aba" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A &amp;= F_A/Q_f \\
+    C_B &amp;= F_A/Q_f \\
+\end{align}\]</div>
+<p>Substituting everything into the material balance, we get:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_{A,f}(1 - X_A) - kF_{A,f}^2(1-X_A)^2\frac{V}{Q_f^2}\]</div>
+<p>I solved this by simplifying, doing some FOIL magic, and using the quadratic formula.  Essentially, I get:</p>
+<div class="math notranslate nohighlight">
+\[0 = X_A^2 + (\alpha - 2)X_A + 1\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\alpha = -Q_f^2/k/F_{A,f}/V\)</span></p>
+<p>If you solve that with the quadratic formula, you’ll find two roots at:</p>
+<div class="math notranslate nohighlight">
+\[X_A = 0.573\]</div>
+<p>and at</p>
+<div class="math notranslate nohighlight">
+\[X_A = 1.746\]</div>
+<p>Mathematically, they are both fine, but physically, we can’t have a conversion of more than 100% since it would mean we consume more reactant than we put into the reactor.  So we reject the upper root and conclude that our solution is:</p>
+<div class="math notranslate nohighlight">
+\[X_A = 0.573\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span> <span class="c1">#L/mol/h</span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="mi">10</span>   <span class="c1">#mol/h</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mi">10</span>   <span class="c1">#L/h</span>
+<span class="n">V</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">Qf</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="n">FAf</span><span class="o">/</span><span class="n">V</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">Xupper</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">Xlower</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Xlower</span><span class="p">,</span> <span class="n">Xupper</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5727289521699684 1.7460266260526507
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solving-example-problem-02-with-numerical-methods">
+<h3>Solving Example Problem 02 with numerical methods<a class="headerlink" href="#solving-example-problem-02-with-numerical-methods" title="Permalink to this headline">#</a></h3>
+<p>So that is the classic, closed-form analytical solution to this problem using the quadratic formula.  You can usually solve quadratics by hand, but any more nonlinear than that, you’re going to use a numerical root finding algorithm.  Also, if you have more than one reaction, you’ll end up with more than one equation, and if those are nonlinear, we usually will use a nonlinear system solver like opt.root.  I’ll show you my preferred method whenever we recognize we’re going to be solving a nonlinear equation.  It is analogous to my approach for solving ODEs, where I offload the substitutions and tedium to Python.  See below, we’ll implement the above equations in an objective function and just have Python find the correct value of conversion for us.</p>
+<p>Here, I only have a single uknown, XA, so I’ll set it up as a univariate function and use opt.newton.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P04</span><span class="p">(</span><span class="n">XA</span><span class="p">):</span>
+    <span class="n">FAf</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/h</span>
+    <span class="n">FBf</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/h</span>
+    <span class="n">Qf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#L/h</span>
+    <span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span> <span class="c1">#L/mol/h</span>
+    <span class="n">V</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+    
+    <span class="n">FA</span>  <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">XA</span><span class="p">)</span>
+    <span class="n">FB</span>  <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="n">FAf</span><span class="o">*</span><span class="n">XA</span>
+    
+    <span class="n">Q</span>   <span class="o">=</span> <span class="n">Qf</span>
+    <span class="n">CA</span>  <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span>  <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r</span>   <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    
+    <span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    
+    <span class="n">LHS</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="n">LHS</span>
+
+<span class="n">XAsol</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">P04</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">XAsol</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5727289521699684
+</pre></div>
+</div>
+</div>
+</div>
+<section id="some-observations">
+<h4>Some observations<a class="headerlink" href="#some-observations" title="Permalink to this headline">#</a></h4>
+<p>This is not something you need to remember <em>per se</em>, but it is worth being aware of, even if you don’t quite get why yet. Hopefully, you’ll notice this pattern as you solve more problems.</p>
+<p><em><strong>For problems where we are solving ODEs (PFR and batch reactor problems)</strong></em>, it is <em>slightly</em> easier to solve problems where the reactor volume or reaction time are given and you are solving for the corresponding fractional conversion. This is especially true when we solve them numerically using something like solve_ivp. Basically, if we are given the exit volume (or exit time in a batch reactor), we won’t need to interpolate to find the true solution since we know exactly the correct tspan or vspan.</p>
+<p><em><strong>When we are solving steady-state CSTR problems, which are algebraic equations</strong></em> it is usually quite a bit easier to solve problems where we are given the desired fractional conversion and asked to solve for volume.  It is less straightforward to solve problems where we are given volume and asked to solve for the corresponding fractional conversion.  This is because we often get algebraic equations that are nonlinear in fractional conversion or concentration in a CSTR.  If we are given the desired exit conversion, it is straightforward to plug into the nonlinear equation and solve for volume (that’s what we did above in Example Problem 01). If we’re given volume, we have to use a root finding algorithm to solve the nonlinear equation for the corresponding conversion (that’s what we did in Example Problem 02).</p>
+<p><em><strong>In addition:</strong></em></p>
+<p>For problems where we are solving ODEs (Batch Reactors, Plug Flow/Packed Bed Reactors, CSTRs not at steady state), it is generally easy (numerically) to just add more and more ODEs to our system and have the numerical algorithm solve the coupled system.  In other words, once we’re using something like <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>, it is almost just as easy to solve 2 or 10 or 20 ODEs than it is to solve 1 ODE. While it is possible to express molar quantities and molar flowrates in terms of extents or conversions, it is not all that helpful to do so unless we are trying to pursue a solution by hand.</p>
+<p>For problems where we are solving algebraic equations (CSTRs at steady state), numerical solutions generally get increasingly difficult as we add more equations, for example, with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code>. I don’t have a hard and fast rule on this, but I find that for algebraic systems, it is helpful to reduce the number of equations by expressing mole quantities and molar flowrates in terms of extents of reaction or fractional conversion.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-L16.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 16</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-L18.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 18</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

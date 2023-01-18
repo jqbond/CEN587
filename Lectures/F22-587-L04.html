@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 04: Chemical Equilibrium Part 1 &#8212; Using Python in Chemical Engineering Curricula</title>
+    <title>Lecture 04: Chemical Equilibrium Part 1 &#8212; Kinetics and Reaction Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/JQB.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -723,8 +723,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[K = \exp \left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
 <p>Let’s consider whether those two equilibrium constants are actually the same thing…which we seem to have naively concluded above. Note that concentration has units of quantity per volume; for example: moles per liter (Molarity). Because of this, we can see that our first definition of K has to have units of inverse concentration, for example (L mol<span class="math notranslate nohighlight">\(^{-1})\)</span>.  In contrast, if we inspect the second equation, we see that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e73dbc7b-cd1d-4a68-bf33-586849297ee9">
-<span class="eqno">(28)<a class="headerlink" href="#equation-e73dbc7b-cd1d-4a68-bf33-586849297ee9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08915169-0f53-4e91-91e2-11e4c9797a1d">
+<span class="eqno">(28)<a class="headerlink" href="#equation-08915169-0f53-4e91-91e2-11e4c9797a1d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Delta G^\circ \ &amp;[=] \ J \ \textrm{mol}^{-1} \\
     R              \ &amp;[=] \ J \ \textrm{mol}^{-1} \ K^{-1} \\
     T              \ &amp;[=] \ K \\
@@ -744,8 +744,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[dG = \frac{\partial G}{\partial T}dT + \frac{\partial G}{\partial P}dP + \sum_{j = 1}^{N_S}\frac{\partial G}{\partial N_j}dn_j\]</div>
 <p>The three partial derivatives all define very specific Thermodynamic variables:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6c57d6d8-0d6c-4d13-8352-45ce54c05a2e">
-<span class="eqno">(29)<a class="headerlink" href="#equation-6c57d6d8-0d6c-4d13-8352-45ce54c05a2e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d3ced061-3e99-4943-97bf-1caad30c4416">
+<span class="eqno">(29)<a class="headerlink" href="#equation-d3ced061-3e99-4943-97bf-1caad30c4416" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{\partial G}{\partial T} &amp;= -S \\
     \\
     \frac{\partial G}{\partial P} &amp;= V \\

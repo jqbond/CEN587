@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 11 &#8212; Using Python in Chemical Engineering Curricula</title>
+    <title>Lecture 11 &#8212; Kinetics and Reaction Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/JQB.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -903,8 +903,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>I can relate the rate of reaction to the production rate of a species using stoichiometric coefficients.  This is similar to what we do with extents of reaction in completing a mole table for equilibrium problems.  For example, if I wanted to define the number of moles of A and B as functions of reaction extent, I would write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ffeab6ac-078a-4302-8dfb-6cc35a23feb2">
-<span class="eqno">(55)<a class="headerlink" href="#equation-ffeab6ac-078a-4302-8dfb-6cc35a23feb2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ec34220-9230-40b9-83ed-565932aa9ba7">
+<span class="eqno">(55)<a class="headerlink" href="#equation-2ec34220-9230-40b9-83ed-565932aa9ba7" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A = N_{A0} + \nu_A \varepsilon = N_{A0} - 2 \varepsilon \\
     N_B = N_{B0} + \nu_B \varepsilon = N_{B0} + 3 \varepsilon \\
 \end{align}\]</div>
@@ -939,8 +939,8 @@ title="Print to PDF"
 <h3>Multiple Reactions<a class="headerlink" href="#multiple-reactions" title="Permalink to this headline">#</a></h3>
 <p>There is no restriction that a species is only participating in one reaction in a given reactor.  In fact, the more realistic scenario is that every species is actually participating in multiple reactions.  This means that it is being consumed or produced by multiple chemical reactions, and so when we define its production rate, <span class="math notranslate nohighlight">\(R_j\)</span>, we actually need to account for the rate of consumption from many chemical reactions.  We’ll do this with an intuitive example and then present a general equation.</p>
 <p>Consider partial and complete combustion pathways that occur during methane oxidation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-218b9210-994c-481a-8bee-e5b00de2e09e">
-<span class="eqno">(56)<a class="headerlink" href="#equation-218b9210-994c-481a-8bee-e5b00de2e09e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0385ed11-4426-47d1-b2f9-f7496e6b623c">
+<span class="eqno">(56)<a class="headerlink" href="#equation-0385ed11-4426-47d1-b2f9-f7496e6b623c" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad CH_4 \ (g) + \frac{3}{2} O_2 \ (g) &amp;\longrightarrow CO \ (g) + 2H_2O \ (g) \\
     \\
     (2) \qquad CH_4 \ (g) + 2 O_2 \ (g) &amp;\longrightarrow CO_2 \ (g) + 2H_2O \ (g) \\
@@ -952,8 +952,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_{CH_4} = -1r_1 - 1r_2\]</div>
 <p>And we can do the same thing for every species participating in these two reactions.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5517afd0-7f74-41b1-a40b-bea26bf9dcd8">
-<span class="eqno">(57)<a class="headerlink" href="#equation-5517afd0-7f74-41b1-a40b-bea26bf9dcd8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c66779a1-1917-4153-a5cb-43d8c330224e">
+<span class="eqno">(57)<a class="headerlink" href="#equation-c66779a1-1917-4153-a5cb-43d8c330224e" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_{O_2} &amp;= -\frac{3}{2}r_1 - 2r_2\\
     R_{CO} &amp;= +1r_1 + 0r_2\\
     R_{CO_2} &amp;= +0r_1 + 1r_2\\
@@ -979,14 +979,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>Based on our discussion above, the intensive production rates for A and B would be:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1d1ebfc8-4cc3-4f6f-8874-fa544482a393">
-<span class="eqno">(58)<a class="headerlink" href="#equation-1d1ebfc8-4cc3-4f6f-8874-fa544482a393" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-17bf242c-3bf5-4ecc-93cd-96b87b310f79">
+<span class="eqno">(58)<a class="headerlink" href="#equation-17bf242c-3bf5-4ecc-93cd-96b87b310f79" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
     R_B &amp;= 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
 \end{align}\]</div>
 <p>And to get the extensive production rates for A and B, we’d multiply those intensive rates by the size of the system, which is 1L here:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0f17af4-5f0b-4cf0-9a93-1837b7d52fbb">
-<span class="eqno">(59)<a class="headerlink" href="#equation-a0f17af4-5f0b-4cf0-9a93-1837b7d52fbb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d917a3b4-2411-4036-a6d5-e0f82b0b99ae">
+<span class="eqno">(59)<a class="headerlink" href="#equation-d917a3b4-2411-4036-a6d5-e0f82b0b99ae" title="Permalink to this equation">#</a></span>\[\begin{align}
     G_A &amp;= -1 \ \frac{\text{mol}}{\text{min}}\\
     G_B &amp;= 1 \ \frac{\text{mol}}{\text{min}}\\
 \end{align}\]</div>
@@ -997,14 +997,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\]</div>
 <p>Similarly, intensive production rates are identical to the 1L reactor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7f8bbdb-84c4-4739-98aa-8be9ecfb623a">
-<span class="eqno">(60)<a class="headerlink" href="#equation-e7f8bbdb-84c4-4739-98aa-8be9ecfb623a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c98b32d-6748-46a8-8b3c-112f7caa5891">
+<span class="eqno">(60)<a class="headerlink" href="#equation-8c98b32d-6748-46a8-8b3c-112f7caa5891" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
     R_B &amp;= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
 \end{align}\]</div>
 <p>It is only when we get to calculating extensive rates–which we do by multiplying intensive rates by the size of the system–that we see a difference:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c53bcd7-2984-4bef-bbf7-9f1417ef9abd">
-<span class="eqno">(61)<a class="headerlink" href="#equation-9c53bcd7-2984-4bef-bbf7-9f1417ef9abd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2edde74b-a4d8-475e-8459-7609745e74b5">
+<span class="eqno">(61)<a class="headerlink" href="#equation-2edde74b-a4d8-475e-8459-7609745e74b5" title="Permalink to this equation">#</a></span>\[\begin{align}
     G_A &amp;= -100 \ \frac{\text{mol}}{\text{min}}\\
     G_B &amp;= 100 \ \frac{\text{mol}}{\text{min}}\\
 \end{align}\]</div>

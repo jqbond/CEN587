@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lecture 26 &#8212; Using Python in Chemical Engineering Curricula</title>
+    <title>Lecture 26 &#8212; Kinetics and Reaction Engineering</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/JQB.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Using Python in Chemical Engineering Curricula</h1>
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -851,8 +851,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A + B \longrightarrow C + D\]</div>
 <p>Write balances on species:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-340f5197-bd58-4cb6-ac4b-97b1e5d9d96e">
-<span class="eqno">(141)<a class="headerlink" href="#equation-340f5197-bd58-4cb6-ac4b-97b1e5d9d96e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-351c0ebb-6c1a-4a4b-812e-36890dd6fe60">
+<span class="eqno">(141)<a class="headerlink" href="#equation-351c0ebb-6c1a-4a4b-812e-36890dd6fe60" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dN_A}{dt} &amp;= R_AV \\
     \frac{dN_B}{dt} &amp;= F_{Bf} + R_BV \\
     \frac{dN_C}{dt} &amp;= R_CV \\
@@ -862,8 +862,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[F_{Bf} = C_{Bf}Q_f\]</div>
 <p>Define Production rates <span class="math notranslate nohighlight">\(R_j\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e54ff08-1177-48c0-86f3-c0c58bf3a4b3">
-<span class="eqno">(142)<a class="headerlink" href="#equation-7e54ff08-1177-48c0-86f3-c0c58bf3a4b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-983cd278-5f3f-479a-95a6-d95bdcc5da2e">
+<span class="eqno">(142)<a class="headerlink" href="#equation-983cd278-5f3f-479a-95a6-d95bdcc5da2e" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r \\
     R_B &amp;= -r \\
     R_C &amp;= r \\
@@ -873,8 +873,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = kC_AC_B\]</div>
 <p>Concentrations are given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-227a7c14-1588-4667-9bbd-2747ac9624e0">
-<span class="eqno">(143)<a class="headerlink" href="#equation-227a7c14-1588-4667-9bbd-2747ac9624e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cfacd7a7-ef6f-411a-83a0-43ada779e9bf">
+<span class="eqno">(143)<a class="headerlink" href="#equation-cfacd7a7-ef6f-411a-83a0-43ada779e9bf" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = \frac{N_A}{V} \\
     C_B = \frac{N_B}{V}
 \end{align}\]</div>
@@ -1122,7 +1122,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">~\AppData\Local\Temp\ipykernel_14012\1180215072.py</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_7592\1180215072.py</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">itp1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XA</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">itp1</span><span class="p">(</span><span class="n">XA_target</span><span class="p">)</span>
 

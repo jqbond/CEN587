@@ -1,0 +1,1646 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Parameter Estimation II &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Energy Balances" href="587-R14.html" />
+    <link rel="prev" title="Parameter Estimation I" href="587-R12.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L01.html">
+     Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L02.html">
+     Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L03.html">
+     Algebraic and Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L04.html">
+     Chemical Equilibrium I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L05.html">
+     Chemical Equilibrium II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L06.html">
+     Chemical Equilibrium III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L07.html">
+     Chemical Equilibrium IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L08.html">
+     Chemical Equilibrium V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L09.html">
+     Chemical and Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L10.html">
+     Material Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L11.html">
+     Material Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L12.html">
+     Material Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L13.html">
+     Material Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L14.html">
+     Material Balances V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L15.html">
+     Material Balances VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L16.html">
+     Material Balances VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L17.html">
+     Material Balances VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L18.html">
+     Material Balances IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L19.html">
+     Material Balances X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L20.html">
+     Material Balances XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L21.html">
+     Material Balances XII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L22.html">
+     Material Balances XIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L23.html">
+     Material Balances XIV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L24.html">
+     Material Balances XV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L25.html">
+     Material Balances XVI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L26.html">
+     Material Balances XVII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L27.html">
+     Material Balances XVIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L28.html">
+     Kinetics I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L29.html">
+     Kinetics II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L30.html">
+     Kinetics III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L31.html">
+     Kinetics IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L32.html">
+     Kinetics V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L33.html">
+     Kinetics VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L34.html">
+     Kinetics VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L35.html">
+     Kinetics VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L36.html">
+     Kinetics IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L37.html">
+     Kinetics X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L38.html">
+     Kinetics XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L39.html">
+     Energy Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L40.html">
+     Energy Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L41.html">
+     Energy Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L42.html">
+     Energy Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L43.html">
+     Energy Balances VI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R01.html">
+     Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R02.html">
+     Solving Algebraic Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R03.html">
+     Chemical Equilibrium
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R04.html">
+     Solving ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R05.html">
+     Chemical/Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R06.html">
+     CSTRs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R07.html">
+     Python tips and tricks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R08.html">
+     Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R09.html">
+     Reactors with Recycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R10.html">
+     Interpolation and Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R11.html">
+     Nonlinear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R12.html">
+     Parameter Estimation I
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Parameter Estimation II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R14.html">
+     Energy Balances
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/587-R13.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R13.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Recitation/587-R13.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loading-experimental-data-from-csv-files">
+       Loading Experimental Data from .csv files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphing-raw-data">
+       Graphing Raw Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linearization-of-model">
+       Linearization of Model
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-regression-to-determine-slopes-and-intercepts">
+       Linear Regression to Determine slopes and intercepts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-slopes-and-intercepts">
+       Comparing Slopes and Intercepts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nonlinear-regression">
+       Nonlinear Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-linear-regression">
+       Multiple Linear Regression
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-04">
+   Example Problem 04
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-04">
+     Solution to Example Problem 04
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Parameter Estimation II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#loading-experimental-data-from-csv-files">
+       Loading Experimental Data from .csv files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphing-raw-data">
+       Graphing Raw Data
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linearization-of-model">
+       Linearization of Model
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#linear-regression-to-determine-slopes-and-intercepts">
+       Linear Regression to Determine slopes and intercepts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#comparing-slopes-and-intercepts">
+       Comparing Slopes and Intercepts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nonlinear-regression">
+       Nonlinear Regression
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-linear-regression">
+       Multiple Linear Regression
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-02">
+   Example Problem 02
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-02">
+     Solution to Example Problem 02
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-03">
+   Example Problem 03
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-03">
+     Solution to Example Problem 03
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-04">
+   Example Problem 04
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-04">
+     Solution to Example Problem 04
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="parameter-estimation-ii">
+<h1>Parameter Estimation II<a class="headerlink" href="#parameter-estimation-ii" title="Permalink to this headline">#</a></h1>
+<p>This week, we have a challenging task.  We want to determine how long it will take for a 175L constant volume batch reactor (constructed from relatively low-grade steel) to achieve 85% conversion of a substrate (S) in an enzyme catalyzed reaction which is ultimately irreversible and has the following overall stoichiometry:</p>
+<div class="math notranslate nohighlight">
+\[S\longrightarrow P\]</div>
+<p>The initial concentration of substrate in the reactor is <span class="math notranslate nohighlight">\(C_{S0} = 8.6\)</span> moles per liter.</p>
+<p>As far as we know, the enzyme catalyzed reaction follows a typical, Michaelis-Menten mechanism; however, the reaction appears to be inhibited by Chromium ions, which leach from the walls of the batch reactor over time. The rate of chromium leaching, in this system, is zero order and occurs with a <em><strong>rate constant of 0.0075 mol/L/s</strong></em>.  We will use the symbol “I” to represent Chromium ions.</p>
+<p>This means that our overall rate expression for substrate conversion most likely has the following functional dependence:</p>
+<div class="math notranslate nohighlight">
+\[r = f(C_S, C_I)\]</div>
+<p>That is, it is important for us to know both substrate concentration and chromium concentration in order to determine the rate of reaction. Though, at the outset, we do not know the rate law (reaction orders in substrate and Chromium ions), nor do we know any relevant kinetic parameters.  We will see if we can use our knowledge of enzyme catalyzed reactions along with experimental data to develop and parameterize a rate law so that we can solve our reactor design problem.</p>
+<p>We suspect that <em><strong>Chromium ions inhibit the reaction by binding directly with the enzyme</strong></em>, which prevents it from binding substrate and ultimately slows down reaction kinetics.  We are always faced with some degree of Chromium leaching in this system, so it is important for us to account for the impact of chromium inhibition on the rate of reaction.</p>
+<p>From what we have speculated, the reaction mechanism should look something like this:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1cc6f60f-6e8c-4b63-acff-6062b02efe12">
+<span class="eqno">(238)<a class="headerlink" href="#equation-1cc6f60f-6e8c-4b63-acff-6062b02efe12" title="Permalink to this equation">#</a></span>\[\begin{align}
+    E + S &amp;\longleftrightarrow ES \\
+    ES    &amp;\longrightarrow     E + P \\
+    E + I &amp;\longleftrightarrow EI \\
+\end{align}\]</div>
+<p>In class, we determined that <strong>IF</strong> an enzyme catalyzed reaction follows this mechanism, with this specific mode of inhibition, we should observe an overall rate law of:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_{max}[S]}{[S] + K_m\left(1+K_3[I]\right)}\]</div>
+<p>To assess whether this model accurately describes our system, we go into the lab and measure rates of reaction for various concentrations of the chromium ion inhibitor [I] (0.005M, 0.1M, 0.5M, and 1.25M). Data are attached separately in the EXP1 to EXP4 csv files.</p>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Determine whether this mechanism accurately describes the data you have collected.</p></li>
+<li><p>If it does not describe the data, revise the mechanism accordingly.</p></li>
+<li><p>If it does describe the data, estimate the values of <span class="math notranslate nohighlight">\(V_{\mathrm{max}}\)</span>, <span class="math notranslate nohighlight">\(K_M\)</span>, and <span class="math notranslate nohighlight">\(K_3\)</span>.</p></li>
+</ol>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>In the attached data, we have four separate experiments that measure the rate of reaction at various substrate concentrations for multiple inhibitor concentrations.  We’ll load these in the cell below and plot the experiments to get a feel for the data.  Each EXP data file has two columns.  The first column is the substrate concentration (CS) in mol/L; the second concentration is the inhibitor concentration (CI) in mol/L; and the third column is the overall reaction rate (r) in units of mol/L/s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="loading-experimental-data-from-csv-files">
+<h4>Loading Experimental Data from .csv files<a class="headerlink" href="#loading-experimental-data-from-csv-files" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Load Experimental Data; convert to numpy arrays</span>
+
+<span class="c1">#Experiment 1 with Chromium ion concentration at 0.1M</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;EXP1.csv&quot;</span><span class="p">)</span>
+<span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
+     <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">EXP1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">CS1</span>  <span class="o">=</span> <span class="n">EXP1</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CI1</span>  <span class="o">=</span> <span class="n">EXP1</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r1</span>   <span class="o">=</span> <span class="n">EXP1</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Experiment 2 with Chromium ion concentration at 0.5M</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;EXP2.csv&quot;</span><span class="p">)</span>
+<span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
+     <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">EXP2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">CS2</span>  <span class="o">=</span> <span class="n">EXP2</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CI2</span>  <span class="o">=</span> <span class="n">EXP2</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r2</span>   <span class="o">=</span> <span class="n">EXP2</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Experiment 3 with Chromium ion concentration at 0.005M</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;EXP3.csv&quot;</span><span class="p">)</span>
+<span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
+     <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">EXP3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">CS3</span>  <span class="o">=</span> <span class="n">EXP3</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CI3</span>  <span class="o">=</span> <span class="n">EXP3</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r3</span>   <span class="o">=</span> <span class="n">EXP3</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Experiment 4 with Chromium ion concentration at 1.25M</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;EXP4.csv&quot;</span><span class="p">)</span>
+<span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csvreader</span><span class="p">:</span>
+     <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">EXP4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="s1">&#39;float&#39;</span><span class="p">)</span>
+<span class="n">CS4</span>  <span class="o">=</span> <span class="n">EXP4</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CI4</span>  <span class="o">=</span> <span class="n">EXP4</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">r4</span>   <span class="o">=</span> <span class="n">EXP4</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_19048\993742937.py</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">#Experiment 1 with Chromium ion concentration at 0.1M</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;EXP1.csv&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">csvreader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;EXP1.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphing-raw-data">
+<h4>Graphing Raw Data<a class="headerlink" href="#graphing-raw-data" title="Permalink to this headline">#</a></h4>
+<p>Instinctively, we might just plot rate against substrate concentration, but we’ll see this isn’t all that informative.  It will show us that increasing chromium ion concentration decreases the rate of reaction, but we can’t say much about the mechanism of action based on this visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS3</span><span class="p">,</span> <span class="n">r3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.005M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS1</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.1M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS2</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.5M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CS4</span><span class="p">,</span> <span class="n">r4</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 1.25M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rates at various chromium ion concentrations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Substrate Concentration (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reaction Rate (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R13_7_0.png" src="../_images/587-R13_7_0.png" />
+</div>
+</div>
+</section>
+<section id="linearization-of-model">
+<h4>Linearization of Model<a class="headerlink" href="#linearization-of-model" title="Permalink to this headline">#</a></h4>
+<p>It is far more useful to try to linearize this data so that we can consider how the slope and/or intercept respond to changes in inhibitor concentration.  Specifically, we know that if the proposed mode of inhibition is true, and we have the following overall rate law:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_{max}[S]}{[S] + K_m\left(1+K_3[I]\right)}\]</div>
+<p>We can linearize by inverting the expression to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}}\]</div>
+<p>If this mode of inhibition is correct, we should see the linearized data having a constant y-intercept but a varied slope.  Let’s plot 1/r vs. 1/CS for each case and see how it looks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.005M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.1M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.5M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r4</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 1.25M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LB plot for chromium ion concentrations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/Substrate Concentration (L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/Reaction Rate (L*s/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R13_9_0.png" src="../_images/587-R13_9_0.png" />
+</div>
+</div>
+</section>
+<section id="linear-regression-to-determine-slopes-and-intercepts">
+<h4>Linear Regression to Determine slopes and intercepts<a class="headerlink" href="#linear-regression-to-determine-slopes-and-intercepts" title="Permalink to this headline">#</a></h4>
+<p>It really looks like each of these are extrapolating to a common y-intercept (we’ll have to regress to find out), and that they all have different slopes, which is consistent with the proposed mechanism of inhibition.  Below, we regress slopes and intercepts for each experiment and compare them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coeffs1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">coeffs2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">coeffs3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">coeffs4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Overlay regressed lines with data to visualize goodness of fit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.005M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.1M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 0.5M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r4</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CI = 1.25M&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">CS1</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs2</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">CS2</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">CS3</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs4</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">CS4</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LB plot for chromium ion concentrations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/Substrate Concentration (L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/Reaction Rate (L*s/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R13_12_0.png" src="../_images/587-R13_12_0.png" />
+</div>
+</div>
+</section>
+<section id="comparing-slopes-and-intercepts">
+<h4>Comparing Slopes and Intercepts<a class="headerlink" href="#comparing-slopes-and-intercepts" title="Permalink to this headline">#</a></h4>
+<p>The linearized model fits our data very well.  Let’s look at the regressed coefficients to see how they behave.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slopes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">coeffs1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coeffs2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coeffs3</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coeffs4</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">yints</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">coeffs1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coeffs2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coeffs3</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">coeffs4</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">slopes</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yints</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 14.05317747  56.93341744   3.86935058 137.3336761 ] 
+
+[2.67140293 2.66694803 2.80912682 2.63485009]
+</pre></div>
+</div>
+</div>
+</div>
+<p>From that, we can see that we have a roughly constant slope with a y-intercept that varies with inhibitor concentration.  On average, we would use these values to estimate Vmax using the equation:</p>
+<div class="math notranslate nohighlight">
+\[V_{max} = \frac{1}{\bar{b}}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\bar{b}\)</span> is the average y-intercept regressed in all of our Lineweaver-Burk plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vmax_est</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">yints</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;A rough estimate of Vmax is </span><span class="si">{</span><span class="n">Vmax_est</span><span class="si">:</span><span class="s1">4.3f</span><span class="si">}</span><span class="s1"> mol/L/s&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A rough estimate of Vmax is 0.371 mol/L/s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Moreover, if we plot the values of the slope against inhibitor concentration, we can see that the slope varies linearly with inhibitor concentration.  This is what we expect; the slope of the LB linearizations follows the form below:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{K_M + K_3[I]}{V_\textrm{max}}\]</div>
+<p>Which is a straight line in disguise:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{K_M}{V_\textrm{max}} + \frac{K_3}{V_\textrm{max}}[I]\]</div>
+<p>If we plot the regressed slopes against inhibitor concentration, and we observe linearity, this is strong evidence that our proposed mechanism is correct.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inhibitors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">CI1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CI2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CI3</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">CI4</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">slopecoeff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">,</span> <span class="n">slopes</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">,</span> <span class="n">slopes</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">)]),</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">slopecoeff</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">inhibitors</span><span class="p">)])),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Variation in LB slopes with inhibitor concentration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Inhibitor concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;LB slope&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.51</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">151</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R13_18_0.png" src="../_images/587-R13_18_0.png" />
+</div>
+</div>
+<p>Not only that, if we plot the slopes of the LB plot against [I] and regress the line of best fit, if we consider the equation that describes the data in the above figure:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{K_M}{V_\textrm{max}} + \frac{K_3}{V_\textrm{max}}[I]\]</div>
+<p>And we remember that we estimated <span class="math notranslate nohighlight">\(V_{\mathrm{max}}\)</span> from the initial Lineweaver-Burk intercept, we can use this regression to get rough estimates for <span class="math notranslate nohighlight">\(K_M\)</span> (from the intercept) and <span class="math notranslate nohighlight">\(K_3\)</span> (from the slope).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vmax_est</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">yints</span><span class="p">)</span> <span class="c1">#mol/L/s</span>
+<span class="n">KM_est</span>   <span class="o">=</span> <span class="n">slopecoeff</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">Vmax_est</span> <span class="c1">#mol/L</span>
+<span class="n">K3_est</span>   <span class="o">=</span> <span class="n">slopecoeff</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">Vmax_est</span> <span class="c1">#L/mol</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rough estimates for Vmax, KM, and K3 are </span><span class="si">{</span><span class="n">Vmax_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s, </span><span class="si">{</span><span class="n">KM_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L, and </span><span class="si">{</span><span class="n">K3_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> L/mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rough estimates for Vmax, KM, and K3 are 0.371 mol/L/s, 1.237 mol/L, and 39.769 L/mol
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is tempting to stop here since we have credible estimates for all of the parameters.  Honestly, wouldn’t be the worst solution to the problem.  I do worry because in order to make these estimates of <span class="math notranslate nohighlight">\(K_M\)</span> and <span class="math notranslate nohighlight">\(K_3\)</span>, we had to assume that we knew <span class="math notranslate nohighlight">\(V_{\mathrm{max}}\)</span> exactly.  That isn’t true – <em><strong>we really, really need to regress all three parameters at the same time</strong></em> because there is uncertainty in our estimate of <span class="math notranslate nohighlight">\(V_{\mathrm{max}}\)</span>, and that impacts our precision in estimating <span class="math notranslate nohighlight">\(K_M\)</span> and <span class="math notranslate nohighlight">\(K_3\)</span>.</p>
+<p>I can think of two ways to do this.</p>
+<ol class="simple">
+<li><p>Nonlinear regression using the rate law above</p></li>
+<li><p>Multiple linear regression using a linearized model</p></li>
+</ol>
+</section>
+<section id="nonlinear-regression">
+<h4>Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Permalink to this headline">#</a></h4>
+<p>We’ll do nonlinear regression first since I think it is more straightforward; you can use <code class="docutils literal notranslate"><span class="pre">opt.minimize</span></code> for this.</p>
+<p>First, we will put all of our experiments into a single data set that compiles rates as a function of substrate and inhibitor concentration.  These will be our experimental measurements.</p>
+<p>Then, we’ll use this model to calculate our predicted rates at each substrate and inhibitor concentration.</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_{max}[S]}{[S] + K_m\left(1+K_3[I]\right)}\]</div>
+<p>It will be a function of our 3 variable parameters: KM, Vmax, and K3.  Thus, we can use this approach to write an objective function that calculates the residual sum of squares as a function of KM, Vmax, and K3.  This is all implemented below.</p>
+<p><strong>Note:</strong> We should remember how sensitive nonlinear regression is to our initial guesses for the parameter values.  I will use the rough approximations from above to get an idea for my initial guess, then I’ll refine with nonlinear regression.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rough estimates for Vmax, KM, and K3 are </span><span class="si">{</span><span class="n">Vmax_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s, </span><span class="si">{</span><span class="n">KM_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L, and </span><span class="si">{</span><span class="n">K3_est</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> L/mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rough estimates for Vmax, KM, and K3 are 0.371 mol/L/s, 1.237 mol/L, and 39.769 L/mol
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DATA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">EXP1</span><span class="p">,</span> <span class="n">EXP2</span><span class="p">,</span> <span class="n">EXP3</span><span class="p">,</span> <span class="n">EXP4</span><span class="p">))</span> <span class="c1">#arrange all experimental data as an m x 3 matrix.</span>
+<span class="n">CS_exp</span> <span class="o">=</span> <span class="n">DATA</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#first column is substrate concentration</span>
+<span class="n">CI_exp</span> <span class="o">=</span> <span class="n">DATA</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#second column is inhibitor concentration</span>
+<span class="n">r_exp</span>  <span class="o">=</span> <span class="n">DATA</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#third column is the rate measured at current CS, CI</span>
+
+<span class="k">def</span> <span class="nf">temp2</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">,</span> <span class="n">K3</span> <span class="o">=</span> <span class="n">par</span>
+    
+    <span class="n">r_mod</span>  <span class="o">=</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CS_exp</span><span class="o">/</span><span class="p">(</span><span class="n">CS_exp</span> <span class="o">+</span> <span class="n">KM</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">K3</span><span class="o">*</span><span class="n">CI_exp</span><span class="p">))</span>
+    
+    <span class="n">resid</span>  <span class="o">=</span> <span class="n">r_exp</span> <span class="o">-</span> <span class="n">r_mod</span>
+    <span class="n">SSE</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">SSE</span><span class="p">,</span> <span class="n">r_exp</span><span class="p">,</span> <span class="n">r_mod</span><span class="p">,</span> <span class="n">resid</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">obj2</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">temp2</span><span class="p">(</span><span class="n">par</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">par0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">Vmax_est</span><span class="p">,</span> <span class="n">KM_est</span><span class="p">,</span> <span class="n">K3_est</span><span class="p">]</span>
+<span class="n">ans2</span>    <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="n">par0</span><span class="p">)</span>
+<span class="n">Vmax_NL</span><span class="p">,</span> <span class="n">KM_NL</span><span class="p">,</span> <span class="n">K3_NL</span> <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">x</span>
+
+<span class="n">SSE</span><span class="p">,</span> <span class="n">r_exp</span><span class="p">,</span> <span class="n">r_mod</span><span class="p">,</span> <span class="n">resid</span> <span class="o">=</span> <span class="n">temp2</span><span class="p">(</span><span class="n">par_opt</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nonlinear regression gives SSE = </span><span class="si">{</span><span class="n">SSE</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, Vmax = </span><span class="si">{</span><span class="n">Vmax_NL</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s, KM = </span><span class="si">{</span><span class="n">KM_NL</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L, K3 = </span><span class="si">{</span><span class="n">K3_NL</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">L/mol&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">r_exp</span><span class="p">,</span> <span class="n">r_mod</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">r_exp</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">r_exp</span><span class="p">)],</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">r_exp</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">r_exp</span><span class="p">)],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Parity Plot of all data after nonlinear regression of optimal parameters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Experimentally measured rate (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Model predicted rate (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nonlinear regression gives SSE = 0.002, Vmax = 0.334 mol/L/s, KM = 1.065 mol/L, K3 = 31.436L/mol
+</pre></div>
+</div>
+<img alt="../_images/587-R13_23_1.png" src="../_images/587-R13_23_1.png" />
+</div>
+</div>
+</section>
+<section id="multiple-linear-regression">
+<h4>Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Permalink to this headline">#</a></h4>
+<p>The second way I can think to do this is with a multiple linear regression.  This requires that we have a convenient linearization. It isn’t immediately obvious, but we can linearize this model.  First, we work with the linearized form of the rate expression:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}}\]</div>
+<p>But we can see that we could present this another way as being a linear function of both [I]/[S] and 1/[S]:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{K_MK_{3_C}}{V_\textrm{max}}\frac{[I]}{[S]}+ \frac{1}{V_\textrm{max}}\]</div>
+<p>This is really just of the form:</p>
+<div class="math notranslate nohighlight">
+\[Y = \alpha_0x_1 + \alpha_1x_2 + \alpha_3\]</div>
+<p>I can put this into matrix form:</p>
+<div class="math notranslate nohighlight">
+\[XA = Y\]</div>
+<p>And use matrix algebra to solve for the unknown coefficients.</p>
+<p>Once we get the coefficients, we know that:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0d7306ff-c1f5-4900-917e-c8440242f265">
+<span class="eqno">(239)<a class="headerlink" href="#equation-0d7306ff-c1f5-4900-917e-c8440242f265" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \alpha[0] = \frac{K_M}{V_\textrm{max}} \\
+    \\
+    \alpha[1] = \frac{K_MK_3}{V_\textrm{max}} \\
+    \\
+    \alpha[2] = \frac{1}{V_\textrm{max}} \\
+\end{align}\]</div>
+<p>From that, we can get good estimates of our 3 parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r_exp</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span>       <span class="c1">#Design matrix X</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">CS_exp</span>
+<span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">CI_exp</span><span class="o">/</span><span class="n">CS_exp</span>
+<span class="n">Y</span>      <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">r_exp</span>                 <span class="c1">#Vector of observables, Y</span>
+<span class="n">A</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span> <span class="c1">#Solve for unknown coefficiens, ln(k), α, β</span>
+<span class="n">SSE</span>    <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">@</span><span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="n">X</span><span class="nd">@A</span><span class="p">)</span>           <span class="c1">#Residual sum of squares</span>
+<span class="n">SST</span>    <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>      <span class="c1">#Total sum of squares</span>
+<span class="n">Ypred</span>  <span class="o">=</span> <span class="n">X</span><span class="nd">@A</span>
+<span class="n">R2</span>     <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE</span><span class="o">/</span><span class="n">SST</span>                   <span class="c1">#R2</span>
+<span class="n">s2</span>     <span class="o">=</span> <span class="n">SSE</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>         <span class="c1">#Approximation for variance</span>
+<span class="n">cov</span>    <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">))</span>     <span class="c1">#covariance matrix</span>
+<span class="n">se</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">cov</span><span class="p">))</span>             <span class="c1">#standard error matrix; diagonal elements are standard error for coeffs</span>
+<span class="n">ci</span>     <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">*</span><span class="n">se</span> <span class="c1">#confidence intervals</span>
+<span class="n">Ypred</span>  <span class="o">=</span> <span class="n">X</span><span class="nd">@A</span>   <span class="c1">#predicted values of Y</span>
+
+<span class="n">Vmax_lin</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">KM_lin</span>   <span class="o">=</span> <span class="n">Vmax_lin</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">K3_lin</span>   <span class="o">=</span> <span class="n">Vmax_lin</span><span class="o">/</span><span class="n">KM_lin</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R2 = </span><span class="si">{</span><span class="n">R2</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Vm = </span><span class="si">{</span><span class="n">Vmax_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;KM = </span><span class="si">{</span><span class="n">KM_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;K3 = </span><span class="si">{</span><span class="n">K3_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> L/mol&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">Ypred</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;estimated rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Y</span><span class="p">)],</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Y</span><span class="p">)],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;linear fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Measured ln(r)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predicted ln(r)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Parity Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">),</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Experiment Number&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residual Error&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residual Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[  3.33331918 107.20018591   2.69558197] 
+
+R2 = 1.000
+Vm = 0.371 mol/L/s
+KM = 1.237 mol/L
+K3 = 32.160 L/mol
+</pre></div>
+</div>
+<img alt="../_images/587-R13_25_1.png" src="../_images/587-R13_25_1.png" />
+<img alt="../_images/587-R13_25_2.png" src="../_images/587-R13_25_2.png" />
+</div>
+</div>
+<p>Before proceeding, let’s compare the parameter estimates from NL and Linear Regression</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;NL regression gives Vmax = </span><span class="si">{</span><span class="n">par_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s, KM = </span><span class="si">{</span><span class="n">par_opt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L, K3 = </span><span class="si">{</span><span class="n">par_opt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">L/mol&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;L  regression gives Vmax = </span><span class="si">{</span><span class="n">Vmax_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s, KM = </span><span class="si">{</span><span class="n">KM_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L, K3 = </span><span class="si">{</span><span class="n">K3_lin</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">L/mol&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NL regression gives Vmax = 0.334 mol/L/s, KM = 1.065 mol/L, K3 = 31.436L/mol
+L  regression gives Vmax = 0.371 mol/L/s, KM = 1.237 mol/L, K3 = 32.160L/mol
+</pre></div>
+</div>
+</div>
+</div>
+<p>The estimates are close in either case.  I’m going to go ahead and use the ones from nonlinear regression hereafter.</p>
+</section>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
+<p>Now that we have a workable rate law, how long does it take to achieve 85% conversion in the originally described 175L Constant volume batch reactor if we operate with an initial substrate concentration of 8.6M.  The reactor is initially clean, and the aqueous solution we start with has no chromium initially; however, we do not that chromium ions enter solution at a rate of 0.0075 mol/L/s.</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
+<p>This is just a matter of writing material balances on all species present in the reactor, of which we are interested in two (since they impact our rate law).  These are the concentration of substrate and the concentration of chromium ions.  The general material balance for a constant volume batch reactor is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_j}{dt} = R_j\]</div>
+<p>We can write one of these for the substrate concentration (CS) and one for the chromium concentration (CI).</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e2ff3248-cdf0-4c77-838b-565430db9ce1">
+<span class="eqno">(240)<a class="headerlink" href="#equation-e2ff3248-cdf0-4c77-838b-565430db9ce1" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dC_S}{dt} = R_S \\
+    \frac{dC_I}{dt} = R_I \\
+\end{align}\]</div>
+<p>We have to rate expressions that apply here; one is the overall rate of the enzymatic reaction (r1), and one is the rate of chromium leaching (r2):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fbbb8c1b-e6d5-4ff2-a8b7-9c27d880d36c">
+<span class="eqno">(241)<a class="headerlink" href="#equation-fbbb8c1b-e6d5-4ff2-a8b7-9c27d880d36c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r_1 &amp;= \frac{V_{max}[S]}{[S] + K_m\left(1+K_3[I]\right)} \\
+    \\
+    r_2 &amp;= 0.0075 \\
+\end{align}\]</div>
+<p>Both expressions give reaction rates in units of mol/L/s.</p>
+<p>We can substitute these into our net production rate terms, <span class="math notranslate nohighlight">\(R_j\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a99d4b0-401d-454c-ae2b-690794048c9a">
+<span class="eqno">(242)<a class="headerlink" href="#equation-9a99d4b0-401d-454c-ae2b-690794048c9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_S &amp;= -r_1 \\
+    R_I &amp;= r_2 \\
+\end{align}\]</div>
+<p>That should be enough to set up an ODE system and solve this problem numerically with <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>.  See below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">,</span> <span class="n">K3</span> <span class="o">=</span> <span class="n">par_opt</span> <span class="c1">#using results from Nonlinear Regression</span>
+
+<span class="k">def</span> <span class="nf">P3</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">CI</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">r1</span>   <span class="o">=</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CS</span><span class="o">/</span><span class="p">(</span><span class="n">CS</span> <span class="o">+</span> <span class="n">KM</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">K3</span><span class="o">*</span><span class="n">CI</span><span class="p">))</span> <span class="c1">#mol/L/s</span>
+    <span class="n">r2</span>   <span class="o">=</span> <span class="mf">0.0075</span> <span class="c1">#mol/L/s</span>
+    
+    <span class="n">RS</span>   <span class="o">=</span> <span class="o">-</span><span class="n">r1</span>
+    <span class="n">RI</span>   <span class="o">=</span>  <span class="n">r2</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RS</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RI</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">]</span>
+
+<span class="n">tspan</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1">#seconds</span>
+<span class="n">teval</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">CS0</span>    <span class="o">=</span> <span class="mf">8.6</span> <span class="c1">#mol/L</span>
+<span class="n">CI0</span>    <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#mol/L</span>
+<span class="n">C0</span>     <span class="o">=</span> <span class="p">[</span><span class="n">CS0</span><span class="p">,</span> <span class="n">CI0</span><span class="p">]</span> <span class="c1">#initial concentration of substrate and inhibitor</span>
+<span class="n">ans3</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P3</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">C0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">teval</span><span class="p">)</span>
+<span class="n">t</span>      <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">t</span>
+<span class="n">CS</span><span class="p">,</span> <span class="n">CI</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">y</span>
+<span class="n">XS</span>     <span class="o">=</span> <span class="p">(</span><span class="n">CS0</span> <span class="o">-</span> <span class="n">CS</span><span class="p">)</span><span class="o">/</span><span class="n">CS0</span> <span class="c1">#true for a constant volume batch reactor</span>
+<span class="n">itp1</span>   <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XS</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Achieving 85% conversion in this system requires a time of </span><span class="si">{</span><span class="n">itp1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> seconds&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CS</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Substrate Concentration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CI</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Inhibitor Concentration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Substrate and inhibitor concentration with chromium leaching&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Create a second plot with a secondary y axis</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">conversion</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XS</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Substrate Conversion&#39;</span><span class="p">)</span>
+<span class="n">inhibitor</span><span class="p">,</span>  <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CI</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Inhibitor Concentration&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time(s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Substrate conversion with chromium leaching&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Achieving 85% conversion in this system requires a time of 72.442 seconds
+</pre></div>
+</div>
+<img alt="../_images/587-R13_31_1.png" src="../_images/587-R13_31_1.png" />
+<img alt="../_images/587-R13_31_2.png" src="../_images/587-R13_31_2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-03">
+<h2>Example Problem 03<a class="headerlink" href="#example-problem-03" title="Permalink to this headline">#</a></h2>
+<p>How significant is the Chromium leaching anyway?  Let’s figure out how long it would take to achieve 85% conversion of substrate if there was no chromiumm leaching in that reactor.</p>
+<section id="solution-to-example-problem-03">
+<h3>Solution to Example Problem 03<a class="headerlink" href="#solution-to-example-problem-03" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">,</span> <span class="n">K3</span> <span class="o">=</span> <span class="n">par_opt</span>
+
+<span class="k">def</span> <span class="nf">P3</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    
+    <span class="n">CS</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">CI</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">r1</span>   <span class="o">=</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CS</span><span class="o">/</span><span class="p">(</span><span class="n">CS</span> <span class="o">+</span> <span class="n">KM</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">K3</span><span class="o">*</span><span class="n">CI</span><span class="p">))</span> <span class="c1">#mol/L/s</span>
+    <span class="n">r2</span>   <span class="o">=</span> <span class="mi">0</span> <span class="c1">#mol/L/s</span>
+    
+    <span class="n">RS</span>   <span class="o">=</span> <span class="o">-</span><span class="n">r1</span>
+    <span class="n">RI</span>   <span class="o">=</span>  <span class="n">r2</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RS</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RI</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">]</span>
+
+<span class="n">tspan</span>  <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="c1">#seconds</span>
+<span class="n">teval</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">C0</span>     <span class="o">=</span> <span class="p">[</span><span class="mf">8.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span> <span class="c1">#initial concentration of substrate and inhibitor</span>
+<span class="n">ans3</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P3</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">C0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">teval</span><span class="p">)</span>
+<span class="n">t</span>      <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">t</span>
+<span class="n">CS</span><span class="p">,</span> <span class="n">CI</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">y</span>
+<span class="n">XS</span>     <span class="o">=</span> <span class="p">(</span><span class="mf">8.6</span> <span class="o">-</span> <span class="n">CS</span><span class="p">)</span><span class="o">/</span><span class="mf">8.6</span>
+<span class="n">itp1</span>   <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XS</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Achieving 85% conversion in this system requires a time of </span><span class="si">{</span><span class="n">itp1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> seconds&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CS</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Substrate Concentration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CI</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Inhibitor Concentration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Substrate and inhibitor concentration with chromium leaching&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Create a second plot with a secondary y axis</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">conversion</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">XS</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Substrate Conversion&#39;</span><span class="p">)</span>
+<span class="n">inhibitor</span><span class="p">,</span>  <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CI</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Inhibitor Concentration&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time(s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Substrate conversion with chromium leaching&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Achieving 85% conversion in this system requires a time of 27.947 seconds
+</pre></div>
+</div>
+<img alt="../_images/587-R13_33_1.png" src="../_images/587-R13_33_1.png" />
+<img alt="../_images/587-R13_33_2.png" src="../_images/587-R13_33_2.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-04">
+<h2>Example Problem 04<a class="headerlink" href="#example-problem-04" title="Permalink to this headline">#</a></h2>
+<p>I wonder if glass would be a better choice for this reactor?</p>
+<section id="solution-to-example-problem-04">
+<h3>Solution to Example Problem 04<a class="headerlink" href="#solution-to-example-problem-04" title="Permalink to this headline">#</a></h3>
+<p>Almost certainly…glass does not tend to corrode under most environments like a metal would, so it would not have any chromium leaching.  We would probably be able to cut batch times down significantly by working with a glass or glass-lined reactor here.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-R12.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Parameter Estimation I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-R14.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Energy Balances</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

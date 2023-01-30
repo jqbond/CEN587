@@ -1,0 +1,1659 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chemical/Phase Equilibria &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CSTRs" href="587-R06.html" />
+    <link rel="prev" title="Solving ODEs" href="587-R04.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops, Vectorization, and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Probability of the Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimization of Multivariate Functoins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Solving Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.least_squares()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     Numerical Solution of Ordinary Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L01.html">
+     Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L02.html">
+     Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L03.html">
+     Algebraic and Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L04.html">
+     Chemical Equilibrium I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L05.html">
+     Chemical Equilibrium II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L06.html">
+     Chemical Equilibrium III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L07.html">
+     Chemical Equilibrium IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L08.html">
+     Chemical Equilibrium V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L09.html">
+     Chemical and Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L10.html">
+     Material Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L11.html">
+     Material Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L12.html">
+     Material Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L13.html">
+     Material Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L14.html">
+     Material Balances V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L15.html">
+     Material Balances VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L16.html">
+     Material Balances VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L17.html">
+     Material Balances VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L18.html">
+     Material Balances IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L19.html">
+     Material Balances X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L20.html">
+     Material Balances XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L21.html">
+     Material Balances XII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L22.html">
+     Material Balances XIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L23.html">
+     Material Balances XIV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L24.html">
+     Material Balances XV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L25.html">
+     Material Balances XVI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L26.html">
+     Material Balances XVII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L27.html">
+     Material Balances XVIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L28.html">
+     Kinetics I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L29.html">
+     Kinetics II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L30.html">
+     Kinetics III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L31.html">
+     Kinetics IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L32.html">
+     Kinetics V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L33.html">
+     Kinetics VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L34.html">
+     Kinetics VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L35.html">
+     Kinetics VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L36.html">
+     Kinetics IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L37.html">
+     Kinetics X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L38.html">
+     Kinetics XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L39.html">
+     Energy Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L40.html">
+     Energy Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L41.html">
+     Energy Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L42.html">
+     Energy Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L43.html">
+     Energy Balances VI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R01.html">
+     Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R02.html">
+     Solving Algebraic Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R03.html">
+     Chemical Equilibrium
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R04.html">
+     Solving ODEs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Chemical/Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R06.html">
+     CSTRs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R07.html">
+     Python tips and tricks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R08.html">
+     Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R09.html">
+     Reactors with Recycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R10.html">
+     Interpolation and Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R11.html">
+     Nonlinear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R12.html">
+     Parameter Estimation I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R13.html">
+     Parameter Estimation II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R14.html">
+     Energy Balances
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/587-R05.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R05.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Recitation/587-R05.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem">
+   Example Problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-statement-rawlings-and-ekerdt">
+     Problem Statement, Rawlings and Ekerdt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1">
+     Part 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1a">
+       Solution Part 1a:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1b">
+       Solution Part 1b
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1c">
+       Solution Part 1c:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1d">
+       Solution Part 1d
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1e">
+       Solution Part 1e
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-the-transition-temperature">
+       Finding the transition temperature
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chemical/Phase Equilibria</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem">
+   Example Problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-statement-rawlings-and-ekerdt">
+     Problem Statement, Rawlings and Ekerdt
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#part-1">
+     Part 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1a">
+       Solution Part 1a:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1b">
+       Solution Part 1b
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1c">
+       Solution Part 1c:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1d">
+       Solution Part 1d
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-part-1e">
+       Solution Part 1e
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#finding-the-transition-temperature">
+       Finding the transition temperature
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="chemical-phase-equilibria">
+<h1>Chemical/Phase Equilibria<a class="headerlink" href="#chemical-phase-equilibria" title="Permalink to this headline">#</a></h1>
+<p>This recitation presents a solution to Assignment 04 from the Unit 02 assignment.</p>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Unit 02 - Assignment 04 (Chemical and Phase Equilibrium; for loops)</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-problem">
+<h2>Example Problem<a class="headerlink" href="#example-problem" title="Permalink to this headline">#</a></h2>
+<section id="problem-statement-rawlings-and-ekerdt">
+<h3>Problem Statement, Rawlings and Ekerdt<a class="headerlink" href="#problem-statement-rawlings-and-ekerdt" title="Permalink to this headline">#</a></h3>
+<p>Consider the gas-phase reaction</p>
+<div class="math notranslate nohighlight">
+\[\textrm{A + B} \rightleftharpoons \textrm{C}\]</div>
+<p>Product C has a fairly low vapor pressure, so we are concerned about the formation of a liquid phase in the reactor. The Clausius-Clapeyron equation gives the vapor pressure of component C in units of bar as a function of temperature.</p>
+<div class="math notranslate nohighlight">
+\[\ln {P_C}^{\circ} = c - \frac {\Delta H_{vap}}{RT}\]</div>
+<p>The reactor is initially filled with an equimolar mixture of A and B. The equilibrium constant at T = 298K is K = 9, the reaction is exothermic with <span class="math notranslate nohighlight">\(\Delta H^{\circ} = -11\)</span> kcal/mol, and the system pressure is P = 1.5 bar. Components A and B are not very soluble in liquid C, so you can assume that if a liquid phase forms, it is pure species C (A and B do not condense). The heat of vaporization of component C is <span class="math notranslate nohighlight">\(\Delta {H_{\text{vap}}} = 6\)</span> kcal/mol, and the value of the Clausius-Clapeyron contant is c = 9.53.</p>
+</section>
+<section id="part-1">
+<h3>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">#</a></h3>
+<p>Over what temperature range does the reactor contain a liquid phase?</p>
+<section id="solution-part-1a">
+<h4>Solution Part 1a:<a class="headerlink" href="#solution-part-1a" title="Permalink to this headline">#</a></h4>
+<p>Calculate the equilibrium partial pressures for all species at 298K and 1.5 bar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj1a</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+    
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1a</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="s1">&#39;True&#39;</span><span class="p">)</span>
+
+<span class="c1">#Workup</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+<span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+<span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressures of A, B, and C are </span><span class="si">{</span><span class="n">pA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> in bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The pressures of A, B, and C are 0.312, 0.312, 0.876 in bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-part-1b">
+<h4>Solution Part 1b<a class="headerlink" href="#solution-part-1b" title="Permalink to this headline">#</a></h4>
+<p>Calculate the equilibrium partial pressures for all species at 400K and 1.5 bar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj1b</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">400</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+    
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+    
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+<p><strong>And the workup:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1b</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="s1">&#39;True&#39;</span><span class="p">)</span>
+
+<span class="c1">#Workup</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+<span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+<span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressures of A, B, and C are </span><span class="si">{</span><span class="n">pA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> in bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj1b</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="n">T</span>   <span class="o">=</span> <span class="mi">400</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1b</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="s1">&#39;True&#39;</span><span class="p">)</span>
+
+<span class="c1">#Workup</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+<span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+<span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+<span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+<span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+<span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The pressures of A, B, and C are </span><span class="si">{</span><span class="n">pA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pB</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">pC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> in bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The pressures of A, B, and C are 0.729, 0.729, 0.042 in bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-part-1c">
+<h4>Solution Part 1c:<a class="headerlink" href="#solution-part-1c" title="Permalink to this headline">#</a></h4>
+<p>Now make that general so we can easily adapt to solve for any temperature…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+    
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+    
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+<p><strong>Construct objective using lambda function; solve</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tval</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1">#K</span>
+<span class="n">obj1c</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tval</span><span class="p">)</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1c</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tval</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1">#K</span>
+<span class="n">obj1c</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tval</span><span class="p">)</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1c</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solution-part-1d">
+<h4>Solution Part 1d<a class="headerlink" href="#solution-part-1d" title="Permalink to this headline">#</a></h4>
+<p>Now we’re ready to solve the actual problem.  We’ll start by solving for the equilibrium partial pressure of species C for a large set of temperatures.  We’ll use a for loop to run opt.newton or opt.brent many times…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Tset</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pCout1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">)):</span>
+    <span class="n">Tval</span>  <span class="o">=</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">obj1d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tval</span><span class="p">)</span>
+    <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1d</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Solver failed to Converge&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+      
+    <span class="c1">#Workup</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+    
+    <span class="n">pCout1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pC</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tset</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pCout1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">)):</span>
+    <span class="n">Tval</span>  <span class="o">=</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">obj1d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">temp</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tval</span><span class="p">)</span>
+    <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1d</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Solver failed to Converge&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="c1">#Workup</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+    <span class="n">pCout1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">Tset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tset</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R05_15_0.png" src="../_images/587-R05_15_0.png" />
+</div>
+</div>
+</section>
+<section id="solution-part-1e">
+<h4>Solution Part 1e<a class="headerlink" href="#solution-part-1e" title="Permalink to this headline">#</a></h4>
+<p>Now let’s compare that to the vapor pressure of species C, which we can evaluate directly from the Clausius-Clapeyron Equation.</p>
+<p>Product C has a fairly low vapor pressure, so we are concerned about the formation of a liquid phase in the reactor. The Clausius-Clapeyron equation gives the vapor pressure of component C in units of bar as a function of temperature.</p>
+<div class="math notranslate nohighlight">
+\[\ln {P_C}^{\circ} = c - \frac {\Delta H_{vap}}{RT}\]</div>
+<p>The reactor is initially filled with an equimolar mixture of A and B. The equilibrium constant at T = 298K is K = 9, the reaction is exothermic with <span class="math notranslate nohighlight">\(\Delta H^{\circ} = -11\)</span> kcal/mol, and the system pressure is P = 1.5 bar. Components A and B are not very soluble in liquid C, so you can assume that if a liquid phase forms, it is pure species C (A and B do not condense). The heat of vaporization of component C is <span class="math notranslate nohighlight">\(\Delta {H_{\text{vap}}} = 6\)</span> kcal/mol, and the value of the Clausius-Clapeyron contant is c = 9.53.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pCsat</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">9.53</span>
+    <span class="n">DHvap</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">DHvap</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pCsat</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mf">9.53</span>
+    <span class="n">DHvap</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">c</span> <span class="o">-</span> <span class="n">DHvap</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pCsat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">8.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">Tset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tset</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout1</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">where</span> <span class="o">=</span> <span class="n">pCout1</span> <span class="o">&gt;=</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">interpolate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC &gt; pCsat: liquid present&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R05_18_0.png" src="../_images/587-R05_18_0.png" />
+</div>
+</div>
+</section>
+<section id="finding-the-transition-temperature">
+<h4>Finding the transition temperature<a class="headerlink" href="#finding-the-transition-temperature" title="Permalink to this headline">#</a></h4>
+<p>If you want to solve for the exact temperature where the two curves intersect, there are many ways you can probably do it.  Below, I show a modification to our objective function so that it takes two unknowns (ex and Temperature) in a vector argument (var).  You’ll note that I added a second constraint equation to the equilibrium problem, which is that pC = pCsat.  This will solve for the intersection temperature in the figure above (and the extent at that temperature).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj1e</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+    
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+    
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">PC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+    
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE1</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="n">OBJECTIVE2</span> <span class="o">=</span> <span class="n">PC</span> <span class="o">-</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">OBJECTIVE1</span><span class="p">,</span> <span class="n">OBJECTIVE2</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj1e</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">PC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE1</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="n">OBJECTIVE2</span> <span class="o">=</span> <span class="n">PC</span> <span class="o">-</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">OBJECTIVE1</span><span class="p">,</span> <span class="n">OBJECTIVE2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">obj1e</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-0.99541068,  0.09569527],
+       [-0.09569527, -0.99541068]])
+     fun: array([ 1.11639586e-10, -1.67610370e-12])
+ message: &#39;The solution converged.&#39;
+    nfev: 11
+     qtf: array([-6.02853354e-08, -4.88374628e-09])
+       r: array([14.3419963 ,  0.79060035,  0.09239627])
+  status: 1
+ success: True
+       x: array([  0.66161408, 307.21390082])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Basically, above 307.2K, there is no liquid phase.  Below 307.2K, there is a liquid phase.</p>
+<p><strong>Problem 2</strong></p>
+<p>If the reaction is endothermic with <span class="math notranslate nohighlight">\(\Delta H^{\circ} = 11\)</span> kcal/mol, over what temperature range does the reactor contain a liquid phase?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">temp2</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="k">return</span> <span class="n">OBJECTIVE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tset</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pCout2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tset</span><span class="p">)):</span>
+    <span class="n">Tval</span>  <span class="o">=</span> <span class="n">Tset</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">obj2a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="n">temp2</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="n">Tval</span><span class="p">)</span>
+    <span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj2a</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">converged</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Solver failed to Converge&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="c1">#Workup</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ans</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">pA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span>
+    <span class="n">pC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+    <span class="n">pCout2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pCsat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">Tset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tset</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout2</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">where</span> <span class="o">=</span> <span class="n">pCout2</span> <span class="o">&gt;=</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">interpolate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC &gt; pCsat: liquid present&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pCsat&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">Tset</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tset</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (bar)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">Tset</span><span class="p">,</span> <span class="n">pCout2</span><span class="p">,</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">where</span> <span class="o">=</span> <span class="n">pCout2</span> <span class="o">&gt;=</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">Tset</span><span class="p">),</span> <span class="n">interpolate</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;pC &gt; pCsat: liquid present&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R05_26_0.png" src="../_images/587-R05_26_0.png" />
+<img alt="../_images/587-R05_26_1.png" src="../_images/587-R05_26_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obj2b</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">ex</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">T</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NB0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mole</span>
+    <span class="n">NC0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">T0</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+    <span class="c1">#T   = 400 #K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.5</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">DH0</span> <span class="o">=</span> <span class="mf">11.0</span> <span class="c1">#kcal/mol</span>
+    <span class="n">R</span>   <span class="o">=</span> <span class="mf">1.987e-3</span> <span class="c1">#kcal/mol/K</span>
+
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">NB0</span> <span class="o">-</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NC</span>  <span class="o">=</span> <span class="n">NC0</span> <span class="o">+</span> <span class="n">ex</span> <span class="c1">#moles</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NA</span> <span class="o">+</span> <span class="n">NB</span> <span class="o">+</span> <span class="n">NC</span>
+
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yC</span>  <span class="o">=</span> <span class="n">NC</span><span class="o">/</span><span class="n">NT</span>
+
+    <span class="n">PC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span>
+
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aB</span>  <span class="o">=</span> <span class="n">yB</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aC</span>  <span class="o">=</span> <span class="n">yC</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+
+    <span class="n">K0</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">KTHERMO</span>   <span class="o">=</span> <span class="n">K0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DH0</span><span class="o">/</span><span class="n">R</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">T0</span><span class="p">))</span>
+    <span class="n">KACTIVITY</span> <span class="o">=</span> <span class="n">aC</span><span class="o">/</span><span class="n">aA</span><span class="o">/</span><span class="n">aB</span>
+    <span class="n">OBJECTIVE1</span> <span class="o">=</span> <span class="n">KTHERMO</span> <span class="o">-</span> <span class="n">KACTIVITY</span>
+    <span class="n">OBJECTIVE2</span> <span class="o">=</span> <span class="n">PC</span> <span class="o">-</span> <span class="n">pCsat</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">OBJECTIVE1</span><span class="p">,</span> <span class="n">OBJECTIVE2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">obj2b</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">230</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    fjac: array([[-0.92096132,  0.38965402],
+       [-0.38965402, -0.92096132]])
+     fun: array([ 6.88048230e-12, -9.28743193e-13])
+ message: &#39;The solution converged.&#39;
+    nfev: 20
+     qtf: array([-4.78581906e-09, -1.25987421e-09])
+       r: array([ 2.18306257e+00, -8.58397519e-03, -1.14420384e-03])
+  status: 1
+ success: True
+       x: array([5.25451872e-02, 2.37072654e+02])
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a liquid phase present between 237.1K and 321.2K.  In this region, pC &gt; pCsat, so there will be condensation.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-R04.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Solving ODEs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-R06.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CSTRs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

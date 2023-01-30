@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/587-R02.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Recitation/587-R02.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R02.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R02.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1015,22 +1010,22 @@ title="Print to PDF"
 <section id="problem-2">
 <h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h2>
 <p>Find all roots for the following system of equations. Both x and y must be between -10 and 10:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b729bc6-1a20-4737-b8b8-acb17a520c75">
-<span class="eqno">(205)<a class="headerlink" href="#equation-4b729bc6-1a20-4737-b8b8-acb17a520c75" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9fd1d74e-e8ad-4e63-88f6-b7bb52839f28">
+<span class="eqno">(205)<a class="headerlink" href="#equation-9fd1d74e-e8ad-4e63-88f6-b7bb52839f28" title="Permalink to this equation">#</a></span>\[\begin{align}
      10 &amp;= 5x^2y - y^3\\
     -(15y+x) &amp;= 2y^2 + \textrm{tanh}(0.075x)\\
 \end{align}\]</div>
 <section id="solution-to-problem-02">
 <h3>Solution to Problem 02<a class="headerlink" href="#solution-to-problem-02" title="Permalink to this headline">#</a></h3>
 <p>This is a system of nonlinear equations, and even adding a second equation, we see that things get more complicated.  We do not have a solution until we find the (x,y) pairs where both of the equations are solved.  We are essentially looking for the roots of the following two functions with this problem:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6acd336f-f2ce-43fc-91cd-f9053e36a5e8">
-<span class="eqno">(206)<a class="headerlink" href="#equation-6acd336f-f2ce-43fc-91cd-f9053e36a5e8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4638abd4-a5da-427d-8229-af58538611ab">
+<span class="eqno">(206)<a class="headerlink" href="#equation-4638abd4-a5da-427d-8229-af58538611ab" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(x, y) &amp;= 5x^2y - y^3 - 10 \\
     f_2(x, y) &amp;= 2y^2 + \tanh{(0.075x)} + 15y + x\\
 \end{align}\]</div>
 <p>We have solved our problem when we find the values <span class="math notranslate nohighlight">\(\hat{x}\)</span> and <span class="math notranslate nohighlight">\(\hat{y}\)</span> that give the following result:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b517b25f-da37-4e20-8958-c24e9b6e9285">
-<span class="eqno">(207)<a class="headerlink" href="#equation-b517b25f-da37-4e20-8958-c24e9b6e9285" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0b05ac07-3878-420d-b3c7-507a9d50590d">
+<span class="eqno">(207)<a class="headerlink" href="#equation-0b05ac07-3878-420d-b3c7-507a9d50590d" title="Permalink to this equation">#</a></span>\[\begin{align}
     f_1(\hat{x}, \hat{y}) &amp;= 0 \\
     f_2(\hat{x}, \hat{y}) &amp;= 0 \\
 \end{align}\]</div>
@@ -1169,7 +1164,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2460ea4da00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1616d94da00&gt;
 </pre></div>
 </div>
 <img alt="../_images/587-R02_19_1.png" src="../_images/587-R02_19_1.png" />
@@ -1233,8 +1228,8 @@ title="Print to PDF"
 <section id="problem-3">
 <h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">#</a></h2>
 <p>Solve the following system of nonlinear equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cde8fe3-d8aa-41b5-95d6-d7199c0312b5">
-<span class="eqno">(208)<a class="headerlink" href="#equation-2cde8fe3-d8aa-41b5-95d6-d7199c0312b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-affb20f0-93f7-4353-ba83-4457395e3673">
+<span class="eqno">(208)<a class="headerlink" href="#equation-affb20f0-93f7-4353-ba83-4457395e3673" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= x^2 - 10x - 25y + 17z^2\\
     18.3 &amp;= xz + \textrm{ln}(yz)\\
     145 - y^2 &amp;= x^2 + 5z\\
@@ -1304,7 +1299,7 @@ title="Print to PDF"
  The solution converged.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_13560\3237017740.py:7: RuntimeWarning: invalid value encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_528\3237017740.py:7: RuntimeWarning: invalid value encountered in log
   LHS2 = x*z + np.log(y*z) - 18.3
 </pre></div>
 </div>

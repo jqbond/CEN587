@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L38.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L38.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L38.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L38.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1327,8 +1322,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A \rightarrow B\]</div>
 <p>The reaction occurs on a catalyst surface through the following mechanism.  The first step is the molecular adsorption of A; the second step is a surface reaction that converts species A (adsorbed on the surface) to species B (adsorbed on the surface). And the final step is that species B desorbs from the surface (recall that desorption is the reverse reaction of adsorption). As a set of elementary steps, we would write these concepts out as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-96e66621-80b5-4fbd-9894-92e77f54e17a">
-<span class="eqno">(172)<a class="headerlink" href="#equation-96e66621-80b5-4fbd-9894-92e77f54e17a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8ba38dd3-f073-4f6f-8f97-d613219c4bf3">
+<span class="eqno">(172)<a class="headerlink" href="#equation-8ba38dd3-f073-4f6f-8f97-d613219c4bf3" title="Permalink to this equation">#</a></span>\[\begin{align}
     A + * &amp;\rightleftharpoons A_* \\
     A* &amp;\rightleftharpoons B_* \\
     B + * &amp;\rightleftharpoons B_* \\
@@ -1348,20 +1343,20 @@ title="Print to PDF"
 </section>
 <section id="equilibrium-assumptions">
 <h3>Equilibrium Assumptions<a class="headerlink" href="#equilibrium-assumptions" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-bb7011d3-904d-4ba8-bf0e-c925502ee9f7">
-<span class="eqno">(173)<a class="headerlink" href="#equation-bb7011d3-904d-4ba8-bf0e-c925502ee9f7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-205ff9ff-6c3e-46bf-b41d-66c46e5bda54">
+<span class="eqno">(173)<a class="headerlink" href="#equation-205ff9ff-6c3e-46bf-b41d-66c46e5bda54" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= 0 \\
     r_3 &amp;= 0 \\
 \end{align}\]</div>
 <p>From these equilibrium statements, we can write the following equations by substituting the rate laws for step 1 and step 2:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd069c12-a8c6-4e95-aa28-d5d96f616ca9">
-<span class="eqno">(174)<a class="headerlink" href="#equation-fd069c12-a8c6-4e95-aa28-d5d96f616ca9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dfc54f14-d494-474a-b86b-d323e527cdf7">
+<span class="eqno">(174)<a class="headerlink" href="#equation-dfc54f14-d494-474a-b86b-d323e527cdf7" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= k_1 C_A \theta_* - k_{-1} \theta_A \\
     0 &amp;= k_3 C_B \theta_* - k_{-3} \theta_B
 \end{align}\]</div>
 <p>We can solve each of those to develop expressions for the coverage of A and B as functions of the coverage of vacancies (note the similarity with enzyme reactions here).  This is exactly what we did when generating the Langmuir adsorption models, and we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-519d94ca-de8e-483b-add8-7a333fd5a312">
-<span class="eqno">(175)<a class="headerlink" href="#equation-519d94ca-de8e-483b-add8-7a333fd5a312" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e8d140c4-eebc-49c3-a868-f152bc792979">
+<span class="eqno">(175)<a class="headerlink" href="#equation-e8d140c4-eebc-49c3-a868-f152bc792979" title="Permalink to this equation">#</a></span>\[\begin{align}
     \theta_A = K_1C_A\theta_* \\
     \theta_B = K_2C_B\theta_*
 \end{align}\]</div>
@@ -1443,8 +1438,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = k{C_A}^\alpha {C_B}^\beta\]</div>
 <p>So if we were to study the kinetics of this reaction in the lab, we would generally have the following expectations based on our analysis of limiting behavior:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b5b2ccf-6ef7-4fdd-8a06-915050b2582d">
-<span class="eqno">(176)<a class="headerlink" href="#equation-9b5b2ccf-6ef7-4fdd-8a06-915050b2582d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-62b93c70-76f3-4e11-944e-4b03fed0d486">
+<span class="eqno">(176)<a class="headerlink" href="#equation-62b93c70-76f3-4e11-944e-4b03fed0d486" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;\leq \alpha \leq 1 \\
     -1 &amp;\leq \beta \leq 0 \\
 \end{align}\]</div>
@@ -1467,8 +1462,8 @@ title="Print to PDF"
 <section id="a-proposed-mechanism">
 <h3>A proposed mechanism<a class="headerlink" href="#a-proposed-mechanism" title="Permalink to this headline">#</a></h3>
 <p>We will propose that methanol synthesis occurs through the following set of elementary steps:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1cdf7f8e-a07c-4006-8df5-61dfb8270eed">
-<span class="eqno">(177)<a class="headerlink" href="#equation-1cdf7f8e-a07c-4006-8df5-61dfb8270eed" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49c59f30-bbfc-466a-9343-0c0ff95b7b23">
+<span class="eqno">(177)<a class="headerlink" href="#equation-49c59f30-bbfc-466a-9343-0c0ff95b7b23" title="Permalink to this equation">#</a></span>\[\begin{align}
     CO + * &amp;\rightleftharpoons CO_* \\
     H_2 + 2* &amp;\rightleftharpoons 2H_* \\
     CO_* + H_* &amp;\rightleftharpoons HCO_* + * \\
@@ -1564,8 +1559,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[r = k^\prime {C_{CO}}^{\alpha} {C_{CO}}^{\beta}\]</div>
 <p>Where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf01c729-c1f6-4829-995a-f6bf925d33e2">
-<span class="eqno">(178)<a class="headerlink" href="#equation-cf01c729-c1f6-4829-995a-f6bf925d33e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5bd820ff-e92f-49a2-8ecf-2cfb6f533d81">
+<span class="eqno">(178)<a class="headerlink" href="#equation-5bd820ff-e92f-49a2-8ecf-2cfb6f533d81" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha &amp;= -0.5 \\
     \beta  &amp;= 1.3 \\
 \end{align}\]</div>
@@ -1626,8 +1621,8 @@ title="Print to PDF"
 <section id="conclusions">
 <h4>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h4>
 <p>Summarizing our observations, we conclude that <strong>IF</strong> Step 3 is rate determining, <strong>THEN</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2137b83f-ff64-4030-b9a2-6feb78af2f25">
-<span class="eqno">(179)<a class="headerlink" href="#equation-2137b83f-ff64-4030-b9a2-6feb78af2f25" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-328ff29e-035b-4d5a-b467-0710ca5fc990">
+<span class="eqno">(179)<a class="headerlink" href="#equation-328ff29e-035b-4d5a-b467-0710ca5fc990" title="Permalink to this equation">#</a></span>\[\begin{align}
     -1.0 &amp;\leq \alpha \leq 1.0 \\
     -0.5 &amp;\leq \beta \leq 0.5 \\
 \end{align}\]</div>
@@ -1737,8 +1732,8 @@ title="Print to PDF"
 <section id="id7">
 <h4>Conclusions<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
 <p>Summarizing our observations, we conclude that <strong>IF</strong> Step 4 is rate determining, <strong>THEN</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75a62226-a5c8-42b6-a118-914b541b98da">
-<span class="eqno">(180)<a class="headerlink" href="#equation-75a62226-a5c8-42b6-a118-914b541b98da" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1df1065d-218f-48eb-9a14-763a22990d40">
+<span class="eqno">(180)<a class="headerlink" href="#equation-1df1065d-218f-48eb-9a14-763a22990d40" title="Permalink to this equation">#</a></span>\[\begin{align}
     -1.0 &amp;\leq \alpha \leq 1.0 \\
      0.0 &amp;\leq \beta \leq 1.0 \\
 \end{align}\]</div>
@@ -1842,8 +1837,8 @@ title="Print to PDF"
 <section id="id13">
 <h4>Conclusions<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
 <p>Summarizing our observations, we conclude that <strong>IF</strong> Step 5 is rate determining, <strong>THEN</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1bf869be-f7de-4196-b187-449a6a086261">
-<span class="eqno">(181)<a class="headerlink" href="#equation-1bf869be-f7de-4196-b187-449a6a086261" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dbe3e41f-f844-4d8e-a6db-47594c2b5217">
+<span class="eqno">(181)<a class="headerlink" href="#equation-dbe3e41f-f844-4d8e-a6db-47594c2b5217" title="Permalink to this equation">#</a></span>\[\begin{align}
     -1.0 &amp;\leq \alpha \leq 1.0 \\
      0.5 &amp;\leq \beta \leq 1.5 \\
 \end{align}\]</div>
@@ -1947,8 +1942,8 @@ title="Print to PDF"
 <section id="id19">
 <h4>Conclusions<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h4>
 <p>Summarizing our observations, we conclude that <strong>IF</strong> Step 6 is rate determining, <strong>THEN</strong>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95a7a2ee-b671-45d0-891c-dfd1c8769145">
-<span class="eqno">(182)<a class="headerlink" href="#equation-95a7a2ee-b671-45d0-891c-dfd1c8769145" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eb4c0370-ba8f-4339-b7d1-124b5d2cf41f">
+<span class="eqno">(182)<a class="headerlink" href="#equation-eb4c0370-ba8f-4339-b7d1-124b5d2cf41f" title="Permalink to this equation">#</a></span>\[\begin{align}
     -1.0 &amp;\leq \alpha \leq 1.0 \\
      1.0 &amp;\leq \beta \leq 2.0 \\
 \end{align}\]</div>

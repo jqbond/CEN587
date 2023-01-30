@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L24.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L24.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L24.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L24.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -946,15 +941,15 @@ title="Print to PDF"
 <h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
 <p><strong>This is a slightly modified version of Example 8.4 from Fogler</strong></p>
 <p>The following pair of liquid-phase reactions occur in series. Each reaction is first order in its reactant.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-af28fb63-fa51-4c62-9ac3-2c50ba4fa4a3">
-<span class="eqno">(129)<a class="headerlink" href="#equation-af28fb63-fa51-4c62-9ac3-2c50ba4fa4a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-81ba78fc-50fc-4116-92de-81cdcdbd2e25">
+<span class="eqno">(129)<a class="headerlink" href="#equation-81ba78fc-50fc-4116-92de-81cdcdbd2e25" title="Permalink to this equation">#</a></span>\[\begin{align}
     A &amp;\longrightarrow B\\
     B &amp;\longrightarrow C \\
 \end{align}\]</div>
 <p>By “series” or “sequential” reactions we mean that a product of the first reaction is a reactant in a second reaction, and so on. These are very common systems in Chemical Reaction Engineering – especially in the petrochemical industry, where we often make reactive things from inert alkanes.  Quite often, the reactive things we make then react away to form things we don’t want.  Selectivity control in series reactions requires careful attention to operating conditions and reaction times (space times for flow reactors).</p>
 <p>You carry out these reactions in a CSTR operating at steady state.  You may assume the density of the fluid does not change with reaction and so the inlet volumetric flowrate is equal to the outlet volumetric flowrate.  You have the following data available:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88458e17-a262-4787-a36c-c44c649f7c0e">
-<span class="eqno">(130)<a class="headerlink" href="#equation-88458e17-a262-4787-a36c-c44c649f7c0e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-46f49229-779e-4657-9ad2-236356bef9b6">
+<span class="eqno">(130)<a class="headerlink" href="#equation-46f49229-779e-4657-9ad2-236356bef9b6" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= 0.5 \ \textrm{h}^{-1} \\
     k_2 &amp;= 0.2 \ \textrm{h}^{-1} \\
     C_{Af} &amp;= 20 \ \textrm{mol} \ \textrm{L}^{-1}
@@ -1185,9 +1180,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_3336\3616170257.py:3: RuntimeWarning: invalid value encountered in true_divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_15788\3616170257.py:3: RuntimeWarning: invalid value encountered in true_divide
   SB = lambda tau: CB(tau)/(CAf - CA(tau))
-C:\Users\jqbond\AppData\Local\Temp\ipykernel_3336\3616170257.py:4: RuntimeWarning: invalid value encountered in true_divide
+C:\Users\jqbond\AppData\Local\Temp\ipykernel_15788\3616170257.py:4: RuntimeWarning: invalid value encountered in true_divide
   SC = lambda tau: CC(tau)/(CAf - CA(tau))
 </pre></div>
 </div>
@@ -1241,15 +1236,15 @@ The maximum yield to species B is 0.38 which occurs at a space time of 3.16 hour
 <h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Permalink to this headline">#</a></h2>
 <p><strong>This is a slightly modified version of Example 8.5 from Fogler</strong></p>
 <p>The gas-phase reactions given below are carried out in an isobaric (constant pressure) Packed Bed Reactor</p>
-<div class="amsmath math notranslate nohighlight" id="equation-67734a95-b58c-4081-b61d-a011f1475119">
-<span class="eqno">(131)<a class="headerlink" href="#equation-67734a95-b58c-4081-b61d-a011f1475119" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d12dc79e-e0a0-43c2-b141-7932d5a09566">
+<span class="eqno">(131)<a class="headerlink" href="#equation-d12dc79e-e0a0-43c2-b141-7932d5a09566" title="Permalink to this equation">#</a></span>\[\begin{align}
     A + 2B &amp;\longrightarrow C\\
     2A + 3C &amp;\longrightarrow D
 \end{align}\]</div>
 <p>Both reactions follow elementary rate laws (though neither reaction is truly an elementary reaction).</p>
 <p>We have the following data available:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5080fce4-6086-474d-b298-4d1d529e4c57">
-<span class="eqno">(132)<a class="headerlink" href="#equation-5080fce4-6086-474d-b298-4d1d529e4c57" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef22bac7-d5fe-4494-be37-24f39a84f9ed">
+<span class="eqno">(132)<a class="headerlink" href="#equation-ef22bac7-d5fe-4494-be37-24f39a84f9ed" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= 100 \ \textrm{L}^{3} \ \textrm{mol}^{-2} \ \textrm{kg}^{-1} \ \textrm{min}^{-1} \\
     k_2 &amp;= 500 \ \textrm{L}^{5} \ \textrm{mol}^{-4} \ \textrm{kg}^{-1} \ \textrm{min}^{-1} \\
     C_{T,f} &amp;= 0.2 \ \textrm{mol} \ \textrm{L}^{-1}\\
@@ -1265,30 +1260,30 @@ The maximum yield to species B is 0.38 which occurs at a space time of 3.16 hour
 <section id="solution-to-example-problem-02">
 <h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
 <p>Start by writing material balances on each species.  Packed bed balances are almost identical to PFR balances, except we use mass of catalyst instead of volume as the independent variable (the one that defines the size of the reactor), and we write our intensive rate law in units of moles per mass of catalyst per time.  Hence:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ccd28f70-d85f-438a-92e6-fa659b3751a5">
-<span class="eqno">(133)<a class="headerlink" href="#equation-ccd28f70-d85f-438a-92e6-fa659b3751a5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ed891a5-05d4-440b-a56e-f79bda3983b6">
+<span class="eqno">(133)<a class="headerlink" href="#equation-2ed891a5-05d4-440b-a56e-f79bda3983b6" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_A}{dW} &amp;= {R_A}^\prime \\
     \frac{dF_B}{dW} &amp;= {R_B}^\prime \\
     \frac{dF_C}{dW} &amp;= {R_C}^\prime \\
     \frac{dF_D}{dW} &amp;= {R_D}^\prime \\
 \end{align}\]</div>
 <p>Where the prime (<span class="math notranslate nohighlight">\(^\prime\)</span>) superscript just means that intensive rates are specified per unit mass of catalyst.  Otherwise, intensive production rates are defined as usual.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-334cb257-63c0-46ec-bc64-cafae534f455">
-<span class="eqno">(134)<a class="headerlink" href="#equation-334cb257-63c0-46ec-bc64-cafae534f455" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a5fe3c9-ec90-4037-805f-6001f7a0ab17">
+<span class="eqno">(134)<a class="headerlink" href="#equation-1a5fe3c9-ec90-4037-805f-6001f7a0ab17" title="Permalink to this equation">#</a></span>\[\begin{align}
     {R_A}^\prime &amp;= -r_1 -2r_2 \\
     {R_B}^\prime &amp;= -2r_1 \\
     {R_C}^\prime &amp;= r_1 -3r_2 \\
     {R_D}^\prime &amp;= r_2 \\
 \end{align}\]</div>
 <p>These reactions have elementary kinetics, so:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c55e8f18-12eb-4666-8d92-6211b8dfde95">
-<span class="eqno">(135)<a class="headerlink" href="#equation-c55e8f18-12eb-4666-8d92-6211b8dfde95" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7383bef7-ad45-40a8-a5fd-d382622b4c59">
+<span class="eqno">(135)<a class="headerlink" href="#equation-7383bef7-ad45-40a8-a5fd-d382622b4c59" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_1C_AC_B^2 \\
     r_2 &amp;= k_2CA^2C_C^3 \\
 \end{align}\]</div>
 <p>We define concentrations in terms of flowrates (dependent variables) as usual for a tubular reactor:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-08e2c0dd-6da2-4483-9e2b-a214d4ce7d5e">
-<span class="eqno">(136)<a class="headerlink" href="#equation-08e2c0dd-6da2-4483-9e2b-a214d4ce7d5e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-43b1ad6b-9f6c-4fe0-942d-3e9318b5178d">
+<span class="eqno">(136)<a class="headerlink" href="#equation-43b1ad6b-9f6c-4fe0-942d-3e9318b5178d" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A &amp;= F_A/Q \\
     C_B &amp;= F_B/Q \\
     C_C &amp;= F_C/Q \\
@@ -1313,8 +1308,8 @@ The maximum yield to species B is 0.38 which occurs at a space time of 3.16 hour
 <div class="math notranslate nohighlight">
 \[S_{C/A} = \frac{F_C}{F_{Af} - F_A}\]</div>
 <p>The stoichiometric relationship between species A and species D is less clear from the two reactions given; however, if we sum them up:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-615e7e90-d4db-483b-ac57-dabeacfd322e">
-<span class="eqno">(137)<a class="headerlink" href="#equation-615e7e90-d4db-483b-ac57-dabeacfd322e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c1724867-0ef1-4b1f-b656-6906fbdce259">
+<span class="eqno">(137)<a class="headerlink" href="#equation-c1724867-0ef1-4b1f-b656-6906fbdce259" title="Permalink to this equation">#</a></span>\[\begin{align}
     A + 2B &amp;\longrightarrow C\\
     2A + 3C &amp;\longrightarrow D \\
     \hline
@@ -1327,8 +1322,8 @@ The maximum yield to species B is 0.38 which occurs at a space time of 3.16 hour
 <section id="id3">
 <h4>Yields<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <p>We use the same insights about stoichiometry discussed above in order to define yields to C and D:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bac23864-8f6f-417e-b5cd-f86719bf4a89">
-<span class="eqno">(138)<a class="headerlink" href="#equation-bac23864-8f6f-417e-b5cd-f86719bf4a89" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e19da77-36fc-494c-bb83-2bb1636bc565">
+<span class="eqno">(138)<a class="headerlink" href="#equation-3e19da77-36fc-494c-bb83-2bb1636bc565" title="Permalink to this equation">#</a></span>\[\begin{align}
     Y_{C/A} = \frac{F_C}{F_{Af}} \\
     Y_{D/A} = \frac{5F_D}{F_{Af}} \\
 \end{align}\]</div>
@@ -1426,9 +1421,9 @@ The maximum yield to species B is 0.38 which occurs at a space time of 3.16 hour
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_3336\3189117652.py:20: RuntimeWarning: invalid value encountered in true_divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbond\AppData\Local\Temp\ipykernel_15788\3189117652.py:20: RuntimeWarning: invalid value encountered in true_divide
   SCA = FC/(FAf - FA)
-C:\Users\jqbond\AppData\Local\Temp\ipykernel_3336\3189117652.py:21: RuntimeWarning: invalid value encountered in true_divide
+C:\Users\jqbond\AppData\Local\Temp\ipykernel_15788\3189117652.py:21: RuntimeWarning: invalid value encountered in true_divide
   SDA = 5*FD/(FAf - FA)
 </pre></div>
 </div>
@@ -1474,7 +1469,7 @@ Error: 1873.302260594539kg of catalyst is outside interpolation range
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">~\AppData\Local\Temp\ipykernel_3336\1450459284.py</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_15788\1450459284.py</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span> 
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJ</span><span class="p">)</span>
@@ -1516,7 +1511,7 @@ Error: 1873.302260594539kg of catalyst is outside interpolation range
 <span class="g g-Whitespace">   </span><span class="mi">2793</span>             <span class="n">funcalls</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="g g-Whitespace">   </span><span class="mi">2794</span>         <span class="k">elif</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">wlim</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">xc</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
 
-<span class="nn">~\AppData\Local\Temp\ipykernel_3336\1450459284.py</span> in <span class="ni">OBJ</span><span class="nt">(W)</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_15788\1450459284.py</span> in <span class="ni">OBJ</span><span class="nt">(W)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s1">kg of catalyst is outside interpolation range&#39;</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">8</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>

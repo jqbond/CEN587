@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L17.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L17.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L17.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L17.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -842,8 +837,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[2A + 3B \rightarrow C\]</div>
 <p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd4ec10d-476c-472f-9392-3ac7bd13e0a6">
-<span class="eqno">(80)<a class="headerlink" href="#equation-fd4ec10d-476c-472f-9392-3ac7bd13e0a6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bae74798-d460-41bf-913d-30a5bac83116">
+<span class="eqno">(80)<a class="headerlink" href="#equation-bae74798-d460-41bf-913d-30a5bac83116" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 37.2 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
     Q_f &amp;= 12 \ \textrm{L} \ \textrm{h}^{-1}\\
     C_{Af} &amp;= 0.74 \ \textrm{mol} \ \textrm{L}^{-1}\\
@@ -859,8 +854,8 @@ title="Print to PDF"
 <p>One important thing to recognize right away is that CSTRs at steady state will involve solving algebraic equations, so the strategies we use are different from Batch Reactors and Tubular Reactors, which both require solving differential equations.  The general concepts and approaches are the same, but just be mindful that there are different challenges associated with solving algebraic and differential equations.</p>
 <p>In general, with algebraic equations, I prefer to reduce the system to the smallest number of unknowns possible (instead of writing extra equations).  Writing extra equations is very easy when we’re solving ODEs numerically, but it can actually make things harder when we solve algebraic problems numerically.  So, usually, I reduce the number of unknowns as much as possible by solving CSTR problems (at steady state) in terms of extents of reaction or fractional conversions.</p>
 <p>First, we note that we can easily compute feed molar flowrates of A and B in this problem:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-876e33da-a262-4e79-8f4c-839611eeb814">
-<span class="eqno">(81)<a class="headerlink" href="#equation-876e33da-a262-4e79-8f4c-839611eeb814" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bb19e6b1-2391-4b8e-a978-2f27a6be3d53">
+<span class="eqno">(81)<a class="headerlink" href="#equation-bb19e6b1-2391-4b8e-a978-2f27a6be3d53" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_{A,f} = C_{A,f}Q_f \\
     F_{B,f} = C_{B,f}Q_f \\
 \end{align}\]</div>
@@ -885,8 +880,8 @@ title="Print to PDF"
 \[0 = F_{A,f} - F_A - 2kC_AC_BV\]</div>
 <p>We have 4 unknowns in that equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>.  However, we do know the exit conversion is 65%, so we can actually solve for <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>:</p>
 <p>Specifically:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7dc78863-0c10-4772-a2f6-6d8a1bce6d50">
-<span class="eqno">(82)<a class="headerlink" href="#equation-7dc78863-0c10-4772-a2f6-6d8a1bce6d50" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-100eaf5a-353c-462d-8a37-9d9bdad10c5e">
+<span class="eqno">(82)<a class="headerlink" href="#equation-100eaf5a-353c-462d-8a37-9d9bdad10c5e" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f}(1 - X_A) \\
     F_B &amp;= F_{B,f} - 3/2F_{A,f}X_A \\
     C_A &amp;= F_A/Q \\
@@ -934,8 +929,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A + B \rightarrow C\]</div>
 <p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-da0d5472-4b75-4dba-a0f9-af01cf1a6037">
-<span class="eqno">(83)<a class="headerlink" href="#equation-da0d5472-4b75-4dba-a0f9-af01cf1a6037" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f6df745-dd62-47ac-94e7-a102c9003547">
+<span class="eqno">(83)<a class="headerlink" href="#equation-9f6df745-dd62-47ac-94e7-a102c9003547" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 25.3 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
     Q_f &amp;= 10 \ \textrm{L} \ \textrm{h}^{-1}\\
     F_{Af} &amp;= 10 \ \textrm{mol} \ \textrm{h}^{-1}\\
@@ -965,20 +960,20 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[0 = F_{A,f} - F_A - kC_AC_BV\]</div>
 <p>We have 3 unknowns in that equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>. We are given Volume in the problem statement (1.24L).  If we want to solve this by hand, we’ll need to express <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span> in terms of a single unknown.  I’ll choose to work with fractional conversion of A here.  Completing a mole table, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c237184f-b96a-478a-a8ed-3cbc4c4f61dc">
-<span class="eqno">(84)<a class="headerlink" href="#equation-c237184f-b96a-478a-a8ed-3cbc4c4f61dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dd008754-9b04-47ea-8079-255b6b85a3ad">
+<span class="eqno">(84)<a class="headerlink" href="#equation-dd008754-9b04-47ea-8079-255b6b85a3ad" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f}(1 - X_A) \\
     F_B &amp;= F_{B,f} - F_{A,f}X_A \\
 \end{align}\]</div>
 <p>But:  we see in the problem statement, that for this problem, <span class="math notranslate nohighlight">\(F_{A,f} = F_{B,F}\)</span>.  So, in this special case:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-33e1f8ad-60c4-4e8f-94d2-23ebb7ebdcbd">
-<span class="eqno">(85)<a class="headerlink" href="#equation-33e1f8ad-60c4-4e8f-94d2-23ebb7ebdcbd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c17b6b8a-c72e-4db5-9b7b-36d4df59f2ef">
+<span class="eqno">(85)<a class="headerlink" href="#equation-c17b6b8a-c72e-4db5-9b7b-36d4df59f2ef" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f}(1 - X_A) \\
     F_B &amp;= F_{A,f}(1 - X_A) \\
 \end{align}\]</div>
 <p>Then we define concentrations as usual; for a constant density flow reactor, <span class="math notranslate nohighlight">\(Q = Q_f\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c16c23dd-c1a5-4ee2-acc7-f6fdb54b338f">
-<span class="eqno">(86)<a class="headerlink" href="#equation-c16c23dd-c1a5-4ee2-acc7-f6fdb54b338f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c889b809-53cf-4d02-8688-a25f112d6674">
+<span class="eqno">(86)<a class="headerlink" href="#equation-c889b809-53cf-4d02-8688-a25f112d6674" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A &amp;= F_A/Q_f \\
     C_B &amp;= F_A/Q_f \\
 \end{align}\]</div>

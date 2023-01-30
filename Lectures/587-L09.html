@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L09.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L09.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L09.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L09.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -899,14 +894,14 @@ title="Print to PDF"
 <section id="example-01">
 <h2>Example 01<a class="headerlink" href="#example-01" title="Permalink to this headline">#</a></h2>
 <p>The two reactions below represent possible products that can form in the alkylation of isobutane with 1-butene.  This is actually a really important industrial process for converting relatively low-value butane into high octane gasoline additives (triptane, also called iso-octante).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a096643-1886-4a02-8b07-db7deecf47d6">
-<span class="eqno">(39)<a class="headerlink" href="#equation-8a096643-1886-4a02-8b07-db7deecf47d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aac76810-10ed-4edd-8749-25584d85370e">
+<span class="eqno">(39)<a class="headerlink" href="#equation-aac76810-10ed-4edd-8749-25584d85370e" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,3-trimethylpentane (g)} \\
     (2) \qquad \text{isobutane (g)} + \text{1-butene (g)} &amp;\leftrightarrow \text{2,2,4-trimethylpentane (g)} \\
 \end{align}\]</div>
 <p>It is common in reactor design that we represent reaction systems with generic notation to simplify labelling.  We will represent these reactions more succinctly as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-971126d6-39f0-4df6-a390-d0b5ad97d202">
-<span class="eqno">(40)<a class="headerlink" href="#equation-971126d6-39f0-4df6-a390-d0b5ad97d202" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b271e87e-e4cf-41b3-a83e-b8d164a9a167">
+<span class="eqno">(40)<a class="headerlink" href="#equation-b271e87e-e4cf-41b3-a83e-b8d164a9a167" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{C (g)} \\ 
     (2) \qquad \text{A (g)} + \text{B (g)} &amp;\leftrightarrow \text{D (g)} \\
 \end{align}\]</div>
@@ -939,8 +934,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\exp\left(\frac{-{\Delta G}^\circ_i}{RT}\right) = K_i = \prod_{j = 1}^{N_S}a_j^{\nu_{i,j}} \label{eq1}\tag{1}\]</div>
 <p>We write one copy of this equation for every reaction occuring:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37bcd907-9c00-4797-9ce8-ed3e190a85c1">
-<span class="eqno">(41)<a class="headerlink" href="#equation-37bcd907-9c00-4797-9ce8-ed3e190a85c1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8db6c8a5-2f42-4f0b-9ba4-f89f753c4c6f">
+<span class="eqno">(41)<a class="headerlink" href="#equation-8db6c8a5-2f42-4f0b-9ba4-f89f753c4c6f" title="Permalink to this equation">#</a></span>\[\begin{align}
     \exp\left(\frac{-{\Delta G}^\circ_1}{RT}\right) &amp;= K_1 = \frac{a_C}{a_A a_B} \label{eq2}\tag{2}\\
     \\
     \exp\left(\frac{-{\Delta G}^\circ_2}{RT}\right) &amp;= K_2 = \frac{a_D}{a_A a_B} \label{eq3}\tag{3}\\
@@ -968,8 +963,8 @@ title="Print to PDF"
 <section id="addressing-composition-and-pressure-dependencies-through-activities">
 <h3>Addressing composition and pressure dependencies through activities<a class="headerlink" href="#addressing-composition-and-pressure-dependencies-through-activities" title="Permalink to this headline">#</a></h3>
 <p>We ultimately need to solve these equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a968b4b5-94c5-4033-9901-94dd332ee389">
-<span class="eqno">(42)<a class="headerlink" href="#equation-a968b4b5-94c5-4033-9901-94dd332ee389" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6092bc1b-17c1-418a-9b10-a3f7591d988d">
+<span class="eqno">(42)<a class="headerlink" href="#equation-6092bc1b-17c1-418a-9b10-a3f7591d988d" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad K_1 &amp;= \frac{a_C}{a_A a_B} \\
     \\
     (2) \qquad K_2 &amp;= \frac{a_D}{a_A a_B} \\
@@ -1021,15 +1016,15 @@ title="Print to PDF"
 </tbody>
 </table>
 <p>And we substitute those definitions of mole numbers back into the activity equations.  Ultimately, this ensures that the right hand side of these two equations are only a function of <span class="math notranslate nohighlight">\(\varepsilon_1\)</span> and <span class="math notranslate nohighlight">\(\varepsilon_2\)</span> (once we specify that P = 2.5 bar):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a8ea2bc2-e022-4401-bbb0-7c16d130391e">
-<span class="eqno">(43)<a class="headerlink" href="#equation-a8ea2bc2-e022-4401-bbb0-7c16d130391e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-433a3acb-bba2-4a14-b1c8-6676d2a5138a">
+<span class="eqno">(43)<a class="headerlink" href="#equation-433a3acb-bba2-4a14-b1c8-6676d2a5138a" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad K_1 &amp;= \frac{a_C}{a_A a_B} \\
     \\
     (2) \qquad K_2 &amp;= \frac{a_D}{a_A a_B} \\
 \end{align}\]</div>
 <p>We know that we can assign a basis of:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2bd5285-5389-4ea1-b1a3-525231eb759a">
-<span class="eqno">(44)<a class="headerlink" href="#equation-a2bd5285-5389-4ea1-b1a3-525231eb759a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-707e0dda-2f68-431f-bb9e-7b426aabcb6d">
+<span class="eqno">(44)<a class="headerlink" href="#equation-707e0dda-2f68-431f-bb9e-7b426aabcb6d" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_{A0} = N_{B0} = 1.0 \\
     N_{C0} = N_{D0} = 0.0 \\
 \end{align}\]</div>
@@ -1041,8 +1036,8 @@ title="Print to PDF"
 \[K_2(T) = K_{2_0}\exp\left[\frac{-(\Delta H_{2_R} - \Delta C_{p_2} T_R)}{R} \left(\frac{1}{T} - \frac{1}{T_0}\right) + \frac{\Delta C_{p_2}}{R} \ln\left(\frac{T}{T_0}\right)\right]\]</div>
 <p>We don’t have two unknown equilibrium constants — we have one unknown temperature.  Once that is specified, we can calculate the value of both equilibrium constants.</p>
 <p>Still…we have 2 objective functions that we’re trying to solve:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41d6c8b7-5314-421a-9aae-5fbac5860f48">
-<span class="eqno">(45)<a class="headerlink" href="#equation-41d6c8b7-5314-421a-9aae-5fbac5860f48" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eea46a14-3484-44cf-92de-7ab429fdfa18">
+<span class="eqno">(45)<a class="headerlink" href="#equation-eea46a14-3484-44cf-92de-7ab429fdfa18" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad 0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
     \\
     (2) \qquad 0 &amp;= K_2 - \frac{a_D}{a_A a_B} \\
@@ -1052,8 +1047,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[X_A = \frac{N_{A0} - N_A}{N_{A0}} = 0.7 \label{eq12}\tag{12}\]</div>
 <p>Or, as a system of equations, I am trying to solve these three, which are entirely determined by the value of my three unknowns (<span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(T\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e48434ef-39c4-4014-828f-0caebb91913c">
-<span class="eqno">(46)<a class="headerlink" href="#equation-e48434ef-39c4-4014-828f-0caebb91913c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b04faaa1-5f23-4d93-80af-9286aa3aa3d2">
+<span class="eqno">(46)<a class="headerlink" href="#equation-b04faaa1-5f23-4d93-80af-9286aa3aa3d2" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad 0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
     \\
     (2) \qquad 0 &amp;= K_2 - \frac{a_D}{a_A a_B} \\
@@ -1201,20 +1196,20 @@ $<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoo
 <p><span class="math notranslate nohighlight">\(K_1\)</span> = 1.0 at 298K and 1 bar<br />
 <span class="math notranslate nohighlight">\(x_B\)</span> = 1.0 (That is, the B phase is always pure B)</p>
 <p>The A + C solution is strongly nonideal, and activity coefficients for this system can be calculated according to the Margules Equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50b6f610-0fbb-47bb-baa9-da06d7b2abeb">
-<span class="eqno">(47)<a class="headerlink" href="#equation-50b6f610-0fbb-47bb-baa9-da06d7b2abeb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-46b26eab-b342-4b2d-8445-b64dd6b046b4">
+<span class="eqno">(47)<a class="headerlink" href="#equation-46b26eab-b342-4b2d-8445-b64dd6b046b4" title="Permalink to this equation">#</a></span>\[\begin{align}
     \ln \gamma_A &amp;= x_C^2 \left[A_{AC}+2(A_{CA}-A_{AC})x_A \right] \label{eq13}\tag{13}\\
     \ln \gamma_C &amp;= x_A^2 \left[A_{CA}+2(A_{AC}-A_{CA})x_C \right] \label{eq14}\tag{14}\\
 \end{align}\]</div>
 <p>Margules Constants are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b834c87-8280-4ab8-b62b-45e079d0ef31">
-<span class="eqno">(48)<a class="headerlink" href="#equation-4b834c87-8280-4ab8-b62b-45e079d0ef31" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2e8ce295-a07d-4fb2-bb8d-f20b52a415a9">
+<span class="eqno">(48)<a class="headerlink" href="#equation-2e8ce295-a07d-4fb2-bb8d-f20b52a415a9" title="Permalink to this equation">#</a></span>\[\begin{align}
     A_{AC} = 1.4 \\
     A_{CA} = 2.0 \\
 \end{align}\]</div>
 <p>The vapor pressures of each component at 298K are additionally given:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-604bba6d-a3fb-407c-ae62-8a1a64bad2aa">
-<span class="eqno">(49)<a class="headerlink" href="#equation-604bba6d-a3fb-407c-ae62-8a1a64bad2aa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-180b43b6-0875-4d63-8ce2-e020873d8929">
+<span class="eqno">(49)<a class="headerlink" href="#equation-180b43b6-0875-4d63-8ce2-e020873d8929" title="Permalink to this equation">#</a></span>\[\begin{align}
     P_A^\circ = 0.65 \ \textrm{bar} \\
     P_B^\circ = 0.50 \ \textrm{bar} \\
     P_C^\circ = 0.50 \ \textrm{bar} \\
@@ -1257,8 +1252,8 @@ $<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoo
 <div class="math notranslate nohighlight">
 \[a_j = \gamma_j x_j \label{eq24}\tag{24}\]</div>
 <p>We have three liquids to consider: A, B, and C.  A and C exist together as a solution; B is a pure phase.  A and C therefore have nonideal phase behavior that depends on composition (and we are given Margules model parameters to account for this).  Since B is present as a pure phase, it is essentially present in its reference state, which is thermodynamically ideal.  So, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dac1f0c-d188-457c-8a68-d74fa1ad1a12">
-<span class="eqno">(50)<a class="headerlink" href="#equation-9dac1f0c-d188-457c-8a68-d74fa1ad1a12" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf778dd0-c0ef-4e84-ba89-7bfbe1aef6a3">
+<span class="eqno">(50)<a class="headerlink" href="#equation-cf778dd0-c0ef-4e84-ba89-7bfbe1aef6a3" title="Permalink to this equation">#</a></span>\[\begin{align}
     a_A &amp;= \gamma_A x_A \label{eq25}\tag{25}\\
     a_B &amp;= 1.0 \label{eq26}\tag{26}\\
     a_C &amp;= \gamma_C x_C \label{eq27}\tag{27}\\
@@ -1275,8 +1270,8 @@ $<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoo
 </section>
 <section id="system-of-equations-for-liquid-phase-only">
 <h3>System of Equations for Liquid phase only<a class="headerlink" href="#system-of-equations-for-liquid-phase-only" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-7dc98b02-428c-401a-9392-b384814983b2">
-<span class="eqno">(51)<a class="headerlink" href="#equation-7dc98b02-428c-401a-9392-b384814983b2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd7403e6-ab29-4e6c-b2df-154f8274e1b1">
+<span class="eqno">(51)<a class="headerlink" href="#equation-bd7403e6-ab29-4e6c-b2df-154f8274e1b1" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
     0 &amp;= 1 - x_A - x_C
 \end{align}\]</div>
@@ -1351,8 +1346,8 @@ $<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoo
 <div class="math notranslate nohighlight">
 \[\hat{f}_j = y_j \phi_j P \label{eq31}\tag{31}\]</div>
 <p>Looking at the saturation pressures of these species, they are all relatively small, so we can assume the pressure in the tank will not be all that high, and we can set <span class="math notranslate nohighlight">\(\phi_j = 1.0\)</span> to simplify the problem.  This gives the following three equations that describe phase equilibria:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11024a81-7c65-4d8e-a9ca-c2dbf6b740c7">
-<span class="eqno">(52)<a class="headerlink" href="#equation-11024a81-7c65-4d8e-a9ca-c2dbf6b740c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a5855942-0ce4-4d66-8a7e-3d994750c25b">
+<span class="eqno">(52)<a class="headerlink" href="#equation-a5855942-0ce4-4d66-8a7e-3d994750c25b" title="Permalink to this equation">#</a></span>\[\begin{align}
     y_A P &amp;= \gamma_A x_A P_A^\textrm{sat} \label{eq32}\tag{32}\\
     y_B P &amp;= P_B^\textrm{sat} \label{eq33}\tag{33}\\
     y_C P &amp;= \gamma_C x_C P_C^\textrm{sat} \label{eq34}\tag{34}\\
@@ -1364,8 +1359,8 @@ $<span class="math notranslate nohighlight">\(A \ (l) + B \ (l) \leftrightharpoo
 </section>
 <section id="system-of-equations-for-simultaneous-chemical-and-phase-equilibrium">
 <h3>System of equations for simultaneous chemical and phase equilibrium<a class="headerlink" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibrium" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-36d010c3-3d03-47fa-a44f-eef6f5fc356e">
-<span class="eqno">(53)<a class="headerlink" href="#equation-36d010c3-3d03-47fa-a44f-eef6f5fc356e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-731d4bef-4b50-49db-abbf-cd4bd1fcc5a6">
+<span class="eqno">(53)<a class="headerlink" href="#equation-731d4bef-4b50-49db-abbf-cd4bd1fcc5a6" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
     0 &amp;= 1.0 - x_A - x_C \\
     0 &amp;= y_A P - \gamma_A x_A P_A^\textrm{sat} \\
@@ -1450,8 +1445,8 @@ The system pressure is 1.368 bar
 <section id="example-03">
 <h2>Example 03<a class="headerlink" href="#example-03" title="Permalink to this headline">#</a></h2>
 <p>Adding complexity to Example 2 above, we learn that that species A decomposes in a side reaction to form species D. So now we have two reactions occuring in this system:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19d6cf7a-a8cb-4800-8153-d61f5c676d02">
-<span class="eqno">(54)<a class="headerlink" href="#equation-19d6cf7a-a8cb-4800-8153-d61f5c676d02" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1686fc48-2721-4e42-a522-2af0e1b23d17">
+<span class="eqno">(54)<a class="headerlink" href="#equation-1686fc48-2721-4e42-a522-2af0e1b23d17" title="Permalink to this equation">#</a></span>\[\begin{align}
     &amp;(1) \qquad A \ (l) + B \ (l) \leftrightharpoons C \ (l) \\
     &amp;(2) \qquad A \ (l) \leftrightharpoons 2D \ (g) \\
 \end{align}\]</div>
@@ -1480,8 +1475,8 @@ The system pressure is 1.368 bar
 <p>With that, we’re all set.  Here’s the system of equations we now have to solve:</p>
 <section id="system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states">
 <h3>System of equations for simultaneous chemical and phase equilibria with multiple reactions and mixed reference states<a class="headerlink" href="#system-of-equations-for-simultaneous-chemical-and-phase-equilibria-with-multiple-reactions-and-mixed-reference-states" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-799f7b14-b0d5-497e-87db-32cef6ba88d0">
-<span class="eqno">(55)<a class="headerlink" href="#equation-799f7b14-b0d5-497e-87db-32cef6ba88d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-85e8e8a9-1e3b-4634-afac-483ce01548b2">
+<span class="eqno">(55)<a class="headerlink" href="#equation-85e8e8a9-1e3b-4634-afac-483ce01548b2" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= K_1 - \frac{a_C}{a_A a_B} \\
     0 &amp;= 1.0 - x_A - x_C \\
     0 &amp;= y_A P - \gamma_A x_A P_A^\textrm{sat} \\

@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L36.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L36.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L36.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L36.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -941,8 +936,8 @@ title="Print to PDF"
 <section id="example-01-urea-decomposition">
 <h2>Example 01: Urea Decomposition<a class="headerlink" href="#example-01-urea-decomposition" title="Permalink to this headline">#</a></h2>
 <p>Urease is a metalloenzyme (it contains Ni<span class="math notranslate nohighlight">\(^{2+}\)</span> cations) serves an important biological function (generally in plants) of decomposing urea (U) to form ammonia (NH<span class="math notranslate nohighlight">\(_3\)</span>) and CO<span class="math notranslate nohighlight">\(_2\)</span>. It is proposed that urea decomposition occurs through a Michaelis-Menten mechanism, which we write in two steps:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-586ea5c5-2dea-4ab0-a120-29ee3eee5650">
-<span class="eqno">(166)<a class="headerlink" href="#equation-586ea5c5-2dea-4ab0-a120-29ee3eee5650" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-31d3eea2-5d33-45fe-af2c-808a4c93ac65">
+<span class="eqno">(166)<a class="headerlink" href="#equation-31d3eea2-5d33-45fe-af2c-808a4c93ac65" title="Permalink to this equation">#</a></span>\[\begin{align}
     U + E \rightleftharpoons EU \\
     EU \rightarrow E + P \\
 \end{align}\]</div>
@@ -1231,8 +1226,8 @@ KM from Linear Regression is ~ 0.028
 \[E + S \longrightarrow E + P\]</div>
 <p>But we know it is going to proceed through multiple elementary steps.  In this case, we propose that the reaction follows a standard Michaelis-Menten mechanism, but with a small twist:  the free enzyme can also bind (reversibly) with an inhibitor (I) present in the reaction media.  This enzyme inhibitor complex is inactive.  Based on that conceptual description, we can write the following reaciton mechanism – note that it is just a slight modification to a classic MM mechanism:</p>
 <p><strong>Mechanism</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-dec85a51-964d-4dfb-b9ba-27a769990357">
-<span class="eqno">(167)<a class="headerlink" href="#equation-dec85a51-964d-4dfb-b9ba-27a769990357" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2ff630c0-a82c-4b14-88d5-f82ca31700c5">
+<span class="eqno">(167)<a class="headerlink" href="#equation-2ff630c0-a82c-4b14-88d5-f82ca31700c5" title="Permalink to this equation">#</a></span>\[\begin{align}
     E + S &amp;\rightleftharpoons ES \\
     ES &amp;\rightarrow E + P \\
     E + I &amp;\rightleftharpoons EI \\
@@ -1317,8 +1312,8 @@ KM from Linear Regression is ~ 0.028
 \[E + S \longrightarrow E + P\]</div>
 <p>We again propose a conventional MM Mechanism, but here we also say that there is an inhibitor present, and that it binds (reversibly) with the enzyme substrate complex, converting it to an inactive form that cannot transform the substrate into products:</p>
 <p><strong>Mechanism</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-4bd97714-5a2d-42b1-85ea-3e72ca1e3b4e">
-<span class="eqno">(168)<a class="headerlink" href="#equation-4bd97714-5a2d-42b1-85ea-3e72ca1e3b4e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-105b23aa-096c-489a-bd2c-a020e9e57d6b">
+<span class="eqno">(168)<a class="headerlink" href="#equation-105b23aa-096c-489a-bd2c-a020e9e57d6b" title="Permalink to this equation">#</a></span>\[\begin{align}
     E + S &amp;\rightleftharpoons ES \\
     ES &amp;\rightarrow E + P \\
     ES + I &amp;\rightleftharpoons IES \\
@@ -1447,8 +1442,8 @@ KM from Linear Regression is ~ 0.028
 </section>
 <section id="comparing-linearized-expressions">
 <h3>Comparing Linearized Expressions<a class="headerlink" href="#comparing-linearized-expressions" title="Permalink to this headline">#</a></h3>
-<div class="amsmath math notranslate nohighlight" id="equation-114513ae-1dfa-4aea-a688-77e0969fe284">
-<span class="eqno">(169)<a class="headerlink" href="#equation-114513ae-1dfa-4aea-a688-77e0969fe284" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d1b5a511-1f73-41d0-9757-e10c533828f6">
+<span class="eqno">(169)<a class="headerlink" href="#equation-d1b5a511-1f73-41d0-9757-e10c533828f6" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{1}{r} &amp;= \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}} \\
     \\
     \frac{1}{r} &amp;= \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}} \\

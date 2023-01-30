@@ -142,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -177,27 +177,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -575,7 +570,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/587-R14.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Recitation/587-R14.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -618,7 +613,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -635,7 +630,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R14.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R14.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -781,20 +776,20 @@ title="Print to PDF"
 <section id="example-problem-01">
 <h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
 <p>Allyl chloride is to be produced in a 0.83 ft<sup>3</sup> CSTR. The feed to the reactor is a 4:1 molar ratio of propylene to chlorine, and it enters at a feed rate of 0.85 lbmol/hr at 2.0 atm and 392 °F. The pressure in the reactor is assumed to equal to the feed pressure.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-55f51eda-1e7b-4ace-860c-4bc988d24618">
-<span class="eqno">(243)<a class="headerlink" href="#equation-55f51eda-1e7b-4ace-860c-4bc988d24618" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18a405e3-13f4-4c8f-b6cc-39ba6d9e47bd">
+<span class="eqno">(243)<a class="headerlink" href="#equation-18a405e3-13f4-4c8f-b6cc-39ba6d9e47bd" title="Permalink to this equation">#</a></span>\[\begin{align}
     Cl_2 + C_3H_6 &amp;\longrightarrow C_3H_5Cl + HCl \\
     Cl_2 + C_3H_6 &amp;\longrightarrow C_3H_6Cl_2
 \end{align}\]</div>
 <p>But, as usual, let’s use the symbolic shorthand:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6ed7a05a-0a4b-4b30-b0be-9953e1ea8c1c">
-<span class="eqno">(244)<a class="headerlink" href="#equation-6ed7a05a-0a4b-4b30-b0be-9953e1ea8c1c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4c9eafd7-8182-49f1-8d6d-2a2d32b9d441">
+<span class="eqno">(244)<a class="headerlink" href="#equation-4c9eafd7-8182-49f1-8d6d-2a2d32b9d441" title="Permalink to this equation">#</a></span>\[\begin{align}
     A + B &amp;\longrightarrow C + D \\
     A + B &amp;\longrightarrow E
 \end{align}\]</div>
 <p>Both reactions are elementary and have the following rate constants:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8014a58-ef36-4426-bc84-a3be8f29d0b7">
-<span class="eqno">(245)<a class="headerlink" href="#equation-d8014a58-ef36-4426-bc84-a3be8f29d0b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5f220f69-fc3a-422a-b2f4-f9204e5b193c">
+<span class="eqno">(245)<a class="headerlink" href="#equation-5f220f69-fc3a-422a-b2f4-f9204e5b193c" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= 206000 \exp{\left(\frac{-27200}{RT}\right)} \ \mathrm{lbmol \ hr^{-1} \ ft^{-3} \ atm^{-2}}\\
     k_2 &amp;= 11.7 \exp{\left(\frac{-6860}{RT}\right)} \ \mathrm{lbmol \ hr^{-1} \ ft^{-3} \ atm^{-2}}\\
 \end{align}\]</div>
@@ -865,8 +860,8 @@ title="Print to PDF"
 <section id="solution-to-example-problem-01">
 <h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
 <p>We start by writing material balances, and we also allow for non-isothermal operation by writing an energy balance (allowing us to solve for T). For this problem, I find the following approach is straightforward.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1521294-bdb2-4280-8e8b-e4c8962a3280">
-<span class="eqno">(246)<a class="headerlink" href="#equation-f1521294-bdb2-4280-8e8b-e4c8962a3280" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d4e6093b-65ac-4fa2-8065-b9872d5a4a36">
+<span class="eqno">(246)<a class="headerlink" href="#equation-d4e6093b-65ac-4fa2-8065-b9872d5a4a36" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{Af} - F_A + R_AV \\
     0 &amp;= F_{Bf} - F_B + R_BV \\
     0 &amp;= F_{Cf} - F_C + R_CV \\
@@ -875,8 +870,8 @@ title="Print to PDF"
     0 &amp;= -\sum_i \Delta H_i r_i V + \sum_j F_{jf}(H_{jf} - H_j) + \dot{Q}\\
 \end{align}\]</div>
 <p>We define production rates as usual:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f9d1d87-c969-4b46-afca-0e78c5add052">
-<span class="eqno">(247)<a class="headerlink" href="#equation-9f9d1d87-c969-4b46-afca-0e78c5add052" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-209bbb18-84a7-4915-a41e-e56ab3d886a9">
+<span class="eqno">(247)<a class="headerlink" href="#equation-209bbb18-84a7-4915-a41e-e56ab3d886a9" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r_1 - r_2 \\
     R_B &amp;= -r_1 - r_2 \\
     R_C &amp;= r_1 \\
@@ -884,8 +879,8 @@ title="Print to PDF"
     R_E &amp;= r_2
 \end{align}\]</div>
 <p>Rate constants for both reactions are given by an Arrhenius expression, with parameters given in the problem statement:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa2a6c2f-5c68-464b-8e42-55c16284712f">
-<span class="eqno">(248)<a class="headerlink" href="#equation-aa2a6c2f-5c68-464b-8e42-55c16284712f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b2ac0fe5-3efd-4a09-9946-461ea2d03871">
+<span class="eqno">(248)<a class="headerlink" href="#equation-b2ac0fe5-3efd-4a09-9946-461ea2d03871" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= 206000 \exp{\left(\frac{-27200}{RT}\right)} \ \mathrm{lbmol \ hr^{-1} \ ft^{-3} \ atm^{-2}}\\
     k_2 &amp;= 11.7 \exp{\left(\frac{-6860}{RT}\right)} \ \mathrm{lbmol \ hr^{-1} \ ft^{-3} \ atm^{-2}}\\
 \end{align}\]</div>
@@ -913,8 +908,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\Delta H_i(T) = \Delta H_i^\circ + \int_{T_0}^{T} \Delta C_{p,i} dT\]</div>
 <p>For this two reaction system, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7efe5648-d247-425b-b524-b459b8642aa3">
-<span class="eqno">(249)<a class="headerlink" href="#equation-7efe5648-d247-425b-b524-b459b8642aa3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-614d0a0b-49fe-4b42-a9be-fda84cb65348">
+<span class="eqno">(249)<a class="headerlink" href="#equation-614d0a0b-49fe-4b42-a9be-fda84cb65348" title="Permalink to this equation">#</a></span>\[\begin{align}
     \Delta C_{p,1} &amp;= C_{p,C} + C_{p,D} - C_{p,A} - C_{p,B} \\
     \Delta C_{p,2} &amp;= C_{p,E} + C_{p,A} - C_{p,B}
 \end{align}\]</div>

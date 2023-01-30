@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L15.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L15.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L15.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L15.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -850,8 +845,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[2A + 3B \rightarrow C\]</div>
 <p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-defb6895-d208-4c04-acb7-5f5de4241df2">
-<span class="eqno">(66)<a class="headerlink" href="#equation-defb6895-d208-4c04-acb7-5f5de4241df2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-136782dd-f696-424e-8e09-008670cfe9d3">
+<span class="eqno">(66)<a class="headerlink" href="#equation-136782dd-f696-424e-8e09-008670cfe9d3" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 37.2 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
     Q_f &amp;= 12 \ \textrm{L} \ \textrm{h}^{-1}\\
     C_{Af} &amp;= 0.74 \textrm{mol} \ \textrm{L}^{-1}\\
@@ -898,8 +893,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\frac{dF_A}{dV} = -2k\frac{F_AF_B}{{Q_f}^2}\]</div>
 <p>This still isn’t separable because we have <span class="math notranslate nohighlight">\(F_A\)</span> and <span class="math notranslate nohighlight">\(F_B\)</span> both changing as a function of volume.  We write a mole table for all species as functions of fractional conversion of A. This gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3211f6c0-3893-4ac3-bb25-1b28cd6fd57a">
-<span class="eqno">(67)<a class="headerlink" href="#equation-3211f6c0-3893-4ac3-bb25-1b28cd6fd57a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ba846be-bc8b-426e-9a28-90f70cc5dca3">
+<span class="eqno">(67)<a class="headerlink" href="#equation-1ba846be-bc8b-426e-9a28-90f70cc5dca3" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f} - F_{A,f}X_A \\
     F_B &amp;= F_{B,f} - 3/2F_{A,f}X_A \\
     F_C &amp;= F_{C,f} + 1/2F_{A,f}X_A \\
@@ -1009,8 +1004,8 @@ This is a separable ODE, but the solution is probably not something you’ll jus
 <div class="math notranslate nohighlight">
 \[\frac{dF_B}{dV} = -k\frac{F_AF_B}{F_T^2}\left(\frac{P}{RT}\right)^2\]</div>
 <p>This isn’t separable because we have <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(F_B\)</span>, and <span class="math notranslate nohighlight">\(F_T\)</span> changing as a function of volume.  We write a mole table for all species as functions of fractional conversion of B. This gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-de657cc6-2ecb-41df-b4c9-10cc61249248">
-<span class="eqno">(68)<a class="headerlink" href="#equation-de657cc6-2ecb-41df-b4c9-10cc61249248" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de1b8335-db57-4bba-b661-c9060fcb13d0">
+<span class="eqno">(68)<a class="headerlink" href="#equation-de1b8335-db57-4bba-b661-c9060fcb13d0" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f} - F_{B,f}X_B \\
     F_B &amp;= F_{B,f} - F_{B,f}X_B \\
     F_C &amp;= F_{C,f} + F_{B,f}X_B \\
@@ -1081,8 +1076,8 @@ This is a separable ODE, but the solution is probably not something you’ll jus
 <div class="math notranslate nohighlight">
 \[A \leftrightharpoons B\]</div>
 <p>One may assume that the density of the liquid is constant and that the reaction has an elementary rate law. Parameters are given below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89870ad8-f1a8-4e3f-bf34-64030cd53019">
-<span class="eqno">(69)<a class="headerlink" href="#equation-89870ad8-f1a8-4e3f-bf34-64030cd53019" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c999d709-b523-4977-8044-cd77df9e6266">
+<span class="eqno">(69)<a class="headerlink" href="#equation-c999d709-b523-4977-8044-cd77df9e6266" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f = 0.345 \ \mathrm{min^{-1}}\\
     k_r = 0.226 \ \mathrm{min^{-1}}\\
 \end{align}\]</div>
@@ -1119,8 +1114,8 @@ This is a separable ODE, but the solution is probably not something you’ll jus
 <div class="math notranslate nohighlight">
 \[C_B = \frac{N_B}{V}\]</div>
 <p>If we develop a mole table for this system, we find:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-75e38eaf-5b13-47be-a915-28ee11fc469b">
-<span class="eqno">(70)<a class="headerlink" href="#equation-75e38eaf-5b13-47be-a915-28ee11fc469b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cebe6400-ca0e-4e2e-9d2c-c6d283de8657">
+<span class="eqno">(70)<a class="headerlink" href="#equation-cebe6400-ca0e-4e2e-9d2c-c6d283de8657" title="Permalink to this equation">#</a></span>\[\begin{align}
     N_A &amp;= N_{A0} - N_{A0}X_A \\
     N_B &amp;= N_{B0} + N_{A0}X_A \\
     N_T &amp;= N_{T0}

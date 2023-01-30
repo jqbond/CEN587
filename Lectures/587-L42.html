@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L42.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L42.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L42.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L42.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -877,14 +872,14 @@ title="Print to PDF"
 <h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
 <p>(Fogler, Example 12.5)</p>
 <p>This example considers non-isothermal operation of a PFR with multiple reactions.  Specifically, the following two gas phase reactions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fc7428c-9b5a-49f6-9e6f-ecfb782f8c88">
-<span class="eqno">(196)<a class="headerlink" href="#equation-7fc7428c-9b5a-49f6-9e6f-ecfb782f8c88" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5797120b-3715-436e-aaeb-3e7f774c668b">
+<span class="eqno">(196)<a class="headerlink" href="#equation-5797120b-3715-436e-aaeb-3e7f774c668b" title="Permalink to this equation">#</a></span>\[\begin{align}
     A &amp;\longrightarrow B\\
     2A &amp;\longrightarrow C
 \end{align}\]</div>
 <p>Where both reactions have elementary rate laws. Pure A (<span class="math notranslate nohighlight">\(C_{Af} = 0.1\)</span> moles per liter) is fed to the reactor at a rate of 100 moles per second and a temperature of 150<span class="math notranslate nohighlight">\(^\circ\)</span>C.  We additionally are provided the following information:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b09ed603-7d6e-4153-b61a-084479c07bc2">
-<span class="eqno">(197)<a class="headerlink" href="#equation-b09ed603-7d6e-4153-b61a-084479c07bc2" title="Permalink to this equation">#</a></span>\[\begin{align}		
+<div class="amsmath math notranslate nohighlight" id="equation-10b284cc-5071-4ed1-b310-d9edeac8e1d0">
+<span class="eqno">(197)<a class="headerlink" href="#equation-10b284cc-5071-4ed1-b310-d9edeac8e1d0" title="Permalink to this equation">#</a></span>\[\begin{align}		
     k_{10}  &amp;= 10 \ \textrm{s}^{-1}  		    					               \\
     k_{20}  &amp;= 0.045 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{s}^{-1}	           \\
     \frac{E_{A1}}{R}  &amp;= 4000 \ \textrm{K}				    		               \\
@@ -903,8 +898,8 @@ title="Print to PDF"
 <h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
 <p>We are asked to plot the flowrate of each species and the temperature as a function of reactor volume.  Clearly, we need to write material and energy balances.</p>
 <p>For this system, we have 3 species, so we write 3 material balances:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3e40cbc-36c9-40eb-9aa1-1cc156d99462">
-<span class="eqno">(198)<a class="headerlink" href="#equation-a3e40cbc-36c9-40eb-9aa1-1cc156d99462" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8ce54122-e4bb-4fc5-8d7b-473985ee1f1d">
+<span class="eqno">(198)<a class="headerlink" href="#equation-8ce54122-e4bb-4fc5-8d7b-473985ee1f1d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_A}{dV} = R_A \\
     \frac{dF_B}{dV} = R_B \\
     \frac{dF_C}{dV} = R_C \\
@@ -914,15 +909,15 @@ title="Print to PDF"
 \[\frac{dT}{dV} = \frac{-\sum_i \Delta H_i r_i + \dot{q}}{\sum_j F_j \bar{C}_{p,j}}\]</div>
 <p>Now we just specify everything on the right hand side of those ODEs in terms of constants, the 4 dependent variables, or volume (our independent variable).</p>
 <p>Production rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-241465e5-7add-4e16-873b-de6ba3668077">
-<span class="eqno">(199)<a class="headerlink" href="#equation-241465e5-7add-4e16-873b-de6ba3668077" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5927669-7e81-40ad-87a5-833b5fb5bb5a">
+<span class="eqno">(199)<a class="headerlink" href="#equation-e5927669-7e81-40ad-87a5-833b5fb5bb5a" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r_1 - 2r_2 \\
     R_B &amp;= r_1 \\
     R_C &amp;= r_2 \\
 \end{align}\]</div>
 <p>Rate expressions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f07e6c9-51ef-4feb-a887-5ac7164cd1c9">
-<span class="eqno">(200)<a class="headerlink" href="#equation-5f07e6c9-51ef-4feb-a887-5ac7164cd1c9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a4273094-b0fb-4097-a903-5c90a2c096b4">
+<span class="eqno">(200)<a class="headerlink" href="#equation-a4273094-b0fb-4097-a903-5c90a2c096b4" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_1C_A\\
     r_2 &amp;= k_2{C_A}^2
 \end{align}\]</div>
@@ -936,8 +931,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[F_T = F_A + F_B + F_C\]</div>
 <p>Next, we need to define our rate constants as functions of temperature; we do so using a van’t Hoff type expression (since we are given rate constants measured at a specific temperature).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13e6efda-3894-4e17-b027-58f56ee6842c">
-<span class="eqno">(201)<a class="headerlink" href="#equation-13e6efda-3894-4e17-b027-58f56ee6842c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-618c534c-d0ea-4d65-afd1-1a1b26193c15">
+<span class="eqno">(201)<a class="headerlink" href="#equation-618c534c-d0ea-4d65-afd1-1a1b26193c15" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= k_{10}\exp\left[-\frac{E_{A1}}{R}\left(\frac{1}{T} - \frac{1}{T_0}\right)\right] \\
     k_2 &amp;= k_{20}\exp\left[-\frac{E_{A2}}{R}\left(\frac{1}{T} - \frac{1}{T_0}\right)\right] \\
 \end{align}\]</div>
@@ -1041,7 +1036,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1b90a01d910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x205c7a7c910&gt;
 </pre></div>
 </div>
 <img alt="../_images/587-L42_6_1.png" src="../_images/587-L42_6_1.png" />

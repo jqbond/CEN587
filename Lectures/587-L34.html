@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L34.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L34.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L34.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L34.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -869,14 +864,14 @@ title="Print to PDF"
 \[R_{{C_2H_5O}^\bullet} = 0 = k_1\left[{C_2H_5ONO_2} \right] - k_2\left[{C_2H_5O}^\bullet \right] + k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] - 2k_4\left[{C_2H_5O}^\bullet \right]^2\]</div>
 <p>Perfect!  In writing that PSSH statement, we have not introduced any new radical concentrations, so what we have now is a system of 2 equations (PSSH on <span class="math notranslate nohighlight">\({CH_3}^\bullet\)</span> and on <span class="math notranslate nohighlight">\({C_2H_5O}^\bullet\)</span>) written in two unknowns, namely the concentrations of the methyl and ethoxy radicals (<span class="math notranslate nohighlight">\(\left[{CH_3}^\bullet \right]\)</span> and <span class="math notranslate nohighlight">\(\left[{C_2H_5O}^\bullet \right]\)</span>).</p>
 <p>Solving these system can actually get pretty messy because of all of the terms.  I advise against jumping into something like a substitution method straightaway.  Instead, let’s recall that we have two forms of these equations.  We have the complicated, full expansions of each PSSH statement:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5309d679-248e-437b-bf89-dd409802a904">
-<span class="eqno">(157)<a class="headerlink" href="#equation-5309d679-248e-437b-bf89-dd409802a904" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-32c32742-933b-4a04-958f-c37ce4ef7063">
+<span class="eqno">(157)<a class="headerlink" href="#equation-32c32742-933b-4a04-958f-c37ce4ef7063" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= k_2\left[{C_2H_5O}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] \\
     0 &amp;= k_1\left[{C_2H_5ONO_2} \right] - k_2\left[{C_2H_5O}^\bullet \right] + k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] - 2k_4\left[{C_2H_5O}^\bullet \right]^2
 \end{align}\]</div>
 <p>It can be tempting to start trying to solve for the radical concentrations in the above form, but it is easy to go in circles with a substitution method here.  A better first step is often to find combinations of the PSSH equations that allow us to cancel as many terms as possible before trying to work with a substitution method. For me, it is usually easiest to see the right combinations if I instead work with these equations (which are equivalent to the above):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a141b51-2e90-401c-ba14-7ac1327d8490">
-<span class="eqno">(158)<a class="headerlink" href="#equation-0a141b51-2e90-401c-ba14-7ac1327d8490" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-17648e89-5f0d-4029-97f7-78c74a144347">
+<span class="eqno">(158)<a class="headerlink" href="#equation-17648e89-5f0d-4029-97f7-78c74a144347" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= r_2 - r_3 \\
     0 &amp;= r_1 - r_2 + r_3 - 2r_4 \\
 \end{align}\]</div>
@@ -890,8 +885,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\left[{C_2H_5O}^\bullet \right] = \sqrt{\frac{k_1}{2k_4}\left[{C_2H_5ONO_2} \right]}\]</div>
 <p>With that, we can now return to the PSSH equation for the methyl radical (<span class="math notranslate nohighlight">\(CH_3^\bullet\)</span>) and substitute the ethoxy concentration in:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9c99863-c938-4b00-8aa2-b2dc5a0f4e4c">
-<span class="eqno">(159)<a class="headerlink" href="#equation-a9c99863-c938-4b00-8aa2-b2dc5a0f4e4c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-19da8192-e7d5-4016-aedb-23819783b009">
+<span class="eqno">(159)<a class="headerlink" href="#equation-19da8192-e7d5-4016-aedb-23819783b009" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= r_2 - r_3 \\
     \\
     0 &amp;= k_2\left[{C_2H_5O}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] \\
@@ -958,15 +953,15 @@ title="Print to PDF"
 <p>Neither of those have introduced additional “unknowns” so we can solve this system for the concentrations of the methyl, acetyl, and acetone radical concentrations in terms of stable species.</p>
 <p><strong>Resulting Systems of Equations</strong></p>
 <p>We can look at either the high level PSSH statements:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ca43ccd-5e36-4108-a2db-cfd21cc70385">
-<span class="eqno">(160)<a class="headerlink" href="#equation-4ca43ccd-5e36-4108-a2db-cfd21cc70385" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-af5f3adb-b422-423a-8391-19927c1d246f">
+<span class="eqno">(160)<a class="headerlink" href="#equation-af5f3adb-b422-423a-8391-19927c1d246f" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= r_1 + r_2 - r_3 + r_4 - r_5 \\
     0 &amp;= r_1 - r_2 \\
     0 &amp;= r_3 - r_4 - r_5 \\
 \end{align}\]</div>
 <p>Or we can look at the expanded forms with rate expressions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d20e30b0-e563-4f31-8901-4dc33d4180e3">
-<span class="eqno">(161)<a class="headerlink" href="#equation-d20e30b0-e563-4f31-8901-4dc33d4180e3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1cb09b16-7a07-4840-8641-dd26a4701457">
+<span class="eqno">(161)<a class="headerlink" href="#equation-1cb09b16-7a07-4840-8641-dd26a4701457" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= k_1\left[{CH_3COCH_3} \right] + k_2\left[{CH_3CO}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] + k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right] \\
     0 &amp;= k_1\left[{CH_3COCH_3} \right] - k_2\left[{CH_3CO}^\bullet \right] \\
     0 &amp;= k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] - k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right] \\
@@ -1025,8 +1020,8 @@ title="Print to PDF"
 <section id="example-problem-03-ethane-pyrolysis">
 <h2>Example Problem 03: Ethane Pyrolysis<a class="headerlink" href="#example-problem-03-ethane-pyrolysis" title="Permalink to this headline">#</a></h2>
 <p>The following mechanism is presented in Example 5.5 from Rawlings; it describes the thermal pyrolysis of ethane:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90b3e606-5d8f-4f5e-9da9-efd90b312f84">
-<span class="eqno">(162)<a class="headerlink" href="#equation-90b3e606-5d8f-4f5e-9da9-efd90b312f84" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-20ed3374-4e2b-4fc4-a064-d2e34b1db565">
+<span class="eqno">(162)<a class="headerlink" href="#equation-20ed3374-4e2b-4fc4-a064-d2e34b1db565" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_2H_6 &amp;\longrightarrow 2C\!H_3^\bullet \\
     C\!H_3^\bullet + C_2H_6 &amp;\longrightarrow C\!H_4 + C_2H_5^\bullet \\
     C_2H_5^\bullet &amp;\longrightarrow C_2H_4 + H^\bullet \\
@@ -1063,15 +1058,15 @@ title="Print to PDF"
 <p>Now we have 3 equations (3 PSSH statements on the 3 radical species) and 3 unknowns (the 3 radical species).  We can solve the system to get the concentrations of all of the radicals in terms of stable species.</p>
 <p>As usual, we can look at the system in two ways, both are equivalent, but sometimes it is easy to simplify the system looking only at the equations involving reaction rates first.</p>
 <p><strong>System 1</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fc15920-f030-4f50-8482-37e1904cb0d2">
-<span class="eqno">(163)<a class="headerlink" href="#equation-7fc15920-f030-4f50-8482-37e1904cb0d2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-73d0046f-2b8d-46a5-b455-08c4c90e9241">
+<span class="eqno">(163)<a class="headerlink" href="#equation-73d0046f-2b8d-46a5-b455-08c4c90e9241" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= r_2 - r_3 + r_4  - r_5 \\
     0 &amp;= r_3 - r_4 - r_5 \\
     0 &amp;= 2r_1 - r_2 \\
 \end{align}\]</div>
 <p><strong>System 2</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f755c38-2159-44d5-94eb-e70a2ea2b2ea">
-<span class="eqno">(164)<a class="headerlink" href="#equation-3f755c38-2159-44d5-94eb-e70a2ea2b2ea" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-086f6c3e-1503-4f9c-a04a-f100f26feb9a">
+<span class="eqno">(164)<a class="headerlink" href="#equation-086f6c3e-1503-4f9c-a04a-f100f26feb9a" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] - k_3 \left[{C_2H_5}^\bullet\right] + k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right]  \\
     0 &amp;= k_3 \left[{C_2H_5}^\bullet\right] - k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right] \\
     0 &amp;= 2k_1 \left[{C_2H_6}\right] - k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] \\

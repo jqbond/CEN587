@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Recitation/587-R10.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Recitation/587-R10.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R10.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R10.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1088,14 +1083,14 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[y(x) = mx+b\]</div>
 <p>With that equation in mind, realize that we have two (x,y) pairs from which to construct a system of equations.  Substituting those values, we get the following two equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cac3caeb-b991-4739-ba3c-4a8ac4819aec">
-<span class="eqno">(223)<a class="headerlink" href="#equation-cac3caeb-b991-4739-ba3c-4a8ac4819aec" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-41e6ad82-d208-468d-b76c-e03e2cdc3041">
+<span class="eqno">(223)<a class="headerlink" href="#equation-41e6ad82-d208-468d-b76c-e03e2cdc3041" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1m+b\\
     7 = 2m+b\\
 \end{align}\]</div>
 <p>Ah!  A system of equations!  This looks like an algebra problem!! The nature of the inverse problem reveals itself here – you know the values of the independent variables (x) and dependent variables (y), but <em><strong>you do not know the coefficients in the polynomial that describe the line</strong></em>.  So, the core of your inverse problem is to find those coefficients.  Fortunately, here, you have 2 equations, written in 2 unknowns (m and b).  It’s fully determined, and there is one and only one solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd973b4c-5503-4de4-9002-376dc9264975">
-<span class="eqno">(224)<a class="headerlink" href="#equation-bd973b4c-5503-4de4-9002-376dc9264975" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5861bed8-b5e0-4433-8a17-0567aabb67ef">
+<span class="eqno">(224)<a class="headerlink" href="#equation-5861bed8-b5e0-4433-8a17-0567aabb67ef" title="Permalink to this equation">#</a></span>\[\begin{align}
     m = 3\\
     b = 1\\
 \end{align}\]</div>
@@ -1126,8 +1121,8 @@ title="Print to PDF"
 </div>
 <p>This is the basic concept of an “interpolating polynomial.”  We have constructed a function that passes through each point exactly, and you’ll notice again that if we do this for two points, then there is one and only one line that passes exactly through the pair.</p>
 <p>If instead I tried to fit a zero order polynomial to my data (i.e, <span class="math notranslate nohighlight">\(y = C\)</span>, where C is a constant):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-483da6b1-a982-4cfc-a211-0317bf91b7f2">
-<span class="eqno">(225)<a class="headerlink" href="#equation-483da6b1-a982-4cfc-a211-0317bf91b7f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c38af8b6-e631-4292-81b1-448cb2a7cef8">
+<span class="eqno">(225)<a class="headerlink" href="#equation-c38af8b6-e631-4292-81b1-448cb2a7cef8" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = C\\
     7 = C\\
 \end{align}\]</div>
@@ -1136,8 +1131,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[y(x) = \alpha_2x^2 + \alpha_1x + \alpha_0\]</div>
 <p>You would find that you generate the following system of equations by substituting in the (x,y) pairs we measured:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e704683f-7487-4027-a6e6-9ad863245e73">
-<span class="eqno">(226)<a class="headerlink" href="#equation-e704683f-7487-4027-a6e6-9ad863245e73" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-58f7cb83-6079-4235-8453-a589025e9367">
+<span class="eqno">(226)<a class="headerlink" href="#equation-58f7cb83-6079-4235-8453-a589025e9367" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1\alpha_2 + 1\alpha_1 + \alpha_0\\
     7 = 4\alpha_2 + 2\alpha_1 +  \alpha_0\\
 \end{align}\]</div>
@@ -1169,16 +1164,16 @@ title="Print to PDF"
 </div>
 </div>
 <p>Now you can see that you need some curvature to pass through those 3 data points–a straight line won’t do it.  Start in the same place:  use the data to make a system of equations using the generic model for a 2nd order polynomial, i.e., <span class="math notranslate nohighlight">\(y(x) = \alpha_0 + \alpha_1x + \alpha_2x^2\)</span>.  Substituting (x,y) pairs into this model gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fae84d4d-34ca-4a31-a111-310bbd3b23ed">
-<span class="eqno">(227)<a class="headerlink" href="#equation-fae84d4d-34ca-4a31-a111-310bbd3b23ed" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-39983671-60c4-4728-b1b5-ded4725945e4">
+<span class="eqno">(227)<a class="headerlink" href="#equation-39983671-60c4-4728-b1b5-ded4725945e4" title="Permalink to this equation">#</a></span>\[\begin{align}
     8 = 1\alpha_2 + 1\alpha_1 + \alpha_0\\
     4 = 4\alpha_2 + 2\alpha_1 + \alpha_0\\
     6 = 9\alpha_2 + 3\alpha_1 + \alpha_0\\
 \end{align}\]</div>
 <p>And there you see why you get to find a unique 2nd order polynomial.  The system of equations is fully determined–there are 3 equations, and 3 unknowns (<span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(\alpha_1\)</span>, <span class="math notranslate nohighlight">\(\alpha_2\)</span>), so there is a unique set of (<span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(\alpha_1\)</span>, <span class="math notranslate nohighlight">\(\alpha_2\)</span>) values that define this data set.</p>
 <p>You find them by algebraic solution of the system to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-97192bd5-9a07-4f4d-bd07-c5c198ba37c7">
-<span class="eqno">(228)<a class="headerlink" href="#equation-97192bd5-9a07-4f4d-bd07-c5c198ba37c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa2c87ba-fe72-44f9-8a48-d3f7b24da48c">
+<span class="eqno">(228)<a class="headerlink" href="#equation-fa2c87ba-fe72-44f9-8a48-d3f7b24da48c" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha_2 &amp;= 3\\
     \alpha_1 &amp;= -13\\
     \alpha_0 &amp;= 18\\
@@ -1214,20 +1209,20 @@ title="Print to PDF"
 <section id="a-matrix-vector-representation-of-the-inverse-problem">
 <h2>A Matrix/Vector representation of the Inverse Problem<a class="headerlink" href="#a-matrix-vector-representation-of-the-inverse-problem" title="Permalink to this headline">#</a></h2>
 <p>Going back to our linear problem, where we had two (x,y) pairs, (1,4) and (2,7), that we wanted to describe with a linear model <span class="math notranslate nohighlight">\(y(x) = mx+b\)</span>. In doing so, we wrote the following two equations.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07b4a0be-dcc1-4a21-b9ea-d8cab663b13c">
-<span class="eqno">(229)<a class="headerlink" href="#equation-07b4a0be-dcc1-4a21-b9ea-d8cab663b13c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-df57bbb1-b850-4ea4-948d-820abd1b55ac">
+<span class="eqno">(229)<a class="headerlink" href="#equation-df57bbb1-b850-4ea4-948d-820abd1b55ac" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1m+b\\
     7 = 2m+b\\
 \end{align}\]</div>
 <p>To support abstraction to higher order polynomials, I’m going to replace the coefficients in that linear polynomial (m and b) with <span class="math notranslate nohighlight">\(\alpha_i\)</span> values.  The <span class="math notranslate nohighlight">\(\alpha\)</span> is just a constant-valued coefficient, and the subscript <span class="math notranslate nohighlight">\(i\)</span> represents the degree of x that particular <span class="math notranslate nohighlight">\(\alpha\)</span> is multiplied by in the polynomial.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf49a8e3-097f-4a72-b376-25a77f3b6372">
-<span class="eqno">(230)<a class="headerlink" href="#equation-cf49a8e3-097f-4a72-b376-25a77f3b6372" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa4a86a1-c9cc-43b7-b8f3-dde0592387ab">
+<span class="eqno">(230)<a class="headerlink" href="#equation-fa4a86a1-c9cc-43b7-b8f3-dde0592387ab" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1\alpha_1 + \alpha_0\\
     7 = 2\alpha_1 + \alpha_0\\
 \end{align}\]</div>
 <p>I’m also going to put it in the form that I typically see with this type of problem.  This is just a rearrangement.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-709910ce-4487-4539-89de-b8be6f8a7500">
-<span class="eqno">(231)<a class="headerlink" href="#equation-709910ce-4487-4539-89de-b8be6f8a7500" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f1ece7a7-8e10-4d2d-b5de-c22623e56f36">
+<span class="eqno">(231)<a class="headerlink" href="#equation-f1ece7a7-8e10-4d2d-b5de-c22623e56f36" title="Permalink to this equation">#</a></span>\[\begin{align}
     1\alpha_1 + 1\alpha_0 = 4\\
     2\alpha_1 + 1\alpha_0 = 7\\
 \end{align}\]</div>
@@ -1254,8 +1249,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[A = X^{-1}Y\]</div>
 <p>Matrices behave a little differently.  Instead of the first, more intuitive division operator, we want to take a Matrix Inverse here.  I like to visualize this as multiplying both sides of our equation by the inverse of the X matrix in steps.  So with a linear algebra solution, I’d solve this problem with the following steps:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-664aa325-2da6-46b1-9205-a4f00b88920b">
-<span class="eqno">(232)<a class="headerlink" href="#equation-664aa325-2da6-46b1-9205-a4f00b88920b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0305ba84-f57b-4b22-b961-ac6c6a3ad2d2">
+<span class="eqno">(232)<a class="headerlink" href="#equation-0305ba84-f57b-4b22-b961-ac6c6a3ad2d2" title="Permalink to this equation">#</a></span>\[\begin{align}
     XA &amp;= Y\\
     X^{-1}XA &amp;= X^{-1}Y\\
     IA &amp;= X^{-1}Y\\
@@ -1300,15 +1295,15 @@ A\end{split}\]</div>
 <h3>Matrix interpretation of the 2nd order problem<a class="headerlink" href="#matrix-interpretation-of-the-2nd-order-problem" title="Permalink to this headline">#</a></h3>
 <p>This really becomes much more useful when we got to higher order polynomials, where the algebra becomes more cumbersome.  So let’s apply to our second order example.  Recall, we’re trying to fit a quadratic (<span class="math notranslate nohighlight">\(n_{th}\)</span> order) to 3 data points (<span class="math notranslate nohighlight">\(n+1\)</span> data points): (1,8), (2,4), and (3,6)</p>
 <p>Above, we used that to generate this system of equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-100fe421-5aa5-4de2-ab3c-d1326377e534">
-<span class="eqno">(233)<a class="headerlink" href="#equation-100fe421-5aa5-4de2-ab3c-d1326377e534" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f63e3d21-e484-499a-994b-81b17c4f310f">
+<span class="eqno">(233)<a class="headerlink" href="#equation-f63e3d21-e484-499a-994b-81b17c4f310f" title="Permalink to this equation">#</a></span>\[\begin{align}
     8 = \alpha_0 + 1\alpha_1 + 1\alpha_2\\
     4 = \alpha_0 + 2\alpha_1 + 4\alpha_2\\
     6 = \alpha_0 + 3\alpha_1 + 9\alpha_2\\
 \end{align}\]</div>
 <p>Which we can then put into the matrix form we developed in the previous cell:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9470d09-dd1e-4428-9883-8aa14f09d240">
-<span class="eqno">(234)<a class="headerlink" href="#equation-e9470d09-dd1e-4428-9883-8aa14f09d240" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84963eaa-8d92-4015-ad93-955909024dc3">
+<span class="eqno">(234)<a class="headerlink" href="#equation-84963eaa-8d92-4015-ad93-955909024dc3" title="Permalink to this equation">#</a></span>\[\begin{align}
     1\alpha_2 + 1\alpha_1 + 1\alpha_0 = 8\\
     4\alpha_2 + 2\alpha_1 + 1\alpha_0 = 4\\
     9\alpha_2 + 3\alpha_1 + 1\alpha_0 = 6\\
@@ -1580,8 +1575,8 @@ A\end{split}\]</div>
 <p>Here, <span class="math notranslate nohighlight">\(y_i\)</span> is <em>ith</em> measured value of our observable, <span class="math notranslate nohighlight">\(y\)</span>, at condition <span class="math notranslate nohighlight">\(x_i\)</span>, and <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> is the model’s predicted value of our observable <span class="math notranslate nohighlight">\(y\)</span> at condition <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
 <p>We will use this tool a lot. Whether you realize it or not, least squares is embedded in a lot of the tools you use routinely.  The one you’re most familiar with is Excel’s trendline feature, but also the very nice LINEST function in Excel is an implementation of linear least squares.  The methods below are also pretty much identical to what <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> does under the hood. For now, we’ll frame this as an extension of our matrix method for polynomial interpolation.</p>
 <p>Let’s say I propose a linear model to describe the above 11 data points.  I’ll write copy of that linear model for every (x,y) pair in our data set…</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e7b335e2-5e17-4539-995b-557c96859b07">
-<span class="eqno">(235)<a class="headerlink" href="#equation-e7b335e2-5e17-4539-995b-557c96859b07" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3c5cddb9-aeb9-473d-96b1-2275e6eae240">
+<span class="eqno">(235)<a class="headerlink" href="#equation-3c5cddb9-aeb9-473d-96b1-2275e6eae240" title="Permalink to this equation">#</a></span>\[\begin{align}
     y_1    &amp;= \alpha_1x_1 + \alpha_0 \\
     y_2    &amp;= \alpha_1x_2 + \alpha_0 \\
     y_3    &amp;= \alpha_1x_3 + \alpha_0 \\
@@ -1640,7 +1635,7 @@ A\end{split}\]</div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">LinAlgError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">~\AppData\Local\Temp\ipykernel_19024\2358220363.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_18560\2358220363.py</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Ya</span><span class="p">)</span>
 
 <span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">solve</span><span class="nt">(*args, **kwargs)</span>
@@ -1699,8 +1694,8 @@ A\end{split}\]</div>
 </div>
 </div>
 <p>The linear algebra way to approach this problem follows.  We start with our non-square X matrix, and we apply the following multiplication steps.  Note that multiplying X by its transpose will create a square matrix, which we can invert.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d20b5562-6d2a-4cc1-9005-9246c44ea8e5">
-<span class="eqno">(236)<a class="headerlink" href="#equation-d20b5562-6d2a-4cc1-9005-9246c44ea8e5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c3453f9-53f9-48f3-9dc0-01be617375d4">
+<span class="eqno">(236)<a class="headerlink" href="#equation-8c3453f9-53f9-48f3-9dc0-01be617375d4" title="Permalink to this equation">#</a></span>\[\begin{align}
     XA &amp;= Y \\
     X^TXA &amp;= X^TY \\
     \left(X^TX\right)^{-1}X^TXA &amp;= \left(X^TX\right)^{-1}X^TY \\

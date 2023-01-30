@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -576,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/AICHE2022_Python/main?urlpath=tree/Lectures/587-L22.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L22.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -619,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python"
+        <a href="https://github.com/jqbond/2022CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -636,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/AICHE2022_Python/issues/new?title=Issue%20on%20page%20%2FLectures/587-L22.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L22.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -859,8 +854,8 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\frac{dF_B}{dV} = R_B\]</div>
 <p>We generally know that <span class="math notranslate nohighlight">\(R_B\)</span> is going to be a complex function of concentrations of all of the species present in this system.  That means we can’t solve the above balance on Benzene without also solving balances on Diphenyl, Hydrogen, and Triphenyl <em>at the same time</em>, i.e., we have to solve the coupled system of differential equations below:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c7536421-426c-46e5-aae4-ca132965d507">
-<span class="eqno">(110)<a class="headerlink" href="#equation-c7536421-426c-46e5-aae4-ca132965d507" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d62c19e6-a3ae-41d4-8103-d224649d5c38">
+<span class="eqno">(110)<a class="headerlink" href="#equation-d62c19e6-a3ae-41d4-8103-d224649d5c38" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_B}{dV} &amp;= R_B \\
     \frac{dF_D}{dV} &amp;= R_D \\
     \frac{dF_H}{dV} &amp;= R_H \\
@@ -872,16 +867,16 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-866f97c3-7a95-4a1e-9ced-c85e8d48e1c5">
-<span class="eqno">(111)<a class="headerlink" href="#equation-866f97c3-7a95-4a1e-9ced-c85e8d48e1c5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef3d5cc2-8dbb-4347-ba00-c134c784c221">
+<span class="eqno">(111)<a class="headerlink" href="#equation-ef3d5cc2-8dbb-4347-ba00-c134c784c221" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c8117db-4420-48be-a6ea-882ab8728b0f">
-<span class="eqno">(112)<a class="headerlink" href="#equation-0c8117db-4420-48be-a6ea-882ab8728b0f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71afb230-6e8a-4707-9df5-82e7d094af64">
+<span class="eqno">(112)<a class="headerlink" href="#equation-71afb230-6e8a-4707-9df5-82e7d094af64" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -1059,8 +1054,8 @@ title="Print to PDF"
 \[0 = F_{B,f} - F_B + R_BV\]</div>
 <p>I can see that the term <span class="math notranslate nohighlight">\(R_B\)</span> actually will depend on the concentrations of diphenyl, triphenyl, and hydrogen (see the PFR discussion above).  So I won’t be able to solve this equation by itself.  I’ll need to somehow determine the concentrations of all species…</p>
 <p>The easiest way to do this is to recognize that we can write a single, independent balance for each component:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-219306f6-0dd3-42b5-8fe4-4ac4fd526c48">
-<span class="eqno">(113)<a class="headerlink" href="#equation-219306f6-0dd3-42b5-8fe4-4ac4fd526c48" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-578c32ae-5dcc-4d3b-92c7-c510ebf125c0">
+<span class="eqno">(113)<a class="headerlink" href="#equation-578c32ae-5dcc-4d3b-92c7-c510ebf125c0" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 = F_{B,f} - F_B + R_BV \\
     0 = F_{D,f} - F_D + R_DV \\
     0 = F_{H,f} - F_H + R_HV \\
@@ -1068,8 +1063,8 @@ title="Print to PDF"
 \end{align}\]</div>
 <p>The way I view this is that I have four equations written in terms of five unknowns (<span class="math notranslate nohighlight">\(F_B\)</span>, <span class="math notranslate nohighlight">\(F_D\)</span>, <span class="math notranslate nohighlight">\(F_H\)</span>, <span class="math notranslate nohighlight">\(F_T\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>).  I say this because although I don’t “know” the production rates for each species, <span class="math notranslate nohighlight">\(R_j\)</span>, I can express all of those production rates in terms of species flow rates.</p>
 <p>I need to do two things.  First, I need to add another equation to this system since I have an additional unknown (Volume).  I’ll do that from the conversion specification.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d8fd36f6-ac3b-4cce-ac64-35e17e17a884">
-<span class="eqno">(114)<a class="headerlink" href="#equation-d8fd36f6-ac3b-4cce-ac64-35e17e17a884" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e309407-c960-4063-9600-50a292263669">
+<span class="eqno">(114)<a class="headerlink" href="#equation-1e309407-c960-4063-9600-50a292263669" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= F_{H,f} - F_H + R_HV \\
@@ -1080,16 +1075,16 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-883f9e8f-7ca9-4a0e-ac28-14bfd4996942">
-<span class="eqno">(115)<a class="headerlink" href="#equation-883f9e8f-7ca9-4a0e-ac28-14bfd4996942" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e101d49e-bf86-41e3-8013-b2b644f98722">
+<span class="eqno">(115)<a class="headerlink" href="#equation-e101d49e-bf86-41e3-8013-b2b644f98722" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c7f4659-0dc8-4483-b3fa-fad616736db9">
-<span class="eqno">(116)<a class="headerlink" href="#equation-8c7f4659-0dc8-4483-b3fa-fad616736db9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e617eef9-32b5-4cf1-9986-9acd7742b1a1">
+<span class="eqno">(116)<a class="headerlink" href="#equation-e617eef9-32b5-4cf1-9986-9acd7742b1a1" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -1220,8 +1215,8 @@ The Volume required to achive 50% Benzene conversion is 1315.6L
 <p>Sometimes, when solving algebraic problems with numerical methods (like opt.root), it is very difficult for the solver to converge.  This is because a) solving algebraic equations numerically is challenging; b) solving the system gets more challenging when we write more equations; and c) we need to provide a good initial guess as to <em>what the correct solution is</em>.  Otherwise, the problem will not usually converge.</p>
 <p>It can be useful to reduce the number of equations and unknowns that we’re tying to solve.  We can do this by taking an alternate approach.  Specifically, instead of describing the system in terms of molar flowrates for all species (and volume), which gives us five unkowns, we can decide to instead express the system in terms of one extent of reaction for each reaction occuring and the system volume.  If we do this, we get to write one extent per chemical reaction, and we get to write one material balance for each reaction.</p>
 <p>So, above we wrote the following five equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78cd21ff-52f9-45ce-a389-5c422865071f">
-<span class="eqno">(117)<a class="headerlink" href="#equation-78cd21ff-52f9-45ce-a389-5c422865071f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b64e72de-532c-411d-a9b0-a4f9634f52dd">
+<span class="eqno">(117)<a class="headerlink" href="#equation-b64e72de-532c-411d-a9b0-a4f9634f52dd" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= F_{H,f} - F_H + R_HV \\
@@ -1229,16 +1224,16 @@ The Volume required to achive 50% Benzene conversion is 1315.6L
     0 &amp;= X_B - 0.5 \\
 \end{align}\]</div>
 <p>And we are able to express all of the production rates in terms of molar flowrates.  Here, we’ll express each exit flowrate in terms of extents of reaction (as we would do in a mole table):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5dd38266-1c2e-4694-8fa4-6cb8076c1a8c">
-<span class="eqno">(118)<a class="headerlink" href="#equation-5dd38266-1c2e-4694-8fa4-6cb8076c1a8c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-20bb6723-6bf6-4feb-94b5-75db3751b29b">
+<span class="eqno">(118)<a class="headerlink" href="#equation-20bb6723-6bf6-4feb-94b5-75db3751b29b" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_B &amp;= F_{B,f} - 2\varepsilon_1 - \varepsilon_2 \\
     F_D &amp;= F_{D,f} + \varepsilon_1 - \varepsilon_2 \\
     F_H &amp;= F_{H,f} + \varepsilon_1 + \varepsilon_2 \\
     F_T &amp;= F_{T,f} + \varepsilon_2 \\
 \end{align}\]</div>
 <p>By doing this, we reduce the system to 3 unknowns (<span class="math notranslate nohighlight">\(\varepsilon_1\)</span>, <span class="math notranslate nohighlight">\(\varepsilon_2\)</span>, and <span class="math notranslate nohighlight">\(V\)</span>).  Therefore, we only get to write 3 equations.  When we express the system in terms of extents, we get to write one balance per reaction instead of one balance per species.  I can arbitrarily pick two independent balance equations.  I will keep the specification that fractional conversion is 50% as my third equation.  That gives me:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ee23e4b-155a-41c2-81e2-36b455a552b4">
-<span class="eqno">(119)<a class="headerlink" href="#equation-0ee23e4b-155a-41c2-81e2-36b455a552b4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-95d17fb5-229c-4f2b-9191-0fa0e7ce30bf">
+<span class="eqno">(119)<a class="headerlink" href="#equation-95d17fb5-229c-4f2b-9191-0fa0e7ce30bf" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{D,f} - F_D + R_DV \\
     0 &amp;= X_B - 0.5 \\
@@ -1247,16 +1242,16 @@ The Volume required to achive 50% Benzene conversion is 1315.6L
 <div class="math notranslate nohighlight">
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9119016-8226-4e95-825e-a9206e7875a3">
-<span class="eqno">(120)<a class="headerlink" href="#equation-b9119016-8226-4e95-825e-a9206e7875a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-668f2b64-7f3a-45c0-85eb-098fb83457bf">
+<span class="eqno">(120)<a class="headerlink" href="#equation-668f2b64-7f3a-45c0-85eb-098fb83457bf" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
     R_T &amp;=  r2 \\
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7bbe6bc-113c-431f-abce-fbae833348eb">
-<span class="eqno">(121)<a class="headerlink" href="#equation-b7bbe6bc-113c-431f-abce-fbae833348eb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fe34d814-1838-4554-80a7-66cf8e896552">
+<span class="eqno">(121)<a class="headerlink" href="#equation-fe34d814-1838-4554-80a7-66cf8e896552" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -1340,7 +1335,7 @@ The Volume required to achive 50% Benzene conversion is 1315.6L
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">~\AppData\Local\Temp\ipykernel_18800\3263356171.py</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="nn">~\AppData\Local\Temp\ipykernel_18692\3263356171.py</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">var0</span>    <span class="o">=</span> <span class="p">(</span><span class="mi">20000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">solP03</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">MR03</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>

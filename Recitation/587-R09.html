@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S04.html">
-     For Loops, Vectorization, and Plotting
+     For Loops and Plotting
     </a>
    </li>
    <li class="toctree-l2">
@@ -163,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S08.html">
-     The Probability of the Fall of Acererak
+     The Fall of Acererak
     </a>
    </li>
    <li class="toctree-l2">
@@ -178,27 +178,22 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S11.html">
-     Minimization of Multivariate Functoins
+     Minimizing Multivariate Functions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S12.html">
-     Solving Systems of Nonlinear Equations
+     Systems of Nonlinear Equations
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S13.html">
-     Least Squares Revisited:
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       opt.least_squares()
-      </span>
-     </code>
+     Least Squares Revisited
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Supplements/587-S14.html">
-     Numerical Solution of Ordinary Differential Equations
+     ODE Solvers
     </a>
    </li>
    <li class="toctree-l2">
@@ -1336,22 +1331,22 @@ XOV =  0.95
 <ol class="simple">
 <li><p>Because we have a specification on the overall conversion of the process (95%), it is straightforward to calculate <span class="math notranslate nohighlight">\(F_{A3}\)</span>:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-95bf058a-e076-4481-b8e1-962405a0550b">
-<span class="eqno">(215)<a class="headerlink" href="#equation-95bf058a-e076-4481-b8e1-962405a0550b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0492c00a-3101-4b7e-91a2-59b1ca15f18a">
+<span class="eqno">(215)<a class="headerlink" href="#equation-0492c00a-3101-4b7e-91a2-59b1ca15f18a" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_{A_3} = F_{Af}(1 - X_{A_{ov}})\\
     F_{A_3} = 0.5 \ \textrm{mol} \ \textrm{min}^{-1}
 \end{align}\]</div>
 <ol class="simple">
 <li><p>Since we were given the freedom to adjust the recycle ratio to reduce the necessary single pass conversion, we can set the recycle ratio to a value–here we found that <span class="math notranslate nohighlight">\(\alpha = 0.96\)</span> will permit the PFR to operate at a conversion that is less than the equilibrium limit.  Once <span class="math notranslate nohighlight">\(\alpha\)</span> is specified, the balance on the splitter to gives:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-21b91df2-8255-4391-b2e9-d019f6a89a8b">
-<span class="eqno">(216)<a class="headerlink" href="#equation-21b91df2-8255-4391-b2e9-d019f6a89a8b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-757b5b72-0327-438f-b8c9-e6d1c164bc61">
+<span class="eqno">(216)<a class="headerlink" href="#equation-757b5b72-0327-438f-b8c9-e6d1c164bc61" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_{A2} &amp;= \frac{F_{A3}}{1 - \alpha} \\
     F_{AR} &amp;= \frac{\alpha}{1 - \alpha} F_{A3} \\
 \end{align}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(F_{A3}\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> are known here, we can solve to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-11a80d53-763f-4d4d-98ed-7187886ebb55">
-<span class="eqno">(217)<a class="headerlink" href="#equation-11a80d53-763f-4d4d-98ed-7187886ebb55" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-abd77c71-fc1c-4ae0-bf27-7087528f467d">
+<span class="eqno">(217)<a class="headerlink" href="#equation-abd77c71-fc1c-4ae0-bf27-7087528f467d" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_{A_2} = 12.5 \ \textrm{mol} \ \textrm{min}^{-1}\\
     F_{A_R} = 12.0 \ \textrm{mol} \ \textrm{min}^{-1}\\
 \end{align}\]</div>
@@ -1406,8 +1401,8 @@ XOV =  0.95
 <div class="math notranslate nohighlight">
 \[ 0 = F_{A3} - F_{A4} - F_{A5} \]</div>
 <p>As far as I can tell, we have the following information available to us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-767f0f6b-5b59-444b-aaf6-d91590b048b9">
-<span class="eqno">(218)<a class="headerlink" href="#equation-767f0f6b-5b59-444b-aaf6-d91590b048b9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de03f307-ad42-4850-83f9-2512f286cf38">
+<span class="eqno">(218)<a class="headerlink" href="#equation-de03f307-ad42-4850-83f9-2512f286cf38" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 10 \ \mathrm{s^{-1}} \\
     T &amp;= 573 \ \mathrm{K} \\
     P &amp;= 1.0 \ \mathrm{atm} \\
@@ -1415,8 +1410,8 @@ XOV =  0.95
     F_{A0} &amp;= 100 \ \mathrm{mol \ s^{-1}} 
 \end{align}\]</div>
 <p>Looking at the above set of equations, we have 5 unknown flowrates (<span class="math notranslate nohighlight">\(F_{A1}\)</span>, <span class="math notranslate nohighlight">\(F_{A2}\)</span>, <span class="math notranslate nohighlight">\(F_{A3}\)</span>, <span class="math notranslate nohighlight">\(F_{A4}\)</span>, <span class="math notranslate nohighlight">\(F_{A5}\)</span>) and one unknown production rate (<span class="math notranslate nohighlight">\(R_{A2}\)</span>).  I can specify the production rate in terms of molar flowrates and volumetric flowrates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb7474aa-7234-4df3-99c8-79f842a51d37">
-<span class="eqno">(219)<a class="headerlink" href="#equation-cb7474aa-7234-4df3-99c8-79f842a51d37" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f0b397c3-d0c6-4aa1-9eac-389e9f5100ff">
+<span class="eqno">(219)<a class="headerlink" href="#equation-f0b397c3-d0c6-4aa1-9eac-389e9f5100ff" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_{A2} &amp;= -r_2 \\
     r_2 &amp;= kC_{A2} \\
     C_{A2} &amp;= \frac{F_{A2}}{Q_2}
@@ -1526,8 +1521,8 @@ XOV =  0.95
 <section id="other-information">
 <h4>Other Information<a class="headerlink" href="#other-information" title="Permalink to this headline">#</a></h4>
 <p>We additionally have the following information available to us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5017b25d-94f0-4f96-9a2c-e20c17bb64ab">
-<span class="eqno">(220)<a class="headerlink" href="#equation-5017b25d-94f0-4f96-9a2c-e20c17bb64ab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-55766b65-39da-48e9-bf93-7b5b5c815f48">
+<span class="eqno">(220)<a class="headerlink" href="#equation-55766b65-39da-48e9-bf93-7b5b5c815f48" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 10 \ \mathrm{s^{-1}} \\
     T &amp;= 573 \ \mathrm{K} \\
     P &amp;= 1.0 \ \mathrm{atm} \\
@@ -1538,8 +1533,8 @@ XOV =  0.95
 <section id="taking-stock-of-the-situation">
 <h4>Taking stock of the situation<a class="headerlink" href="#taking-stock-of-the-situation" title="Permalink to this headline">#</a></h4>
 <p>Looking at the above set of equations, we have five unknown flowrates (<span class="math notranslate nohighlight">\(F_{A1}\)</span>, <span class="math notranslate nohighlight">\(F_{A2}\)</span>, <span class="math notranslate nohighlight">\(F_{A3}\)</span>, <span class="math notranslate nohighlight">\(F_{A4}\)</span>, <span class="math notranslate nohighlight">\(F_{A5}\)</span>), four algebraic equations, and one differential equation. Before we get started, realize that, generally speaking, we can specify the production rate in terms of molar flowrates and volumetric flowrates:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1bb76b6-519c-48c9-b9a8-e5d6398feb85">
-<span class="eqno">(221)<a class="headerlink" href="#equation-f1bb76b6-519c-48c9-b9a8-e5d6398feb85" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b6c8f4bf-d339-4a11-a479-1128886bf5a6">
+<span class="eqno">(221)<a class="headerlink" href="#equation-b6c8f4bf-d339-4a11-a479-1128886bf5a6" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r \\
     r &amp;= kC_A \\
     C_A &amp;= \frac{F_A}{Q} \\
@@ -1653,8 +1648,8 @@ XOV =  0.95
 <section id="id10">
 <h4>Other Information<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
 <p>We additionally have the following information available to us:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf55c0d6-7f53-4502-89a7-64d6f7ba3f96">
-<span class="eqno">(222)<a class="headerlink" href="#equation-bf55c0d6-7f53-4502-89a7-64d6f7ba3f96" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-04fed2a8-69c9-4359-9cf2-7b882e1bbcfc">
+<span class="eqno">(222)<a class="headerlink" href="#equation-04fed2a8-69c9-4359-9cf2-7b882e1bbcfc" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 10 \ \mathrm{s^{-1}} \\
     K &amp;= 17.5 \ \mathrm{mol \ L^{-1}} \\
     T &amp;= 573 \ \mathrm{K} \\

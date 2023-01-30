@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Numerical Solution of Ordinary Differential Equations
+# # ODE Solvers
 # 
 # It is very common that we need to solve differential equations in science and engineering. The broad class of "differential equations" comprises many types of initial value problems and boundary value problems, both of which might involve ordinary or partial differential equations.  Here, we will focus only on numerical solutions of initial value problems in the form of ordinary differential equations or systems of ordinary differential equations.
 # 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 24
+# # Material Balances XV
 # 
 # This lecture continues with a discussion of yield, selectivity, and optimization.
 

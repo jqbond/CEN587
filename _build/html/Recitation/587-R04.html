@@ -1,0 +1,2454 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Solving ODEs &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chemical/Phase Equilibria" href="587-R05.html" />
+    <link rel="prev" title="Chemical Equilibrium" href="587-R03.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimizing Multivariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L01.html">
+     Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L02.html">
+     Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L03.html">
+     Algebraic and Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L04.html">
+     Chemical Equilibrium I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L05.html">
+     Chemical Equilibrium II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L06.html">
+     Chemical Equilibrium III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L07.html">
+     Chemical Equilibrium IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L08.html">
+     Chemical Equilibrium V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L09.html">
+     Chemical and Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L10.html">
+     Material Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L11.html">
+     Material Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L12.html">
+     Material Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L13.html">
+     Material Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L14.html">
+     Material Balances V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L15.html">
+     Material Balances VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L16.html">
+     Material Balances VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L17.html">
+     Material Balances VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L18.html">
+     Material Balances IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L19.html">
+     Material Balances X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L20.html">
+     Material Balances XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L21.html">
+     Material Balances XII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L22.html">
+     Material Balances XIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L23.html">
+     Material Balances XIV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L24.html">
+     Material Balances XV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L25.html">
+     Material Balances XVI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L26.html">
+     Material Balances XVII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L27.html">
+     Material Balances XVIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L28.html">
+     Kinetics I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L29.html">
+     Kinetics II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L30.html">
+     Kinetics III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L31.html">
+     Kinetics IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L32.html">
+     Kinetics V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L33.html">
+     Kinetics VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L34.html">
+     Kinetics VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L35.html">
+     Kinetics VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L36.html">
+     Kinetics IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L37.html">
+     Kinetics X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L38.html">
+     Kinetics XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L39.html">
+     Energy Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L40.html">
+     Energy Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L41.html">
+     Energy Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L42.html">
+     Energy Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L43.html">
+     Energy Balances VI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R01.html">
+     Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R02.html">
+     Solving Algebraic Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R03.html">
+     Chemical Equilibrium
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Solving ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R05.html">
+     Chemical/Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R06.html">
+     CSTRs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R07.html">
+     Python tips and tricks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R08.html">
+     Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R09.html">
+     Reactors with Recycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R10.html">
+     Interpolation and Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R11.html">
+     Nonlinear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R12.html">
+     Parameter Estimation I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R13.html">
+     Parameter Estimation II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R14.html">
+     Energy Balances
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Recitation/587-R04.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R04.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Recitation/587-R04.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-importing-packages-for-today">
+     Code for Importing packages for today
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
+   Problem 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-problem-01">
+     Solution to Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-analytical-solution">
+     Code for Analytical solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphing-the-analytical-solution">
+     Graphing the analytical solution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-graphing-the-analytical-solution">
+       Code for graphing the analytical solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-solution-to-problem-01">
+     Numerical solution to Problem 01
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#homebrew-code-for-euler-method">
+       Homebrew Code for Euler Method
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higher-order-methods-for-solving-odes">
+     Higher Order Methods for solving ODEs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-homebrew-runge-kutta-method">
+       Code for Homebrew Runge Kutta Method
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ode-solvers-in-python">
+     ODE Solvers in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-ode-solvers-in-python">
+     Code for ODE solvers in Python
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reference-code">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-information-from-the-solution-structure">
+       Extracting information from the solution structure
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphing-the-solution-from-python-s-ode-solver">
+       Graphing the solution from Python’s ODE solver
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-more-common-question-in-reactor-design">
+   A more common question in reactor design:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-the-more-common-question-in-reactor-design">
+     Solution to the more common question in reactor design
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Reference Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analytical-solution">
+     Analytical Solution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Code for analytical solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-scipy-optimize-to-find-the-requested-information">
+     Using scipy.optimize to find the requested information
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-scipy-optimize-solution">
+       Code for scipy.optimize solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-general-and-complex-examples">
+     More general and complex examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-solving-with-gaussian-quadrature">
+       Code for solving with Gaussian Quadrature
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-solve-ivp-with-opt-newton">
+     Combining solve_ivp with opt.newton
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-the-solution-by-interpolation">
+     Finding the solution by interpolation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cubic-spline-interpolation">
+     Cubic spline interpolation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integration-tolerances">
+     Integration Tolerances
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-ivp-with-scipy-optimize">
+     Combining IVP with scipy.optimize
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-the-dense-output-to-create-an-objective-function">
+     Use the dense output to create an objective function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code">
+       Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-2">
+   Problem 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-problem-02">
+     Solution to Problem 02
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-solution-structure-for-ode-systems">
+     The Solution Structure for ODE systems
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-solution-to-the-ode-system">
+     Visualizing the Solution to the ODE System
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Solving ODEs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-importing-packages-for-today">
+     Code for Importing packages for today
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
+   Problem 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-problem-01">
+     Solution to Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-analytical-solution">
+     Code for Analytical solution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graphing-the-analytical-solution">
+     Graphing the analytical solution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-graphing-the-analytical-solution">
+       Code for graphing the analytical solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-solution-to-problem-01">
+     Numerical solution to Problem 01
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#homebrew-code-for-euler-method">
+       Homebrew Code for Euler Method
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higher-order-methods-for-solving-odes">
+     Higher Order Methods for solving ODEs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-homebrew-runge-kutta-method">
+       Code for Homebrew Runge Kutta Method
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ode-solvers-in-python">
+     ODE Solvers in Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-for-ode-solvers-in-python">
+     Code for ODE solvers in Python
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reference-code">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extracting-information-from-the-solution-structure">
+       Extracting information from the solution structure
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphing-the-solution-from-python-s-ode-solver">
+       Graphing the solution from Python’s ODE solver
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-more-common-question-in-reactor-design">
+   A more common question in reactor design:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-the-more-common-question-in-reactor-design">
+     Solution to the more common question in reactor design
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Reference Code
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analytical-solution">
+     Analytical Solution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Code for analytical solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-scipy-optimize-to-find-the-requested-information">
+     Using scipy.optimize to find the requested information
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-scipy-optimize-solution">
+       Code for scipy.optimize solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-general-and-complex-examples">
+     More general and complex examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code-for-solving-with-gaussian-quadrature">
+       Code for solving with Gaussian Quadrature
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-solve-ivp-with-opt-newton">
+     Combining solve_ivp with opt.newton
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-the-solution-by-interpolation">
+     Finding the solution by interpolation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cubic-spline-interpolation">
+     Cubic spline interpolation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Reference Code
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integration-tolerances">
+     Integration Tolerances
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-ivp-with-scipy-optimize">
+     Combining IVP with scipy.optimize
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-the-dense-output-to-create-an-objective-function">
+     Use the dense output to create an objective function
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#code">
+       Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-2">
+   Problem 2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-problem-02">
+     Solution to Problem 02
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-solution-structure-for-ode-systems">
+     The Solution Structure for ODE systems
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id14">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualizing-the-solution-to-the-ode-system">
+     Visualizing the Solution to the ODE System
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id15">
+       Reference Code
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="solving-odes">
+<h1>Solving ODEs<a class="headerlink" href="#solving-odes" title="Permalink to this headline">#</a></h1>
+<p>These exercises cover numerical solution of ordinary differential equations using packages available in scipy.</p>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Scipy package; <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code></p></li>
+<li><p>Solution of initial value problems for a single ODE using numerical ODE solvers with <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code>.</p></li>
+<li><p>Solution of coupled systems of ODEs using numerical ODE solvers <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code>.</p></li>
+<li><p>Solution of definite integrals using <code class="docutils literal notranslate"><span class="pre">quadrature</span></code></p></li>
+<li><p>Interpolation (1D) using <code class="docutils literal notranslate"><span class="pre">interp1d</span></code></p></li>
+<li><p>Combining numerical methods, e.g., <code class="docutils literal notranslate"><span class="pre">optimize</span></code> and <code class="docutils literal notranslate"><span class="pre">quadrature</span></code> or <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code></p></li>
+</ol>
+<section id="code-for-importing-packages-for-today">
+<h3>Code for Importing packages for today<a class="headerlink" href="#code-for-importing-packages-for-today" title="Permalink to this headline">#</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span><span class="p">,</span> <span class="n">quadrature</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span><span class="p">,</span> <span class="n">quadrature</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">#</a></h2>
+<p>The following differential equation describes how the variable X changes as a function of time:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx}{dt} = k\left(1 - x\right)^2\]</div>
+<p>The initial value of x is zero.</p>
+<p>For this system, k = 0.253 min<span class="math notranslate nohighlight">\(^{-1}\)</span>. Calculate the value of x after 3 minutes.</p>
+<section id="solution-to-problem-01">
+<h3>Solution to Problem 01<a class="headerlink" href="#solution-to-problem-01" title="Permalink to this headline">#</a></h3>
+<p>This is a relatively straightfoward separable differential equation.  If we separate variables:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{(1-x)^2}dx = kdt\]</div>
+<p>We can integrate from lower limits to upper limits:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^x\frac{1}{(1-x^\prime)^2}dx^\prime = \int_0^tkdt^\prime\]</div>
+<p>We can solve this for x as a function of t:</p>
+<div class="math notranslate nohighlight">
+\[x(t) = 1 - \frac{1}{1+kt}\]</div>
+<p>We won’t use it yet, but note we can also solve this to get t as a function of x:</p>
+<div class="math notranslate nohighlight">
+\[t(x) = \frac{1}{k}\left(\frac{1}{1 - x} - 1\right)\]</div>
+</section>
+<section id="code-for-analytical-solution">
+<h3>Code for Analytical solution<a class="headerlink" href="#code-for-analytical-solution" title="Permalink to this headline">#</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Analytical Solution</span>
+<span class="n">k</span>  <span class="o">=</span> <span class="mf">0.253</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dx</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;&#39;</span> <span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Analytical Solution</span>
+<span class="n">k</span>  <span class="o">=</span> <span class="mf">0.253</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">dx</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dx</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;&#39;</span> <span class="p">,</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.012  0.4314951677089255
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphing-the-analytical-solution">
+<h3>Graphing the analytical solution<a class="headerlink" href="#graphing-the-analytical-solution" title="Permalink to this headline">#</a></h3>
+<p>If we have an analytical solution for x(t), it’s always nice to plot it so we can visualize how it behaves.</p>
+<section id="code-for-graphing-the-analytical-solution">
+<h4>Code for graphing the analytical solution<a class="headerlink" href="#code-for-graphing-the-analytical-solution" title="Permalink to this headline">#</a></h4>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_6_0.png" src="../_images/587-R04_6_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="numerical-solution-to-problem-01">
+<h3>Numerical solution to Problem 01<a class="headerlink" href="#numerical-solution-to-problem-01" title="Permalink to this headline">#</a></h3>
+<p>The reason we picked an easy problem that we could solve by hand is so that we could compare numerical methods to it.  In class, we talked about an Euler step, which basically assumes that you have a constant derivative over a small step in time, <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[x_{i+1} = x_i + \frac{dx}{dt}h\]</div>
+<p>We showed how this approximation of a constant derivative is actually pretty bad for any non-linear system, so with an Euler step, we find we have to make many, many very small steps to get a good approximation to a nonlinear function.</p>
+<section id="homebrew-code-for-euler-method">
+<h4>Homebrew Code for Euler Method<a class="headerlink" href="#homebrew-code-for-euler-method" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using an Euler Method</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">tmax</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
+<span class="n">tEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#I&#39;m creating the numpy array where I&#39;ll store all values of time.</span>
+<span class="n">xEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Likewise, I want to store all values of x for plotting.</span>
+
+<span class="c1">#We&#39;ll add updated values to t and x on each pass through the loop</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dx</span><span class="p">(</span><span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = </span><span class="si">{</span><span class="n">tmax</span><span class="si">}</span><span class="s1"> with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the Euler method predicts that x = </span><span class="si">{</span><span class="n">xEU</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tEU</span><span class="p">,</span> <span class="n">xEU</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using an Euler Method</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">tmax</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
+<span class="n">tEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#I&#39;m creating the numpy array where I&#39;ll store all values of time.</span>
+<span class="n">xEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Likewise, I want to store all values of x for plotting.</span>
+
+<span class="c1">#We&#39;ll add updated values to t and x on each pass through the loop</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dx</span><span class="p">(</span><span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = </span><span class="si">{</span><span class="n">tmax</span><span class="si">}</span><span class="s1"> with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the Euler method predicts that x = </span><span class="si">{</span><span class="n">xEU</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tEU</span><span class="p">,</span> <span class="n">xEU</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 3 with 5 steps and a step size of 0.600:
+ the Euler method predicts that x = 0.462, and the true value is 0.431
+</pre></div>
+</div>
+<img alt="../_images/587-R04_8_1.png" src="../_images/587-R04_8_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="higher-order-methods-for-solving-odes">
+<h3>Higher Order Methods for solving ODEs<a class="headerlink" href="#higher-order-methods-for-solving-odes" title="Permalink to this headline">#</a></h3>
+<p>We also introduced higher order methods, like an explicit Runge-Kutta iteration, which improves dramatically on the accuracy of an Euler method.  It is more complex to write the code, but it is the same basic concept: we use the current value of the derivative of a function to estimate how that function will change with a change in the independent variable (t here).  This allows us to approximate where the function (x) will be at some point in the future (t).</p>
+<p>The script below will do this with a basic for loop.</p>
+<section id="code-for-homebrew-runge-kutta-method">
+<h4>Code for Homebrew Runge Kutta Method<a class="headerlink" href="#code-for-homebrew-runge-kutta-method" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">tmax</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
+<span class="n">xRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#RK values</span>
+<span class="n">tRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#RK values</span>
+<span class="n">tEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Euler values</span>
+<span class="n">xEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Euler values</span>
+
+<span class="c1">#Euler method</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dx</span><span class="p">(</span><span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="c1">#RK Method</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">dxdt</span>  <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">#compute derivative, dx/dt @ x[i], t[i]</span>
+    <span class="n">k1</span>    <span class="o">=</span> <span class="n">dxdt</span>       <span class="c1">#RK parameter &quot;k1[i]&quot; is equal to derivative &quot;dxdt[i] </span>
+    <span class="n">k2</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k2[i]&quot; is a function of x and dxdt</span>
+    <span class="n">k3</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k3[i]&quot; is a function of x and dxdt</span>
+    <span class="n">k4</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>   <span class="c1">#RK parameter &quot;k4[i]&quot; is a function of x and dxdt</span>
+    
+    <span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span> <span class="c1">#value of x after step is taken</span>
+    <span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#step time forward by h</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s1">0.8f</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the RK method predits that x = </span><span class="si">{</span><span class="n">xRK</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tEU</span><span class="p">,</span> <span class="n">xEU</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">tmax</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">h</span>      <span class="o">=</span> <span class="n">tmax</span><span class="o">/</span><span class="n">nsteps</span>
+<span class="n">xRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#RK values</span>
+<span class="n">tRK</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1">#RK values</span>
+<span class="n">tEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Euler values</span>
+<span class="n">xEU</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Euler values</span>
+
+<span class="c1">#Euler method</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">dx</span><span class="p">(</span><span class="n">xEU</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tEU</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span>
+
+<span class="c1">#RK Method</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+    <span class="n">dxdt</span>  <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">#compute derivative, dx/dt @ x[i], t[i]</span>
+    <span class="n">k1</span>    <span class="o">=</span> <span class="n">dxdt</span>       <span class="c1">#RK parameter &quot;k1[i]&quot; is equal to derivative &quot;dxdt[i] </span>
+    <span class="n">k2</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k1</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k2[i]&quot; is a function of x and dxdt</span>
+    <span class="n">k3</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">k2</span><span class="p">)</span> <span class="c1">#RK parameter &quot;k3[i]&quot; is a function of x and dxdt</span>
+    <span class="n">k4</span>    <span class="o">=</span> <span class="n">dx</span><span class="p">(</span><span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="n">k3</span><span class="p">)</span>   <span class="c1">#RK parameter &quot;k4[i]&quot; is a function of x and dxdt</span>
+
+    <span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="n">k4</span><span class="p">)</span> <span class="c1">#value of x after step is taken</span>
+    <span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">tRK</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span> <span class="c1">#step time forward by h</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 4 with </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> steps and a step size of </span><span class="si">{</span><span class="n">h</span><span class="si">:</span><span class="s1">0.8f</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1"> the RK method predits that x = </span><span class="si">{</span><span class="n">xRK</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">, and the true value is </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="n">tmax</span><span class="p">)</span><span class="si">:</span><span class="s1">0.5f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tEU</span><span class="p">,</span> <span class="n">xEU</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 4 with 5 steps and a step size of 0.60000000:
+ the RK method predits that x = 0.43149, and the true value is 0.43150
+</pre></div>
+</div>
+<img alt="../_images/587-R04_10_1.png" src="../_images/587-R04_10_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="ode-solvers-in-python">
+<h3>ODE Solvers in Python<a class="headerlink" href="#ode-solvers-in-python" title="Permalink to this headline">#</a></h3>
+<p>While writing numerical methods using loops is good from an educational standpoint, it is cumbersome and inefficient. There are options in Python’s scipy package that do the above, but give us access to many additional options and solvers beyond Runge-Kutta that may be necessary for more difficult problems.  As an example, see below.  We can duplicate that whole RK loop using a few lines of code with <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> from <code class="docutils literal notranslate"><span class="pre">scipy.integrate</span></code>.</p>
+<p>The main thing to keep in mind when using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> is that, similar to <code class="docutils literal notranslate"><span class="pre">opt.root</span></code>, it will operate on a function that we define.  That function has a few particular formatting and syntax requirements.  By default, the function that we create needs to:</p>
+<ol class="simple">
+<li><p>Be of the form <span class="math notranslate nohighlight">\(f(\mathrm{independent variable, dependent variable})\)</span>, e.g., <span class="math notranslate nohighlight">\(f(t, x)\)</span></p></li>
+<li><p>Have only one independent variable (e.g., t) and an array of dependent variables.</p></li>
+<li><p>Return the derivative of each dependent variable at the current state of the system.</p></li>
+</ol>
+</section>
+<section id="code-for-ode-solvers-in-python">
+<h3>Code for ODE solvers in Python<a class="headerlink" href="#code-for-ode-solvers-in-python" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Using ODE solver from scipy.integrate.</span>
+<span class="k">def</span> <span class="nf">DX</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1">#function has to be in form f(independent variable, dependent variable)</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span> <span class="c1">#2 element array like structure (list, tuple, np.array, etc)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="n">ans</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DX</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+  <span class="n">der</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+  <span class="k">return</span> <span class="n">der</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that this is actually pretty similar to the way we use <code class="docutils literal notranslate"><span class="pre">opt.root</span></code>.  The particulars about how we format the function are a little different, but there are many common features, one of which is that <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> returns a solution structure with a lot of information in it.</p>
+<p>The biggest things we’ll want to check is whether the solution converged (.success or .message); the values of the independent variable (.t field); and the values of the dependent variable (.y field).</p>
+<p>We should take a look at the dimensions of the sol.t and sol.y fields.  This can cause some quirks when we try to use them.</p>
+<section id="reference-code">
+<h4>Reference Code<a class="headerlink" href="#reference-code" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">success</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-information-from-the-solution-structure">
+<h4>Extracting information from the solution structure<a class="headerlink" href="#extracting-information-from-the-solution-structure" title="Permalink to this headline">#</a></h4>
+<p>If we want to know the value of our dependent variable (x) at a t = 3, well, we integrated this problem from 0 to 3, so the last value in our sol.y set is the one that we want.  We can extract it from that array and see that it agrees very closely with the analytical solution (notice issues with indexing due to 2D shape of sol.y).</p>
+</section>
+<section id="id1">
+<h4>Reference Code<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans</span><span class="o">.</span><span class="n">y</span>
+<span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 3, solve_IVP gives x = </span><span class="si">{</span><span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, and the analytical solution is x = </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At t = 3, solve_IVP gives x = </span><span class="si">{</span><span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, and the analytical solution is x = </span><span class="si">{</span><span class="n">x</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At t = 3, solve_IVP gives x = 0.4314, and the analytical solution is x = 0.4315
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphing-the-solution-from-python-s-ode-solver">
+<h4>Graphing the solution from Python’s ODE solver<a class="headerlink" href="#graphing-the-solution-from-python-s-ode-solver" title="Permalink to this headline">#</a></h4>
+<p>Now that we have the problem solved, we can plot the data.</p>
+<p>Some things to notice–first, it is very accurate compared to an Euler method, with very little effort and using only default options.  Second, this solver does not take uniform steps, nor do we get control over the steps it takes by default.  In general, these algorithms use adaptive step sizes which makes them very efficient. We are usually going to want the solver to pick the time steps for us.</p>
+</section>
+<section id="id2">
+<h4>Reference Code<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tout</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tEU</span><span class="p">,</span> <span class="n">xEU</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Euler Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tRK</span><span class="p">,</span> <span class="n">xRK</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Runge Kutta&#39;</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout</span><span class="p">,</span> <span class="n">xout</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tout</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout</span> <span class="o">=</span> <span class="n">ans</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical Solution&#39;</span><span class="p">)</span>
+<span class="c1"># plt.scatter(tEU, xEU, color = &#39;red&#39;, marker = &#39;s&#39;, label = &#39;Euler Step&#39;)</span>
+<span class="c1"># plt.scatter(tRK, xRK, label = &#39;Runge Kutta&#39;, marker = &#39;o&#39;, color = &#39;black&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout</span><span class="p">,</span> <span class="n">xout</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_18_0.png" src="../_images/587-R04_18_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="a-more-common-question-in-reactor-design">
+<h2>A more common question in reactor design:<a class="headerlink" href="#a-more-common-question-in-reactor-design" title="Permalink to this headline">#</a></h2>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx}{dt} = k\left(1 - x\right)^2\]</div>
+<p>The initial value of x is zero.</p>
+<p>For this system, k = 0.253 min<span class="math notranslate nohighlight">\(^{-1}\)</span>. How long will it take for x to reach a value of 0.85?</p>
+<section id="solution-to-the-more-common-question-in-reactor-design">
+<h3>Solution to the more common question in reactor design<a class="headerlink" href="#solution-to-the-more-common-question-in-reactor-design" title="Permalink to this headline">#</a></h3>
+<p>Above, we solved analytically for x(t); let’s plot it over a large time span to see about where this happens.</p>
+</section>
+<section id="id3">
+<h3>Reference Code<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">tplot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tplot</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">22.397891963109352</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">tplot</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tplot</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="mf">22.397891963109352</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_21_0.png" src="../_images/587-R04_21_0.png" />
+</div>
+</div>
+<p>From the graph, we can see that somewhere around 25 minutes, the value of x is approximately 0.85.  We can do better than that though.  In many ways.</p>
+</section>
+<section id="analytical-solution">
+<h3>Analytical Solution<a class="headerlink" href="#analytical-solution" title="Permalink to this headline">#</a></h3>
+<p>First, for an easy problem like this, we recall that we solve for t as a function of x at the very start:</p>
+<div class="math notranslate nohighlight">
+\[t(x) = \frac{1}{k}\left(\frac{1}{1 - x} - 1\right)\]</div>
+<p>With that function in hand, we can plug in the value of x = 0.85 and find the time required analytically.</p>
+<section id="id4">
+<h4>Code for analytical solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Solve explicitly for time from analytical solution</span>
+<span class="n">t</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve explicitly for time from analytical solution</span>
+<span class="n">t</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.397891963109352
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-scipy-optimize-to-find-the-requested-information">
+<h3>Using scipy.optimize to find the requested information<a class="headerlink" href="#using-scipy-optimize-to-find-the-requested-information" title="Permalink to this headline">#</a></h3>
+<p>In some cases though, we might have x(t) as a highly nonlinear function that is difficult to solve. We should recognize that we do have an analytical solution for x(t), specifically:</p>
+<div class="math notranslate nohighlight">
+\[x(t) = 1 - \frac{1}{1+kt}\]</div>
+<p>We can actually use that with lambda syntax to make a simple objective function and solve it with opt.newton.  This is an extremely useful technique.</p>
+<section id="code-for-scipy-optimize-solution">
+<h4>Code for scipy.optimize solution<a class="headerlink" href="#code-for-scipy-optimize-solution" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#We have a univariate x(t) function already...construct an objective with it</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.85</span>
+<span class="n">ans_newton</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ans_newton</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ans_newton</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We have a univariate x(t) function already...construct an objective with it</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.85</span>
+<span class="n">ans_newton</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">ans_newton</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ans_newton</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.3979, 22.3979
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="more-general-and-complex-examples">
+<h3>More general and complex examples<a class="headerlink" href="#more-general-and-complex-examples" title="Permalink to this headline">#</a></h3>
+<p>More commonly, though, we’ll have legitimately hard problems that we can’t solve by hand, so the above won’t be options.  In these cases, we’ll have to use numerical methods, and again, we have a few options.  For example, here, I can recognize that finding the time where x = 0.85 just involves solving this differential equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{(1-x)^2}dx = kdt\]</div>
+<p>For limits of x = (0.0, 0.85) and limits on t of (0, t), where the upper limit is what we want to solve for.  I do that by solving the equation below, which just amounts to a definite integral.</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{0.85}\frac{1}{k(1-x)^2}dx = \int_0^tdt = t\]</div>
+<p>Or, rearranging:</p>
+<div class="math notranslate nohighlight">
+\[t = \int_0^{0.85}\frac{1}{k(1-x)^2}dx\]</div>
+<p>This is a very common type of problem in reactor design, and it is a good application for Gaussian Quadrature:</p>
+<section id="code-for-solving-with-gaussian-quadrature">
+<h4>Code for solving with Gaussian Quadrature<a class="headerlink" href="#code-for-solving-with-gaussian-quadrature" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#Recognize that we just need to solve a definite integral and use quadrature</span>
+<span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">integral</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">integral</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrand</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">integral</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quadrature</span><span class="p">(</span><span class="n">integrand</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">)</span>
+<span class="n">integral</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.39789194382836
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combining-solve-ivp-with-opt-newton">
+<h3>Combining solve_ivp with opt.newton<a class="headerlink" href="#combining-solve-ivp-with-opt-newton" title="Permalink to this headline">#</a></h3>
+<p>Unfortunately, sometimes even that isn’t possible.  We usually only get a definite integral like this when we have simple reactors and simple reactions…this method won’t work very well when we have to analyze complex systems involving multiple species and multiple reactions.  In those cases, we’ll almost always have to use an iterative solver like <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code>.  Those can be a little trickier to use in this type of problem where you are looking for the value of the independent variable (t here) that gets you a certain value of dependent variable (x here).</p>
+<p>The problem is that with an iterative solver like this, we give it a span of independent variable values to iterate over, and we don’t know if it will reach the desired value in that span.  Even if it does, it is hard to say where within the span it will hit that value, so it can be a little work to back the correct answer out when we have to use an iterative solver.  There are some sophisticated ways to handle this that we may cover later in the semester, but for now, we’ll just look at the basics.</p>
+<p>Below, we re-solve our ODE using <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> (Runge Kutta type method), except we want to make sure that our x-value reaches 0.85.  So we pick a span of t values that we think is large enough to go past this value.  I’ll say (0, 30).</p>
+<p>Let’s resolve the problem and see what we get.</p>
+<section id="id5">
+<h4>Reference Code<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DX</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="c1">#function has to be in form f(independent variable, dependent variable)</span>
+    <span class="k">return</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="n">ans2</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="n">ans2</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="n">ans2</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
+<span class="n">ans2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 68
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0.00000000e+00, 1.00000000e-04, 1.10000000e-03, 1.11000000e-02,
+       1.11100000e-01, 1.11110000e+00, 2.97828855e+00, 5.84479777e+00,
+       1.03546956e+01, 1.75337433e+01, 2.92130262e+01, 3.00000000e+01])
+ t_events: None
+        y: array([[0.00000000e+00, 2.52993599e-05, 2.78222571e-04, 2.80043554e-03,
+        2.73398240e-02, 2.19418001e-01, 4.29606264e-01, 5.96345844e-01,
+        7.23381599e-01, 8.15569975e-01, 8.80254824e-01, 8.83043281e-01]])
+ y_events: None
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll overlay the result with our analytical solution and see how we did; we’ll zoom in on the targeted values of x to try to see where the solution is.</p>
+</section>
+<section id="id6">
+<h4>Reference Code<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tout2</span> <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout2</span> <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="c1">#plt.xlim(15,30)</span>
+<span class="c1">#plt.ylim(0.8,0.9)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tout2</span> <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout2</span> <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1">#plt.plot(tplot, xplot, label = &#39;Analytical&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="c1">#plt.xlim(15,30)</span>
+<span class="c1">#plt.ylim(0.8,0.9)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_31_0.png" src="../_images/587-R04_31_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="finding-the-solution-by-interpolation">
+<h3>Finding the solution by interpolation<a class="headerlink" href="#finding-the-solution-by-interpolation" title="Permalink to this headline">#</a></h3>
+<p>Here, that issue of not knowing exactly where to “step” with the independent variable comes into play.  We see that the solver basically jumped right over the desired value of x = 0.85.  We can estimate the value of t where x = 0.85 using interpolation.  This is in the scipy.interpolate package; here’ we’ll use 1D interpolation.</p>
+<p>it has the syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interp1d(&quot;x values&quot;, &quot;y values&quot;, kind = &#39;type of interpolation&#39;)
+</pre></div>
+</div>
+<p>It returns an interpolating polynomial that you can then evaluate at any new x-value that is within the limits of the x_values you put into the constructor.</p>
+<section id="id7">
+<h4>Reference Code<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout2</span><span class="p">,</span> <span class="n">tout2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">int1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">([</span><span class="mf">0.85</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout2</span><span class="p">,</span> <span class="n">tout2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">int1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.7503, 22.3979
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that it has some inaccuracy compared to our analytical solution!  This is because we are using a straight line to predict the value of a point in between two points on a curved line.</p>
+</section>
+<section id="id8">
+<h4>Reference Code<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_35_0.png" src="../_images/587-R04_35_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="cubic-spline-interpolation">
+<h3>Cubic spline interpolation<a class="headerlink" href="#cubic-spline-interpolation" title="Permalink to this headline">#</a></h3>
+<p>For nonlinear functions, like x(t), we can improve accuracy some by using a cubic spline:</p>
+<section id="id9">
+<h4>Reference Code<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout2</span><span class="p">,</span> <span class="n">tout2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">([</span><span class="mf">0.85</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout2</span><span class="p">,</span> <span class="n">tout2</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.4355, 22.3979
+</pre></div>
+</div>
+</div>
+</div>
+<p>This does a better job, but it is still a rough approximation to the true solution. The reason is that the two points we are looking at are actually a bit far away from x = 0.85.</p>
+</section>
+<section id="id10">
+<h4>Reference Code<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout2</span><span class="p">,</span> <span class="n">xout2</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_39_0.png" src="../_images/587-R04_39_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="integration-tolerances">
+<h3>Integration Tolerances<a class="headerlink" href="#integration-tolerances" title="Permalink to this headline">#</a></h3>
+<p>We can improve the precision of the integration, which increases the number of points available for interpolation and allows us to use points closer to the true value.</p>
+<section id="id11">
+<h4>Reference Code<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="n">ans3</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">tout3</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout3</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout3</span><span class="p">,</span> <span class="n">xout3</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout3</span><span class="p">,</span> <span class="n">tout3</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">([</span><span class="mf">0.85</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">x0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span>
+<span class="n">ans3</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">tout3</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">t</span>
+<span class="n">xout3</span> <span class="o">=</span> <span class="n">ans3</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tplot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">xplot</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span><span class="n">tplot</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tplot</span><span class="p">,</span> <span class="n">xplot</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tout3</span><span class="p">,</span> <span class="n">xout3</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Solve_IVP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">int1</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">xout3</span><span class="p">,</span> <span class="n">tout3</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">int1</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_41_0.png" src="../_images/587-R04_41_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.3979, 22.3979
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="combining-ivp-with-scipy-optimize">
+<h3>Combining IVP with scipy.optimize<a class="headerlink" href="#combining-ivp-with-scipy-optimize" title="Permalink to this headline">#</a></h3>
+<p>My preferred solution is actually below.  It is very common that we want to evaluate differential equation solutions at points other than those chosen by the solver, and Python provides us a nice way to do that.</p>
+<p>Specifically, it will output an interpolating polynomial directly as part of our solution structure.  We do this by turning on the dense_output option. We’ll look at how to use this interpolating polynomial, it’s really useful!!</p>
+<section id="id12">
+<h4>Reference Code<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ans4</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dense_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">ans3</span>
+<span class="n">ans4</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans4</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">DX</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">dense_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">ans4</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="mf">22.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.85057901])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="use-the-dense-output-to-create-an-objective-function">
+<h3>Use the dense output to create an objective function<a class="headerlink" href="#use-the-dense-output-to-create-an-objective-function" title="Permalink to this headline">#</a></h3>
+<p>One of my favorite ways to use the dense output is to create an objective function that we can solve to find where x = 0.85</p>
+<section id="code">
+<h4>Code<a class="headerlink" href="#code" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">ans4</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.85</span>
+<span class="n">ans5</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ans5</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">ans4</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.85</span>
+<span class="n">ans5</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">ans5</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">t</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.3979, 22.3979
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">#</a></h2>
+<p>Solve the following system of ODEs; plot x and y on the domain from t = 0 to 5.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8db71c38-5453-4bf0-93ef-a54fa9f81830">
+<span class="eqno">(209)<a class="headerlink" href="#equation-8db71c38-5453-4bf0-93ef-a54fa9f81830" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{dx}{dt} &amp;= -x + y\\
+\frac{dy}{dt} &amp;=  x - y - 0.1y^2\\
+x(0) &amp;= 10\\
+y(0) &amp;= 20
+\end{align}\]</div>
+<section id="solution-to-problem-02">
+<h3>Solution to Problem 02<a class="headerlink" href="#solution-to-problem-02" title="Permalink to this headline">#</a></h3>
+<p>If you follow the approach above, and if you understood the difference between solving univariate equations with opt.newton compared to solving systems of equations with opt.root, this will be straightforward.</p>
+<p>I just have to recognize that the function we build here to pass to solve_ivp has to always have the structure:</p>
+<div class="math notranslate nohighlight">
+\[f(\text{independent variable, dependent variable})\]</div>
+<p>In other words, <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> will only really work directly on two arguments.  In this case, we have an independent variable (t) and two dependent variables (x,y).  As with <code class="docutils literal notranslate"><span class="pre">opt.root</span></code>, we have to stack those dependent variables inside of some type of list or array.</p>
+<p>Otherwise, the approach is identical. Check the solution outputs so that you understand how your values of the independent and dependent variables are stored in sol.y.</p>
+<section id="id13">
+<h4>Reference Code<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P2</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="n">d2</span> <span class="o">=</span>  <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">])</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">P2sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span>
+<span class="n">P2sol</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">P2</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="n">d2</span> <span class="o">=</span>  <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">])</span>
+  
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">var0</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">P2sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span>
+<span class="n">P2sol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: &#39;The solver successfully reached the end of the integration interval.&#39;
+     nfev: 170
+     njev: 0
+      nlu: 0
+      sol: None
+   status: 0
+  success: True
+        t: array([0.        , 0.01600333, 0.07348047, 0.13341476, 0.19961873,
+       0.27203071, 0.35093929, 0.43663085, 0.52946741, 0.62989276,
+       0.73846926, 0.85592268, 0.98318713, 1.12146609, 1.27232231,
+       1.43782191, 1.62078718, 1.82529416, 2.05782748, 2.33079378,
+       2.68162628, 3.03017147, 3.37871666, 3.72880688, 4.08540507,
+       4.45221308, 4.83094991, 5.        ])
+ t_events: None
+        y: array([[10.        , 10.15256289, 10.59164198, 10.90355112, 11.11840061,
+        11.23763618, 11.26705888, 11.21418751, 11.08768196, 10.8966901 ,
+        10.65030235, 10.35709832, 10.02483566,  9.66025165,  9.26893873,
+         8.85524   ,  8.42208297,  7.97058303,  7.49892862,  6.99850385,
+         6.43079004,  5.93920905,  5.5085689 ,  5.12777362,  4.78497023,
+         4.47254698,  4.18623952,  4.06885595],
+       [20.        , 19.23190276, 16.92295808, 15.08222354, 13.51864663,
+        12.20579981, 11.10781282, 10.191839  ,  9.42753049,  8.78763558,
+         8.24802396,  7.7876295 ,  7.38834074,  7.03478211,  6.71402164,
+         6.41521841,  6.12919366,  5.84784313,  5.56309687,  5.26414736,
+         4.92263603,  4.62121196,  4.35094133,  4.10618608,  3.88068339,
+         3.67055279,  3.47387665,  3.39205468]])
+ y_events: None
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-solution-structure-for-ode-systems">
+<h3>The Solution Structure for ODE systems<a class="headerlink" href="#the-solution-structure-for-ode-systems" title="Permalink to this headline">#</a></h3>
+<p>Note again the shape of the independent variable in the solution structure (.t field) is a 1D structure, while the shape of the dependent variable (.y field) is a 2D array.  We have to take this into account when trying to use the information e.g., when plotting.</p>
+<section id="id14">
+<h4>Reference Code<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">P2sol</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">P2tout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">t</span>
+<span class="n">P2xout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">P2yout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2xout</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">P2yout</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2xout</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2yout</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">P2sol</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">P2tout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">t</span>
+<span class="n">P2xout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">P2yout</span> <span class="o">=</span> <span class="n">P2sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2xout</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">P2yout</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2xout</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P2yout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(28,)
+(2, 28)
+(28,) (28,)
+[10.         10.15256289 10.59164198 10.90355112 11.11840061 11.23763618
+ 11.26705888 11.21418751 11.08768196 10.8966901  10.65030235 10.35709832
+ 10.02483566  9.66025165  9.26893873  8.85524     8.42208297  7.97058303
+  7.49892862  6.99850385  6.43079004  5.93920905  5.5085689   5.12777362
+  4.78497023  4.47254698  4.18623952  4.06885595]
+[20.         19.23190276 16.92295808 15.08222354 13.51864663 12.20579981
+ 11.10781282 10.191839    9.42753049  8.78763558  8.24802396  7.7876295
+  7.38834074  7.03478211  6.71402164  6.41521841  6.12919366  5.84784313
+  5.56309687  5.26414736  4.92263603  4.62121196  4.35094133  4.10618608
+  3.88068339  3.67055279  3.47387665  3.39205468]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-the-solution-to-the-ode-system">
+<h3>Visualizing the Solution to the ODE System<a class="headerlink" href="#visualizing-the-solution-to-the-ode-system" title="Permalink to this headline">#</a></h3>
+<p>And we can plot for visualization.</p>
+<section id="id15">
+<h4>Reference Code<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P2tout</span><span class="p">,</span> <span class="n">P2xout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P2tout</span><span class="p">,</span> <span class="n">P2yout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P2tout</span><span class="p">,</span> <span class="n">P2xout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P2tout</span><span class="p">,</span> <span class="n">P2yout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;x, y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-R04_52_0.png" src="../_images/587-R04_52_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-R03.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chemical Equilibrium</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-R05.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chemical/Phase Equilibria</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

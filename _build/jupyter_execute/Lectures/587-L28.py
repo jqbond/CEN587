@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 28
+# # Kinetics I
 # 
 # Here, we will get into kinetic analysis.  This lecture covers differential analysis of data collected in a constant volume batch reactor.
 # 

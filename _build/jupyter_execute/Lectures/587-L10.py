@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 10
+# # Material Balances I
 # 
 # This lecture contrasts intensive and extensive properties of systems, and it introduces material balances on reacting systems.
 

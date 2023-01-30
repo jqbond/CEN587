@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Least Squares Revisited: `opt.least_squares()`
+# # Least Squares Revisited
 # 
 # Now that we have started working with multivariate vector functions, there is a useful tool that depends on them in `Scipy.optimize` - least_squares.
 # 

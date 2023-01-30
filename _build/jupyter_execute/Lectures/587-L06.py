@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 06
+# # Chemical Equilibrium III
 # 
 # This lecture begins our consideration of example problems so that we can get some practice with Chemical Equilibrium.
 

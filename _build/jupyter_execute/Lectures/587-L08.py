@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 08: Multi-reaction equilibria
+# # Chemical Equilibrium V
 # 
 # This lecture introduces solutions for multi-reaction equilibria.
 

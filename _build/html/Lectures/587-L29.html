@@ -1,0 +1,1765 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Kinetics II &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kinetics III" href="587-L30.html" />
+    <link rel="prev" title="Kinetics I" href="587-L28.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimizing Multivariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L01.html">
+     Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L02.html">
+     Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L03.html">
+     Algebraic and Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L04.html">
+     Chemical Equilibrium I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L05.html">
+     Chemical Equilibrium II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L06.html">
+     Chemical Equilibrium III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L07.html">
+     Chemical Equilibrium IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L08.html">
+     Chemical Equilibrium V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L09.html">
+     Chemical and Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L10.html">
+     Material Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L11.html">
+     Material Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L12.html">
+     Material Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L13.html">
+     Material Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L14.html">
+     Material Balances V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L15.html">
+     Material Balances VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L16.html">
+     Material Balances VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L17.html">
+     Material Balances VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L18.html">
+     Material Balances IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L19.html">
+     Material Balances X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L20.html">
+     Material Balances XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L21.html">
+     Material Balances XII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L22.html">
+     Material Balances XIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L23.html">
+     Material Balances XIV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L24.html">
+     Material Balances XV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L25.html">
+     Material Balances XVI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L26.html">
+     Material Balances XVII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L27.html">
+     Material Balances XVIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L28.html">
+     Kinetics I
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Kinetics II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L30.html">
+     Kinetics III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L31.html">
+     Kinetics IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L32.html">
+     Kinetics V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L33.html">
+     Kinetics VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L34.html">
+     Kinetics VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L35.html">
+     Kinetics VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L36.html">
+     Kinetics IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L37.html">
+     Kinetics X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L38.html">
+     Kinetics XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L39.html">
+     Energy Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L40.html">
+     Energy Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L41.html">
+     Energy Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L42.html">
+     Energy Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-L43.html">
+     Energy Balances VI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R01.html">
+     Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R02.html">
+     Solving Algebraic Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R03.html">
+     Chemical Equilibrium
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R04.html">
+     Solving ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R05.html">
+     Chemical/Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R06.html">
+     CSTRs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R07.html">
+     Python tips and tricks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R08.html">
+     Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R09.html">
+     Reactors with Recycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R10.html">
+     Interpolation and Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R11.html">
+     Nonlinear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R12.html">
+     Parameter Estimation I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R13.html">
+     Parameter Estimation II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Recitation/587-R14.html">
+     Energy Balances
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L29.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L29.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Lectures/587-L29.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-analysis">
+     Integral Analysis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zero-order-solution">
+       Zero Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-order-solution">
+       First Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-order-solution">
+       Second Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#minimizing-the-error-with-numerical-tools">
+       Minimizing the error with numerical tools
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-zero-order-fit">
+       Analysis of Zero Order Fit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-order-optimization">
+       First order optimization
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-order-optimization">
+       Second order optimization
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearized-models">
+     Linearized Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discuss-after-recitation">
+     Discuss after recitation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Kinetics II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-01">
+   Example Problem 01
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-example-problem-01">
+     Solution to Example Problem 01
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integral-analysis">
+     Integral Analysis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#zero-order-solution">
+       Zero Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-order-solution">
+       First Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-order-solution">
+       Second Order Solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#minimizing-the-error-with-numerical-tools">
+       Minimizing the error with numerical tools
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analysis-of-zero-order-fit">
+       Analysis of Zero Order Fit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-order-optimization">
+       First order optimization
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-order-optimization">
+       Second order optimization
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linearized-models">
+     Linearized Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discuss-after-recitation">
+     Discuss after recitation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-ii">
+<h1>Kinetics II<a class="headerlink" href="#kinetics-ii" title="Permalink to this headline">#</a></h1>
+<p>We continue kinetic analysis, working through integral methods for batch reactor analysis, non-linear regression, and the significance of data linearization.</p>
+<p>Note for 2023 – would be better if Recitation on interpolation and regression can precede kinetics entirely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Permalink to this headline">#</a></h2>
+<p>(Re)Analysis of Data Collected in a Constant Volume Batch Reactor.</p>
+<p>We are going to continue analyzing the data set from Lecture 28.  As I mentioned, inverse problems where we try to determine models and parameters from data can be tricky, and it is useful to apply several different methods of analysis if we’re able.</p>
+<p>Let’s recall that we’re considering a single, irreversible reaction:</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow B\]</div>
+<p>We carry out the reaction in a constant volume batch reactor, and we know the following:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9370e04b-fdfc-4fac-a234-ff3f0da58ed5">
+<span class="eqno">(151)<a class="headerlink" href="#equation-9370e04b-fdfc-4fac-a234-ff3f0da58ed5" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_{A0} &amp;= 10 \ \textrm{mol} \ \textrm{L}^{-1} \\
+    C_{B0} &amp;= 0 \ \textrm{mol} \ \textrm{L}^{-1} \\
+    T &amp;= \textrm{constant}
+\end{align}\]</div>
+<p>We also have measured a set of concentrations (in moles per liter) at various times (in minutes).  These are plotted below.</p>
+<p>Our goal:  Determine the rate law (reaction order) and rate constant for this reaction under these conditions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span> <span class="c1">#time in minutes</span>
+<span class="n">CAdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.05</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.41</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">6.07</span><span class="p">,</span> <span class="mf">5.49</span><span class="p">,</span> <span class="mf">4.97</span><span class="p">,</span> <span class="mf">4.49</span><span class="p">,</span> <span class="mf">4.07</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">0.821</span><span class="p">,</span> <span class="mf">0.498</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">,</span> <span class="mf">0.0248</span><span class="p">,</span> <span class="mf">1.23E-3</span><span class="p">,</span> <span class="mf">6.14E-05</span><span class="p">])</span>
+
+<span class="c1">#Concentrations in moles per liter</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_3_0.png" src="../_images/587-L29_3_0.png" />
+</div>
+</div>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
+<p>We want to know, based on that data, what is the rate law and corresponding kinetic parameters (k, reaction order, etc.) that best describe that data. With an inverse problem, we have to extract that information from the data. Since this reaction is overall (not an elementary step), at best, we can propose that the rate of reaction depends on temperature (which we capture with a rate constant) and the concentration of the reactant, A, with some unknown order, i.e., we’ll propose a power law model:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>Our analysis will start with a material balance on species A in a constant volume batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = R_AV\]</div>
+<p>For a constant volume reactor, we can divide through by V and move it inside of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = R_A\]</div>
+<p>And for a single reaction, we know that <span class="math notranslate nohighlight">\(R_A = -r\)</span>, so:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -r\]</div>
+<p>We’ve proposed power law kinetics here, hence:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k{C_A}^\alpha\]</div>
+<p>At this point, we make a decision about whether we want to use a <strong>differential</strong> method of analysis, where we attempt to approximate reaction rates by taking numerical derivatives of data, or an <strong>integral</strong> method of analysis, where we attempt to solve the material balance by integration and then regress parameters in the resultant model that best describe our data.</p>
+<p>In L26, we used a differential method of analysis.  We showed that it is:</p>
+<ol class="simple">
+<li><p>Quick to apply using finite differences</p></li>
+<li><p>Convenient when you do not know the reaction order as it will be determined by regression</p></li>
+<li><p>Avoids having to guess reaction orders and solve the material balance as with integral methods</p></li>
+</ol>
+<p>On the downside, though:</p>
+<ol class="simple">
+<li><p>Numerical differentiation is imprecise, and especially so when considering large changes in concentration/time</p></li>
+<li><p>Imprecision arises from the assumption that the derivative is constant over the range considered, a built in feature of finite differences</p></li>
+<li><p>If we aren’t careful, a differential analysis can give us a false impression of true reaction kinetics, even for “perfect data” generated by a batch reactor simulation.</p></li>
+</ol>
+<p>Today, we’ll consider the integral method of analysis and highlight its strengths and weaknesses.  We’ll also take this opportunity to introduce nonlinear regression, which is a very useful skill.</p>
+</section>
+<section id="integral-analysis">
+<h3>Integral Analysis<a class="headerlink" href="#integral-analysis" title="Permalink to this headline">#</a></h3>
+<p>As the name suggests, integral analysis of batch reactor data is based on integration, which entails solving the differential equation that comprises the batch reactor material balance.  Recall from above that we were able to develop the followind ODE that describes the change in the concentration of species a with respect to time – remember that at this point this is done symbolically for an arbitrary rate constant, <span class="math notranslate nohighlight">\(k\)</span>, and an arbitrary reaction order <span class="math notranslate nohighlight">\(\alpha\)</span>.  As of now, we do not know either of their values, so we leave them symbolic in the material balance.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k{C_A}^\alpha\]</div>
+<p>In a later lecture, we’ll present the symbolic solution for an undetermined value of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, but I find it better to start with more tangible and straightforward cases to get a feel for integral analysis of data in a batch reactor. Although somewhat tedious, the most straightfoward approach is to assume a reaction order and then check to see if that model describes the measured data. As we’ll see below, this can be time consuming, but it has the added advantage of letting us compare multiple models, which can help to inform our decision about which one describes our data the best.</p>
+<p>Here, let’s assume that the reaction order is either 0, 1, or 2.  Once we do that, we can solve the material balance on A to get an analytical solution for <span class="math notranslate nohighlight">\(C_A(t)\)</span>, which we can compare to our data.</p>
+<section id="zero-order-solution">
+<h4>Zero Order Solution<a class="headerlink" href="#zero-order-solution" title="Permalink to this headline">#</a></h4>
+<p>For a zero order reaction, the material balance on A in a constant volume reactor becomes:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k\]</div>
+<p>This is a separable ODE, so we’ll solve it by hand (note: it is far better in kinetic analysis if you can obtain an analytical solution than having to resort to a numerical one).</p>
+<div class="math notranslate nohighlight">
+\[\int_{C_{A0}}^{C_A}dC_A = \int_0^t-kdt\]</div>
+<p>Which gives:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0} - kt\]</div>
+</section>
+<section id="first-order-solution">
+<h4>First Order Solution<a class="headerlink" href="#first-order-solution" title="Permalink to this headline">#</a></h4>
+<p>For a first order reaction, the material balance on A in a constant volume reactor becomes:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -kC_A\]</div>
+<p>This is a separable ODE, so we’ll solve it by hand.</p>
+<div class="math notranslate nohighlight">
+\[\int_{C_{A0}}^{C_A}\frac{1}{C_A}dC_A = \int_0^t-kdt\]</div>
+<p>Which gives:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0}\exp\left(-kt\right)\]</div>
+</section>
+<section id="second-order-solution">
+<h4>Second Order Solution<a class="headerlink" href="#second-order-solution" title="Permalink to this headline">#</a></h4>
+<p>For a second order reaction, the material balance on A in a constant volume reactor becomes:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k{C_A}^2\]</div>
+<p>This is a separable ODE, so we’ll solve it by hand.</p>
+<div class="math notranslate nohighlight">
+\[\int_{C_{A0}}^{C_A}\frac{1}{{C_A}^2}dC_A = \int_0^t-kdt\]</div>
+<p>Which gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{C_A} = \frac{1}{C_{A0}} + kt\]</div>
+<p>And, keeping with the theme of solving for <span class="math notranslate nohighlight">\(C_A(t)\)</span>, we can rearrange to get:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \left(\frac{1}{C_{A0}} + kt\right)^{-1}\]</div>
+<p>To summarize, we have 3 models to compare to our data:</p>
+<p><strong>Zero Order</strong>: <span class="math notranslate nohighlight">\(C_A = C_{A0} - kt\)</span></p>
+<p><strong>First Order</strong>: <span class="math notranslate nohighlight">\(C_A = C_{A0}\exp\left(-kt\right)\)</span></p>
+<p><strong>Second Order</strong>: <span class="math notranslate nohighlight">\(\frac{1}{C_A} = \frac{1}{C_{A0}} + kt\)</span></p>
+<p>We’re going to make this comparison in two ways.  First, we will overlay these models directly with our data, which is a plot of concentration vs. time.  Then we’ll vary the value of the unknown parameter (k) until we get the best fit for the data. We’ll start with a very crude manual approach to get a feel for how this works, we will consider how we can do a better job of quantifying the error between measurement values and model predictions, and then we will look at more sophisticated strategies for minimizing that error.</p>
+<p>First, a manual approach with only visual feedback about quality of fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Testing zero order model</span>
+
+<span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+<span class="n">ktest</span>    <span class="o">=</span> <span class="mf">1.</span>  <span class="c1">#mol/L/min</span>
+
+<span class="n">CAZERO</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">CA0</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">t</span>
+<span class="n">CMODZERO</span> <span class="o">=</span> <span class="n">CAZERO</span><span class="p">(</span><span class="n">ktest</span><span class="p">,</span> <span class="n">tdata</span><span class="p">)</span>
+<span class="n">CMODZERO</span><span class="p">[</span><span class="n">CMODZERO</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1">#Note, this is forcing the CA value to go to zero; otherwise a zero order model will go negative</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CMODZERO</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Zero Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_6_0.png" src="../_images/587-L29_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Testing first order model</span>
+
+<span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+<span class="n">ktest</span>    <span class="o">=</span> <span class="mf">1.</span>  <span class="c1">#mol/L/min</span>
+
+<span class="n">CAONE</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">CA0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">CMODONE</span> <span class="o">=</span> <span class="n">CAONE</span><span class="p">(</span><span class="n">ktest</span><span class="p">,</span> <span class="n">tdata</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CMODONE</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;First Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_7_0.png" src="../_images/587-L29_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##Testing second order model</span>
+
+<span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+<span class="n">ktest</span>    <span class="o">=</span> <span class="mf">0.025</span>  <span class="c1">#mol/L/min</span>
+
+<span class="n">CATWO</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="n">CMODTWO</span> <span class="o">=</span> <span class="n">CATWO</span><span class="p">(</span><span class="n">ktest</span><span class="p">,</span> <span class="n">tdata</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CMODTWO</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Second Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_8_0.png" src="../_images/587-L29_8_0.png" />
+</div>
+</div>
+<p>The mathematically rigorous way to find the best value of the rate constant is to find the one that gives the “line of best fit.”  That is to say, the best model/rate constant is the one that <em><strong>minimizes</strong></em> the total error between model predictions and measurement values.</p>
+<p>In all of the above, the systems are very overdetermined.  We have 18 data points, and, in each of our models (zero order, first order, and second order), there is only a single unknown (k).  So there won’t be a unique solution in any of these cases.  Instead, we find the solution that minimizes the error between our model prediction, which is the heart of regression analysis.</p>
+<p>There are many ways to perform a regresion, and you have lots of choices about the nature of the objective function that you’re trying to minimize.  Here, we’ll keep it simple and do the most common type, which is least-squares regression. Specifically, we will quantify the total error in our system as the sum of square differences between model predictions and measurement values:</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_i \left(\bar{y}_i - \hat{y}_i\right)^2\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\bar{y}_i\)</span> is the ith measurement of the observable <span class="math notranslate nohighlight">\(y\)</span> at the corresponding value of independent variable, <span class="math notranslate nohighlight">\(x_i\)</span>, and <span class="math notranslate nohighlight">\(\hat{y}\)</span> is the model prediction of the observable value (<span class="math notranslate nohighlight">\(y\)</span>) at the same condition of independent variable, <span class="math notranslate nohighlight">\(x_i\)</span>. The quantity in parentheses represents the displacement (or “error”) between our model’s prediction and our measurement’s value.  We square it to ensure that the error is positive – otherwise, positive and negative errors will average out to zero, making it difficult to identify the true minimum error.</p>
+<p>In this case, we’d base our SSE on measured and model predicted values of the concentration of A since that is our observable.</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_i \left(\bar{C}_{A_i} - \hat{C}_{A_i}\right)^2\]</div>
+<p>Now that we have a lot of experience writing functions to accomplish all sorts of things, it is relatively straightforward to write a function to calculate the sum of squares for a given model at a certain value of rate constant.  We can then look at both the plot <em>and</em> the more quantitative sum of square errors for the current parameter value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">OBJZERO</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+    <span class="n">tdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span> <span class="c1">#time in minutes</span>
+    <span class="n">CAdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.05</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.41</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">6.07</span><span class="p">,</span> <span class="mf">5.49</span><span class="p">,</span> <span class="mf">4.97</span><span class="p">,</span> <span class="mf">4.49</span><span class="p">,</span> <span class="mf">4.07</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">0.821</span><span class="p">,</span> <span class="mf">0.498</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">,</span> <span class="mf">0.0248</span><span class="p">,</span> <span class="mf">1.23E-3</span><span class="p">,</span> <span class="mf">6.14E-05</span><span class="p">])</span>
+    
+    <span class="n">CAZERO</span> <span class="o">=</span> <span class="n">CA0</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">tdata</span>  <span class="c1">#Use previously defined lambda function here instead</span>
+    <span class="n">CAZERO</span><span class="p">[</span><span class="n">CAZERO</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">RESID</span>  <span class="o">=</span> <span class="n">CAdata</span> <span class="o">-</span> <span class="n">CAZERO</span>
+    <span class="n">SSE</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">RESID</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="c1">#     plt.figure(1, figsize = (5, 5))</span>
+<span class="c1">#     plt.scatter(tdata, CAdata, edgecolor = &#39;black&#39;, color = &#39;none&#39;, label = &#39;CA&#39;)</span>
+<span class="c1">#     plt.plot(tdata, CAZERO, color = &#39;black&#39;, linestyle = &#39;dashed&#39;, label = &#39;Second Order Model&#39;)</span>
+<span class="c1">#     plt.xlabel(&#39;time (min)&#39;, fontsize = 12)</span>
+<span class="c1">#     plt.ylabel(&#39;CA (M)&#39;, fontsize = 12)</span>
+<span class="c1">#     plt.xlim(0, 120)</span>
+<span class="c1">#     plt.ylim(0, 12)</span>
+<span class="c1">#     plt.legend()</span>
+<span class="c1">#     plt.show()</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">OBJZERO</span><span class="p">(</span><span class="mf">0.61</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.265082556669961
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.265082556669961
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="minimizing-the-error-with-numerical-tools">
+<h4>Minimizing the error with numerical tools<a class="headerlink" href="#minimizing-the-error-with-numerical-tools" title="Permalink to this headline">#</a></h4>
+<p>It is of course better to use numerical methods to find the value of the parameter that minimizes our objective function (SSE).  We use the exact same approach for minimizing the SSE as we’ve been using for things like yield and reactor volume. Generally speaking, we do this with <code class="docutils literal notranslate"><span class="pre">opt.minimize_scalar()</span></code> for univariate problems and <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> for multivariate problems.</p>
+<p>We’ll consider the zero order model first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ans_zero</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJZERO</span><span class="p">)</span><span class="c1">#, method = &#39;Brent&#39;, bracket = [0.01, 10])</span>
+<span class="n">SSE</span>      <span class="o">=</span> <span class="n">ans_zero</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">k_zero</span>   <span class="o">=</span> <span class="n">ans_zero</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k_zero</span><span class="p">,</span> <span class="n">SSE</span><span class="p">)</span>
+
+<span class="c1">#Calculate result for best fit zero order model</span>
+<span class="n">tsmooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tdata</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+<span class="n">CMODZERO</span> <span class="o">=</span> <span class="n">CAZERO</span><span class="p">(</span><span class="n">k_zero</span><span class="p">,</span> <span class="n">tsmooth</span><span class="p">)</span><span class="c1">#CA0 - k_zero*tsmooth</span>
+<span class="n">CMODZERO</span><span class="p">[</span><span class="n">CMODZERO</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">CMODZERO</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Second Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="p">(</span><span class="n">CAdata</span> <span class="o">-</span> <span class="n">CAZERO</span><span class="p">(</span><span class="n">k_zero</span><span class="p">,</span> <span class="n">tdata</span><span class="p">))</span><span class="o">/</span><span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Residual Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Zero Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Error (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>944.19865455667
+53.900482556669964
+245.864831788854
+53.900482556669964
+153.7556620729141
+9.17556480429396
+51.056828694573575
+10.938882372391399
+9.263664712780669
+9.17952121344172
+9.166992370993569
+9.166992370993627
+9.166992370993633
+0.621405835543767 9.166992370993569
+</pre></div>
+</div>
+<img alt="../_images/587-L29_13_1.png" src="../_images/587-L29_13_1.png" />
+<img alt="../_images/587-L29_13_2.png" src="../_images/587-L29_13_2.png" />
+</div>
+</div>
+</section>
+<section id="analysis-of-zero-order-fit">
+<h4>Analysis of Zero Order Fit<a class="headerlink" href="#analysis-of-zero-order-fit" title="Permalink to this headline">#</a></h4>
+<p>Based on that result, the best fit value of the rate constant in a zero order model is 0.621, which achieves a minimum SSE of ~9.1.  Visually, it does an OK job of fitting data at low times, but it falls apart after about 10 - 15 minutes.  We notice that the zero order model over-predicts measured concentration at short times, and it underpredicts at long times.  This would be a sign that the order of reaction is too low.</p>
+<p>Now we’ll do the same optimization with a first order model.</p>
+</section>
+<section id="first-order-optimization">
+<h4>First order optimization<a class="headerlink" href="#first-order-optimization" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">OBJONE</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+    <span class="n">tdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span> <span class="c1">#time in minutes</span>
+    <span class="n">CAdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.05</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.41</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">6.07</span><span class="p">,</span> <span class="mf">5.49</span><span class="p">,</span> <span class="mf">4.97</span><span class="p">,</span> <span class="mf">4.49</span><span class="p">,</span> <span class="mf">4.07</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">0.821</span><span class="p">,</span> <span class="mf">0.498</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">,</span> <span class="mf">0.0248</span><span class="p">,</span> <span class="mf">1.23E-3</span><span class="p">,</span> <span class="mf">6.14E-05</span><span class="p">])</span>
+    
+    <span class="n">CAONE</span>  <span class="o">=</span> <span class="n">CA0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">tdata</span><span class="p">)</span>
+    <span class="n">RESID</span>  <span class="o">=</span> <span class="n">CAdata</span> <span class="o">-</span> <span class="n">CAONE</span>
+    <span class="n">SSE</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">RESID</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Run Optimization</span>
+<span class="n">ans_one</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJONE</span><span class="p">)</span><span class="c1">#, method = &#39;Brent&#39;, bracket = [0.01, 10])</span>
+<span class="n">SSE</span>     <span class="o">=</span> <span class="n">ans_one</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">k_one</span>   <span class="o">=</span> <span class="n">ans_one</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k_one</span><span class="p">,</span> <span class="n">SSE</span><span class="p">)</span>
+
+<span class="c1">#Calculate results for best fit first order model</span>
+<span class="n">tsmooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">tdata</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">CA0</span>     <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+<span class="n">CMODONE</span> <span class="o">=</span> <span class="n">CAONE</span><span class="p">(</span><span class="n">k_one</span><span class="p">,</span> <span class="n">tsmooth</span><span class="p">)</span> <span class="c1">#CA0*np.exp(-k_one*tsmooth)</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">CMODONE</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Second Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="p">(</span><span class="n">CAdata</span> <span class="o">-</span> <span class="n">CAONE</span><span class="p">(</span><span class="n">k_one</span><span class="p">,</span> <span class="n">tdata</span><span class="p">))</span><span class="o">/</span><span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Residual Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Zero Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Error (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>944.19865455667
+323.36071947412506
+393.91900286691435
+323.36071947412506
+367.8748290995288
+258.13030776184183
+173.49125626053535
+83.64181125445307
+17.645767419631596
+1.3418110730482369
+16.469424370441473
+0.5959665956334185
+0.0003430618140482097
+0.0016049707341570932
+0.000109649223105198
+0.00010897622293589579
+0.00010897547817903003
+0.00010897547788735623
+0.00010897547791498506
+0.00010897547791563169
+0.09998050415599218 0.00010897547788735623
+</pre></div>
+</div>
+<img alt="../_images/587-L29_16_1.png" src="../_images/587-L29_16_1.png" />
+<img alt="../_images/587-L29_16_2.png" src="../_images/587-L29_16_2.png" />
+</div>
+</div>
+<p>Well, that one pretty much nails it.  It estimates a best fit rate constant of 0.1 (which is exactly what I used to generate the data), and the SSE is <span class="math notranslate nohighlight">\(10^{-4}\)</span>. It really can’t get better than that, but let’s see what the optimum result for second order looks like too.</p>
+</section>
+<section id="second-order-optimization">
+<h4>Second order optimization<a class="headerlink" href="#second-order-optimization" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">OBJTWO</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">CA0</span>    <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/L</span>
+    <span class="n">tdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span> <span class="c1">#time in minutes</span>
+    <span class="n">CAdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.05</span><span class="p">,</span> <span class="mf">8.19</span><span class="p">,</span> <span class="mf">7.41</span><span class="p">,</span> <span class="mf">6.70</span><span class="p">,</span> <span class="mf">6.07</span><span class="p">,</span> <span class="mf">5.49</span><span class="p">,</span> <span class="mf">4.97</span><span class="p">,</span> <span class="mf">4.49</span><span class="p">,</span> <span class="mf">4.07</span><span class="p">,</span> <span class="mf">3.68</span><span class="p">,</span> <span class="mf">3.01</span><span class="p">,</span> <span class="mf">2.23</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">,</span> <span class="mf">0.821</span><span class="p">,</span> <span class="mf">0.498</span><span class="p">,</span> <span class="mf">0.111</span><span class="p">,</span> <span class="mf">0.0248</span><span class="p">,</span> <span class="mf">1.23E-3</span><span class="p">,</span> <span class="mf">6.14E-05</span><span class="p">])</span>
+    
+    <span class="n">CATWO</span>  <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">tdata</span><span class="p">)</span>
+    <span class="n">RESID</span>  <span class="o">=</span> <span class="n">CAdata</span> <span class="o">-</span> <span class="n">CATWO</span>
+    <span class="n">SSE</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">RESID</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Run Optimization</span>
+<span class="n">ans_two</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJTWO</span><span class="p">)</span><span class="c1">#, method = &#39;Brent&#39;, bracket = [0.01, 10])</span>
+<span class="n">SSE</span>     <span class="o">=</span> <span class="n">ans_two</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">k_two</span>   <span class="o">=</span> <span class="n">ans_two</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k_two</span><span class="p">,</span> <span class="n">SSE</span><span class="p">)</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">CMODTWO</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Second Order Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#Overlay best fit model with data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="p">(</span><span class="n">CAdata</span> <span class="o">-</span> <span class="n">CATWO</span><span class="p">(</span><span class="n">k_one</span><span class="p">,</span> <span class="n">tdata</span><span class="p">))</span><span class="o">/</span><span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Residual Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Zero Error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Error (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>944.19865455667
+367.2296218590384
+391.27600361125957
+367.2296218590384
+381.78478705356366
+345.54513508325607
+314.550484725592
+272.67569898183996
+220.06376899409693
+159.6986125655918
+98.12118437983854
+45.37201122060032
+13.568626886488474
+13.638892423841824
+9.185521487892382
+9.179129120575118
+9.110387291498567
+9.773029448945811
+9.099494914885135
+9.099496163799184
+9.099492548658832
+9.099492548652368
+9.099492548652323
+9.099492548652348
+0.016694686189028692 9.099492548652323
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">~\AppData\Local\Temp\ipykernel_19800\3352724010.py</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">CMODTWO</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Second Order Model&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\pyplot.py</span> in <span class="ni">plot</span><span class="nt">(scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2767</span> <span class="nd">@_copy_docstring_and_deprecators</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2768</span> <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2769</span>     <span class="k">return</span> <span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2770</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="n">scalex</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="n">scaley</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2771</span>         <span class="o">**</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span> <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_axes.py</span> in <span class="ni">plot</span><span class="nt">(self, scalex, scaley, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1630</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1631</span><span class="s2">         kwargs = cbook.normalize_kwargs(kwargs, mlines.Line2D)</span>
+<span class="ne">-&gt; </span><span class="mi">1632</span><span class="s2">         lines = [*self._get_lines(*args, data=data, **kwargs)]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1633</span><span class="s2">         for line in lines:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1634</span><span class="s2">             self.add_line(line)</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_base.py</span> in <span class="ni">__call__</span><span class="nt">(self, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">                 this += args[0],</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">                 args = args[1:]</span>
+<span class="ne">--&gt; </span><span class="mi">312</span><span class="s2">             yield from self._plot_args(this, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">     def get_next_color(self):</span>
+
+<span class="nn">~\anaconda3\lib\site-packages\matplotlib\axes\_base.py</span> in <span class="ni">_plot_args</span><span class="nt">(self, tup, kwargs, return_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span><span class="s2">         if x.shape[0] != y.shape[0]:</span>
+<span class="ne">--&gt; </span><span class="mi">498</span><span class="s2">             raise ValueError(f&quot;x and y must have same first dimension, but &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span><span class="s2">                              f&quot;have shapes </span><span class="si">{x.shape}</span><span class="s2"> and </span><span class="si">{y.shape}</span><span class="s2">&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span><span class="s2">         if x.ndim &gt; 2 or y.ndim &gt; 2:</span>
+
+<span class="ne">ValueError</span>: x and y must have same first dimension, but have shapes (100,) and (20,)
+</pre></div>
+</div>
+<img alt="../_images/587-L29_19_2.png" src="../_images/587-L29_19_2.png" />
+</div>
+</div>
+<p>Now we have the opposite problem compared to the zero order case – the second order model under-predicts concentration at short times, and it over-predicts their values at long times.  This is a sign that the order it too high.  Clearly, the first order model is “just right” here as it is the one that fits the data best.</p>
+<p>Here, we’ve generally used “nonlinear” regression because the models that we fit for first order and second order were non-linear functions of time.  This is a powerful technique but it can also lead to problems.  Most notably, when have data that is nonlinear, it is supposed to be curved in some way.  It can be hard to tell if the amount of curvature is correct.  In this case, it is easy to see, but recall that this is actually a perfect data set that I generated by solving a first order system.  When we have messy, “real” data, it can be difficult to tell if the type of curvature observed in your model is correct, and it can be hard to resolve whether one nonlinear model is better than the other.</p>
+<p>Where it is possible to do so, it is always useful to linearize a model.  This gains us a couple of important things.</p>
+<ol class="simple">
+<li><p>Whereas deviation between experimental data and a curved line can be difficult to assess, it is relatively easy to detect deviations from linearity.  This makes linearization a powerful visual tool for assessing goodness of fit.</p></li>
+<li><p>If we can linearize a model, we can use linear regression tools.  Regardless of how they are packaged (e.g., trendline in Excel or polyfit in Python), they are all based on similar methods that use linear algebra.</p></li>
+<li><p>They key here is that linear regression solutions are deterministic.  There <strong>is</strong> a unique solution for the parameters that give us the best fit if we use linear regression.</p></li>
+<li><p>With nonlinear regression (as above), we are forced to use an interative optimization routine (like opt.minimize or opt.minimize_scalar), which is not necessarily guaranteed to converge.  The linear algebra solutions will be much more stable, which can be very beneficial in difficult optimization problems.</p></li>
+</ol>
+<p>For these reasons, we’ll consider how to linearize these models, perform linear regressions, and visually inspect the results compared to a linearized data set.</p>
+</section>
+</section>
+<section id="linearized-models">
+<h3>Linearized Models<a class="headerlink" href="#linearized-models" title="Permalink to this headline">#</a></h3>
+<p>The zero order model is easy to linearize because it is already linear in time.  Looking at it, we expect that if we plot CA vs time, the trend should be linear if the kinetics are zero order.</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0} - kt\]</div>
+<p>We do this below; clearly the data are not linear, but we’ll work through the regression anyway just to get some practice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">CAdata</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_21_0.png" src="../_images/587-L29_21_0.png" />
+</div>
+</div>
+<p>So we want to take that ostensibly linear data set (our zero order model says it is linear…) and perform linear regression on it.  We’d do this with the typical vandermonde matrix approach, where we use the model:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0} - kt\]</div>
+<p>But that generally translates to the generic form with two coefficients:</p>
+<div class="math notranslate nohighlight">
+\[\alpha_1t + \alpha_0 = C_A\]</div>
+<p>We’d write a copy of that equation for every data point collected, which would give us an overdetermined system of equations (18 equations and two unknown <span class="math notranslate nohighlight">\(\alpha\)</span>’s).  Technically, we know <span class="math notranslate nohighlight">\(C_{A0}\)</span> here, but we’ll move forward treating it as an unknown coefficient in the model (the y-intercept).  That ends up in our usual matrix form:</p>
+<div class="math notranslate nohighlight">
+\[XA = Y\]</div>
+<p>Where “X” is the Vandermonde matrix truncated to include only <span class="math notranslate nohighlight">\(x^0\)</span> and <span class="math notranslate nohighlight">\(x^1\)</span> terms.  Y is the set of measured concentrations.  We’d solve this as usual using methods of linear algebra.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">tdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">11</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#Note I&#39;m truncating data to the first 10 points or so; thereafter, zero order model goes negative</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">CAdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10.    9.05  8.19  7.41  6.7   6.07  5.49  4.97  4.49  4.07  3.68]
+[[ 0  1]
+ [ 1  1]
+ [ 2  1]
+ [ 3  1]
+ [ 4  1]
+ [ 5  1]
+ [ 6  1]
+ [ 7  1]
+ [ 8  1]
+ [ 9  1]
+ [10  1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.62463636  9.49772727]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">tdata</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">11</span><span class="p">],</span> <span class="n">Y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.62463636,  9.49772727])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>First Order Model</strong></p>
+<p>For the first order model, we have:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0}\exp(-kt)\]</div>
+<p>This is a nonlinear function of, essentially kt; however, if we take the natural logarithm of both sides, we convert it to the following, which is much more useful:</p>
+<div class="math notranslate nohighlight">
+\[\ln\left(C_A\right) = \ln\left(C_{A0}\right) - kt\]</div>
+<p>If we plot <span class="math notranslate nohighlight">\(C_A\)</span> against time, that should be linear if the first order model is correct.  The slope would be equal to -k, and the y-intercept would be ln(CA0).  In the matrix form:</p>
+<div class="math notranslate nohighlight">
+\[\alpha_1t + \alpha_0 = \ln\left(C_A\right)\]</div>
+<p>We can put this into the vandermonde form:</p>
+<div class="math notranslate nohighlight">
+\[XA = Y\]</div>
+<p>Where X is the vandermonde matrix generated from tdata (and truncated to include only zero order and first order terms), and Y is the natural log of CA.</p>
+<p>This is plotted in the cell below, where you observe linearity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CAdata</span><span class="p">),</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(CA)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 120)</span>
+<span class="c1"># plt.ylim(0, 12)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_27_0.png" src="../_images/587-L29_27_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CAdata</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CAest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">CAest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10001587909135363 10.001395241781244
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can use polyfit.  You get the exact same results; I’m pretty sure it is just a convenience function that automates what we did with matrices above.  We’ll use those coefficients to add the line of best fit to our linearized first order data.  You can see that it describes the data very well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CAdata</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">coeffs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CAest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">coeffs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">CAest</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.10001587909135363 10.001395241781244
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CAdata</span><span class="p">),</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">tsmooth</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(CA)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 120)</span>
+<span class="c1"># plt.ylim(0, 12)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_31_0.png" src="../_images/587-L29_31_0.png" />
+</div>
+</div>
+<p><strong>Second Order Model</strong></p>
+<p>For the second order model, we have:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{C_A} = \frac{1}{C_{A0}} + kt\]</div>
+<p>We should see linearity here if we plot <span class="math notranslate nohighlight">\(\frac{1}{C_A}\)</span> vs <span class="math notranslate nohighlight">\(t\)</span>.  See below.  Deviation from linearity is clearly observed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="mi">1</span><span class="o">/</span><span class="n">CAdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/CA)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 120)</span>
+<span class="c1"># plt.ylim(0, 12)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_33_0.png" src="../_images/587-L29_33_0.png" />
+</div>
+</div>
+<p>Below, I regress the coefficients for the linearized second order model using polyfit and overlay it with the “linearized” data set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsmooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">tdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="mi">1</span><span class="o">/</span><span class="n">CAdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="mi">1</span><span class="o">/</span><span class="n">CAdata</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">],</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="n">tsmooth</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/CA)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 120)</span>
+<span class="c1"># plt.ylim(0, 12)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/587-L29_35_0.png" src="../_images/587-L29_35_0.png" />
+</div>
+</div>
+</section>
+<section id="discuss-after-recitation">
+<h3>Discuss after recitation<a class="headerlink" href="#discuss-after-recitation" title="Permalink to this headline">#</a></h3>
+<p>Clearly, from all of this, we can see that the first order model fits the data best, and our regressed parameters tell us that the rate constant is 0.1 inverse minutes, which is exactly what I used to generate the data.</p>
+<p>As a final point, some of you may question why, with our linearized first order model:</p>
+<div class="math notranslate nohighlight">
+\[\ln\left(C_A\right) = \ln\left(C_{A0}\right) - kt\]</div>
+<p>We bothered to regress the y-intercept since we already know the value of <span class="math notranslate nohighlight">\(C_{A0}\)</span> for this experiment.  Good observation.  In general, the precision of our estimates by regression decreases as we estimate more parameters.  So, for an optimization where I already know a parameter, <span class="math notranslate nohighlight">\(C_{A0}\)</span> in this case, it’s probably best if I don’t introduce uncertainty by regressing a parameter whose value I’m sure of.  How could you fix it at the known quantity?</p>
+<p>Two ways:</p>
+<ol class="simple">
+<li><p>We use the nonlinear regression approach above, since this gives us complete control over the parameters we estimate.</p></li>
+<li><p>We re-work the linear form of the model and corresponding vandermonde matrix such that we don’t estimate the y-intercept.</p></li>
+</ol>
+<p>Let’s look at the latter.  Our original model was</p>
+<div class="math notranslate nohighlight">
+\[\ln\left(C_A\right) = \ln\left(C_{A0}\right) - kt\]</div>
+<p>And we wrote that as:</p>
+<div class="math notranslate nohighlight">
+\[\alpha_1t + \alpha_0 = \ln\left(C_A\right)\]</div>
+<p>But, since I actually know <span class="math notranslate nohighlight">\(C_{A0}\)</span>, I could instead do the following linearization.  This would allow me to regress only the rate constant.</p>
+<div class="math notranslate nohighlight">
+\[\ln\left(\frac{C_A}{C_{A0}}\right) = - kt\]</div>
+<p>In this form, I would plot <span class="math notranslate nohighlight">\(\ln\left(\frac{C_A}{C_{A0}}\right)\)</span> vs. t.  In matrix form, this becomes:</p>
+<div class="math notranslate nohighlight">
+\[\alpha_1t = \ln\left(\frac{C_A}{C_{A0}}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[XA = Y\]</div>
+<p>Where X is a vandermonde matrix created from tdata; however, we only keep the first order powers of time here (since there is no zero order coefficient in the model).  Y, in this case, is <span class="math notranslate nohighlight">\(\ln\left(\frac{C_A}{C_{A0}}\right)\)</span>, and A is only a single coefficient, namely the slope of the line.  See below for implementation.  We can’t use polyfit here, but if we know how to work with the vandermonde matrix, we have a lot of flexibility in regressions.  This is similar to what you can do with the LINEST function in Excel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tsmooth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tdata</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tdata</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CAdata</span><span class="o">/</span><span class="n">CA0</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">tsmooth</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.10001374135540081
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1c0c44b0df0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/587-L29_37_2.png" src="../_images/587-L29_37_2.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-L28.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Kinetics I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-L30.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kinetics III</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

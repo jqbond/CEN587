@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 01: Introduction and Stoichiometry
+# # Introduction and Stoichiometry
 
 # ## Chemical Reaction Engineering
 # 

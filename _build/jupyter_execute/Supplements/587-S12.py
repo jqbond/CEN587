@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Solving Systems of Nonlinear Equations
+# # Systems of Nonlinear Equations
 # 
 # We have covered root finding algorithms for univariate scalar functions (Module 09), optimization algorithms for univariate scalar functions (Module 10), and optimization algoritms for multivariate scalar functions (Module 11). Now we will tacklesolving systems of equations. Broadly speaking, these are classified as sets of multivariate functions.  Our goal in "solving" them is to find the values of the complete set of variables that results in each of our equations being equal to zero.  It is high dimensional root finding. 
 # 

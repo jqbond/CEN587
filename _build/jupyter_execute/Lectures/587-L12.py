@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 12
+# # Material Balances III
 # 
 # This lecture applies the general species balance to three common reactor models: The Batch Reactor, the Continuous Stirred Tank Reactor (CSTR), and the Plug Flow Reactor (PFR).
 

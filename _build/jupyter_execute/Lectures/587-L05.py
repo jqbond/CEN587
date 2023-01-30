@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 05: Chemical Equilibrium Part 2
+# # Chemical Equilibrium II
 # 
 # This lecture is the second part of the chemical equilibrium lectures (2 of 2).  This one covers definitions for fugacities so that we can relate the equilibrium constant to the composition of the system using thermodynamic activities.
 

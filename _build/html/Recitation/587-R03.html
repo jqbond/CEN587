@@ -1,0 +1,1766 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chemical Equilibrium &#8212; Kinetics and Reaction Engineering</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solving ODEs" href="587-R04.html" />
+    <link rel="prev" title="Solving Algebraic Equations" href="587-R02.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/JQB.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kinetics and Reaction Engineering</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1.html">
+   Python Supplements
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S01.html">
+     The Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S02.html">
+     Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S03.html">
+     Arrays and Matrices
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S04.html">
+     For Loops and Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S05.html">
+     Logical Tests and Comparisons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S06.html">
+     While Loops in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S07.html">
+     Functions, D&amp;D
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S08.html">
+     The Fall of Acererak
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S09.html">
+     Root Finding: Univariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S10.html">
+     Minimizing a Univariate Function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S11.html">
+     Minimizing Multivariate Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S12.html">
+     Systems of Nonlinear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S13.html">
+     Least Squares Revisited
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S14.html">
+     ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Supplements/587-S15.html">
+     Quadrature
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2.html">
+   Lectures
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L01.html">
+     Introduction and Stoichiometry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L02.html">
+     Extent and Conversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L03.html">
+     Algebraic and Differential Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L04.html">
+     Chemical Equilibrium I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L05.html">
+     Chemical Equilibrium II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L06.html">
+     Chemical Equilibrium III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L07.html">
+     Chemical Equilibrium IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L08.html">
+     Chemical Equilibrium V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L09.html">
+     Chemical and Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L10.html">
+     Material Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L11.html">
+     Material Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L12.html">
+     Material Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L13.html">
+     Material Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L14.html">
+     Material Balances V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L15.html">
+     Material Balances VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L16.html">
+     Material Balances VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L17.html">
+     Material Balances VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L18.html">
+     Material Balances IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L19.html">
+     Material Balances X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L20.html">
+     Material Balances XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L21.html">
+     Material Balances XII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L22.html">
+     Material Balances XIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L23.html">
+     Material Balances XIV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L24.html">
+     Material Balances XV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L25.html">
+     Material Balances XVI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L26.html">
+     Material Balances XVII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L27.html">
+     Material Balances XVIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L28.html">
+     Kinetics I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L29.html">
+     Kinetics II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L30.html">
+     Kinetics III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L31.html">
+     Kinetics IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L32.html">
+     Kinetics V
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L33.html">
+     Kinetics VI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L34.html">
+     Kinetics VII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L35.html">
+     Kinetics VIII
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L36.html">
+     Kinetics IX
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L37.html">
+     Kinetics X
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L38.html">
+     Kinetics XI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L39.html">
+     Energy Balances I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L40.html">
+     Energy Balances II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L41.html">
+     Energy Balances III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L42.html">
+     Energy Balances IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Lectures/587-L43.html">
+     Energy Balances VI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../Chapter3.html">
+   Recitations
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R01.html">
+     Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R02.html">
+     Solving Algebraic Equations
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Chemical Equilibrium
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R04.html">
+     Solving ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R05.html">
+     Chemical/Phase Equilibria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R06.html">
+     CSTRs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R07.html">
+     Python tips and tricks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R08.html">
+     Optimization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R09.html">
+     Reactors with Recycle
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R10.html">
+     Interpolation and Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R11.html">
+     Nonlinear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R12.html">
+     Parameter Estimation I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R13.html">
+     Parameter Estimation II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="587-R14.html">
+     Energy Balances
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Recitation/587-R03.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FRecitation/587-R03.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Recitation/587-R03.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-definitive-analysis-of-ammonia-synthesis">
+   The definitive analysis of ammonia synthesis…
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-equilibrium-constants">
+     Calculating Equilibrium Constants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thermodynamic-activities-capture-composition-and-pressure-effects">
+     Thermodynamic activities capture composition and pressure effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-stoichiometry-to-reduce-unknowns">
+     Using Stoichiometry to reduce unknowns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-t-and-p-as-extra-arguments-to-opt-newton-or-opt-root">
+     Passing T and P as extra arguments to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.newton()
+      </span>
+     </code>
+     or
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.root()
+      </span>
+     </code>
+     ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-parameters-with-lambda-functions">
+     Passing extra parameters with lambda functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-parameters-with-the-args-keyword-in-python">
+     Passing extra parameters with the args keyword in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-what-about-fugacity-coefficients">
+   But what about fugacity coefficients?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducing-gaussian-quadrature">
+     Introducing Gaussian Quadrature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-compressibility-factors-as-functions-of-pressure">
+     Write compressibility factors as functions of pressure.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-compressibility-factors-to-find-fugacity-coefficients">
+     Use compressibility factors to find fugacity coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrate-using-gaussian-quadrature-to-find-the-fugacity-coefficient-at-specific-p">
+     Integrate using gaussian quadrature to find the fugacity coefficient at specific P
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adapt-ammonia-synthesis-equilibrium-problem-to-include-fugacity-coefficients">
+     Adapt ammonia synthesis equilibrium problem to include fugacity coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-is-much-more-convenient-to-pass-t-and-p-as-extra-parameters">
+     It is much more convenient to pass T and P as extra parameters…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lambda-functions">
+     Lambda functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-args-keyword">
+     Using the args keyword
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-not-do-this-for-an-absurd-number-of-t-and-p-values-with-a-loop">
+     Why not do this for an absurd number of T and P values with a loop?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Chemical Equilibrium</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#topics-covered">
+   Topics Covered
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-definitive-analysis-of-ammonia-synthesis">
+   The definitive analysis of ammonia synthesis…
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-equilibrium-constants">
+     Calculating Equilibrium Constants
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thermodynamic-activities-capture-composition-and-pressure-effects">
+     Thermodynamic activities capture composition and pressure effects
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-stoichiometry-to-reduce-unknowns">
+     Using Stoichiometry to reduce unknowns
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-t-and-p-as-extra-arguments-to-opt-newton-or-opt-root">
+     Passing T and P as extra arguments to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.newton()
+      </span>
+     </code>
+     or
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       opt.root()
+      </span>
+     </code>
+     ?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-parameters-with-lambda-functions">
+     Passing extra parameters with lambda functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passing-extra-parameters-with-the-args-keyword-in-python">
+     Passing extra parameters with the args keyword in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#but-what-about-fugacity-coefficients">
+   But what about fugacity coefficients?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introducing-gaussian-quadrature">
+     Introducing Gaussian Quadrature
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-compressibility-factors-as-functions-of-pressure">
+     Write compressibility factors as functions of pressure.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#use-compressibility-factors-to-find-fugacity-coefficients">
+     Use compressibility factors to find fugacity coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrate-using-gaussian-quadrature-to-find-the-fugacity-coefficient-at-specific-p">
+     Integrate using gaussian quadrature to find the fugacity coefficient at specific P
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adapt-ammonia-synthesis-equilibrium-problem-to-include-fugacity-coefficients">
+     Adapt ammonia synthesis equilibrium problem to include fugacity coefficients
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#it-is-much-more-convenient-to-pass-t-and-p-as-extra-parameters">
+     It is much more convenient to pass T and P as extra parameters…
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lambda-functions">
+     Lambda functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-the-args-keyword">
+     Using the args keyword
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-not-do-this-for-an-absurd-number-of-t-and-p-values-with-a-loop">
+     Why not do this for an absurd number of T and P values with a loop?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="chemical-equilibrium">
+<h1>Chemical Equilibrium<a class="headerlink" href="#chemical-equilibrium" title="Permalink to this headline">#</a></h1>
+<p>These exercises will reinforce solution of general problems in chemical equilibrium for gas phase reactions at any temperature and pressure.  We will cover how to handle non-ideality at high pressure by working with fugacity coefficients.  We also introduce gaussian quadrature as a tool for solving definite integrals numerically.  This exercise should improve confidence with Python, especially for solving problems that would be tedious or perhaps impossible to do by hand.</p>
+<section id="topics-covered">
+<h2>Topics Covered<a class="headerlink" href="#topics-covered" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Formulation of gas-phase equilibrium problems at generic T, P, basis conditions.</p></li>
+<li><p>Solution of algebraic equations using scipy.optimize</p></li>
+<li><p>Building more complex functions to allow more general problem solutions</p></li>
+<li><p>Gaussian quadrature in scipy.integrate</p></li>
+<li><p>Fugacity coefficients</p></li>
+<li><p>Using loops to solve equilibrium equations over a large (T,P) space.</p></li>
+<li><p>Passing extra parameters using lambda functions.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import scipy.optimize as opt</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-definitive-analysis-of-ammonia-synthesis">
+<h2>The definitive analysis of ammonia synthesis…<a class="headerlink" href="#the-definitive-analysis-of-ammonia-synthesis" title="Permalink to this headline">#</a></h2>
+<p>In class, we have been considering the gas-phase reaction of molecular nitrogen with molecular hydrogen to produce ammonia:</p>
+<div class="math notranslate nohighlight">
+\[N_2 (g) + 3H_2 (g) \leftrightarrow 2N\!H_3 (g)\]</div>
+<p>We have always considered the reaction between 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span> and 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>. With that starting state in mind, we have thus far solved the problem in each of the following cases, finding the equilibrium conversions of <span class="math notranslate nohighlight">\(N_2\)</span> indicated:</p>
+<ol class="simple">
+<li><p>298K and 1 bar (Lecture 06): <span class="math notranslate nohighlight">\(X_{N_2} = 0.97\)</span></p></li>
+<li><p>873K and 1 bar without a catalyst (Lecture 07): <span class="math notranslate nohighlight">\(X_{N_2} = 8.0 \times 10^{-4}\)</span></p></li>
+<li><p>873K and 1000 bar without a catalyst (Lecture 07): <span class="math notranslate nohighlight">\(X_{N_2} = 0.38\)</span></p></li>
+<li><p>673K and 200 bar with a catalyst (Lecture 07): <span class="math notranslate nohighlight">\(X_{N_2} = 0.51\)</span></p></li>
+</ol>
+<p>Today, we’re going to look at this problem in a general way and hopefully see that we can set it up using more abstract functions where (T,P) are just parameters that we change.  Once we change them, we can re-solve the problem easily without changing any of our code. Abstraction of solutions so that they work in any situation is one of the great things about programming, and it will help you to strengthen your understanding of how functions, root finding algorithms, and loops work in Python.</p>
+<p>In all cases, we are solving the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<section id="calculating-equilibrium-constants">
+<h3>Calculating Equilibrium Constants<a class="headerlink" href="#calculating-equilibrium-constants" title="Permalink to this headline">#</a></h3>
+<p><strong>Reference State for ammonia synthesis reaction:</strong> Pure gases at <span class="math notranslate nohighlight">\(T^\circ\)</span> = Reaction Temperature, and <span class="math notranslate nohighlight">\(P^\circ\)</span> = 1 bar.  We need to define our <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> under these conditions. We were able to look up the following data for <span class="math notranslate nohighlight">\(N_2\)</span>, <span class="math notranslate nohighlight">\(H_2\)</span>, and <span class="math notranslate nohighlight">\(N\!H_3\)</span> as pure gases at 298K and 1 bar.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\({H_j}^\circ\)</span> (kJ mol<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\({S_j}^\circ\)</span> (J mol<span class="math notranslate nohighlight">\(^{-1}\)</span> K<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+<th class="text-align:left head"><p><span class="math notranslate nohighlight">\({C_{p_j}}^\circ\)</span> (J mol<span class="math notranslate nohighlight">\(^{-1} \)</span>K<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N_2\)</span> (g)</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>191.60</p></td>
+<td class="text-align:left"><p>29.12</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_2\)</span> (g)</p></td>
+<td class="text-align:center"><p>0</p></td>
+<td class="text-align:center"><p>130.68</p></td>
+<td class="text-align:left"><p>28.84</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\!H_3\)</span> (g)</p></td>
+<td class="text-align:center"><p>-45.9</p></td>
+<td class="text-align:center"><p>192.77</p></td>
+<td class="text-align:left"><p>35.64</p></td>
+</tr>
+</tbody>
+</table>
+<p>This information is all we need to calculate the following:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta H\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta H(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta S\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta S(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(\Delta G(T)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> at any temperature, i.e. <span class="math notranslate nohighlight">\(K(T)\)</span></p></li>
+</ul>
+<p>We already did this in class, so I’m just going to copy the code below for K(T).</p>
+<div class = "alert alert-block alert-info">
+    <b>Important</b>: The equilibrium constant, $K$, is a function only of temperature for a given reaction. It does not depend on pressure or the starting composition of the mixture. We account for these in the definitions of thermodynamic activities. Ultimately, the effect of temperature on a chemical equilibrium problem is fully described by the value of $K$, whereas pressure and composition effects are described by the values of thermodynamic activities, $a_j$.
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def K(T):</span>
+<span class="c1">#     T0 = 298   #K</span>
+<span class="c1">#     R  = 8.314 #J/mol/K</span>
+    
+<span class="c1">#     #Enthalpies at 298K, 1 bar</span>
+<span class="c1">#     HN0 = 0</span>
+<span class="c1">#     HH0 = 0</span>
+<span class="c1">#     HA0 = -45.9*1000 #J/mol</span>
+
+<span class="c1">#     #Entropies at 298K, 1 bar</span>
+<span class="c1">#     SN0 = 191.60 #J/mol/K</span>
+<span class="c1">#     SH0 = 130.68 #J/mol/K</span>
+<span class="c1">#     SA0 = 192.77 #J/mol/K</span>
+
+<span class="c1">#     #Heat capacities</span>
+<span class="c1">#     CPN = 29.12 #J/mol/K</span>
+<span class="c1">#     CPH = 28.84 #J/mol/K</span>
+<span class="c1">#     CPA = 35.64 #J/mol/K</span>
+
+<span class="c1">#     #Calculate thermodynamic state functions at T not equal to T0 = 298</span>
+<span class="c1">#     HN = HN0 + CPN*(T - T0) #J/mol</span>
+<span class="c1">#     HH = HH0 + CPH*(T - T0) #J/mol</span>
+<span class="c1">#     HA = HA0 + CPA*(T - T0) #J/mol</span>
+
+<span class="c1">#     SN = SN0 + CPN*np.log(T/T0) #J/mol/K</span>
+<span class="c1">#     SH = SH0 + CPH*np.log(T/T0) #J/mol/K</span>
+<span class="c1">#     SA = SA0 + CPA*np.log(T/T0) #J/mol/K</span>
+
+<span class="c1">#     DH = 2*HA - HN - 3*HH #J/mol</span>
+<span class="c1">#     DS = 2*SA - SN - 3*SH #J/mol/K</span>
+<span class="c1">#     DG = DH - T*DS        #J/mol</span>
+
+<span class="c1">#     K  = np.exp(-DG/R/T)     #Dimensionless</span>
+<span class="c1">#     return K</span>
+
+<span class="c1"># Tsample = 298</span>
+<span class="c1"># print(f&#39;At T = {Tsample:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K(Tsample):0.2E}&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tvals = np.linspace(300, 900, 200)</span>
+<span class="c1"># plt.figure(figsize = (5,5))</span>
+<span class="c1"># plt.plot(Tvals, K(Tvals), label = &#39;K(T)&#39;)</span>
+<span class="c1"># plt.hlines(1, Tvals[0], Tvals[-1], linestyle = &#39;dashed&#39;, color = &#39;black&#39;, label = &#39;K = 1&#39;) #This is a reference line of K = 1</span>
+<span class="c1"># plt.yscale(&#39;log&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;K&#39;, fontsize = 16)</span>
+<span class="c1"># plt.ylim(10**-6, 10**6)</span>
+<span class="c1"># plt.yticks(10.0**np.arange(-6, 7, 2), fontsize = 14)</span>
+<span class="c1"># plt.xlabel(&#39;T (K)&#39;, fontsize = 16)</span>
+<span class="c1"># plt.xlim(300, 900)</span>
+<span class="c1"># plt.xticks(np.arange(300, 901, 100), fontsize = 14)</span>
+<span class="c1"># plt.legend(fontsize = 12)</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="thermodynamic-activities-capture-composition-and-pressure-effects">
+<h3>Thermodynamic activities capture composition and pressure effects<a class="headerlink" href="#thermodynamic-activities-capture-composition-and-pressure-effects" title="Permalink to this headline">#</a></h3>
+<p>Now that we have an equilibrum constant at any temperature done, we have to work on the right hand side of that equilbrium equation:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>As we illustrated in class, if we expand the product operator, <span class="math notranslate nohighlight">\(\prod\)</span>, for ammonia synthesis, we find:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{a_{N\!H_3}}^{2}}{{a_{N_2}}{a_{H_2}}^3}\]</div>
+<p>Regardless of the reaction temperature or pressure (or even phase of matter), we always define a thermodyanmic activity as:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>The numerator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions <span class="math notranslate nohighlight">\((T, P, \chi_j)\)</span>.</p>
+<p>The denominator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state. Our reference state for gas-phase species is a pure species at 1 bar and the reaction temperature, T. Our convention for calculating fugacities of gases in a mixture uses the Lewis Randall rule.  As usual, this gives:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ}\]</div>
+<p>Looking at the numerator, we are operating this reactor at an unknown pressure, P, so we aren’t yet sure about the fugacity coefficient in the numerator, <span class="math notranslate nohighlight">\(\phi_j\)</span>. Looking at the denominator, the reference state is a pure species, so <span class="math notranslate nohighlight">\(y_j^\circ = 1\)</span>. Further, that pure species is at 1 bar, so <span class="math notranslate nohighlight">\(\phi_j^\circ = 1\)</span></p>
+<p>This gives a very general result for activities of gases in a mixture, where we retain the fugacity coefficient:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{P^\circ}\]</div>
+<p>For completeness sake, just to make clear what shows up in the one “equation” we are trying to solve, substituting the activity definition for each species into the equilibrium equation gives:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(\frac{y_{N\!H_3} \phi_{N\!H_3} P}{P^\circ}\right)^2}{\left(\frac{y_{N_2}\phi_{N_2}P}{P^\circ}\right) \left(\frac{y_{H_2}\phi_{H_2}P}{P^\circ}\right)^3}\]</div>
+<p>We see multiple pressures and reference pressures that will cancel, giving:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \frac{{\phi_{N\!H_3}}^2}{\phi_{N_2}{\phi_{H_2}}^3}\left(\frac{P^\circ}{P}\right)^2\]</div>
+<p>This is a completely general equation that will apply at any Temperature or Pressure, so we can always use this result, regardless of the operating conditions.  As it stands, even after we specify temperature and pressure, we have many unknowns in the above equation. By specifying temperature and pressure we will define K and P for this system, but we still won’t know the mole fractions of Nitrogen, Hydrogen, and Ammonia as well as the fugacity coefficients for each species.</p>
+<p>For this part of the problem, let’s just assume ideal gas behavior like we did in class.  Once we get the framework established, we’ll add the fugacity coefficients back in.</p>
+<div class="math notranslate nohighlight">
+\[K \approx \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+</section>
+<section id="using-stoichiometry-to-reduce-unknowns">
+<h3>Using Stoichiometry to reduce unknowns<a class="headerlink" href="#using-stoichiometry-to-reduce-unknowns" title="Permalink to this headline">#</a></h3>
+<p>Even though we’ve specified that the fugacity coefficients are all 1, we still have 3 unknowns: the equilibrium mole fractions of all species (<span class="math notranslate nohighlight">\(y_{N_2}\)</span>, <span class="math notranslate nohighlight">\(y_{H_2}\)</span>, and <span class="math notranslate nohighlight">\(y_{N\!H_3}\)</span>). The final step before we can solve this equation is to define the mole fraction of each species as:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{tot}} = \frac{N_j}{\sum N_j}\]</div>
+<p>This allows us to define an extent of reaction, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, and then specifiy the moles of each species as a function of extent using a “mole table” type of approach:</p>
+<div class="math notranslate nohighlight">
+\[N_j = N_{j,0} + \nu_j \varepsilon\]</div>
+<p>For simplicity, I will relabel the compounds using N (N<span class="math notranslate nohighlight">\(_2\)</span>), H (H<span class="math notranslate nohighlight">\(_2\)</span>), and A (NH<span class="math notranslate nohighlight">\(_3\)</span>) just for cleaner notation in the table below.</p>
+<div class="math notranslate nohighlight">
+\[N (g) + 3H (g) \leftrightharpoons 2A (g)\]</div>
+<p>Applying this to each species, we find:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Species</p></th>
+<th class="text-align:center head"><p>In</p></th>
+<th class="text-align:center head"><p>Change</p></th>
+<th class="text-align:center head"><p>End</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>N<span class="math notranslate nohighlight">\(_2\)</span></p></td>
+<td class="text-align:center"><p>NN0</p></td>
+<td class="text-align:center"><p>-1<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NN0 - 1<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>H<span class="math notranslate nohighlight">\(_2\)</span></p></td>
+<td class="text-align:center"><p>NH0</p></td>
+<td class="text-align:center"><p>-3<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NH0 - 3<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>NH<span class="math notranslate nohighlight">\(_3\)</span></p></td>
+<td class="text-align:center"><p>NA0</p></td>
+<td class="text-align:center"><p>+2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NA0 + 2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Total</p></td>
+<td class="text-align:center"><p>NT0</p></td>
+<td class="text-align:center"><p>-2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+<td class="text-align:center"><p>NT0 - 2<span class="math notranslate nohighlight">\(\varepsilon\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Now that these are defined, we can substitute back into our mole fraction defintion:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{tot}} = \frac{N_j}{\sum N_j}\]</div>
+<p>So that everything back to thermodynamic activities is now defined as a function of only extent of reaction and pressure.  Once we specify pressure and temperature, we have only one unknown (the extent) and can solve the equilibrium problem.</p>
+<p>Notice that solving the problem when we have it formulated this way is just a matter of changing Trxn, Prxn, and maybe our initial guess:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def EQ1(ex):</span>
+    
+<span class="c1">#     #Specifications for this problem</span>
+<span class="c1">#     T   = 298 #K</span>
+<span class="c1">#     P   = 1 #bar</span>
+<span class="c1">#     P0  = 1.0 #bar</span>
+<span class="c1">#     NN0 = 1.0 #moles</span>
+<span class="c1">#     NH0 = 3.0 #moles</span>
+<span class="c1">#     NA0 = 0.0 #moles</span>
+    
+<span class="c1">#     #Mole Table, this captures extent of reaction</span>
+<span class="c1">#     NN  = NN0 - ex</span>
+<span class="c1">#     NH  = NH0 - 3*ex</span>
+<span class="c1">#     NA  = NA0 + 2*ex</span>
+<span class="c1">#     NT  = NN + NH + NA</span>
+    
+<span class="c1">#     #Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+<span class="c1">#     yN  = NN/NT</span>
+<span class="c1">#     yH  = NH/NT</span>
+<span class="c1">#     yA  = NA/NT</span>
+    
+<span class="c1">#     #Fugacity coefficients -- generally species specific and a strong function of pressure</span>
+<span class="c1">#     phiN = 1</span>
+<span class="c1">#     phiH = 1</span>
+<span class="c1">#     phiA = 1</span>
+    
+<span class="c1">#     #Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+<span class="c1">#     aN  = yN*phiN*P/P0</span>
+<span class="c1">#     aH  = yH*phiH*P/P0</span>
+<span class="c1">#     aA  = yA*phiA*P/P0</span>
+    
+<span class="c1">#     #This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+<span class="c1">#     KACTIVITY = aA**2/aN/aH**3</span>
+    
+<span class="c1">#     #And finall, our Thermodynamic equilibrium constant</span>
+<span class="c1">#     KTHERMO = K(T)</span>
+       
+<span class="c1">#     return KACTIVITY - KTHERMO  #We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ans, info = opt.newton(EQ1, 0.98, full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info, &#39;\n&#39;) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;Conversion of N2 is {XN:0.3f}, yN is {yN:0.3f}, yH is {yH:0.3f}, and yA is {yA:0.3f}.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-t-and-p-as-extra-arguments-to-opt-newton-or-opt-root">
+<h3>Passing T and P as extra arguments to <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> or <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code>?<a class="headerlink" href="#passing-t-and-p-as-extra-arguments-to-opt-newton-or-opt-root" title="Permalink to this headline">#</a></h3>
+<p>Wouldn’t it be nice if we could pass T and P as arguments to the objective function? That way, we wouldn’t have to hard code their values for every different scenario. We can actually do this easily in Python using either the <code class="docutils literal notranslate"><span class="pre">args</span></code> keyword or (my preference) using lambda functions.</p>
+<p>To start, we’ll write a more general function that contains our system of equations we’re trying to solve.  It is almost identical to the form we usually use for <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>, but in this case, we relax the requirement that that function only takes one argument (e.g., “ex”), and we give it 3 arguments instead:  <code class="docutils literal notranslate"><span class="pre">(ex,</span> <span class="pre">T,</span> <span class="pre">P)</span></code>.</p>
+<div class = "alert alert-block alert-danger">
+    <b>Warning</b>: The function below cannot be solved directly with <code>opt.newton()</code> because its default configuration only allows functions that accept a single argument.
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def tempfun1(ex, T, P):</span>
+
+<span class="c1">#     #Specifications for this problem</span>
+<span class="c1">#     #Trxn = T -- we are passing this into the function as an argument.</span>
+<span class="c1">#     #Prxn = P -- we are passing this into the function as an argument</span>
+
+<span class="c1">#     P0  = 1.0 #bar</span>
+<span class="c1">#     NN0 = 1.0 #moles</span>
+<span class="c1">#     NH0 = 3.0 #moles</span>
+<span class="c1">#     NA0 = 0.0 #moles</span>
+    
+<span class="c1">#     #Mole Table, this captures extent of reaction</span>
+<span class="c1">#     NN  = NN0 - ex</span>
+<span class="c1">#     NH  = NH0 - 3*ex</span>
+<span class="c1">#     NA  = NA0 + 2*ex</span>
+<span class="c1">#     NT  = NN + NH + NA</span>
+    
+<span class="c1">#     #Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+<span class="c1">#     yN  = NN/NT</span>
+<span class="c1">#     yH  = NH/NT</span>
+<span class="c1">#     yA  = NA/NT</span>
+    
+<span class="c1">#     #Fugacity coefficients -- generally species specific and a strong function of pressure; reuse integrand functions</span>
+<span class="c1">#     phiN = 1</span>
+<span class="c1">#     phiH = 1</span>
+<span class="c1">#     phiA = 1</span>
+    
+<span class="c1">#     #Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+<span class="c1">#     aN  = yN*phiN*P/P0</span>
+<span class="c1">#     aH  = yH*phiH*P/P0</span>
+<span class="c1">#     aA  = yA*phiA*P/P0</span>
+    
+<span class="c1">#     #This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+<span class="c1">#     KACTIVITY = aA**2/aN/aH**3</span>
+    
+<span class="c1">#     #Calculate the equilibrium constant at T = Trxn</span>
+<span class="c1">#     KTHERMO = K(T) </span>
+       
+<span class="c1">#     return KACTIVITY - KTHERMO  #We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-extra-parameters-with-lambda-functions">
+<h3>Passing extra parameters with lambda functions<a class="headerlink" href="#passing-extra-parameters-with-lambda-functions" title="Permalink to this headline">#</a></h3>
+<p>We can now solve this for any T and P pair by passing them as arguments to the objective function. This is a little more difficult to do than the original example because <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> still only takes a single argument (ex).  We can get around this in two ways.  The first we’ll illustrate is to use a lambda function to “pass extra parameters.”  This is a standard tool for doing this in most programming languages, and it is the best practice for this style of solution in Matlab and Julia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trxn = 673 #K</span>
+<span class="c1"># Prxn  = 200 #bar</span>
+<span class="c1"># objective = lambda ex: tempfun1(ex, Trxn, Prxn) #Essentially converts tempfun(ex, T, P) to objective(ex)</span>
+
+<span class="c1"># ans, info = opt.newton(objective, 0.99, full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info.flag) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;At T = {Trxn:0.0f}K and P = {Prxn:0.0f} bar, conversion of N2 is {XN:0.3f}, yN is {yN:0.3f}, yH is {yH:0.3f}, and yA is {yA:0.3f}.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="passing-extra-parameters-with-the-args-keyword-in-python">
+<h3>Passing extra parameters with the args keyword in Python<a class="headerlink" href="#passing-extra-parameters-with-the-args-keyword-in-python" title="Permalink to this headline">#</a></h3>
+<p>The second way to handle this is somewhat specific to Python, but it is convenient and worth knowing.  Both <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> and <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> will accept a keyword argument called <code class="docutils literal notranslate"><span class="pre">args</span></code>.  We can use this to pass extra parameters into equations being solved by numerical methods.  It is functionally identical to what did above with a lambda function, but the syntax is arguably a little cleaner.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trxn = 673 #K</span>
+<span class="c1"># Prxn  = 200 #bar</span>
+<span class="c1"># ans, info = opt.newton(tempfun1, 0.98, args = (Trxn, Prxn), full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info.flag) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;At T = {Trxn:0.0f}K and P = {Prxn:0.0f} bar, conversion of N2 is {XN:0.3f}, yN is {yN:0.3f}, yH is {yH:0.3f}, and yA is {yA:0.3f}.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="but-what-about-fugacity-coefficients">
+<h2>But what about fugacity coefficients?<a class="headerlink" href="#but-what-about-fugacity-coefficients" title="Permalink to this headline">#</a></h2>
+<p><strong>This is 200 bar after all!</strong></p>
+<p>True.  We really shouldn’t set fugacity coefficients equal to 1, the problem is that they can be difficult to calculate. In general, you can calculate a fugacity coefficient using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\ln(\phi_j) = \int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\]</div>
+<p>Or:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\right)\]</div>
+<p>In this case, we have the following empirical functions that describe the compressibility factors for all gases at 600K.  These can be used to calculate fugacity coefficients.  Here, Pressures are in units of bar.</p>
+<div class="math notranslate nohighlight">
+\[Z_{N_2} = 1 + 2.1735\times10^{-4}P + 6.2923\times10^{-7}P^2 - 2.3065\times10^{-10}P^3 - 3.0835\times10^{-14}P^4\]</div>
+<div class="math notranslate nohighlight">
+\[Z_{H_2} = 1 + 4.3484\times10^{-4}P + 9.5380\times10^{-8}P^2 - 5.4028\times10^{-11}P^3 + 1.5314\times10^{-14}P^4\]</div>
+<div class="math notranslate nohighlight">
+\[Z_{NH_3} = 0.99987 - 9.0961\times10^{-4}P - 1.0349\times10^{-6}P^2 + 2.6566\times10^{-9}P^3 + 4.6925\times10^{-12}P^4\]</div>
+<p>Now, we need to use those to calculate fugacity coefficients at 200bar.  This is actually pretty easy to do in a programming language. We have polynomial expressions that give us compressibility factors for N<span class="math notranslate nohighlight">\(_2\)</span>, H<span class="math notranslate nohighlight">\(_2\)</span>, and NH<span class="math notranslate nohighlight">\(_3\)</span> as a function of pressure, so all we need to do to calculate fugacity coefficients is integrate those gnarly looking polynomials…</p>
+<p>You <em>could</em> do this by hand – they are polynomials after all.  But I prefer to use gaussian quadrature (similar to what your calculator does to solve definite integrals).</p>
+<section id="introducing-gaussian-quadrature">
+<h3>Introducing Gaussian Quadrature<a class="headerlink" href="#introducing-gaussian-quadrature" title="Permalink to this headline">#</a></h3>
+<p>Before we deal with a complex looking function to handle fugacity coefficients, let’s get a simple introduction to gaussian quadrature.  This is in the Scipy package, specifically as scipy.integrate.quadrature.  I’ve imported this as quadgk (Gauss-Kronrod quadrature) for simplicity.</p>
+<p>This basically works very similar to your graphing calculator does for solving a definitite integral. We define an integrand (the function we’re integrating), and we specifiy the range of integration. For example, let’s use it to solve the following definite integral using GK quadrature:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{10} x^2 dx\]</div>
+<p>We know that the solution to that integral is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{x^3}{3}\bigg |_0^{10} = 333.33\]</div>
+<p>Now with quadgk (note we have to define the integrand as a function…):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from scipy.integrate import quadrature as quadgk</span>
+<span class="c1"># example = lambda x: x**2</span>
+<span class="c1"># ans, error = quadgk(example, 0, 10)</span>
+<span class="c1"># print(ans)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With that in mind, we can use a similar approach to develop integrands as functions of pressure…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># N2COEFFS  = [1.0000e+00, 2.1735e-04, 6.2923e-07, -2.3065e-10, -3.0835e-14]</span>
+<span class="c1"># H2COEFFS  = [1.0000e+00,  4.3484e-04,  9.5380e-08, -5.4028e-11,  1.5314e-14]</span>
+<span class="c1"># NH3COEFFS = [9.9987e-01, -9.0961e-04, -1.0349e-06,  2.6566e-09,  4.6925e-12]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="write-compressibility-factors-as-functions-of-pressure">
+<h3>Write compressibility factors as functions of pressure.<a class="headerlink" href="#write-compressibility-factors-as-functions-of-pressure" title="Permalink to this headline">#</a></h3>
+<p>First, let’s use something we are already familiar with: lambda functions. These are just univariate polynomias, so these can be easily written as a one linear.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ZN  = lambda P: (1 + 2.1735e-4*P + 6.2923e-7*P**2 - 2.3065e-10*P**3 - 3.0835e-14*P**4)</span>
+<span class="c1"># ZH  = lambda P: (1 + 4.3484e-4*P + 9.5380e-8*P**2 - 5.4028e-11*P**3 + 1.5314e-14*P**4)</span>
+<span class="c1"># ZA  = lambda P: (0.99987 - 9.0961e-4*P - 1.0349e-6*P**2 + 2.6566e-9*P**3 + 4.6925e-12*P**4)</span>
+
+<span class="c1"># # Plot compressibility factors as functions of pressure</span>
+<span class="c1"># pplot = np.linspace(0,400,30) #We&#39;ll plot from 0 bar to 400 bar...</span>
+<span class="c1"># plt.figure(figsize = (5,5))</span>
+<span class="c1"># plt.plot(pplot, ZN(pplot), color = &#39;black&#39;, label = &#39;ZN2&#39;)</span>
+<span class="c1"># plt.plot(pplot, ZH(pplot), color = &#39;blue&#39;, label = &#39;ZH2&#39;)</span>
+<span class="c1"># plt.plot(pplot, ZA(pplot), color = &#39;red&#39;, label = &#39;ZNH3&#39;)</span>
+<span class="c1"># plt.xlim(pplot[0], pplot[-1])</span>
+<span class="c1"># plt.xlabel(&#39;Pressure (bar)&#39;)</span>
+<span class="c1"># plt.ylabel(&#39;Z&#39;)</span>
+<span class="c1"># plt.legend()</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="use-compressibility-factors-to-find-fugacity-coefficients">
+<h3>Use compressibility factors to find fugacity coefficients<a class="headerlink" href="#use-compressibility-factors-to-find-fugacity-coefficients" title="Permalink to this headline">#</a></h3>
+<p>Now that I have expressions for compressibility factors, I’ll use them to define integrands that I can use to solve for the fugacity coefficients.  Again, we are trying to solve:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P\frac{\left(Z_j-1\right)}{P}d\!P\right)\]</div>
+<p>The integrand is the part I am integrating:</p>
+<div class="math notranslate nohighlight">
+\[\phi_j = \exp\left(\int_0^P \textrm{integrand} \ d\!P\right)\]</div>
+<p>So I’m now writing functions that define the integrands that I need to integrate to figure out the fugacity coefficients.</p>
+<div class = "alert alert-block alert-info">
+    <b>Notice</b>: I am again using a lambda function since this is a nice, easy one liner.  I'm passing Pressure as a function argument, which then gets passed into Z(P).  Functions are neat this way---you can use a function inside of another function if it is useful to you!!
+    </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># INTN  = lambda P: (ZN(P) - 1)/P</span>
+<span class="c1"># INTH  = lambda P: (ZH(P) - 1)/P</span>
+<span class="c1"># INTA  = lambda P: (ZA(P) - 1)/P</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="integrate-using-gaussian-quadrature-to-find-the-fugacity-coefficient-at-specific-p">
+<h3>Integrate using gaussian quadrature to find the fugacity coefficient at specific P<a class="headerlink" href="#integrate-using-gaussian-quadrature-to-find-the-fugacity-coefficient-at-specific-p" title="Permalink to this headline">#</a></h3>
+<p>Now that I have the integrands defined, I can use Gaussian Quadrature to integrate them to any pressure I want. This is just integrating the integrand as a function of pressure from 0 to P.  Here, we’ll use an upper limit of 200 bar since that is what the problem specifies for industrial synthesis of ammonia.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># phiN = np.exp(quadgk(INTN, 0, 200)[0])</span>
+<span class="c1"># phiH = np.exp(quadgk(INTH, 0, 200)[0])</span>
+<span class="c1"># phiA = np.exp(quadgk(INTA, 0, 200, tol=1e-06, rtol=1e-06, maxiter=500)[0])</span>
+<span class="c1"># print(phiN, phiH, phiA)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adapt-ammonia-synthesis-equilibrium-problem-to-include-fugacity-coefficients">
+<h3>Adapt ammonia synthesis equilibrium problem to include fugacity coefficients<a class="headerlink" href="#adapt-ammonia-synthesis-equilibrium-problem-to-include-fugacity-coefficients" title="Permalink to this headline">#</a></h3>
+<p>Now, we’re in a position to adapt our ammonia objective function to include fugacity coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def EQ3(ex):</span>
+    
+<span class="c1">#     #Specifications for this problem</span>
+<span class="c1">#     T   = 673 #K</span>
+<span class="c1">#     P   = 200 #bar</span>
+<span class="c1">#     P0  = 1.0 #bar</span>
+<span class="c1">#     NN0 = 1.0 #moles</span>
+<span class="c1">#     NH0 = 3.0 #moles</span>
+<span class="c1">#     NA0 = 0.0 #moles</span>
+    
+<span class="c1">#     #Mole Table, this captures extent of reaction</span>
+<span class="c1">#     NN  = NN0 - ex</span>
+<span class="c1">#     NH  = NH0 - 3*ex</span>
+<span class="c1">#     NA  = NA0 + 2*ex</span>
+<span class="c1">#     NT  = NN + NH + NA</span>
+    
+<span class="c1">#     #Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+<span class="c1">#     yN  = NN/NT</span>
+<span class="c1">#     yH  = NH/NT</span>
+<span class="c1">#     yA  = NA/NT</span>
+    
+<span class="c1">#     #Fugacity coefficients -- generally species specific and a strong function of pressure</span>
+<span class="c1">#     phiN = 1.056992064544399</span>
+<span class="c1">#     phiH = 1.0927939252498111</span>
+<span class="c1">#     phiA = 0.8226247909678744</span>
+    
+<span class="c1">#     #Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+<span class="c1">#     aN  = yN*phiN*P/P0</span>
+<span class="c1">#     aH  = yH*phiH*P/P0</span>
+<span class="c1">#     aA  = yA*phiA*P/P0</span>
+    
+<span class="c1">#     #This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+<span class="c1">#     KACTIVITY = aA**2/aN/aH**3</span>
+    
+<span class="c1">#     #And finall, our Thermodynamic equilibrium constant</span>
+<span class="c1">#     KTHERMO = K(T)</span>
+       
+<span class="c1">#     return KACTIVITY - KTHERMO  #We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ans, info = opt.newton(EQ3, 0.99, full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info.flag) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;Conversion of N2 is {round(XN,4)}, yN is {round(yN, 4)}, yH is {round(yH, 4)}, and yA is {round(yA, 4)}&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="it-is-much-more-convenient-to-pass-t-and-p-as-extra-parameters">
+<h3>It is much more convenient to pass T and P as extra parameters…<a class="headerlink" href="#it-is-much-more-convenient-to-pass-t-and-p-as-extra-parameters" title="Permalink to this headline">#</a></h3>
+<p>There are a couple of things I don’t like about the above approach.  The one we’ll talk about now is that it requires me to basically re-write specifications and recalculate fugacity coefficients every time I change the temperature and the pressure.  What I would <em>like</em> to do is embed those calculations into my objective function so that I can just pass (T,P) as arguments and have the problem solve at any T,P that I like without me having to, e.g., hard-code values of the equilibrium constant or fugacity coefficients.  Let’s start by moving everything inside of the function…and I’m going to give that function 3 arguments:  reaction extent, temperature, and pressure</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def tempfun2(ex, T, P):</span>
+
+<span class="c1">#     #Specifications for this problem</span>
+<span class="c1">#     #Trxn = T -- we are passing this into the function as an argument.</span>
+<span class="c1">#     #Prxn = P -- we are passing this into the function as an argument</span>
+
+<span class="c1">#     P0  = 1.0 #bar</span>
+<span class="c1">#     NN0 = 1.0 #moles</span>
+<span class="c1">#     NH0 = 3.0 #moles</span>
+<span class="c1">#     NA0 = 0.0 #moles</span>
+    
+<span class="c1">#     #Mole Table, this captures extent of reaction</span>
+<span class="c1">#     NN  = NN0 - ex</span>
+<span class="c1">#     NH  = NH0 - 3*ex</span>
+<span class="c1">#     NA  = NA0 + 2*ex</span>
+<span class="c1">#     NT  = NN + NH + NA</span>
+    
+<span class="c1">#     #Mole fractions -- note extent is built into definitions of NA, NB, NC, NT</span>
+<span class="c1">#     yN  = NN/NT</span>
+<span class="c1">#     yH  = NH/NT</span>
+<span class="c1">#     yA  = NA/NT</span>
+    
+<span class="c1">#     #Fugacity coefficients -- generally species specific and a strong function of pressure; reuse integrand functions</span>
+<span class="c1">#     phiN = np.exp(quadgk(INTN, 0, P)[0])</span>
+<span class="c1">#     phiH = np.exp(quadgk(INTH, 0, P)[0])</span>
+<span class="c1">#     phiA = np.exp(quadgk(INTA, 0, P, tol=1e-06, rtol=1e-06, maxiter=500)[0])</span>
+    
+<span class="c1">#     #Activity definitions -- extents embedded in yA, yB, yC; P and P0 also show up.</span>
+<span class="c1">#     aN  = yN*phiN*P/P0</span>
+<span class="c1">#     aH  = yH*phiH*P/P0</span>
+<span class="c1">#     aA  = yA*phiA*P/P0</span>
+    
+<span class="c1">#     #This is our ratio of thermodynamic activities at equiliribum, i.e., Kactivity = Product(a_j^nu_j)</span>
+<span class="c1">#     KACTIVITY = aA**2/aN/aH**3</span>
+    
+<span class="c1">#     #Calculate the equilibrium constant at T = Trxn</span>
+<span class="c1">#     KTHERMO = K(T) </span>
+       
+<span class="c1">#     return KACTIVITY - KTHERMO  #We want to find the value of extent where KCOMP - Kthermo = 0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lambda-functions">
+<h3>Lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h3>
+<p>Now we just have to address the fact that <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> will, by default, accept a function that takes a single argument (ex in this case)…here, we need to give 3 arguments to our function (ex, T, P).  As above, we can use <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions or the more Python-specific <code class="docutils literal notranslate"><span class="pre">args</span></code> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trxn = 673 #K</span>
+<span class="c1"># Prxn  = 200 #bar</span>
+<span class="c1"># objective = lambda ex: tempfun2(ex, Trxn, Prxn)</span>
+<span class="c1"># ans, info = opt.newton(objective, 0.99, full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info.flag) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;Conversion of N2 is {round(XN,4)}, yN is {round(yN, 4)}, yH is {round(yH, 4)}, and yA is {round(yA, 4)}&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-args-keyword">
+<h3>Using the args keyword<a class="headerlink" href="#using-the-args-keyword" title="Permalink to this headline">#</a></h3>
+<p>You can also pass them directly to <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> using the <code class="docutils literal notranslate"><span class="pre">args</span></code> keyword.  This is a pretty common option for both algebraic and ODE solvers in Python.  It is honestly pretty convenient, so it is worth knowing about.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trxn = 600 #K</span>
+<span class="c1"># Prxn  = 200 #bar</span>
+<span class="c1"># ans, info = opt.newton(tempfun2, 0.98, args = (Trxn, Prxn), full_output = True) #This solves for the equilibrium extent</span>
+
+<span class="c1"># print(info, &#39;\n&#39;) #Let&#39;s make sure it converged...</span>
+
+<span class="c1"># #Solve for conversion and mole fractions.</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+<span class="c1"># NN = NN0 - ans</span>
+<span class="c1"># NH = NH0 - 3*ans</span>
+<span class="c1"># NA = NA0 + 2*ans</span>
+<span class="c1"># NT = NN + NH + NA</span>
+<span class="c1"># XN = (NN0 - NN)/NN0</span>
+<span class="c1"># yN = NN/NT</span>
+<span class="c1"># yH = NH/NT</span>
+<span class="c1"># yA = NA/NT</span>
+
+<span class="c1"># print(f&#39;Conversion of N2 is {round(XN,4)}, yN is {round(yN, 4)}, yH is {round(yH, 4)}, and yA is {round(yA, 4)}&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-not-do-this-for-an-absurd-number-of-t-and-p-values-with-a-loop">
+<h3>Why not do this for an absurd number of T and P values with a loop?<a class="headerlink" href="#why-not-do-this-for-an-absurd-number-of-t-and-p-values-with-a-loop" title="Permalink to this headline">#</a></h3>
+<p>Perhaps it would be useful to map the equilibrium conversion in 3D space as a function of reaction temperature and reaction pressure.  We can easily do this!  One option is a for loop that will solve the objective function for a lot of temperatures and pressures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># P0  = 1.0 #bar</span>
+<span class="c1"># NN0 = 1.0 #moles</span>
+<span class="c1"># NH0 = 3.0 #moles</span>
+<span class="c1"># NA0 = 0.0 #moles</span>
+
+<span class="c1"># Tset = np.linspace(300, 900, 30)</span>
+<span class="c1"># Pset = np.logspace(-2, np.log10(200), 30)</span>
+<span class="c1"># Xout = np.zeros((len(Tset), len(Pset)))</span>
+
+<span class="c1"># for i in range(0, len(Tset)):</span>
+<span class="c1">#     for j in range(0, len(Pset)):</span>
+<span class="c1">#         objective = lambda ex: tempfun2(ex, Tset[i], Pset[j])</span>
+<span class="c1">#         ans, info = opt.brentq(objective, 1e-6, 0.99999, xtol = 1e-8, rtol = 1e-8, full_output = True)</span>
+<span class="c1">#         if info.converged == True:</span>
+<span class="c1">#             Xout[i,j] = ans/NN0</span>
+<span class="c1">#         if info.converged == False:</span>
+<span class="c1">#             print(info)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt.figure(figsize = (6,5))</span>
+<span class="c1"># # plt.contourf(Pset, Tset, Xout)</span>
+<span class="c1"># # plt.contourf(Pset, Tset, Xout, levels = np.linspace(0, 1.0, 201))</span>
+<span class="c1"># plt.contourf(Pset, Tset, Xout, levels = np.linspace(0, 1.0, 201), cmap = &#39;jet&#39;)</span>
+<span class="c1"># plt.xlim(Pset[0], Pset[-1])</span>
+<span class="c1"># plt.xlabel(&#39;Pressure (bar)&#39;, fontsize = 14)</span>
+<span class="c1"># plt.ylim(Tset[0], Tset[-1])</span>
+<span class="c1"># plt.ylabel(&#39;Temperature (K)&#39;, fontsize = 14)</span>
+<span class="c1"># plt.colorbar(ticks = np.arange(0, 1.1, 0.2))</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Recitation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="587-R02.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Solving Algebraic Equations</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="587-R04.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solving ODEs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jesse Q. Bond, Syracuse University<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Minimization of Multivariate Functoins
+# # Minimizing Multivariate Functions
 # 
 # We now move into minimizing objectives that are multivariate functions.  They still return a single quantity that we wish to optimize, so they are scalar functions, but we will now move into the case of optimizing that objective function by iteratively varying ***more than one*** function argument. We encounter this type of problem all the time!
 # 

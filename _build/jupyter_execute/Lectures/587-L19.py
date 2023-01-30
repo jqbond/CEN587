@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 19
+# # Material Balances X
 # 
 # This lecture solves CSTR material balances for non-power law kinetics.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 42
+# # Energy Balances IV
 # 
 # This lecture continues with Energy Balance example problems.
 

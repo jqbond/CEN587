@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 36
+# # Kinetics XI
 # 
 # This lecture considers the the development of rate expressions for surface reactions.  We'll make use of the equilibrium assumption, and we'll introduce another one:  that of a rate determining step.
 

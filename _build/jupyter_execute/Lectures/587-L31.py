@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 31
+# # Kinetics IV
 # 
 # Today, we'll discuss analysis of kinetic data obtained in a CSTR.  We'll consider the impacts of measurement error and how it can be managed, and we'll also discuss how to work with a maddening set of data that were not obtained very systematically...
 

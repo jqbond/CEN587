@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 37
+# # Kinetics X
 # 
 # This lecture considers the analysis of surface reactions (heterogeneous catalysis).  We introduce the reaction equilibrium assumption and develop the Langmuir-adsorption model, which has wide usage in catalysis and adsorption phenomena.
 

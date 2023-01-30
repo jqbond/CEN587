@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 07: Ammonia Equilibrium - Part 2
+# # Chemical Equilibrium IV 
 # 
 # This lecture covers the next few equilibrium example problems.  Specifically, this example extends consideration to the impacts of changing temperature and pressure during ammonia synthesis.
 
@@ -13,7 +13,7 @@ import scipy.optimize as opt
 import matplotlib.pyplot as plt
 
 
-# ## Problem Statement
+# ## A More Realistic View of Ammonia Synthesis
 # 
 # Consider the gas-phase reaction of molecular nitrogen with molecular hydrogen to produce ammonia:
 # 
@@ -21,29 +21,39 @@ import matplotlib.pyplot as plt
 # 
 # We will again carry it out in a batch reactor at 1 bar, and we will start with 1 mole of $N_2$ and 3 moles of $H_2$. In the first example, we considered this exact system at 298K. We concluded that this reaction is extremely favorable at 298K and 1 bar, and we would expect an equilibrium conversion of N$_2$ of approximately 97%. 
 # 
-# Unfortunately, N$_2$ bond dissociation is incredibly difficult! Despite very favorable *thermodynamics* at 298K, $N_2$ and $H_2$ will react very, very slowly to form $N\!H_3$ at these conditions, so it is effectively impossible to run this reaction at 298K. We would *never* be able to achieve industrially relevant rates of ammonia synthesis at 298K!
+# Unfortunately, N$_2$ bond dissociation is incredibly difficult! Despite very favorable ***thermodynamics*** at 298K (how far can the reaction go?), $N_2$ and $H_2$ will react very, very slowly to form $N\!H_3$ at these conditions (how fast does the reaction get where it is going?), so it is effectively impossible to run this reaction at 298K. We would ***never*** be able to achieve industrially relevant rates of ammonia synthesis at 298K!
 # 
-# <div class = "alert alert-block alert-info">
-# <b>Remember</b>: The rate of a reaction controls how long we have to wait for products to form.  This impacts the length of batch reaction times, and it also impacts the size of flow reactors. In general, to achieve an identical conversion level, slow reactions will require larger reactors than fast reactions. This makes slow reactions more capital intensive processes.
-# </div>
+# ```{tip}
+# The rate of a reaction controls how long we have to wait for products to form.  This impacts the length of batch reaction times, and it also impacts the size of flow reactors. In general, to achieve an identical conversion level, slow reactions will require larger reactors than fast reactions. This makes slow reactions more capital intensive processes.
+# ```
 # 
 # ### Temperature Effects on Chemical Equilibrium
 # 
-# More realistically, ammonia synthesis as we've written it would probably need to be carried out at much higher temperatures to accomplish $N_2$ dissociation at an appreciable rate.  Assuming we do not add a catalyst to the system, let's say that we'd have to run ammonia synthesis at 873K to achieve an industrially relevant reaction rate. We will still perform the reaction at 1 bar.
+# More realistically, ammonia synthesis as we've written it would probably need to be carried out at much higher temperatures to accomplish $N_2$ dissociation at an appreciable rate.  Assuming we do not add a catalyst to the system, let's say that we'd have to run ammonia synthesis at 873K to achieve an industrially relevant reaction rate. We will still perform the reaction at 1 bar in a batch reactor, and we will start the process by adding a 3:1 molar ratio of $H_2$:$N_2$ to the reactor.
 # 
 # Without doing any calculations, at 873K, do you expect the equilibrium conversion of $N_2$ to increase or decrease compared to the 97% equilibrium conversion that we calculated at 298K and 1 bar?
 # 
-# Exothermic reactions become less favorable as the temperature increases.  So I would expect a lower equilibrium conversion than 97% at 873K.  How low?  I can't say until we calculate the equilibrium constant and solve this problem:
+# ```{note}
+# Exothermic reactions become less favorable as the temperature increases.  So I would expect a lower equilibrium conversion than 97% at 873K. How low? We can't say for sure without a detailed analysis and a bit of number crunching...this is the topic of Example 01 below 
+# ```
+# 
+# ## Example Problem 01
+# 
+# What is the equilibrium conversion for ammonia synthesis as specified above: 873K, 1 bar, and starting with a 3:1 ratio of H2:N2? 
+# 
+# ### Solution to Example Problem 01
+# 
+# We can't say until we calculate the equilibrium constant and actually solve this problem, which means we need to think about the equation below, which relates the standard state change in Gibbs free energy to the equilibrium composition of the reacting system.
 # 
 # $$\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j} \label{eq2}\tag{2}$$
 
-# ### Thermodynamic data
+# #### Thermodynamic data and K
 # 
-# As usual, we start this problem by considering available thermodynamic data, which we need to solve for the equilibrium constant:
+# We start by considering available thermodynamic data. We cannot solve for the equilibrium constant without it:
 # 
 # $$K = \exp\left(\frac{-\Delta G^\circ}{RT}\right) \label{eq3}\tag{3}$$
 # 
-# To do that, we have to calculate $\Delta G^\circ$ at the standard state.  For gas phase reactions like this one, the standard state is pure species at 1 bar and the reaction temperature.  We've *increased* the reaction temperature to 873K in this example, so now we need to calculate the Gibbs free energy change at 1 bar and 873K.  Previously, we only had data at 298K, but we can correct for temperature effects using heat capacities.  I've added them to the table accordingly.
+# To find K, we have to first calculate $\Delta G^\circ$ at the standard state.  For gas phase reactions like this one, the standard state is pure species at 1 bar and the reaction temperature.  For this example problem, we've ***increased*** the reaction temperature to 873K, so we need to calculate the Gibbs free energy change at 1 bar and 873K. Previously, we only had data at 298K, but we can correct for temperature effects using heat capacities.  I've added them to the table accordingly.
 # 
 # |Species | ${H_j}^\circ$ (kJ mol$^{-1}$)| ${S_j}^\circ$ (J mol$^{-1}$ K$^{-1}$) | ${C_{p_j}}^\circ$ (J mol$^{-1} $K$^{-1}$)|
 # |-------------|:-----------------------:|:-------------------------------------:|:-----------------------------------------|
@@ -108,13 +118,13 @@ K1  = np.exp(-DG/R/T1)     #Dimensionless
 print(f'At T = {T1:0.0f}K, the thermodynamic equilibrium constant for ammonia synthesis is K = {K1:0.2E}')
 
 
-# ### Why not write a function that you can reuse over and over at any T?
+# #### Why not write a function that you can reuse over and over at any T?
 # 
 # It is generally useful for us to be able to embed repetitive calculations--like evaluating an equilibrium constant at a specific temperature--inside a function that will allow us to compute the equilibrium constant for *any* temperature. See below -- this is really just moving all of the calculations we did above ***inside*** of a function definition and then returning the value of the equilibrium constant from that function. This way, we can pass any Temperature into our function as an argument, and our function will spit out the corresponding equilibrium constant for ammonia synthesis at that temperature and 1 bar pressure for pure gas reference states.
 # 
-# <div class = "alert alert-block alert-info">
-#     <b>Notice</b>: A function in a programming language can be much more complex than our conventional idea of a function as, e.g., f(x) = x<sup>2</sup>.  In the example below, the function K(T) includes many calculations! But it still serves the same basic purpose of a function -- it takes input from the user (temperature), and it returns the output we're interested in (K at that temperature)!
-#     </div>
+# ```{tip}
+# A function in a programming language can be much more complex than our conventional idea of a function as, e.g., $f(x) = x^2$. In a programming language, functions are little subroutines that perform a set of operations on the inputs to that function and then return the result. In the example below, the function K(T) includes many calculations! But it still serves the same basic purpose of a function -- it takes input from the user (temperature), and it returns the output we're interested in (K at that temperature)!
+# ```
 
 # In[3]:
 
@@ -159,18 +169,19 @@ print(f'At T = {T1:0.0f}K, the thermodynamic equilibrium constant for ammonia sy
 
 # From this, we can see that the reaction is going to be pretty unfavorable at T = 873K, where the equilibrium constant is $K = 1.52\times10^{-6}$
 
-# ### If you can graph it, why not graph it?
+# #### If you can graph it, why not graph it?
 # 
 # It is helpful to visualize how the thermodynamic equilibrium constant changes for ammonia synthesis as a function of temperature. Now that we've written a function, $K(T)$, this is easy to do in Python. *Remember*:  K = 1 is a relatively neutral reaction in terms of favorability.  As the equilibrium constant becomes very large ($K > 1000$), that reaction is favorable.  As K becomes very small ($K < 0.001$), we would classify the reaction as unfavorable.  This plot gives you a good sense for where the reaction becomes unfavorable as a function of temperature.
 # 
-# <div class = "alert alert-block alert-success">
-#     <b>Notice</b>: We are reusing the function, K(T), that we built above for plotting.  Handy!
-# </div>
+# ```{tip}
+# We are reusing the function, K(T), that we built above for plotting. We do this by "broadcasting" that function to a large set of temperatures. Handy!
+# ```
 
 # In[4]:
 
 
 Tvals = np.linspace(300, 900, 200)
+
 plt.figure(figsize = (6,6))
 plt.plot(Tvals, K(Tvals), label = 'K(T)')
 plt.hlines(1, Tvals[0], Tvals[-1], linestyle = 'dashed', color = 'black', label = 'K = 1') #This is a reference line of K = 1
@@ -185,11 +196,13 @@ plt.legend(fontsize = 12)
 plt.show()
 
 
-# ### Solving for the Equilibrium composition
+# #### What was the question again?
 # 
-# Assume that we run ammonia synthesis at 873K starting with 1 mole of $N_2$ and 3 moles of $H_2$.  What conversion of Nitrogen do we expect at equilibrium?  What is the composition (mole fractions) of the mixture at equilibrium.
+# Our goal in this example is ultimately to answer the following question: If that we run ammonia synthesis at 873K and 1 bar starting with 1 mole of $N_2$ and 3 moles of $H_2$.  What conversion of Nitrogen do we expect at equilibrium?  What is the composition (mole fractions) of the mixture at equilibrium.
 # 
-# We approach this the exact same way as we did the Ammonia Synthesis Example in L06. The only difference is that, in this case, since we are running the reaction at 873K, we have to use $\Delta G^\circ$ calculated at 873K to calculate our equilibrium constant (at 1 bar and based on pure gas reference states).  We did this above, and we found that, at 873K, the equilibrium constant for ammonia synthesis is $K = 1.52 \times 10^{-6}$.
+# We approach this the exact same way as we did the Ammonia Synthesis Example in L06. The only difference here is that we are running the reaction at 873K, so we have to use $\Delta G^\circ$ calculated at 873K to calculate our equilibrium constant (at 1 bar and based on pure gas reference states). We did this above, and we found that, at 873K, the equilibrium constant for ammonia synthesis is $K = 1.52 \times 10^{-6}$.
+# 
+# #### K is also a function of thermodynamic activities!
 # 
 # Now that we have the equilibrium constant at 873K, 1 bar, and for pure gas reference states, we can address the composition dependence by considering:
 # 
@@ -207,9 +220,7 @@ plt.show()
 # 
 # $$a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ} \label{eq12}\tag{12}$$
 # 
-# Looking at the numerator, we are operating this reactor at 1 bar, so the fugacity coefficient for species j under reaction conditions, $\phi_j$ is 1. Looking at the denominator, the reference state is a pure species, so $y_j^\circ = 1$.  Further, that pure species is at 1 bar, so $\phi_j^\circ = 1$
-# 
-# This gives the usual result for low pressure gases:
+# Looking at the numerator, we are operating this reactor at 1 bar, so the fugacity coefficient for species j under reaction conditions, $\phi_j$ is 1. Looking at the denominator, the reference state is a pure species, so $y_j^\circ = 1$.  Further, that pure species is at 1 bar, so $\phi_j^\circ = 1$. This gives the usual result for low pressure gases:
 # 
 # $$a_j = \frac{y_j P}{P^\circ} \label{eq13}\tag{13}$$
 # 
@@ -223,7 +234,7 @@ plt.show()
 # 
 # Now we're at a point that we can't really go any further because we have 3 unknowns ($y_{N\!H_3}$, $y_{N_2}$, and $y_{H_2}$) and only 1 equation.  As before, we address this by solving for the molar quantity of each species using an extent of reaction, stoichiometric coefficients, and the starting quantity of each species.
 
-# ### Expressing Mole Fractions as functions of Extent
+# #### Expressing Mole Fractions as functions of Extent
 # 
 # In general, the mole fraction for a species in the gas phase is defined as:
 # 
@@ -249,13 +260,13 @@ plt.show()
 # 
 # $$K = \frac{\left(N_{A,0} + 2\varepsilon\right)^2 \left(N_{T,0} - 2\varepsilon\right)^2}{\left(N_{N,0} - 1\varepsilon\right) \left(N_{H,0} - 3\varepsilon\right)^3} \left(\frac{P^\circ}{P}\right)^2 \label{eq19}\tag{19}$$
 # 
-# ### Solving the problem with opt.newton()
+# #### Solving the problem with opt.newton()
 # 
-# Inspection of this equation reveals that we know everything except for the extent of reaction.  1 Equation, 1 unknown.  This can be solved with numerical methods; see below, I use opt.newton since it is univariate. If I just want to solve the above equation, it's easy enough.  Use a lambda function as in the Example in Lecture 06. I am using an initial guess for the equilibrium extent of 0.01 because I know that, with an equilibrium constant of $K = 1.5\times10^{-6}$, the reaction is very unfavorable.
+# Inspection of this equation reveals that we know everything except for the extent of reaction.  1 Equation, 1 unknown.  This can be solved with numerical methods; see below.  We will use `opt.newton()` since this is a univariate function in $\varepsilon$. We can use a lambda function as in the Example in Lecture 06. I am using an initial guess for the equilibrium extent of 0.01 because I know that, with an equilibrium constant of $K = 1.5\times10^{-6}$, the reaction is very unfavorable.
 # 
-# <div class = "alert alert-block alert-info">
-#               <b>Notice</b>:  The only difference between this solution and the one in Lecture 06 is the value of the equilibrium constant.  Everything else in the problem is identical.  The strategies we've used to define activities, etc. is completely general, and it will apply for any condition we are interested in.  Also notice, I haven't plugged in numbers. The solution is left symbolic, which makes it much easier to modify to account for changes in the problem statement.
-#               </div>
+# ```{important}
+# The only difference between this solution and the one in Lecture 06 is the value of the equilibrium constant. K has changed because we have changed temperature to 873K in this example. Everything else in the problem is identical to the one presented in L06. The strategies we've used to define activities, etc. is completely general, and it will apply for any condition we are interested in. We haven't plugged in numbers. The solution is left symbolic, which makes it much easier to modify to account for changes in the problem statement.  
+# ```
 
 # In[5]:
 
@@ -274,7 +285,7 @@ ans, info = opt.newton(obj1, 0.01, full_output = True)
 print(f'At T = {T1:0.0f}K, the extent of reaction at equilibrium is {ans:0.2E} moles')
 
 
-# ### Using the equilibrium extent to calculate composition and conversion
+# #### Using the equilibrium extent to calculate composition and conversion
 # 
 # 
 # Now that we know the reaction extent at equilibrium, it is easy enough to calculate the composition of the mixture:
@@ -291,11 +302,13 @@ print(f'At T = {T1:0.0f}K, equilibrium mole fractions for N2, H2, and NH3 are {y
 print(f'At T = {T1:0.0f}K, the equilibrium fractional conversion of N2 is {XN:0.2E}')
 
 
-# ### Why not make a more general function so we aren't stuck doing so many hand calculations?
+# #### Why not make a general function so we aren't stuck doing manipulations by hand
 # 
 # Although there is nothing wrong with the solution above, I *prefer* to address the problem as below, which is to embed all of the calculations of numbers of moles, mole fractions, and thermodynamic activities into my objective function--see `obj2(ex)` below.  This makes it easy for me to look at the equations and understand exactly what they mean, which helps me to identify mistakes in my code.
 # 
-# Compare this to the function `obj1(ex)` above.  To me, `obj2(ex)` is far easer to understand in terms of physical significance of each term...
+# ```{tip}
+# Compare `obj2(ex)` to the function `obj1(ex)` above.  Functionally, the two accomplish exactly the same thing, but, to me, `obj2(ex)` is far easer to understand in terms of physical significance of each term. The reason for this is that it is all symbolic and left in the form of definitions and equations that are physically intuitive to us.  Python doesn't make mistakes in performing math operations, whereas we frequently make mistakes with algebraic manipulations.  Let's offload the tedious part to Python, why don't we?
+# ```
 
 # In[7]:
 

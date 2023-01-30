@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <span style="font-family:Times New Roman; font-size:2.0em;">**CEN 587: Lecture 20**</span>
+# # Material Balances XII
 # 
 # This lecture covers reactor sequencing using Levenspiel Plots
 

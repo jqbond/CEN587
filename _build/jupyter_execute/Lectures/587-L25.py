@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 25
+# # Material Balances XVI
 # 
 # This lecture continues with a discussion of yield, selectivity, and optimization. We also discuss instantaneous selectivity and how we can use it to inform reactor selection and ideal operating conditions.
 

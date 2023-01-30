@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # For Loops, Vectorization, and Plotting
+# # For Loops and Plotting
 # 
 # One of the places that computers shine most is in automating repetitive tasks. When faced with calculations over large sets, we frequently handle them using loops. To truly appreciate the benefit of a loop, you have to think big -- if you need to do one or ten iterations to get an answer, then it might be reasonable to solve your problem by hand, using a calculator, or using a spreadsheet. But when you have to perform an operation hundreds or thousands of times, then you'll want to use a programming language, and you will probably consider looping those calculations to automate iterations so that you don't have to write them out line by line.
 # 

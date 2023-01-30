@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 02: Extent and Conversion
+# # Extent and Conversion
 # 
 # This lecture covers definitions for two important quantities that we frequently use to quantify reaction progress: ***extent of reaction*** and ***fractional conversion***.  It also considers how we can use extent or fractional conversions along with reaction stoichiometry to define the changes in molar quantities of each species that occur as reactions progress.
 

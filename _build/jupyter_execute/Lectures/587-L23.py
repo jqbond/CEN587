@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 23
+# # Material Balances XIV
 # 
 # This lecture continues the discussion of reactor design for systems involving multiple reactions.
 

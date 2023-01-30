@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 33
+# # Kinetics VI
 # 
 # This lecture covers the analysis differential tubular reactors (plug flow or packed bed reactors). We also introduce a demonstration of "non-elementary" or non-power law kinetics observed during Azomethane decomposition.
 

@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 11
+# # Material Balances II
 # 
 # This lecture continues discussion of material balances on reacting systems.
-
-# ## Material Balances, Part 2
 # 
 # In Lecture 10, we looked at a species balance on a reactor of arbitrary "size" and shape, where we considered that the "size" of the system might be described in terms of volume, mass of catalyst, interfacial area, or even number of catalytic "active sites" in the reactor.  With that in mind, our species balance on an arbitrary reactor:
 # 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 35
+# # Kinetics VIII
 # 
 # This lecture introduces catalytic reactions.  We develop strategies for the analysis of mechanisms catalyzed by enzymes.
 

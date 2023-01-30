@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 36 
+# # Kinetics IX
 # 
 # This continues discussion of enzymatic reactions, methods of analysis and linearization for experimental data, and mechanisms of enzyme inhibition.
 

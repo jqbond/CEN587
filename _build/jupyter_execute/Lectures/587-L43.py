@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 43
+# # Energy Balances VI
 # 
 # This lecture continues with Energy Balance example problems; it introduces the concept of steady state multiplicity in CSTRs.
 

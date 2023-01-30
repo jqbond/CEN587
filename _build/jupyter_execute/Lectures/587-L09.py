@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 09: Chemical and Phase equilibria
+# # Chemical and Phase Equilibria
 # 
 # This lecture covers increasingly complex equilibrium problems with, e.g., unknown operating conditions.  It also covers equilibrium problems for liquid phase reactions and adds in an analysis of phase equilibria.
 

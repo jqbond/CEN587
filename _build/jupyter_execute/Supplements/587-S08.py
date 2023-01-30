@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # The Probability of the Fall of Acererak
+# # The Fall of Acererak
 # 
 # Over the past few modules, we've learned the basics of loops and functions.  In the Functions Module (07), we used a function combined with a while loop to gauge how many times we would need to make a dice roll for the average of those rolls to approach the true mean (within our tolerance threshold). We ran that simulation many times, and, on average, it seemed to converge somewhere between 500 and 1000 rolls. Now, that probably gives us a pretty good idea of what the mean is, but I'm not convinced 1000 rolls is enough for us to get good enough statistics to confidently assess how our damage roll will play out  against ***Acererak the Archlich***.
 # 

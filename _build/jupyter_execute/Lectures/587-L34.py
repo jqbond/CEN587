@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 34
+# # Kinetics VII
 # 
 # This lecture extends our analysis of reaction mechanisms to chain reactions initiated by the formation of radicals.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 03: Numerical methods
+# # Algebraic and Differential Equations
 # 
 # This lecture covers the basic ideas behind numerical methods for solving algebraic equations and ordinary differential equations. For more detail on these concepts and how they are implemented in Python, please reference **Supplements 09 - 14**.
 

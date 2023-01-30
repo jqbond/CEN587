@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 15
+# # Material Balances VI
 # 
 # This lecture solves more Material Balance Example Problems
 

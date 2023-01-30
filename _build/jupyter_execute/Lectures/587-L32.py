@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 32
+# # Kinetics V
 # 
 # This lecture covers multiple linear regression; estimation of multiple parameters using nonlinear regression; and the analysis of data obtained in integral tubular reactors (plug flow or packed bed reactors). 
 
@@ -15,7 +15,7 @@ import scipy.stats as stats
 from math import ceil
 
 
-# ## Example Problem 01 (Continuation from L31)
+# ## Example Problem 01 (Continuation from Kinetics IV)
 # 
 # We next consider a data set where not much has been done systematically. Someone decided to perform a "kinetic study" of the following reaction in a CSTR.
 # 

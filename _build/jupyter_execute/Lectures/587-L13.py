@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 13
+# # Material Balances IV
 # 
 # This lecture introduces rate laws and solves the first two Material Balance Example Problems
 

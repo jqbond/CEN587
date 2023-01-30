@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 04: Chemical Equilibrium Part 1
+# # Chemical Equilibrium I
 # 
 # This lecture is the first part of chemical equilibrium lectures (1 of 2).  This one covers critera for equilibrium and the relationship between Gibbs free energy and the composition of a reacting mixture.
 

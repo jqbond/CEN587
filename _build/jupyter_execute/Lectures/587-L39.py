@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Lecture 39
+# # Energy Balances I
 # 
 # This lecture begins the development of energy balances for various ideal reactor archetypes.
 

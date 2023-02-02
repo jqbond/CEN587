@@ -571,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L23.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Lectures/587-L23.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -614,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/2022CEN587"
+        <a href="https://github.com/jqbond/CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -631,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L23.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L23.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1009,7 +1009,7 @@ title="Print to PDF"
 \[\frac{dF_B}{dV} = R_B\]</div>
 <p>We generally know that <span class="math notranslate nohighlight">\(R_B\)</span> is going to be a complex function of concentrations of all of the species present in this system.  That means we can’t solve the above balance on Benzene without also solving balances on Diphenyl, Hydrogen, and Triphenyl <em>at the same time</em>, i.e., we have to solve the coupled system of differential equations below:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-a4df1b67-ea7b-496f-bc6f-b8bbd5f177c7">
-<span class="eqno">(122)<a class="headerlink" href="#equation-a4df1b67-ea7b-496f-bc6f-b8bbd5f177c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(98)<a class="headerlink" href="#equation-a4df1b67-ea7b-496f-bc6f-b8bbd5f177c7" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_B}{dV} &amp;= R_B \\
     \frac{dF_D}{dV} &amp;= R_D \\
     \frac{dF_H}{dV} &amp;= R_H \\
@@ -1022,7 +1022,7 @@ title="Print to PDF"
 \[R_j = \sum_i \nu_{i,j} r_i\]</div>
 <p>So:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-b2c5cfa7-3e0a-4035-8b55-5d36ea45aa9a">
-<span class="eqno">(123)<a class="headerlink" href="#equation-b2c5cfa7-3e0a-4035-8b55-5d36ea45aa9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(99)<a class="headerlink" href="#equation-b2c5cfa7-3e0a-4035-8b55-5d36ea45aa9a" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_B &amp;= -2r1 - r2 \\
     R_D &amp;=  r1 - r2 \\
     R_H &amp;=  r2 + r2 \\
@@ -1030,7 +1030,7 @@ title="Print to PDF"
 \end{align}\]</div>
 <p>We next define reaction rates:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-292e1f1a-b31a-4abe-b36b-93f6f9b323f9">
-<span class="eqno">(124)<a class="headerlink" href="#equation-292e1f1a-b31a-4abe-b36b-93f6f9b323f9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(100)<a class="headerlink" href="#equation-292e1f1a-b31a-4abe-b36b-93f6f9b323f9" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
     r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
 \end{align}\]</div>
@@ -1225,7 +1225,7 @@ The maximum diphenyl mole fraction is 0.205, which we obtain at a PFR volume of 
 <p><strong>Consider A generic pair of reactions</strong></p>
 <p>Let’s discuss two reactions.  The first one converts our reactant, A, into a desired product (valuable, non-toxic, beneficial to society somehow, etc).  The second one occurs in parallel and converts our reactant A into something undesirable (toxic, costly to dispose, greenhouse gas, etc).  We would like to establish a general way for discussing the amounts of D and U that are produced in reaction.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-decfe389-fa53-4d46-aa0d-be8cf220c573">
-<span class="eqno">(125)<a class="headerlink" href="#equation-decfe389-fa53-4d46-aa0d-be8cf220c573" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(101)<a class="headerlink" href="#equation-decfe389-fa53-4d46-aa0d-be8cf220c573" title="Permalink to this equation">#</a></span>\[\begin{align}
     (1) \qquad \nu_{A1} \, A \longrightarrow \nu_{D1} D \\
     (2) \qquad \nu_{A2} \, A \longrightarrow \nu_{D1} U \\
 \end{align}\]</div>
@@ -1299,7 +1299,7 @@ The maximum diphenyl mole fraction is 0.205, which we obtain at a PFR volume of 
 \[Y_{D/B} = \frac{2F_D}{F_{Bf}}\]</div>
 <p>The coefficients are less clear for triphenyl since each triphenyl consumes one diphenyl…which consumes two benzenes.  The easiest way to handle the yield definition for a sequential reaction like this is to add the overall reactions so that we can relate triphenyl directly to benzene:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-314b835f-6b5c-4dc0-aa32-42e701b8d74a">
-<span class="eqno">(126)<a class="headerlink" href="#equation-314b835f-6b5c-4dc0-aa32-42e701b8d74a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(102)<a class="headerlink" href="#equation-314b835f-6b5c-4dc0-aa32-42e701b8d74a" title="Permalink to this equation">#</a></span>\[\begin{align}
    &amp;2B \leftrightarrow D + H \\
    &amp;B + D \leftrightarrow T + H \\
         \hline
@@ -1461,14 +1461,14 @@ The maximum yield is 0.409 at a PFR volume of 488L
 <p><strong>This is a slightly modified version of Example 8.4 from Fogler</strong></p>
 <p>The following pair of liquid-phase reactions occur in series. Each reaction is first order in its reactant.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-23fe574a-221b-41dc-bd74-07a2ea9c26b6">
-<span class="eqno">(127)<a class="headerlink" href="#equation-23fe574a-221b-41dc-bd74-07a2ea9c26b6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(103)<a class="headerlink" href="#equation-23fe574a-221b-41dc-bd74-07a2ea9c26b6" title="Permalink to this equation">#</a></span>\[\begin{align}
     A &amp;\longrightarrow B\\
     B &amp;\longrightarrow C \\
 \end{align}\]</div>
 <p>By “series” or “sequential” reactions we mean that a product of the first reaction is a reactant in a second reaction, and so on. These are very common systems in Chemical Reaction Engineering – especially in the petrochemical industry, where we often make reactive things from inert alkanes.  Quite often, the reactive things we make then react away to form things we don’t want.  Selectivity control in series reactions requires careful attention to operating conditions and reaction times (space times for flow reactors).</p>
 <p>You carry out these reactions in a CSTR operating at steady state.  You may assume the density of the fluid does not change with reaction and so the inlet volumetric flowrate is equal to the outlet volumetric flowrate.  You have the following data available:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-f2cf5d57-72a4-4220-b4a2-f8f1386151e7">
-<span class="eqno">(128)<a class="headerlink" href="#equation-f2cf5d57-72a4-4220-b4a2-f8f1386151e7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(104)<a class="headerlink" href="#equation-f2cf5d57-72a4-4220-b4a2-f8f1386151e7" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_1 &amp;= 0.5 \ \textrm{h}^{-1} \\
     k_2 &amp;= 0.2 \ \textrm{h}^{-1} \\
     C_{Af} &amp;= 20 \ \textrm{mol} \ \textrm{L}^{-1}

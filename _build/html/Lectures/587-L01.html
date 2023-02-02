@@ -571,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L01.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Lectures/587-L01.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -614,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/2022CEN587"
+        <a href="https://github.com/jqbond/CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -631,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L01.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L01.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -879,6 +879,10 @@ title="Print to PDF"
 <p>Here, we only have a single reaction (<span class="math notranslate nohighlight">\(i = 1\)</span>) that involves 4 different species, <span class="math notranslate nohighlight">\(A_1\)</span>, <span class="math notranslate nohighlight">\(A_2\)</span>, <span class="math notranslate nohighlight">\(A_3\)</span>, <span class="math notranslate nohighlight">\(A_4\)</span>.  These species could be atoms, molecules, ions, radicals, electrons, or any other chemical “species” we can imagine. In general, we use the index <span class="math notranslate nohighlight">\(j\)</span> to refer to species, so for the above equation, we have:</p>
 <p><span class="math notranslate nohighlight">\(A_j\)</span> is chemical species <span class="math notranslate nohighlight">\(j\)</span><br />
 <span class="math notranslate nohighlight">\(\nu_j\)</span> is the stoichiometric coefficient for chemical species <span class="math notranslate nohighlight">\(j\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above are the symbol and index conventions used in Rawlings and Ekerdt, 2nd edition, and we will apply it throughout this course.</p>
+</div>
 <p>Because this reaction is balanced, we know that the quantity of each element on the left hand side is equal to its quantity on the right hand side, i.e., a balanced reaction is a statement of element conservation. By convention, reactants have negative stoichiometric coefficients and products have positive stoichiometric coefficents.  Accordingly, we can rewrite the above reaction as an equation, specifically a linear combination of species multiplied by their stoichiometric coefficients:</p>
 <div class="math notranslate nohighlight">
 \[-\lvert \nu_1 \rvert A_1 -\lvert \nu_2 \rvert A_2 + \lvert \nu_3 \rvert A_3 + \lvert \nu_4 \rvert A_4 = 0\]</div>
@@ -923,17 +927,17 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\sum_j{\nu_j A_j} = 0\]</div>
 <p>So if we have two chemical reactions involving a total of 8 chemical species:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfb9e0cf-dce9-4539-a2f0-8388afffd998">
-<span class="eqno">(4)<a class="headerlink" href="#equation-bfb9e0cf-dce9-4539-a2f0-8388afffd998" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
     \nu_1 A_1 + \nu_2 A_2 &amp;\leftrightharpoons \nu_3 A_3 + \nu_4 A_4 \\
     \nu_5 A_5 + \nu_6 A_6 &amp;\leftrightharpoons \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 \\
-\end{align}\]</div>
+\end{align*}\]</div>
 <p>We know that we can rearrange this as two linear equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46be1db5-9cca-4a07-8e41-fa0d0ec238d5">
-<span class="eqno">(5)<a class="headerlink" href="#equation-46be1db5-9cca-4a07-8e41-fa0d0ec238d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
     \nu_1 A_1 + \nu_2 A_2 + \nu_3 A_3 + \nu_4 A_4 &amp;= 0\\
     \nu_5 A_5 + \nu_6 A_6 + \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 &amp;= 0\\
-\end{align}\]</div>
+\end{align*}\]</div>
 <p>Since this is a linear system of equations, we can express it compactly in matrix form by defining a matrix containing all of the stoichiometric coefficients for every species (<span class="math notranslate nohighlight">\(j\)</span> = 1 to 8) in every reaction (<span class="math notranslate nohighlight">\(i\)</span> = 1 to 2):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

@@ -100,7 +100,7 @@
 # 
 # Stoichiometry is critically important to reactor design because our material balances always need to track the quantities of each species as they change with reaction, and stoiciometry tells us exactly the quantity of each species that is produced or consumed when a reaction occurs. 
 # 
-# Imagine that we have a generic, balanced chemical reaction (index $i$), which involves reactions between multiple species (index $j$).
+# Imagine that we have a generic, balanced chemical reaction (index $i$), which involves reactions between multiple species (index $j$).  
 # 
 # $$\nu_1 A_1 + \nu_2A_2 \leftrightharpoons \nu_3A_3 + \nu_4A_4$$
 # 
@@ -108,6 +108,10 @@
 # 
 # $A_j$ is chemical species $j$  
 # $\nu_j$ is the stoichiometric coefficient for chemical species $j$
+# 
+# ```{note}
+# The above are the symbol and index conventions used in Rawlings and Ekerdt, 2nd edition, and we will apply it throughout this course.
+# ```
 # 
 # Because this reaction is balanced, we know that the quantity of each element on the left hand side is equal to its quantity on the right hand side, i.e., a balanced reaction is a statement of element conservation. By convention, reactants have negative stoichiometric coefficients and products have positive stoichiometric coefficents.  Accordingly, we can rewrite the above reaction as an equation, specifically a linear combination of species multiplied by their stoichiometric coefficients:
 # 
@@ -162,17 +166,17 @@
 # 
 # So if we have two chemical reactions involving a total of 8 chemical species:
 # 
-# \begin{align}
+# \begin{align*}
 #     \nu_1 A_1 + \nu_2 A_2 &\leftrightharpoons \nu_3 A_3 + \nu_4 A_4 \\
 #     \nu_5 A_5 + \nu_6 A_6 &\leftrightharpoons \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 \\
-# \end{align}
+# \end{align*}
 # 
 # We know that we can rearrange this as two linear equations:
 # 
-# \begin{align}
+# \begin{align*}
 #     \nu_1 A_1 + \nu_2 A_2 + \nu_3 A_3 + \nu_4 A_4 &= 0\\
 #     \nu_5 A_5 + \nu_6 A_6 + \nu_7 A_7 + \nu_8 A_8 + \nu_9 A_1 &= 0\\
-# \end{align}
+# \end{align*}
 # 
 # Since this is a linear system of equations, we can express it compactly in matrix form by defining a matrix containing all of the stoichiometric coefficients for every species ($j$ = 1 to 8) in every reaction ($i$ = 1 to 2):
 # 

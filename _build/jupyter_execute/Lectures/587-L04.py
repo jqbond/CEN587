@@ -3,7 +3,7 @@
 
 # # Chemical Equilibrium I
 # 
-# This lecture is the first part of chemical equilibrium lectures (1 of 2).  This one covers critera for equilibrium and the relationship between Gibbs free energy and the composition of a reacting mixture.
+# This lecture covers critera for equilibrium and the relationship between Gibbs free energy and the composition of a reacting mixture.
 
 # ## General Concepts
 # 
@@ -15,13 +15,19 @@
 # 
 # We answer the first question (**how far**) by considering the thermodynamics of a reaction.  Specifically, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when ***reactants are converted into products***.  We answer the second question (**how fast**) by considering the kinetics of the reaction. Specificaly, we consider the changes in the state functions of enthalpy, entropy, and Gibbs free energy that occur when ***reactants are converted into transition states***.  Consider the energy diagram for a generic, thermodynamically favorable reaction $R \leftrightarrow P$:
 # 
-# ![EnergyDiagram.svg](attachment:EnergyDiagram.svg)
+# ```{figure} ../images/EnergyDiagram.svg
+# ---
+# height: 400px
+# name: directive-fig
+# ---
+# Free Energy Diagram for an Exergonic Reaction
+# ```
 # 
 # In the energy diagram above, the Gibbs free energy of reaction ($\Delta G_{\textrm{rxn}}$) addresses the question of how far a reaction will go at a given temperature, pressure, and starting composition. It quantifies the change in Gibbs free energy when reactants are converted into products. The Gibbs free energy of activation ($\Delta G^{\ddagger}$) addresses the question of how fast a reaction will occur at a given temperature, pressure, and composition.  Note that there are activation barriers for both the forward reaction ($\Delta G_f^{\ddagger}$) and the reverse reaction ($\Delta G_r^{\ddagger}$). The Gibbs free energy of activation for the forward reaction ($\Delta G_f^{\ddagger}$) describes the change in Gibbs free energy that occurs when reactants are converted into the transition state, and the Gibbs free energy of activation for the reverse reaction ($\Delta G_r^{\ddagger}$) quantifies the change in Gibbs free energy that occurs when products are converted into the transition state.The difference between these two barriers ***must*** equal the energy change of reaction ($\Delta G_{\textrm{rxn}}$), so only two of the three quantities can be independently specified:
 # 
 # $\Delta G_{\textrm{rxn}} = \Delta G_f^{\ddagger} - \Delta G_r^{\ddagger}$
 # 
-# We will address kinetics in Chapter 5; we'll talk about Thermodynamics now.
+# We will address kinetics later; we'll talk about Thermodynamics now.
 
 # ## A Definition of Chemical Equilibrium
 # 
@@ -50,6 +56,10 @@
 # So the second equilibrium constant has to be dimensionless.  Those two constants can't be the same definition of K, so we need to be very careful to distinguish them.
 
 # ## Criteria for Chemical Equilibrium
+# 
+# ```{note}
+# The subsequent derivation follows the one presented in *Introduction to Chemical Engineering Thermodynamics* by Smith, van Ness, and Abbott. 
+# ```
 # 
 # A reaction is at **Chemical Equilibrium** when the Gibbs free energy of the reacting system is *at a minimum* with respect to changes in the number of moles of each species (composition) at a fixed Temperature and Pressure.
 # 
@@ -85,35 +95,35 @@
 # 
 # Next, we recall from **Lecture 02** that, for a single reaction, we can define the number of moles of any species ($N_j$) in the reactor as a function of the extent of reaction.  Specifically, we define the extent of reaction as:
 # 
-# $$\xi = \frac{N_{j} - N_{j,0}}{\nu_j}$$
+# $$\varepsilon = \frac{N_{j} - N_{j,0}}{\nu_j}$$
 # 
 # We can rearrange that definition to find:
 # 
-# $$N_j = N_{j,0} + \nu_j \xi$$
+# $$N_j = N_{j,0} + \nu_j \varepsilon$$
 # 
 # We substitute the number of moles of $j$ into our derivative:
 # 
-# $$dG = \sum_{j = 1}^{N_S} \mu_j d(N_{j,0} + \nu_j \xi)$$
+# $$dG = \sum_{j = 1}^{N_S} \mu_j d(N_{j,0} + \nu_j \varepsilon)$$
 # 
 # Before we consider the sum, let's examine that derivative and simplify some:
 # 
-# $$d(N_{j,0} + \nu_j \xi) = dN_{j,0} + d(\nu_j \xi)$$
+# $$d(N_{j,0} + \nu_j \varepsilon) = dN_{j,0} + d(\nu_j \varepsilon)$$
 # 
 # The first term on the right hand size is zero because $N_{j,0}$ is constant as a function of the extent of reaction, so its derivative is zero.  Stoichiometric coefficients are also constant, so the derivative becomes:
 # 
-# $$d(N_{j,0} + \nu_j \xi) = \nu_j d\xi$$
+# $$d(N_{j,0} + \nu_j \varepsilon) = \nu_j d\varepsilon$$
 # 
 # We can substitute this into our expression for $dG$:
 # 
-# $$dG = \sum_{j = 1}^{N_S} \nu_j\mu_j d \xi$$
+# $$dG = \sum_{j = 1}^{N_S} \nu_j\mu_j d \varepsilon$$
 # 
 # Which rearranges to give:
 # 
-# $$\frac{dG}{d\xi} = \sum_{j = 1}^{N_S} \nu_j\mu_j$$
+# $$\frac{dG}{d\varepsilon} = \sum_{j = 1}^{N_S} \nu_j\mu_j$$
 # 
-# To be a bit more strict, we'll use the following notation, which indicates that we are specifically taking the derivative of Gibbs free energy with respect to reaction extent, $\xi$, at a constant Temperature and Pressure, which is in line with our usual analysis of a system at chemical equilibrium:
+# To be a bit more strict, we'll use the following notation, which indicates that we are specifically taking the derivative of Gibbs free energy with respect to reaction extent, $\varepsilon$, at a constant Temperature and Pressure, which is in line with our usual analysis of a system at chemical equilibrium:
 # 
-# $$\left(\frac{dG}{d\xi}\right)_{T,P} = \sum_{j = 1}^{N_S} \nu_j\mu_j$$
+# $$\left(\frac{dG}{d\varepsilon}\right)_{T,P} = \sum_{j = 1}^{N_S} \nu_j\mu_j$$
 # 
 # Now we have a derivative of Gibbs free energy with respect to reaction extent at constant temperature and pressure on the left hand side. It is defined in terms of species chemical potentials on the right hand side.  We know that, at chemical equilibrium, Gibbs free energy is at a minimum with respect to reaction extent, so the derivative above has to be equal to zero at chemical equilibrium.  Thus, we can conclude that:
 # 
@@ -129,7 +139,7 @@
 # 
 # In that equation, $f_j$ is the fugacity of species $j$ at the Temperature, Pressure, and Composition of the system $(T, P, \chi_j)$, and $f_j$ is the fugacity of species $j$ in its ***Reference State***, which we haven't really defined yet. Probably the most important thing to remember about this definition is that activity is a ***relative*** quantity.  It depends on both the actual state of the system and the reference state of the system. For the types of problems we'll address, the reference state for species $j$ should always be the same in the definition of the reference state chemical potential, $\mu_j^\circ$, as it is in the reference state fugacity $f_j^\circ$. 
 # 
-# It actually isn't helpful to switch to working with fugacities just yet, so we'll stick with activities for now.  Let's substitute our definition for chemical potential into the derivative of Gibbs, $\frac{dG}{d\xi}$:
+# It actually isn't helpful to switch to working with fugacities just yet, so we'll stick with activities for now.  Let's substitute our definition for chemical potential into the derivative of Gibbs, $\frac{dG}{d\varepsilon}$:
 # 
 # $$\sum_{j = 1}^{N_S} \nu_j\mu_j = \sum_{j = 1}^{N_S} \nu_j \mu_j^\circ + \sum_{j = 1}^{N_S}\nu_jRT\ln{\left(a_j\right)}$$
 # 

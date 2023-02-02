@@ -571,7 +571,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/jqbond/2022CEN587/main?urlpath=tree/Lectures/587-L19.ipynb"
+        <a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Lectures/587-L19.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -614,7 +614,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/jqbond/2022CEN587"
+        <a href="https://github.com/jqbond/CEN587"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -631,7 +631,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jqbond/2022CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L19.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FLectures/587-L19.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -836,7 +836,7 @@ title="Print to PDF"
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>Data available for this reaction:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-8547f371-ca4e-466c-bb76-9ed701ff7e81">
-<span class="eqno">(97)<a class="headerlink" href="#equation-8547f371-ca4e-466c-bb76-9ed701ff7e81" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(73)<a class="headerlink" href="#equation-8547f371-ca4e-466c-bb76-9ed701ff7e81" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 7.24 \times 10^{-4} \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{min}^{-1}\\
     K_1 &amp;= 14.75 \ \textrm{L} \ \textrm{mol}^{-1}\\
     K_2 &amp;= 9.24 \ \textrm{L} \ \textrm{mol}^{-1}\\
@@ -862,7 +862,7 @@ title="Print to PDF"
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>To use it, we need to define concentrations.  We’ll do so using the exit flowrates from the CSTR:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-7163db61-ac88-4f86-8072-ffd80dd0b813">
-<span class="eqno">(98)<a class="headerlink" href="#equation-7163db61-ac88-4f86-8072-ffd80dd0b813" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(74)<a class="headerlink" href="#equation-7163db61-ac88-4f86-8072-ffd80dd0b813" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = F_A/Q \\
     C_B = F_B/Q \\
 \end{align}\]</div>
@@ -887,7 +887,7 @@ title="Print to PDF"
 <p>It has two obvious unknowns: FB and V.  It also has two unknowns buried in the definition of RB: FB and FC.  So, for this problem we have 4 unknowns and only one equation.  We can either write more equations, or we can reduce the number of unknowns.  I’ll chose the second approach here because it is an algebraic equation, and it is usually easer to deal with the smallest set of unknowns possible.</p>
 <p>We do this by expressing all molar flowrates as a function of fractional conversion of B, <span class="math notranslate nohighlight">\(X_B\)</span>, by writing a mole table.  The result is:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-3b44d25f-9c4e-41b8-a40c-7f841a23db52">
-<span class="eqno">(99)<a class="headerlink" href="#equation-3b44d25f-9c4e-41b8-a40c-7f841a23db52" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(75)<a class="headerlink" href="#equation-3b44d25f-9c4e-41b8-a40c-7f841a23db52" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f} - 1/2F_{B,f}X_B \\
     F_B &amp;= F_{B,f} - F_{B,f}X_B \\
     F_C &amp;= F_{C,f} + 1/2F_{B,f}X_B \\
@@ -987,14 +987,14 @@ title="Print to PDF"
 <p>Instead of expressing all flowrates as a function of fractional conversion, we could write more equations. Conceptually, there is nothing wrong with this approach, and we can certainly solve the problem this way.  In practice, it may sometimes end up being <em>slightly</em> more challenging to add equations in a system of algebraic equations, but it is usually something we can handle.  I’ll go ahead and show the solution so that you can see for yourselves the differences in the two approaches and why I <em>generally</em> like the one above, especially for a single reaction.</p>
 <p>For this solution, we’ll write balances on each species:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-09243097-b5b5-4254-913c-e7b431ce20ae">
-<span class="eqno">(100)<a class="headerlink" href="#equation-09243097-b5b5-4254-913c-e7b431ce20ae" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(76)<a class="headerlink" href="#equation-09243097-b5b5-4254-913c-e7b431ce20ae" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 = F_{A,f} - F_A + R_AV \\
     0 = F_{B,f} - F_B + R_BV \\
     0 = F_{C,f} - F_C + R_CV \\
 \end{align}\]</div>
 <p>We have 3 equations and 4 unknowns (FA, FB, FC, V).  We’ll add one more equation, which is the process specification that we have to achieve 80% conversion of B.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-ac2da274-d9cf-45bd-b767-6c4205edaa6b">
-<span class="eqno">(101)<a class="headerlink" href="#equation-ac2da274-d9cf-45bd-b767-6c4205edaa6b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(77)<a class="headerlink" href="#equation-ac2da274-d9cf-45bd-b767-6c4205edaa6b" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 &amp;= F_{A,f} - F_A + R_AV \\
     0 &amp;= F_{B,f} - F_B + R_BV \\
     0 &amp;= F_{C,f} - F_C + R_CV \\
@@ -1002,7 +1002,7 @@ title="Print to PDF"
 \end{align}\]</div>
 <p>I know it looks like there are more than 4 unknowns here, but I know from experience that I can define everything on the right hand side of these equations in terms of FA, FB, FC, and V.  Hence, I say we have “4 equations and 4 unknowns.”  The rest of the process is just me trying to express everything on the right hand side of those equations in terms of those 4 unknowns. This is basically what we did in the first solution, but here goes:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-f18785c9-4239-40bc-8f44-e2109e44d807">
-<span class="eqno">(102)<a class="headerlink" href="#equation-f18785c9-4239-40bc-8f44-e2109e44d807" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(78)<a class="headerlink" href="#equation-f18785c9-4239-40bc-8f44-e2109e44d807" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r  \\
     R_B &amp;= -2r \\
     R_C &amp;= r   \\
@@ -1012,7 +1012,7 @@ title="Print to PDF"
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>To use it, we need to define concentrations.  We’ll do so using the exit flowrates from the CSTR:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-c0fa55a1-56aa-405e-88f9-daddaf1d4068">
-<span class="eqno">(103)<a class="headerlink" href="#equation-c0fa55a1-56aa-405e-88f9-daddaf1d4068" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(79)<a class="headerlink" href="#equation-c0fa55a1-56aa-405e-88f9-daddaf1d4068" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = F_A/Q \\
     C_B = F_B/Q \\
 \end{align}\]</div>
@@ -1102,7 +1102,7 @@ To achieve XB = 0.80 at steady state, the CSTR should have a volume of 2.64E+05L
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>Data available for this reaction:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-f7efdbb9-0d8c-4159-ae1d-4235c1ec4c28">
-<span class="eqno">(104)<a class="headerlink" href="#equation-f7efdbb9-0d8c-4159-ae1d-4235c1ec4c28" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(80)<a class="headerlink" href="#equation-f7efdbb9-0d8c-4159-ae1d-4235c1ec4c28" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 7.24 \times 10^{-4} \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{min}^{-1}\\
     K_1 &amp;= 14.75 \ \textrm{L} \ \textrm{mol}^{-1}\\
     K_2 &amp;= 9.24 \ \textrm{L} \ \textrm{mol}^{-1}\\
@@ -1128,7 +1128,7 @@ To achieve XB = 0.80 at steady state, the CSTR should have a volume of 2.64E+05L
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>We define concentrations using the exit flowrates from the CSTR:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-b5bb560a-95c4-4f0d-b059-8f835c44c38f">
-<span class="eqno">(105)<a class="headerlink" href="#equation-b5bb560a-95c4-4f0d-b059-8f835c44c38f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(81)<a class="headerlink" href="#equation-b5bb560a-95c4-4f0d-b059-8f835c44c38f" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = F_A/Q \\
     C_B = F_B/Q \\
 \end{align}\]</div>
@@ -1153,7 +1153,7 @@ To achieve XB = 0.80 at steady state, the CSTR should have a volume of 2.64E+05L
 <p>It has one obvious unknown: FB.  It also has two unknowns buried in the definition of RB: FB and FC.  So, for this problem we have 3 unknowns and only one equation.  We can either write more equations, or we can reduce the number of unknowns.  I’ll chose the second approach here because it is an algebraic equation, and it is usually easer to deal with the smallest set of unknowns possible.</p>
 <p>We do this by expressing all molar flowrates as a function of fractional conversion of B, <span class="math notranslate nohighlight">\(X_B\)</span>, by writing a mole table.  The result is:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-b7a34b84-ae94-47da-9cd0-1108e3a23f46">
-<span class="eqno">(106)<a class="headerlink" href="#equation-b7a34b84-ae94-47da-9cd0-1108e3a23f46" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(82)<a class="headerlink" href="#equation-b7a34b84-ae94-47da-9cd0-1108e3a23f46" title="Permalink to this equation">#</a></span>\[\begin{align}
     F_A &amp;= F_{A,f} - 1/2F_{B,f}X_B \\
     F_B &amp;= F_{B,f} - F_{B,f}X_B \\
     F_C &amp;= F_{C,f} + 1/2F_{B,f}X_B \\
@@ -1225,7 +1225,7 @@ A 164000L CSTR will achieve a fractional conversion of 0.706 at steady state
 \[r = \frac{kC_AC_B}{1+K_1C_A+K_2C_B}\]</div>
 <p>We define concentrations using the exit flowrates from the CSTR:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-746bec93-0d30-4472-8d2e-066302ecbcb2">
-<span class="eqno">(107)<a class="headerlink" href="#equation-746bec93-0d30-4472-8d2e-066302ecbcb2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(83)<a class="headerlink" href="#equation-746bec93-0d30-4472-8d2e-066302ecbcb2" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = F_A/Q \\
     C_B = F_B/Q \\
 \end{align}\]</div>
@@ -1249,7 +1249,7 @@ A 164000L CSTR will achieve a fractional conversion of 0.706 at steady state
 \[0 = F_{B,f} - F_B + R_BV\]</div>
 <p>It has one obvious unknown: FB.  It also has two unknowns buried in the definition of RB: FB and FC.  So, for this problem we have 3 unknowns and only one equation.  We can either write more equations, or we can reduce the number of unknowns.  Above, we took the second approach and expressed all molar flowrates in terms of conversion.  Here, we’ll take the first approach and just write additional equations (material balances on A and C):</p>
 <div class="amsmath math notranslate nohighlight" id="equation-457f922e-9c6e-4560-a048-ea2ee6a45eab">
-<span class="eqno">(108)<a class="headerlink" href="#equation-457f922e-9c6e-4560-a048-ea2ee6a45eab" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(84)<a class="headerlink" href="#equation-457f922e-9c6e-4560-a048-ea2ee6a45eab" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 = F_{A,f} - F_A + R_AV \\
     0 = F_{B,f} - F_B + R_BV \\
     0 = F_{C,f} - F_C + R_CV \\

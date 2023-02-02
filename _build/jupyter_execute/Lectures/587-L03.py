@@ -36,10 +36,10 @@ import time
 # 
 # If we do that, we find that there are two solutions to this equation (two roots of the function):
 # 
-# \begin{align}
+# \begin{align*}
 #     x &= 12.07107 \\
 #     x &= -2.07107
-# \end{align}
+# \end{align*}
 # 
 # But what if we had no idea how to solve the problem?  There are a number of things we might try.  I always like graphing the function -- for univariate problems, this is both easy and useful.
 
@@ -212,10 +212,10 @@ print(opt.newton(g, -2))
 # 
 # More generally, we need to be able to solve systems of algebraic equations that are functions of multiple variables, e.g.:
 # 
-# \begin{align}
+# \begin{align*}
 #     0 &= x^2 - 10x - 25y + 17 \\
 #     0 &= y^2  - 36x
-# \end{align}
+# \end{align*}
 # 
 # When we have nonlinear systems like this, we almost always will solve them numerically. To do this, we just extend the above methodology for solving single, univariate functions with `opt.newton()` to solving multivariate vector functions with `opt.root()`.  For a more detailed discussion of vector functions and `opt.root()`, see Supplement 12. The methods are also covered in Recitation 02.
 

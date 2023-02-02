@@ -888,7 +888,7 @@ title="Print to PDF"
 <p>We’ll carry out propane dehydrogenation in a membrane reactor. Specifically we design the reactor such that there is an internal tube where we feed pure propane at 8.2 atm and a flowrate of 10 moles per minute. This internal tube is surrounded by an external tube into which we feed N2 at 1 atm and a very high flowrate. The walls of the inner tube are made from a specialized membrane that will allow H2 diffusion across the membrane–in this configuration, the pressure of H2 inside the inner reactor is always higher than the pressure of H2 in the annulus, so H2 will diffuse out of the reactor and into the annulus where it is instantly diluted by N2 to a concentration (partial pressure) of zero. Since we’re removing a product, we don’t need to feed a diluent or reduce pressure to achieve the desired 95% conversion of propane.</p>
 <p>Rate and equilibrium constants remain the same because we haven’t changed the temperature. We are additionally given a lumped mass transfer coefficient that describes the rate of H2 diffusion across the membrane.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-9ab26f72-60a2-4a46-95f2-2163059bbcfb">
-<span class="eqno">(145)<a class="headerlink" href="#equation-9ab26f72-60a2-4a46-95f2-2163059bbcfb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(121)<a class="headerlink" href="#equation-9ab26f72-60a2-4a46-95f2-2163059bbcfb" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f  &amp;= 0.7  \ \textrm{min}^{-1} \\
     K_C &amp;= 0.05 \ \textrm{mol} \ \textrm{L}^{-1}\\
     k_{C_C}a &amp;= 0.2 \ \textrm{min}^{-1}				
@@ -962,14 +962,14 @@ title="Print to PDF"
 <h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Permalink to this headline">#</a></h3>
 <p>With the above derivations for membrane reactor balances in mind, we can write material balances for all 3 species in this reactor:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-63541e16-98f1-4665-9617-df0d6ced031a">
-<span class="eqno">(146)<a class="headerlink" href="#equation-63541e16-98f1-4665-9617-df0d6ced031a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(122)<a class="headerlink" href="#equation-63541e16-98f1-4665-9617-df0d6ced031a" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dF_A}{dV} &amp;= R_A \\
     \frac{dF_B}{dV} &amp;= R_B \\
     \frac{dF_C}{dV} &amp;= R_C + \bar{R}_C\\
 \end{align}\]</div>
 <p>Next, we begin the usual steps of defining the right hand side of each ODE in terms of parameters, state variables, and the independent variable (V):</p>
 <div class="amsmath math notranslate nohighlight" id="equation-1b880e2b-4156-4da8-8963-edde28a0b5a8">
-<span class="eqno">(147)<a class="headerlink" href="#equation-1b880e2b-4156-4da8-8963-edde28a0b5a8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(123)<a class="headerlink" href="#equation-1b880e2b-4156-4da8-8963-edde28a0b5a8" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= -r \\
     R_B &amp;=  r \\
     R_C &amp;=  r 
@@ -979,7 +979,7 @@ title="Print to PDF"
 \[r = k_fC_A - k_rC_BC_C\]</div>
 <p>Concentrations can be defined in terms of flowrates:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-7122ec89-76ce-4239-a340-f583163ee528">
-<span class="eqno">(148)<a class="headerlink" href="#equation-7122ec89-76ce-4239-a340-f583163ee528" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(124)<a class="headerlink" href="#equation-7122ec89-76ce-4239-a340-f583163ee528" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A &amp;= F_A/Q \\
     R_B &amp;= F_B/Q \\
     R_C &amp;= F_C/Q 

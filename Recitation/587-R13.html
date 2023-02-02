@@ -931,7 +931,7 @@ title="Print to PDF"
 <p>We suspect that <em><strong>Chromium ions inhibit the reaction by binding directly with the enzyme</strong></em>, which prevents it from binding substrate and ultimately slows down reaction kinetics.  We are always faced with some degree of Chromium leaching in this system, so it is important for us to account for the impact of chromium inhibition on the rate of reaction.</p>
 <p>From what we have speculated, the reaction mechanism should look something like this:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-c63463da-1d6b-4432-a867-4f86a8205bb3">
-<span class="eqno">(238)<a class="headerlink" href="#equation-c63463da-1d6b-4432-a867-4f86a8205bb3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(214)<a class="headerlink" href="#equation-c63463da-1d6b-4432-a867-4f86a8205bb3" title="Permalink to this equation">#</a></span>\[\begin{align}
     E + S &amp;\longleftrightarrow ES \\
     ES    &amp;\longrightarrow     E + P \\
     E + I &amp;\longleftrightarrow EI \\
@@ -1305,7 +1305,7 @@ title="Print to PDF"
 <p>And use matrix algebra to solve for the unknown coefficients.</p>
 <p>Once we get the coefficients, we know that:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-f1e24768-aa5e-41fe-a912-66be13e817fe">
-<span class="eqno">(239)<a class="headerlink" href="#equation-f1e24768-aa5e-41fe-a912-66be13e817fe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(215)<a class="headerlink" href="#equation-f1e24768-aa5e-41fe-a912-66be13e817fe" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha[0] = \frac{K_M}{V_\textrm{max}} \\
     \\
     \alpha[1] = \frac{K_MK_3}{V_\textrm{max}} \\
@@ -1404,13 +1404,13 @@ L  regression gives Vmax = 0.371 mol/L/s, KM = 1.237 mol/L, K3 = 32.160L/mol
 \[\frac{dC_j}{dt} = R_j\]</div>
 <p>We can write one of these for the substrate concentration (CS) and one for the chromium concentration (CI).</p>
 <div class="amsmath math notranslate nohighlight" id="equation-d48cd285-71c5-4465-92e7-5503f7c94972">
-<span class="eqno">(240)<a class="headerlink" href="#equation-d48cd285-71c5-4465-92e7-5503f7c94972" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(216)<a class="headerlink" href="#equation-d48cd285-71c5-4465-92e7-5503f7c94972" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dC_S}{dt} = R_S \\
     \frac{dC_I}{dt} = R_I \\
 \end{align}\]</div>
 <p>We have to rate expressions that apply here; one is the overall rate of the enzymatic reaction (r1), and one is the rate of chromium leaching (r2):</p>
 <div class="amsmath math notranslate nohighlight" id="equation-70962b20-e6b6-43b7-87c3-1409d1932e2f">
-<span class="eqno">(241)<a class="headerlink" href="#equation-70962b20-e6b6-43b7-87c3-1409d1932e2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(217)<a class="headerlink" href="#equation-70962b20-e6b6-43b7-87c3-1409d1932e2f" title="Permalink to this equation">#</a></span>\[\begin{align}
     r_1 &amp;= \frac{V_{max}[S]}{[S] + K_m\left(1+K_3[I]\right)} \\
     \\
     r_2 &amp;= 0.0075 \\
@@ -1418,7 +1418,7 @@ L  regression gives Vmax = 0.371 mol/L/s, KM = 1.237 mol/L, K3 = 32.160L/mol
 <p>Both expressions give reaction rates in units of mol/L/s.</p>
 <p>We can substitute these into our net production rate terms, <span class="math notranslate nohighlight">\(R_j\)</span>:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-c44d87e3-33e0-490c-82e6-00875a4affbf">
-<span class="eqno">(242)<a class="headerlink" href="#equation-c44d87e3-33e0-490c-82e6-00875a4affbf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(218)<a class="headerlink" href="#equation-c44d87e3-33e0-490c-82e6-00875a4affbf" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_S &amp;= -r_1 \\
     R_I &amp;= r_2 \\
 \end{align}\]</div>

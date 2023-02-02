@@ -839,7 +839,7 @@ title="Print to PDF"
 \[A \rightleftharpoons 4B\]</div>
 <p>The reaction is first order in A and fourth order in B; additional data are given below:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-da1c1f0b-6372-42e0-ab96-8402678ec1f5">
-<span class="eqno">(87)<a class="headerlink" href="#equation-da1c1f0b-6372-42e0-ab96-8402678ec1f5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(63)<a class="headerlink" href="#equation-da1c1f0b-6372-42e0-ab96-8402678ec1f5" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f &amp;= 0.5 \ \textrm{min}^{-1}\\
     k_r &amp;= 20 \ \textrm{L}^{3} \ \textrm{mol}^{-3} \textrm{min}^{-1}\\
     T   &amp;= 298 \ \textrm{K}\\
@@ -862,7 +862,7 @@ title="Print to PDF"
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>Here we see our first complication: the rate of reaction depends on the concentration of species B.  Our next complication arises when we define concentration.  Since we are in a batch reactor, we define concentrations for A and B as:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-51c8ab84-0313-4629-b432-31e98477cf5b">
-<span class="eqno">(88)<a class="headerlink" href="#equation-51c8ab84-0313-4629-b432-31e98477cf5b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(64)<a class="headerlink" href="#equation-51c8ab84-0313-4629-b432-31e98477cf5b" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A &amp;= N_A/V \\
     C_B &amp;= N_B/V
 \end{align}\]</div>
@@ -876,13 +876,13 @@ title="Print to PDF"
 \[N_T = N_A + N_B\]</div>
 <p>For me, the easiest way to handle this is to just write a balance on each species and solve the set of coupled differential equations numerically:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-eb10c459-9793-4fb2-92f9-3c63d0bb854d">
-<span class="eqno">(89)<a class="headerlink" href="#equation-eb10c459-9793-4fb2-92f9-3c63d0bb854d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(65)<a class="headerlink" href="#equation-eb10c459-9793-4fb2-92f9-3c63d0bb854d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dN_A}{dt} = R_AV \\
     \frac{dN_B}{dt} = R_BV
 \end{align}\]</div>
 <p>Now we just make sure that everything on the right hand side of those two balances is defined in terms of contants or the three variables tracked by our ODE solver (t, NA, NB).</p>
 <div class="amsmath math notranslate nohighlight" id="equation-5ad157c2-b36d-4f15-9d5e-bba7dd9600cd">
-<span class="eqno">(90)<a class="headerlink" href="#equation-5ad157c2-b36d-4f15-9d5e-bba7dd9600cd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(66)<a class="headerlink" href="#equation-5ad157c2-b36d-4f15-9d5e-bba7dd9600cd" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A = -r \\
     R_B = 4r
 \end{align}\]</div>
@@ -891,7 +891,7 @@ title="Print to PDF"
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>This means we need to define concentrations in terms of NA and NB:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-2ed2ebfa-7aa8-4970-8b5f-7243336b9399">
-<span class="eqno">(91)<a class="headerlink" href="#equation-2ed2ebfa-7aa8-4970-8b5f-7243336b9399" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(67)<a class="headerlink" href="#equation-2ed2ebfa-7aa8-4970-8b5f-7243336b9399" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = N_A/V \\
     C_B = N_B/V
 \end{align}\]</div>
@@ -990,7 +990,7 @@ title="Print to PDF"
 \[A \rightleftharpoons 4B\]</div>
 <p>The reaction is first order in A and fourth order in B; additional data are given below:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-6d060d47-3af3-449e-ad53-888bce255398">
-<span class="eqno">(92)<a class="headerlink" href="#equation-6d060d47-3af3-449e-ad53-888bce255398" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(68)<a class="headerlink" href="#equation-6d060d47-3af3-449e-ad53-888bce255398" title="Permalink to this equation">#</a></span>\[\begin{align}
     k_f &amp;= 0.5 \ \textrm{min}^{-1}\\
     k_r &amp;= 20 \ \textrm{L}^{3} \ \textrm{mol}^{-3} \textrm{min}^{-1}\\
     T   &amp;= 298 \ \textrm{K}\\
@@ -1003,13 +1003,13 @@ title="Print to PDF"
 <h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Permalink to this headline">#</a></h3>
 <p>This problem is almost identical to the one above except for the fact that we fix the volume constant and no longer have to solve for it with the ideal gas law.  Otherwise, we approach it pretty much the same way.  Since my rate law depends on both <span class="math notranslate nohighlight">\(C_A\)</span> and <span class="math notranslate nohighlight">\(C_B\)</span>, I’ll write a balance on both species.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-04c2d038-157b-46a8-8eba-eccbbaf70ccc">
-<span class="eqno">(93)<a class="headerlink" href="#equation-04c2d038-157b-46a8-8eba-eccbbaf70ccc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(69)<a class="headerlink" href="#equation-04c2d038-157b-46a8-8eba-eccbbaf70ccc" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dN_A}{dt} = R_AV \\
     \frac{dN_B}{dt} = R_BV
 \end{align}\]</div>
 <p>Now we just make sure that everything on the right hand side of those two balances is defined in terms of contants or the three variables tracked by our ODE solver (t, NA, NB).</p>
 <div class="amsmath math notranslate nohighlight" id="equation-c61af93d-2225-442d-8dd0-b8144af90e60">
-<span class="eqno">(94)<a class="headerlink" href="#equation-c61af93d-2225-442d-8dd0-b8144af90e60" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(70)<a class="headerlink" href="#equation-c61af93d-2225-442d-8dd0-b8144af90e60" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_A = -r \\
     R_B = 4r
 \end{align}\]</div>
@@ -1018,7 +1018,7 @@ title="Print to PDF"
 \[r = k_fC_A - k_rC_B^4\]</div>
 <p>This means we need to define concentrations in terms of NA and NB:</p>
 <div class="amsmath math notranslate nohighlight" id="equation-0247decf-965e-43ab-9ca4-32ad4799c451">
-<span class="eqno">(95)<a class="headerlink" href="#equation-0247decf-965e-43ab-9ca4-32ad4799c451" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(71)<a class="headerlink" href="#equation-0247decf-965e-43ab-9ca4-32ad4799c451" title="Permalink to this equation">#</a></span>\[\begin{align}
     C_A = N_A/V \\
     C_B = N_B/V
 \end{align}\]</div>
@@ -1108,7 +1108,7 @@ title="Print to PDF"
 \[A \rightarrow B\]</div>
 <p>The reaction is second order in A.  Additional data are given below.</p>
 <div class="amsmath math notranslate nohighlight" id="equation-1bb104a6-c9ca-4b3e-b7cf-c7cc19c11505">
-<span class="eqno">(96)<a class="headerlink" href="#equation-1bb104a6-c9ca-4b3e-b7cf-c7cc19c11505" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(72)<a class="headerlink" href="#equation-1bb104a6-c9ca-4b3e-b7cf-c7cc19c11505" title="Permalink to this equation">#</a></span>\[\begin{align}
     k &amp;= 3.5 \times 10^{-3} \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{min}^{-1}\\
     {V_A}^\circ &amp;= 50 \ \textrm{mL} \ \textrm{mol}^{-1}\\
     {V_B}^\circ &amp;= 38.46 \ \textrm{mL} \ \textrm{mol}^{-1}\\

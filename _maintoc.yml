@@ -1,0 +1,84 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters: 
+- file: Chapter1
+  sections:
+  - file: Supplements/587-S01
+  - file: Supplements/587-S02
+  - file: Supplements/587-S03
+  - file: Supplements/587-S04
+  - file: Supplements/587-S05
+  - file: Supplements/587-S06
+  - file: Supplements/587-S07
+  - file: Supplements/587-S08
+  - file: Supplements/587-S09
+  - file: Supplements/587-S10
+  - file: Supplements/587-S11
+  - file: Supplements/587-S12
+  - file: Supplements/587-S13
+  - file: Supplements/587-S14
+  - file: Supplements/587-S15
+- file: Chapter2
+  sections:
+  - file: Lectures/587-L01
+#   - file: Lectures/587-L02
+#   - file: Lectures/587-L03
+#   - file: Lectures/587-L04
+#   - file: Lectures/587-L05
+#   - file: Lectures/587-L06
+#   - file: Lectures/587-L07
+#   - file: Lectures/587-L08
+#   - file: Lectures/587-L09
+#   - file: Lectures/587-L10
+#   - file: Lectures/587-L11
+#   - file: Lectures/587-L12
+#   - file: Lectures/587-L13
+#   - file: Lectures/587-L14
+#   - file: Lectures/587-L15
+#   - file: Lectures/587-L16
+#   - file: Lectures/587-L17
+#   - file: Lectures/587-L18
+#   - file: Lectures/587-L19
+#   - file: Lectures/587-L20
+#   - file: Lectures/587-L21
+#   - file: Lectures/587-L22
+#   - file: Lectures/587-L23
+#   - file: Lectures/587-L24
+#   - file: Lectures/587-L25
+#   - file: Lectures/587-L26
+#   - file: Lectures/587-L27
+#   - file: Lectures/587-L28
+#   - file: Lectures/587-L29
+#   - file: Lectures/587-L30
+#   - file: Lectures/587-L31
+#   - file: Lectures/587-L32
+#   - file: Lectures/587-L33
+#   - file: Lectures/587-L34
+#   - file: Lectures/587-L35
+#   - file: Lectures/587-L36
+#   - file: Lectures/587-L37
+#   - file: Lectures/587-L38
+#   - file: Lectures/587-L39
+#   - file: Lectures/587-L40
+#   - file: Lectures/587-L41
+#   - file: Lectures/587-L42
+#   - file: Lectures/587-L43
+# - file: Chapter3
+#   sections:
+  # - file: Recitation/587-R01
+  # - file: Recitation/587-R02
+  # - file: Recitation/587-R03
+  # - file: Recitation/587-R04
+  # - file: Recitation/587-R05
+  # - file: Recitation/587-R06
+  # - file: Recitation/587-R07
+  # - file: Recitation/587-R08
+  # - file: Recitation/587-R09
+  # - file: Recitation/587-R10
+  # - file: Recitation/587-R11
+  # - file: Recitation/587-R12
+  # - file: Recitation/587-R13
+  # - file: Recitation/587-R14

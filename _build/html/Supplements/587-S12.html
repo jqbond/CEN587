@@ -1,0 +1,819 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Systems of Nonlinear Equations &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Supplements/587-S12';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter1.html">Python Supplements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="587-S01.html">The Basics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Lectures/587-L01.html">Introduction and Stoichiometry</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Supplements/587-S12.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FSupplements/587-S12.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Supplements/587-S12.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Systems of Nonlinear Equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-intuitive-function-definition-to-define-this-system">An intuitive function definition to define this system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-the-incompatibility-with-scipy-s-opt-root">Note the incompatibility with Scipy’s <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-multivariate-vector-function-for-compatibility-with-opt-root">Defining a multivariate vector function for compatibility with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output">Confirm that this function will accept an array input and return an array output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-system-with-opt-root">Solve system with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-solver-algorithms">Changing Solver Algorithms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-word-of-caution">A Word of Caution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-final-useful-example">One final useful Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-function-that-encodes-the-system-of-equations">Define the function that encodes the system of equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-function-that-calculates-jacobian">Define a function that calculates Jacobian</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="systems-of-nonlinear-equations">
+<h1>Systems of Nonlinear Equations<a class="headerlink" href="#systems-of-nonlinear-equations" title="Permalink to this heading">#</a></h1>
+<p>We have covered root finding algorithms for univariate scalar functions (Module 09), optimization algorithms for univariate scalar functions (Module 10), and optimization algoritms for multivariate scalar functions (Module 11). Now we will tacklesolving systems of equations. Broadly speaking, these are classified as sets of multivariate functions.  Our goal in “solving” them is to find the values of the complete set of variables that results in each of our equations being equal to zero.  It is high dimensional root finding.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this assignment we are covering best practices for solving systems of <strong>nonlinear equations</strong>.  You can apply these methods to a system of linear equations, but there are much more efficient, closed-form analytical solutions based on linear algebra. If you are dealing with linear systems, then you want to use linear methods since they are more efficient and stable than the iterative, numerical solutions we’ll use here.</p>
+</div>
+<p>As an example, consider solving the following system of nonlinear equations:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    x^2 - 3y &amp;= 14.75z - w^4 \\
+    25 &amp;= x^3 - z \\ 
+    0 &amp;= \ln(z) - z^2 + 2x + 3 \\
+    z + xw &amp;= 74
+\end{align*}\]</div>
+<p>It is clear that we cannot solve any one equation above to determine the values for <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> that satisfy these equations. We have to solve all four of them together, as a system, to do that.  We do have analytical methods that are useful - most students default to a substitution method, for example.  In general, this is fine if you want an analytical solution but we should note two problems with the approach.  First, solving large nonlinear systems this way requires extensive algebraic manipulations, which is both extremely tedious and extremely error-prone. Second, it isn’t always possible to solve a system of nonlinear equations using analytical methods. More frequently, we will rely on numerical methods to solve nonlinear systems.  Similar to the cases we’ve already considered (e.g., a Newton-Raphson iteration), they are based on iterative solutions that proceed until the system reaches some convergence threshold. Just like with univariate equations, our convergence threshold is that we want the equations to evaluate to zero, it’s just in this case, we want each and every equation to equal zero.</p>
+<p>Now that we have a basic familiarity, we’ll jump straight into the root finding algorithms available in Python. Solving nonlinear systems numerically is, in general, very difficult, and it requires both good algorithms and good initial guesses, so we’ll skip writing our own routines like we did with univariate functions, but it is important to know that the basic approach of iteratively updating variable values until reaching your convergence threshold is the same.</p>
+<p>When we solve a system of equations numerically in Python (or in most softwares), we need to write that system as a set of equations that should evaluate to zero once we find our solution. So no matter how the functions are presented to me, I will convert them into a form where the left-hand-side is zero, and the right hand side specifies the function. Following this logic, I would write the above system as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    0 &amp;= -x^2 - + 3y + 14.75z - w^4 \\
+    0 &amp;= x^2 - z - 25 \\
+    0 &amp;= \ln(z) - z^2 + 2x + 3 \\
+    0 &amp;= z + xw - 74
+\end{align*}\]</div>
+<p>That is the form we want to work with moving forward.</p>
+<section id="an-intuitive-function-definition-to-define-this-system">
+<h2>An intuitive function definition to define this system<a class="headerlink" href="#an-intuitive-function-definition-to-define-this-system" title="Permalink to this heading">#</a></h2>
+<p>Just as in root finding and optimization for scalar equations, we want to construct a function that encodes this system and returns the left hand side of our equation(s). No problem, right?  We know how to create a multivariate function, so this is straightforward.  We will walk through the way we would probably do this intuitively, and then we’ll explain what that won’t work for a numerical solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">eq1</span> <span class="o">=</span>  <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mf">14.75</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">eq2</span> <span class="o">=</span>   <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">25</span>
+    <span class="n">eq3</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+    <span class="n">eq4</span> <span class="o">=</span>   <span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">w</span> <span class="o">-</span> <span class="mi">74</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">,</span> <span class="n">eq3</span><span class="p">,</span> <span class="n">eq4</span><span class="p">]</span>   <span class="c1">#Technically, this will return a list [eq1, eq2, eq3, eq4]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, I can run that function for any (w,x,y,z) set and see the LHS value returned by each equation.  There is about a 0% chance they are all equal to zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[63.0, -25, -7.613705638880109, -68]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="note-the-incompatibility-with-scipy-s-opt-root">
+<h2>Note the incompatibility with Scipy’s <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code><a class="headerlink" href="#note-the-incompatibility-with-scipy-s-opt-root" title="Permalink to this heading">#</a></h2>
+<p>Technically, there is nothing wrong with our function.  It evaluates the system.  It is just not compatible with Python syntax for numerical root finding, so this function form is not approprite for a multivariate root finding algorithm.  We have to do two things to make this work:</p>
+<ol class="arabic simple">
+<li><p>We have to recognize that our root finding algorithm is iterative. It is going to vary the values of <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> until it converges. As in the case with optimization of multivariate functions using <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>, when we intend to vary these values iteratively, we <em>usually</em> need to pass them as the first argument to the function as a collection (a vector, array, list, tuple, etc.). That means we will pack <code class="docutils literal notranslate"><span class="pre">w</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> into a single vector-like variable, just like we did when regressing <span class="math notranslate nohighlight">\(K_m\)</span> and <span class="math notranslate nohighlight">\(V_{max}\)</span> with the Michaelis-Menten model in Module 11.</p></li>
+<li><p>Similar to the way our root finding algorithm wants all of our unknown variables input as an array-like quantity, it wants our function to return the left-hand-side solution to each equation in an array-like set of identical size to our set of variables.</p></li>
+</ol>
+<section id="defining-a-multivariate-vector-function-for-compatibility-with-opt-root">
+<h3>Defining a multivariate vector function for compatibility with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code><a class="headerlink" href="#defining-a-multivariate-vector-function-for-compatibility-with-opt-root" title="Permalink to this heading">#</a></h3>
+<p>Taking both of these things together, we are now working with a <em><strong>multivariate vector function</strong></em>.  It is multivariate because it depends on 4 different independent variables, and it is a vector function because it returns a vector quantity instead of a scalar quantity.  It’s easy to do, we just need to understand the two above points, which is what the root finding algorithm needs from us.  With that in mind, we’ll construct our system as a multivariate vector function (with a vector argument). Python is actually pretty forgiving in terms of whether you provide inputs as lists, arrays, tuples, or a mix thereof, but in general, I prefer to use a consistent type and dimensionality for inputs and outputs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">var</span>   <span class="c1">#I like to relabel elements of the vector variable for readability</span>
+    <span class="n">LHS1</span> <span class="o">=</span>  <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="mf">14.75</span><span class="o">*</span><span class="n">z</span> <span class="o">-</span> <span class="n">w</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">LHS2</span> <span class="o">=</span>   <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">z</span> <span class="o">-</span> <span class="mi">25</span>
+    <span class="n">LHS3</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span>
+    <span class="n">LHS4</span> <span class="o">=</span>   <span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">w</span> <span class="o">-</span> <span class="mi">74</span>
+    <span class="n">retval</span> <span class="o">=</span> <span class="p">[</span><span class="n">LHS1</span><span class="p">,</span> <span class="n">LHS2</span><span class="p">,</span> <span class="n">LHS3</span><span class="p">,</span> <span class="n">LHS4</span><span class="p">]</span> <span class="c1">#I&#39;m using a list, but you can return a tuple or array just as easily.</span>
+    <span class="k">return</span> <span class="n">retval</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output">
+<h3>Confirm that this function will accept an array input and return an array output<a class="headerlink" href="#confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output" title="Permalink to this heading">#</a></h3>
+<p>Now, if we want to run this function for the same input as last time, we need to provide a vector argument. I’ll use a list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[63.0, -25, -7.613705638880109, -68]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-system-with-opt-root">
+<h3>Solve system with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code><a class="headerlink" href="#solve-system-with-opt-root" title="Permalink to this heading">#</a></h3>
+<p>Now that we’ve constructed the function, the syntax for the root finding algorithm is straightforward.  We’ll use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root()</span></code>. This is the multivariate analog of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.root_scalar()</span></code>, which we used in Module 09. As usual, I have aliased <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> as <code class="docutils literal notranslate"><span class="pre">opt</span></code>, so my syntax is in the following cell.  At a minimum, I have to provide the function name (F) and my initial guess at the roots (w, x, y, and z) that give F = 0.  You’ll notice that it provides a solution structure similar to those given by <code class="docutils literal notranslate"><span class="pre">opt.root_scalar()</span></code> or <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>, and you can access attributes within that structure using the dot operator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="c1">#This is a list with my 4 initial guesses at the &quot;roots&quot; for w, x, y, and z</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">var0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The solution converged.
+ success: True
+  status: 1
+     fun: [ 4.639e-07 -2.011e-11  2.871e-12  9.855e-11]
+       x: [ 1.305e+01  5.375e+00  9.644e+03  3.887e+00]
+  method: hybr
+    nfev: 293
+    fjac: [[-1.000e+00  2.164e-06  4.124e-08  6.540e-04]
+           [-4.899e-04 -6.543e-01 -1.191e-01 -7.468e-01]
+           [ 4.333e-04 -7.345e-01 -1.351e-01  6.650e-01]
+           [-2.683e-07  1.801e-01 -9.836e-01 -9.444e-04]]
+       r: [ 8.274e+03  1.099e+01 -2.876e+00 -1.475e+01 -1.679e+01
+           -1.395e-03  7.997e-01  1.230e-03  2.427e+00  7.249e+00]
+     qtf: [ 5.719e-05  4.300e-08 -5.286e-08  9.905e-10] 
+
+[1.30451990e+01 5.37463986e+00 9.64394731e+03 3.88675366e+00]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="changing-solver-algorithms">
+<h3>Changing Solver Algorithms<a class="headerlink" href="#changing-solver-algorithms" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> is quite flexible as it includes several root finding algorithms (<code class="docutils literal notranslate"><span class="pre">hybrid</span></code>, <code class="docutils literal notranslate"><span class="pre">levenberg-marquardt</span></code>, <code class="docutils literal notranslate"><span class="pre">kyrlov</span></code>, etc.). Method selection is easy with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code>; similar to everything we’ve seen with <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code>, you can select the algorithm using the <code class="docutils literal notranslate"><span class="pre">method</span></code> keyword argument.  So if I wanted to change from the default <code class="docutils literal notranslate"><span class="pre">hybr</span></code> method to <code class="docutils literal notranslate"><span class="pre">Levenberg-Marquardt</span></code>, I would do so by adding the method keyword argument and passing the string <code class="docutils literal notranslate"><span class="pre">LM</span></code>, which specifies Levenberg-Marquardt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The relative error between two consecutive iterates is at most 0.000000
+ success: True
+  status: 2
+     fun: [ 7.276e-12  3.553e-15  1.776e-15  0.000e+00]
+       x: [ 1.305e+01  5.375e+00  9.644e+03  3.887e+00]
+   cov_x: [[ 9.359e-02 -2.325e-02  2.770e+02 -1.366e-02]
+           [-2.325e-02  9.260e-03 -6.881e+01  4.153e-03]
+           [ 2.770e+02 -6.881e+01  8.199e+05 -4.052e+01]
+           [-1.366e-02  4.153e-03 -4.052e+01  1.926e-02]]
+  method: lm
+    nfev: 528
+    fjac: [[ 8.880e+03 -0.000e+00 -0.000e+00 -6.053e-04]
+           [ 1.076e+01 -1.702e+01  1.175e-01  7.662e-01]
+           [-1.475e+01  7.420e-01  7.613e+00 -2.400e-01]
+           [-3.000e+00 -1.391e-03  3.762e-04 -1.104e-03]]
+    ipvt: [1 2 4 3]
+     qtf: [ 2.257e-04  1.387e-07 -3.586e-08  1.278e-07]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with minimization routines, the algorithms are all highly configurable using various options and keyword arguments, but these n-dimensional root finding algorithms using have algorithm specific options rather than options that are universal to all algorithms.  You’ll need to consult the specific algoritm to see what options are available for that particular method, but each uses the same basic syntax of keyword arguments and/or options dictionaries, both of which are covered in Modules 09 - 11.</p>
+</section>
+</section>
+<section id="a-word-of-caution">
+<h2>A Word of Caution<a class="headerlink" href="#a-word-of-caution" title="Permalink to this heading">#</a></h2>
+<p>Solving algebraic systems of nonlinear equations using numerical methods is incredibly difficult; you need a good algorithm and good-to-very good initial guesses.  Unfortunately, it can be difficult to provide good initial guesses. We should use our physical insights about the systems we are studying to make initial guesses that we think will be very close to the actual solution, otherwise, it is unlikely that our solvers will converge for difficult nonlinear systems.  In fact, the first example in this worksheet is only easily solved by the <code class="docutils literal notranslate"><span class="pre">hybr</span></code> and <code class="docutils literal notranslate"><span class="pre">LM</span></code> algorithms, whereas others won’t converge easily.</p>
+</section>
+<section id="one-final-useful-example">
+<h2>One final useful Example<a class="headerlink" href="#one-final-useful-example" title="Permalink to this heading">#</a></h2>
+<p>Providing a Jacobian is usually a good idea when you are solving systems of equations numerically. It can be essential to performance and stability for difficult systems.  Most of the algorithms available in <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> will accept a Jacobian input.  Since it is such an essential skill, we’ll demonstrate its usage.  The Jacobian is the set of partial derivatives of each function in your system with respect to each variable. In the system above, that means my Jacobian will be a 4x4 matrix since I’d have to take a partial derivative of each equation with respect to w, x, y, and z.  It isn’t <em>hard</em>, but it is tedious (although you may want to look at symbolic, numerical, and/or automatic differentiation methods for generating Jacobians, which can make it much easier.  We won’t cover that here). We’ll go through a simpler example and create the corresponding Jacobian analytically.</p>
+<p>Here’s a simple system of equations written as functions of (a,b):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5c8ce337-a582-493a-8d18-23682e76ca98">
+<span class="eqno">()<a class="headerlink" href="#equation-5c8ce337-a582-493a-8d18-23682e76ca98" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= a^3 - e^{-b} \\
+    0 &amp;= ab - b^2 + 5
+\end{align}\]</div>
+<section id="define-the-function-that-encodes-the-system-of-equations">
+<h3>Define the function that encodes the system of equations<a class="headerlink" href="#define-the-function-that-encodes-the-system-of-equations" title="Permalink to this heading">#</a></h3>
+<p>We can encode that a multivariate vector function in Python.  Here, I am choosing to call it q(v) and return the left hand side of these equations in a numpy array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">q</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">eq1</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">eq2</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">eq1</span><span class="p">,</span> <span class="n">eq2</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="define-a-function-that-calculates-jacobian">
+<h3>Define a function that calculates Jacobian<a class="headerlink" href="#define-a-function-that-calculates-jacobian" title="Permalink to this heading">#</a></h3>
+<p>Now for the Jacobian, we need to calculate partial derivatives. a is my first variable, b is my second variable.  So I need to create a matrix that is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \begin{vmatrix}
+\frac{df_1}{da} &amp; \frac{df_1}{db} \\
+\frac{df_2}{da} &amp; \frac{df_2}{db}
+\end{vmatrix}\end{split}\]</div>
+<p>In other words, the first row contains the partial derivatives of the first function with respect to each variable, the second row contains the partial derivative of the second function with respect to each variable, and so forth.  For this system, that becomes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \begin{vmatrix}
+3a^2 &amp; e^{-b}\\
+b &amp; a - 2b
+\end{vmatrix}\end{split}\]</div>
+<p>This can be defined as a function in Python as follows (using np.arrays):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jacobian</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">jac11</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">jac12</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">jac21</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="n">jac22</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">jac</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">jac11</span><span class="p">,</span> <span class="n">jac12</span><span class="p">],</span> <span class="p">[</span><span class="n">jac21</span><span class="p">,</span> <span class="n">jac22</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">jac</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reason I’m using np.arrays above functions is that they np.arrays index like a matrix, and I’m most comfortable treating a Jacobian as a matrix. But you could do this with a list or a tuple if you wanted to.</p>
+</div>
+<p>Then we add the jacobian to the optimization routine using the <code class="docutils literal notranslate"><span class="pre">jac</span></code> keyword argument with following syntax; this solves the problem with the optional jacobian provided to the <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code> solver using the <code class="docutils literal notranslate"><span class="pre">hybr</span></code> algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">opt</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;hybr&#39;</span><span class="p">,</span> <span class="n">jac</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: The solution converged.
+ success: True
+  status: 1
+     fun: [-8.225e-14 -7.541e-13]
+       x: [ 4.395e-01  2.467e+00]
+  method: hybr
+    nfev: 14
+    njev: 1
+    fjac: [[-2.212e-01 -9.752e-01]
+           [ 9.752e-01 -2.212e-01]]
+       r: [-2.703e+00  4.043e+00  1.040e+00]
+     qtf: [-1.700e-09 -1.946e-10]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Supplements"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-intuitive-function-definition-to-define-this-system">An intuitive function definition to define this system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-the-incompatibility-with-scipy-s-opt-root">Note the incompatibility with Scipy’s <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-multivariate-vector-function-for-compatibility-with-opt-root">Defining a multivariate vector function for compatibility with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirm-that-this-function-will-accept-an-array-input-and-return-an-array-output">Confirm that this function will accept an array input and return an array output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-system-with-opt-root">Solve system with <code class="docutils literal notranslate"><span class="pre">opt.root()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-solver-algorithms">Changing Solver Algorithms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-word-of-caution">A Word of Caution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-final-useful-example">One final useful Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-the-function-that-encodes-the-system-of-equations">Define the function that encodes the system of equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-a-function-that-calculates-jacobian">Define a function that calculates Jacobian</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N01';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter and Python" href="587-N02.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1.html">Python Supplements</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N02.html">Jupyter and Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N03.html">Solving Algebraic Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N04.html">Extent and Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N05.html">Chemical Equilibrium I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N06.html">Chemical Equilibrium II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N07.html">Chemical Equilibrium III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N08.html">Chemical Equilibrium IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N09.html">Passing Extra Parameters in Python</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N01.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N01.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N01.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-reaction-engineering">Chemical Reaction Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-reactions">Chemical Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-but-important-concepts">Simple, but important concepts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometry-formally">Stoichiometry: Formally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometry-multiple-reactions">Stoichiometry: Multiple Reactions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<section id="chemical-reaction-engineering">
+<h2>Chemical Reaction Engineering<a class="headerlink" href="#chemical-reaction-engineering" title="Link to this heading">#</a></h2>
+<p>Reactions are at the core of the chemical and biological processes that are used industrially to convert natural resources (raw materials) into value-added products (fuels, chemicals, pharmaceuticals). Our basic requirement is that we need to turn a low-value raw material into something that has a higher value to society. Making high octane gasoline from crude oil and making polyethylene from natural gas are both examples of this paradigm.  All such processes depend on our ability to perform chemical reactions.</p>
+<p>Before we get into mathematics, chemistry, and technical details, we can say a few general things about chemical reactions, chemical reactors, and the focus of this course in Chemical Reaction Engineering. We should have a general sense of these things developed through courses in chemistry, material and energy balances, thermodynamics, and physical chemistry, so these concepts should make sense even if you haven’t yet mastered all of the details.</p>
+<ol class="arabic simple">
+<li><p>Chemical reactions are carried out in <em><strong>chemical or biological reactors.</strong></em></p></li>
+<li><p>Our goal in this course is to <em><strong>design the chemical or biologial reactors</strong></em> in which we perform these reactions. These reactors should accomplish multiple things. Broadly, they should</p>
+<ul class="simple">
+<li><p>Maximize the yield of desired product.</p></li>
+<li><p>Minimize capital and operating expenses required to form those products.</p></li>
+<li><p>Allow the reaction of interest to occur quickly.</p></li>
+<li><p>Have the reaction of interest occur safely.</p></li>
+<li><p>Have the reaction of interest occur in a sustainable, environmentally benign way (e.g., avoid pollution, use renewable carbon).</p></li>
+<li><p>Minimize the net energy demand for the process.</p></li>
+</ul>
+</li>
+<li><p>You’ve been studying reactions for years. They all have intrinsic properties that (partially) determine how we design the reactors to achieve our stated goals. Reactions may generally:</p>
+<ul class="simple">
+<li><p>Absorb or release energy (endothermic vs. exothermic).</p></li>
+<li><p>Happen at different rates and on different time scales (fast reactions vs. slow reactions).</p></li>
+<li><p>Produce toxic or low-value byproducts alongside desired products (selective vs. non-selective).</p></li>
+<li><p>Be thermodynamically limited (reversible).</p></li>
+</ul>
+</li>
+<li><p>Reactors also have unique properties.</p>
+<ul class="simple">
+<li><p>How well are they mixed?</p></li>
+<li><p>Do they have temperature or composition gradients?</p></li>
+<li><p>Are they closed systems (no mass transfer across boundary)?</p></li>
+<li><p>Are they open systems (allow mass transfer across boundary)?</p></li>
+<li><p>Are they flow processes or batch processes?</p></li>
+<li><p>Do they perform ideally, or are they “real” reactors?</p></li>
+</ul>
+</li>
+<li><p><em><strong>Chemical Reaction Engineering</strong></em> is the discipline that considers the interplay between the properties of reactions and the properties of reactors in order to decide how best to design a chemical process.</p>
+<ul class="simple">
+<li><p>There is rarely a perfect solution - we must balance positives and negatives to maximize yield and minimize cost.</p></li>
+<li><p>Conceptually, <em><strong>this is a simple exercise.</strong></em>  We consider the thermodynamics of reactions (CEN 252 and CEN 352), we compute rates of  reactions (CHE 356), we assess heat and mass transfer into and out of the reactor (CEN 341), we consider gradients in pressure (CEN 333), we model reactors using material and energy balances (CEN 252), and we solve those models using analytical or numerical methods (Calculus and Differential Equations).</p></li>
+<li><p>In practice, this course will become incredibly demanding due to the complexity and the cumulative nature of how all of these topics continue to build throughout the semester. It starts with simple, analytical solutions. Eventually we transition to more sophisticated computer-aided solutions (Python)</p></li>
+</ul>
+</li>
+</ol>
+<p><em><strong>We will get to properties of reactors eventually; for now, we want to talk about reactions.</strong></em></p>
+</section>
+<section id="chemical-reactions">
+<h2>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Link to this heading">#</a></h2>
+<p>A chemical reaction is a transformation of one or more atoms and/or molecules. It involves breaking existing chemical bonds between atoms and/or forming new chemical bonds between atoms. When chemical reactions are occuring, we know that mass conservation, energy conservation, and element conservation must hold.</p>
+<section id="simple-but-important-concepts">
+<h3>Simple, but important concepts<a class="headerlink" href="#simple-but-important-concepts" title="Link to this heading">#</a></h3>
+<p>Consider the dehydrogneation of isobutane to form isobutene and hydrogen:</p>
+<div class="math notranslate nohighlight">
+\[C_4H_{10} \ (g) \leftrightharpoons C_4H_8 \ (g) + H_2 \ (g)\]</div>
+<p>This is a balanced chemical equation; it tells us exactly the stoichiometry of reaction, i.e., the quantities of reactants consumed and products formed in a given reaction.  In this case:</p>
+<div class="math notranslate nohighlight">
+\[1 \ \textrm{molecule} \ C_4H_{10} \ (g) \leftrightharpoons 1 \ \textrm{molecule} \ C_4H_8 \ (g) + 1 \ \textrm{molecule} \ H_2 \ (g)\]</div>
+<p>Alternatively, in molar units (since it is usually inconvenient to quantify atoms and molecules in laboratory or industrial practice):</p>
+<div class="math notranslate nohighlight">
+\[1 \ \textrm{mole} \ C_4H_{10} \ (g) \leftrightharpoons 1 \ \textrm{mole} \ C_4H_8 \ (g) + 1 \ \textrm{mole} \ H_2 \ (g)\]</div>
+<p>A balanced chemical equation communicates the requirement that elements are conserved from the reactant state to the product state. In this example:</p>
+<div class="math notranslate nohighlight">
+\[4C + 10H \leftrightharpoons 4C + 8H + 2H\]</div>
+<p>Finally, we see a clear demonstration of mass conservation, (i.e., the total mass of a system is conserved during a reaction) if we consider the balanced reaction, where we use the molar mass of each species to convert its molar quantity into mass units:</p>
+<div class="math notranslate nohighlight">
+\[58.12\textrm{g} \ C_4H_{10} \ (g) \leftrightharpoons 56.11\textrm{g} \ C_4H_8 \ (g) + 2.01\textrm{g} \ H_2 \ (g)\]</div>
+<p>What are some things that we notice:</p>
+<ol class="arabic simple">
+<li><p>Total mass is conserved (mass on the left hand side mass on the right hand side)</p>
+<ul class="simple">
+<li><p>The nature of the mass changes upon chemical reaction.</p></li>
+<li><p>The mass begins contained within isobutane, and the mass ends up distributed between isobutene and dihydrogen.</p></li>
+</ul>
+</li>
+<li><p>Total atoms of each element are conserved (Number of C’s and H’s on left hand side and right hand side are equal)</p>
+<ul class="simple">
+<li><p>Molecules/moles of species are not conserved</p></li>
+</ul>
+</li>
+</ol>
+<p>In other words, in the course of a chemical reaction, we conserve the total mass and total number of each element; however, the chemical nature of the species will change so that the mass and elements are distributed in different forms on the left hand side and right hand side of a balanced equation. Keeping track of the quantities of each species and how they change over the course of a reaction is a critical part of reactor design.  We accomplish this using <em><strong>material balances</strong></em>. In addition to this, we know that the energy of the system is conserved during a chemical reaction. An exothermic reaction will release energy into its environment, and an endothermic reaction will absorb energy from its environment; however, but the total energy of the system is conserved. As with moles of species, it only changes forms (e.g., kinetic energy of the system manifested as temperature vs. potential energy in chemical bonds)</p>
+<p>For example, this dehydrogenation reaction is endothermic:</p>
+<div class="math notranslate nohighlight">
+\[C_4H_{10} (g) \leftrightharpoons C_4H_8 (g) + H_2 (g) \ \ \textrm{where} \ \ \Delta H = 115 \ \textrm{kJ} \ \textrm{mol}^{-1}\]</div>
+<p>If the reaction occurs without external heat input, the temperature within the reactor must decrease.  If one wants to maintain isothermal conditions within the reactor, external heat must be added. Throughout this course (and throughout our careers!), it is important for us to remember that temperature critically affects chemical reactions! For reversible reactions (i.e., those that are equilibrium-limited), changing the temperature will usually affect the extent of reaction one can achieve (it changes the equilibrium constant). Alternatively, reaction rates have a very strong dependence on reaction temperature. Heating the system usually makes reactions occur much more quickly, so it is extremely important that we understand how the temperature in our reactor changes as we perform a reaction. The way we understand and predict temperature changes is by writing an <em><strong>energy balance</strong></em> on the reactor.</p>
+</section>
+</section>
+<section id="stoichiometry-formally">
+<h2>Stoichiometry: Formally<a class="headerlink" href="#stoichiometry-formally" title="Link to this heading">#</a></h2>
+<p>Stoichiometry is fundamental to reactor design. The material balances that we write will always need to keep track of the quantities of each species as they change with reaction. Stoichiometry tells us exactly how the quantity of each species changes (either by production or consumption) when a reaction occurs.</p>
+<p>Imagine that we have a generic, balanced chemical reaction (index <span class="math notranslate nohighlight">\(i\)</span>), which involves reactions between multiple species (index <span class="math notranslate nohighlight">\(j\)</span>). In general, we use the index <span class="math notranslate nohighlight">\(i\)</span> to refer to the reaction and the index <span class="math notranslate nohighlight">\(j\)</span> to refer to species participating in the reaction. Generally, each species <span class="math notranslate nohighlight">\(j\)</span> has a unique stoichiometric coefficient in each reaction <span class="math notranslate nohighlight">\(i\)</span>. The stoiciometric coefficient has the symbol <span class="math notranslate nohighlight">\(\nu_{i,j}\)</span>, which represents <em><strong>the stoichiometric coefficient for species <span class="math notranslate nohighlight">\(j\)</span> in reaction <span class="math notranslate nohighlight">\(i\)</span></strong></em>.</p>
+<div class="math notranslate nohighlight">
+\[\nu_{1,1} A_1 + \nu_{1,2}A_2 \leftrightharpoons \nu_{1,3}A_3 + \nu_{1,4}A_4\]</div>
+<p>Here, we only have a single reaction (<span class="math notranslate nohighlight">\(i = 1\)</span>) that involves 4 different species, <span class="math notranslate nohighlight">\(A_1\)</span>, <span class="math notranslate nohighlight">\(A_2\)</span>, <span class="math notranslate nohighlight">\(A_3\)</span>, <span class="math notranslate nohighlight">\(A_4\)</span>.  These species could be atoms, molecules, ions, radicals, electrons, or any other chemical “species” we can imagine. Because this reaction is balanced, we know that the quantity of each element on the left hand side is equal to its quantity on the right hand side, i.e., a balanced reaction is a statement of element conservation. By convention, reactants have negative stoichiometric coefficients and products have positive stoichiometric coefficents.  Accordingly, we can rewrite the above reaction as an equation, specifically a linear combination of species multiplied by their stoichiometric coefficients:</p>
+<div class="math notranslate nohighlight">
+\[-\lvert \nu_{1,1} \rvert A_1 -\lvert \nu_{1,2} \rvert A_2 + \lvert \nu_{1,3} \rvert A_3 + \lvert \nu_{1,4} \rvert A_4 = 0\]</div>
+<p>It might look confusing to see the absolute value signs there; they are included here to be very clear about having a negative sign in front of reactants and a positive sign in front of products. We will usually drop the absolute value sign in practice. We can extend this logic for any number of species and indices and see that for any balanced chemical reaction, <span class="math notranslate nohighlight">\(i\)</span>, the following will hold true:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j{\nu_{i,j} A_j} = 0\]</div>
+<p>After our linear algebra courses, we should also see that the above chemical equation can also be written in matrix/vector notation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{bmatrix}
+        \nu_{1,1} &amp; \nu_{1,2} &amp; \nu_{1,3} &amp; \nu_{1,4}
+    \end{bmatrix} 
+    \begin{bmatrix}
+        A_1 \\
+        A_2 \\
+        A_3 \\
+        A_4\\
+    \end{bmatrix}
+        =
+    \begin{bmatrix}
+        0
+    \end{bmatrix}
+\end{split}\]</div>
+<p>For this specific reaction, we can formally define a stoichiometric matrix (which is, for one reaction, just a row vector) as:</p>
+<div class="math notranslate nohighlight">
+\[
+    \boldsymbol{\nu} = \begin{bmatrix} \nu_{1,1} &amp; \nu_{1,2} &amp; \nu_{1,3} &amp; \nu_{1,4} \end{bmatrix}
+\]</div>
+<p>And we can define a column vector of species as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathbf{A} = \begin{bmatrix} A_1 \\ A_2 \\ A_3 \\ A_4 \end{bmatrix}
+\end{split}\]</div>
+<p>We can then succinctly express element conservation using the following matrix equation:</p>
+<div class="math notranslate nohighlight">
+\[ \boldsymbol{\nu} \mathbf{A} = \mathbf{0}\]</div>
+<p>Where the bold zero is a vector of zeros that is equal in length to the number of reactions that we have.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><span class="math notranslate nohighlight">\(i\)</span> is the index we apply to the chemical reaction <span class="math notranslate nohighlight">\(i\)</span><br />
+<span class="math notranslate nohighlight">\(j\)</span> is the index we apply to chemical species <span class="math notranslate nohighlight">\(j\)</span><br />
+<span class="math notranslate nohighlight">\(A_j\)</span> is chemical species <span class="math notranslate nohighlight">\(j\)</span><br />
+<span class="math notranslate nohighlight">\(\nu_{i,j}\)</span> is the stoichiometric coefficient for chemical species <span class="math notranslate nohighlight">\(j\)</span></p>
+<p>These are the symbol and index conventions used in <em>Chemical Reactor Analysis and Design Fundamentals, 2nd edition</em> by Rawlings and Ekerdt. We will apply it throughout this course.</p>
+</div>
+</section>
+<section id="stoichiometry-multiple-reactions">
+<h2>Stoichiometry: Multiple Reactions<a class="headerlink" href="#stoichiometry-multiple-reactions" title="Link to this heading">#</a></h2>
+<p>We probably would not use matrix notation when we need to work with only one or two reactions, but it becomes a convenient way to manage stoichiometric information when we work with very large sets of reactions (e.g., 100’s or 1000’s). The concepts outlined above for a single reaction are easy to generalize to a system of many reactions.  Just keep in mind that we can write any balanced chemical reaction as a chemical equation that is a linear combination of each species participating in that reaction multiplied by its stoichiometric coefficient, i.e., for any reaction <span class="math notranslate nohighlight">\(i\)</span>, we know that this equation is true:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j{\nu_{i,j} A_j} = 0 \quad \mathrm{for \ each \ reaction} \ i\]</div>
+<p>So if we have two chemical reactions (<span class="math notranslate nohighlight">\(i\)</span> = 1 to 2) involving a total of 8 chemical species (<span class="math notranslate nohighlight">\(j\)</span> = 1 to 8):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \nu_{1,1} A_1 + \nu_{1,2} A_2 &amp;\leftrightharpoons \nu_{1,3} A_3 + \nu_{1,4} A_4 \\
+    \nu_{2,5} A_5 + \nu_{2,6} A_6 &amp;\leftrightharpoons \nu_{2,7} A_7 + \nu_{2,8} A_8 + \nu_{2,1} A_1 \\
+\end{align*}\]</div>
+<p>We know that we can rearrange this as two linear equations:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \nu_{1,1} A_1 + \nu_{1,2} A_2 + \nu_{1,3} A_3 + \nu_{1,4} A_4 &amp;= 0\\
+    \nu_{2,1} A_1 + \nu_{2,5} A_5 + \nu_{2,6} A_6 + \nu_{2,7} A_7 + \nu_{2,8} A_8 &amp;= 0\\
+\end{align*}\]</div>
+<p>Since this is a linear system of equations, we can express it compactly in matrix form by defining a matrix containing all of the stoichiometric coefficients for every species (<span class="math notranslate nohighlight">\(j\)</span> = 1 ,to 8) in every reaction (<span class="math notranslate nohighlight">\(i\)</span> = 1 to 2):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \boldsymbol{\nu} = 
+        \begin{bmatrix} 
+            \nu_{1,1} &amp; \nu_{1,2} &amp; \nu_{1,3} &amp; \nu_{1,4} &amp; 0     &amp; 0     &amp; 0     &amp; 0    \\
+            \nu_{2,1} &amp; 0     &amp; 0     &amp; 0     &amp; \nu_{2,5} &amp; \nu_{2,6} &amp; \nu_{2,7} &amp; \nu_{2,8}
+        \end{bmatrix}
+\end{split}\]</div>
+<p>We call this the <em><strong>stoichiometric matrix</strong></em> for our reaction network, and we see that it has a number of rows equal to the number of reactions and a number of columns equal to the number of species, in other words, it has dimensions <span class="math notranslate nohighlight">\(i\)</span> x <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>We also define a column vector of species containing all species <span class="math notranslate nohighlight">\(j\)</span> = 1 to 8:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \mathbf{A} = \begin{bmatrix} A_1 \\ A_2 \\ A_3 \\ A_4 \\ A_5 \\ A_6 \\ A_7 \\ A_8 \end{bmatrix}
+\end{split}\]</div>
+<p>If you were to multiply <span class="math notranslate nohighlight">\(\boldsymbol{\nu}\)</span> by <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, you will find it returns a vector of zeros equal in length to the number of reactions that you have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{bmatrix} 
+        \nu_{1,1} &amp; \nu_{1,2} &amp; \nu_{1,3} &amp; \nu_{1,4} &amp; 0     &amp; 0     &amp; 0     &amp; 0    \\
+        \nu_{2,1} &amp; 0     &amp; 0     &amp; 0     &amp; \nu_{2,5} &amp; \nu_{2,6} &amp; \nu_{2,7} &amp; \nu_{2,8}
+    \end{bmatrix}
+    \begin{bmatrix} A_1 \\ A_2 \\ A_3 \\ A_4 \\ A_5 \\ A_6 \\ A_7 \\ A_8 \end{bmatrix}
+    =
+    \begin{bmatrix} 0 \\ 0 
+    \end{bmatrix}
+\end{split}\]</div>
+<p>We can generalize these concepts to reaction networks of any size.  The important thing right now is to remember that stoichiometry is critically important because it tells us exactly how the quantities of each species change whenever a reaction occurs.  Matrices are a convenient way to store stoichiometric information for large systems, but the most important thing to remember is the concept: stoichiometry provides the information required for us to keep track of changes in the quantity of each species as chemical reactions occur.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N02.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Jupyter and Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-reaction-engineering">Chemical Reaction Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chemical-reactions">Chemical Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-but-important-concepts">Simple, but important concepts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometry-formally">Stoichiometry: Formally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stoichiometry-multiple-reactions">Stoichiometry: Multiple Reactions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

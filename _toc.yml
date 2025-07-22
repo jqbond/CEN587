@@ -7,4 +7,12 @@ chapters:
 - file: Chapter1
 - file: Chapter2
   sections:
-  - file: Lectures/587-L01
+  - file: Notebooks/587-N01
+  - file: Notebooks/587-N02
+  - file: Notebooks/587-N03
+  - file: Notebooks/587-N04
+  - file: Notebooks/587-N05
+  - file: Notebooks/587-N06
+  - file: Notebooks/587-N07
+  - file: Notebooks/587-N08
+  - file: Notebooks/587-N09

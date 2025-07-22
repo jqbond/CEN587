@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chemical Equilibrium III &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N07';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chemical Equilibrium IV" href="587-N08.html" />
+    <link rel="prev" title="Chemical Equilibrium II" href="587-N06.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1.html">Python Supplements</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="587-N01.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N02.html">Jupyter and Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N03.html">Solving Algebraic Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N04.html">Extent and Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N05.html">Chemical Equilibrium I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N06.html">Chemical Equilibrium II</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chemical Equilibrium III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N08.html">Chemical Equilibrium IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N09.html">Passing Extra Parameters in Python</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N07.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N07.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N07.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chemical Equilibrium III</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-thermodynamics-of-ammonia-synthesis">The Thermodynamics of Ammonia Synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-standard-state-reaction-endothermic-or-exothermic">Is the standard state reaction endothermic or exothermic?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-the-reaction-lead-to-an-increase-or-decrease-in-entropy">Does the reaction lead to an increase or decrease in entropy?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-reaction-thermodynamically-favorable-at-reaction-conditions">Is the reaction (thermodynamically) favorable at reaction conditions?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-composition-do-i-expect-at-chemical-equilibrium">What composition do I expect at chemical equilibrium?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-equilibrium-constant">Calculating the Equilibrium Constant</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-mole-fractions-as-functions-of-extent">Expressing Mole Fractions as functions of Extent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-using-numerical-methods-this-shows-an-ok-approach">Solve using numerical methods (this shows an ok approach…)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-composition-and-conversion">Calculating composition and conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-using-numerical-methods-a-better-more-general-approach">Solve using numerical methods (a better, more general approach?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chemical-equilibrium-iii">
+<h1>Chemical Equilibrium III<a class="headerlink" href="#chemical-equilibrium-iii" title="Link to this heading">#</a></h1>
+<p>This lecture begins our consideration of example problems so that we can get some practice with Chemical Equilibrium.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This Notebook uses Python for solving algebraic equations. Before proceeding, it is useful to have also reviewed <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N02.html">Notebook 02</a>, which coves Jupyter and Python basics and <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N03.html">Notebook 03</a>, which covers numerical solution of algebraic equations. Typically, these two Notebooks are covered as Recitation exercises in parallel to lecture content. They are adequate to build working competency with Python and numerical methods for solving algebraic equations, and we always cover them before solving equilibrium problems.</p>
+<p>If you are interested in a more in depth explanation of Python skills required here, please review <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S01.html">Supplement 01 - The Basics</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S02.html">Supplement 02 - Data Structures</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S03.html">Supplement 03 - Arrays and Matrices</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S09.html">Supplement 09 - Root Finding for Univariate Functions</a>, and <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S12.html">Supplement 12 - Root Finding for Systems of (Multivariate) Equations</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-thermodynamics-of-ammonia-synthesis">
+<h2>The Thermodynamics of Ammonia Synthesis<a class="headerlink" href="#the-thermodynamics-of-ammonia-synthesis" title="Link to this heading">#</a></h2>
+<p>Consider the gas-phase reaction of molecular nitrogen with molecular hydrogen to produce ammonia:</p>
+<div class="math notranslate nohighlight">
+\[N_2 (g) + 3H_2 (g) \leftrightharpoons 2N\!H_3 (g)\]</div>
+<p>It is occuring in a batch reactor at 298K and 1 bar. This reaction is reversible such that, depending on the reaction conditions, ammonia decomposition may also occur favorably to form Hydrogen and Nitrogen. Before we even dig into solving problems with it, we’ll ask a few concept questions about ammonia synthesis at these conditions (298K, 1 bar).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When we consider equilibrium problems, we always need to be clear on our reference states.  This is a gas phase reaction occuring at 298K and 1 bar.  Our reference state for gas phase species in chemical equilibrium problems is always: the gas, <span class="math notranslate nohighlight">\(j\)</span>, as a pure species at the reaction temperature and 1 bar pressure.  So, here, our standard state is pure species <span class="math notranslate nohighlight">\(j\)</span> at 298K and 1 bar.</p>
+</div>
+<section id="is-the-standard-state-reaction-endothermic-or-exothermic">
+<h3>Is the standard state reaction endothermic or exothermic?<a class="headerlink" href="#is-the-standard-state-reaction-endothermic-or-exothermic" title="Link to this heading">#</a></h3>
+<p>To answer this question, we need to figure out the standard state enthalpy change of reaction, <span class="math notranslate nohighlight">\(\Delta H^\circ\)</span>.  This will be at 298K and 1 bar and based on pure species reference states.  To facilitate, we can look up (or perhaps remember for <span class="math notranslate nohighlight">\(H_2\)</span> and <span class="math notranslate nohighlight">\(N_2\)</span>), the following values (I looked up <span class="math notranslate nohighlight">\(N \! H_3\)</span> data on <a class="reference external" href="https://webbook.nist.gov/chemistry/">Nist Chemistry Webbook</a>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\({H_j}^\circ\)</span> (kJ mol<span class="math notranslate nohighlight">\(^{-1}\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(N_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\!H_3\)</span> (g)</p></td>
+<td class="text-center"><p>-45.94</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>With that data in hand, it is straightforward to calculate a standard state reaction enthalpy using Hess’ Law:</p>
+<div class="math notranslate nohighlight">
+\[\Delta H^\circ = 2{H_{N\!H_3}}^\circ -{H_{N_2}}^\circ - 3{H_{H_2}}^\circ\]</div>
+<p>That comes to:</p>
+<div class="math notranslate nohighlight">
+\[\Delta H^\circ = -91.88 \ \textrm{kJ} \ \textrm{mol}^{-1}\]</div>
+<p>This is actually a relatively exothermic reaction!</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Negative values of <span class="math notranslate nohighlight">\(\Delta H\)</span> are favorable from a thermodynamic perspective, so we would say that ammonia synthesis in the gas phase is <em><strong>enthalpically favorable</strong></em> at 298K and 1 bar.</p>
+</div>
+<p>The cell below is simply demonstrating the use of Python to compute and print the enthalpy change of reaction at the desired reaction conditions (298K, 1 bar).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Define molar enthalpies and calculate ΔH of reaction at 298K                #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">HN2</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HH2</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HNH3</span> <span class="o">=</span> <span class="o">-</span><span class="mf">45.940</span> <span class="c1">#kJ/mol</span>
+<span class="n">DH</span>   <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HNH3</span> <span class="o">-</span> <span class="n">HN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ΔH is </span><span class="si">{</span><span class="n">DH</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> kJ/mole at 298K and 1 bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ΔH is -91.88 kJ/mole at 298K and 1 bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="does-the-reaction-lead-to-an-increase-or-decrease-in-entropy">
+<h3>Does the reaction lead to an increase or decrease in entropy?<a class="headerlink" href="#does-the-reaction-lead-to-an-increase-or-decrease-in-entropy" title="Link to this heading">#</a></h3>
+<p>We take a similar approach and look up entropy data in the standard state to calculate an entropy change of reaction.  These values are added to our table below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\({H_j}^\circ \ (\mathrm{kJ \ mol^{-1}}\)</span>)</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\({S_j}^\circ \ (\mathrm{J \ mol^{-1} \ K^{-1}}\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-left"><p>191.61</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-left"><p>130.68</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\!H_3\)</span> (g)</p></td>
+<td class="text-center"><p>-45.94</p></td>
+<td class="text-left"><p>192.77</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As above, we calculate the entropy change using Hess’ law:</p>
+<div class="math notranslate nohighlight">
+\[\Delta S^\circ = 2{S_{N\!H_3}}^\circ -{S_{N_2}}^\circ - 3{S_{H_2}}^\circ\]</div>
+<p>And we find:</p>
+<div class="math notranslate nohighlight">
+\[\Delta S^\circ = -198.11 \ \textrm{J} \ \textrm{mol}^{-1} \ \textrm{K}^{-1}\]</div>
+<p>Wow!  This is a huge loss of entropy.  This is actually very unfavorable!</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>From an entropic perspective, ammonia synthesis at 298K and 1 bar is not favorable at all!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Define molar entropies and calculate ΔS of reaction at 298K                 #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">SN2</span>  <span class="o">=</span> <span class="mf">191.61</span> <span class="c1">#J/mol/K</span>
+<span class="n">SH2</span>  <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
+<span class="n">SNH3</span> <span class="o">=</span> <span class="mf">192.77</span> <span class="c1">#J/mol/K</span>
+<span class="n">DS</span>   <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SNH3</span> <span class="o">-</span> <span class="n">SN2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH2</span> <span class="c1">#J/mol/K</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ΔS is </span><span class="si">{</span><span class="n">DS</span><span class="si">:</span><span class="s1">6.2f</span><span class="si">}</span><span class="s1"> J/mol/K at 298K and 1 bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ΔS is -198.11 J/mol/K at 298K and 1 bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="is-the-reaction-thermodynamically-favorable-at-reaction-conditions">
+<h3>Is the reaction (thermodynamically) favorable at reaction conditions?<a class="headerlink" href="#is-the-reaction-thermodynamically-favorable-at-reaction-conditions" title="Link to this heading">#</a></h3>
+<p>As we found above, ammonia synthesis at 298K and 1 bar is very favorable from an enthalpic perspective (<span class="math notranslate nohighlight">\(\Delta H^\circ = -91.8\)</span> kJ/mol) and very unfavorable from an entropic perspective (<span class="math notranslate nohighlight">\(\Delta S^\circ = -198.1\)</span> J/mol/K). So how do we determine if the overall reaction is favorable?  We have to consider Gibbs free energy, which accounts for both enthalpic and entropic driving forces:</p>
+<div class="math notranslate nohighlight">
+\[\Delta G = \Delta H - T \Delta S\]</div>
+<p>Using this expression, we find:</p>
+<div class="math notranslate nohighlight">
+\[\Delta G^\circ = -32,843 \ \textrm{J} \ \textrm{mol}^{-1} = -32.843 \ \textrm{kJ} \ \textrm{mol}^{-1}\]</div>
+<p>This is an extremely favorable Gibbs free energy change!!!</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The enthalpies that we looked up were in kJ/mol, and the entropies were in J/mol/K, so we have to converted accordingly to get the correct Gibbs free energy.</p>
+<p>Reactions with negative changes in Gibbs free energy are classified as “favorable.” A Gibbs free energy changes less than maybe -50 to -100 kJ/mole is so favorable that we can essentially consider that reaction to be <em><strong>irreverisble</strong></em>.  In other words, from a thermodynamic perspective, the reaction between <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> at 298K and 1 bar is <em><strong>extremely favorable</strong></em>, and we should expect much more <span class="math notranslate nohighlight">\(NH_3\)</span> than <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> once ammonia synthesis reaches chemical equilibrium at 298K and 1 bar.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Calculate ΔG of reaction at 298K                 #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">T</span>  <span class="o">=</span> <span class="mi">298</span> <span class="c1">#K</span>
+<span class="n">DG</span> <span class="o">=</span> <span class="n">DH</span><span class="o">*</span><span class="mi">1000</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">DS</span> <span class="c1">#J/mol</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ΔG is </span><span class="si">{</span><span class="n">DG</span><span class="si">:</span><span class="s1">5.0f</span><span class="si">}</span><span class="s1"> J/mol at 298K and 1 bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ΔG is -32843 J/mol at 298K and 1 bar
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-composition-do-i-expect-at-chemical-equilibrium">
+<h3>What composition do I expect at chemical equilibrium?<a class="headerlink" href="#what-composition-do-i-expect-at-chemical-equilibrium" title="Link to this heading">#</a></h3>
+<p><em><strong>(and what is the fractional conversion of <span class="math notranslate nohighlight">\(N_2\)</span> at chemical equilibrium?)</strong></em></p>
+<p>Without doing any calculations, just looking at that free energy change, I would expect mostly ammonia at chemical equilibrium.  This means that I’m expecting a high fractional conversion of <span class="math notranslate nohighlight">\(N_2\)</span>.  We can be a bit more quantitative by looking at the equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>, which gives us an idea of how favorable a reaction is.  For comparison, a reaction with <span class="math notranslate nohighlight">\(K = 1\)</span> has a <span class="math notranslate nohighlight">\(\Delta G^\circ = 0\)</span>. It is thermoneutral and is neither favorable nor unfavorable. For an <span class="math notranslate nohighlight">\(A \leftrightharpoons B\)</span> type reaction, if one calculates <span class="math notranslate nohighlight">\(K = 1\)</span>, then we would expect equal amounts of reactants and products at equilibrium (if starting with pure A).</p>
+<section id="calculating-the-equilibrium-constant">
+<h4>Calculating the Equilibrium Constant<a class="headerlink" href="#calculating-the-equilibrium-constant" title="Link to this heading">#</a></h4>
+<p>We calculate the equilibrium constant for this reaction using:</p>
+<div class="math notranslate nohighlight">
+\[K = \exp\left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
+<p>In other words, we calculate the equilibrium constant at our standard state conditions for this reaction, where we know <span class="math notranslate nohighlight">\(\Delta G = -32,843\)</span> J/mol. Making appropriate substitutions (<span class="math notranslate nohighlight">\(T = 298\)</span> K and <span class="math notranslate nohighlight">\(R = 8.314\)</span> J/mol/K), we find:</p>
+<div class="math notranslate nohighlight">
+\[K = 5.72\times10^5\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Consistent with our analysis of the Gibbs free energy change, this is extremely favorable, and we should expect almost 100% conversion of <span class="math notranslate nohighlight">\(N_2\)</span> at chemical equilibrium.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Calculate the equilibrium constant at 298K                                  #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">DG</span><span class="o">/</span><span class="mf">8.314</span><span class="o">/</span><span class="mi">298</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Thermodynamic Equilibrium Constant for this reaction is K = </span><span class="si">{</span><span class="n">K</span><span class="si">:</span><span class="s1">6.0f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Thermodynamic Equilibrium Constant for this reaction is K = 571610
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<p>Assume that a vessel (e.g., a batch reactor) is initially charged with <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> in a stoichiometric ratio (1:3).  The vessel is held at 298K and 1 bar. Calculate the composition of the gas-phase mixture and the fractional conversion of <span class="math notranslate nohighlight">\(N_2\)</span> once the system reaches chemical equilibrium. As a reminder, fractional conversion of species <span class="math notranslate nohighlight">\(j\)</span> is defined according to the equations below. We can always define a fractional conversion in terms of inlet and outlet moles. For a single reaction like this one, we can also define it in terms of the extent of reaction, <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[X_j = \frac{n_{j_{0}} - n_{j}}{n_{j_{0}}} = \frac{-\nu_{j} \cdot \varepsilon}{n_{j_{0}}}\]</div>
+<p>Further, we should recall that the extent of any single reaction can be formally defined in terms of any species participating in that reaction as below:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = \frac{n_j - n_{j_0}}{\nu_j}\]</div>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>When we want to solve for the equilibrium composition of a mixture, and we have thermodynamic data available, we always start here:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>In the Equations above, we solved for the standard state Gibbs Free Energy and the equilibrium constant for this reaction in its standard state (298K, 1 bar, pure gases reacting).</p>
+<div class="math notranslate nohighlight">
+\[K = 5.72\times10^5\]</div>
+<p>Now we need to work through the right hand side of and express thermodynamic activities in terms of species composition.  We will start here:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>We can apply this equation to the specific example of ammonia synthesis to find:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{a_{N\!H_3}}^{2}}{{a_{N_2}}{a_{H_2}}^3}\]</div>
+<p>Now, we recall our definitions for thermodynamic activities of gases in a mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>The numerator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions <span class="math notranslate nohighlight">\((T = 298K, P = 1 bar, x_j = \, ?)\)</span>. The denominator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state. Our reference state for gas-phase species is a pure species at 1 bar and the reaction temperature (<span class="math notranslate nohighlight">\(T = 298\)</span>). Our convention for calculating fugacities of gases in a mixture uses the Lewis Randall rule. With these things in mind, formally, we have:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ}\]</div>
+<p>Looking at the numerator of this Equation, we are operating this reactor at 1 bar, so the fugacity coefficient for species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions, <span class="math notranslate nohighlight">\(\phi_j\)</span> is 1. Looking at the denominator, the reference state is a pure species, so <span class="math notranslate nohighlight">\(y_j^\circ = 1\)</span>.  Further, that pure species is at 1 bar, so <span class="math notranslate nohighlight">\(\phi_j^\circ = 1\)</span>. This gives the usual result for low pressure gases:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j P}{P^\circ}\]</div>
+<p>Now we apply this equation to all of the species participating in the reaction.  Notice that I’m still retaining <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(P^\circ\)</span> in my solution.  This helps me to keep it general, and to make sure that I take care to be dimensionally consistent. If I wanted to solve this by hand or in a calculator, I’d probably start substituting these activity definitions in and simplifying the equation:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(\frac{y_{N\!H_3}P}{P^\circ}\right)^2}{\left(\frac{y_{N_2}P}{P^\circ}\right) \left(\frac{y_{H_2}P}{P^\circ}\right)^3}\]</div>
+<p>We see multiple pressures and reference pressures that will cancel, giving:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+<p>Now we’re at a point that we can’t really go any further because we have 3 unknowns (<span class="math notranslate nohighlight">\(y_{N\!H_3}\)</span>, <span class="math notranslate nohighlight">\(y_{N_2}\)</span>, and <span class="math notranslate nohighlight">\(y_{H_2}\)</span>) and only 1 equation.  To go further, we need to relate mole fractions using stoichiometry. We do this with either a fractional conversion or a reaction extent.</p>
+<section id="expressing-mole-fractions-as-functions-of-extent">
+<h4>Expressing Mole Fractions as functions of Extent<a class="headerlink" href="#expressing-mole-fractions-as-functions-of-extent" title="Link to this heading">#</a></h4>
+<p>In general, the mole fraction for a species in the gas phase is defined as:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{\textrm{total}}} = \frac{N_j}{\sum_j N_j}\]</div>
+<p>We also remember that we can express the moles of each species at any point in the reaction, <span class="math notranslate nohighlight">\(N_j\)</span> in terms of the extent of reaction(s) that are occuring in that system.</p>
+<div class="math notranslate nohighlight">
+\[N_j = N_{j,0} + \nu_j \varepsilon\]</div>
+<p>I want to do this for all species in the reactor.  I also see that the total number of moles shows up in the definition of a mole fraction, so I need to track that quantity as well.  I never try to solve an equilibrium problem without organizing all of the relevant molar quantities in a mole table. For simplicity, I will relabel the compounds using N (<span class="math notranslate nohighlight">\(N_2\)</span>), H (<span class="math notranslate nohighlight">\(H_2\)</span>), and A (<span class="math notranslate nohighlight">\(NH_3\)</span>) just for cleaner notation in the table below.</p>
+<div class="math notranslate nohighlight">
+\[N (g) + 3H (g) \leftrightharpoons 2A (g)\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Species</p></th>
+<th class="head text-center"><p>In</p></th>
+<th class="head text-center"><p>Change</p></th>
+<th class="head text-center"><p>End</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(N_2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{N0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{N0} - 1\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(H_2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{H0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-3\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{H0} - 3\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(N\!H_3\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{A0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+2\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{A0} + 2\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{T0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-2\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{T0} - 2\varepsilon\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can make these substitutions into the definitions of mole fractions, ultimately finding:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(N_{A,0} + 2\varepsilon\right)^2 \left(N_{T,0} - 2\varepsilon\right)^2}{\left(N_{N,0} - 1\varepsilon\right) \left(N_{H,0} - 3\varepsilon\right)^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+</section>
+<section id="solve-using-numerical-methods-this-shows-an-ok-approach">
+<h4>Solve using numerical methods (this shows an ok approach…)<a class="headerlink" href="#solve-using-numerical-methods-this-shows-an-ok-approach" title="Link to this heading">#</a></h4>
+<p>Inspection of this equation reveals that we know everything except for the extent of reaction. This means we have 1 Equation and 1 unknown, i.e., we need to find the root of a univariate function.  This can be solved with numerical methods; see below, we can use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code>. For convenience, we have <code class="docutils literal notranslate"><span class="pre">scipy.optimize</span></code> as <code class="docutils literal notranslate"><span class="pre">opt</span></code>, so we can call this function using the syntax <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>. In case it isn’t clear, we are using <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> here because it is an algorithm for finding roots of a univariate function, and here we have a univariate function because our only unknown is the extent of reaction, <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the cell below, we are NOT plugging in numbers to the equation as you’d have to do to solve in a calculator.  We are leaving it symbolic.  This gives us much more flexibility because the solution is now general, and we can easily solve for different reaction pressures or different starting quantities of Nitrogen, Hydrogen, and Ammonia!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the basis; here, an extensive basis is given in the problem statement.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mole of Nitrogen at start</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#moles of Hydrogen at start</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#moles of Ammonia at start</span>
+<span class="n">NT0</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">+</span> <span class="n">NH0</span> <span class="o">+</span> <span class="n">NA0</span> <span class="c1">#total moles at start</span>
+
+<span class="c1"># Define the Reference Pressure, P0, and the system pressure, P, for this problem</span>
+<span class="n">P0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
+<span class="n">P</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
+
+
+<span class="c1"># Define the objective function to be solved using opt.newton()</span>
+<span class="n">obj1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ex</span><span class="p">:</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">P0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">K</span>
+
+<span class="c1"># Find the root of the objective function using opt.newton()</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Print the answer using a formatted f-string</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The extent of reaction at Equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The extent of reaction at Equilibrium is 0.968
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-composition-and-conversion">
+<h4>Calculating composition and conversion<a class="headerlink" href="#calculating-composition-and-conversion" title="Link to this heading">#</a></h4>
+<p>Now that we know the reaction extent at equilibrium, it is easy enough to calculate the composition of the mixture by evaluating the molar quantities using our mole table and substituting them into the definition of mole fractions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########################################################################################################################</span>
+<span class="c1"># This cell uses the solution for extent at equilibrium to compute the corresponding system composition at equilibrium #</span>
+<span class="c1">########################################################################################################################</span>
+
+<span class="n">yN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mole fractions for N2, H2, and NH3 are 0.015, 0.046, 0.938
+The fractional conversion of N2 is 0.968
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="solve-using-numerical-methods-a-better-more-general-approach">
+<h4>Solve using numerical methods (a better, more general approach?)<a class="headerlink" href="#solve-using-numerical-methods-a-better-more-general-approach" title="Link to this heading">#</a></h4>
+<p>Once you become more comfortable with functions and numerical methods, you can actually make very general solutions like the one below. I usually prefer to solve the problems this way because the equations in the code are easy to recognize based on their physical meaning, so it is easier to debug a code that isn’t working. In contrast, with the equation we solved above, I can’t really recognize any specific terms in that equation all that well, so it is hard to debug if something goes wrong.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Compare and contrast the equation definitions above and below.  Which do you find more readable and easier to understand?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################################################################</span>
+<span class="c1"># This is functionally equivalent to the above solution, but it offloads substitutions to Python instead of our doing them by hand #</span>
+<span class="c1">####################################################################################################################################</span>
+
+<span class="c1"># Build a univariate objective function called obj2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj2</span><span class="p">(</span><span class="n">ex</span><span class="p">):</span>  <span class="c1">#note &quot;ex&quot; is the the name given to the function argument inside of the function</span>
+
+    <span class="c1">#Specifications for this problem</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    <span class="n">NT0</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">+</span> <span class="n">NH0</span> <span class="o">+</span> <span class="n">NA0</span>
+    
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ex</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ex</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span> <span class="c1">#This is equivalent to NT = NT0 - 2*ex</span>
+    
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">KCOMP</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span> 
+    <span class="n">K</span>     <span class="o">=</span> <span class="mf">5.72e5</span>
+        
+    <span class="k">return</span> <span class="n">KCOMP</span> <span class="o">-</span> <span class="n">K</span>  <span class="c1">#We want to find the value of extent where KCOMP - K = 0; this is in a good form for opt.newton</span>
+
+
+<span class="c1"># Solve the univariate objective functioN obj2 using opt.newton()</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="c1"># print results and information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#The next lines use the equilibrium extent to evaluate the mole table and solve for conversion and mole fractions.</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="c1"># Print the answers</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: converged
+ function_calls: 15
+     iterations: 14
+           root: 0.9681125978904322
+         method: secant 
+
+Conversion of N2 is 0.968, yA is 0.015, yB is 0.046, and yC is 0.938
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="587-N06.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chemical Equilibrium II</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N08.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chemical Equilibrium IV</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-thermodynamics-of-ammonia-synthesis">The Thermodynamics of Ammonia Synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-standard-state-reaction-endothermic-or-exothermic">Is the standard state reaction endothermic or exothermic?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#does-the-reaction-lead-to-an-increase-or-decrease-in-entropy">Does the reaction lead to an increase or decrease in entropy?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-reaction-thermodynamically-favorable-at-reaction-conditions">Is the reaction (thermodynamically) favorable at reaction conditions?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-composition-do-i-expect-at-chemical-equilibrium">What composition do I expect at chemical equilibrium?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-equilibrium-constant">Calculating the Equilibrium Constant</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-mole-fractions-as-functions-of-extent">Expressing Mole Fractions as functions of Extent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-using-numerical-methods-this-shows-an-ok-approach">Solve using numerical methods (this shows an ok approach…)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-composition-and-conversion">Calculating composition and conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solve-using-numerical-methods-a-better-more-general-approach">Solve using numerical methods (a better, more general approach?)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

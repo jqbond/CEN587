@@ -1,0 +1,1319 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chemical Equilibrium IV &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N08';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Passing Extra Parameters in Python" href="587-N09.html" />
+    <link rel="prev" title="Chemical Equilibrium III" href="587-N07.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1.html">Python Supplements</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="587-N01.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N02.html">Jupyter and Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N03.html">Solving Algebraic Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N04.html">Extent and Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N05.html">Chemical Equilibrium I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N06.html">Chemical Equilibrium II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N07.html">Chemical Equilibrium III</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chemical Equilibrium IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N09.html">Passing Extra Parameters in Python</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N08.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N08.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N08.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chemical Equilibrium IV</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-realistic-view-of-ammonia-synthesis">A More Realistic View of Ammonia Synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-temperature-affect-chemical-equilibrium">How Does Temperature Affect Chemical Equilibrium?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamic-data-and-k">Thermodynamic data and K</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-write-a-function-that-you-can-reuse-over-and-over-at-any-t">Why not write a function that you can reuse over and over at any T?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-can-graph-it-why-not-graph-it">If you can graph it, why not graph it?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-what-was-the-question-again">Wait, what was the question again?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-is-also-a-function-of-thermodynamic-activities">K is also a function of thermodynamic activities!</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-mole-fractions-as-functions-of-extent">Expressing Mole Fractions as functions of Extent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-problem-with-opt-newton">Solving the problem with <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-equilibrium-extent-to-calculate-composition-and-conversion">Using the equilibrium extent to calculate composition and conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-make-a-general-function-so-we-aren-t-stuck-doing-manipulations-by-hand">Why not make a general function so we aren’t stuck doing manipulations by hand</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-to-improve-the-equilibrium-conversion">What can we do to improve the equilibrium conversion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-the-solution-for-high-pressure">Adapting the Solution for High Pressure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-equilibrium-constant-k">Finding the Equilibrium constant, K</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-composition-dependencies-using-activities">Finding the composition dependencies using activities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-really-doesn-t-seem-industrially-feasible">This really doesn’t seem industrially feasible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-catalyst-so-important-in-ammonia-synthesis-then">Why is the catalyst so important in ammonia synthesis then?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chemical-equilibrium-iv">
+<h1>Chemical Equilibrium IV<a class="headerlink" href="#chemical-equilibrium-iv" title="Link to this heading">#</a></h1>
+<p>This lecture covers the next few equilibrium example problems.  Specifically, this example extends consideration to the impacts of changing temperature and pressure during ammonia synthesis.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This Notebook uses Python for solving algebraic equations. Before proceeding, it is useful to have also reviewed <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N02.html">Notebook 02</a>, which coves Jupyter and Python basics and <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N03.html">Notebook 03</a>, which covers numerical solution of algebraic equations. Typically, these two Notebooks are covered as Recitation exercises in parallel to lecture content. They are adequate to build working competency with Python and numerical methods for solving algebraic equations, and we always cover them before solving equilibrium problems.</p>
+<p>If you are interested in a more in depth explanation of Python skills required here, please review <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S01.html">Supplement 01 - The Basics</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S02.html">Supplement 02 - Data Structures</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S03.html">Supplement 03 - Arrays and Matrices</a>, <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S09.html">Supplement 09 - Root Finding for Univariate Functions</a>, and <a class="reference external" href="https://jqbond.github.io/CEN587/Supplements/587-S12.html">Supplement 12 - Root Finding for Systems of (Multivariate) Equations</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="a-more-realistic-view-of-ammonia-synthesis">
+<h2>A More Realistic View of Ammonia Synthesis<a class="headerlink" href="#a-more-realistic-view-of-ammonia-synthesis" title="Link to this heading">#</a></h2>
+<p>Consider the gas-phase reaction of molecular nitrogen with molecular hydrogen to produce ammonia:</p>
+<div class="math notranslate nohighlight">
+\[N_2 (g) + 3H_2 (g) \leftrightharpoons 2N\!H_3 (g)\]</div>
+<p>We will again carry it out in a batch reactor at 1 bar, and we will start with 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span> and 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>. In <a class="reference external" href="https://jqbond.github.io/CEN587/Lectures/587-N07.html">Notebook 07</a>, we considered this exact system at 298K and 1 bar. We concluded that this reaction is extremely favorable at 298K and 1 bar, and we would expect an equilibrium conversion of N<span class="math notranslate nohighlight">\(_2\)</span> of approximately 97%. Unfortunately, N<span class="math notranslate nohighlight">\(_2\)</span> bond dissociation is incredibly difficult! Despite very favorable <em><strong>thermodynamics</strong></em> at 298K (how far can the reaction go?), <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> will react very, very slowly to form <span class="math notranslate nohighlight">\(N\!H_3\)</span> at these conditions (how fast does the reaction get to where it is going?), so it is <em><strong>kinetically limited</strong></em> and effectively impossible to run this reaction at 298K. Essentially, it doesn’t matter that it is <em><strong>possible</strong></em> to achieve 97% conversion of <span class="math notranslate nohighlight">\(N_2\)</span> at 298K and 1 bar because we would <em><strong>never</strong></em> be able to achieve industrially relevant rates of ammonia synthesis at 298K!</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The rate of a reaction controls how long we have to wait for products to form.  This impacts the length of batch reaction times, and it also impacts the size of flow reactors. In general, to achieve an identical conversion level, slow reactions will require larger reactors than fast reactions. This makes slow reactions more capital intensive processes.</p>
+</div>
+<section id="how-does-temperature-affect-chemical-equilibrium">
+<h3>How Does Temperature Affect Chemical Equilibrium?<a class="headerlink" href="#how-does-temperature-affect-chemical-equilibrium" title="Link to this heading">#</a></h3>
+<p>More realistically, ammonia synthesis as we’ve written it would probably need to be carried out at much higher temperatures to accomplish <span class="math notranslate nohighlight">\(N_2\)</span> dissociation at an appreciable rate.  Let’s say that we have to run ammonia synthesis at 873K to achieve an industrially relevant reaction rate. We will still perform the reaction at 1 bar in a batch reactor, and we will start the process by adding a 3:1 molar ratio of <span class="math notranslate nohighlight">\(H_2\)</span>:<span class="math notranslate nohighlight">\(N_2\)</span> to the reactor. Without doing any calculations, at 873K and 1 bar, do you expect the equilibrium conversion of <span class="math notranslate nohighlight">\(N_2\)</span> to increase or decrease compared to the 97% equilibrium conversion that we calculated at 298K and 1 bar?</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Exothermic reactions become less favorable as the temperature increases.  So I would expect a lower equilibrium conversion than 97% at 873K. How low? We can’t say for sure without a detailed analysis and a bit of number crunching…this is the topic of Example 01 below</p>
+</div>
+</section>
+</section>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<p>What is the equilibrium conversion of <span class="math notranslate nohighlight">\(N_2\)</span> during ammonia synthesis at 873K, 1 bar, and starting with a 3:1 ratio of <span class="math notranslate nohighlight">\(H_2\)</span>:<span class="math notranslate nohighlight">\(N_2\)</span>?</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>We start by recalling the equation below, which relates the standard state change in Gibbs free energy (i.e., <em><strong>reaction thermodynamics</strong></em>) to the equilibrium composition of the reacting system.</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<section id="thermodynamic-data-and-k">
+<h4>Thermodynamic data and K<a class="headerlink" href="#thermodynamic-data-and-k" title="Link to this heading">#</a></h4>
+<p>We will start with the left side of the equation. Assuming that we can solve it, it allows us to calculate a numerical value of the equilibrium constant from thermodynamic data.</p>
+<div class="math notranslate nohighlight">
+\[K = \exp\left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
+<p>To find <span class="math notranslate nohighlight">\(K\)</span>, we have to calculate the standard state Gibbs Free Energy of reaction, <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span>.  For gas phase reactions like this one, the standard state is pure species at 1 bar and the reaction temperature.  For this example problem, we’ve <em><strong>increased</strong></em> the reaction temperature to 873K, so we need to calculate the Gibbs free energy change at 1 bar and 873K. Previously, we only had data at 298K, but we can correct for temperature effects using heat capacities.  They are included for each species in the table below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\({H_j}^\circ (\mathrm{kJ \ mol^{-1}})\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\({S_j}^\circ (\mathrm{J \ mol^{-1} \ K^{-1}})\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\({C_{p_j}}^\circ (\mathrm{J \ mol^{-1} \ K^{-1}})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>191.60</p></td>
+<td class="text-center"><p>29.12</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_2\)</span> (g)</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>130.68</p></td>
+<td class="text-center"><p>28.84</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(N\!H_3\)</span> (g)</p></td>
+<td class="text-center"><p>-45.9</p></td>
+<td class="text-center"><p>192.77</p></td>
+<td class="text-center"><p>35.64</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now, we can us the data at <span class="math notranslate nohighlight">\(T_0 = 298K\)</span> and the various heat capacities to calculate the enthalpy of each species at 873K using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[H_j = H_{j,0} + \int_{T_0}^{T} C_{p_j} dT\]</div>
+<p>For heat capacities that are not a function of temperature (here, we have constant heat capacities), we can solve the integral and the equation simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[H_j = H_{j,0} + C_{p_j}(T - T_0)\]</div>
+<p>Similarly, we can calculate entropies at a temperature other than <span class="math notranslate nohighlight">\(T_0 = 298K\)</span> using the following equation:</p>
+<div class="math notranslate nohighlight">
+\[S_j = S_{j,0} + \int_{T_0}^{T} \frac{C_{p_j}}{T} dT\]</div>
+<p>For constant heat capacities like we have in this problem, we can again solve the integral giving:</p>
+<div class="math notranslate nohighlight">
+\[S_j = S_{j,0} + C_{p_j}\ln\left(\frac{T}{T_0}\right)\]</div>
+<p>In the cell below, we calculate enthalpies and entropies at 873K based on our data at 298K and the heat capacities we have available. Just to keep the notation simple, I’ll use <span class="math notranslate nohighlight">\(N\)</span> = <span class="math notranslate nohighlight">\(N_2\)</span>, <span class="math notranslate nohighlight">\(H = H_2\)</span>, and <span class="math notranslate nohighlight">\(A\)</span> = <span class="math notranslate nohighlight">\(N\!H_3\)</span>. We also calculate the Gibbs Free Energy of Reaction and the Equilibrium Constant at 873K.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################################</span>
+<span class="c1"># Calculation of ΔH, ΔS, ΔG, and K at 873K                                                    #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="c1">#Enthalpies at 298K, 1 bar</span>
+<span class="n">HN0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HH0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HA0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">45.9</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#J/mol</span>
+
+<span class="c1">#Entropies at 298K, 1 bar</span>
+<span class="n">SN0</span> <span class="o">=</span> <span class="mf">191.60</span> <span class="c1">#J/mol/K</span>
+<span class="n">SH0</span> <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
+<span class="n">SA0</span> <span class="o">=</span> <span class="mf">192.77</span> <span class="c1">#J/mol/K</span>
+
+<span class="c1">#Heat capacities</span>
+<span class="n">CPN</span> <span class="o">=</span> <span class="mf">29.12</span> <span class="c1">#J/mol/K</span>
+<span class="n">CPH</span> <span class="o">=</span> <span class="mf">28.84</span> <span class="c1">#J/mol/K</span>
+<span class="n">CPA</span> <span class="o">=</span> <span class="mf">35.64</span> <span class="c1">#J/mol/K</span>
+
+<span class="c1">#Calculate thermodynamic state functions at T not equal to T0 = 298</span>
+<span class="n">T1</span> <span class="o">=</span> <span class="mi">873</span>   <span class="c1">#K</span>
+<span class="n">T0</span> <span class="o">=</span> <span class="mi">298</span>   <span class="c1">#K</span>
+<span class="n">R</span>  <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
+
+<span class="n">HN</span> <span class="o">=</span> <span class="n">HN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+<span class="n">HH</span> <span class="o">=</span> <span class="n">HH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+<span class="n">HA</span> <span class="o">=</span> <span class="n">HA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="p">(</span><span class="n">T1</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+
+<span class="n">SN</span> <span class="o">=</span> <span class="n">SN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+<span class="n">SH</span> <span class="o">=</span> <span class="n">SH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+<span class="n">SA</span> <span class="o">=</span> <span class="n">SA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T1</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+
+<span class="n">ΔH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HA</span> <span class="o">-</span> <span class="n">HN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH</span> <span class="c1">#J/mol</span>
+<span class="n">ΔS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SA</span> <span class="o">-</span> <span class="n">SN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH</span> <span class="c1">#J/mol/K</span>
+<span class="n">ΔG</span> <span class="o">=</span> <span class="n">ΔH</span> <span class="o">-</span> <span class="n">T1</span><span class="o">*</span><span class="n">ΔS</span>        <span class="c1">#J/mol</span>
+
+<span class="n">K1</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ΔG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T1</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K1</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At T = 873K, the thermodynamic equilibrium constant for ammonia synthesis is K = 1.52E-06
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-not-write-a-function-that-you-can-reuse-over-and-over-at-any-t">
+<h4>Why not write a function that you can reuse over and over at any T?<a class="headerlink" href="#why-not-write-a-function-that-you-can-reuse-over-and-over-at-any-t" title="Link to this heading">#</a></h4>
+<p>It is generally useful for us to be able to embed repetitive calculations–like evaluating an equilibrium constant at a specific temperature–inside a function that will allow us to compute the equilibrium constant for <em><strong>any</strong></em> temperature. See below – this is really just moving all of the calculations we did above <em><strong>inside</strong></em> of a function definition and then returning the value of the equilibrium constant from that function. This way, we can pass any Temperature into our function as an argument, and our function will spit out the corresponding equilibrium constant for ammonia synthesis at that temperature and 1 bar pressure for pure gas reference states.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A function in a programming language can be much more complex than our conventional idea of a function as, e.g., <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>. In a programming language, functions are subroutines. We provide them with a set of inputs (arguments), they perform a set of operations on those inputs, and they return a set of results as their outputs. In the example below, the function <span class="math notranslate nohighlight">\(K(T)\)</span> includes many calculations! But it still serves the same basic purpose of a function – it takes input from the user (temperature), and it returns the output we’re interested in (<span class="math notranslate nohighlight">\(K\)</span> at that temperature)!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################################################################</span>
+<span class="c1"># Creating a versatile function that calculates K at any T, i.e., K(T)      #</span>
+<span class="c1">#############################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">K</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">T0</span> <span class="o">=</span> <span class="mi">298</span>   <span class="c1">#K</span>
+    <span class="n">R</span>  <span class="o">=</span> <span class="mf">8.314</span> <span class="c1">#J/mol/K</span>
+    
+    <span class="c1">#Enthalpies at 298K, 1 bar</span>
+    <span class="n">HN0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">HH0</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">HA0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">45.9</span><span class="o">*</span><span class="mi">1000</span> <span class="c1">#J/mol</span>
+
+    <span class="c1">#Entropies at 298K, 1 bar</span>
+    <span class="n">SN0</span> <span class="o">=</span> <span class="mf">191.60</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SH0</span> <span class="o">=</span> <span class="mf">130.68</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SA0</span> <span class="o">=</span> <span class="mf">192.77</span> <span class="c1">#J/mol/K</span>
+
+    <span class="c1">#Heat capacities</span>
+    <span class="n">CPN</span> <span class="o">=</span> <span class="mf">29.12</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPH</span> <span class="o">=</span> <span class="mf">28.84</span> <span class="c1">#J/mol/K</span>
+    <span class="n">CPA</span> <span class="o">=</span> <span class="mf">35.64</span> <span class="c1">#J/mol/K</span>
+
+    <span class="c1">#Calculate thermodynamic state functions at T not equal to T0 = 298</span>
+    <span class="n">HN</span> <span class="o">=</span> <span class="n">HN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+    <span class="n">HH</span> <span class="o">=</span> <span class="n">HH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+    <span class="n">HA</span> <span class="o">=</span> <span class="n">HA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol</span>
+
+    <span class="n">SN</span> <span class="o">=</span> <span class="n">SN0</span> <span class="o">+</span> <span class="n">CPN</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SH</span> <span class="o">=</span> <span class="n">SH0</span> <span class="o">+</span> <span class="n">CPH</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+    <span class="n">SA</span> <span class="o">=</span> <span class="n">SA0</span> <span class="o">+</span> <span class="n">CPA</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">T0</span><span class="p">)</span> <span class="c1">#J/mol/K</span>
+
+    <span class="n">ΔH</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">HA</span> <span class="o">-</span> <span class="n">HN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">HH</span> <span class="c1">#J/mol</span>
+    <span class="n">ΔS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">SA</span> <span class="o">-</span> <span class="n">SN</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">SH</span> <span class="c1">#J/mol/K</span>
+    <span class="n">ΔG</span> <span class="o">=</span> <span class="n">ΔH</span> <span class="o">-</span> <span class="n">T</span><span class="o">*</span><span class="n">ΔS</span>        <span class="c1">#J/mol</span>
+
+    <span class="n">K</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ΔG</span><span class="o">/</span><span class="n">R</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>     <span class="c1">#Dimensionless</span>
+    <span class="k">return</span> <span class="n">K</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the thermodynamic equilibrium constant for ammonia synthesis is K = </span><span class="si">{</span><span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At T = 873K, the thermodynamic equilibrium constant for ammonia synthesis is K = 1.52E-06
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this, we can see that the reaction is going to be pretty unfavorable at T = 873K, where the equilibrium constant is <span class="math notranslate nohighlight">\(K = 1.52\times10^{-6}\)</span></p>
+</section>
+<section id="if-you-can-graph-it-why-not-graph-it">
+<h4>If you can graph it, why not graph it?<a class="headerlink" href="#if-you-can-graph-it-why-not-graph-it" title="Link to this heading">#</a></h4>
+<p>It is helpful to visualize how the thermodynamic equilibrium constant changes for ammonia synthesis as a function of temperature. Now that we’ve written a function, <span class="math notranslate nohighlight">\(K(T)\)</span>, this is easy to do in Python. <em>Remember</em>:  K = 1 is a relatively neutral reaction in terms of favorability.  As the equilibrium constant becomes very large (<span class="math notranslate nohighlight">\(K &gt; 1000\)</span>), that reaction is favorable.  As K becomes very small (<span class="math notranslate nohighlight">\(K &lt; 0.001\)</span>), we would classify the reaction as unfavorable.  This plot gives you a good sense for where the reaction becomes unfavorable as a function of temperature.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We are reusing the function, K(T), that we built above for plotting. We do this by “broadcasting” that function to a large set of temperatures. By default, when we work with numpy arrays in Python, the default behavior is to broadcast any operation to each element in the array. This can be very handy and is one of the reasons numpy arrays are preferable to lists for mathematics and engineering!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################</span>
+<span class="c1"># Plotting K vs. T for ammonia synthesis                           #</span>
+<span class="c1">####################################################################</span>
+
+<span class="n">Tvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ammonia Synthesis Equilibrium Constant&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Tvals</span><span class="p">,</span> <span class="n">K</span><span class="p">(</span><span class="n">Tvals</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;K(T)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Tvals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Tvals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;K = 1&#39;</span><span class="p">)</span> <span class="c1">#This is a reference line of K = 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;K&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="mf">10.0</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;T (K)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">901</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/010a0c9171ec838dd29ec1bad2617f9e9a6a5dfc406ec094999e0c531433e396.png" src="../_images/010a0c9171ec838dd29ec1bad2617f9e9a6a5dfc406ec094999e0c531433e396.png" />
+</div>
+</div>
+</section>
+<section id="wait-what-was-the-question-again">
+<h4>Wait, what was the question again?<a class="headerlink" href="#wait-what-was-the-question-again" title="Link to this heading">#</a></h4>
+<p>We want to answer the following question: if we run ammonia synthesis at 873K and 1 bar starting with 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span> and 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>, what conversion of <span class="math notranslate nohighlight">\(N_2\)</span> do we expect at chemical equilibrium? We should also determine the composition (mole fractions) of the reacting mixture at chemical equilibrium. We approach this the exact same way as we did the Ammonia Synthesis Example in <a class="reference external" href="https://jqbond.github.io/CEN587/Noteboooks/587-N07.html">Notebook 07</a>. The only difference here is that we are running the reaction at 873K, so we have to use <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> calculated at 873K to calculate our equilibrium constant (at 1 bar and based on pure gas reference states). We did this above, and we found that, at 873K, the equilibrium constant for ammonia synthesis is <span class="math notranslate nohighlight">\(K = 1.52 \times 10^{-6}\)</span>.</p>
+</section>
+<section id="k-is-also-a-function-of-thermodynamic-activities">
+<h4>K is also a function of thermodynamic activities!<a class="headerlink" href="#k-is-also-a-function-of-thermodynamic-activities" title="Link to this heading">#</a></h4>
+<p>Now that we have the equilibrium constant at 873K, 1 bar, and for pure gas reference states, we can address the composition dependence by considering:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>Next, we need to work through the right hand side of that expression and resolve the composition dependencies within the thermodynamic activities. We can apply this equation to the specific example of ammonia synthesis to find:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{a_{N\!H_3}}^{2}}{{a_{N_2}}{a_{H_2}}^3}\]</div>
+<p>We recall our definitions for thermodynamic activities of gases in a mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>The numerator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions (<span class="math notranslate nohighlight">\(T = 873K\)</span>, <span class="math notranslate nohighlight">\(P = 1 \mathrm{bar}\)</span>, <span class="math notranslate nohighlight">\(x_j = ?\)</span>). The denominator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state. Our reference state for gas-phase species is a pure species at 1 bar and the reaction temperature (<span class="math notranslate nohighlight">\(T = 873K\)</span>). Our convention for calculating fugacities of gases in a mixture uses the Lewis Randall rule. With these things in mind, formally, we have:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ}\]</div>
+<p>Looking at the numerator, we are operating this reactor at 1 bar, so the fugacity coefficient for species j under reaction conditions, <span class="math notranslate nohighlight">\(\phi_j\)</span>, is 1. Looking at the denominator, the reference state is a pure species, so <span class="math notranslate nohighlight">\(y_j^\circ = 1\)</span>.  Further, that pure species is at 1 bar, so <span class="math notranslate nohighlight">\(\phi_j^\circ = 1\)</span>. This gives the usual result for low pressure gases:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j P}{P^\circ}\]</div>
+<p>Now we apply this equation to all of the species participating in the reaction.  Notice that I’m still retaining <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(P^\circ\)</span> in my solution:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(\frac{y_{N\!H_3}P}{P^\circ}\right)^2}{\left(\frac{y_{N_2}P}{P^\circ}\right) \left(\frac{y_{H_2}P}{P^\circ}\right)^3}\]</div>
+<p>We see multiple pressures and reference pressures that will cancel, giving:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+<p>Now we’re at a point that we can’t really go any further because we have 3 unknowns (<span class="math notranslate nohighlight">\(y_{N\!H_3}\)</span>, <span class="math notranslate nohighlight">\(y_{N_2}\)</span>, and <span class="math notranslate nohighlight">\(y_{H_2}\)</span>) and only 1 equation.  As before, we address this by solving for the molar quantity of each species using an extent of reaction, stoichiometric coefficients, and the starting quantity of each species.</p>
+</section>
+<section id="expressing-mole-fractions-as-functions-of-extent">
+<h4>Expressing Mole Fractions as functions of Extent<a class="headerlink" href="#expressing-mole-fractions-as-functions-of-extent" title="Link to this heading">#</a></h4>
+<p>In general, the mole fraction for a species in the gas phase is defined as:</p>
+<div class="math notranslate nohighlight">
+\[y_j = \frac{N_j}{N_{\textrm{total}}} = \frac{N_j}{\sum_j N_j}\]</div>
+<p>We also remember that we can express the moles of each species at any point in the reaction, <span class="math notranslate nohighlight">\(N_j\)</span> in terms of the extent of reaction(s) that are occuring in that system.</p>
+<div class="math notranslate nohighlight">
+\[N_j = N_{j,0} + \nu_j \varepsilon\]</div>
+<p>We want to apply this equation for all species in the reactor. We can also see that the total number of moles shows up in the definition of a mole fraction, so we need to track that quantity as well. It is usually a good idea to organize all of this information in a mole table – no matter how many equilibrium problems I solve, I still always use this simple tool to organize information. We will again relabel the compounds using N (<span class="math notranslate nohighlight">\(N_2\)</span>), H (<span class="math notranslate nohighlight">\(H_2\)</span>), and A (<span class="math notranslate nohighlight">\(NH_3\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[N (g) + 3H (g) \leftrightharpoons 2A (g)\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Species</p></th>
+<th class="head text-center"><p>In</p></th>
+<th class="head text-center"><p>Change</p></th>
+<th class="head text-center"><p>End</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(N_2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{N0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{N0} - 1\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(H_2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{H0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-3\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{H0} - 3\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(N\!H_3\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{A0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+2\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{A0} + 2\varepsilon\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Total</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{T0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-2\varepsilon\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{T0} - 2\varepsilon\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can make these substitutions into the definitions of mole fractions, ultimately finding:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(N_{A,0} + 2\varepsilon\right)^2 \left(N_{T,0} - 2\varepsilon\right)^2}{\left(N_{N,0} - 1\varepsilon\right) \left(N_{H,0} - 3\varepsilon\right)^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+</section>
+<section id="solving-the-problem-with-opt-newton">
+<h4>Solving the problem with <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code><a class="headerlink" href="#solving-the-problem-with-opt-newton" title="Link to this heading">#</a></h4>
+<p>Inspection of this equation reveals that we know everything except for the extent of reaction.  This means that we have written 1 Equation as a univariate function of 1 unknown. This can be solved with numerical methods.  Specifically, we will use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.newton()</span></code>, which is aliased in this notebook as <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>. This is an appropriate choice because it is designed for root finding with univariate functions. We can use a lambda function as in the Example in <a class="reference external" href="https://jqbond.github.io/CEN587/Lectures/587-L05.html">Lecture 05</a>. Remember that algebraic equation solvers use an iterative root finding approach, and we frequently need to provide an initial guess at the correct equilibrium extent. Here, we’ll guess 0.01 as the  equilibrium extent of 0.01 because we know that, with an equilibrium constant of <span class="math notranslate nohighlight">\(K = 1.5\times10^{-6}\)</span>, the reaction is very unfavorable and we are expecting a very small extent of reaction converting <span class="math notranslate nohighlight">\(N_2\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> into <span class="math notranslate nohighlight">\(N\!H_3\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The only difference between this solution and the one in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N07.html">Notebook 07</a> is the value of the equilibrium constant. K has changed because we have changed temperature to 873K in this example. Everything else in the problem is identical to the one presented in Lecture 05. The strategies we’ve used to define activities, etc. is completely general, and it will apply for any condition we are interested in. We haven’t plugged in numbers. The solution is left symbolic, which makes it much easier to modify to account for changes in the problem statement.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##################################################################################</span>
+<span class="c1"># Solving for the equilibrium extent of reaction at 873K                         #</span>
+<span class="c1">##################################################################################</span>
+
+<span class="c1"># Define the basis; here, an extensive basis is given in the problem statement.</span>
+<span class="n">NN0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#mole of Nitrogen at start</span>
+<span class="n">NH0</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1">#moles of Hydrogen at start</span>
+<span class="n">NA0</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1">#moles of Ammonia at start</span>
+<span class="n">NT0</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">+</span> <span class="n">NH0</span> <span class="o">+</span> <span class="n">NA0</span> <span class="c1">#total moles at start</span>
+
+<span class="c1"># Define the Reference Pressure, P0, and the system pressure, P, for this problem</span>
+<span class="n">P0</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
+<span class="n">P</span>  <span class="o">=</span> <span class="mi">1</span> <span class="c1">#bar</span>
+
+<span class="c1"># Calculate the thermodynamic equilibrium constant at the reaction temperature</span>
+<span class="n">Kthermo</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+
+<span class="c1"># Define the objective function to be solved using opt.newton()</span>
+<span class="n">obj1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ε</span><span class="p">:</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ε</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ε</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ε</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ε</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">P0</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">P</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Kthermo</span>
+
+<span class="c1"># Find the root of the objective function using opt.newton()</span>
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Print the answer using a formatted f-string</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the extent of reaction at equilibrium is </span><span class="si">{</span><span class="n">ans</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1"> moles&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At T = 873K, the extent of reaction at equilibrium is 7.99E-04 moles
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-the-equilibrium-extent-to-calculate-composition-and-conversion">
+<h4>Using the equilibrium extent to calculate composition and conversion<a class="headerlink" href="#using-the-equilibrium-extent-to-calculate-composition-and-conversion" title="Link to this heading">#</a></h4>
+<p>Now that we know the reaction extent at equilibrium, it is easy enough to calculate the fractional conversion of <span class="math notranslate nohighlight">\(N_2\)</span> and the composition of the mixture:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########################################################################################################################</span>
+<span class="c1"># This cell uses the solution for extent at equilibrium to compute the corresponding system composition at equilibrium #</span>
+<span class="c1">########################################################################################################################</span>
+
+<span class="n">yN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="p">(</span><span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="p">(</span><span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NT0</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="n">ans</span><span class="o">/</span><span class="n">NN0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, equilibrium mole fractions for N2, H2, and NH3 are </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium fractional conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At T = 873K, equilibrium mole fractions for N2, H2, and NH3 are 0.250, 0.750, 3.994E-04
+At T = 873K, the equilibrium fractional conversion of N2 is 7.99E-04
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-not-make-a-general-function-so-we-aren-t-stuck-doing-manipulations-by-hand">
+<h4>Why not make a general function so we aren’t stuck doing manipulations by hand<a class="headerlink" href="#why-not-make-a-general-function-so-we-aren-t-stuck-doing-manipulations-by-hand" title="Link to this heading">#</a></h4>
+<p>Although there is nothing wrong with the solution above, I <em>prefer</em> to address the problem as below, which is to embed all of the calculations of numbers of moles, mole fractions, and thermodynamic activities into my objective function–see <code class="docutils literal notranslate"><span class="pre">obj2(ε)</span></code> below.  This makes it easy for me to look at the equations and understand exactly what they mean, which helps me to identify mistakes in my code.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Compare <code class="docutils literal notranslate"><span class="pre">obj2(ε)</span></code> to the function <code class="docutils literal notranslate"><span class="pre">obj1(ε)</span></code> above.  Functionally, the two accomplish exactly the same thing, but, to me, <code class="docutils literal notranslate"><span class="pre">obj2(ε)</span></code> is far easer to understand in terms of physical significance of each term. The reason for this is that it is all symbolic and left in the form of definitions and equations that are physically intuitive to us.  Python doesn’t make mistakes in performing math operations, whereas we frequently make mistakes with algebraic manipulations.  Let’s offload the tedious part to Python, why don’t we?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################################################################</span>
+<span class="c1"># This is functionally equivalent to the above solution, but it offloads substitutions to Python instead of our doing them by hand #</span>
+<span class="c1">####################################################################################################################################</span>
+
+<span class="c1"># Build a univariate objective function called obj2</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj2</span><span class="p">(</span><span class="n">ε</span><span class="p">):</span>
+    <span class="n">T1</span>  <span class="o">=</span> <span class="mi">873</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ε</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>
+    <span class="n">KCOMP</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+       
+    <span class="k">return</span> <span class="n">KCOMP</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
+
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">, yN is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yH is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yA is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: converged
+ function_calls: 11
+     iterations: 10
+           root: 0.0007985377054623165
+         method: secant 
+
+At T = 873K, the equilibrium conversion of N2 is 7.99E-04, yN is 0.250, yH is 0.750, and yA is 3.99E-04
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-can-we-do-to-improve-the-equilibrium-conversion">
+<h3>What can we do to improve the equilibrium conversion?<a class="headerlink" href="#what-can-we-do-to-improve-the-equilibrium-conversion" title="Link to this heading">#</a></h3>
+<p>In cases where a gas-phase reaction causes a decrease in the total number of moles, one can create a more favorable equilibrium position by increasing reaction pressure. This is true in the case of ammonia synthesis:</p>
+<div class="math notranslate nohighlight">
+\[N_2 + 3H_2 \leftrightharpoons 2N\!H_3\]</div>
+<p>Recalling Le Chatelier’s principle, an increase in pressure favors the side with fewer moles, so this will drive ammonia synthesis to the right, form more products (ammonia), and allow us to achieve higher equilibrium conversion of <span class="math notranslate nohighlight">\(N_2\)</span> and a higher equilibrium yield of ammonia.  Let’s see how that plays out.</p>
+</section>
+<section id="adapting-the-solution-for-high-pressure">
+<h3>Adapting the Solution for High Pressure<a class="headerlink" href="#adapting-the-solution-for-high-pressure" title="Link to this heading">#</a></h3>
+<p>We will still run the reaction at 873K and starting with 1 mole of <span class="math notranslate nohighlight">\(N_2\)</span> and 3 moles of <span class="math notranslate nohighlight">\(H_2\)</span>; howver, we will increase the reactor pressure to an as yet unspecified higher pressure, P.  For the moment, I will say that, no matter how high we make the pressure, the gases still behave as ideal gases.  This is technically incorrect, but it avoids our having to calculate fugacity coefficients, which we’ll save for <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N10.html">Notebook 10</a>.</p>
+<p>Reviewing, to determine the composition of the reactor at equilibrium, we need to solve:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>We’ll do that in steps.</p>
+</section>
+<section id="finding-the-equilibrium-constant-k">
+<h3>Finding the Equilibrium constant, K<a class="headerlink" href="#finding-the-equilibrium-constant-k" title="Link to this heading">#</a></h3>
+<p>The value <span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> that appears in the equation above is the standard state Gibbs free energy change for reaction.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For equilibrium problems, we always specify this at the reaction temperature (here, <span class="math notranslate nohighlight">\(T = 873K\)</span>), at 1 bar pressure (<span class="math notranslate nohighlight">\(P^\circ = 1 \mathrm{bar}\)</span>), and for pure gas species (since this is a gas phase reaction).</p>
+</div>
+<p>As far as I can tell, we already did this above.  We are increasing pressure, but that does not change the value of our thermodynamic equilibrium constant.  It only depends on temperature, and we are still operating at 873K!!!</p>
+<p>So, we already know the answer to this part:</p>
+<div class="math notranslate nohighlight">
+\[K = 1.52\times10^{-6}\]</div>
+</section>
+<section id="finding-the-composition-dependencies-using-activities">
+<h3>Finding the composition dependencies using activities<a class="headerlink" href="#finding-the-composition-dependencies-using-activities" title="Link to this heading">#</a></h3>
+<p>Now we approach the right hand side of the equilibrium equation:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>Absolutely nothing has changed about the way we handle this! We know that this expands to:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{a_{N\!H_3}}^{2}}{{a_{N_2}}{a_{H_2}}^3}\]</div>
+<p>We still define thermodynamic activities of gases in a mixture:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{\hat{f}_j}{f_j^\circ}\]</div>
+<p>The numerator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> under reaction conditions <span class="math notranslate nohighlight">\((T = 873K, P = ? \ \textrm{bar}, x_j = ?)\)</span>. The denominator is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its reference state. Our reference state for gas-phase species is a pure species at 1 bar and the reaction temperature (<span class="math notranslate nohighlight">\(T = 873K\)</span>). Our convention for calculating fugacities of gases in a mixture uses the Lewis Randall rule. With these things in mind, formally, we have:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j \phi_j P}{y_j^\circ \phi_j^\circ  P^\circ}\]</div>
+<p>Looking at the numerator, we are operating this reactor at some unknown high pressure “P” bar, so the fugacity coefficient for species j under reaction conditions, <span class="math notranslate nohighlight">\(\phi_j\)</span> is probably not actually 1.  That said, I am explicitly specifying these gases presently behave as ideal gases at all pressures, so we will make the normally bad assumption that <span class="math notranslate nohighlight">\(\phi_j\)</span> is 1 just because I’ve written the problem that way. Looking at the denominator, the reference state is a pure species, so <span class="math notranslate nohighlight">\(y_j^\circ = 1\)</span>.  Further, that pure species is at 1 bar, so <span class="math notranslate nohighlight">\(\phi_j^\circ = 1\)</span>. Because we assumed ideal gas behavior, we get the result for low pressure gases:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{y_j P}{P^\circ}\]</div>
+<p>Now we substitute the activity definition into the equilibrium expression as usual:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{\left(\frac{y_{N\!H_3}P}{P^\circ}\right)^2}{\left(\frac{y_{N_2}P}{P^\circ}\right) \left(\frac{y_{H_2}P}{P^\circ}\right)^3}\]</div>
+<p>We see multiple pressures and reference pressures that will cancel, giving:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{{y_{N\!H_3}}^2}{y_{N_2}{y_{H_2}}^3} \left(\frac{P^\circ}{P}\right)^2\]</div>
+<p>Comparision with the last two problems shows that nothing is different about the approach. All we are doing is changing the pressure, which appears on the right hand side of the equation.  As we change the pressure, it requires the mole fractions of species to change since the equilibrium constant is fixed at a value of <span class="math notranslate nohighlight">\(K = 1.52\times10^{-6}\)</span> once we set temperature to 873K.We can solve this equation as usual with any root finding algorithm. We will simply copy the code for <code class="docutils literal notranslate"><span class="pre">obj2(ε)</span></code> from a few cells back, change the objective function name to <code class="docutils literal notranslate"><span class="pre">obj3(ε)</span></code>, adjust the reactor pressure as needed, and then solve using <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code> as before. Note here that I’ve embedded all of the substitutions inside of a function instead of doing them myself on a scratch paper.  I generally find this is cleaner and more human readable.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice: The approach is completely general, and it is simple to adapt this solution to different temperatures and pressures. This is one serious advantage to writing a script to perform the calcualtions rather than trying to substitute numbers by hand. As we change temperature, the effect is captured in <span class="math notranslate nohighlight">\(K(T)\)</span>, calculates a new equilibrium constant once temperature is specified.  As we change pressure, the effect appears in my definition of thermodyanmic activities.  So we can easily change either <span class="math notranslate nohighlight">\(T\)</span> or <span class="math notranslate nohighlight">\(P\)</span> at will and then re-solve the objective function at any new condition using <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################################################################</span>
+<span class="c1"># This objective function will be where we adjust values of T and/or P to see how it impacts the ammonia equilibrium position      #</span>
+<span class="c1">####################################################################################################################################</span>
+
+<span class="c1"># Build a univariate objective function called obj3; here, we intend that T and/or P can be redefined as needed to adapt to new reaction conditions.</span>
+<span class="c1"># In class, we typically solve this equation at 1 bar, 10 bar, 100 bar, and 1000 bar, noting that each will require a good initial guess.</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj3</span><span class="p">(</span><span class="n">ε</span><span class="p">):</span>
+
+    <span class="c1">#Specifications for this problem</span>
+    <span class="n">T1</span>  <span class="o">=</span> <span class="mi">873</span> <span class="c1">#K</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+   
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ε</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">KCOMP</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T1</span><span class="p">)</span>       
+
+    <span class="k">return</span> <span class="n">KCOMP</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - Kthermo = 0</span>
+
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T1</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, equilibrium conversion of N2 is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">XN</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yN</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yH</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">yA</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: converged
+ function_calls: 23
+     iterations: 22
+           root: 0.0007985377072011384
+         method: secant 
+
+At T = 873K and P = 1 bar, equilibrium conversion of N2 is 0.0008, yA is 0.2499, yB is 0.7497, and yC is 0.0004
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="this-really-doesn-t-seem-industrially-feasible">
+<h3>This really doesn’t seem industrially feasible<a class="headerlink" href="#this-really-doesn-t-seem-industrially-feasible" title="Link to this heading">#</a></h3>
+<p>Unfortunately, the equilibrium conversion at <span class="math notranslate nohighlight">\(T = 873K\)</span> and <span class="math notranslate nohighlight">\(P = 10 \mathrm{bar}\)</span> is still below 1%. We’ll have to do better than that to have an economically viable process. The challenge is that, if you were to run gas-phase ammonia synthesis at 873K to get adequate reaction rate, you’d need to run that process above 1000 bar to achieve anything above about 30% conversion of <span class="math notranslate nohighlight">\(N_2\)</span>. In general, it would be very expensive to run a process at 1000 bar, and it is unlikely one could operate something at the scale of an ammonia synthesis plant at 1000 bar. This is where the Haber-Bosch innovation becomes critically important. A key innovation is the in that process is the addition of a catalyst to ammonia synthesis, which we discuss subsequently.</p>
+<p>Prior to doing that, it is important to recognize that a catalyst does not change the overall thermodynamics of a reaction.  So whether or not there is a catalyst, ammonia synthesis is horribly unfavorable at 873K.  A catalyst would just allow the reaction to run at a faster rate and reach that horribly unfavorable equilbirium in a shorter time than it would without a catalyst.  See figure below for a conceptual illustration of a reaction, <span class="math notranslate nohighlight">\(A \leftrightarrow B\)</span> with <span class="math notranslate nohighlight">\(K = 2\)</span>:</p>
+<p>Do not worry about the equations and functions in the next cell – we haven’t covered this material yet, and we won’t get to it until course sections on material balances. For the moment, all you need to know is that these are expressions that describe the concentrations of A and B in a batch reactor an <span class="math notranslate nohighlight">\(A \leftrightarrow B\)</span> reaction with <span class="math notranslate nohighlight">\(K = 2\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A catalyst does not change the overall thermodynamic favorability of a reaction (equilibrium); it only changes how fast that reaction reaches equilibrium.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########################################################################################################################################</span>
+<span class="c1"># This cell illustrates reaction progress for an equilibrium limited reaction with and without a catalyst to accelerate reaction rate     #</span>
+<span class="c1"># You can see that the catalyst doesn&#39;t change how far the reaction can go at a given temperature, it only changes how fast it gets there #</span>
+<span class="c1">###########################################################################################################################################</span>
+
+<span class="n">CA0</span>     <span class="o">=</span> <span class="mi">10</span> <span class="c1">#moles</span>
+<span class="n">CB0</span>     <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#moles</span>
+<span class="n">k1f</span>     <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#1/sec</span>
+<span class="n">K1</span>      <span class="o">=</span> <span class="mi">2</span>  
+<span class="n">k1r</span>     <span class="o">=</span> <span class="n">k1f</span><span class="o">/</span><span class="n">K1</span> <span class="c1">#1/sec</span>
+<span class="n">tmax</span>    <span class="o">=</span> <span class="mi">3</span> <span class="c1">#seconds</span>
+
+<span class="n">k1cf</span>    <span class="o">=</span> <span class="mi">5</span>
+<span class="n">k1cr</span>    <span class="o">=</span> <span class="n">k1cf</span><span class="o">/</span><span class="n">K1</span>
+
+<span class="n">CAnocat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">CA0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">k1r</span><span class="o">/</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">CB0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">CBnocat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">CB0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">k1f</span><span class="o">/</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">CB0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1f</span> <span class="o">+</span> <span class="n">k1r</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">CAcat</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">CA0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">k1cr</span><span class="o">/</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">CB0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+<span class="n">CBcat</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">CB0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">k1cf</span><span class="o">/</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">CA0</span> <span class="o">+</span> <span class="n">CB0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">k1cf</span> <span class="o">+</span> <span class="n">k1cr</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">tspan</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">CAnocat</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">CAcat</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA with catalyst&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">CBnocat</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span> <span class="n">CBcat</span><span class="p">(</span><span class="n">tspan</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CB with catalyst&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">tspan</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">CA0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;C (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A to B in batch with and without catalyst&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/92ec3aff27c59e057f50a3354ed9e15215fc47b7b9cb93914f070def40cae1ba.png" src="../_images/92ec3aff27c59e057f50a3354ed9e15215fc47b7b9cb93914f070def40cae1ba.png" />
+</div>
+</div>
+</section>
+<section id="why-is-the-catalyst-so-important-in-ammonia-synthesis-then">
+<h3>Why is the catalyst so important in ammonia synthesis then?<a class="headerlink" href="#why-is-the-catalyst-so-important-in-ammonia-synthesis-then" title="Link to this heading">#</a></h3>
+<p>The reason the addition of a catalyst benefits this process so much is that it allows us to achieve a faster rate of reaction (relative to the non-catalytic system) at a given temperature.  Another way to think of this is that the catalytic system will not require as a high a temperature to achieve the same rate as the non-catalytic system.  So, for example, if kinetics force us to operate ammonia synthesis at 873K without a catalyst, perhaps we can achieve the same rate at 673K with a catalyst.  Since ammonia synthesis is exothermic, this reduction in operating temperature is extremely beneficial toward improving the equilibrium limitation.  We illustrate this effect in the cell below, which is just code copied from above, but we can adjust temperature and pressure to see how it impacts chemical equilibrium.</p>
+<p>Ultimately, we’ll find that at <span class="math notranslate nohighlight">\(T = 673K\)</span> and <span class="math notranslate nohighlight">\(P = 200 \mathrm{bar}\)</span>, it is possible to achieve <span class="math notranslate nohighlight">\(X_{N_2} \approx 0.5\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Caveat: we have assumed ideal gas behavior in this solution, which is incorrect at 200 bar. To obtain a better estimate of nitrogen conversion and ammonia yield at <span class="math notranslate nohighlight">\(T = 673K\)</span> and <span class="math notranslate nohighlight">\(P = 200 \mathrm{bar}\)</span>, we would need to calculate fugacity coefficients at 200 bar. This is the topic of <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N10.html">Notebook 10</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################################################################</span>
+<span class="c1"># This objective function will be where we adjust values of T and/or P to see how it impacts the ammonia equilibrium position      #</span>
+<span class="c1">####################################################################################################################################</span>
+
+<span class="n">T2</span> <span class="o">=</span> <span class="mi">673</span> <span class="c1">#K</span>
+<span class="n">P2</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#bar</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj4</span><span class="p">(</span><span class="n">ε</span><span class="p">):</span>
+
+    <span class="c1">#Specifications for this problem</span>
+    <span class="n">P</span>   <span class="o">=</span> <span class="n">P2</span> <span class="c1">#bar</span>
+    <span class="n">P0</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#bar</span>
+    <span class="n">NN0</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#moles</span>
+    <span class="n">NH0</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="c1">#moles</span>
+    <span class="n">NA0</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1">#moles</span>
+    
+    <span class="n">NN</span>  <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ε</span>
+    <span class="n">NH</span>  <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ε</span>
+    <span class="n">NT</span>  <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+    
+    <span class="n">yN</span>  <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yH</span>  <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+    <span class="n">yA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+    
+    <span class="n">aN</span>  <span class="o">=</span> <span class="n">yN</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aH</span>  <span class="o">=</span> <span class="n">yH</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    <span class="n">aA</span>  <span class="o">=</span> <span class="n">yA</span><span class="o">*</span><span class="n">P</span><span class="o">/</span><span class="n">P0</span>
+    
+    <span class="n">KCOMP</span> <span class="o">=</span> <span class="n">aA</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">aN</span><span class="o">/</span><span class="n">aH</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">KTHERMO</span> <span class="o">=</span> <span class="n">K</span><span class="p">(</span><span class="n">T2</span><span class="p">)</span>
+       
+    <span class="k">return</span> <span class="n">KCOMP</span> <span class="o">-</span> <span class="n">KTHERMO</span>  <span class="c1">#We want to find the value of extent where KCOMP - KTHERMO = 0</span>
+
+<span class="n">ans</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">newton</span><span class="p">(</span><span class="n">obj4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1">#This solves for the equilibrium extent</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#Let&#39;s make sure it converged...</span>
+
+<span class="c1">#Solve for conversion and mole fractions.</span>
+<span class="n">NN</span> <span class="o">=</span> <span class="n">NN0</span> <span class="o">-</span> <span class="n">ans</span>
+<span class="n">NH</span> <span class="o">=</span> <span class="n">NH0</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NA</span> <span class="o">=</span> <span class="n">NA0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">ans</span>
+<span class="n">NT</span> <span class="o">=</span> <span class="n">NN</span> <span class="o">+</span> <span class="n">NH</span> <span class="o">+</span> <span class="n">NA</span>
+<span class="n">XN</span> <span class="o">=</span> <span class="p">(</span><span class="n">NN0</span> <span class="o">-</span> <span class="n">NN</span><span class="p">)</span><span class="o">/</span><span class="n">NN0</span>
+<span class="n">yN</span> <span class="o">=</span> <span class="n">NN</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yH</span> <span class="o">=</span> <span class="n">NH</span><span class="o">/</span><span class="n">NT</span>
+<span class="n">yA</span> <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">NT</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At T = </span><span class="si">{</span><span class="n">T2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">K and P = </span><span class="si">{</span><span class="n">P2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1"> bar, the equilibrium conversion of N2 is </span><span class="si">{</span><span class="n">XN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yA is </span><span class="si">{</span><span class="n">yN</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, yB is </span><span class="si">{</span><span class="n">yH</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, and yC is </span><span class="si">{</span><span class="n">yA</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      converged: True
+           flag: converged
+ function_calls: 6
+     iterations: 5
+           root: 0.5119797716314257
+         method: secant 
+
+At T = 673K and P = 200 bar, the equilibrium conversion of N2 is 0.512, yA is 0.164, yB is 0.492, and yC is 0.344
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="587-N07.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chemical Equilibrium III</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N09.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Passing Extra Parameters in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-more-realistic-view-of-ammonia-synthesis">A More Realistic View of Ammonia Synthesis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-temperature-affect-chemical-equilibrium">How Does Temperature Affect Chemical Equilibrium?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamic-data-and-k">Thermodynamic data and K</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-write-a-function-that-you-can-reuse-over-and-over-at-any-t">Why not write a function that you can reuse over and over at any T?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-can-graph-it-why-not-graph-it">If you can graph it, why not graph it?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#wait-what-was-the-question-again">Wait, what was the question again?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#k-is-also-a-function-of-thermodynamic-activities">K is also a function of thermodynamic activities!</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#expressing-mole-fractions-as-functions-of-extent">Expressing Mole Fractions as functions of Extent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-problem-with-opt-newton">Solving the problem with <code class="docutils literal notranslate"><span class="pre">opt.newton()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-equilibrium-extent-to-calculate-composition-and-conversion">Using the equilibrium extent to calculate composition and conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-make-a-general-function-so-we-aren-t-stuck-doing-manipulations-by-hand">Why not make a general function so we aren’t stuck doing manipulations by hand</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-we-do-to-improve-the-equilibrium-conversion">What can we do to improve the equilibrium conversion?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adapting-the-solution-for-high-pressure">Adapting the Solution for High Pressure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-equilibrium-constant-k">Finding the Equilibrium constant, K</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-composition-dependencies-using-activities">Finding the composition dependencies using activities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#this-really-doesn-t-seem-industrially-feasible">This really doesn’t seem industrially feasible</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-the-catalyst-so-important-in-ammonia-synthesis-then">Why is the catalyst so important in ammonia synthesis then?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

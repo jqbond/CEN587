@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Chemical Equilibrium I &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N05';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chemical Equilibrium II" href="587-N06.html" />
+    <link rel="prev" title="Extent and Conversion" href="587-N04.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Chapter1.html">Python Supplements</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="587-N01.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N02.html">Jupyter and Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N03.html">Solving Algebraic Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N04.html">Extent and Conversion</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Chemical Equilibrium I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N06.html">Chemical Equilibrium II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N07.html">Chemical Equilibrium III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N08.html">Chemical Equilibrium IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N09.html">Passing Extra Parameters in Python</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N05.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N05.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N05.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chemical Equilibrium I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-concepts">General Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-definition-of-chemical-equilibrium">A Definition of Chemical Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria-for-chemical-equilibrium">Criteria for Chemical Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-thermodynamic-k-vs-kc-and-kp">The Thermodynamic K vs. K<sub>C</sub> and K<sub>P</sub></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chemical-equilibrium-i">
+<h1>Chemical Equilibrium I<a class="headerlink" href="#chemical-equilibrium-i" title="Link to this heading">#</a></h1>
+<p>This lecture covers critera for equilibrium and the relationship between standard state Gibbs Free Energy of reaction and the composition of a reacting mixture at chemical equilibrium.</p>
+<section id="general-concepts">
+<h2>General Concepts<a class="headerlink" href="#general-concepts" title="Link to this heading">#</a></h2>
+<p>When we are designing chemical reactors, we have to consider two key questions about the reactions occuring in them: <em><strong>how far</strong></em> can the reaction go and <em><strong>how fast</strong></em> will the reaction get there.</p>
+<p>The first question is important from the perspective of raw material cost and process complexity. All chemical reactions have a maximum extent that they can reach (a maximum fractional conversion). This dictates how much reactant we convert per pass in a reactor, and it at least partially determines how much unconverted species we will have to either lose or recycle, both of which increase cost. It is important to remember that the maximum conversion that a reaction can attain is not always 1. Reversible reactions will always have maximum fractional conversions below 1, and if a reaction is <em><strong>thermodynamically unfavorable</strong></em>, it may only have a maximum conversion of a few percent.</p>
+<p>The second question (how fast?) is important because it affects the size of chemical reactors and/or how long we need to allow for the reaction to occur.  In general, the slower the process, the longer it takes, the larger the reactor it requires, and/or the more expensive it will be.</p>
+<p>We answer the first question (<em><strong>how far can a reaction go?</strong></em>) by considering the thermodynamics of a reaction.  Specifically, we consider the changes in the state functions of enthalpy, entropy, and Gibbs Free Energy that occur when <em><strong>reactants are converted into products</strong></em>.  We answer the second question (<strong>how fast will it get there?</strong>) by considering the kinetics of the reaction. Specificaly, we consider the changes in the state functions of enthalpy, entropy, and Gibbs Free Energy that occur when <em><strong>reactants are converted into transition states</strong></em>.  Consider the energy diagram for a generic, thermodynamically favorable reaction <span class="math notranslate nohighlight">\(R \leftrightarrow P\)</span>:</p>
+<figure class="align-default" id="directive-fig">
+<a class="reference internal image-reference" href="../_images/EnergyDiagram.svg"><img alt="../_images/EnergyDiagram.svg" src="../_images/EnergyDiagram.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Free Energy Diagram for an Exergonic Reaction</span><a class="headerlink" href="#directive-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In the energy diagram above, the Gibbs Free Energy of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>) addresses the question of how far a reaction will go at a given temperature, pressure, and starting composition. It quantifies the change in Gibbs Free Energy when reactants are converted into products. The Gibbs Free Energy of activation (<span class="math notranslate nohighlight">\(\Delta G^{\ddagger}\)</span>) addresses the question of how fast a reaction will occur at a given temperature, pressure, and composition.  Note that there are activation barriers for both the forward reaction (<span class="math notranslate nohighlight">\(\Delta G_f^{\ddagger}\)</span>) and the reverse reaction (<span class="math notranslate nohighlight">\(\Delta G_r^{\ddagger}\)</span>). The Gibbs Free Energy of activation for the forward reaction (<span class="math notranslate nohighlight">\(\Delta G_f^{\ddagger}\)</span>) describes the change in Gibbs free energy that occurs when reactants are converted into the transition state, and the Gibbs free energy of activation for the reverse reaction (<span class="math notranslate nohighlight">\(\Delta G_r^{\ddagger}\)</span>) quantifies the change in Gibbs free energy that occurs when products are converted into the transition state.The difference between these two barriers <em><strong>must</strong></em> equal the energy change of reaction (<span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}}\)</span>), so only two of the three quantities can be independently specified:</p>
+<p><span class="math notranslate nohighlight">\(\Delta G_{\textrm{rxn}} = \Delta G_f^{\ddagger} - \Delta G_r^{\ddagger}\)</span></p>
+<p>We will address kinetics later; we’ll talk about Thermodynamics now.</p>
+</section>
+<section id="a-definition-of-chemical-equilibrium">
+<h2>A Definition of Chemical Equilibrium<a class="headerlink" href="#a-definition-of-chemical-equilibrium" title="Link to this heading">#</a></h2>
+<p>Consider the reversible chemical reaction shown below:</p>
+<div class="math notranslate nohighlight">
+\[2A \leftrightharpoons B\]</div>
+<p>Let’s say we fill a batch reactor of volume <span class="math notranslate nohighlight">\(V\)</span> with <span class="math notranslate nohighlight">\(N_{A0}\)</span> moles of species A and <span class="math notranslate nohighlight">\(N_{B0}\)</span> moles of species B, and we let the system react for an infinite amount of time.  <em><strong>Eventually</strong></em> this system will reach chemical equilibrium.  We generally know that the composition of the system can be described in terms of an equilibrium constant, even if we don’t quite remember what that equilibrium constant means, how it is calculated, or how we relate it to composition.</p>
+<p>Almost any time I ask a student to define the equilibrium constant for this reaction, this is the answer I will get:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{C_B}{C_A^2}\]</div>
+<p>If we think back to our Thermodynamics courses, though, we can also recall the following definition of an equilibrium constant:</p>
+<div class="math notranslate nohighlight">
+\[K = \exp \left(\frac{-\Delta G^\circ}{RT}\right)\]</div>
+<p>Let’s consider whether those two equilibrium constants are actually the same thing…which we seem to have naively concluded above. One significant thing is that concentration has units of quantity per volume; for example: moles per liter (Molarity). Because of this, we can see that our first definition of K has to have units of inverse concentration, for example (<span class="math notranslate nohighlight">\(\mathrm{L \, mol^{-1}}\)</span>).  In contrast, if we inspect the second equation, we see that:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-451c7b33-06d8-48aa-8cc1-9f9efc4b3187">
+<span class="eqno">(7)<a class="headerlink" href="#equation-451c7b33-06d8-48aa-8cc1-9f9efc4b3187" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \Delta G^\circ \ &amp;[=] \ J \ \textrm{mol}^{-1} \\
+    R              \ &amp;[=] \ J \ \textrm{mol}^{-1} \ K^{-1} \\
+    T              \ &amp;[=] \ K \\
+\end{align}\]</div>
+<p>So the second equilibrium constant has to be dimensionless.  Those two constants can’t be the same definition of K. The two definitions are related, but they are not identical, and we need to be very careful to distinguish them.</p>
+</section>
+<section id="criteria-for-chemical-equilibrium">
+<h2>Criteria for Chemical Equilibrium<a class="headerlink" href="#criteria-for-chemical-equilibrium" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The subsequent derivation follows the one presented in <em>Introduction to Chemical Engineering Thermodynamics</em> by Smith, van Ness, and Abbott.</p>
+</div>
+<p>A reaction is at <em><strong>Chemical Equilibrium</strong></em> when the total Gibbs Free Energy of the reacting system is <em><strong>at a minimum</strong></em> with respect to changes in the number of moles of each species (composition) at a fixed Temperature and Pressure.</p>
+<p>Let’s consider the usual example of a generic chemical reaction with unspecified stoichiometric coefficients:</p>
+<div class="math notranslate nohighlight">
+\[\nu_A A \ + \ \nu_B B \leftrightharpoons \nu_C C \ + \ \nu_D D\]</div>
+<p>The total Gibbs Free Energy of the reacting system is defined as a function of Temperature, Pressure, and number of moles of each species:</p>
+<div class="math notranslate nohighlight">
+\[G = f(T, P, N_j)\]</div>
+<p>We are interested in determining the <em><strong>minimum</strong></em> in Gibbs energy for our system.  Finding a minimum is usually accomplished by taking a derivative.  Gibbs free energy is a function of the canonical variables of temperature, pressure, and molar quantity of species, <span class="math notranslate nohighlight">\((T, P, N_j).\)</span> So if we were to take the total derivative of Gibbs free energy, it looks something like this:</p>
+<div class="math notranslate nohighlight">
+\[dG = \frac{\partial G}{\partial T}dT + \frac{\partial G}{\partial P}dP + \sum_{j = 1}^{N_S}\frac{\partial G}{\partial N_j}dN_j\]</div>
+<p>Here, the derivative with respect to molar quantiy takes the form of a summation because we generally expect to have more than one species present in a reacting system, and we have to take the derivative with respect to each species. These partial derivatives all define very specific Thermodynamic variables:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4b7928b2-ac96-4489-9c6d-569711a333cc">
+<span class="eqno">(8)<a class="headerlink" href="#equation-4b7928b2-ac96-4489-9c6d-569711a333cc" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{\partial G}{\partial T} &amp;= -S \\
+    \\
+    \frac{\partial G}{\partial P} &amp;= V \\
+    \\
+    \frac{\partial G}{\partial N_j} &amp;= \mu_j \\
+\end{align}\]</div>
+<p>With those definitions, we have:</p>
+<div class="math notranslate nohighlight">
+\[dG = -S dT + V dP + \sum_{j = 1}^{N_S} \mu_j dN_j\]</div>
+<p>Now we’ll make some simplifications and substitutions.  First, we remember that we consider chemical equilbrium at a <em><strong>constant Temperature and Pressure</strong></em>.  For that reason, if we are at chemical equilibrium, T and P are constant, and so dT and dP are both zero.  This simplifies the relevant derivative to:</p>
+<div class="math notranslate nohighlight">
+\[dG = \sum_{j = 1}^{N_S} \mu_j dN_j\]</div>
+<p>Next, we recall from <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N04.html">Notebook 04</a> that, for a single reaction, we can define the number of moles of any species (<span class="math notranslate nohighlight">\(N_j\)</span>) in the reactor as a function of the extent of reaction.  Specifically, for a single reaction like in this example, we can define the extent of reaction as:</p>
+<div class="math notranslate nohighlight">
+\[\varepsilon = \frac{N_{j} - N_{j,0}}{\nu_j}\]</div>
+<p>As in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N04.html">Notebook 04</a>, we can rearrange that definition to find:</p>
+<div class="math notranslate nohighlight">
+\[N_j = N_{j,0} + \nu_j \varepsilon\]</div>
+<p>We substitute the number of moles of <span class="math notranslate nohighlight">\(j\)</span> into our derivative:</p>
+<div class="math notranslate nohighlight">
+\[dG = \sum_{j = 1}^{N_S} \mu_j d(N_{j,0} + \nu_j \varepsilon)\]</div>
+<p>Before we consider the sum, let’s examine that derivative and simplify some:</p>
+<div class="math notranslate nohighlight">
+\[d(N_{j,0} + \nu_j \varepsilon) = dN_{j,0} + d(\nu_j \varepsilon)\]</div>
+<p>The first term on the right hand size is zero because <span class="math notranslate nohighlight">\(N_{j,0}\)</span> is constant as a function of the extent of reaction, so its derivative is zero.  Stoichiometric coefficients are also constant, so the derivative becomes:</p>
+<div class="math notranslate nohighlight">
+\[d(N_{j,0} + \nu_j \varepsilon) = \nu_j d\varepsilon\]</div>
+<p>We can substitute this into our expression for <span class="math notranslate nohighlight">\(dG\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[dG = \sum_{j = 1}^{N_S} \nu_j\mu_j d \varepsilon\]</div>
+<p>Which rearranges to give:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dG}{d\varepsilon} = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
+<p>To be a bit more strict, we’ll use the following notation, which indicates that we are specifically taking the derivative of Gibbs free energy with respect to reaction extent, <span class="math notranslate nohighlight">\(\varepsilon\)</span>, at a constant Temperature and Pressure, which is in line with our usual analysis of a system at chemical equilibrium:</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{dG}{d\varepsilon}\right)_{T,P} = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
+<p>Now we have a derivative of total Gibbs Free Energy with respect to reaction extent at constant Temperature and Pressure on the left hand side. It is defined in terms of species chemical potentials on the right hand side.  We know that, at chemical equilibrium, Gibbs Free Energy is at a minimum with respect to reaction extent, so the derivative above has to be equal to zero at chemical equilibrium.  Thus, we can conclude that:</p>
+<div class="math notranslate nohighlight">
+\[0 = \sum_{j = 1}^{N_S} \nu_j\mu_j\]</div>
+<p>The chemical potential of species j, <span class="math notranslate nohighlight">\(\mu_j\)</span>, is defined in terms of its reference state chemical potential and a thermodynamic activity, <span class="math notranslate nohighlight">\(a_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mu_j = \mu_j^\circ + RT\ln{\left(a_j\right)}\]</div>
+<p>We define thermodynamic activities in terms of fugacities as below:</p>
+<div class="math notranslate nohighlight">
+\[a_j = \frac{f_j}{f_j^\circ}\]</div>
+<p>In that equation, <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> at the Temperature, Pressure, and Composition of the system <span class="math notranslate nohighlight">\((T, P, x_j)\)</span>, and <span class="math notranslate nohighlight">\(f_j\)</span> is the fugacity of species <span class="math notranslate nohighlight">\(j\)</span> in its <em><strong>Reference State</strong></em>, which we haven’t really defined yet. Probably the most important thing to remember about this definition is that activity is a <em><strong>relative</strong></em> quantity.  It depends on both the actual state of the system and the reference state of the system. For the types of problems we’ll address, the reference state for species <span class="math notranslate nohighlight">\(j\)</span> should always be the same in the definition of the reference state chemical potential, <span class="math notranslate nohighlight">\(\mu_j^\circ\)</span>, as it is in the reference state fugacity <span class="math notranslate nohighlight">\(f_j^\circ\)</span>.</p>
+<p>It actually isn’t helpful to switch to working with fugacities just yet, so we’ll stick with activities for now.  Let’s substitute our definition for chemical potential into the derivative of Gibbs, <span class="math notranslate nohighlight">\(\frac{dG}{d\varepsilon}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j = 1}^{N_S} \nu_j\mu_j = \sum_{j = 1}^{N_S} \nu_j \mu_j^\circ + \sum_{j = 1}^{N_S}\nu_jRT\ln{\left(a_j\right)}\]</div>
+<p>We may not recognize it in this form, but “Partial Molar Gibbs Free Energy” (<span class="math notranslate nohighlight">\(G_j\)</span>) is another name for chemical potential.  With that in mind, we simplify the first term in the summation, which represents the standard state Gibbs Free Energy of reaction:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j = 1}^{N_S} \nu_j \mu_j^\circ = \sum_{j = 1}^{N_S} \nu_j G_j^\circ = \Delta G^\circ\]</div>
+<p>And most of us recognize this as an expression of Hess’s Law, which we use to calculate changes in thermodynamic state functions upon reaction. Now we consider the second term in the summation, <span class="math notranslate nohighlight">\(\nu_jRT\ln{\left(a_j\right)}\)</span>.  Using properties of logarithms:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j = 1}^{N_S}\nu_jRT\ln{\left(a_j\right)} = \sum_{j = 1}^{N_S}RT\ln{\left(a_j^{\nu_j}\right)} = RT\ln{\prod_{j = 1}^{N_S}a_j^{\nu_j}}\]</div>
+<p>Returning to the derivative of Gibbs with respect to extent:</p>
+<div class="math notranslate nohighlight">
+\[0 = \sum_{j = 1}^{N_S} \nu_j\mu_j = \Delta G^\circ + RT\ln{\prod_{j = 1}^{N_S}a_j^{\nu_j}}\]</div>
+<p>We rearrange this equation to give the definition of a thermodynamic equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>Notice that each term in this expression is dimensionless (thermodynamic activities are a fugacity ratio, so they are dimensionless). For those that aren’t familiar with the product operator, <span class="math notranslate nohighlight">\(\prod\)</span>, is is analogous to the <span class="math notranslate nohighlight">\(\sum\)</span> operator.  <span class="math notranslate nohighlight">\(\prod\)</span> just means multiply each element by the next instead of add each element to the next.  If we apply the equation:</p>
+<div class="math notranslate nohighlight">
+\[K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>To our generic chemical reaction:</p>
+<div class="math notranslate nohighlight">
+\[\nu_A A \ + \ \nu_B B \leftrightharpoons \nu_C C \ + \ \nu_D D\]</div>
+<p>We find:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{a_C^{|\nu_C|} a_D^{|\nu_D|}}{a_A^{|\nu_A|} a_B^{|\nu_B|}}\]</div>
+<p>It isn’t apparent yet, but the fact that we use a standard state Gibbs Free eEnergy to calculate the equilibrium constant means we probably need to address the question of what is our standard state.  That depends on the system we are considering, but, for this class, when we consider chemical equilibrium problems, we know a few things:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at the Temperature that the reaction is occuring.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated at a reference Pressure of 1 bar.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta G^\circ\)</span> is always calculated for the phases of matter listed in our reaction, e.g.:</p></li>
+</ol>
+<p>If we are going to calculate the Gibbs Free Energy change for the following reaction:</p>
+<div class="math notranslate nohighlight">
+\[A (g) \leftrightharpoons B(g)\]</div>
+<p>We would do so based on data for A and B as pure gases at 1 bar and the reaction temperature.  In contrast:</p>
+<div class="math notranslate nohighlight">
+\[A (l) \leftrightharpoons B(l)\]</div>
+<p>Would use data for pure liquids at the reaction temperature and 1 bar whereas:</p>
+<div class="math notranslate nohighlight">
+\[A (aq.) \leftrightharpoons B(aq.)\]</div>
+<p>Would use thermodynamic data for species A and B in aqueous solution, generally either 1 molar or 1 molal, in water.  And finally,</p>
+<div class="math notranslate nohighlight">
+\[A (aq.) + B (l) \leftrightharpoons C(g) + D (s)\]</div>
+<p>Would use thermodynamic data for A in aqueous solution, B as a pure liquid, C as a pure gas, and D as a pure solid.</p>
+</section>
+<section id="the-thermodynamic-k-vs-kc-and-kp">
+<h2>The Thermodynamic K vs. K<sub>C</sub> and K<sub>P</sub><a class="headerlink" href="#the-thermodynamic-k-vs-kc-and-kp" title="Link to this heading">#</a></h2>
+<p>For this part of the course, where our focus is mostly on using thermodynamics to calculate the composition of mixtures at chemical equilibrium, we will almost always work with the following equation:</p>
+<div class="math notranslate nohighlight">
+\[\exp\left(\frac{-\Delta G^\circ}{RT}\right) = K = \prod_{j = 1}^{N_S}a_j^{\nu_j}\]</div>
+<p>We use this to relate the composition of the system (through thermodynamic activities) to the Gibbs Free Energy of reaction.  This is a fundamental, thermodynamic equilibrium constant. Later in the course, we may enounter some other types of “equilibrium constants” that are frequently used in practice.  Usually, you’ll see these defined in terms of either concentrations or partial pressures:</p>
+<div class="math notranslate nohighlight">
+\[K_C = \prod_{j = 1}^{N_S}C_j^{\nu_j}\]</div>
+<div class="math notranslate nohighlight">
+\[K_P = \prod_{j = 1}^{N_S}p_j^{\nu_j}\]</div>
+<p>We’ll always use a subscript to distinguish these “equilibrium constants” from a dimensionless thermodynamic equilibrium constant, <span class="math notranslate nohighlight">\(K\)</span>.  Note that neither concentrations nor pressures are dimensionless, so both <span class="math notranslate nohighlight">\(K_P\)</span> and <span class="math notranslate nohighlight">\(K_C\)</span> can have units in cases where there is a change in number of moles with reaction, e.g., <span class="math notranslate nohighlight">\(A \leftrightharpoons 2B\)</span></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="587-N04.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Extent and Conversion</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N06.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chemical Equilibrium II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-concepts">General Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-definition-of-chemical-equilibrium">A Definition of Chemical Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criteria-for-chemical-equilibrium">Criteria for Chemical Equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-thermodynamic-k-vs-kc-and-kp">The Thermodynamic K vs. K<sub>C</sub> and K<sub>P</sub></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

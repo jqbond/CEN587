@@ -6,21 +6,21 @@ root: intro
 chapters: 
 - file: Chapter1
   sections:
-  - file: Supplements/587-S01
-  - file: Supplements/587-S02
-  - file: Supplements/587-S03
-  - file: Supplements/587-S04
-  - file: Supplements/587-S05
-  - file: Supplements/587-S06
-  - file: Supplements/587-S07
-  - file: Supplements/587-S08
-  - file: Supplements/587-S09
-  - file: Supplements/587-S10
-  - file: Supplements/587-S11
-  - file: Supplements/587-S12
-  - file: Supplements/587-S13
-  - file: Supplements/587-S14
-  - file: Supplements/587-S15
+  # - file: Supplements/587-S01
+  # - file: Supplements/587-S02
+  # - file: Supplements/587-S03
+  # - file: Supplements/587-S04
+  # - file: Supplements/587-S05
+  # - file: Supplements/587-S06
+  # - file: Supplements/587-S07
+  # - file: Supplements/587-S08
+  # - file: Supplements/587-S09
+  # - file: Supplements/587-S10
+  # - file: Supplements/587-S11
+  # - file: Supplements/587-S12
+  # - file: Supplements/587-S13
+  # - file: Supplements/587-S14
+  # - file: Supplements/587-S15
 - file: Chapter2
   sections:
   - file: Lectures/587-L01

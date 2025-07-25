@@ -4,15 +4,21 @@
 format: jb-book
 root: index
 chapters: 
-- file: Chapter1
+# - file: Chapter1
 - file: Chapter2
   sections:
-  - file: Notebooks/587-N01
-  - file: Notebooks/587-N02
-  - file: Notebooks/587-N03
-  - file: Notebooks/587-N04
-  - file: Notebooks/587-N05
-  - file: Notebooks/587-N06
-  - file: Notebooks/587-N07
-  - file: Notebooks/587-N08
-  - file: Notebooks/587-N09
+  # - file: Notebooks/587-N01
+  # - file: Notebooks/587-N02
+  # - file: Notebooks/587-N03
+  # - file: Notebooks/587-N04
+  # - file: Notebooks/587-N05
+  # - file: Notebooks/587-N06
+  # - file: Notebooks/587-N07
+  # - file: Notebooks/587-N08
+  # - file: Notebooks/587-N09
+  # - file: Notebooks/587-N10
+  # - file: Notebooks/587-N11
+  # - file: Notebooks/587-N12
+  # - file: Notebooks/587-N13
+  # - file: Notebooks/587-N14
+  - file: Notebooks/587-N15

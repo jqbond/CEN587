@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material Balances III &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N15';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Material Balances III</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N15.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N15.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N15.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Material Balances III</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-balance-equation">The General Balance Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-batch-reactor">The Batch Reactor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-batch-reactors">Applications of Batch Reactors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-the-batch-reactor">Material Balance on The Batch Reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifiying-the-material-balance-for-a-well-mixed-batch-reactor">Simplifiying the material balance for a well-mixed batch reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-for-a-constant-volume-process">Simplification for a Constant Volume Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-stirred-tank-reactor-cstr">Continuous Stirred Tank Reactor (CSTR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifying-the-cstr-balance-by-assuming-perfect-mixing">Simplifying the CSTR balance by assuming perfect mixing…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifying-the-cstr-balance-by-assuming-steady-state">Simplifying the CSTR balance by assuming Steady State…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-implications-of-the-perfect-mixing-assumption-in-a-cstr">Other implications of the perfect mixing assumption in a CSTR</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consider-the-step-change">Consider the step change</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tubular-reactor-plug-flow-reactor">Tubular Reactor (Plug Flow Reactor)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-for-the-pfr">A model for the PFR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focus-on-a-single-cross-section">Focus on a single cross section…</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="material-balances-iii">
+<h1>Material Balances III<a class="headerlink" href="#material-balances-iii" title="Link to this heading">#</a></h1>
+<p>This lecture applies the general species balance to three common reactor models: The Batch Reactor, the Continuous Stirred Tank Reactor (CSTR), and the Plug Flow Reactor (PFR).</p>
+<section id="the-general-balance-equation">
+<h2>The General Balance Equation<a class="headerlink" href="#the-general-balance-equation" title="Link to this heading">#</a></h2>
+<p>Regardless of the reactor we’re using, we can always apply the general balance equation that we developed in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N13.html#developing-a-material-balance-for-a-reacting-system">Notebook 13</a>:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]</div>
+<p>For homogeneous reactions (reactions occuring in a single phase), we usually report <em>intensive reaction rates</em> per unit volume, which leads to the following result for homogeneous reactions (Developed in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N14.html#doing-this-for-a-real-reactor">Notebook 14</a>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \int^V R_jV\]</div>
+<p>We further recall that <span class="math notranslate nohighlight">\(R_j\)</span> is the net, intensive production rate of species <span class="math notranslate nohighlight">\(j\)</span> given in units of moles per volume per time.  We calculate the net intensive production rate by <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N14.html#multiple-reactions">summing the production rate of <span class="math notranslate nohighlight">\(j\)</span> in each individual reaction occuring in the system</a>:</p>
+<div class="math notranslate nohighlight">
+\[R_j = \sum_{i = 1}^{N_R} \nu_{i,j} \, r_i\]</div>
+</section>
+<section id="the-batch-reactor">
+<h2>The Batch Reactor<a class="headerlink" href="#the-batch-reactor" title="Link to this heading">#</a></h2>
+<p>A batch reactor is a closed system.  It is initially charged with some quantity of reactants, products, solvents, catalysts, etc. at some temperature, pressure, and composition. Thereafter, there is no flow of material into or out of the reactor (although exchange of energy with the surroundings is permitted). Typically, we imagine starting a reaction at <span class="math notranslate nohighlight">\(t = 0\)</span>, and then we allow the reaction to occur as time progresses. This is not a flow process, and batch reactors do not operate at steady state (steady state in a batch reactor means that the reaction has reached completion or equilibrium such that composition is no longer changing). When we discuss batch reactors, we usually will think about how the characteristics of the batch reactor and the reaction media inside of the batch reactor <em><strong>change as a function of time</strong></em>. Mass conservation requires that, for a closed system, the total mass inside of the system is invariant with time. Element conservation also applies, so the atomic quantities of elements will also not change with time. However, as the reaction occurs, the nature of that mass and elements will change since reactants are generally converting into products. In fact, for a batch reactor, total mass and atomic quantities of elements are pretty much the only things that are fixed. When working with a batch reactor, as time elapses, we should generally expect that:</p>
+<ol class="arabic simple">
+<li><p>The number of moles of each species may change with time.</p></li>
+<li><p>The total moles inside the reactor may change with time.</p></li>
+<li><p>The composition inside the reactor may change with time.</p></li>
+<li><p>The temperature inside the reactor may change with time.</p></li>
+<li><p>The pressure of the reactor may change with time.</p></li>
+<li><p>The size (volume) of the reactor may change with time.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When we analyze batch reactors, we’ll always be considering how their characteristics change with time. During the useful part of their operation, batch reactions are always dynamic, non-steady state processes.</p>
+</div>
+<section id="applications-of-batch-reactors">
+<h3>Applications of Batch Reactors<a class="headerlink" href="#applications-of-batch-reactors" title="Link to this heading">#</a></h3>
+<p>Batch reactors tend to be a bit more labor intensive since they require startup, shutdown, product recovery, cleaning/decontamination, re-charging, etc. They are commonly used for exploratory research with liquid- or gas-phase reactions at small scales. Often, we study kinetics in the laboratory using batch reactors. This allows us to develop functions that tell us how intensive rates of reactions vary with temperature, pressure, and composition. Once we have developed these <em><strong>rate laws</strong></em>, they are applicable universally, and we can use them to scale the process to larger reactors. Batch reactors are also used industrially for the production of things that do not scale well to continuous flow. Some examples might be very high value products (like pharmaceuticals) that are produced in very small quantities. In these cases, it may not be practical to run a process continuously, and the industry is better served by using a batch reactor to produce small quantities in multiple batches throughout the year. Processes that use expensive homogeneous catalysts (organometallic complexes, enzymes, etc.) are also sometimes carried out in batch processes because it is impractical to continuously flow expensive catalysts in solution and subsequently try to recover them from the reactor effluent. In these cases, it is may be better to work in batch systems. Another example could be biological processes, such as those involving microbial fermentation. Fermentation in the food and beverage industry, beer-brewing, for example is usually performed in batch reactors.</p>
+</section>
+<section id="material-balance-on-the-batch-reactor">
+<h3>Material Balance on The Batch Reactor<a class="headerlink" href="#material-balance-on-the-batch-reactor" title="Link to this heading">#</a></h3>
+<p>A typical batch reactor is illustrated in the figure below.  In this case, we have a homogeneous reaction occuring throughout the fluid phase (blue color)</p>
+<figure class="align-default" id="batchreactor">
+<a class="reference internal image-reference" href="../_images/BatchReactor.svg"><img alt="../_images/BatchReactor.svg" src="../_images/BatchReactor.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Conceptual Illustration of a Batch Reactor</span><a class="headerlink" href="#batchreactor" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now we’ll apply the balance equation to that reactor.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]</div>
+<p>A batch reactor is a closed system, so it is clear that we do not have flow of species <span class="math notranslate nohighlight">\(j\)</span> into or out of the reactor. Accordingly, both of the flow terms in our general balance equation are zero.</p>
+<div class="math notranslate nohighlight">
+\[F_{j,f} = F_j = 0\]</div>
+<p>We generally expect that we have a reaction occuring in this reactor, so that means that there is probably generation or consumption of species <span class="math notranslate nohighlight">\(j\)</span> by reaction. This means that the generation term is usually non-zero:</p>
+<div class="math notranslate nohighlight">
+\[G_j \neq 0\]</div>
+<p>Finally, we should usually expect that the quantity of each species is changing inside of a batch reactor as time elapses. Even though the total mass in the reactor is constant, we should be converting reactants into products, so there should be a change in the number of moles of each species with time (otherwise, we have not designed the reactor very well!!) As discussed in <a class="reference external" href="https://jqbond.github.io/CEN587/Lectures/587-L10.html#accumulation-without-flow">Notebook 13</a>, this is a type of accumulation. Specifically, the fact that the number of moles of species is generally going to change as a function of time in a batch reactor means that there is a non-zero accumulation term in a batch reactor material balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} \neq 0\]</div>
+<p>Based on these insights, we have the following equation for balance on species <span class="math notranslate nohighlight">\(j\)</span> in a generic batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = G_j\]</div>
+<p>In other words, the rate of accumulation of species in a batch reactor is exactly equal to its rate of generation or consumption by chemical reaction! We can go further.  Since this example specifically considers a homogeneous reaction occuring throughout the volume of fluid occupied by the reactor, intensive rates will be specified per unit volume, so:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = \int^V R_jdV\]</div>
+<p>This equation applies for any batch reactor without making assumptions. If we want to simplify further, we have to start making assumptions about the operation of our reactor.</p>
+</section>
+<section id="simplifiying-the-material-balance-for-a-well-mixed-batch-reactor">
+<h3>Simplifiying the material balance for a well-mixed batch reactor<a class="headerlink" href="#simplifiying-the-material-balance-for-a-well-mixed-batch-reactor" title="Link to this heading">#</a></h3>
+<p>In this course, we will always assume that our batch reactors have <em><strong>perfect mixing</strong></em>.  This implies that temperature, pressure, and composition <em><strong>must be spatially uniform</strong></em> inside of the batch reactor. If we could examine a fluid sample from one position inside of a <em><strong>perfectly mixed batch reactor</strong></em>, we would find that the temperature, pressure, and composition is exactly the same as the temperature, pressure, and composition within fluid samples taken <em><strong>at every other position inside of the reactor</strong></em>. This allows us to make a very useful simplification to the batch reactor material balance. Specifically, we know that reaction rates are entirely determined by temperature, pressure, and composition. If those three things are spatially uniform throughout the batch reactor (i.e., they do not change as a function of position inside of the reactor), then reaction rates must also be spatially uniform throughout the batch reactor. If reaction rates are position independent (spatially invariant), then intensive species production rates are also position independent:</p>
+<div class="math notranslate nohighlight">
+\[R_j \neq f(V)\]</div>
+<p>If we’re able to assume that <span class="math notranslate nohighlight">\(R_j\)</span> is not a function of volume, then the volume integral in our material balance simplifies considerably:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = \int^V R_jdV = R_j \int^V dV = R_j V \]</div>
+<p>In other words, as long as the reaction rate is uniform throughout the volume of the reactor, we can say that:</p>
+<div class="math notranslate nohighlight">
+\[G_j = R_j V\]</div>
+<p>That gives a really useful result–the material balance for a well-mixed batch reactor. We will use this balance extensively in reactor design and analysis!</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = R_j V \]</div>
+</section>
+<section id="simplification-for-a-constant-volume-process">
+<h3>Simplification for a Constant Volume Process<a class="headerlink" href="#simplification-for-a-constant-volume-process" title="Link to this heading">#</a></h3>
+<p>We cannot always guarantee that fluid density is constant in a batch reactor, so we generally use the above equation since it allows us to account for changes in the volume of reaction media that occur as the reaction progresses. In some cases–gas phase reactions where there is no change in moles or liquid phase reactions where there is a large excess of solvent–we can assume the volume of the batch reactor is constant.  We will work through a useful simplification that applies only for constant volume batch reactors. In addition to being widely used for analysis of laboratory and kinetic data, this is a useful example because it introduces the idea that you can manipulate differential equations (and transform the differential variables therein) to suit the system that you are considering. If we start with the general balance on a well-mixed batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = R_j V \]</div>
+<p>Without making any assumptions beyond perfect mixing, we can rearrange as follows:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{V}\frac{dN_j}{dt} = R_j \]</div>
+<p>Now, we’ll assume that volume is time-independent (it does not change with time). If reactor volume is constant with respect to time, we can move <span class="math notranslate nohighlight">\(1/V\)</span> inside of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d\frac{N_j}{V}}{dt} = R_j \]</div>
+<p>We recognize that <span class="math notranslate nohighlight">\(N_j/V\)</span> is our standard definition for the molar concentration of species <span class="math notranslate nohighlight">\(j\)</span>, which gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_j}{dt} = R_j \]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This equation is frequently applied in the analysis of batch reactors. Often, this is done without considering whether the constant volume approximation is appropriate. One reason people do this is very likely that <span class="math notranslate nohighlight">\(\frac{dC_A}{dt} = R_j\)</span> is an easy equation to remember, and you’ve seen it elsewhere in, e.g., most of your chemistry courses. It is very important that we remember that this result is only valid for a constant-volume batch reactor. If our system experiences any sort of change in density upon reaction, then we cannot use this simplified result.</p>
+</div>
+</section>
+</section>
+<section id="continuous-stirred-tank-reactor-cstr">
+<h2>Continuous Stirred Tank Reactor (CSTR)<a class="headerlink" href="#continuous-stirred-tank-reactor-cstr" title="Link to this heading">#</a></h2>
+<p>Next, we consider a CSTR.  This is essentially a batch reactor where we relax the constaints on material exchange across the boundaries to create an open system.  Specifically, a CSTR basically behaves like a stirred batch wherein we allow flow of material into and out of the reactor (See figure below). CSTRs are used frequently for liquid-phase reactions, especially for those where mixing is beneficial to either activity or selectivity (mixing is not always desirable).</p>
+<figure class="align-default" id="cstr">
+<a class="reference internal image-reference" href="../_images/CSTR.svg"><img alt="../_images/CSTR.svg" src="../_images/CSTR.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">A Continuous Stirred Tank Reactor</span><a class="headerlink" href="#cstr" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>To derive a material balance on species <span class="math notranslate nohighlight">\(j\)</span> in a CSTR&lt; we start with the general balance equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]</div>
+<p>Upon inspection (and consideration of the CSTR figure and operating paradigm), we should conclude that none of the terms in the general balance equation are guaranteed to be equal to zero. There is flow into the system and flow out of the system, so the flow terms are non-zero. There is also usually a reaction occuring, so we expect some generation/consumption of species <span class="math notranslate nohighlight">\(j\)</span>, which means that <span class="math notranslate nohighlight">\(G_j \neq 0\)</span>. Finally, unless we know specifically that the reactor is at steady state, the quantity of each species may change with time, so the accumulation term is non-zero. This idea tends to confuse students at first because they are used to thinking about flow reactors at steady state in material balence courses, but imagine a bucket with a hole in it. At time = 0, the bucket is empty, and you turn on a faucet to fill the bucket. The level of water will increase (i.e., there is accumulation of water) until the system reaches a point where inflow and outflow are balanced (there is no reaction when you’re filling a bucket with water, so <span class="math notranslate nohighlight">\(G_j = 0\)</span>). At that point, the amount of water in the bucket stops changing, flow in equals flow out, there is no more net accumulation of water, and the system is at steady state. But it takes some time for this to happen! We will encouter a similar scenario any time we start up or shut down a flow reactor–the flow reactor will operate away from steady state during these times. For this notebook, we will consider a homogeneous reaction occuring throughout the volume of fluid, so we normalize reaction rates per unit volume. In this case, we find that the relevant species balance for a CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \int^V R_j dV\]</div>
+<section id="simplifying-the-cstr-balance-by-assuming-perfect-mixing">
+<h3>Simplifying the CSTR balance by assuming perfect mixing…<a class="headerlink" href="#simplifying-the-cstr-balance-by-assuming-perfect-mixing" title="Link to this heading">#</a></h3>
+<p>Next, we assume that the reactor contents are perfectly mixed.  Just like in the batch reactor example, this means that temperature, pressure, and composition inside of the reaction mixture are spatially uniform. They do not change at all with position in the reactor, and if we take a sample at one position, it will be identical to samples taken at all other positions. One implication of the perfect mixing assumption is that the reaction rate must be uniform throughout the reactor volume. In this case, just as in a perfectly mixed batch reactor, we find:</p>
+<div class="math notranslate nohighlight">
+\[\int^V R_j dV = R_j V\]</div>
+<p>So our simplified balance on a perfectly mixed CSTR is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + R_j V\]</div>
+<p>The well-mixed CSTR therefore represents the theoretical limit of a <em><strong>perfectly mixed flow reactor</strong></em>. In this course, we will always assume that CSTRs are perfectly mixed.</p>
+</section>
+<section id="simplifying-the-cstr-balance-by-assuming-steady-state">
+<h3>Simplifying the CSTR balance by assuming Steady State…<a class="headerlink" href="#simplifying-the-cstr-balance-by-assuming-steady-state" title="Link to this heading">#</a></h3>
+<p>With flow reactors, we are frequently interested in their performance at steady state. This happens after they are left on stream for a sufficient period of time for dynamic (time dependent) processes to decay to zero. At that point, the system reaches steady state. At steady state, the system is time-independent. There are changes in temperature, pressure, and/or species composition that occur between the inlet of the reactor and the outlet of the reactor, but those changes will be the same if we look at a steady state system now, 10 minutes in the future, or 10 years in the future. The key is that once a system reaches steady state, it becomes <em><strong>time-independent</strong></em>. Once the system becomes time-independent, there can be no accumulation of species. So, when a CSTR reaches steady state, we find (for a perfectly mixed reactor):</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{j,f} - F_j + R_j V\]</div>
+<p>Usually, when we consider the design of CSTRs, we will be interested in steady state performance, and we’ll frequently use this equation.</p>
+</section>
+<section id="other-implications-of-the-perfect-mixing-assumption-in-a-cstr">
+<h3>Other implications of the perfect mixing assumption in a CSTR<a class="headerlink" href="#other-implications-of-the-perfect-mixing-assumption-in-a-cstr" title="Link to this heading">#</a></h3>
+<p>Above, we pointed out that a perfectly mixed CSTR volume implies that the temperature, pressure, and composition are uniform throughout the reactor volume. This leads to some interesting and non-intuitive behavior. We would expect that any flow reactor will accomplish a change between the reactor inlet and the reactor outlet (otherwise, it has been poorly designed). What this means is we should generally expect that the temperature, pressure, and composition of the fluid entering a CSTR is different from the temperature, pressure, and composition of the fluid exiting a CSTR. We’ll add this concept to our illustration of the CSTR:</p>
+<figure class="align-default" id="cstrinout">
+<a class="reference internal image-reference" href="../_images/CSTRINOUT.svg"><img alt="../_images/CSTRINOUT.svg" src="../_images/CSTRINOUT.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Conceptual Illustration of an Arbitrary Chemical Reactor</span><a class="headerlink" href="#cstrinout" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Generally, the above figure implies is that we should expect that, for any CSTR, the volumetric flowrate (<span class="math notranslate nohighlight">\(Q\)</span>), the temperature (<span class="math notranslate nohighlight">\(T\)</span>), the pressure (<span class="math notranslate nohighlight">\(P\)</span>), the species concentration (<span class="math notranslate nohighlight">\(C_j\)</span>), and/or the species composition (<span class="math notranslate nohighlight">\(x_j\)</span>, e.g., mole fractions) will be different in the exit stream than they are in the feed stream. Here, we use a subscript, <span class="math notranslate nohighlight">\(f\)</span>, to denote “feed” conditions and no subscript to denote exit conditions.</p>
+<section id="consider-the-step-change">
+<h4>Consider the step change<a class="headerlink" href="#consider-the-step-change" title="Link to this heading">#</a></h4>
+<p>We now consider a subtle extension of the idea that temperature, pressure, and composition are spatially uniform inside of a well-mixed CSTR. One might imagine how the exit pipe from a CSTR is simply sampling a part of the CSTR volume and removing it from the reactor. We have already discussed how the assumption of perfect mixing implies that everything inside of the CSTR is present at the same (<span class="math notranslate nohighlight">\(T, P, x_j\)</span>). Since the exit pipe is basically removing a sample of the fluid from the CSTR, so this means that the temperature, pressure, and composition in the exit stream is exactly the same as the temperature, pressure, and composition inside of the fluid phase within the reactor. We also know that temperature, pressure, and composition in the fluid phase within the reactor are the same everywhere inside of the reactor. Perfect mixing then also implies that there is an entirely non-intuitive step change between inlet conditions and exit conditions. This is illustrated in the sketch below. This is how we should always think of a perfectly mixed CSTR.</p>
+<figure class="align-default" id="cstrstep">
+<a class="reference internal image-reference" href="../_images/CSTRStep.svg"><img alt="../_images/CSTRStep.svg" src="../_images/CSTRStep.svg" style="height: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Step Change in Fluid Properties in a Well-mixed CSTR</span><a class="headerlink" href="#cstrstep" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<section id="tubular-reactor-plug-flow-reactor">
+<h2>Tubular Reactor (Plug Flow Reactor)<a class="headerlink" href="#tubular-reactor-plug-flow-reactor" title="Link to this heading">#</a></h2>
+<p>The final type of reactor that we’ll consider (for now) is the Plug Flow Reactor (PFR).  These reactors are widely used for gas- or liquid phase reactions in industry.  A PFR is basically an empty tube through which the reacting fluid is flowing—there is absolutely no mixing in a Plug Flow Reactor.  The core assumption for the PFR is that the fluid flows through at a relatively high Reynolds number (<span class="math notranslate nohighlight">\(\mathrm{Re} &gt; 10^3\)</span>).  This generally ensures that the fluid moves through the reactor in a turbulent flow regime.  This is convenient from a reactor modelling perspective because it means that (if we consider an axial cross section of the reactor), the velocity profile is flat, i.e., all fluid in that cross section has an identical average velocity. Constrast this with a Laminar Flow Regime where we assume there is a parabolic velocity profile (See Figure Below).</p>
+<figure class="align-default" id="pfrvslaminar">
+<a class="reference internal image-reference" href="../_images/PFRvsLaminar.svg"><img alt="../_images/PFRvsLaminar.svg" src="../_images/PFRvsLaminar.svg" style="width: 587.0px; height: 119.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Implications of Turbulent and Laminar Flow in Tubular Reactors</span><a class="headerlink" href="#pfrvslaminar" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The consequence of these assumptions is that everything moves through through the PFR with the exact same velocity profile, so every molecule we put in at the entrance of a PFR spends exactly the same amount of time in the reactor. The way we think about the PFR is this: if we look at a cross section of the tube, that entire cross section has spent an identical amount of time in the reactor. So: everything <em><strong>in a single reactor cross section must be completely uniform in terms of temperature, pressure, and composition</strong></em>. That said, as we move from one cross section of the reactor to the next cross section travelling down the length of the reactor, the temperature, pressure, and composition will probably change. There is no mixing between cross sections, a PFR behaves like an infinite series of isolated, well-mixed axial slices, and we find that temperature, pressure, and composition vary as one moves from one axial slice to the next down the length (through the volume) of a PFR.</p>
+<section id="a-model-for-the-pfr">
+<h3>A model for the PFR<a class="headerlink" href="#a-model-for-the-pfr" title="Link to this heading">#</a></h3>
+<p>Translating these ideas into a representative balance equation, as discussed above, we will consider the PFR as being comprised of many thin axial slices, all with an identical volume of <span class="math notranslate nohighlight">\(\Delta V\)</span>.</p>
+<figure class="align-default" id="pfrdv">
+<a class="reference internal image-reference" href="../_images/PFRDV.svg"><img alt="../_images/PFRDV.svg" src="../_images/PFRDV.svg" style="width: 256.0px; height: 109.2px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Progression of axial cross sections in a PFR</span><a class="headerlink" href="#pfrdv" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Conceptually we will make each cross section very thin, so we are then able to assume that there is no change in temperature, pressure, or composition spatially throughout that entire cross section. Essentially, we treat it like a very small CSTR! It is only when we move to the next cross section that we would experience a change in temperature, pressure, and composition. As we move axially down the length of a PFR, we then see changes in temperature, pressure, and composition, but <em><strong>if we consider a single, isolated thin cross section</strong></em>, there is no variation in temperature, pressure, or composition with respect to the radial or theta coordinate (i.e., everything in the cross section is spatially uniform). With this concept in mind, we can propose a mathematical description of this reactor.</p>
+</section>
+<section id="focus-on-a-single-cross-section">
+<h3>Focus on a single cross section…<a class="headerlink" href="#focus-on-a-single-cross-section" title="Link to this heading">#</a></h3>
+<p>We develop a PFR balance by considering a single cross sectional element with a volume of <span class="math notranslate nohighlight">\(\Delta V\)</span>:</p>
+<figure class="align-default" id="pfrsingledv">
+<a class="reference internal image-reference" href="../_images/PFRsingleDV.svg"><img alt="../_images/PFRsingleDV.svg" src="../_images/PFRsingleDV.svg" style="width: 469.6px; height: 266.6px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Isolating a single axial cross section in a PFR</span><a class="headerlink" href="#pfrsingledv" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Inside of that cross section, everything is spatially uniform (by virtue of having spent the same amount of time in the reactor), so we know that this isolated cross section has a spatially uniform temperature, pressure, and composition. It must also then have spatially uniform reaction rates, <span class="math notranslate nohighlight">\(r_i\)</span>, and spatially uniform species production rates, <span class="math notranslate nohighlight">\(R_j\)</span>. So, within that well-mixed cross section:</p>
+<div class="math notranslate nohighlight">
+\[G_j = R_j\Delta V\]</div>
+<p>For this derivation, we will assume that the PFR is operating at steady state. This is not necessary, but we will only use the steady state result in this class, so we will go ahead an apply the assumption from the start since it makes the rest of the derivation more straightforward. With these things in mind, we can write a balance on that well-mixed cross section at steady state:</p>
+<div class="math notranslate nohighlight">
+\[ 0 = F_j\big|_V - F_j\big|_{V+\Delta V} + R_j \Delta V\]</div>
+<p>Next, we divide the whole equation by <span class="math notranslate nohighlight">\(\Delta V\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ 0 = \frac{F_j\big|_V - F_j\big|_{V+\Delta V}}{\Delta V} + R_j\]</div>
+<p>And we now assume we have an infinite number of cross sections and let the volume of each cross section approach zero, i.e., <span class="math notranslate nohighlight">\(\Delta V \longrightarrow 0\)</span>.  You may recognize this as the definition of a derivative from your first semester calculus course.  This gives:</p>
+<div class="math notranslate nohighlight">
+\[ 0 = -\frac{dF_j}{dV} + R_j\]</div>
+<p>In PFR analysis, we typically rearrange this equation to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_j}{dV} = R_j\]</div>
+<p>Notice, unlike the general balance equation or material balances developed for batch reactors and CSTRS, the PFR balance is actually an <em><strong>intensive</strong></em> balance because it is normalized per unit volume of reactor. Inspection reveals that the dimensions on the left and right hand side in a PFR balance equation are in moles per volume per time. This equation gives us good intuition of how we think about a PFR. It is a reactor that (generally) we will consider at steady state, and we have to think about the way that composition (and temperature and pressure) vary as a packet of fluid moves through the reactor from inlet to exit. This is conceptually different from a batch reactor where there is no variation with respect to position in the reactor, and we think about changes that occur as a function of clock time.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Interestingly enough, the mathematics in PFR and Batch reactor problems work out almost identically!</p>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-general-balance-equation">The General Balance Equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-batch-reactor">The Batch Reactor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applications-of-batch-reactors">Applications of Batch Reactors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-the-batch-reactor">Material Balance on The Batch Reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifiying-the-material-balance-for-a-well-mixed-batch-reactor">Simplifiying the material balance for a well-mixed batch reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplification-for-a-constant-volume-process">Simplification for a Constant Volume Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-stirred-tank-reactor-cstr">Continuous Stirred Tank Reactor (CSTR)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifying-the-cstr-balance-by-assuming-perfect-mixing">Simplifying the CSTR balance by assuming perfect mixing…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simplifying-the-cstr-balance-by-assuming-steady-state">Simplifying the CSTR balance by assuming Steady State…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-implications-of-the-perfect-mixing-assumption-in-a-cstr">Other implications of the perfect mixing assumption in a CSTR</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consider-the-step-change">Consider the step change</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tubular-reactor-plug-flow-reactor">Tubular Reactor (Plug Flow Reactor)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-model-for-the-pfr">A model for the PFR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#focus-on-a-single-cross-section">Focus on a single cross section…</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

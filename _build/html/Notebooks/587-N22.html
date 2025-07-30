@@ -1,0 +1,1018 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CSTRs &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N22';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">CSTRs</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N22.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N22.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N22.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CSTRs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution-to-example-problem-01">Analytical Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-what-if-the-cstr-is-not-at-steady-state">Example Problem 02: What if the CSTR is not at steady state?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-cleaner-code">Writing cleaner code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#there-are-risks-with-relying-on-global-variables-this-way">There are risks with relying on global variables this way</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cstrs">
+<h1>CSTRs<a class="headerlink" href="#cstrs" title="Link to this heading">#</a></h1>
+<p>These exercises cover the solution of steady state and transient CSTR problems. It also outlines some good coding practices related to the use of global variable assignments as opposed to local variable assignments. The example problems presented here have already been solved in prior notebooks. We are using them as test cases to explore different ways of writing code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<span id="id1"></span><h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This exact problem was solved in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N21.html#example-problem-02">Example Problem 02 from Notebook 21</a>. We will present the solution of the steady state problem again as a base case, and then we will extend consideration of reactor startup, which is a non-steady state CSTR design problem.</p>
+</div>
+<p>Consider the following liquid-phase, irreversible, homogeneous reaction that is occuring in a perfectly-mixed CSTR</p>
+<div class="math notranslate nohighlight">
+\[A + B \longrightarrow C\]</div>
+<p>This reaction is first order in A and first order in B. You may assume that the liquid phase has a constant density. Additional data are given below:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    k &amp;= 25.3 \ \mathrm{L \ mol^{-1} \ h^{-1}} \\
+    Q_f &amp;= 10 \ \mathrm{L \ h^{-1}} \\
+    F_{Af} &amp;= 10 \ \mathrm{mol \ h^{-1}} \\
+    F_{Bf} &amp;= 10 \ \mathrm{mol \ h^{-1}} \\
+\end{align*}\]</div>
+<p>What fractional conversion of species <span class="math notranslate nohighlight">\(A\)</span> is achieved in 1.24 L CSTR?</p>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(X_A = 0.573\)</span></p>
+<section id="analytical-solution-to-example-problem-01">
+<h3>Analytical Solution to Example Problem 01<a class="headerlink" href="#analytical-solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>We are asked to relate the fractional conversion of <span class="math notranslate nohighlight">\(A\)</span> to reactor size, which prompts us to write a balance on <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A + R_AV\]</div>
+<p>The feed molar flowrate of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(F_{A,f}\)</span> is given in the problem statement <span class="math notranslate nohighlight">\((F_{A,f} = 10 \ \mathrm{mol h^{-1}})\)</span>, as is the reactor volume <span class="math notranslate nohighlight">\((V = 1.24\mathrm{L})\)</span>. We also see an intensive production rate, <span class="math notranslate nohighlight">\(R_A\)</span>, which we define as usual:</p>
+<div class="math notranslate nohighlight">
+\[R_A = \sum_{i = 1}^{N_R} \nu_{i,A} \, r_i\]</div>
+<p>For this single reaction:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r\]</div>
+<p>We know the rate expression:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>So this gives</p>
+<div class="math notranslate nohighlight">
+\[R_A = -kC_AC_B\]</div>
+<p>Which we can substitute into the material balance:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A - kC_AC_BV\]</div>
+<p>At the moment, we have 3 unknowns in this equation: <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>. If we want to solve this by hand, we’ll need to express <span class="math notranslate nohighlight">\(F_A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span> in terms of a single unknown.  I’ll choose to work with fractional conversion of <span class="math notranslate nohighlight">\(A\)</span> here.  Completing a mole table, we find:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    F_A &amp;= F_{A,f}(1 - X_A) \\
+    F_B &amp;= F_{B,f} - F_{A,f}X_A \\
+\end{align*}\]</div>
+<p>But: we see in the problem statement, that for this problem, <span class="math notranslate nohighlight">\(F_{A,f} = F_{B,F}\)</span>.  So, in this special case:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    F_A &amp;= F_{A,f}(1 - X_A) \\
+    F_B &amp;= F_{A,f}(1 - X_A) \\
+\end{align*}\]</div>
+<p>Because this is a flow reactor operating at steady state, it is convenient to concentrations in terms of flowrates. We further know that for a constant density process in a flow reactor, <span class="math notranslate nohighlight">\(Q = Q_f\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    C_A &amp;= F_A/Q_f \\
+    C_B &amp;= F_A/Q_f \\
+\end{align*}\]</div>
+<p>Substituting everything into the material balance, we get:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_{A,f}(1 - X_A) - kF_{A,f}^2(1-X_A)^2\frac{V}{Q_f^2}\]</div>
+<p>We can solve this by simplifying, doing some FOIL magic, and using the quadratic formula. Ultimately, we get:</p>
+<div class="math notranslate nohighlight">
+\[0 = X_A^2 + (\alpha - 2)X_A + 1\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\alpha = -Q_f^2/k/F_{A,f}/V\)</span></p>
+<p>If you solve that with the quadratic formula, you’ll find two roots at:</p>
+<div class="math notranslate nohighlight">
+\[X_A = 0.573\]</div>
+<p>and at</p>
+<div class="math notranslate nohighlight">
+\[X_A = 1.746\]</div>
+<p>Mathematically, they are both fine, but physically, we can’t have a conversion of more than 100% since it would mean we consume more reactant than we put into the reactor.  So we reject the upper root and conclude that our solution is:</p>
+<div class="math notranslate nohighlight">
+\[X_A = 0.573\]</div>
+</section>
+</section>
+<section id="example-problem-02-what-if-the-cstr-is-not-at-steady-state">
+<span id="example-problem-02"></span><h2>Example Problem 02: What if the CSTR is not at steady state?<a class="headerlink" href="#example-problem-02-what-if-the-cstr-is-not-at-steady-state" title="Link to this heading">#</a></h2>
+<p>Assume the CSTR described in <a class="reference internal" href="#example-problem-01">Example Problem 01</a> initially contains a solvent that is equal in density to the typical reactor contents (it just has no reactants or products in it). The feed stream coming into the CSTR contains species <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> at a concentration of <span class="math notranslate nohighlight">\(1.00 \ \mathrm{mol \ L^{-1}}\)</span>. The volume of this reactor is <span class="math notranslate nohighlight">\(V = 1.24\mathrm{L}\)</span> as before. Additional details are below:</p>
+<div class="math notranslate nohighlight">
+\[A + B \longrightarrow C\]</div>
+<p>This reaction is first order in <span class="math notranslate nohighlight">\(A\)</span> and first order in <span class="math notranslate nohighlight">\(B\)</span>. You may assume that the liquid phase always has constant density that is exactly the same as the solvent initially inside of the reactor. You may additionally assume that, because of this, the volumetric flowrate into and out of the reactor are always equal.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    k &amp;= 25.3 \ \mathrm{L \ mol^{-1} \ h^{-1}} \\
+    Q_f &amp;= 10 \ \mathrm{L \ h^{-1}} \\
+\end{align*}\]</div>
+<p><em><strong>After startup, approximately how long will it take for this reactor to reach steady state?</strong></em></p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Link to this heading">#</a></h3>
+<p>In this case, the left hand side of the material balance, <span class="math notranslate nohighlight">\({dN_j/dt} \neq 0\)</span>. Whereas the steady state CSTR involves solving algebraic equations, the transient CSTR involves solving ODEs (it is an initial value problem).</p>
+<p>We start by writing a balance on species A:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = F_{Af} - F_A + R_AV\]</div>
+<p>We note here that our independent variable is time and our state dependent variable is <span class="math notranslate nohighlight">\(N_A\)</span>. This means that if we hope to solve this ODE analytically, everything on the right hand side needs to be a function of <span class="math notranslate nohighlight">\((t, N_A)\)</span>.  We start making definitions. Because density and volume in this system are constant, <span class="math notranslate nohighlight">\(Q = Q_f\)</span>, and we can therefore define the exit molar flowrate of A as:</p>
+<div class="math notranslate nohighlight">
+\[F_A = C_AQ_f\]</div>
+<p>We know <span class="math notranslate nohighlight">\(Q_f\)</span>, but we need to define <span class="math notranslate nohighlight">\(C_A\)</span> in terms of our state variables. This is relatively straightforward for a constant volume reactor:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{N_A}{V}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We sometimes get used to the idea that, in flow reactors, we should define species concentrations as <span class="math notranslate nohighlight">\(C_j = F_j/Q\)</span>. This is, of course, always allowed, but it is only really convenient in reactors at steady state. When we operate away from steady state (e.g., in a CSTR), we have a differential equation that describes how the number of moles of species <span class="math notranslate nohighlight">\(j\)</span>, <span class="math notranslate nohighlight">\(N_j\)</span>, changes as a function of time, i.e., <span class="math notranslate nohighlight">\(N_j\)</span> is the natural state dependent variable in this ODE. It is usually easiest for us to then try to define things in terms of that state dependent variable since defining them in any other way will be less convenient and lead to more work for us as we proceed through the problem solution.</p>
+</div>
+<p>Now we define the intensive production rate of A:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r\]</div>
+<p>And the rate of reaction is given by:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_AC_B\]</div>
+<p>This requires a definition of <span class="math notranslate nohighlight">\(C_B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{N_B}{V}\]</div>
+<p>Now we have to make a choice about how to deal with <span class="math notranslate nohighlight">\(N_B\)</span>, which is a second state dependent variable in that it is definitely changing as a function of time. We could try to express <span class="math notranslate nohighlight">\(N_A\)</span> and <span class="math notranslate nohighlight">\(N_B\)</span> in terms of an extent variable like reaction extent or fractional conversion; however, it becomes unclear how one should relate <span class="math notranslate nohighlight">\(N_A\)</span> and <span class="math notranslate nohighlight">\(N_B\)</span> to an extent variable in a transient CSTR where the change in the number of moles of species in the tank a function of both extent <em>and</em> time because it also depends on the balance between species inflow and species outflow. In this case, the better strategy is probably to write a separate balance on species <span class="math notranslate nohighlight">\(B\)</span>. This will result in two coupled ODEs written in terms of one independent variable, <span class="math notranslate nohighlight">\(t\)</span>, and two state dependent variables, <span class="math notranslate nohighlight">\(N_A\)</span> and <span class="math notranslate nohighlight">\(N_B\)</span>. We make sure to define everything on the right hand side of these two ODEs either as constant or as a function of state variables and the independent variable. If we can do this, we can solve this coupled system of ODEs with <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_B}{dt} = F_{Bf} - F_B + R_BV\]</div>
+<p>Where the following definitions facilitate numerical solution:</p>
+<div class="math notranslate nohighlight">
+\[F_B = C_BQ_f\]</div>
+<p>And</p>
+<div class="math notranslate nohighlight">
+\[R_B = -r\]</div>
+<p>Finally, we note that, in the initial state of this system, there is no A or B present in the reactor. It is only solvent.  So our starting states are:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    N_{A0} = 0.0 \\
+    N_{B0} = 0.0
+\end{align*}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################</span>
+<span class="c1"># Define the ODE system as f(t, [NA, NB]) returning [dNAdt, dNBdt]                 #</span>
+<span class="c1">####################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P02</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">var</span><span class="p">):</span> 
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span> <span class="c1">#1/h</span>
+    <span class="n">V</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+    <span class="n">CAf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+    <span class="n">CBf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+    <span class="n">Qf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#L/h  </span>
+    <span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span> <span class="o">*</span> <span class="n">Qf</span>
+    <span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span> <span class="o">*</span> <span class="n">Qf</span>
+
+    <span class="n">CA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">FA</span>  <span class="o">=</span> <span class="n">CA</span><span class="o">*</span><span class="n">Qf</span>
+    <span class="n">FB</span>  <span class="o">=</span> <span class="n">CB</span><span class="o">*</span><span class="n">Qf</span>
+    <span class="n">r</span>   <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">r</span>
+    <span class="n">RB</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">r</span>
+    
+    <span class="n">dNAdt</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">dNBdt</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dNAdt</span><span class="p">,</span> <span class="n">dNBdt</span><span class="p">]</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Define constant parameters from problem statement                          #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">V</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+<span class="n">CAf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">CBf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#L/h  </span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">NSS</span> <span class="o">=</span> <span class="mf">0.530</span> <span class="c1">#steady state number of moles of A in tank</span>
+<span class="n">XSS</span> <span class="o">=</span> <span class="mf">0.573</span> <span class="c1">#steady state fractional conversion of A</span>
+<span class="n">FSS</span> <span class="o">=</span> <span class="n">FAf</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">XSS</span><span class="p">)</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Define parametrs for solve_ivp(); initial state, integration span          #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">N0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Solve the ODE system using solve_ivp                                       #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">sol_tCSTR</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Extract significan quantities from solution structure; workup data         #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">tset</span> <span class="o">=</span> <span class="n">sol_tCSTR</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>   <span class="o">=</span> <span class="n">sol_tCSTR</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">FA</span>   <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">XA</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Graph solutions; first plot NA vs. time                                    #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">NSS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;NA (moles)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">######################################################################################################</span>
+<span class="c1"># Plot XA = (FAf - FA)/FAf vs. time                                                                  # </span>
+<span class="c1"># Note that a flow-based XA is meaningless away from steady state                                    #</span>
+<span class="c1">###################################################################################################### </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">XSS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1">######################################################################################################</span>
+<span class="c1"># Print steady state conversion obtained by integration to t --&gt; ∞                                   #</span>
+<span class="c1">######################################################################################################</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The steady state conversion in this reactor is XA = </span><span class="si">{</span><span class="n">XA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f6f52d591722a3252f9c116be2ac90c2cbbce74f11dbef400f88eca430fda558.png" src="../_images/f6f52d591722a3252f9c116be2ac90c2cbbce74f11dbef400f88eca430fda558.png" />
+<img alt="../_images/5f37801ce98675af42f7a06e30e25a8ed24d15b714d1f9287788351367eea0c4.png" src="../_images/5f37801ce98675af42f7a06e30e25a8ed24d15b714d1f9287788351367eea0c4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The steady state conversion in this reactor is XA = 0.573
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="writing-cleaner-code">
+<h2>Writing cleaner code<a class="headerlink" href="#writing-cleaner-code" title="Link to this heading">#</a></h2>
+<p>There is nothing fundamentally wrong with the code in the sections above. It solves the problem correctly.  However, if you study it carefully, you may notice that we defined identical variables in multiple different places in the workspace, inside of and outside of functions, etc. Things like <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(C_{Af}\)</span>, <span class="math notranslate nohighlight">\(C_{Bf}\)</span> are all defined multiple places. When we do this in the “global workspace,” i.e., in sections of code outside of a function, loop, or similar construct, we are writing a global variable (which is accessible everywhere in our code) and then redefining it elsewhere in the code. Generally, this is bad practice because it makes it difficult to change and adapt the code to apply to new situations. For example, if we are now asked to consider the impact of a change to the reactor in <a class="reference internal" href="#example-problem-02">Example Problem 02</a>–say an increase or decrease in the feed volumetric flowrate, <span class="math notranslate nohighlight">\(Q_f\)</span>, we would now need to hunt around and make sure that we’ve redefined <span class="math notranslate nohighlight">\(Q_f\)</span> correctly everywhere in my code. It doesn’t <em>sound</em> difficult to do, but as we start writing more complex codes, it can be maddening to track down variable definitions this way.</p>
+<p>Usually, it is best to define constants only once. There are various ways you can do this. A common and easy way to do this in Python is to just accept the fact that things in the global Python workspace (things outside of functions, loops, etc.) are global variables by default. This means that, technically, they are accessible everywhere in our codes, including inside of a function or loop. With this i mind, we could get away with the following alternative code.  This will give the exact same result, but the code is cleaner.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Global variables are defined in the top-level workspace and are defined and accessible throughout our code. This contrasts with local variables that are defined and accessible only within the scope of a single function, loop, or similar construct.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##################################################################</span>
+<span class="c1"># Global variable definitions - also defined inside of functions #</span>
+<span class="c1">##################################################################</span>
+
+<span class="n">k</span>   <span class="o">=</span> <span class="mf">25.3</span> <span class="c1">#1/h</span>
+<span class="n">V</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+<span class="n">CAf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">CBf</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">Qf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#L/h  </span>
+<span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span> <span class="o">*</span> <span class="n">Qf</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span> <span class="o">*</span> <span class="n">Qf</span>
+
+<span class="c1">########################################################################</span>
+<span class="c1"># Function definition - no need to redefine globals inside of function #</span>
+<span class="c1">########################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P02a</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span> 
+    <span class="n">NA</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">NB</span>  <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">FAf</span> <span class="o">=</span> <span class="n">CAf</span> <span class="o">*</span> <span class="n">Qf</span>
+    <span class="n">FBf</span> <span class="o">=</span> <span class="n">CBf</span> <span class="o">*</span> <span class="n">Qf</span>
+
+    <span class="n">CA</span>  <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">CB</span>  <span class="o">=</span> <span class="n">NB</span><span class="o">/</span><span class="n">V</span>
+    <span class="n">FA</span>  <span class="o">=</span> <span class="n">CA</span><span class="o">*</span><span class="n">Qf</span>
+    <span class="n">FB</span>  <span class="o">=</span> <span class="n">CB</span><span class="o">*</span><span class="n">Qf</span>
+    <span class="n">r</span>   <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">r</span>
+    <span class="n">RB</span>  <span class="o">=</span> <span class="o">-</span> <span class="n">r</span>
+    
+    <span class="n">dNAdt</span> <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">dNBdt</span> <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dNAdt</span><span class="p">,</span> <span class="n">dNBdt</span><span class="p">]</span>
+
+<span class="c1">##########################################################################################</span>
+<span class="c1"># The next two variables, initial state and integration span, are also globals           #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">N0</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">##########################################################################################</span>
+<span class="c1"># Solving the ODE system -- all results and subsequent workup are stored as globals      #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">sol_tCSTRa</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02a</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+<span class="n">tset</span> <span class="o">=</span> <span class="n">sol_tCSTRa</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>   <span class="o">=</span> <span class="n">sol_tCSTRa</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">FA</span>   <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">XA</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Graph solutions; first plot NA vs. time                                    #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">NSS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;NA (moles)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">######################################################################################################</span>
+<span class="c1"># Plot XA = (FAf - FA)/FAf vs. time                                                                  # </span>
+<span class="c1"># Note that a flow-based XA is meaningless away from steady state                                    #</span>
+<span class="c1">###################################################################################################### </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">XSS</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span> <span class="o">=</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="n">lw</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;XA&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1">######################################################################################################</span>
+<span class="c1"># Print steady state conversion obtained by integration to t --&gt; ∞                                   #</span>
+<span class="c1">######################################################################################################</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The steady state conversion in this reactor is XA = </span><span class="si">{</span><span class="n">XA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f6f52d591722a3252f9c116be2ac90c2cbbce74f11dbef400f88eca430fda558.png" src="../_images/f6f52d591722a3252f9c116be2ac90c2cbbce74f11dbef400f88eca430fda558.png" />
+<img alt="../_images/5f37801ce98675af42f7a06e30e25a8ed24d15b714d1f9287788351367eea0c4.png" src="../_images/5f37801ce98675af42f7a06e30e25a8ed24d15b714d1f9287788351367eea0c4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The steady state conversion in this reactor is XA = 0.573
+</pre></div>
+</div>
+</div>
+</div>
+<section id="there-are-risks-with-relying-on-global-variables-this-way">
+<h3>There are risks with relying on global variables this way<a class="headerlink" href="#there-are-risks-with-relying-on-global-variables-this-way" title="Link to this heading">#</a></h3>
+<p>In general, defining global variables as we did above will work, but it may not be not best practice. There is always a risk, especially with long and complex codes, that we unintentionally redefine a variable in the global workspace, and that redefinition will propagate throughout our code whether or not we intended for it to do so. The basic takeaway is that we should be very careful when using global variables to send information across functions, loops, and the global workspace. The tightest, cleanest way to handle sending information to functions is to keep all variables within the function local in scope. This means that they are only defined and accessible within the function, and it avoids situations where redefining a variable in the global workspace impacts calculations within a function. We cam always pass extra information to functions as additional arguments. It may be necessary to adapt those functions for compatibility with equation solvers, but it generally is possible to do so. Below, we give an example of how to do this by passing a parameter set to our ODE functionusing the <code class="docutils literal notranslate"><span class="pre">args</span></code> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">P03</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span> 
+    <span class="n">NA</span><span class="p">,</span> <span class="n">NB</span> <span class="o">=</span> <span class="n">N</span>
+    <span class="n">kl</span><span class="p">,</span> <span class="n">Vl</span><span class="p">,</span> <span class="n">CAfl</span><span class="p">,</span> <span class="n">CBfl</span><span class="p">,</span> <span class="n">FAfl</span><span class="p">,</span> <span class="n">FBfl</span><span class="p">,</span> <span class="n">Qfl</span> <span class="o">=</span> <span class="n">p</span> <span class="c1">#parameter array, these are all &quot;local&quot; variables that are only defined within the function scope</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">Qf</span>
+    
+    <span class="n">CA</span><span class="p">,</span> <span class="n">CB</span> <span class="o">=</span> <span class="n">N</span><span class="o">/</span><span class="n">V</span>
+    
+    <span class="n">FA</span>  <span class="o">=</span> <span class="n">CA</span><span class="o">*</span><span class="n">Q</span>
+    <span class="n">FB</span>  <span class="o">=</span> <span class="n">CB</span><span class="o">*</span><span class="n">Q</span>
+    <span class="n">r</span>   <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">RB</span>  <span class="o">=</span> <span class="o">-</span><span class="n">r</span>
+    <span class="n">dNAdt</span>   <span class="o">=</span> <span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">RA</span><span class="o">*</span><span class="n">V</span>
+    <span class="n">dNBdt</span>   <span class="o">=</span> <span class="n">FBf</span> <span class="o">-</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">RB</span><span class="o">*</span><span class="n">V</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">dNAdt</span><span class="p">,</span> <span class="n">dNBdt</span><span class="p">]</span>
+
+<span class="c1">###################################################</span>
+<span class="c1"># Defining constant parameters as globals         #</span>
+<span class="c1">###################################################</span>
+
+<span class="n">kg</span>   <span class="o">=</span> <span class="mf">25.3</span> <span class="c1">#1/h</span>
+<span class="n">Vg</span>   <span class="o">=</span> <span class="mf">1.24</span> <span class="c1">#L</span>
+<span class="n">CAfg</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">CBfg</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#mol/L</span>
+<span class="n">Qfg</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#L/h  </span>
+<span class="n">FAfg</span> <span class="o">=</span> <span class="n">CAf</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">FBfg</span> <span class="o">=</span> <span class="n">CBf</span><span class="o">*</span><span class="n">Qf</span>
+
+<span class="c1">####################################################</span>
+<span class="c1"># Store parameters in an array to pass to function #</span>
+<span class="c1">####################################################</span>
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span><span class="n">kg</span><span class="p">,</span> <span class="n">Vg</span><span class="p">,</span> <span class="n">CAfg</span><span class="p">,</span> <span class="n">CBfg</span><span class="p">,</span> <span class="n">Qfg</span><span class="p">,</span> <span class="n">FAfg</span><span class="p">,</span> <span class="n">FBfg</span><span class="p">]</span>
+
+<span class="c1">####################################################</span>
+<span class="c1"># Define other ODE solver inputs                   #</span>
+<span class="c1">####################################################</span>
+
+<span class="n">N0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+<span class="n">tspan</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1">####################################################</span>
+<span class="c1"># Solve initial value problem with solve_ivp()     #</span>
+<span class="c1"># Parameters are passed with args keyword          #</span>
+<span class="c1">#################################################### </span>
+
+<span class="n">sol_tCSTR</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P03</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">N0</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">####################################################</span>
+<span class="c1"># Extract significant values; workup solution      #</span>
+<span class="c1"># We are back to global definitions here           #</span>
+<span class="c1">####################################################</span>
+
+<span class="n">tset</span> <span class="o">=</span> <span class="n">sol_tCSTR</span><span class="o">.</span><span class="n">t</span>
+<span class="n">NA</span>   <span class="o">=</span> <span class="n">sol_tCSTR</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">CA</span>   <span class="o">=</span> <span class="n">NA</span><span class="o">/</span><span class="n">V</span>
+<span class="n">FA</span>   <span class="o">=</span> <span class="n">CA</span><span class="o">*</span><span class="n">Qf</span>
+<span class="n">XA</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="c1">####################################################</span>
+<span class="c1"># Graphing results                                 #</span>
+<span class="c1">####################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;NA (moles)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tset</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolors</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tspan</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;NA (moles)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">######################################################</span>
+<span class="c1"># Print the steady state conversion                  #</span>
+<span class="c1">######################################################</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The steady state conversion in this reactor is XA = </span><span class="si">{</span><span class="n">XA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b4816827fbaf13756b3e3dc1d0807180718e7bfd7b2cbe63b4e49a4317a61a60.png" src="../_images/b4816827fbaf13756b3e3dc1d0807180718e7bfd7b2cbe63b4e49a4317a61a60.png" />
+<img alt="../_images/86d8a2c9fd43a4c35929a63f770994c7dd528a5237da3ae6c8bc24106ba9d26d.png" src="../_images/86d8a2c9fd43a4c35929a63f770994c7dd528a5237da3ae6c8bc24106ba9d26d.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The steady state conversion in this reactor is XA = 0.573
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analytical-solution-to-example-problem-01">Analytical Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-what-if-the-cstr-is-not-at-steady-state">Example Problem 02: What if the CSTR is not at steady state?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-cleaner-code">Writing cleaner code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#there-are-risks-with-relying-on-global-variables-this-way">There are risks with relying on global variables this way</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

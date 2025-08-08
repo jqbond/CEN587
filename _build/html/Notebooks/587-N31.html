@@ -1,0 +1,1580 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material Balances XV &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N31';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Material Balances XV</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N31.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N31.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N31.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Material Balances XV</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-a">Material Balance on A:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-on-b">Balance on B</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-on-c">Balance on C</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-conversion-selectivities-and-yields">Defining Conversion, Selectivities, and Yields</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversion</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yields">Yields</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivities">Selectivities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-all-metrics-as-functions-of-space-time">Graphing all metrics as functions of space time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-the-yield-of-b">Maximizing the Yield of <span class="math notranslate nohighlight">\(B\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02">Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Selectivities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Yields</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-yields-and-selectivities">Optimizing Yields and Selectivities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="material-balances-xv">
+<h1>Material Balances XV<a class="headerlink" href="#material-balances-xv" title="Link to this heading">#</a></h1>
+<p>This lecture continues with a discussion of yield, selectivity, and optimization. It builds on the ideas presented in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N30.html">Notebook 30</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a slightly modified version of Example 8.4 from <em>Elements of Chemical Reaction Engineering</em> by Scott Fogler</p>
+</div>
+<p>The following pair of liquid-phase reactions occur in series. Each reaction is first order in its reactant.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    A &amp;\longrightarrow B\\
+    B &amp;\longrightarrow C \\
+\end{align*}\]</div>
+<p>By “series” or “sequential” reactions we mean that a product of the first reaction is a reactant in a second reaction, and so on. These are very common systems in Chemical Reaction Engineering – especially in the petrochemical industry, where we often make reactive things from inert alkanes. Quite often, the reactive things we make from crude oil react further to form things we <em>don’t</em> want.  Selectivity control in series reactions requires careful attention to operating conditions and reaction times (space times for flow reactors).</p>
+<p>You carry out these reactions in a CSTR operating at steady state. You may assume the density of the fluid does not change with reaction, so the inlet volumetric flowrate is equal to the outlet volumetric flowrate. You have the following data available:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c6de45c6-99f7-4dfb-b6e4-46b4f6d27897">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c6de45c6-99f7-4dfb-b6e4-46b4f6d27897" title="Permalink to this equation">#</a></span>\[\begin{align}
+    k_1 &amp;= 0.5 \ \textrm{h}^{-1} \\
+    k_2 &amp;= 0.2 \ \textrm{h}^{-1} \\
+    C_{Af} &amp;= 20 \ \textrm{mol} \ \textrm{L}^{-1}
+\end{align} \]</div>
+<p>Find the space time required to maximize the <em><strong>yield</strong></em> of B (with respect to A) in this CSTR.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>For flow reactors operating at steady state, we define yields, selectivities, and conversions in terms of species molar flowrates. To calculate effluent molar flowrates for all species, we need to write material balances on each species. In a CSTR, this will produce a set of algebraic equations that can be solved to determine the exit molar flowrates of all species.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This problem is somewhat unique in that the kinetics are simple enough (they depend only on the reactant quantity), so we can solve balances for <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> sequentially and analytically. This is enabled by the fact that the balance on <span class="math notranslate nohighlight">\(A\)</span> is independent of species <span class="math notranslate nohighlight">\(B\)</span>; solving the balance on <span class="math notranslate nohighlight">\(A\)</span> enables us to solve the balance on <span class="math notranslate nohighlight">\(B\)</span>; the balance on <span class="math notranslate nohighlight">\(B\)</span> is independent of species <span class="math notranslate nohighlight">\(C\)</span>; and solving the balance on <span class="math notranslate nohighlight">\(B\)</span> enables us to solve the balance on C. .</p>
+</div>
+<section id="material-balance-on-a">
+<h4>Material Balance on A:<a class="headerlink" href="#material-balance-on-a" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[0 = F_{A,f} - F_A + R_AV\]</div>
+<p>We aren’t given much information in the problem statement: we only know the feed concentration of A. Presumably, the feed concentrations of B and C are both zero. We are also told we want to solve for an optimum space time, which is defined for a CSTR as:</p>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{V}{Q_f}\]</div>
+<p>In cases where molar and volumetric flowrates are not known, and especially in cases where we are interested in space time, it is useful to convert material balances so that they are written in terms of concentration and space time instead of molar flowrates and volume. Although you might not think to do this at first, it is relatively straightforward to do; specifically, we can express molar flowrates in terms of concentrations and volumetric flowrates:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{A,f}Q_f - C_AQ + R_AV\]</div>
+<p>We know the intensive production rate of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R_A = -r_1\]</div>
+<p>Since the reactions are first order in the reactant:</p>
+<div class="math notranslate nohighlight">
+\[r_1 = k_1C_A\]</div>
+<p>Making substitutions into the material balance, we find:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{A,f}Q_f - C_AQ - k_1C_AV\]</div>
+<p>We are told that we can assume constant density in this system, which means (at steady state)</p>
+<div class="math notranslate nohighlight">
+\[Q = Q_f\]</div>
+<p>Thus:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{A,f}Q_f - C_AQ_f - k_1C_AV\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(Q_f\)</span>, we express the balance in terms of a space time, <span class="math notranslate nohighlight">\(\tau\)</span>, and the concentration of species <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{A,f} - C_A - k_1C_A\tau\]</div>
+<p>We do not know space time or effluent concentration of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span>; however, we <em><strong>can</strong></em> solve this equation to get a closed-form expression <span class="math notranslate nohighlight">\(C_A\)</span> as a function of space time, <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[C_A = \frac{C_{A,f}}{1 + k_1\tau}\]</div>
+<p>This is an important result. It gives us the exit concentration of A as a univariate function of space time. This means that we can pass any value of space time to this function as an input argument, and we can generate the resulting concentration for that space time. It also allows us to solve the balance on <span class="math notranslate nohighlight">\(B\)</span> analytically:</p>
+</section>
+<section id="balance-on-b">
+<h4>Balance on B<a class="headerlink" href="#balance-on-b" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[0 = F_{B,f} - F_B + R_BV\]</div>
+<p>As above, we can replace molar flowrates with the product of concentration and volumetric flowrate, noting again that <span class="math notranslate nohighlight">\(Q = Q_f\)</span> for this problem:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{B,f}Q_f - C_BQ_f + R_BV\]</div>
+<p>We define the intensive production rate of B, <span class="math notranslate nohighlight">\(R_B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R_B = r_1 - r_2\]</div>
+<p>We know the reactions are both first order in their reactant, so:</p>
+<div class="math notranslate nohighlight">
+\[R_B = k_1C_A - k_2C_B\]</div>
+<p>And we can substitute this into the material balance:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{B,f}Q_f - C_BQ_f + (k_1C_A - k_2C_B)V\]</div>
+<p>Dividing through by <span class="math notranslate nohighlight">\(Q_f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{B,f} - C_B + (k_1C_A - k_2C_B)\tau\]</div>
+<p>Noting that <span class="math notranslate nohighlight">\(C_{B,f} = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_B + (k_1C_A - k_2C_B)\tau\]</div>
+<p>And we can solve this for <span class="math notranslate nohighlight">\(C_B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{k_1C_A\tau}{1 + k_2 \tau}\]</div>
+<p>The above is expressed in terms of <span class="math notranslate nohighlight">\(C_A\)</span>.  We can substitute <span class="math notranslate nohighlight">\(C_A(\tau)\)</span> into this expression in to get:</p>
+<div class="math notranslate nohighlight">
+\[C_B = \frac{k_1C_{A,f}\tau}{(1+k_1\tau)(1+k_2\tau)}\]</div>
+<p>This is another important equation as it gives us <span class="math notranslate nohighlight">\(C_B\)</span> as a function of <span class="math notranslate nohighlight">\(\tau\)</span> and similarly allows us to solve the balance on <span class="math notranslate nohighlight">\(C\)</span> analytically.</p>
+</section>
+<section id="balance-on-c">
+<h4>Balance on C<a class="headerlink" href="#balance-on-c" title="Link to this heading">#</a></h4>
+<p>Strictly speaking, we don’t need this to solve the problem as the yield/selectivity to <span class="math notranslate nohighlight">\(B\)</span> is independent of the concentration of <span class="math notranslate nohighlight">\(C\)</span>, but it is useful to visualize the concentration of <span class="math notranslate nohighlight">\(C\)</span> alongside <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, so we will go ahead and write a balance on <span class="math notranslate nohighlight">\(C\)</span> anyway, for our own education:</p>
+<div class="math notranslate nohighlight">
+\[0 = F_{C,f} - F_C + R_CV\]</div>
+<p>Converting to a function of concentration:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{C,f}Q_f - C_CQ_f + R_CV\]</div>
+<p>Defining the production rate for <span class="math notranslate nohighlight">\(C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R_C = r_2 = k_2C_B\]</div>
+<p>We get:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{C,f}Q_f - C_CQ_f + k_2C_BV\]</div>
+<p>Dividing by <span class="math notranslate nohighlight">\(Q_f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = C_{C,f} - C_C + k_2C_B\tau\]</div>
+<p>Noting that <span class="math notranslate nohighlight">\(C_f = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = - C_C + k_2C_B\tau\]</div>
+<p>Which we can solve for <span class="math notranslate nohighlight">\(C_C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[C_C = k_2C_B\tau\]</div>
+<p>And we can substitute the expression for <span class="math notranslate nohighlight">\(C_B(\tau)\)</span> here to get:</p>
+<div class="math notranslate nohighlight">
+\[C_C = \frac{k_1k_2C_{A,f}\tau^2}{(1+k_1\tau)(1+k_2\tau)}\]</div>
+<p>Thus we have our concentrations of each species expressed as 3 explicit functions of <span class="math notranslate nohighlight">\(\tau\)</span>. These are developed as lambda functions below and plotted as a function of tau.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###################################################################################</span>
+<span class="c1"># Defining a few global constants needed for problem solution                     #</span>
+<span class="c1">###################################################################################</span>
+
+<span class="n">k11</span>  <span class="o">=</span> <span class="mf">0.5</span> <span class="c1">#1/h</span>
+<span class="n">k21</span>  <span class="o">=</span> <span class="mf">0.2</span> <span class="c1">#1/h</span>
+<span class="n">CAf1</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1">#mol/L</span>
+
+<span class="c1">###################################################################################</span>
+<span class="c1"># Defining lambda functions for CA(τ), CB(τ), and CC(τ)                           #</span>
+<span class="c1">###################################################################################</span>
+
+<span class="n">CA</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">CAf1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">k11</span><span class="o">*</span><span class="n">τ</span><span class="p">)</span>
+<span class="n">CB</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">k11</span><span class="o">*</span><span class="n">CAf1</span><span class="o">*</span><span class="n">τ</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k11</span><span class="o">*</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k21</span><span class="o">*</span><span class="n">τ</span><span class="p">)</span>
+<span class="n">CC</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">k11</span><span class="o">*</span><span class="n">k21</span><span class="o">*</span><span class="n">CAf1</span><span class="o">*</span><span class="n">τ</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k11</span><span class="o">*</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">k21</span><span class="o">*</span><span class="n">τ</span><span class="p">)</span>
+
+<span class="c1">###################################################################################</span>
+<span class="c1"># Graphing CA(τ), CB(τ), and CC(τ)                                                #</span>
+<span class="c1">###################################################################################</span>
+
+<span class="n">τset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">CA</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">CB</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">CC</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Concentration vs. CSTR space time&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">τset</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0bf38c59a80bf567bbbb2ae43896c7cf1d993b580182059d4f2ffa63dd0d1812.png" src="../_images/0bf38c59a80bf567bbbb2ae43896c7cf1d993b580182059d4f2ffa63dd0d1812.png" />
+</div>
+</div>
+</section>
+<section id="defining-conversion-selectivities-and-yields">
+<h4>Defining Conversion, Selectivities, and Yields<a class="headerlink" href="#defining-conversion-selectivities-and-yields" title="Link to this heading">#</a></h4>
+<p>With the concentrations of each species defined, we can now consider Conversion, Yields and Selectivities.</p>
+<section id="conversion">
+<h5>Conversion<a class="headerlink" href="#conversion" title="Link to this heading">#</a></h5>
+<p>We define the fractional conversion of <span class="math notranslate nohighlight">\(A\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{F_{A,f} - F_A}{F_{A,f}}\]</div>
+<p>We have no way to solve for molar flowrates (since Q is unknown), but we can express them in terms of concentrations, noting that <span class="math notranslate nohighlight">\(Q = Q_f\)</span> for this constant density process.</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{C_{A,f}Q_f - C_AQ_f}{C_{A,f}Q_f}\]</div>
+<p>We can factor and cancel the volumetric flowrates, giving the result below, which is valid for (1) a constant density fluid and (2) a flow reactor at steady state:</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{C_{A,f} - C_A}{C_{A,f}}\]</div>
+</section>
+</section>
+<section id="yields">
+<h4>Yields<a class="headerlink" href="#yields" title="Link to this heading">#</a></h4>
+<p>For a flow reactor, we define the yield of <span class="math notranslate nohighlight">\(B\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[Y_{B/A} = \frac{F_B\left|\frac{\nu_{A1}}{\nu_{B1}}\right|}{F_{A,f}}\]</div>
+<p>Which simplfies for this problem to:</p>
+<div class="math notranslate nohighlight">
+\[Y_{B/A} = \frac{F_B}{F_{A,f}}\]</div>
+<p>Again we cannot calculate the molar flowrates because we do not know the extensive size <span class="math notranslate nohighlight">\((Q, V)\)</span> of this system. As above, we can express them in terms of concentrations and volumetric flowrates, noting <span class="math notranslate nohighlight">\(Q = Q_f\)</span> for this problem:</p>
+<div class="math notranslate nohighlight">
+\[Y_{B/A} = \frac{C_BQ_f}{C_{A,f}Q_f}\]</div>
+<p>This reduces to:</p>
+<div class="math notranslate nohighlight">
+\[Y_{B/A} = \frac{C_B}{C_{A,f}}\]</div>
+<p>When we define the yield of <span class="math notranslate nohighlight">\(C\)</span> with respect to $<span class="math notranslate nohighlight">\(A\)</span>, it is useful to first generate the overall stoichiometry of converting <span class="math notranslate nohighlight">\(A\)</span> into <span class="math notranslate nohighlight">\(C\)</span> by summing the two reactions. Although the result is fairly obvious here, this will not always be the case for complex reaction sequences, so we should get into the habit of summing reactions to cancel intermediates where questions of  yield and selectivity arise:</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow C\]</div>
+<p>With that, we can use a similar approach to that above to define the yield to <span class="math notranslate nohighlight">\(C\)</span> in terms of concentrations:</p>
+<div class="math notranslate nohighlight">
+\[Y_{C/A} = \frac{C_C}{C_{A,f}}\]</div>
+</section>
+<section id="selectivities">
+<h4>Selectivities<a class="headerlink" href="#selectivities" title="Link to this heading">#</a></h4>
+<p>We can define the selectivity of species <span class="math notranslate nohighlight">\(B\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[S_{B/A} = \frac{F_B\left|\frac{\nu_{A1}}{\nu_{B1}}\right|}{F_{A,f} - F_A}\]</div>
+<p>Substituting stoichiometric coefficients, expressing in terms of concentrations, and noting that <span class="math notranslate nohighlight">\(Q = Q_f\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[S_{B/A} = \frac{C_BQ_f}{C_{A,f}Q_f - C_AQ_f}\]</div>
+<p>Factoring and cancelling the volumetric flowrate (which we can do in cases where it is constant):</p>
+<div class="math notranslate nohighlight">
+\[S_{B/A} = \frac{C_B}{C_{A,f} - C_A}\]</div>
+<p>You can follow similar steps to define a selectivity to species C with respect to the reactant A:</p>
+<div class="math notranslate nohighlight">
+\[S_{C/A} = \frac{C_C}{C_{A,f} - C_A}\]</div>
+<p>We’ll write lambda functions for each of these; note that we can build functions from other functions and can use the above definitions for <span class="math notranslate nohighlight">\(C_A(\tau)\)</span>, <span class="math notranslate nohighlight">\(C_A(\tau)\)</span>, <span class="math notranslate nohighlight">\(C_A(\tau)\)</span> to define conversion, yields, and selectivities as functions of space time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YB</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">CB</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="n">CAf1</span>
+<span class="n">YC</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">CC</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="n">CAf1</span>
+<span class="n">SB</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">CB</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">CAf1</span> <span class="o">-</span> <span class="n">CA</span><span class="p">(</span><span class="n">τ</span><span class="p">))</span>
+<span class="n">SC</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="n">CC</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">CAf1</span> <span class="o">-</span> <span class="n">CA</span><span class="p">(</span><span class="n">τ</span><span class="p">))</span>
+<span class="n">XA</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="p">(</span><span class="n">CAf1</span> <span class="o">-</span> <span class="n">CA</span><span class="p">(</span><span class="n">τ</span><span class="p">))</span><span class="o">/</span><span class="n">CAf1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphing-all-metrics-as-functions-of-space-time">
+<h4>Graphing all metrics as functions of space time<a class="headerlink" href="#graphing-all-metrics-as-functions-of-space-time" title="Link to this heading">#</a></h4>
+<p>Now we’ll plot everything! Visualization is always useful and helps to build insight, so we’ll take advantage of the fact that we have every quantity of interest defined as a univariate function of space time. This allows us to present all metrics in simple, easily interpretable 2D plots.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The scripts below will throw a warning, indicating that the calculations result in dividing by zero. The selectivity definitions are the culprit. At <span class="math notranslate nohighlight">\(\tau = 0\)</span>, <span class="math notranslate nohighlight">\(C_A = C_{A,f}\)</span>, which means that the denominator of our selectivity expressions is equal to zero. In this case, the error is not critical. Python just reports and moves on. We need to remember, though, that there is a discontinuity in our selectivity functions, and that, if we attempt to calculate selectivity at <span class="math notranslate nohighlight">\(\tau = 0\)</span>, there will be infinity or NAN values in the resultant selectivity arrays. In some cases, this may cause problems, so we should know why the error arises and how we might work around it.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########################################################################################</span>
+<span class="c1"># Prints out the first few selectivities to show the NAN (&quot;not a number&quot;) error at τ = 0  #</span>
+<span class="c1">###########################################################################################</span>
+
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">τ</span> <span class="o">=</span> <span class="n">τset</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;At τ = </span><span class="si">{</span><span class="n">τ</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">h, SB = </span><span class="si">{</span><span class="n">SB</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1"> and SC = </span><span class="si">{</span><span class="n">SC</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span><span class="si">:</span><span class="s1">4.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">XA</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Conversion of A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">SB</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to B&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">SC</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion/Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">XA</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Conversion of A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">YB</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to B&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">YC</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion/Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At τ = 0.00h, SB =  nan and SC =  nan
+At τ = 0.15h, SB = 0.97 and SC = 0.03
+At τ = 0.30h, SB = 0.94 and SC = 0.06
+At τ = 0.45h, SB = 0.92 and SC = 0.08
+At τ = 0.60h, SB = 0.89 and SC = 0.11
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\3087614606.py:3: RuntimeWarning: invalid value encountered in scalar divide
+  SB = lambda τ: CB(τ)/(CAf1 - CA(τ))
+C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\3087614606.py:4: RuntimeWarning: invalid value encountered in scalar divide
+  SC = lambda τ: CC(τ)/(CAf1 - CA(τ))
+C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\3087614606.py:3: RuntimeWarning: invalid value encountered in divide
+  SB = lambda τ: CB(τ)/(CAf1 - CA(τ))
+C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\3087614606.py:4: RuntimeWarning: invalid value encountered in divide
+  SC = lambda τ: CC(τ)/(CAf1 - CA(τ))
+</pre></div>
+</div>
+<img alt="../_images/b2236ad83b8f9a4fcbea7726c3a12a7be3df6ffe27ff41a9de9fa1ef0f3aaa08.png" src="../_images/b2236ad83b8f9a4fcbea7726c3a12a7be3df6ffe27ff41a9de9fa1ef0f3aaa08.png" />
+<img alt="../_images/d377e3986676a96b594acb1be3e785fcb989977177b381e21475b9ab044afae8.png" src="../_images/d377e3986676a96b594acb1be3e785fcb989977177b381e21475b9ab044afae8.png" />
+</div>
+</div>
+</section>
+<section id="maximizing-the-yield-of-b">
+<h4>Maximizing the Yield of <span class="math notranslate nohighlight">\(B\)</span><a class="headerlink" href="#maximizing-the-yield-of-b" title="Link to this heading">#</a></h4>
+<p>An important question is clearly what space time do we need to use to maximize the yield to species <span class="math notranslate nohighlight">\(B\)</span> (the intermediate in the series reaction).  From the graph of <span class="math notranslate nohighlight">\(Y_{B/A}\)</span> vs. <span class="math notranslate nohighlight">\(\tau\)</span>, we can see this occurs at a space time of about <span class="math notranslate nohighlight">\(\tau = 3\mathrm{h}\)</span>. To get more precise, we can find the maximum yield analytically taking the derivative of <span class="math notranslate nohighlight">\(Y_{B/A}\)</span> with respect to <span class="math notranslate nohighlight">\(\tau\)</span>. After some calculus and algebra, we get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dY_{B/A}}{d\tau} = \frac{k_1(1 + k_1\tau)(1 + k_2\tau) - k_1\tau\left[k_1(1 + k_2\tau) + k_2(1 + k_1\tau)\right]}{\left[(1 + k_1\tau)(1+k_1\tau)\right]^2}\]</div>
+<p>To find the optimum value of <span class="math notranslate nohighlight">\(\tau\)</span>, we set the left hand side equal to zero, and we solve the following expression for <span class="math notranslate nohighlight">\(\tau\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = \frac{k_1(1 + k_1\tau)(1 + k_2\tau) - k_1\tau\left[k_1(1 + k_2\tau) + k_2(1 + k_1\tau)\right]}{\left[(1 + k_1\tau)(1+k_1\tau)\right]^2}\]</div>
+<p>This is a quadratic function, so we can do this by hand to find:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{\textrm{opt}} = \sqrt{\frac{1}{k_1k_2}}\]</div>
+<p>Which we can plug into a calculator to get:</p>
+<div class="math notranslate nohighlight">
+\[\tau_{\textrm{opt}} = 3.16 \ \textrm{h}\]</div>
+<p>If we pass this value of <span class="math notranslate nohighlight">\(\tau_{\textrm{opt}}\)</span> back to our expression for <span class="math notranslate nohighlight">\(Y_{B/A}\)</span>, we find that the maximum yield is:</p>
+<div class="math notranslate nohighlight">
+\[Y_{{B/A}_{\textrm{opt}}} = 0.375\]</div>
+<p>Alternatively, we create an objective function from our definition for <span class="math notranslate nohighlight">\(Y_{B/A}\)</span>. Remember: numerical optimization algorithms minimize functions, they do not maximize them. As such, we can generate an appropriate objective function for optimization by calculating <span class="math notranslate nohighlight">\(-Y_{B/A}(\tau)\)</span>. We can then minimize this function with an optimization routine, which gives the same answer as our analytical result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#####################################################################################</span>
+<span class="c1"># Define an objective function for minimization obj(τ) = -YBA(τ)                    #</span>
+<span class="c1">#####################################################################################</span>
+
+<span class="n">obj1</span>    <span class="o">=</span> <span class="k">lambda</span> <span class="n">τ</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YB</span><span class="p">(</span><span class="n">τ</span><span class="p">)</span> 
+
+<span class="c1">#####################################################################################</span>
+<span class="c1"># Minimize the objective function obj(τ) = -YBA(τ) using opt.minimize_scalar()      #</span>
+<span class="c1">#####################################################################################</span>
+
+<span class="n">optsol</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span> <span class="c1">#this varies tau until we hit minimum value of -1*YB</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">optsol</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield to species B is </span><span class="si">{</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">optsol</span><span class="o">.</span><span class="n">fun</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> which occurs at a space time of </span><span class="si">{</span><span class="n">optsol</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1"> hours&#39;</span><span class="p">)</span>
+
+<span class="c1">#####################################################################################</span>
+<span class="c1"># Graph the objective function  obj(τ) = -YBA(τ)                                    #</span>
+<span class="c1">#####################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">τset</span><span class="p">,</span> <span class="n">obj1</span><span class="p">(</span><span class="n">τset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;-YB/A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (h)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;objective function value&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: 
+          Optimization terminated successfully;
+          The returned value satisfies the termination criteria
+          (using xtol = 1.48e-08 )
+ success: True
+     fun: -0.3752470442573563
+       x: 3.162277615990361
+     nit: 11
+    nfev: 16 
+
+The maximum yield to species B is 0.375 which occurs at a space time of 3.16 hours
+</pre></div>
+</div>
+<img alt="../_images/afce68de2e240f13f794898d35de48e9bce3381b8ff166176156974845d6b699.png" src="../_images/afce68de2e240f13f794898d35de48e9bce3381b8ff166176156974845d6b699.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a slightly modified version of Example 8.5 from Elements of Chemical Reaction Engineering by Scott Fogler.</p>
+</div>
+<p>The two gas-phase reactions given below are carried out in an isobaric (constant pressure) Packed Bed Reactor</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    A + 2B &amp;\longrightarrow C\\
+    2A + 3C &amp;\longrightarrow D
+\end{align*}\]</div>
+<p>Both reactions follow elementary rate laws (though neither reaction is truly an elementary reaction). We have the following additional data available:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    k_1 &amp;= 100 \ \textrm{L}^{3} \ \textrm{mol}^{-2} \ \textrm{kg}^{-1} \ \textrm{min}^{-1} \\
+    k_2 &amp;= 500 \ \textrm{L}^{5} \ \textrm{mol}^{-4} \ \textrm{kg}^{-1} \ \textrm{min}^{-1} \\
+    C_{T,f} &amp;= 0.2 \ \textrm{mol} \ \textrm{L}^{-1}\\
+    T &amp;= 573 \ \textrm{K}\\
+    F_{Af} &amp;= 10 \ \textrm{mol} \ \textrm{min}^{-1}\\
+    F_{Bf} &amp;= 10 \ \textrm{mol} \ \textrm{min}^{-1}\\
+\end{align*} \]</div>
+<ol class="arabic simple">
+<li><p>Plot <span class="math notranslate nohighlight">\(X_A\)</span>, <span class="math notranslate nohighlight">\(Y_{C/A}\)</span>, <span class="math notranslate nohighlight">\(Y_{D/A}\)</span>, <span class="math notranslate nohighlight">\(S_{C/A}\)</span>, and <span class="math notranslate nohighlight">\(S_{D/A}\)</span> as a function of catalyst mass (up to 1000 kg of catalyst).</p></li>
+<li><p>What catalyst mass would you recommend in order to maximize the <em><strong>selectivity</strong></em> to C in this reactor?</p></li>
+<li><p>What catalyst mass would you recommend in order to maximize the <em><strong>yield</strong></em> of C in this reactor?</p></li>
+</ol>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the first time in the course that we’ve considered the design of a Packed Bed Reactor. Conceptually, Packed Bed Reactors are like PFRs, but they are filled with solid catalyst, and the reaction is occuring heterogeneously on the catalyst surface instead of homogeneously throughout the reactor volume. Mathematically, Packed Bed Reactor balances work out to be nearly identical to PFR balances. The difference is that we have to pick a better independent variable than volume because total reactor volume is not always the best scaling dimension for a reaction occuring on a solid catalyst. One alternative is to develop the balances using mass of catalyst instead of reactor volume as the independent variable (the one that defines the size of the reactor). This is a useful approach if we are given intensive rate laws that generate reaction rates in units of moles per mass of catalyst per time.</p>
+</div>
+<p>We start by writing material balances on each species. The reason we do this is because we cannot determine conversion, yield, or selectivity unless we know the flowrates of species exiting the reactor at various volumes. Material balances allow us to calculate those effluent flowrates and thus answer the questions posed. The general material balance for species <span class="math notranslate nohighlight">\(j\)</span> in a packed bed reactor is <span class="math notranslate nohighlight">\(dF_j/dW = {R_j}^\prime\)</span>. Accordingly:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \frac{dF_A}{dW} &amp;= {R_A}^\prime \\
+    \frac{dF_B}{dW} &amp;= {R_B}^\prime \\
+    \frac{dF_C}{dW} &amp;= {R_C}^\prime \\
+    \frac{dF_D}{dW} &amp;= {R_D}^\prime \\
+\end{align*}\]</div>
+<p>In the above material balances, <span class="math notranslate nohighlight">\(W\)</span> represents catalyst mass, and the prime (<span class="math notranslate nohighlight">\(^\prime\)</span>) superscript means that intensive rates are specified per unit mass of catalyst. We then proceed with the general approach, aiming toward a numerical solution using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. Generally, if we can define all terms on the right hand side of each ODE as functions of state variables <span class="math notranslate nohighlight">\((F_A, F_B, F_C, F_D)\)</span>, the independent variable <span class="math notranslate nohighlight">\((W)\)</span>, or constants, then we can solve the problem. Currently, each right hand side is an mass-normalized, intensive production rates. These are defined as usual, <span class="math notranslate nohighlight">\({R_j}^\prime = \sum_i \nu_{i,j}{r_i}^\prime\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    {R_A}^\prime &amp;= -r_1 -2r_2 \\
+    {R_B}^\prime &amp;= -2r_1 \\
+    {R_C}^\prime &amp;= r_1 -3r_2 \\
+    {R_D}^\prime &amp;= r_2 \\
+\end{align*}\]</div>
+<p>According to the problem statement, both reactions have elementary kinetics. This means we can define reaction rates with reaction orders given by stoichiometric coefficients:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    {r_1}^\prime &amp;= k_1C_AC_B^2 \\
+    {r_2}^\prime &amp;= k_2CA^2C_C^3 \\
+\end{align*}\]</div>
+<p>We can define concentrations in terms of flowrates for a flow reactor:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a745aefd-1c5b-4ac8-af31-0243fc5fd919">
+<span class="eqno">(2)<a class="headerlink" href="#equation-a745aefd-1c5b-4ac8-af31-0243fc5fd919" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_A &amp;= F_A/Q \\
+    C_B &amp;= F_B/Q \\
+    C_C &amp;= F_C/Q \\
+\end{align}\]</div>
+<p>Since this is a gas-phase reaction at low pressure, we can define <span class="math notranslate nohighlight">\(Q\)</span> using the ideal gas law:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_TRT}{P}\]</div>
+<p>And since we know the reactor is isobaric, we can calculate the total pressure from the total feed concentration of species:</p>
+<div class="math notranslate nohighlight">
+\[P = C_{T,f}RT\]</div>
+<p>At this point, everything on the right-hand side of our ODEs is defined in terms of our dependent variables, so we can now integrate the ODE system using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. Remember, this will generate a discrete set of molar flowrates for each species at a discrete set of catalyst masses. To solve this problem, we also need to define conversion, selectivity, and yield in terms of molar flowrates. This is necessary to generate the figures requested in the problem statement.</p>
+<section id="id1">
+<h4>Conversion<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>We define conversion of <span class="math notranslate nohighlight">\(A\)</span> in terms of molar flowrates:</p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{F_{Af} - F_A}{F_{Af}}\]</div>
+</section>
+<section id="id2">
+<h4>Selectivities<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>Based on the stoichiometry of the first reaction, we can see that making 1 mole of <span class="math notranslate nohighlight">\(C\)</span> requires 1 mole of <span class="math notranslate nohighlight">\(A\)</span>. The overall selectivity to <span class="math notranslate nohighlight">\(C\)</span> would therefore be defined as:</p>
+<div class="math notranslate nohighlight">
+\[S_{C/A} = \frac{F_C}{F_{Af} - F_A}\]</div>
+<p>The stoichiometric relationship between species <span class="math notranslate nohighlight">\(A\)</span> and species <span class="math notranslate nohighlight">\(D\)</span> is less clear from the two reactions given; however, if we sum them:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-81d5b0e0-24b2-42fe-86cd-c46d05374b2f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-81d5b0e0-24b2-42fe-86cd-c46d05374b2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+    A + 2B &amp;\longrightarrow C\\
+    2A + 3C &amp;\longrightarrow D \\
+    \hline
+    5A + 6B &amp;\longrightarrow D
+\end{align}\]</div>
+<p>We can see that producing 1 mole of D will consume 5 moles of A, so:</p>
+<div class="math notranslate nohighlight">
+\[S_{D/A} = \frac{5F_D}{F_{Af} - F_A}\]</div>
+</section>
+<section id="id3">
+<h4>Yields<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>We use the same insights about stoichiometry discussed above in order to define yields to C and D:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cccc803a-45c6-4ebc-b93f-afa46128d2ec">
+<span class="eqno">(4)<a class="headerlink" href="#equation-cccc803a-45c6-4ebc-b93f-afa46128d2ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+    Y_{C/A} = \frac{F_C}{F_{Af}} \\
+    Y_{D/A} = \frac{5F_D}{F_{Af}} \\
+\end{align}\]</div>
+<p>These equations are all encoded in the cell below, and the results are graphed as a function of catalyst mass.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#########################################################################</span>
+<span class="c1"># Defining constants as global variables                                #</span>
+<span class="c1">#########################################################################</span>
+
+<span class="n">k12</span>  <span class="o">=</span> <span class="mi">100</span> <span class="c1">#L^3/mol^2/kg/min</span>
+<span class="n">k22</span>  <span class="o">=</span> <span class="mi">500</span> <span class="c1">#L^5/mol^4/kg/min    </span>
+<span class="n">CAf2</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1">#mol/L</span>
+<span class="n">T</span>    <span class="o">=</span> <span class="mi">573</span> <span class="c1">#K</span>
+<span class="n">R</span>    <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">P</span>    <span class="o">=</span> <span class="n">CAf2</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span>
+<span class="n">FAf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/min</span>
+<span class="n">FBf</span>  <span class="o">=</span> <span class="mi">10</span> <span class="c1">#mol/min</span>
+<span class="n">FCf</span>  <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#mol/min</span>
+<span class="n">FDf</span>  <span class="o">=</span> <span class="mi">0</span>  <span class="c1">#mol/min</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Define the coupled ODEs in a function                                  #</span>
+<span class="c1"># Function has the form f(W, [FA, FB, FC, FD])                           #</span>
+<span class="c1"># Function returns [dFAdW, dFBdW, dFCdW, dFDdW]                          #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P02</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">FA</span><span class="p">,</span> <span class="n">FB</span><span class="p">,</span> <span class="n">FC</span><span class="p">,</span> <span class="n">FD</span> <span class="o">=</span> <span class="n">var</span>
+    <span class="n">FT</span> <span class="o">=</span> <span class="n">FA</span> <span class="o">+</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FC</span> <span class="o">+</span> <span class="n">FD</span>
+    
+    <span class="n">Q</span>   <span class="o">=</span> <span class="n">FT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="n">CA</span>  <span class="o">=</span> <span class="n">FA</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CB</span>  <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CC</span>  <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="n">r1</span>  <span class="o">=</span> <span class="n">k12</span><span class="o">*</span><span class="n">CA</span><span class="o">*</span><span class="n">CB</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">r2</span>  <span class="o">=</span> <span class="n">k22</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">CC</span><span class="o">**</span><span class="mi">3</span>
+    
+    <span class="n">RA</span>  <span class="o">=</span> <span class="o">-</span><span class="n">r1</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RB</span>  <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span>
+    <span class="n">RC</span>  <span class="o">=</span> <span class="n">r1</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RD</span>  <span class="o">=</span> <span class="n">r2</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">RA</span><span class="p">,</span> <span class="n">RB</span><span class="p">,</span> <span class="n">RC</span><span class="p">,</span> <span class="n">RD</span><span class="p">]</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Define parameters for solve_ivp()                                      #</span>
+<span class="c1">##########################################################################  </span>
+
+<span class="n">var0</span> <span class="o">=</span> <span class="p">[</span><span class="n">FAf</span><span class="p">,</span> <span class="n">FBf</span><span class="p">,</span> <span class="n">FCf</span><span class="p">,</span> <span class="n">FDf</span><span class="p">]</span>
+<span class="n">Wspan</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span> <span class="c1">#kg catalyst</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Solve the problem using solve_ivp()                                    #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">answer</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P02</span><span class="p">,</span> <span class="n">Wspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">)</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Extract W and corresponding FA, FB, FC, FD from the solution structure #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">W</span>  <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FA</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FB</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FC</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">FD</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Define conversion, yields, and selectivities from molar flowrates      #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">XA</span>  <span class="o">=</span> <span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span><span class="o">/</span><span class="n">FAf</span>
+<span class="n">SCA</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span>
+<span class="n">SDA</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">FD</span><span class="o">/</span><span class="p">(</span><span class="n">FAf</span> <span class="o">-</span> <span class="n">FA</span><span class="p">)</span>
+<span class="n">YCA</span> <span class="o">=</span> <span class="n">FC</span><span class="o">/</span><span class="n">FAf</span>
+<span class="n">YDA</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">FD</span><span class="o">/</span><span class="n">FAf</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Graph Conversion vs W                                                  #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">XA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Conversion of A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mass of Catalyst (kg)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Graph Product Selectivity vs. W                                        #</span>
+<span class="c1">##########################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">SCA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">SDA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mass of Catalyst (kg)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1">#########################################################################</span>
+<span class="c1"># Graph Product Yields vs W                                             #</span>
+<span class="c1">#########################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">YCA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">YDA</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mass of Catalyst (kg)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\4163909.py:70: RuntimeWarning: invalid value encountered in divide
+  SCA = FC/(FAf - FA)
+C:\Users\jqbon\AppData\Local\Temp\ipykernel_10312\4163909.py:71: RuntimeWarning: invalid value encountered in divide
+  SDA = 5*FD/(FAf - FA)
+</pre></div>
+</div>
+<img alt="../_images/b23faa0fd67de1fbf24bed90a702d4815cac7398f8e38d98e1ced23e3ee380ac.png" src="../_images/b23faa0fd67de1fbf24bed90a702d4815cac7398f8e38d98e1ced23e3ee380ac.png" />
+<img alt="../_images/2ebfd222d3d6401902c43a28971fa4303fc08b1abef7d6491bf46b723169ec54.png" src="../_images/2ebfd222d3d6401902c43a28971fa4303fc08b1abef7d6491bf46b723169ec54.png" />
+<img alt="../_images/1328326370e48deb404fead92664ccb7c955eb222128c7b70a2f10807106b420.png" src="../_images/1328326370e48deb404fead92664ccb7c955eb222128c7b70a2f10807106b420.png" />
+</div>
+</div>
+</section>
+<section id="optimizing-yields-and-selectivities">
+<h4>Optimizing Yields and Selectivities<a class="headerlink" href="#optimizing-yields-and-selectivities" title="Link to this heading">#</a></h4>
+<p>Here, we have the classic problem in maximizing selectivity/yield to the intermediate species in a sequence of reactions.  Selectivity is maximized by operating as close to zero conversion as possible. This is because, in this limit, the concentration of species <span class="math notranslate nohighlight">\(C\)</span> is near zero, so the rate of the second reaction is also near zero. This means the quantity of species <span class="math notranslate nohighlight">\(C\)</span> converted to species <span class="math notranslate nohighlight">\(D\)</span> will be negligible. Unfortunately, since yield is the product of conversion and selectivity, the yield of <span class="math notranslate nohighlight">\(C\)</span> also approaches zero at zero conversion. So optimizing overall selectivity in a series reaction is not generally possible because we need to produce a viable quantity of our targeted product, which means accumulating sufficient residence time to achieve appreciable feed conversion. To produce a viable quantity of product <span class="math notranslate nohighlight">\(C\)</span> in a series reaction, we will have to tolerate some loss of selectivity. We will try, then, to optimize Yield of species C, which is a metric that accounts for both conversion and selectivity. We see that the the point of maximum yield will be the mass of catalyst where conversion has increased enough to produce an appreciable quantity of <span class="math notranslate nohighlight">\(C\)</span>, but not so much that we are producing mostly <span class="math notranslate nohighlight">\(D\)</span>. As shown below, this occurs at 140 kg of catalyst, where we find a maximum yield of B of approximately 40%.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When maximizing quantities of an intermediate in a series reaction, the point of optimum selectivity is not going to be the same as the point of optimum yield. Usually, the latter that is our target because optimium selectivity occurs at zero conversion.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################################################################################</span>
+<span class="c1"># Construct and interpolating polynomial approximation for YCA(W)                        #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">YIELD</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">YCA</span><span class="p">)</span>  <span class="c1">#This gives me yield as a continuous function of W</span>
+
+<span class="c1">##########################################################################################</span>
+<span class="c1"># Use the interpolating polynomial above to create an objective function obj(W) = -YIELD #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">obj2</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">W</span><span class="p">:</span> <span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">*-</span><span class="mi">1</span>  <span class="c1">#I want to minimize negative yield.</span>
+
+<span class="c1">##########################################################################################</span>
+<span class="c1"># Graph the objective function go get a rough idea of optimum mass                       #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">wset</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wset</span><span class="p">,</span> <span class="n">obj2</span><span class="p">(</span><span class="n">wset</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;-YCA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Mass of Catalyst (kg)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ac94bc61e8dde7f97ac567b1c52d68d026fd60ff62248869e478773121449e2d.png" src="../_images/ac94bc61e8dde7f97ac567b1c52d68d026fd60ff62248869e478773121449e2d.png" />
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The code cell below contains an intentional error; running it will cause Python to report:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ValueError:</span> <span class="pre">A</span> <span class="pre">value</span> <span class="pre">(1873.302260594539)</span> <span class="pre">in</span> <span class="pre">x_new</span> <span class="pre">is</span> <span class="pre">above</span> <span class="pre">the</span> <span class="pre">interpolation</span> <span class="pre">range's</span> <span class="pre">maximum</span> <span class="pre">value</span> <span class="pre">(1000.0).</span></code></p>
+<p>Let’s discuss why this happens. Remember that we first solved this ODE for a set of catalyst masses from <span class="math notranslate nohighlight">\(W = 0\)</span> to <span class="math notranslate nohighlight">\(W = 1000\)</span> – this was our integration span. This means that the interpolating polynomial that we created using the ODE solution can only take values of <span class="math notranslate nohighlight">\(W\)</span> between 0 and 1000 as input arguments. Anything outside of that is outside of the interpolation range, and (in Python) this will throw an error because we are no longer interpolating – we are extrapolating. The error above says that we attempted to pass a value of 1873.3 to the interpolating polynomial, but we probably don’t recall doing that. So why does it happen?</p>
+<p>Numerical optimization algorithms are iterative methods. We provide bounds or a guess to intiate them, but then the algorithm attempts to follow gradients downhill (in objective function value) to eventually find the value of <span class="math notranslate nohighlight">\(W\)</span> that produces a minimum in the objective function. In this case, these gradients caused the algorithm to move to <span class="math notranslate nohighlight">\(W = 1873.3\)</span> on one iteration, and this triggered an error in the interpolation function.</p>
+<p>If you have trouble seeing this, the second code cell below includes a more sophisticated objective function that prints the current value of W and YCA on each iteration of the optimization algorithm.</p>
+<p>To resolve this, we can consider bounding the optimization so that it values of catalyst mass are restricted to <span class="math notranslate nohighlight">\(W = [0, 1000]\)</span>. That said, this function should be fairly easy to minimize with an optimization algorithm since the function is convex and there is a clear minimum. In part, the diffulty arises because I intentionally set low coarse precisions in the ODE solver with <code class="docutils literal notranslate"><span class="pre">rtol</span> <span class="pre">=</span> <span class="pre">1e-3</span></code> and <code class="docutils literal notranslate"><span class="pre">atol</span> <span class="pre">=</span> <span class="pre">1e-3</span></code>. This generates a very widely spaced array of YCA vs. W values, which we then used to construct an interpolating polynomial. The interpolating polynomial is then not very smooth, and it is difficult for the optimizer to follow gradients to the minimum. We can also then resolve it by using higher precision tolerances when we solve the ODE problem.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj2</span><span class="p">)</span>
+<span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj2</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_minimize.py:975,</span> in <span class="ni">minimize_scalar</span><span class="nt">(fun, bracket, bounds, args, method, tol, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="n">bracket</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span> <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;brent&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">975</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">_recover_from_bracket_error</span><span class="p">(</span><span class="n">_minimize_scalar_brent</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span>                                       <span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;bounded&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:3098,</span> in <span class="ni">_recover_from_bracket_error</span><span class="nt">(solver, fun, bracket, args, **options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3079</span> <span class="k">def</span><span class="w"> </span><span class="nf">_recover_from_bracket_error</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3080</span>     <span class="c1"># `bracket` was originally written without checking whether the resulting</span>
+<span class="g g-Whitespace">   </span><span class="mi">3081</span>     <span class="c1"># bracket is valid. `brent` and `golden` built on top of it without</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3095</span>     <span class="c1"># storing the information needed by `minimize_scalar` in the error object,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3096</span>     <span class="c1"># and intercepting it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3097</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3098</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">solver</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3099</span>     <span class="k">except</span> <span class="n">BracketError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3100</span>         <span class="n">msg</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2697,</span> in <span class="ni">_minimize_scalar_brent</span><span class="nt">(func, brack, args, xtol, maxiter, disp, **unknown_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2694</span> <span class="n">brent</span> <span class="o">=</span> <span class="n">Brent</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2695</span>               <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="n">disp</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2696</span> <span class="n">brent</span><span class="o">.</span><span class="n">set_bracket</span><span class="p">(</span><span class="n">brack</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2697</span> <span class="n">brent</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2698</span> <span class="n">x</span><span class="p">,</span> <span class="n">fval</span><span class="p">,</span> <span class="n">nit</span><span class="p">,</span> <span class="n">nfev</span> <span class="o">=</span> <span class="n">brent</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2700</span> <span class="n">success</span> <span class="o">=</span> <span class="n">nit</span> <span class="o">&lt;</span> <span class="n">maxiter</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">fval</span><span class="p">))</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2462,</span> in <span class="ni">Brent.optimize</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="k">def</span><span class="w"> </span><span class="nf">optimize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2460</span>     <span class="c1"># set up for optimization</span>
+<span class="g g-Whitespace">   </span><span class="mi">2461</span>     <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="ne">-&gt; </span><span class="mi">2462</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bracket_info</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2463</span>     <span class="n">_mintol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mintol</span>
+<span class="g g-Whitespace">   </span><span class="mi">2464</span>     <span class="n">_cg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cg</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2429,</span> in <span class="ni">Brent.get_bracket_info</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="c1">### BEGIN core bracket_info code ###</span>
+<span class="g g-Whitespace">   </span><span class="mi">2427</span> <span class="c1">### carefully DOCUMENT any CHANGES in core ##</span>
+<span class="g g-Whitespace">   </span><span class="mi">2428</span> <span class="k">if</span> <span class="n">brack</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2429</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="n">bracket</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2430</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">brack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2431</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="n">bracket</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xa</span><span class="o">=</span><span class="n">brack</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span>                                                <span class="n">xb</span><span class="o">=</span><span class="n">brack</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:3037,</span> in <span class="ni">bracket</span><span class="nt">(func, xa, xb, args, grow_limit, maxiter)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3035</span> <span class="k">elif</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">wlim</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">wlim</span> <span class="o">-</span> <span class="n">xc</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3036</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">wlim</span>
+<span class="ne">-&gt; </span><span class="mi">3037</span>     <span class="n">fw</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">w</span><span class="p">,)</span> <span class="o">+</span> <span class="n">args</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">3038</span>     <span class="n">funcalls</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">3039</span> <span class="k">elif</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">wlim</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">xc</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+<span class="nn">Cell In[7], line 11,</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(W)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">YIELD</span>  <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">YCA</span><span class="p">)</span>  <span class="c1">#This gives me yield as a continuous function of W</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">##########################################################################################</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Use the interpolating polynomial above to create an objective function obj(W) = -YIELD #</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">##########################################################################################</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">obj2</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">W</span><span class="p">:</span> <span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="o">*-</span><span class="mi">1</span>  <span class="c1">#I want to minimize negative yield.</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1">##########################################################################################</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># Graph the objective function go get a rough idea of optimum mass                       #</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1">##########################################################################################</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">wset</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\interpolate\_polyint.py:82,</span> in <span class="ni">_Interpolator1D.__call__</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="sd"> Evaluate the interpolant</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">82</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_finish_y</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x_shape</span><span class="p">)</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\interpolate\_interpolate.py:533,</span> in <span class="ni">interp1d._evaluate</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="n">y_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extrapolate</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">533</span>     <span class="n">below_bounds</span><span class="p">,</span> <span class="n">above_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_bounds</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_new</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span>         <span class="c1"># Note fill_value must be broadcast up to the proper size</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span>         <span class="c1"># and flattened to work here</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span>         <span class="n">y_new</span><span class="p">[</span><span class="n">below_bounds</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill_value_below</span>
+
+<span class="nn">File ~\anaconda3\Lib\site-packages\scipy\interpolate\_interpolate.py:566,</span> in <span class="ni">interp1d._check_bounds</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds_error</span> <span class="ow">and</span> <span class="n">above_bounds</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>     <span class="n">above_bounds_value</span> <span class="o">=</span> <span class="n">x_new</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">above_bounds</span><span class="p">)]</span>
+<span class="ne">--&gt; </span><span class="mi">566</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A value (</span><span class="si">{</span><span class="n">above_bounds_value</span><span class="si">}</span><span class="s2">) in x_new is above &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>                      <span class="sa">f</span><span class="s2">&quot;the interpolation range&#39;s maximum value (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="c1"># !! Should we emit a warning if some values are out of bounds?</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># !! matlab does not.</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="k">return</span> <span class="n">below_bounds</span><span class="p">,</span> <span class="n">above_bounds</span>
+
+<span class="ne">ValueError</span>: A value (1873.302260594539) in x_new is above the interpolation range&#39;s maximum value (1000.0).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">OBJ2</span><span class="p">(</span><span class="n">W</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">W</span> <span class="o">&lt;=</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">W</span><span class="p">,</span> <span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s1">kg of catalyst is outside interpolation range&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+
+<span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJ2</span><span class="p">)</span><span class="c1">#, method = &#39;bounded&#39;, bounds = [0, 999])</span>
+<span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.float64(0.0), array(0.)]
+[np.float64(1.0), array(0.0098198)]
+[np.float64(2.6180339999999998), array(0.02451275)]
+[np.float64(17.892964975441355), array(0.14608862)]
+[np.float64(42.60832264135863), array(0.25468483)]
+[np.float64(54.8926563161009), array(0.30430925)]
+[np.float64(74.76912586917882), array(0.34880455)]
+[np.float64(84.8177098060513), array(0.36144965)]
+[np.float64(101.07666026776482), array(0.38190987)]
+Error: 1873.302260594539kg of catalyst is outside interpolation range
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">31</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s1">kg of catalyst is outside interpolation range&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJ2</span><span class="p">)</span><span class="c1">#, method = &#39;bounded&#39;, bounds = [0, 999])</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_minimize.py:975,</span> in <span class="ni">minimize_scalar</span><span class="nt">(fun, bracket, bounds, args, method, tol, options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">bracket</span><span class="o">=</span><span class="n">bracket</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span> <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;brent&#39;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">975</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">_recover_from_bracket_error</span><span class="p">(</span><span class="n">_minimize_scalar_brent</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span>                                       <span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="k">elif</span> <span class="n">meth</span> <span class="o">==</span> <span class="s1">&#39;bounded&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:3098,</span> in <span class="ni">_recover_from_bracket_error</span><span class="nt">(solver, fun, bracket, args, **options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3079</span> <span class="k">def</span><span class="w"> </span><span class="nf">_recover_from_bracket_error</span><span class="p">(</span><span class="n">solver</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3080</span>     <span class="c1"># `bracket` was originally written without checking whether the resulting</span>
+<span class="g g-Whitespace">   </span><span class="mi">3081</span>     <span class="c1"># bracket is valid. `brent` and `golden` built on top of it without</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3095</span>     <span class="c1"># storing the information needed by `minimize_scalar` in the error object,</span>
+<span class="g g-Whitespace">   </span><span class="mi">3096</span>     <span class="c1"># and intercepting it here.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3097</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3098</span>         <span class="n">res</span> <span class="o">=</span> <span class="n">solver</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">bracket</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3099</span>     <span class="k">except</span> <span class="n">BracketError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3100</span>         <span class="n">msg</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2697,</span> in <span class="ni">_minimize_scalar_brent</span><span class="nt">(func, brack, args, xtol, maxiter, disp, **unknown_options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2694</span> <span class="n">brent</span> <span class="o">=</span> <span class="n">Brent</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2695</span>               <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">maxiter</span><span class="p">,</span> <span class="n">disp</span><span class="o">=</span><span class="n">disp</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2696</span> <span class="n">brent</span><span class="o">.</span><span class="n">set_bracket</span><span class="p">(</span><span class="n">brack</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2697</span> <span class="n">brent</span><span class="o">.</span><span class="n">optimize</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2698</span> <span class="n">x</span><span class="p">,</span> <span class="n">fval</span><span class="p">,</span> <span class="n">nit</span><span class="p">,</span> <span class="n">nfev</span> <span class="o">=</span> <span class="n">brent</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2700</span> <span class="n">success</span> <span class="o">=</span> <span class="n">nit</span> <span class="o">&lt;</span> <span class="n">maxiter</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">fval</span><span class="p">))</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2462,</span> in <span class="ni">Brent.optimize</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="k">def</span><span class="w"> </span><span class="nf">optimize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2460</span>     <span class="c1"># set up for optimization</span>
+<span class="g g-Whitespace">   </span><span class="mi">2461</span>     <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="ne">-&gt; </span><span class="mi">2462</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_bracket_info</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2463</span>     <span class="n">_mintol</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mintol</span>
+<span class="g g-Whitespace">   </span><span class="mi">2464</span>     <span class="n">_cg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cg</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:2429,</span> in <span class="ni">Brent.get_bracket_info</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="c1">### BEGIN core bracket_info code ###</span>
+<span class="g g-Whitespace">   </span><span class="mi">2427</span> <span class="c1">### carefully DOCUMENT any CHANGES in core ##</span>
+<span class="g g-Whitespace">   </span><span class="mi">2428</span> <span class="k">if</span> <span class="n">brack</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2429</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="n">bracket</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2430</span> <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">brack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2431</span>     <span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">,</span> <span class="n">xc</span><span class="p">,</span> <span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">funcalls</span> <span class="o">=</span> <span class="n">bracket</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xa</span><span class="o">=</span><span class="n">brack</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">2432</span>                                                <span class="n">xb</span><span class="o">=</span><span class="n">brack</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\optimize\_optimize.py:3037,</span> in <span class="ni">bracket</span><span class="nt">(func, xa, xb, args, grow_limit, maxiter)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3035</span> <span class="k">elif</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">wlim</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">wlim</span> <span class="o">-</span> <span class="n">xc</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3036</span>     <span class="n">w</span> <span class="o">=</span> <span class="n">wlim</span>
+<span class="ne">-&gt; </span><span class="mi">3037</span>     <span class="n">fw</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="p">((</span><span class="n">w</span><span class="p">,)</span> <span class="o">+</span> <span class="n">args</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">3038</span>     <span class="n">funcalls</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">3039</span> <span class="k">elif</span> <span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">wlim</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">xc</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+
+<span class="nn">Cell In[31], line 6,</span> in <span class="ni">OBJ2</span><span class="nt">(W)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s1">kg of catalyst is outside interpolation range&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\interpolate\_polyint.py:82,</span> in <span class="ni">_Interpolator1D.__call__</span><span class="nt">(self, x)</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="sd"> Evaluate the interpolant</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="n">x</span><span class="p">,</span> <span class="n">x_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_x</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">82</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_finish_y</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x_shape</span><span class="p">)</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\interpolate\_interpolate.py:533,</span> in <span class="ni">interp1d._evaluate</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="n">y_new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_new</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">532</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extrapolate</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">533</span>     <span class="n">below_bounds</span><span class="p">,</span> <span class="n">above_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_bounds</span><span class="p">(</span><span class="n">x_new</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_new</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span>         <span class="c1"># Note fill_value must be broadcast up to the proper size</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span>         <span class="c1"># and flattened to work here</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span>         <span class="n">y_new</span><span class="p">[</span><span class="n">below_bounds</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fill_value_below</span>
+
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\scipy\interpolate\_interpolate.py:566,</span> in <span class="ni">interp1d._check_bounds</span><span class="nt">(self, x_new)</span>
+<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds_error</span> <span class="ow">and</span> <span class="n">above_bounds</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>     <span class="n">above_bounds_value</span> <span class="o">=</span> <span class="n">x_new</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">above_bounds</span><span class="p">)]</span>
+<span class="ne">--&gt; </span><span class="mi">566</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A value (</span><span class="si">{</span><span class="n">above_bounds_value</span><span class="si">}</span><span class="s2">) in x_new is above &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span>                      <span class="sa">f</span><span class="s2">&quot;the interpolation range&#39;s maximum value (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">).&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="c1"># !! Should we emit a warning if some values are out of bounds?</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="c1"># !! matlab does not.</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="k">return</span> <span class="n">below_bounds</span><span class="p">,</span> <span class="n">above_bounds</span>
+
+<span class="ne">ValueError</span>: A value (1873.302260594539) in x_new is above the interpolation range&#39;s maximum value (1000.0).
+</pre></div>
+</div>
+</div>
+</div>
+<p>The two cells below show a resolution by changing optimizer options to include bounds. The second is functionally equivalent to the first, it just adds print statements to display results on each iteration. This can be useful in helping us to figure out why optimization routines are failing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;bounded&#39;</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The maximum yield of C is 0.40 at a catalyst loading of 165kg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">OBJ2</span><span class="p">(</span><span class="n">W</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">W</span> <span class="o">&lt;=</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">([</span><span class="n">W</span><span class="p">,</span> <span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error: </span><span class="si">{</span><span class="n">W</span><span class="si">}</span><span class="s1">kg of catalyst is outside interpolation range&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+
+<span class="n">answer2</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">OBJ2</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;bounded&#39;</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
+<span class="n">W_opt</span>   <span class="o">=</span> <span class="n">answer2</span><span class="o">.</span><span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield of C is </span><span class="si">{</span><span class="n">YIELD</span><span class="p">(</span><span class="n">W_opt</span><span class="p">)</span><span class="si">:</span><span class="s1">0.2f</span><span class="si">}</span><span class="s1"> at a catalyst loading of </span><span class="si">{</span><span class="n">W_opt</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">kg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[np.float64(381.9660112501051), array(0.28538976)]
+[np.float64(618.0339887498948), array(0.18613773)]
+[np.float64(236.0679774997897), array(0.36584897)]
+[np.float64(145.89803375031545), array(0.39381219)]
+[np.float64(39.323623711577525), array(0.2414158)]
+[np.float64(105.19023144648557), array(0.38708638)]
+[np.float64(148.28986509260287), array(0.39403045)]
+[np.float64(181.8181205638394), array(0.38833701)]
+[np.float64(153.371772671519), array(0.39449419)]
+[np.float64(164.23731071058145), array(0.39548571)]
+[np.float64(170.95258252477694), array(0.39284107)]
+[np.float64(160.08704448571447), array(0.39510698)]
+[np.float64(166.80231629990996), array(0.39456147)]
+[np.float64(162.84067273440337), array(0.39535826)]
+[np.float64(165.2170556643715), array(0.3952186)]
+[np.float64(163.83696246146468), array(0.39544917)]
+[np.float64(164.61153998262304), array(0.3954696)]
+[np.float64(164.30031627869823), array(0.39549146)]
+[np.float64(164.37455857052277), array(0.39549823)]
+[np.float64(164.46507741524312), array(0.39550649)]
+[np.float64(164.52102113790266), array(0.39550713)]
+[np.float64(164.50343323704874), array(0.39550999)]
+[np.float64(164.49429623045734), array(0.39550916)]
+[np.float64(164.50366137984), array(0.39551001)]
+[np.float64(164.51029221738347), array(0.39551062)]
+[np.float64(164.5143903003592), array(0.39550988)]
+[np.float64(164.50775946281573), array(0.39551039)]
+[np.float64(164.5118575457915), array(0.39551076)]
+[np.float64(164.51282497195118), array(0.39551052)]
+[np.float64(164.51141823790036), array(0.39551072)]
+[np.float64(164.51222706970287), array(0.39551077)]
+[np.float64(164.51222129625887), array(0.39551077)]
+[np.float64(164.51205400412897), array(0.39551078)]
+[np.float64(164.51197896372142), array(0.39551077)]
+[np.float64(164.51210772776156), array(0.39551078)]
+[np.float64(164.51212362712576), array(0.39551079)]
+[np.float64(164.51216093341495), array(0.39551079)]
+[np.float64(164.51218398996966), array(0.39551079)]
+[np.float64(164.512189763413), array(0.39551079)]
+[np.float64(164.5121734461101), array(0.39551079)]
+[np.float64(164.5121676726669), array(0.39551079)]
+The maximum yield of C is 0.40 at a catalyst loading of 165kg
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-a">Material Balance on A:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-on-b">Balance on B</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-on-c">Balance on C</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-conversion-selectivities-and-yields">Defining Conversion, Selectivities, and Yields</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#conversion">Conversion</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yields">Yields</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivities">Selectivities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-all-metrics-as-functions-of-space-time">Graphing all metrics as functions of space time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximizing-the-yield-of-b">Maximizing the Yield of <span class="math notranslate nohighlight">\(B\)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02">Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conversion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Selectivities</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Yields</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-yields-and-selectivities">Optimizing Yields and Selectivities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

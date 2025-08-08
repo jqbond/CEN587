@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material Balances XIV &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N30';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Material Balances XIV</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N30.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N30.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N30.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Material Balances XIV</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01-revisiting-benzene-pyrolysis-in-a-pfr">Example Problem 01: Revisiting Benzene Pyrolysis in a PFR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-maximize-the-production-of-diphenyl">Example Problem 02: Maximize the Production of Diphenyl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crude-optimization-strategies">Some crude optimization strategies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-yield-and-selectivity">Introducing Yield and Selectivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-definitions-of-yield-and-selectivity">Conceptual Definitions of Yield and Selectivity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consider-a-pair-of-generic-reactions">Consider a Pair of Generic Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#yield">Yield</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity">Selectivity</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-conversion">Fractional Conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-03-benzene-pyrolysis-with-yields-and-selectivities">Example Problem 03: Benzene Pyrolysis with Yields and Selectivities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-of-diphenyl-with-respect-to-benzene">Yield of diphenyl with respect to Benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-of-triphenyl-with-respect-to-benzene">Yield of triphenyl with respect to Benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity-to-diphenyl-with-respect-to-benzene">Selectivity to diphenyl with respect to benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity-to-triphenyl-with-respect-to-benzene">Selectivity to triphenyl with respect to benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-value-and-location-of-the-maximum-diphenyl-yield">Finding the value and location of the maximum diphenyl yield</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-using-an-interpolating-polynomial-ydb-v">Optimize using an interpolating polynomial YDB(V)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-yield">Optimizing the Yield</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="material-balances-xiv">
+<h1>Material Balances XIV<a class="headerlink" href="#material-balances-xiv" title="Link to this heading">#</a></h1>
+<p>This lecture continues the discussion of reactor design for systems involving multiple reactions. Here, we formally define the concepts of yield and selectivity. These are complements to fractional conversion that quantify the relative quantities of various products formed. When there is more than one reaction occuring in a system, fractional conversion alone is an inadequate description of the process. We also need to understand yield and selectivity as they tell us about the extent to which each individual reaction occurs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We will stick with the example of Benzene Pyrolysis here because it is familiar from <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N29.html">Notebook 29</a>. We will simply apply a few new tools and concepts in the analysis.  These will help us to quantify product distributions in complex systems.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01-revisiting-benzene-pyrolysis-in-a-pfr">
+<h2>Example Problem 01: Revisiting Benzene Pyrolysis in a PFR<a class="headerlink" href="#example-problem-01-revisiting-benzene-pyrolysis-in-a-pfr" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is Example 4.5 from <em>Chemical Reactor Analysis and Design Fundamentals, 2nd ed.</em> by Rawlings and Ekerdt.</p>
+</div>
+<p>You are carrying out Benzene Pyrolysis in a Plug Flow Reactor operating at 1033K and 1.0 atm.  The two reactions occurring in this system are (1) benzene coupling to form diphenyl and hydrogen followed by (2) a secondary reaction between benzene and diphenyl to form triphenyl and hydrogen:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+2B &amp;\longleftrightarrow D + H_2\\
+B + D &amp;\longleftrightarrow T + H_2
+\end{align*}\]</div>
+<p>Both reactions are reversible and <em><strong>follow elementary rate laws</strong></em>.  Rate constants and equilibrium concentration ratios (<span class="math notranslate nohighlight">\(K_C\)</span>) are given below.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+k_1 &amp;= 7.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+k_2 &amp;= 4.0 \ \times 10^5 \ \textrm{L} \ \textrm{mol}^{-1} \ \textrm{h}^{-1}\\
+K_{C_1} &amp;= 0.31\\
+K_{C_2} &amp;= 0.48
+\end{align*}\]</div>
+<ol class="arabic simple">
+<li><p>If pure benzene is fed into the reactor at 60,000 moles per hour, find the PFR volume required to achieve 50% conversion of Benzene.</p></li>
+<li><p>Plot the mole fraction of each species as a function of PFR volume.</p></li>
+</ol>
+<p><strong>Answer</strong>: <span class="math notranslate nohighlight">\(V = 403.3\mathrm{L}\)</span></p>
+<section id="solution-to-example-problem-01">
+<span id="id1"></span><h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is exactly the same as the solution to <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N29.html#example-problem-01">Example Problem 01 in Notebook 29</a>. We will review the solution and then expand our analysis to include consideration of optimizing quantities of a desired product rather than achieving a specific conversion of benzene. This will motivate us to define metrics for quantifying yield and selectivity.</p>
+</div>
+</section>
+<section id="id2">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Even though there are multiple reactions, we approach this problem the same way that we typically do: we have been asked to determine the reactor size required to achieve a certain conversion of Benzene. This prompts us to write a material balance on Benzene in a PFR operating at steady state:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dF_B}{dV} = R_B\]</div>
+<p><span class="math notranslate nohighlight">\(R_B\)</span> is going to be a complex function of concentrations of all of the species present in this system. We say this because:</p>
+<div class="math notranslate nohighlight">
+\[R_B = \sum_i \nu_{i,B} r_i\]</div>
+<p>We can substitute stoichiometric coefficients for B in each reaction to find:</p>
+<div class="math notranslate nohighlight">
+\[R_B = -2r_1 - r_2\]</div>
+<p>We have two reactions, each with a unique rate expression:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7b0fd522-7140-4b6f-9a17-1848966da4c3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7b0fd522-7140-4b6f-9a17-1848966da4c3" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
+    r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
+\end{align}\]</div>
+<p>Examining these rate laws, we see that calculating <span class="math notranslate nohighlight">\(r_1\)</span> and <span class="math notranslate nohighlight">\(r_2\)</span> requires that we know concentrations for all species. That means we can’t solve the above balance on Benzene until we have either (1) defined each concentration in terms of the same state variable or (2) write balances on each species to create a coupled system of ODEs wherein we have a unique state variable corresponding to each species. As before, when we have coupled systems of ODEs, we solve them all simultaneously using an ODE solver. We write a material balance on each species:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0e1c0985-0680-4f6c-a5e8-18b8887de1db">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0e1c0985-0680-4f6c-a5e8-18b8887de1db" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{dF_B}{dV} &amp;= R_B \\
+    \frac{dF_D}{dV} &amp;= R_D \\
+    \frac{dF_H}{dV} &amp;= R_H \\
+    \frac{dF_T}{dV} &amp;= R_T \\
+\end{align}\]</div>
+<p>We now have 4 ordinary differential equations that tell us how 4 state dependent variables (<span class="math notranslate nohighlight">\(F_B\)</span>, <span class="math notranslate nohighlight">\(F_D\)</span>, <span class="math notranslate nohighlight">\(F_H\)</span>, <span class="math notranslate nohighlight">\(F_T\)</span>) change as a function of the one independent variable, <span class="math notranslate nohighlight">\(V\)</span>. We can solve this system <em>if</em> we can define everything on the right hand sides of the above equations (<span class="math notranslate nohighlight">\(R_B\)</span>, <span class="math notranslate nohighlight">\(R_D\)</span>, <span class="math notranslate nohighlight">\(R_H\)</span>, and <span class="math notranslate nohighlight">\(R_T\)</span>) in terms of (1) constants, (2) our state variables (<span class="math notranslate nohighlight">\(F_B\)</span>, <span class="math notranslate nohighlight">\(F_D\)</span>, <span class="math notranslate nohighlight">\(F_H\)</span>, <span class="math notranslate nohighlight">\(F_T\)</span>), and/or (3) <span class="math notranslate nohighlight">\(V\)</span>.</p>
+<p>We know how to do this!!</p>
+<p>Generally:</p>
+<div class="math notranslate nohighlight">
+\[R_j = \sum_i \nu_{i,j} r_i\]</div>
+<p>So:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9ca3e6df-c055-4316-b3a3-a912adab2dcb">
+<span class="eqno">(3)<a class="headerlink" href="#equation-9ca3e6df-c055-4316-b3a3-a912adab2dcb" title="Permalink to this equation">#</a></span>\[\begin{align}
+    R_B &amp;= -2r_1 - r_2 \\
+    R_D &amp;=  r_1 - r_2 \\
+    R_H &amp;=  r_1 + r_2 \\
+    R_T &amp;=  r_2 \\
+\end{align}\]</div>
+<p>We have already defined reaction rates:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5d63fc57-b725-4f7d-b9d0-f53218180f3c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5d63fc57-b725-4f7d-b9d0-f53218180f3c" title="Permalink to this equation">#</a></span>\[\begin{align}
+    r_1 &amp;= k_{1,f}C_B^2 - k_{1,r}C_HC_D \\
+    r_2 &amp;= k_{2,f}C_BC_D - k_{2,r}C_HC_T \\
+\end{align}\]</div>
+<p>And we can define concentrations in terms of molar flowrates:</p>
+<div class="math notranslate nohighlight">
+\[C_j = \frac{F_j}{Q}\]</div>
+<p>This adds a volumetric flowrate, <span class="math notranslate nohighlight">\(Q\)</span>, into the mix. Fortunately, this is a gas phase reaction at low pressure, so we can define <span class="math notranslate nohighlight">\(Q\)</span> in terms of the total molar flowrate:</p>
+<div class="math notranslate nohighlight">
+\[Q = \frac{F_{tot}RT}{P}\]</div>
+<p>Where</p>
+<div class="math notranslate nohighlight">
+\[F_{tot} = \sum_j F_j\]</div>
+<p>With that, we’ve defined our system of ODES fully as a function of molar flowrates and reactor volume. We can solve this numerically using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>.  This is done in the code cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################################################</span>
+<span class="c1"># Constants from problem statement; define as globals       #</span>
+<span class="c1">#############################################################</span>
+
+<span class="n">T</span>   <span class="o">=</span> <span class="mi">1033</span>    <span class="c1">#K</span>
+<span class="n">P</span>   <span class="o">=</span> <span class="mf">1.0</span>     <span class="c1">#atm</span>
+<span class="n">R</span>   <span class="o">=</span> <span class="mf">0.08206</span> <span class="c1">#L*atm/mol/K</span>
+<span class="n">k1f</span> <span class="o">=</span> <span class="mf">7.0e5</span>   <span class="c1">#L/mol/h</span>
+<span class="n">k2f</span> <span class="o">=</span> <span class="mf">4.0e5</span>   <span class="c1">#L/mol/h</span>
+<span class="n">KC1</span> <span class="o">=</span> <span class="mf">0.31</span>
+<span class="n">KC2</span> <span class="o">=</span> <span class="mf">0.48</span>
+<span class="n">k1r</span> <span class="o">=</span> <span class="n">k1f</span><span class="o">/</span><span class="n">KC1</span> <span class="c1">#L/mol/h</span>
+<span class="n">k2r</span> <span class="o">=</span> <span class="n">k2f</span><span class="o">/</span><span class="n">KC2</span> <span class="c1">#L/mol/h</span>
+<span class="n">FBf</span> <span class="o">=</span> <span class="mi">60000</span>   <span class="c1">#mol/h</span>
+<span class="n">FDf</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FHf</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FTf</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">##############################################################</span>
+<span class="c1"># Define ODE system in a function                            #</span>
+<span class="c1"># Function has typical form f(V, [FB, FD, FH, FT])           #</span>
+<span class="c1"># It returns [dFB/dV, dFD/dV, dFH/dV, dFT/dV]                #</span>
+<span class="c1">##############################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P01</span><span class="p">(</span><span class="n">vol</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    
+    <span class="c1">#unpack state-dependent variables in var</span>
+    <span class="n">FB</span><span class="p">,</span> <span class="n">FD</span><span class="p">,</span> <span class="n">FH</span><span class="p">,</span> <span class="n">FT</span> <span class="o">=</span> <span class="n">var</span>
+    
+    <span class="c1"># The above is functionally equivalent to</span>
+    <span class="c1"># FB = var[0]</span>
+    <span class="c1"># FD = var[1]</span>
+    <span class="c1"># FH = var[2]</span>
+    <span class="c1"># FT = var[3]</span>
+      
+    <span class="c1">#total molar flowrate, function of individual molar flowrates</span>
+    <span class="n">FTOT</span> <span class="o">=</span> <span class="n">FB</span> <span class="o">+</span> <span class="n">FD</span> <span class="o">+</span> <span class="n">FH</span> <span class="o">+</span> <span class="n">FT</span>
+    
+    <span class="c1">#volumetric flowrate</span>
+    <span class="n">Q</span>    <span class="o">=</span> <span class="n">FTOT</span><span class="o">*</span><span class="n">R</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="n">P</span>
+    
+    <span class="c1">#Define concentrations</span>
+    <span class="n">CB</span>   <span class="o">=</span> <span class="n">FB</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CD</span>   <span class="o">=</span> <span class="n">FD</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CH</span>   <span class="o">=</span> <span class="n">FH</span><span class="o">/</span><span class="n">Q</span>
+    <span class="n">CT</span>   <span class="o">=</span> <span class="n">FT</span><span class="o">/</span><span class="n">Q</span>
+    
+    <span class="c1">#now that we have concentrations, we define reaction rates</span>
+    <span class="n">r1</span>   <span class="o">=</span> <span class="n">k1f</span><span class="o">*</span><span class="n">CB</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">k1r</span><span class="o">*</span><span class="n">CD</span><span class="o">*</span><span class="n">CH</span>
+    <span class="n">r2</span>   <span class="o">=</span> <span class="n">k2f</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CD</span> <span class="o">-</span> <span class="n">k2r</span><span class="o">*</span><span class="n">CT</span><span class="o">*</span><span class="n">CH</span>
+    
+    <span class="c1">#With reaction rates, you can define production rates</span>
+    <span class="n">RB</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RD</span>   <span class="o">=</span>    <span class="n">r1</span> <span class="o">-</span> <span class="n">r2</span>
+    <span class="n">RH</span>   <span class="o">=</span>    <span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span>
+    <span class="n">RT</span>   <span class="o">=</span>         <span class="n">r2</span>
+    
+    <span class="c1">#For a PFR, dFj/dV = Rj, so these are our derivatives of FB, FD, FH, FT</span>
+    <span class="n">D1</span>   <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">D2</span>   <span class="o">=</span> <span class="n">RD</span>
+    <span class="n">D3</span>   <span class="o">=</span> <span class="n">RH</span>
+    <span class="n">D4</span>   <span class="o">=</span> <span class="n">RT</span>
+    
+    <span class="c1">#return derivatives of each dependent variable w.r.t. volume</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D4</span><span class="p">]</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Set starting state and integration span for solve_ivp()                  #</span>
+<span class="c1">############################################################################</span>
+<span class="n">vspan</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">var0</span>    <span class="o">=</span> <span class="p">[</span><span class="n">FBf</span><span class="p">,</span> <span class="n">FDf</span><span class="p">,</span> <span class="n">FHf</span><span class="p">,</span> <span class="n">FTf</span><span class="p">]</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Solve using solve_ivp()                                                  #</span>
+<span class="c1">############################################################################</span>
+<span class="n">solP01</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P01</span><span class="p">,</span> <span class="n">vspan</span><span class="p">,</span> <span class="n">var0</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-10</span><span class="p">)</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Extract necessary data from the solution structure.                      #</span>
+<span class="c1">############################################################################</span>
+<span class="n">Vout</span>    <span class="o">=</span> <span class="n">solP01</span><span class="o">.</span><span class="n">t</span>
+<span class="n">FBout</span>   <span class="o">=</span> <span class="n">solP01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FDout</span>   <span class="o">=</span> <span class="n">solP01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FHout</span>   <span class="o">=</span> <span class="n">solP01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">FTout</span>   <span class="o">=</span> <span class="n">solP01</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">FTot_o</span>  <span class="o">=</span> <span class="n">FBout</span> <span class="o">+</span> <span class="n">FDout</span> <span class="o">+</span> <span class="n">FHout</span> <span class="o">+</span> <span class="n">FTout</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Calculate fractional conversion of benzene                               #</span>
+<span class="c1">############################################################################</span>
+<span class="n">XBout</span>   <span class="o">=</span> <span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Calculate species mole fractions                                         #</span>
+<span class="c1">############################################################################</span>
+<span class="n">yBout</span>   <span class="o">=</span> <span class="n">FBout</span><span class="o">/</span><span class="n">FTot_o</span>
+<span class="n">yDout</span>   <span class="o">=</span> <span class="n">FDout</span><span class="o">/</span><span class="n">FTot_o</span>
+<span class="n">yHout</span>   <span class="o">=</span> <span class="n">FHout</span><span class="o">/</span><span class="n">FTot_o</span>
+<span class="n">yTout</span>   <span class="o">=</span> <span class="n">FTout</span><span class="o">/</span><span class="n">FTot_o</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Create an interpolating polynomial f(XB) = V; print f(0.5)               #</span>
+<span class="c1">############################################################################</span>
+<span class="n">itp01</span>   <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">XBout</span><span class="p">,</span> <span class="n">Vout</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The Volume required to achive 50% Benzene conversion is </span><span class="si">{</span><span class="n">itp01</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="si">:</span><span class="s1">3.1f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Plot benzene conversion vs. reactor volume                               #</span>
+<span class="c1">############################################################################</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">XBout</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">),</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">############################################################################</span>
+<span class="c1"># Plot mole fractions vs. volume                                           #</span>
+<span class="c1">############################################################################</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mole Fractions vs. PFR Volume&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yBout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yDout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yD&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yHout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yH&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yTout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;mole fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Volume required to achive 50% Benzene conversion is 403.3L
+</pre></div>
+</div>
+<img alt="../_images/09397c487a863184d121b2cb0841178b2f13dd68e28e0c125a10bd65137d4e18.png" src="../_images/09397c487a863184d121b2cb0841178b2f13dd68e28e0c125a10bd65137d4e18.png" />
+<img alt="../_images/ee84635417a3fb8ef007a8ee856d073381ec882bb9b0a3ea873abb8970da77f3.png" src="../_images/ee84635417a3fb8ef007a8ee856d073381ec882bb9b0a3ea873abb8970da77f3.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02-maximize-the-production-of-diphenyl">
+<h2>Example Problem 02: Maximize the Production of Diphenyl<a class="headerlink" href="#example-problem-02-maximize-the-production-of-diphenyl" title="Link to this heading">#</a></h2>
+<p>Thus far, we have determined that we would need a 403L PFR to achieve 50% conversion of Benzene. This is the type of question that we are used to answering at this point in the course, but fractional conversion is not always the most important metric in an industrial process. Further, as chemical engineers, we will likely be in the position of recommending <em><strong>the best</strong></em> way to operate a process instead of answering more straightforward questions about <em><strong>what size of reactor will achieve a specific fractional conversion</strong></em>. Often, we are interested in forming a single product from a complex set of possible products, and our team is probably going to look to us to simply tell them what volume <em><strong>should the reactor be</strong></em> (instead of telling us what specifically needs to be accomplished in the reactor). The answer to “best” reactor design really depends on our goal. If, for example, process economics depend on maximizing Benzene conversion, then we would propose the design of a 3000L reactor because (1) this is the point where we reach maximum benzene conversion and (2) the reaction is equilibrium limited, so any reactor larger than 3000L does not lead to additional benzene conversion. In contrast, it may be that diphenyl is a valuable product, and we are interested in maximizing the quantity of diphenyl formed in the reactor. This is a fundamentally different goal, and we would make a different recommendation about this PFR. If we study the graphs above, we would probably conclude that maximizing the quantity of diphenyl is best achieved in 400L reactor. We make this decision after we consider that this is the point where the mole fraction of diphenyl is at a maximum. At volumes below this point, benzene conversion is too low to form sufficient diphenyl, and above this volume, the secondary reaction begins to consume diphenyl, reducing its quantity. Fundamentally, these are optimization problems, and we will use the concepts and methods covered in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N28.html">Notebook 28</a> to solve them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Plot mole fractions vs. volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Species Mole Fractions vs. PFR Volume&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yBout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yDout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yD&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yHout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yH&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yTout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;mole fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1">#Plot mole fractions vs. volume</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Finding the maximum value for yD&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yBout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yB&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yDout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yD&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yHout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yH&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">yTout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;yT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;mole fraction&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7fa0736ee39b9036cfce538db1e06413d1dde9ac06fbe870ee3f97f9cb543b50.png" src="../_images/7fa0736ee39b9036cfce538db1e06413d1dde9ac06fbe870ee3f97f9cb543b50.png" />
+<img alt="../_images/427d046b69d3e8078ef28b8e8a9daaed77c11b0feeebc3f4293460320888f052.png" src="../_images/427d046b69d3e8078ef28b8e8a9daaed77c11b0feeebc3f4293460320888f052.png" />
+</div>
+</div>
+<section id="some-crude-optimization-strategies">
+<h3>Some crude optimization strategies<a class="headerlink" href="#some-crude-optimization-strategies" title="Link to this heading">#</a></h3>
+<p>One thing we might do is consider that we have already calculated an array of diphenyl mole fractions at various reactor volumes.  We can use the Python function <code class="docutils literal notranslate"><span class="pre">max()</span></code> to find the largest value of diphenyl mole fraction. Alternatively, we can use <code class="docutils literal notranslate"><span class="pre">numpy.argmax()</span></code> to find the index of the largest diphenyl mole fraction. Both pieces of information are useful, and it is relatively straightforward to determine these values.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Keep mind that, in this example, we are using <code class="docutils literal notranslate"><span class="pre">max()</span></code> and <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> to find the largest element in an array of diphenyl mole fractions, and that we calculated this array from an ODE solution generated using a step-based solver. These are discrete values, and they do not return the maximum value of diphenyl mole fraction as a function of volume, they only return the largest diphenyl mole fraction at the volume steps taken by our solver.  As we increase solver precision, these discrete maxima will approach the true maximum of the continuous function.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#########################################################################</span>
+<span class="c1"># max() will find the largest element in an array                       #</span>
+<span class="c1">#########################################################################</span>
+
+<span class="n">yDmax1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">yDout</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yDmax1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl mole fraction is </span><span class="si">{</span><span class="n">yDmax1</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#########################################################################</span>
+<span class="c1"># np.argmax() will find the index of the largest element in an array    #</span>
+<span class="c1">#########################################################################              </span>
+
+<span class="n">indexmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">yDout</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">indexmax</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yDout</span><span class="p">[</span><span class="n">indexmax</span><span class="p">])</span>
+<span class="n">yDmax2</span>   <span class="o">=</span> <span class="n">yDout</span><span class="p">[</span><span class="n">indexmax</span><span class="p">]</span>
+
+<span class="c1">##################################################################################################################################</span>
+<span class="c1"># A nice bonus of knowing the index of the maximum is that we can use it to find the Volume that gives the maximum mole fraction #</span>
+<span class="c1">##################################################################################################################################</span>
+
+<span class="n">Vmax2</span>    <span class="o">=</span> <span class="n">Vout</span><span class="p">[</span><span class="n">indexmax</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl mole fraction is </span><span class="si">{</span><span class="n">yDmax2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, which we obtain at a PFR volume of </span><span class="si">{</span><span class="n">Vmax2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.20472040133826802
+The maximum diphenyl mole fraction is 0.205. 
+
+71
+0.20472040133826802
+The maximum diphenyl mole fraction is 0.205, which we obtain at a PFR volume of 485L.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introducing-yield-and-selectivity">
+<h3>Introducing Yield and Selectivity<a class="headerlink" href="#introducing-yield-and-selectivity" title="Link to this heading">#</a></h3>
+<p>This question about optimizing the quantity of a single product from a set of possible products highlights the fact that conversion alone is not an adequate process specification when we are dealing with multiple reactions. We also need a way to quantify the amounts of each product that we make. In general, this is accomplished using <em><strong>Yield</strong></em> and <em><strong>Selectivity</strong></em>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Yield and Selectivity are commonly used terms in chemistry and chemical engineering; unfortunately, they do not have universal definitions, and you may find that they change depending on the textbook you are using or the team that you are working with. We will use what <em>I</em> consider to be the best definitions of Yield and Selectivity, but remember that not everyone uses these definitions. Because of this, anytime someone attempts to report a Yield or Selectivity to you, please ask for that person to define these terms to avoid misinterpretation.</p>
+</div>
+<section id="conceptual-definitions-of-yield-and-selectivity">
+<h4>Conceptual Definitions of Yield and Selectivity<a class="headerlink" href="#conceptual-definitions-of-yield-and-selectivity" title="Link to this heading">#</a></h4>
+<p>We will define the <em><strong>yield</strong></em> of a specific product, <span class="math notranslate nohighlight">\(j\)</span>, as the percentage of a specific reactant that was converted into that specific product.</p>
+<p>We will define the <em><strong>overall selectivity</strong></em> of a product, <span class="math notranslate nohighlight">\(j\)</span>, as the percentage of consumed reactant that was converted into that specific product.</p>
+<p>THese concepts are best illustrated by application to a specific example</p>
+</section>
+<section id="consider-a-pair-of-generic-reactions">
+<h4>Consider a Pair of Generic Reactions<a class="headerlink" href="#consider-a-pair-of-generic-reactions" title="Link to this heading">#</a></h4>
+<p>Let’s discuss two reactions. The first one converts a reactant, <span class="math notranslate nohighlight">\(A\)</span>, into a desired product, <span class="math notranslate nohighlight">\(D\)</span>. By “desired,” we mean a product that is valuable, non-toxic, and/or beneficial to society in some way. The second reaction occurs in parallel and converts our reactant <span class="math notranslate nohighlight">\(A\)</span> into an undesired product, <span class="math notranslate nohighlight">\(U\)</span>. By “undesired”, we mean a product that is toxic, costly to dispose of, or detrimental to society and/or process economics in some fashion. An example might be a toxic waste product or a greenhouse gas.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    (1) \qquad \nu_{A1} \, A \longrightarrow \nu_{D1} D \\
+    (2) \qquad \nu_{A2} \, A \longrightarrow \nu_{D1} U \\
+\end{align*}\]</div>
+<p>We would like to establish a general way for discussing the amounts of <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(U\)</span> that are produced in reaction. We will do so by developing specific definitions of Yield and Selectivity for both products that form in this system.</p>
+<section id="yield">
+<h5>Yield<a class="headerlink" href="#yield" title="Link to this heading">#</a></h5>
+<p>Yield is defined as the percentage of the reactant, <span class="math notranslate nohighlight">\(A\)</span> in this case, that is converted into a specific product.</p>
+<p><strong>In a Batch Reactor…</strong></p>
+<p>For a batch reactor, the total molar quantity of species is our typical state variable (i.e., it is the one that appears naturally in the batch reactor material balance, <span class="math notranslate nohighlight">\(dN_j/dt\)</span>). Accordingly, we use total molar quantities of species to define the yield of a species. Here, we would define the “yield of <span class="math notranslate nohighlight">\(D\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span>” conceptually defined as: the number of moles of <span class="math notranslate nohighlight">\(A\)</span> that were converted into species <span class="math notranslate nohighlight">\(D\)</span> divided by the initial number of moles of <span class="math notranslate nohighlight">\(A\)</span> put into the system. As a mathematical expression, this would be:</p>
+<div class="math notranslate nohighlight">
+\[Y_{D/A} = \frac{\left|\frac{\nu_{A1}}{\nu_{D1}}\right|N_D}{N_{A0}}\]</div>
+<p>Analogously, we define the yield of <span class="math notranslate nohighlight">\(U\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span> as the number of moles of <span class="math notranslate nohighlight">\(A\)</span> converted into species <span class="math notranslate nohighlight">\(U\)</span> divided by the initial number of moles of <span class="math notranslate nohighlight">\(A\)</span> put into the system, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[Y_{U/A} = \frac{\left|\frac{\nu_{A2}}{\nu_{U2}}\right|N_U}{N_{A0}}\]</div>
+<p><strong>In a Flow Reactor…</strong></p>
+<p>If we were working with a flow reactor, molar flowrates are more convenient extensive variables than total number of moles, so we define yields to the desired and undesired products (with respect to reactant A) as:</p>
+<div class="math notranslate nohighlight">
+\[Y_{D/A} = \frac{\left|\frac{\nu_{A1}}{\nu_{D1}}\right|F_D}{F_{Af}}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[Y_{U/A} = \frac{\left|\frac{\nu_{A2}}{\nu_{U2}}\right|F_U}{F_{Af}}\]</div>
+</section>
+<section id="selectivity">
+<h5>Selectivity<a class="headerlink" href="#selectivity" title="Link to this heading">#</a></h5>
+<p>For now, we will restrict consideration to a quantity that we will call the “Overall Selectivity.” This is conceptually defined as the percentage of the <em><strong>consumed reactant</strong></em> that was converted into a specific product.</p>
+<p><strong>In a Batch Reactor</strong></p>
+<p>If we wanted to quantify the “overall selectivity of <span class="math notranslate nohighlight">\(D\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span>,” we would define it as the number of moles of <span class="math notranslate nohighlight">\(A\)</span> that were converted to make <span class="math notranslate nohighlight">\(D\)</span> divided by the total number of moles of <span class="math notranslate nohighlight">\(A\)</span> consumed. In Equation form, this would be:</p>
+<div class="math notranslate nohighlight">
+\[S_{D/A} = \frac{\left|\frac{\nu_{A1}}{\nu_{D1}}\right|N_D}{N_{A0} - N_A}\]</div>
+<p>Similarly, the “overall selectivity of <span class="math notranslate nohighlight">\(U\)</span> with respect to <span class="math notranslate nohighlight">\(A\)</span>” is given by the number of moles of <span class="math notranslate nohighlight">\(A\)</span> converted to make <span class="math notranslate nohighlight">\(U\)</span> divided by the total number of moles of <span class="math notranslate nohighlight">\(A\)</span> consumed.</p>
+<div class="math notranslate nohighlight">
+\[S_{U/A} = \frac{\left|\frac{\nu_{A2}}{\nu_{U2}}\right|N_U}{N_{A0} - N_A}\]</div>
+<p><em><strong>In a Flow Reactor</strong></em></p>
+<p>If we are working with a flow process at steady state, then molar flowrates are more convenient extensive quantities than total moles. We accordingly define overall selectivities to desired and undesired products (with respect to reactant <span class="math notranslate nohighlight">\(A\)</span>) as:</p>
+<div class="math notranslate nohighlight">
+\[S_{D/A} = \frac{\left|\frac{\nu_{A1}}{\nu_{D1}}\right|F_D}{F_{Af} - F_A}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[S_{U/A} = \frac{\left|\frac{\nu_{A2}}{\nu_{U2}}\right|F_U}{F_{Af} - F_A}\]</div>
+</section>
+<section id="fractional-conversion">
+<h5>Fractional Conversion<a class="headerlink" href="#fractional-conversion" title="Link to this heading">#</a></h5>
+<p>The definitions for Yield and Selectivity complement our definitions for fractional conversion:</p>
+<p><strong>In an Batch Reactor…</strong></p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{N_{A0} - N_A}{N_{A0}}\]</div>
+<p><strong>In a Flow Reactor</strong></p>
+<div class="math notranslate nohighlight">
+\[X_A = \frac{F_{Af} - F_A}{F_{Af}}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ol class="arabic simple">
+<li><p>With the definitions above, fractional conversion, selectivity, and yield will always be between 0 and 1.</p></li>
+<li><p>The yield of a species is equal to the selectivity of that species multiplied by the fractional conversion of the reactant that formed it.</p></li>
+</ol>
+</div>
+<div class="math notranslate nohighlight">
+\[Y_{D/A} = S_{D/A}X_A\]</div>
+</section>
+</section>
+</section>
+</section>
+<section id="example-problem-03-benzene-pyrolysis-with-yields-and-selectivities">
+<h2>Example Problem 03: Benzene Pyrolysis with Yields and Selectivities<a class="headerlink" href="#example-problem-03-benzene-pyrolysis-with-yields-and-selectivities" title="Link to this heading">#</a></h2>
+<p>Re-solve Example Problem 01. This time, plot yields and overall selectivities to diphenyl and triphenyl with respect to benzene as a function of volume. What PFR volume should you use to maximize the yield of diphenyl?</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;2B \longleftrightarrow D + H_2\\
+&amp;B + D \longleftrightarrow T + H_2
+\end{align*}\]</div>
+<p>.</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Link to this heading">#</a></h3>
+<p>We solve this essentially the same way as we did <a class="reference internal" href="#solution-to-example-problem-01">Example Problem 01</a> – we write the material balances for all species in the reactor, and we solve the resultant coupled system of ODEs using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>. We recognize that solving the problem using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> will generate an array of discrete molar flowrates of Benzene, Diphenyl, Triphenyl, and Hydrogen at specific values of reactor volume. This is enough information for us to calculate discrete arrays of yields and selectivities at specific reactor volumes since, for flow reactors, we define both of these quantities in terms of molar flowrates:</p>
+<section id="yield-of-diphenyl-with-respect-to-benzene">
+<h4>Yield of diphenyl with respect to Benzene<a class="headerlink" href="#yield-of-diphenyl-with-respect-to-benzene" title="Link to this heading">#</a></h4>
+<p>According to the first reaction, each diphenyl produced will consume two benzenes, so the correct definition for yield according to the equations in the preceding section is:</p>
+<div class="math notranslate nohighlight">
+\[Y_{D/B} = \frac{2F_D}{F_{Bf}}\]</div>
+</section>
+<section id="yield-of-triphenyl-with-respect-to-benzene">
+<h4>Yield of triphenyl with respect to Benzene<a class="headerlink" href="#yield-of-triphenyl-with-respect-to-benzene" title="Link to this heading">#</a></h4>
+<p>The coefficients are less clear for triphenyl since each triphenyl consumes one diphenyl and one benzene…and each diphenyl consumes two benzenes. We are interested in knowing the percentage of benzenes reactated to form triphenyl. The easiest way to handle the yield definition for a product in a sequential reaction (like this one!) is to add the overall reactions together so that we can establish a direct, stoichiometry between triphenyl directly and benzene:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9f1e6fe4-f3df-416c-86ed-0125d305256e">
+<span class="eqno">(5)<a class="headerlink" href="#equation-9f1e6fe4-f3df-416c-86ed-0125d305256e" title="Permalink to this equation">#</a></span>\[\begin{align}
+   &amp;2B \leftrightarrow D + H \\
+   &amp;B + D \leftrightarrow T + H \\
+        \hline
+    &amp;3B \leftrightarrow T + 2H \\
+\end{align}\]</div>
+<p>From this overall equation, it is clear it takes 3 benzenes to make one triphenyl, so the yield definition for triphenyl with respect to benzene is:</p>
+<div class="math notranslate nohighlight">
+\[Y_{T/B} = \frac{3F_T}{F_{Bf}}\]</div>
+<p>We can next extend these ideas to the selectivity definitions, which quantify the percentage of consumed reactant that went to produce diphenyl or triphenyl.</p>
+</section>
+<section id="selectivity-to-diphenyl-with-respect-to-benzene">
+<h4>Selectivity to diphenyl with respect to benzene<a class="headerlink" href="#selectivity-to-diphenyl-with-respect-to-benzene" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[S_{D/B} = \frac{2F_D}{F_{Bf} - F_B}\]</div>
+</section>
+<section id="selectivity-to-triphenyl-with-respect-to-benzene">
+<h4>Selectivity to triphenyl with respect to benzene<a class="headerlink" href="#selectivity-to-triphenyl-with-respect-to-benzene" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[S_{T/B} = \frac{3F_T}{F_{Bf} - F_B}\]</div>
+<p>As a consistency check, we should recall that the product of fractional conversion and product selectivity (when defined as we have here) will give the yield to a specific product:</p>
+<div class="math notranslate nohighlight">
+\[Y_{D/B} = X_BS_{D/B} = \frac{F_{Bf} - F_B}{F_{Bf}} \cdot \frac{2F_D}{F_{Bf} - F_B} = \frac{2F_D}{F_{Bf}}\]</div>
+<div class="math notranslate nohighlight">
+\[Y_{T/B} = X_BS_{T/B} = \frac{F_{Bf} - F_B}{F_{Bf}} \cdot \frac{3F_T}{F_{Bf} - F_B} = \frac{3F_T}{F_{Bf}}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have already solved for molar flowrates as a function of volume in this reactor; there is no need to re-solve the ODE system here. We can just use the results generated in <a class="reference internal" href="#solution-to-example-problem-01">Example Problem 01</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#########################################################################################</span>
+<span class="c1"># See solution to example problem 1; Flowrates are defined in cells there               #</span>
+<span class="c1">#########################################################################################</span>
+
+<span class="c1">#########################################################################################</span>
+<span class="c1"># Calculate diphenyl/triphenyl yield                                                    #</span>
+<span class="c1">#########################################################################################</span>
+
+<span class="n">YDB</span>     <span class="o">=</span> <span class="n">FDout</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="n">FBf</span>
+<span class="n">YTB</span>     <span class="o">=</span> <span class="n">FTout</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="n">FBf</span>
+
+<span class="c1">#########################################################################################</span>
+<span class="c1"># Calculate diphenyl/triphenyl selectivity                                              #</span>
+<span class="c1">#########################################################################################</span>
+<span class="n">SDB</span>     <span class="o">=</span> <span class="n">FDout</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+<span class="n">STB</span>     <span class="o">=</span> <span class="n">FTout</span><span class="o">*</span><span class="mi">3</span><span class="o">/</span><span class="p">(</span><span class="n">FBf</span> <span class="o">-</span> <span class="n">FBout</span><span class="p">)</span>
+
+<span class="c1">#########################################################################################</span>
+<span class="c1"># Plot yield, selectivity, conversion against various x axes                            #</span>
+<span class="c1">#########################################################################################</span>
+
+<span class="c1">#########################</span>
+<span class="c1"># Conversion vs. volume #</span>
+<span class="c1">#########################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Conversion and Diphenyl Yield in a PFR&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">XBout</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Conversion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion/Diphenyl Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#############################</span>
+<span class="c1"># Selectivity vs volume     #</span>
+<span class="c1">#############################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diphenyl and Triphenyl Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">SDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">STB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to T&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Product Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#############################</span>
+<span class="c1"># Selectivity vs conversion #</span>
+<span class="c1">#############################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diphenyl and Triphenyl Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XBout</span><span class="p">,</span> <span class="n">SDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XBout</span><span class="p">,</span> <span class="n">STB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Selectivity to T&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Product Selectivity&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#########################</span>
+<span class="c1"># Yield vs. conversion  #</span>
+<span class="c1">#########################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diphenyl and Triphenyl Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XBout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">XBout</span><span class="p">,</span> <span class="n">YTB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to T&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Product Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\jqbon\AppData\Local\Temp\ipykernel_23660\1076763728.py:15: RuntimeWarning: invalid value encountered in divide
+  SDB     = FDout*2/(FBf - FBout)
+C:\Users\jqbon\AppData\Local\Temp\ipykernel_23660\1076763728.py:16: RuntimeWarning: invalid value encountered in divide
+  STB     = FTout*3/(FBf - FBout)
+</pre></div>
+</div>
+<img alt="../_images/02751e7f577623fc4ac4aa8273db699dfff0a36e6014d23fb23c36389d0e00ba.png" src="../_images/02751e7f577623fc4ac4aa8273db699dfff0a36e6014d23fb23c36389d0e00ba.png" />
+<img alt="../_images/160a96e246e33a3c1f356f77db439d87058edf35a198dd78a8114612aae07958.png" src="../_images/160a96e246e33a3c1f356f77db439d87058edf35a198dd78a8114612aae07958.png" />
+<img alt="../_images/e15bccb98e4253ebdb7794a854a6113ba7115df5947eb5288656d5c95b0ffdf1.png" src="../_images/e15bccb98e4253ebdb7794a854a6113ba7115df5947eb5288656d5c95b0ffdf1.png" />
+<img alt="../_images/ac0b59bab505f1565ee97b3faa8922d7fbc4a831937d520cb5512a1bd8ed4d71.png" src="../_images/ac0b59bab505f1565ee97b3faa8922d7fbc4a831937d520cb5512a1bd8ed4d71.png" />
+</div>
+</div>
+</section>
+<section id="finding-the-value-and-location-of-the-maximum-diphenyl-yield">
+<h4>Finding the value and location of the maximum diphenyl yield<a class="headerlink" href="#finding-the-value-and-location-of-the-maximum-diphenyl-yield" title="Link to this heading">#</a></h4>
+<p>First, we’ll use <code class="docutils literal notranslate"><span class="pre">max()</span></code> and <code class="docutils literal notranslate"><span class="pre">np.argmax()</span></code> to get a crude approximation of the maximum,</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This is a relatively crude optimization because we are finding the maximum mole fraction of diphenyl that <em><strong>the solver stepped to</strong></em> when solving the ODE system.  The true maximum of the continuous function will almost certaintly be slightly different from this. The two will agree as we continue to increase the precision and take smaller and smaller steps during the ODE solution process.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################################################</span>
+<span class="c1"># use max() to find the largest element in an array                                  #</span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">YDBmax1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">YDB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">YDBmax1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl yield is approximately </span><span class="si">{</span><span class="n">YDBmax1</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># use numpy.argmax() to find the index of the largest element in an array            # </span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">indexmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">YDB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">indexmax</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">YDB</span><span class="p">[</span><span class="n">indexmax</span><span class="p">])</span>
+<span class="n">YDBmax2</span>   <span class="o">=</span> <span class="n">YDB</span><span class="p">[</span><span class="n">indexmax</span><span class="p">]</span>
+<span class="n">Vmax2</span>    <span class="o">=</span> <span class="n">Vout</span><span class="p">[</span><span class="n">indexmax</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum diphenyl yield is </span><span class="si">{</span><span class="n">YDBmax2</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1">, which we obtain at a PFR volume of </span><span class="si">{</span><span class="n">Vmax2</span><span class="si">:</span><span class="s1">0.0f</span><span class="si">}</span><span class="s1">L. </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Visualize diphenyl yield vs. volume; confirm that maximum is approximately correct #</span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diphenyl Yield in a PFR&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">YDBmax2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">),</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">Vmax2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Benzene Conversion/Diphenyl Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4094408026765361
+The maximum diphenyl yield is approximately 0.409. 
+
+71
+0.4094408026765361
+The maximum diphenyl yield is 0.409, which we obtain at a PFR volume of 485L. 
+</pre></div>
+</div>
+<img alt="../_images/3a3bf57c408c723b7987533bc995f875fa17498eea65209c7e46115a0e43decb.png" src="../_images/3a3bf57c408c723b7987533bc995f875fa17498eea65209c7e46115a0e43decb.png" />
+</div>
+</div>
+</section>
+<section id="optimize-using-an-interpolating-polynomial-ydb-v">
+<h4>Optimize using an interpolating polynomial YDB(V)<a class="headerlink" href="#optimize-using-an-interpolating-polynomial-ydb-v" title="Link to this heading">#</a></h4>
+<p>Next, we’ll refine that estimate bit by creating an interpolating polynomial that returns Volume as a function of diphenyl yield.  We’ll use that with <code class="docutils literal notranslate"><span class="pre">opt.minimize_scalar()</span></code> to find the location of the optimum.  This is the same strategy we introduced for optimization of a scalar function in <strong>587-R08</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##############################################################################</span>
+<span class="c1"># Creating interpolating polynomial approximation for YDV(V)                 #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">YvVol</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;cubic&#39;</span><span class="p">)</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1"># Overlay plot of interpolating polynomial with discrete YDV from ODE solver #</span>
+<span class="c1">##############################################################################</span>
+
+<span class="n">vset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Diphenyl Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Vout</span><span class="p">,</span> <span class="n">YDB</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidths</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Yield to D&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vset</span><span class="p">,</span> <span class="n">YvVol</span><span class="p">(</span><span class="n">vset</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;interpolating polynomial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Product Yield&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3df0a95a47588248af8d3d8284eaef1763368b2a63cb1fb85cd456d208404f7c.png" src="../_images/3df0a95a47588248af8d3d8284eaef1763368b2a63cb1fb85cd456d208404f7c.png" />
+</div>
+</div>
+<section id="optimizing-the-yield">
+<h5>Optimizing the Yield<a class="headerlink" href="#optimizing-the-yield" title="Link to this heading">#</a></h5>
+<p>Now that we have a continuous function that approximates <span class="math notranslate nohighlight">\(Y_{D/B}(V)\)</span>, we can transform it into an objective function for minimization and use `opt.minimize_scalar()’ to find the location of the minimum.  We would like to <em><strong>maximize</strong></em> yield, which is the same thing as <em><strong>minimizing</strong></em> negative yield; hence, we can define an adequate objective function as:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{obj}(V) = -Y_{D/B}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">############################################################</span>
+<span class="c1"># Define objective function to minimize                    #</span>
+<span class="c1">############################################################</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">V</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">YvVol</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+
+<span class="c1">############################################################</span>
+<span class="c1"># Find the value of V that minimizes obj(V)                #</span>
+<span class="c1">############################################################</span>
+
+<span class="n">opt_ans</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="c1">############################################################</span>
+<span class="c1"># Display answers                                          #</span>
+<span class="c1">############################################################</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">opt_ans</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The maximum yield is </span><span class="si">{</span><span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">opt_ans</span><span class="o">.</span><span class="n">fun</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> at a PFR volume of </span><span class="si">{</span><span class="n">opt_ans</span><span class="o">.</span><span class="n">x</span><span class="si">:</span><span class="s1">3.0f</span><span class="si">}</span><span class="s1">L&#39;</span><span class="p">)</span>
+
+
+<span class="c1">############################################################</span>
+<span class="c1"># Graph the objective function vs. volume; confirm minimum #</span>
+<span class="c1">############################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vset</span><span class="p">,</span> <span class="n">obj</span><span class="p">(</span><span class="n">vset</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;objective function value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">opt_ans</span><span class="o">.</span><span class="n">fun</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">vspan</span><span class="p">),</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">opt_ans</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mf">0.75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Volume (L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;-YDB&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: 
+          Optimization terminated successfully;
+          The returned value satisfies the termination criteria
+          (using xtol = 1.48e-08 )
+ success: True
+     fun: -0.40944519130527224
+       x: 487.88217559536014
+     nit: 10
+    nfev: 17
+The maximum yield is 0.409 at a PFR volume of 488L
+</pre></div>
+</div>
+<img alt="../_images/c2c235b014e4cf8580ea0ef428db6f524ea8fc520f715e51b89bc2998a260637.png" src="../_images/c2c235b014e4cf8580ea0ef428db6f524ea8fc520f715e51b89bc2998a260637.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01-revisiting-benzene-pyrolysis-in-a-pfr">Example Problem 01: Revisiting Benzene Pyrolysis in a PFR</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-maximize-the-production-of-diphenyl">Example Problem 02: Maximize the Production of Diphenyl</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-crude-optimization-strategies">Some crude optimization strategies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-yield-and-selectivity">Introducing Yield and Selectivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conceptual-definitions-of-yield-and-selectivity">Conceptual Definitions of Yield and Selectivity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#consider-a-pair-of-generic-reactions">Consider a Pair of Generic Reactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#yield">Yield</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity">Selectivity</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-conversion">Fractional Conversion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-03-benzene-pyrolysis-with-yields-and-selectivities">Example Problem 03: Benzene Pyrolysis with Yields and Selectivities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-of-diphenyl-with-respect-to-benzene">Yield of diphenyl with respect to Benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#yield-of-triphenyl-with-respect-to-benzene">Yield of triphenyl with respect to Benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity-to-diphenyl-with-respect-to-benzene">Selectivity to diphenyl with respect to benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selectivity-to-triphenyl-with-respect-to-benzene">Selectivity to triphenyl with respect to benzene</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-the-value-and-location-of-the-maximum-diphenyl-yield">Finding the value and location of the maximum diphenyl yield</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize-using-an-interpolating-polynomial-ydb-v">Optimize using an interpolating polynomial YDB(V)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-the-yield">Optimizing the Yield</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

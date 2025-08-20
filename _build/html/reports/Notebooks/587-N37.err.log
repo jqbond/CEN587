@@ -28,14 +28,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+########################################################################################
+# Direct matrix inversion will not work for overdetermined system                      #
+########################################################################################
+
 A = np.linalg.solve(Xa, Ya)
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mLinAlgError[0m                               Traceback (most recent call last)
-Cell [1;32mIn[22], line 1[0m
-[1;32m----> 1[0m A [38;5;241m=[39m np[38;5;241m.[39mlinalg[38;5;241m.[39msolve(Xa, Ya)
+Cell [1;32mIn[22], line 5[0m
+[0;32m      1[0m [38;5;66;03m########################################################################################[39;00m
+[0;32m      2[0m [38;5;66;03m# Direct matrix inversion will not work for overdetermined system                      #[39;00m
+[0;32m      3[0m [38;5;66;03m########################################################################################[39;00m
+[1;32m----> 5[0m A [38;5;241m=[39m np[38;5;241m.[39mlinalg[38;5;241m.[39msolve(Xa, Ya)
 
 File [1;32m~\anaconda3\Lib\site-packages\numpy\linalg\_linalg.py:399[0m, in [0;36msolve[1;34m(a, b)[0m
 [0;32m    397[0m a, _ [38;5;241m=[39m _makearray(a)

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N37';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Useful Ancillary Skills for Regression" href="587-N38.html" />
     <link rel="prev" title="Lectures" href="../Chapter2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,6 +184,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Interpolation and Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N38.html">Useful Ancillary Skills for Regression</a></li>
 </ul>
 </details></li>
 </ul>
@@ -444,8 +446,13 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-general-notes">Some General Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-call-a-vandermonde-matrix-a-vandermonde-matrix">Let’s call a Vandermonde Matrix a Vandermonde Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-first-order-linear-model-to-the-data">Fitting a first order (linear) model to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-quadratic-model-to-the-data">Fitting a second order (quadratic) model to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-third-order-model-to-the-data">Fitting a third order model to the data</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-fall-2025">For Fall 2025:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-useful-things-to-accompany-regression">Extra, useful things to accompany regression</a></li>
 </ul>
@@ -521,8 +528,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A zero order polynomial&#39;</span><span class="p">)</span>
@@ -531,7 +538,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dd249024136d47180898ae52ca66650be0096b8804f3eb7da79551df2a31d0c3.png" src="../_images/dd249024136d47180898ae52ca66650be0096b8804f3eb7da79551df2a31d0c3.png" />
+<img alt="../_images/b18d83de17da940e8b5a828e642a12000bd21f8c833e075ab4f98084c82efc51.png" src="../_images/b18d83de17da940e8b5a828e642a12000bd21f8c833e075ab4f98084c82efc51.png" />
 </div>
 </div>
 </section>
@@ -560,8 +567,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x1</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A first order polynomial&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -569,7 +576,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a7b7b1c4a10946959ca9c71a4a92a2c50f2e34cf89c785631686bfbb9e35cf33.png" src="../_images/a7b7b1c4a10946959ca9c71a4a92a2c50f2e34cf89c785631686bfbb9e35cf33.png" />
+<img alt="../_images/8a558a6d3f68e6c29c2d542fabbf6c2522e21260152d4ef5c892ec2c40acd0a1.png" src="../_images/8a558a6d3f68e6c29c2d542fabbf6c2522e21260152d4ef5c892ec2c40acd0a1.png" />
 </div>
 </div>
 </section>
@@ -598,8 +605,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x2</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x2</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A second order polynomial&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -607,7 +614,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6062398890418e5e854dc2054c1fe94fe5a3210c0c5dea655317f153552fbb85.png" src="../_images/6062398890418e5e854dc2054c1fe94fe5a3210c0c5dea655317f153552fbb85.png" />
+<img alt="../_images/6ec64542df24153b046ba0c2787b077151162ddeab7f4af032d842fc9b2febd0.png" src="../_images/6ec64542df24153b046ba0c2787b077151162ddeab7f4af032d842fc9b2febd0.png" />
 </div>
 </div>
 <p>We can proceed indefinitely with polynomials and, at this point, can probably imagine imagine 3rd, 4th, and a general “nth” order polynomial:</p>
@@ -642,8 +649,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">(</span><span class="n">x3</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x3</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x3</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A third order polynomial&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -666,8 +673,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">(</span><span class="n">x4</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x4</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A fourth order polynomial&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -675,8 +682,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7af38ed55039cffe07889fee2f7fe9a0e2a6ca0112148c79f97c8ba7e78ee8bc.png" src="../_images/7af38ed55039cffe07889fee2f7fe9a0e2a6ca0112148c79f97c8ba7e78ee8bc.png" />
-<img alt="../_images/727351c9392522950a0042bfb25791fd1988ed2e73a6cde9d1c5e533f8802136.png" src="../_images/727351c9392522950a0042bfb25791fd1988ed2e73a6cde9d1c5e533f8802136.png" />
+<img alt="../_images/684ecd359e23757a046375cf4a255a1b1944a04a3720669ddb649435435e1e6c.png" src="../_images/684ecd359e23757a046375cf4a255a1b1944a04a3720669ddb649435435e1e6c.png" />
+<img alt="../_images/566adfe32d8eed9551fe154d3aec961864dc5ae1efb47cb39b2b4fcce351d257.png" src="../_images/566adfe32d8eed9551fe154d3aec961864dc5ae1efb47cb39b2b4fcce351d257.png" />
 </div>
 </div>
 </section>
@@ -723,8 +730,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -732,7 +739,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c40f502bd93b87d7b0ff421d5f56c43a00cd4b56c75f3bf401a4e828cc0d76e4.png" src="../_images/c40f502bd93b87d7b0ff421d5f56c43a00cd4b56c75f3bf401a4e828cc0d76e4.png" />
+<img alt="../_images/7b06dd059a15d51789af14e0e3ffcf439001a2025647d76918fe4b5d1529c237.png" src="../_images/7b06dd059a15d51789af14e0e3ffcf439001a2025647d76918fe4b5d1529c237.png" />
 </div>
 </div>
 <p>Looking at the data points in the graph above, we can intuit something very fundamental about data fitting. It should be visually very clear now that if we intend to draw a straight line (a linear model!) through these two data points, there is <em><strong>exactly one line that will pass through both points</strong></em>. If, on the other hand, we want to put a curved line through them…well…there are an infinite number of quadratic, cubic, quartic, etc. functions (<span class="math notranslate nohighlight">\(2^{nd}\)</span>, <span class="math notranslate nohighlight">\(3^{rd}\)</span>, and <span class="math notranslate nohighlight">\(4^{th}\)</span> order models) that will pass exactly through both points. Conversely, if we were to attempt to draw a horizontal line (a zero order model) through both points, we find that no such line exists!</p>
@@ -740,14 +747,14 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[y(x) = mx^1+bx^0 = mx + b\]</div>
 <p>With that equation in mind, we note that we have two measured <span class="math notranslate nohighlight">\((x,y)\)</span> pairs, and that these pairs can be substituted into the model function to construct a linear system of equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3aeceb0b-025f-4673-8f33-eadaafb8210f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3aeceb0b-025f-4673-8f33-eadaafb8210f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1bcde9f8-2b14-41e2-a87c-a21b122eb465">
+<span class="eqno">(1)<a class="headerlink" href="#equation-1bcde9f8-2b14-41e2-a87c-a21b122eb465" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1m+b\\
     7 = 2m+b\\
 \end{align}\]</div>
 <p>Now this looks like an algebra problem!! The nature of the inverse problem reveals itself – we know the values of the independent variables, <span class="math notranslate nohighlight">\(x\)</span>, and the corresponding values of the dependent variables, <span class="math notranslate nohighlight">\(y\)</span>, but <em><strong>we do not know the coefficients <span class="math notranslate nohighlight">\((m, b)\)</span> in the polynomial that describe the line</strong></em>.  The core of the inverse problem is to find these coefficients.  In this case, we have 2 equations, written in terms of 2 unknowns <span class="math notranslate nohighlight">\((m and b)\)</span>. The system of equations is fully determined, and there is one unique solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7fb565aa-b22f-4179-8df6-9ff89f2d94bc">
-<span class="eqno">(2)<a class="headerlink" href="#equation-7fb565aa-b22f-4179-8df6-9ff89f2d94bc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e891df03-8e4b-4d00-84f3-74409139f988">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e891df03-8e4b-4d00-84f3-74409139f988" title="Permalink to this equation">#</a></span>\[\begin{align}
     m = 3\\
     b = 1\\
 \end{align}\]</div>
@@ -777,8 +784,8 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -786,13 +793,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/26bebe5c3baaf89504ecc690691e8f6ff1fa52d5cc2d5f74bb714600512c167e.png" src="../_images/26bebe5c3baaf89504ecc690691e8f6ff1fa52d5cc2d5f74bb714600512c167e.png" />
+<img alt="../_images/4b2ff5b9b968d89041464fb957ec41c457ce6185d9d5393ea063dce20fc542ef.png" src="../_images/4b2ff5b9b968d89041464fb957ec41c457ce6185d9d5393ea063dce20fc542ef.png" />
 </div>
 </div>
 <p>The above exercise illustrates the basic approach for constructing an “interpolating polynomial” that passes exactly through measured data and facilitates prediction of observables at points between the locations of our measurements. We have constructed a function (a line) that passes through each of point exactly. We should be able to visualize that, for the pair of data points considered here, there is one and only one line that passes exactly through each data point, and it is <span class="math notranslate nohighlight">\(y(x) = 3x + 1\)</span></p>
 <p>To illustrate an overdetermined system, if we instead try propose that a zero order polynomial <span class="math notranslate nohighlight">\((y = C, \ \mathrm{where \ C \ is \ a \ constant})\)</span> could be used to describe the relationship between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, we would substitute our two <span class="math notranslate nohighlight">\((x,y)\)</span> pairs into the zero order model form to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c79b65d6-0e3e-486f-b945-92e7730bd24e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-c79b65d6-0e3e-486f-b945-92e7730bd24e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd263a62-654a-4bd8-b236-fd3a346be95e">
+<span class="eqno">(3)<a class="headerlink" href="#equation-fd263a62-654a-4bd8-b236-fd3a346be95e" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = C\\
     7 = C\\
 \end{align}\]</div>
@@ -801,8 +808,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[y(x) = \alpha_2x^2 + \alpha_1x^1 + \alpha_0x^0 = \alpha_2x^2 + \alpha_1x + \alpha_0\]</div>
 <p>We have two data points, so we could write two quadratic equations by substituting each <span class="math notranslate nohighlight">\((x,y)\)</span> into a quadratic function:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-06e588e5-0ef1-4901-8042-7214c29a0adb">
-<span class="eqno">(4)<a class="headerlink" href="#equation-06e588e5-0ef1-4901-8042-7214c29a0adb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d2988941-9895-4786-99b1-448537ff0a55">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d2988941-9895-4786-99b1-448537ff0a55" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1\alpha_2 + 1\alpha_1 + \alpha_0\\
     7 = 4\alpha_2 + 2\alpha_1 +  \alpha_0\\
 \end{align}\]</div>
@@ -831,8 +838,8 @@ document.write(`
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -840,19 +847,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c359da52923c5586605e9950c0821ad3a3e618f3f7dab67e7b38283105430992.png" src="../_images/c359da52923c5586605e9950c0821ad3a3e618f3f7dab67e7b38283105430992.png" />
+<img alt="../_images/bf52e909327f174793639b4110f793002e382cc2dc57bfa40ea8b04ff0ea9b77.png" src="../_images/bf52e909327f174793639b4110f793002e382cc2dc57bfa40ea8b04ff0ea9b77.png" />
 </div>
 </div>
 <p>If we inspect the graph above, we should be able to see that only a curved line will be able to pass through each of the 3 data points exactly–it is impossible to identify a straight line that will pass through each of these 3 data points. Let’s propose that a quadratic model can fit the data because this is the lowest order polynomial that will result in curvature. We start the same way that we did above when fitting a straight line: we use the data to make a system of quadratic equations by plugging <span class="math notranslate nohighlight">\((x,y)\)</span> pairs into the generic model for a <span class="math notranslate nohighlight">\(2^{nd}\)</span> order polynomial, i.e., <span class="math notranslate nohighlight">\(y(x) = \alpha_2x^2 + \alpha_1x^1 + \alpha_0x^0\)</span>.  Substituting our three <span class="math notranslate nohighlight">\((x,y)\)</span> pairs gives:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee8100dc-3250-440e-add9-951db1a515ce">
-<span class="eqno">(5)<a class="headerlink" href="#equation-ee8100dc-3250-440e-add9-951db1a515ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-126cf4fc-ecdf-45fb-ad8e-bc38972c89a4">
+<span class="eqno">(5)<a class="headerlink" href="#equation-126cf4fc-ecdf-45fb-ad8e-bc38972c89a4" title="Permalink to this equation">#</a></span>\[\begin{align}
     8 = 1\alpha_2 + 1\alpha_1 + \alpha_0\\
     4 = 4\alpha_2 + 2\alpha_1 + \alpha_0\\
     6 = 9\alpha_2 + 3\alpha_1 + \alpha_0\\
 \end{align}\]</div>
 <p>Now we can see why we get a unique solution when fitting a <span class="math notranslate nohighlight">\(2^{nd}\)</span> order polynomial to <span class="math notranslate nohighlight">\(3\)</span> data points. The system of equations is fully determined–there are 3 equations and 3 unknowns (<span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(\alpha_1\)</span>, <span class="math notranslate nohighlight">\(\alpha_2\)</span>), so there is a unique set of (<span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(\alpha_1\)</span>, <span class="math notranslate nohighlight">\(\alpha_2\)</span>) values that define this data set. We find their numerical values by solving the system of equations (use whatever method you like) to get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-126a74ef-ad26-435d-926c-bc48d75b5587">
-<span class="eqno">(6)<a class="headerlink" href="#equation-126a74ef-ad26-435d-926c-bc48d75b5587" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9b726561-fc5a-4500-9761-b997bea7192c">
+<span class="eqno">(6)<a class="headerlink" href="#equation-9b726561-fc5a-4500-9761-b997bea7192c" title="Permalink to this equation">#</a></span>\[\begin{align}
     \alpha_2 &amp;= 3\\
     \alpha_1 &amp;= -13\\
     \alpha_0 &amp;= 18\\
@@ -882,8 +889,8 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -891,7 +898,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f0561d1d47f2c3785753ae80cfd7e0bce640bfe5d64218e30d6ee11879b63882.png" src="../_images/f0561d1d47f2c3785753ae80cfd7e0bce640bfe5d64218e30d6ee11879b63882.png" />
+<img alt="../_images/9fe1c17f372f0f717df200040ffb1954eee818ccf4b9f9ad0abf8ace19654309.png" src="../_images/9fe1c17f372f0f717df200040ffb1954eee818ccf4b9f9ad0abf8ace19654309.png" />
 </div>
 </div>
 <div class="admonition important">
@@ -911,20 +918,20 @@ document.write(`
 <section id="a-matrix-vector-representation-of-the-inverse-problem">
 <h2>A Matrix/Vector representation of the Inverse Problem<a class="headerlink" href="#a-matrix-vector-representation-of-the-inverse-problem" title="Link to this heading">#</a></h2>
 <p>Going back to the case of two <span class="math notranslate nohighlight">\((x,y)\)</span> pairs, <span class="math notranslate nohighlight">\((1,4)\)</span> and <span class="math notranslate nohighlight">\((2,7)\)</span>. Recall that we were able to find first order model <span class="math notranslate nohighlight">\(y(x) = mx+b\)</span> that passes through each <span class="math notranslate nohighlight">\((x,y)\)</span> pair. In doing so, we wrote the following two equations.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a38834b-74d7-418f-8cc5-72f8b6ea70d5">
-<span class="eqno">(7)<a class="headerlink" href="#equation-1a38834b-74d7-418f-8cc5-72f8b6ea70d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fc93da64-76d3-4679-818b-9e78d59dc232">
+<span class="eqno">(7)<a class="headerlink" href="#equation-fc93da64-76d3-4679-818b-9e78d59dc232" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1m+b\\
     7 = 2m+b\\
 \end{align}\]</div>
 <p>To support abstraction to higher order polynomials, we will now the coefficients formerly known as “m = slope” and “b = intercept” with <span class="math notranslate nohighlight">\(\alpha_i\)</span> values. Each <span class="math notranslate nohighlight">\(\alpha_i\)</span> is a constant-valued coefficient, and the subscript <span class="math notranslate nohighlight">\(i\)</span> represents the order of <span class="math notranslate nohighlight">\(x\)</span> that particular <span class="math notranslate nohighlight">\(\alpha\)</span> is multiplied by in the polynomial.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-295796c5-a7fd-4437-85bd-df52cd33775d">
-<span class="eqno">(8)<a class="headerlink" href="#equation-295796c5-a7fd-4437-85bd-df52cd33775d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f7b89f27-1aa1-4ee9-9156-ff00ded07b9b">
+<span class="eqno">(8)<a class="headerlink" href="#equation-f7b89f27-1aa1-4ee9-9156-ff00ded07b9b" title="Permalink to this equation">#</a></span>\[\begin{align}
     4 = 1\alpha_1 + \alpha_0\\
     7 = 2\alpha_1 + \alpha_0\\
 \end{align}\]</div>
 <p>Let’s also rearrange the equations to be consistent with typical left hand side/right hand side notation for interpolation and regression problems:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41277735-9786-4e56-b565-39673b318b98">
-<span class="eqno">(9)<a class="headerlink" href="#equation-41277735-9786-4e56-b565-39673b318b98" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-adb6790a-a3dd-4302-bb89-c0a3bd1108fa">
+<span class="eqno">(9)<a class="headerlink" href="#equation-adb6790a-a3dd-4302-bb89-c0a3bd1108fa" title="Permalink to this equation">#</a></span>\[\begin{align}
     1\alpha_1 + 1\alpha_0 = 4\\
     2\alpha_1 + 1\alpha_0 = 7\\
 \end{align}\]</div>
@@ -949,8 +956,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[A = Y/X\]</div>
 <p>Matrices behave differently. Instead of the intuitive division operator, we don’t perform Matrix division per se. We multiply by the Matrix Inverse. It is helpful to to visualize this as solving for the unknown coefficient array, <span class="math notranslate nohighlight">\(A\)</span>, by multiplying both sides of our equation by the inverse of the <span class="math notranslate nohighlight">\(X\)</span> matrix in a series of steps:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f852c02-4f1b-44c7-a8f6-569ad6b80c17">
-<span class="eqno">(10)<a class="headerlink" href="#equation-5f852c02-4f1b-44c7-a8f6-569ad6b80c17" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5f9f7cd-b261-4b38-bef3-5c938d0e3f9f">
+<span class="eqno">(10)<a class="headerlink" href="#equation-e5f9f7cd-b261-4b38-bef3-5c938d0e3f9f" title="Permalink to this equation">#</a></span>\[\begin{align}
     XA &amp;= Y\\
     X^{-1}XA &amp;= X^{-1}Y\\
     IA &amp;= X^{-1}Y\\
@@ -1017,15 +1024,15 @@ A\end{split}\]</div>
 <h3>Matrix representation of the 2nd order problem<a class="headerlink" href="#matrix-representation-of-the-2nd-order-problem" title="Link to this heading">#</a></h3>
 <p>Matrix representation become much more useful when we got to higher order polynomials, where the size of the system is large and the algebra is tedious. Let’s see if we can begin to generalize the result by applying the approach to the second order example involving 3 <span class="math notranslate nohighlight">\((x,y)\)</span> pairs. Recall: we are trying to fit a second (<span class="math notranslate nohighlight">\(n_{th}\)</span> order) polynomial to 3 <span class="math notranslate nohighlight">\((n+1) data points (\)</span>n+1$ data points): (1,8), (2,4), and (3,6)</p>
 <p>We can substitute <span class="math notranslate nohighlight">\((x,y)\)</span> pairs into a general quadtratic expression to generate the following system of equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-15f90f92-25d9-439e-9bfb-993bfa6a91f8">
-<span class="eqno">(11)<a class="headerlink" href="#equation-15f90f92-25d9-439e-9bfb-993bfa6a91f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3c3a90e2-2012-4263-a26c-e82953f6e4db">
+<span class="eqno">(11)<a class="headerlink" href="#equation-3c3a90e2-2012-4263-a26c-e82953f6e4db" title="Permalink to this equation">#</a></span>\[\begin{align}
     8 = \alpha_0 + 1\alpha_1 + 1\alpha_2\\
     4 = \alpha_0 + 2\alpha_1 + 4\alpha_2\\
     6 = \alpha_0 + 3\alpha_1 + 9\alpha_2\\
 \end{align}\]</div>
 <p>Which we can then put into the matrix form we developed in the previous cell:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a5b4896-5f2c-42bd-9796-e176f22a98bf">
-<span class="eqno">(12)<a class="headerlink" href="#equation-7a5b4896-5f2c-42bd-9796-e176f22a98bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-737a4664-4e2d-414a-897f-4c71547b07f5">
+<span class="eqno">(12)<a class="headerlink" href="#equation-737a4664-4e2d-414a-897f-4c71547b07f5" title="Permalink to this equation">#</a></span>\[\begin{align}
     1\alpha_2 + 1\alpha_1 + 1\alpha_0 = 8\\
     4\alpha_2 + 2\alpha_1 + 1\alpha_0 = 4\\
     9\alpha_2 + 3\alpha_1 + 1\alpha_0 = 6\\
@@ -1095,7 +1102,7 @@ A\end{split}\]</div>
 </div>
 </section>
 <section id="general-matrix-representation-of-higher-order-models">
-<h3>General Matrix Representation of higher order models<a class="headerlink" href="#general-matrix-representation-of-higher-order-models" title="Link to this heading">#</a></h3>
+<span id="general-representation"></span><h3>General Matrix Representation of higher order models<a class="headerlink" href="#general-matrix-representation-of-higher-order-models" title="Link to this heading">#</a></h3>
 <p>These methods and concepts are pretty awesome because they are <em><strong>completely</strong></em> general. We have considerable flexibility in constructing models to match our data. For any polynomial model, no matter how nonlinear it is, the problem is always linear in coefficients, so we can use matrix inversion to solve for their values. We can do this for any <span class="math notranslate nohighlight">\(n_{th}\)</span> order polynomial I wish:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} x_1^{n} &amp; x_1^{n-1} &amp; \cdots &amp; x_1^3 &amp; x_1^2 &amp;  x_1^1 &amp; x_1^0 \\ x_2^{n} &amp; x_2^{n-1} &amp; \cdots &amp; x_2^3 &amp; x_2^2 &amp;  x_2^1 &amp; x_2^0 \\ x_3^{n} &amp; x_3^{n-1} &amp; \cdots &amp; x_3^3 &amp; x_3^2 &amp;  x_3^1 &amp; x_3^0 \\ \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\ x_{n}^{n} &amp; x_{n}^{n-1} &amp; \cdots &amp; x_{n}^3 &amp; x_{n}^2 &amp;  x_{n}^1 &amp; x_{n}^0 \\ x_{n+1}^{n} &amp; x_{n+1}^{n-1} &amp; \cdots &amp; x_{n+1}^3 &amp; x_{n+1}^2 &amp;  x_{n+1}^1 &amp; x_{n+1}^0 \end{bmatrix} \times 
@@ -1129,8 +1136,8 @@ A\end{split}\]</div>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1145,7 +1152,7 @@ A\end{split}\]</div>
  0.32647286 0.73392816 0.22013496 0.08159457 0.1598956 ] 
 </pre></div>
 </div>
-<img alt="../_images/1c8300fe425bed786f17e729bde2a3f5148e1a51c71a70d75152a98109ad0c1a.png" src="../_images/1c8300fe425bed786f17e729bde2a3f5148e1a51c71a70d75152a98109ad0c1a.png" />
+<img alt="../_images/4c1fbcafc46057bae90a71319f178706eccc5a5c3770f91931466615a763a47e.png" src="../_images/4c1fbcafc46057bae90a71319f178706eccc5a5c3770f91931466615a763a47e.png" />
 </div>
 </div>
 <section id="fitting-the-data">
@@ -1277,8 +1284,8 @@ A\end{split}\]</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1286,13 +1293,59 @@ A\end{split}\]</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/113d165439af315f5895e1245a11bcb0ce83267301dee975044c121f64c33f89.png" src="../_images/113d165439af315f5895e1245a11bcb0ce83267301dee975044c121f64c33f89.png" />
+<img alt="../_images/f54c1fb22f07a68985a6322f0418c43a15ebcc09ece86018ee5a856de8c79445.png" src="../_images/f54c1fb22f07a68985a6322f0418c43a15ebcc09ece86018ee5a856de8c79445.png" />
 </div>
 </div>
 </section>
 <section id="now-pump-the-brakes">
 <h5>Now pump the brakes…<a class="headerlink" href="#now-pump-the-brakes" title="Link to this heading">#</a></h5>
 <p>Let’s zoom out a bit and plot our data and the polynomial overlay on a larger y axis. As we do this, remember: the intent of this interpolating function that we have just constructed is that it is <em><strong>supposed to</strong></em> precisely describe the behavior of <span class="math notranslate nohighlight">\(y\)</span> as a function of <span class="math notranslate nohighlight">\(x\)</span> so that we can use it to predict values of <span class="math notranslate nohighlight">\(y\)</span> at values of <span class="math notranslate nohighlight">\(x\)</span> between the points we have measured.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">################################################################################################</span>
+<span class="c1"># Graphing function behavior on larger y limits; do we believe the predictions?                #</span>
+<span class="c1">################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fdd08655160cf72d840917bb64567f82300223afb9cf54a42f690fb133071cad.png" src="../_images/fdd08655160cf72d840917bb64567f82300223afb9cf54a42f690fb133071cad.png" />
+</div>
+</div>
+<p>This doesn’t inspire confidence. There is no reason to believe the y data should follow the behavior suggested by the dashed line in between the measured values. We should note that all of our measured <span class="math notranslate nohighlight">\(y\)</span> values were between 0 and 1. Without some insight to the contrary, it does not make sense that we would measure y <span class="math notranslate nohighlight">\(\approx\)</span> 5 at x <span class="math notranslate nohighlight">\(\approx\)</span> 0.5, or y <span class="math notranslate nohighlight">\(\approx\)</span> 30 at x <span class="math notranslate nohighlight">\(\approx\)</span> 0.9. This is a red flag in data fitting…</p>
+<p>What has happened is that we have over-fit the available data, and our model is capturing the “wiggles” (noise, imprecision) in the data with a mathematically rigorous equation. The problem is that we have used such a high order polynomial here y values are going to be extremely sensitive to small changes in the input value of <span class="math notranslate nohighlight">\(x\)</span>. Further, our model will have considerable curvature, and we may see that the function changes “direction” (i.e., does y increase a function of x or decrease as a function of x?) numerous times within the x-domain that we’ve considered. The upshot is that it is very likely that this model will predict physically nonsensical values of <span class="math notranslate nohighlight">\(y\)</span> at any value of <span class="math notranslate nohighlight">\(x\)</span> that we did not (1) explicitly measure and (2) include in the data fitting exercise where we created the interpolating polynomial. Another danger associated with high order polynomials–they have limited predictive power outside of the range where we fit them.  All polynomials go to <span class="math notranslate nohighlight">\(\pm \infty\)</span> as the function arguments go to <span class="math notranslate nohighlight">\(\pm \infty\)</span>.  This actually happens really quickly for high order polynomials (see below for what happens when we try to use the model to predict what happens to y on the domain <span class="math notranslate nohighlight">\(x = (-2, 3)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################################################</span>
+<span class="c1"># Graphing function behavior on larger x and y limits; all polynomials go to +/- ∞ eventually. Does your data?  #</span>
+<span class="c1">#################################################################################################################</span>
+
+<span class="n">xline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8cbda96b78bd481e61f29593b9541c0ea44b8f2257c1488f64e8dd24afc20e73.png" src="../_images/8cbda96b78bd481e61f29593b9541c0ea44b8f2257c1488f64e8dd24afc20e73.png" />
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The take home message is that we should be careful not to overfit data. Just because we have 11 data points, it isn’t necessarily a good idea to fit a maximum order polynomial to them.  Also, we have to remember that these polynomials only describe what happens inside the limits where we have collected data.  Extrapolation beyond ranges where we’ve collected data is risky, and it is especially risky when we use complex, highly nonlinear models to describe the data.</p>
+</div>
 <figure class="align-default" id="ianmalcolm">
 <a class="reference internal image-reference" href="../_images/ian-malcom-jurassic-park.gif"><img alt="../_images/ian-malcom-jurassic-park.gif" src="../_images/ian-malcom-jurassic-park.gif" style="width: 498.0px; height: 304.0px;" />
 </a>
@@ -1300,52 +1353,20 @@ A\end{split}\]</div>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Jurassic Park</span><a class="headerlink" href="#ianmalcolm" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+</section>
+</section>
+</section>
+<section id="let-s-call-a-vandermonde-matrix-a-vandermonde-matrix">
+<h2>Let’s call a Vandermonde Matrix a Vandermonde Matrix<a class="headerlink" href="#let-s-call-a-vandermonde-matrix-a-vandermonde-matrix" title="Link to this heading">#</a></h2>
+<p>The “X” matrix we used above is something that is used so frequently in data fitting that it is a well-known concept. It is called the Vandermonde matrix, and most programming languages include algorithms to facilitate construction of Vandermonde matrices. In Python, we can use <code class="docutils literal notranslate"><span class="pre">numpy.vander()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/2852a9f4731edfce28dbd56bcba3689302029b17be30058b17ee6156d36bf34b.png" src="../_images/2852a9f4731edfce28dbd56bcba3689302029b17be30058b17ee6156d36bf34b.png" />
-</div>
-</div>
-<p>That doesn’t inspire confidence.  There is no reason to believe the data should behave that way in between the measured points, especially since all of our measured y values were between 0 and 1.  Why would I all of a suddent have a value of y <span class="math notranslate nohighlight">\(\approx\)</span> 5 at x <span class="math notranslate nohighlight">\(\approx\)</span> 0.5, or a value of y <span class="math notranslate nohighlight">\(\approx\)</span> 30 at x <span class="math notranslate nohighlight">\(\approx\)</span> 0.9.  This is a red flag in data fitting…</p>
-<p>What has happened here is that we’ve over-fit the system, and we are capturing all of the “wiggles” in the data with a mathematically rigorous equation.  But we’ve gone to such a high order polynomial that it is very likely to go far outside of the measurement range at any point not directly measured by us (and thus captured exactly by the interpolating polynomial).</p>
-<p>Another danger associated with high order polynomials–they have limited predictive power outside of the range where we fit them.  All polynomials go to <span class="math notranslate nohighlight">\(\pm \infty\)</span> as the function arguments go to <span class="math notranslate nohighlight">\(\pm \infty\)</span>.  This actually happens really quickly for high order polynomials (see below for what happens when we try to use the model to predict what happens to y on the domain x = (-2, 3).</p>
-<p>The take home: we should be careful not to overfit the data.  Just because we have 11 data points, it isn’t necessarily a good idea to fit a maximum order polynomial to them.  Also, we have to remember that these polynomials only describe what happens inside the limits where we have collected data.  Extrapolation beyond ranges where we’ve collected data is risky, and it is especially risky when we use complex, highly nonlinear models to describe the data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/89a03970d2ab2c41003de4e6a8bbe0c58cc0cd642a0cd2c7944363bfbcea8e86.png" src="../_images/89a03970d2ab2c41003de4e6a8bbe0c58cc0cd642a0cd2c7944363bfbcea8e86.png" />
-</div>
-</div>
-</section>
-</section>
-</section>
-</section>
-<section id="some-general-notes">
-<h2>Some General Notes<a class="headerlink" href="#some-general-notes" title="Link to this heading">#</a></h2>
-<p>The “X” matrix we used above is something that is used so frequently in data fitting that it is a well known concept.  It is called the Vandermonde matrix, and, of course, Python will automatically generate one from our data for us.  This is built into numpy as <code class="docutils literal notranslate"><span class="pre">np.vander()</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################################################################################</span>
+<span class="c1"># Constructing the X matrix using numpy.vander(); compare to manually generated X matrix #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -1383,36 +1404,44 @@ A\end{split}\]</div>
 </div>
 </div>
 </section>
-<section id="regression">
-<h2>Regression<a class="headerlink" href="#regression" title="Link to this heading">#</a></h2>
-<p>In these cases where we have a lot of data, particularly noisy (messy) data like we usually see from an experiment, we don’t really want to “overfit” the data by using a polynomial of maximum order.  Instead, we <em>generally</em> will want to find a lower order polynomial that provides a line of best fit to the data.  This is the basic idea behind regression – it is a method of analysis wherein we seek to minimize the error between our model predictions and the measurements (data) that we have available.  How do we decide on the polynomial or functional form of the model?  It’s a combination of intuition about the system we are studying and an examination of how well the model does at describing our data.</p>
-<p>To start, let’s look at that random data set again.</p>
+<section id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h2>
+<p>In cases where we have a lot of data, particularly when we have noisy (messy) data like we usually when making experimental measurements, we don’t really want to “overfit” the data by building the maximum order polynomial permitted by the data available. Instead, we <em><strong>generally</strong></em> want to find a polynomial that adequately describes <em>trends</em> in data without <em>overfitting</em> the data.  This is the basic idea behind regression analysis – it is a method wherein we seek to minimize the error between model predictionss and the measurement values (data) that we have available. How do we decide on the exact polynomial or functional form that should comprise our model? Ultimately, this is done by applying some intuition about the way that the system should behave (e.g., if we know that <span class="math notranslate nohighlight">\(y\)</span> should scale linearly with <span class="math notranslate nohighlight">\(x\)</span>) and combining it with a critical examination of how well a given model describes our data.</p>
+<p>To begin with <em><strong>regression analysis</strong></em>, let’s look at the random data set again, but we’ll apply a critical eye and propose a model that makes sense instead of attempting to fit a maximum order polynomial.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For reasons that will become apparent later, when we perform polynomial regressions of the type described here, we are performing <em><strong>linear regression</strong></em>. It does not matter how nonlinear the model is because we are solving for coefficients (not <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> values), and nonlinear polynomials are linear in coefficients for known values of <span class="math notranslate nohighlight">\((x,y)\)</span>. Linear regression does not mean fitting data to a first order model – it refers to using matrices to perform linear least squares analysis.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###########################################################################</span>
+<span class="c1"># Prepare a scatterplot with the 11 random (x,y) pairs                    #</span>
+<span class="c1">###########################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/55b69c876cf1b3ce97f30e27619d8cd4817be6144698b9a6227629e4c42c9142.png" src="../_images/55b69c876cf1b3ce97f30e27619d8cd4817be6144698b9a6227629e4c42c9142.png" />
+<img alt="../_images/fce12c31689bd7c7a37f87c2e40c7a6a553eee75cfd6856b97bf167bb4a399ee.png" src="../_images/fce12c31689bd7c7a37f87c2e40c7a6a553eee75cfd6856b97bf167bb4a399ee.png" />
 </div>
 </div>
-<p>I’m going to say that I don’t want to use a 10th order polynomial.  We’ve seen that, although it is mathematically possible, it overfits the data, capturing all of the “wiggles,” but this means it can be very far off when we use the model to predict anything other than the data points we measured.</p>
-<p>So, I’ll propose a model.  Looking at the data, I’ll suggest that a linear model will describe this fairly well.  I’ll represent that model as:</p>
+<section id="fitting-a-first-order-linear-model-to-the-data">
+<h3>Fitting a first order (linear) model to the data<a class="headerlink" href="#fitting-a-first-order-linear-model-to-the-data" title="Link to this heading">#</a></h3>
+<p>Let’s start by acknowledging that we do not want to try to model the dependence of <span class="math notranslate nohighlight">\(y\)</span> on <span class="math notranslate nohighlight">\(x\)</span> using a <span class="math notranslate nohighlight">\(10^{th}\)</span> order polynomial. As explained above, a <span class="math notranslate nohighlight">\(10^{th}\)</span> order polynomial overfits the data and reduces its predictive power. Let’s propose a different model – we’ll try to suggest something that can capture the overall <em><strong>trend</strong></em> in data or the <em><strong>shape</strong></em> of the data while ignoring noise. Looking at the data, we could reasonably suggest that the value of <span class="math notranslate nohighlight">\(y\)</span> decreases linearly as the value of <span class="math notranslate nohighlight">\(x\)</span> increases. This would motivate us to try to fit a <em><strong>first order model</strong></em> to the data. We can represent that model using the general form of a first order polynomial:</p>
 <div class="math notranslate nohighlight">
 \[y(x) = \alpha_1x^1 + \alpha_0x^0\]</div>
-<p>In other words: I have two unknown coefficients in that model, and I want to find their values from the data I have available (11 points). Since I have 11 data points, and they are all scattered (simulating experimental noise), it is clear that no single line will pass through all of the data points.  What I want to find is the one straight line that minimizes the error between the model and the measurements.  There are many ways to approach this, but the most common one is least squares regression.  In that approach, we define a metric called the sum of square errors:</p>
+<p>If we inspect this equation alongside the available data, we would eventually conclude that we have two unknown coefficients in that model, and we would like to determine their values. In this case, we will attempt to do so by leveraging the 11 data points we have available. One observation we might make upon reviewing the scatterplot of <span class="math notranslate nohighlight">\((x,y)\)</span> pairs is that we have 11 data points, and they are all scattered (this is done to simulate experimental noise). Visually, it should be very clear that there is no single straight line (first order model) that can pass through each data point. In mathematical terms, this comprises an overdetermiend system. In this case, our goal is not to find a straight line that passes through all data points – it is to find the the one straight line that minimizes the error between the measured value of <span class="math notranslate nohighlight">\(y\)</span> at a given value of <span class="math notranslate nohighlight">\(x\)</span> and the value of <span class="math notranslate nohighlight">\(y\)</span> predicted by the model for a given value of <span class="math notranslate nohighlight">\(x\)</span>. There are many ways to approach this, but the most common one is least squares regression. In this approach, we define a metric called the residual sum of squares:</p>
 <div class="math notranslate nohighlight">
 \[\textrm{SSE} = \sum_i (y_i - \hat{y}_i)^2\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(y_i\)</span> is <em>ith</em> measured value of our observable, <span class="math notranslate nohighlight">\(y\)</span>, at condition <span class="math notranslate nohighlight">\(x_i\)</span>, and <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> is the model’s predicted value of our observable <span class="math notranslate nohighlight">\(y\)</span> at condition <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
-<p>We will use this tool a lot. Whether you realize it or not, least squares is embedded in a lot of the tools you use routinely.  The one you’re most familiar with is Excel’s trendline feature, but also the very nice LINEST function in Excel is an implementation of linear least squares.  The methods below are also pretty much identical to what <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> does under the hood. For now, we’ll frame this as an extension of our matrix method for polynomial interpolation.</p>
-<p>Let’s say I propose a linear model to describe the above 11 data points.  I’ll write copy of that linear model for every <span class="math notranslate nohighlight">\((x,y)\)</span> pair in our data set…</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b990360-6fef-4e25-b769-f5a816a0416b">
-<span class="eqno">(13)<a class="headerlink" href="#equation-0b990360-6fef-4e25-b769-f5a816a0416b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Here, <span class="math notranslate nohighlight">\(y_i\)</span> is <span class="math notranslate nohighlight">\(i^{th}\)</span> value of our observable, <span class="math notranslate nohighlight">\(y_i\)</span>, measured at condition <span class="math notranslate nohighlight">\(x_i\)</span>, and <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> is the value of our observable <span class="math notranslate nohighlight">\(y_i\)</span> predicted at condition <span class="math notranslate nohighlight">\(x_i\)</span> by our model. We will use least squares a lot in this course! In fact, whether you previously realized it or not, the method of least squares is embedded in a lot of the tools that most of us are probably are using already. The one most people are familiar with is Excel’s trendline feature, which is performing linear least squares regression using whichever model you choose. Excel also has least squarest regression build into the LINEST function. The methods we are developing for least squares here are also used in <code class="docutils literal notranslate"><span class="pre">numpy.polyfit()</span></code>.</p>
+<p>It is most straightforward to frame linear regression as an extension of the matrix method that we developed above for polynomial interpolation. We begin proposing that a first order (linear) model will adequately describe the dependence of <span class="math notranslate nohighlight">\(y\)</span> on <span class="math notranslate nohighlight">\(x\)</span>. This means that we intend to use first order model (2 coefficients) to describe 11 <span class="math notranslate nohighlight">\((x,y)\)</span> pairs. We can write the first order model for each <span class="math notranslate nohighlight">\((x,y)\)</span> pair in our data set to generate the following system of equations…</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8350a4d9-ae67-4d37-b587-1817db4f6dfc">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8350a4d9-ae67-4d37-b587-1817db4f6dfc" title="Permalink to this equation">#</a></span>\[\begin{align}
     y_1    &amp;= \alpha_1x_1 + \alpha_0 \\
     y_2    &amp;= \alpha_1x_2 + \alpha_0 \\
     y_3    &amp;= \alpha_1x_3 + \alpha_0 \\
@@ -1425,7 +1454,7 @@ A\end{split}\]</div>
     y_{10} &amp;= \alpha_1x_{10} + \alpha_0 \\
     y_{11} &amp;= \alpha_1x_{11} + \alpha_0 \\
 \end{align}\]</div>
-<p>In that set of equations, I know all of the <span class="math notranslate nohighlight">\((x,y)\)</span> entries because we measured y at every corresponding x.  I do not know the values of the coefficients <span class="math notranslate nohighlight">\(\alpha_1\)</span> and <span class="math notranslate nohighlight">\(\alpha_2\)</span>.  That’s what I’m trying to solve.  But here, I have 11 equations, and 2 unknowns, so there is no unique solution that will solve this system of equations.  Instead, I’m going to minimize error.  This is still a linear system since the problem is linear in our unknowns (all of the exponents on the alpha values are 1).  As such, we can use linear algebra to estimate their “best” values.  We start by putting the above system in matrix form:</p>
+<p>In that set of equations, we know each of the <span class="math notranslate nohighlight">\((x,y)\)</span> pairs because we have a measured or observed value of <span class="math notranslate nohighlight">\(y\)</span> at every corresponding <span class="math notranslate nohighlight">\(x\)</span>. We do not know the values of the coefficients <span class="math notranslate nohighlight">\(\alpha_1\)</span> and <span class="math notranslate nohighlight">\(\alpha_2\)</span>. These are the two unknowns that we are trying to solve for! The problem here is that we have 11 equations written in terms of only 2 unknowns. This is an overdetermined system, and there is no way for us to satisfy each of these constraints equation exactly. There is then no unique solution for <span class="math notranslate nohighlight">\((\alpha_0, \alpha_1)\)</span> that will solve this system of equations. Instead, we aim to minimize the error between measured values and predicted values. This is still a linear system since the problem is linear in our unknown coefficients. As such, we can use linear algebra to estimate the “best” values for the unknown coefficients. We start by putting the above system in matrix form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} x_1^1 &amp; x_1^0 \\ x_2^1 &amp; x_2^0 \\ x_3^1 &amp; x_3^0 \\ x_4^1 &amp; x_4^0 \\ x_5^1 &amp; x_5^0 \\ x_6^1 &amp; x_6^0 \\ x_7^1 &amp; x_7^0 \\ x_8^1 &amp; x_8^0 \\ x_9^1 &amp; x_9^0 \\ x_{10}^1 &amp; x_{10}^0 \\ x_{11}^1 &amp; x_{11}^0 \end{bmatrix} \times 
 \begin{bmatrix} \alpha_1 \\ \alpha_0 \end{bmatrix} = 
@@ -1433,13 +1462,21 @@ A\end{split}\]</div>
 <p>Or, as usual:</p>
 <div class="math notranslate nohighlight">
 \[XA = Y\]</div>
-<p>We’ll run into a problem when we try to solve this, though (see below)</p>
+<p>We run into a problem when we try to solve this, though (see below).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In Python, we can truncate the Vandermonde matrix to include the number of columns necessary to fit a specific order polynomial – remember that in the Vandermonde Matrix, each column corresponds to an order (power) of “x” that appears in the model. For this example, we are fitting a first order polynomial to the data; we have an <span class="math notranslate nohighlight">\(x^1\)</span> term and an <span class="math notranslate nohighlight">\(x^0\)</span> term in a first order model, and we have two unknown coefficients, so we truncate the Vandermonde Matrix to two columns (zero order, first order).</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ya</span> <span class="o">=</span> <span class="n">ydata</span>
-<span class="c1"># np.vander(xdata)</span>
-<span class="c1"># np.round(np.vander(xdata), 2)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###################################################################</span>
+<span class="c1"># Generating, printing, and truncating various forms of X matrix  #</span>
+<span class="c1">###################################################################</span>
+
+<span class="n">Ya</span> <span class="o">=</span> <span class="n">ydata</span>
+<span class="c1"># print(np.vander(xdata)) #full vandermonde matrix; would use to generate 10th order polynomial from data</span>
+<span class="c1"># np.round(np.vander(xdata), 2) #full vandermonde matrix rounded to two decimal places for display purposes</span>
+<span class="c1"># np.round(np.vander(xdata, 2), 2) #vandermonde matrix truncated to first order (two columns); each rounded to two decimal places</span>
 <span class="n">Xa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#This creates the X matrix shown above, truncating at 1st order</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Ya</span><span class="p">)</span>
@@ -1465,17 +1502,28 @@ A\end{split}\]</div>
 </div>
 </div>
 <p>If we try to solve the matrix system with that X, though, we’ll hit an error…</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The code blocks below include intentional dimension errors that demonstrate the messages that come from attempting to invert a non-square matrix. Remember: matrices can only be inverted if they are square (which is a fully determined system)!</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Ya</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">########################################################################################</span>
+<span class="c1"># Direct matrix inversion will not work for overdetermined system                      #</span>
+<span class="c1">########################################################################################</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Ya</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">LinAlgError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Ya</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">########################################################################################</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Direct matrix inversion will not work for overdetermined system                      #</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">########################################################################################</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="p">,</span> <span class="n">Ya</span><span class="p">)</span>
 
 <span class="nn">File ~\anaconda3\Lib\site-packages\numpy\linalg\_linalg.py:399,</span> in <span class="ni">solve</span><span class="nt">(a, b)</span>
 <span class="g g-Whitespace">    </span><span class="mi">397</span> <span class="n">a</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_makearray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -1497,46 +1545,57 @@ A\end{split}\]</div>
 <p>This comes up because we can’t invert a non-square matrix…(X is tall, not square)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Demonstrating error from attempting to invert a non-square matrix           #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">LinAlgError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">42</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">###############################################################################</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Demonstrating error from attempting to invert a non-square matrix           #</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1">###############################################################################</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Xa</span><span class="p">)</span>
 
-<span class="nn">File ~\anaconda3\Lib\site-packages\numpy\linalg\linalg.py:556,</span> in <span class="ni">inv</span><span class="nt">(a)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="n">a</span><span class="p">,</span> <span class="n">wrap</span> <span class="o">=</span> <span class="n">_makearray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="n">_assert_stacked_2d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">556</span> <span class="n">_assert_stacked_square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span> <span class="n">t</span><span class="p">,</span> <span class="n">result_t</span> <span class="o">=</span> <span class="n">_commonType</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span> <span class="n">signature</span> <span class="o">=</span> <span class="s1">&#39;D-&gt;D&#39;</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;d-&gt;d&#39;</span>
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\numpy\linalg\_linalg.py:609,</span> in <span class="ni">inv</span><span class="nt">(a)</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span> <span class="n">a</span><span class="p">,</span> <span class="n">wrap</span> <span class="o">=</span> <span class="n">_makearray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_assert_stacked_2d</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">609</span> <span class="n">_assert_stacked_square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="n">t</span><span class="p">,</span> <span class="n">result_t</span> <span class="o">=</span> <span class="n">_commonType</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">612</span> <span class="n">signature</span> <span class="o">=</span> <span class="s1">&#39;D-&gt;D&#39;</span> <span class="k">if</span> <span class="n">isComplexType</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;d-&gt;d&#39;</span>
 
-<span class="nn">File ~\anaconda3\Lib\site-packages\numpy\linalg\linalg.py:213,</span> in <span class="ni">_assert_stacked_square</span><span class="nt">(*arrays)</span>
-<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">213</span>     <span class="k">raise</span> <span class="n">LinAlgError</span><span class="p">(</span><span class="s1">&#39;Last 2 dimensions of the array must be square&#39;</span><span class="p">)</span>
+<span class="nn">File c:\Users\jqbon\anaconda3\Lib\site-packages\numpy\linalg\_linalg.py:202,</span> in <span class="ni">_assert_stacked_square</span><span class="nt">(*arrays)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="k">if</span> <span class="n">m</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">202</span>     <span class="k">raise</span> <span class="n">LinAlgError</span><span class="p">(</span><span class="s1">&#39;Last 2 dimensions of the array must be square&#39;</span><span class="p">)</span>
 
 <span class="ne">LinAlgError</span>: Last 2 dimensions of the array must be square
 </pre></div>
 </div>
 </div>
 </div>
-<p>The linear algebra way to approach this problem follows.  We start with our non-square X matrix, and we apply the following multiplication steps.  Note that multiplying X by its transpose will create a square matrix, which we can invert.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8aa9e435-da7a-4b4c-b5c5-d5a54d8ee1d7">
-<span class="eqno">(14)<a class="headerlink" href="#equation-8aa9e435-da7a-4b4c-b5c5-d5a54d8ee1d7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Again, we have an overdetermined system, and we cannot solve it directly by matrix inversion as we would a fully determined system of linear equations. The linear algebra way to approach the problem of an overdetermined system follows. We start with our non-square <span class="math notranslate nohighlight">\(X\)</span> matrix, and we apply the following multiplication steps. Note that multiplying <span class="math notranslate nohighlight">\(X\)</span> by its transpose will create a square matrix, so the product <span class="math notranslate nohighlight">\(X^TX\)</span> <em><strong>is</strong></em> invertible even if <span class="math notranslate nohighlight">\(X\)</span> is non-square.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-253839a2-5627-44dd-9d8d-c9b341d86724">
+<span class="eqno">(14)<a class="headerlink" href="#equation-253839a2-5627-44dd-9d8d-c9b341d86724" title="Permalink to this equation">#</a></span>\[\begin{align}
     XA &amp;= Y \\
     X^TXA &amp;= X^TY \\
     \left(X^TX\right)^{-1}X^TXA &amp;= \left(X^TX\right)^{-1}X^TY \\
     IA &amp;= \left(X^TX\right)^{-1}X^TY \\
     A &amp;= \left(X^TX\right)^{-1}X^TY \\
 \end{align}\]</div>
-<p>Believe it or not, that operation on the right hand side, <span class="math notranslate nohighlight">\(\left(X^TX\right)^{-1}X^TY\)</span> actually minimizes the sum of squares for this linear problem.  This is a completely general result, and we can use a matrix method to solve for the optimum coefficients (giving the line of “best fit”) for any problem that is linear in its coefficients.  See below.</p>
+<p>Believe it or not, that operation on the right hand side, <span class="math notranslate nohighlight">\(\left(X^TX\right)^{-1}X^TY\)</span> finds the set of coefficients that minimizes the sum of squares for this linear problem. This is a completely general result, and we can use a matrix method to solve for the optimum coefficients (giving the line of “best fit”) for any problem that is linear in its coefficients.  See below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="o">.</span><span class="n">T</span><span class="nd">@Xa</span><span class="p">,</span> <span class="n">Xa</span><span class="o">.</span><span class="n">T</span><span class="nd">@Ya</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">############################################################################################</span>
+<span class="c1"># Solving the least squares problem for best fit coefficients                              #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xa</span><span class="o">.</span><span class="n">T</span><span class="nd">@Xa</span><span class="p">,</span> <span class="n">Xa</span><span class="o">.</span><span class="n">T</span><span class="nd">@Ya</span><span class="p">)</span> 
 <span class="c1">#The above is equivalent to (but more memory efficient) than np.linalg.inv(X.T@X)@X.T@Y</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
@@ -1548,18 +1607,34 @@ A\end{split}\]</div>
 </div>
 </div>
 </div>
-<p>Now we’ll use those “optimum” coefficients to create the best fit straight line to our data set…</p>
-<p>Note that since these are matrices, we can get our predicted Y values from the following relationship by matrix multiplication</p>
+<p>Now we can plug those “optimum” coefficients into our first order model, which is the best fit straight line to our data set (from a least squares perspective)…</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that since these are matrices, we generate the array of predicted <span class="math notranslate nohighlight">\(Y\)</span> values at each value in <span class="math notranslate nohighlight">\(X\)</span> from the following relationship using matrix multiplication</p>
 <div class="math notranslate nohighlight">
 \[\hat{Y} = X\hat{A}\]</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################</span>
+<span class="c1"># Define large array of x values for generating smooth continuous line plot     #</span>
+<span class="c1">#################################################################################</span>
+
+<span class="n">xline</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#################################################################################</span>
+<span class="c1"># Define lambda function that describes line of best fit                        #</span>
+<span class="c1">#################################################################################</span>
+
 <span class="n">yline</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#################################################################################</span>
+<span class="c1"># Overlay data, model predictions for y at x data, and continuous function y(x) #</span>
+<span class="c1">################################################################################# </span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;measured data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;smoothed regression line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed y(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Xa</span><span class="nd">@A</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;data predictions&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -1569,29 +1644,89 @@ A\end{split}\]</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4d8598f0a9daf05e2bdd125a727830709092d79e176fb0634b25b07a1f284e40.png" src="../_images/4d8598f0a9daf05e2bdd125a727830709092d79e176fb0634b25b07a1f284e40.png" />
+<img alt="../_images/9691ee14e928e094b52e9986cba7293da053a333cb5d8337110b72bc99354a37.png" src="../_images/9691ee14e928e094b52e9986cba7293da053a333cb5d8337110b72bc99354a37.png" />
 </div>
 </div>
-<p>Is it perfect?  No.  But this is the line that best describes our data.  We might alternatively choose a different model (2nd order, exponential function, etc), but if we want a straight line to model that system, this is as good as it gets.</p>
-<p>Note that this is exactly the result we’d get if we put xdata and ydata into Excel, plotted them, and added a trendline.  If you try it, I am confident you’ll find that:</p>
+<p>Is this line a perfect descriiption of our data? No. But this <em><strong>is</strong></em> the straight line that best describes the trend in our data (i.e., the relationship between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span>). Depending on our insights into the fundamental relationship between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, and depending on how well a given model fits our data, we might alternatively choose a different model (2nd order, exponential function, etc.). Different models might fit our data better than a first order model, but we should realize that <em><strong>if we want to use a straight line to model the relationship between <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(x\)</span>, this result is as good as it gets.</strong></em></p>
+<p>If you like, paste the arrays of <code class="docutils literal notranslate"><span class="pre">xdata</span></code> and <code class="docutils literal notranslate"><span class="pre">ydata</span></code> into Excel, plot them, and add a first order trendline. If you do so, you will find that:</p>
 <ol class="arabic simple">
 <li><p>slope = -0.904</p></li>
 <li><p>y-intercept = 0.921</p></li>
 </ol>
-<p>Why?  Because we just went through what trendline does under the hood.  Now you know!!</p>
-<p>You want a quadratic fit?  No problem!!</p>
+<p>Why?  Because we just went through what trendline does under the hood. Now you know!!</p>
+</section>
+<section id="fitting-a-second-order-quadratic-model-to-the-data">
+<h3>Fitting a second order (quadratic) model to the data<a class="headerlink" href="#fitting-a-second-order-quadratic-model-to-the-data" title="Link to this heading">#</a></h3>
+<p>Let’s say that we believe our data suggests that there is some curvature in the way that <span class="math notranslate nohighlight">\(y\)</span> varies as a function of <span class="math notranslate nohighlight">\(x\)</span>. We might also couple this with some insight about the system (the fundamental physics of the type of system we are considering, e.g., we know the reaction we are studying has a rate that is second order in reactant concentration. In this case, we might want a quadratic fit. That is no problem for us – the method we developed above is completely general and extensible to any order polynomial.  For a very formal display, we would start by writing a system of equations using the general form for a second order polynomial. As in all cases prior, we would write 11 equations because we have 11 <span class="math notranslate nohighlight">\((x,y)\)</span> pairs in our data set. This looks like:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-927d5708-03d6-4cc0-a745-131d3b0ce404">
+<span class="eqno">(15)<a class="headerlink" href="#equation-927d5708-03d6-4cc0-a745-131d3b0ce404" title="Permalink to this equation">#</a></span>\[\begin{align}
+    y_1    &amp;= \alpha_2{x_1}^2 + \alpha_1x_1 + \alpha_0 \\
+    y_2    &amp;= \alpha_2{x_2}^2 + \alpha_1x_2 + \alpha_0 \\
+    y_3    &amp;= \alpha_2{x_3}^2 + \alpha_1x_3 + \alpha_0 \\
+    y_4    &amp;= \alpha_2{x_4}^2 + \alpha_1x_4 + \alpha_0 \\
+    y_5    &amp;= \alpha_2{x_5}^2 + \alpha_1x_5 + \alpha_0 \\
+    y_6    &amp;= \alpha_2{x_6}^2 + \alpha_1x_6 + \alpha_0 \\
+    y_7    &amp;= \alpha_2{x_7}^2 + \alpha_1x_7 + \alpha_0 \\
+    y_8    &amp;= \alpha_2{x_8}^2 + \alpha_1x_8 + \alpha_0 \\
+    y_9    &amp;= \alpha_2{x_9}^2 + \alpha_1x_9 + \alpha_0 \\
+    y_{10} &amp;= \alpha_2{x_{10}}^2 + \alpha_1x_{10} + \alpha_0 \\
+    y_{11} &amp;= \alpha_2{x_{11}}^2 + \alpha_1x_{11} + \alpha_0 \\
+\end{align}\]</div>
+<p>We again have an overdetermined system of 11 equations written in terms of 11 known <span class="math notranslate nohighlight">\((x,y)\)</span> pairs and 3 unknown coefficients <span class="math notranslate nohighlight">\((\alpha_2, \alpha_1, \alpha_0)\)</span>. We create the standard X and Y arrays, and we use the least squares approach to find the optimum coefficients. We can again use <code class="docutils literal notranslate"><span class="pre">numpy.vander()</span></code> to create a truncated vandermonde matrix that includes terms up to <span class="math notranslate nohighlight">\(x^2\)</span>. We stop at <span class="math notranslate nohighlight">\(x^2\)</span> because we are fitting a second order model to the data.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9d6f9bb2-97c5-40fb-bbf5-3ad44bba00f3">
+<span class="eqno">(16)<a class="headerlink" href="#equation-9d6f9bb2-97c5-40fb-bbf5-3ad44bba00f3" title="Permalink to this equation">#</a></span>\[\begin{align}
+    XA &amp;= Y \\
+    X^TXA &amp;= X^TY \\
+    \left(X^TX\right)^{-1}X^TXA &amp;= \left(X^TX\right)^{-1}X^TY \\
+    IA &amp;= \left(X^TX\right)^{-1}X^TY \\
+    A &amp;= \left(X^TX\right)^{-1}X^TY \\
+\end{align}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because we have converted all equations into matrix form, the solution is identical to the first order regression problem, we just have an X matrix with a different size/shape <span class="math notranslate nohighlight">\((11, 3)\)</span>, and we have 3 coefficients.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Yb</span> <span class="o">=</span> <span class="n">ydata</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################################################</span>
+<span class="c1"># Generate Y array of observables/measured quantities                                #</span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">Yb</span> <span class="o">=</span> <span class="n">ydata</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Generate truncated vandermonde matrix @ second order                               #</span>
+<span class="c1"># This has 3 columns, x^2, x^1, x^0                                                  #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">Xb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Display array of observables and truncated vandermonde matrix                      #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">Yb</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Xb</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Solve for optimum set of coefficients for the 2nd order model, display results     #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="nd">@Xb</span><span class="p">,</span> <span class="n">Xb</span><span class="o">.</span><span class="n">T</span><span class="nd">@Yb</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Define lambda function for best fit 2nd order model using regressed coefficients   #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">yline</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Overlay measured y data, predicted y data, and continuous 2nd order function y(x)  #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;measured data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;smoothed regression line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed y(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Xb</span><span class="nd">@A</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;data predictions&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -1619,23 +1754,70 @@ A\end{split}\]</div>
 [-0.69969354 -0.14991027  0.76170812]
 </pre></div>
 </div>
-<img alt="../_images/a25fa3ef2e9bde061f29366bff6590cbc496c0b3ebb1b0f2aceca43b0be4baea.png" src="../_images/a25fa3ef2e9bde061f29366bff6590cbc496c0b3ebb1b0f2aceca43b0be4baea.png" />
+<img alt="../_images/bb1b6edfc73a177fb82648a6a5480dcad65c7dc33a0ab2fc883d4d7ec282c5a3.png" src="../_images/bb1b6edfc73a177fb82648a6a5480dcad65c7dc33a0ab2fc883d4d7ec282c5a3.png" />
 </div>
 </div>
-<p>Third order? Why not?</p>
+</section>
+<section id="fitting-a-third-order-model-to-the-data">
+<h3>Fitting a third order model to the data<a class="headerlink" href="#fitting-a-third-order-model-to-the-data" title="Link to this heading">#</a></h3>
+<p>If for some reason we had insight to suggest that <span class="math notranslate nohighlight">\(y\)</span> scales with <span class="math notranslate nohighlight">\(x^3\)</span>, we might propose a third order polynomial to model the data. The general procedure still applies. We have 11 <span class="math notranslate nohighlight">\((x,y)\)</span> pairs, so we would write 11 equations based on a third order polynomial form.  These would be comprised of 11 known <span class="math notranslate nohighlight">\((x,y)\)</span> pairs and 4 unknown coefficients <span class="math notranslate nohighlight">\((\alpha_3, \alpha_2, \alpha_1, \alpha_0)\)</span>. The system of equations would look something like:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2a98cae5-4a50-44f5-a1a6-70098d1c732a">
+<span class="eqno">(17)<a class="headerlink" href="#equation-2a98cae5-4a50-44f5-a1a6-70098d1c732a" title="Permalink to this equation">#</a></span>\[\begin{align}
+    y_1    &amp;= \alpha_3{x_1}^3 + \alpha_2{x_1}^2 + \alpha_1x_1 + \alpha_0 \\
+    y_2    &amp;= \alpha_3{x_2}^3 + \alpha_2{x_2}^2 + \alpha_1x_2 + \alpha_0 \\
+    y_3    &amp;= \alpha_3{x_3}^3 + \alpha_2{x_3}^2 + \alpha_1x_3 + \alpha_0 \\
+    y_4    &amp;= \alpha_3{x_4}^3 + \alpha_2{x_4}^2 + \alpha_1x_4 + \alpha_0 \\
+    y_5    &amp;= \alpha_3{x_5}^3 + \alpha_2{x_5}^2 + \alpha_1x_5 + \alpha_0 \\
+    y_6    &amp;= \alpha_3{x_6}^3 + \alpha_2{x_6}^2 + \alpha_1x_6 + \alpha_0 \\
+    y_7    &amp;= \alpha_3{x_7}^3 + \alpha_2{x_7}^2 + \alpha_1x_7 + \alpha_0 \\
+    y_8    &amp;= \alpha_3{x_8}^3 + \alpha_2{x_8}^2 + \alpha_1x_8 + \alpha_0 \\
+    y_9    &amp;= \alpha_3{x_9}^3 + \alpha_2{x_9}^2 + \alpha_1x_9 + \alpha_0 \\
+    y_{10} &amp;= \alpha_3{x_{10}}^3 + \alpha_2{x_{10}}^2 + \alpha_1x_{10} + \alpha_0 \\
+    y_{11} &amp;= \alpha_3{x_{11}}^3 + \alpha_2{x_{11}}^2 + \alpha_1x_{11} + \alpha_0 \\
+\end{align}\]</div>
+<p>The system is still overdetermined with 11 equations written in terms of 4 unknown coefficients, so we would apply a least squares solution to find the optimum coefficient values.  Again, we organize information in matrices, and the least square solution is exactly the same as above – the only difference is that we have an <span class="math notranslate nohighlight">\(X\)</span> matrix that is <span class="math notranslate nohighlight">\((11, 4),\)</span> and we have 4 coefficients in the <span class="math notranslate nohighlight">\(A\)</span> array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Yc</span> <span class="o">=</span> <span class="n">ydata</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################################################</span>
+<span class="c1"># Generate Y array of observables/measured quantities                                #</span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">Yc</span> <span class="o">=</span> <span class="n">ydata</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Generate truncated vandermonde matrix @ second order                               #</span>
+<span class="c1"># This has 4 columns, x^3, x^2, x^1, x^0                                             #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">Xc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Display array of observables and truncated vandermonde matrix                      #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">Yc</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Xc</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Solve for optimum set of coefficients for the 2nd order model, display results     #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Xc</span><span class="o">.</span><span class="n">T</span><span class="nd">@Xc</span><span class="p">,</span> <span class="n">Xc</span><span class="o">.</span><span class="n">T</span><span class="nd">@Yc</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Define lambda function for best fit 2nd order model using regressed coefficients   #</span>
+<span class="c1">######################################################################################</span>
+
 <span class="n">yline</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">A</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1">######################################################################################</span>
+<span class="c1"># Overlay measured y data, predicted y data, and continuous 2nd order function y(x)  #</span>
+<span class="c1">######################################################################################</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;measured data&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;smoothed regression line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xline</span><span class="p">,</span> <span class="n">yline</span><span class="p">(</span><span class="n">xline</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;regressed y(x)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Xc</span><span class="nd">@A</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;data predictions&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
@@ -1663,10 +1845,11 @@ A\end{split}\]</div>
 [ 4.85887321 -9.04727267  4.12600401  0.14299066]
 </pre></div>
 </div>
-<img alt="../_images/468a19e29cb5468518af490fca8382a6a8e9dbd6280f9b2dc857bcbf8fb0a1d6.png" src="../_images/468a19e29cb5468518af490fca8382a6a8e9dbd6280f9b2dc857bcbf8fb0a1d6.png" />
+<img alt="../_images/1f9d1a90b1c8b0ffc4cb39cb6e332b1284aeda052b8b7f230b1f128c8cca5fc3.png" src="../_images/1f9d1a90b1c8b0ffc4cb39cb6e332b1284aeda052b8b7f230b1f128c8cca5fc3.png" />
 </div>
 </div>
-<p>And on it goes up to 10th order, where we have a unique solution.</p>
+<p>We can follow this same pattern all the way up to a 10th order polynomial. At this point, we are fitting an <span class="math notranslate nohighlight">\(n^{th}\)</span> order polynomial to <span class="math notranslate nohighlight">\(n+1\)</span> data points. This is a fully determined system, and we find a unique solution as presented <a class="reference internal" href="#general-representation">above</a>.</p>
+</section>
 </section>
 <section id="for-fall-2025">
 <h2>For Fall 2025:<a class="headerlink" href="#for-fall-2025" title="Link to this heading">#</a></h2>
@@ -1906,6 +2089,15 @@ R2   = 0.52
         <p class="prev-next-title">Lectures</p>
       </div>
     </a>
+    <a class="right-next"
+       href="587-N38.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Useful Ancillary Skills for Regression</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1955,8 +2147,13 @@ R2   = 0.52
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#some-general-notes">Some General Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression">Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-call-a-vandermonde-matrix-a-vandermonde-matrix">Let’s call a Vandermonde Matrix a Vandermonde Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-first-order-linear-model-to-the-data">Fitting a first order (linear) model to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-second-order-quadratic-model-to-the-data">Fitting a second order (quadratic) model to the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-a-third-order-model-to-the-data">Fitting a third order model to the data</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-fall-2025">For Fall 2025:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extra-useful-things-to-accompany-regression">Extra, useful things to accompany regression</a></li>
 </ul>

@@ -1,0 +1,994 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kinetics I &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N39';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kinetics II" href="587-N40.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kinetics I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N40.html">Kinetics II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N41.html">Kinetics III</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N39.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N39.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N39.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kinetics I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-differential-analysis-of-batch-reactor-data">A Differential Analysis of Batch Reactor Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-methods">Finite Difference Methods</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-rate-as-a-function-of-ca">Visualizing rate as a function of CA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attempting-a-linearization-of-r-vs-ca">Attempting a Linearization of <span class="math notranslate nohighlight">\(r\)</span> vs. CA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-linearity-linear-regression">Assessing linearity; linear regression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-i">
+<h1>Kinetics I<a class="headerlink" href="#kinetics-i" title="Link to this heading">#</a></h1>
+<p>In this Notebook, we will begin our discussion of kinetic analysis. Specifically, we will cover the nature of kinetic data obtained using a batch reactor, and we will work through the method of differential analysis applied to kinetic data obtained in a constant volume batch reactor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<p>The following reaction is carried out in a well-mixed, isothermal, constant volume batch reactor. The concentration of species <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> in the tank are initially <span class="math notranslate nohighlight">\(C_{A0} = 10 \mathrm{M}\)</span> and <span class="math notranslate nohighlight">\(C_{B0} = 0 \mathrm{M}\)</span> at <span class="math notranslate nohighlight">\(t = 0\)</span>. You may assume that the fluid inside of the reactor has constant density.</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow B\]</div>
+<p>We measure the concentration of species <span class="math notranslate nohighlight">\(A\)</span> in this reactor, monitoring how it changes with time. The collected data are tabulated below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>time (s)</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(C_A \ (\mathrm{mol \ L^{-1}})\)</span></p></th>
+<th class="head text-center"><p>time (s)</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(C_A \ (\mathrm{mol \ L^{-1}})\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>0</p></td>
+<td class="text-center"><p>10.0</p></td>
+<td class="text-center"><p>34</p></td>
+<td class="text-center"><p>4.96</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1</p></td>
+<td class="text-center"><p>9.58</p></td>
+<td class="text-center"><p>55</p></td>
+<td class="text-center"><p>4.10</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>2</p></td>
+<td class="text-center"><p>9.21</p></td>
+<td class="text-center"><p>89</p></td>
+<td class="text-center"><p>3.33</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>3</p></td>
+<td class="text-center"><p>8.87</p></td>
+<td class="text-center"><p>144</p></td>
+<td class="text-center"><p>2.68</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>5</p></td>
+<td class="text-center"><p>8.30</p></td>
+<td class="text-center"><p>233</p></td>
+<td class="text-center"><p>2.13</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>8</p></td>
+<td class="text-center"><p>7.62</p></td>
+<td class="text-center"><p>377</p></td>
+<td class="text-center"><p>1.69</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>13</p></td>
+<td class="text-center"><p>6.79</p></td>
+<td class="text-center"><p>610</p></td>
+<td class="text-center"><p>1.34</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>21</p></td>
+<td class="text-center"><p>5.88</p></td>
+<td class="text-center"><p>987</p></td>
+<td class="text-center"><p>1.06</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You may assume that the rate law for this reaction follows basic, power law kinetics, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^{\alpha}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is a presently unknown integer. Use the data in the above table to determine the reaction order, <span class="math notranslate nohighlight">\(\alpha\)</span>, and to estimate the rate constant, <span class="math notranslate nohighlight">\(k\)</span>, as precisely as possible. The data set is compiled in two arrays in the code cell below.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In this type of experment, we would generally start with a known quantity of total moles and a known concentration of reacting species, and we are usually pretty confident in these values. Then we allow time to proceed, and we measure the concentrations of reactants and products as a function of time. The latter are generally more noisy and uncertain because, unlike starting quantities, we have to rely on measurements using calibrated analytical equipment (e.g., NMR, Gas Chromatograph, FTIR, UV-VIs, etc.) to estimate concentrations as a function of time. This adds considerable imprecision to measured data as a function of time compared to the data available for the well-controlled system we create at <span class="math notranslate nohighlight">\(t = 0\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###################################################################################################</span>
+<span class="c1"># Store experimental time and concentration data in separate arrays                               #</span>
+<span class="c1">###################################################################################################</span>
+
+<span class="n">t</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">233</span><span class="p">,</span> <span class="mi">377</span><span class="p">,</span> <span class="mi">610</span><span class="p">,</span> <span class="mi">987</span><span class="p">])</span><span class="c1">#, 1597, 4181, 6765, 10946]) #time in seconds</span>
+<span class="c1"># CA = np.array([10.0000, 9.5783, 9.2057, 8.8736, 8.3045, 7.6249, 6.7884, 5.8824, 4.9629, 4.0996, 3.3315, 2.6764, 2.1335, 1.692, 1.3375, 1.0551])#, 0.8312, 0.5148, 0.4049, 0.3184])</span>
+<span class="n">CA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.00</span><span class="p">,</span> <span class="mf">9.58</span><span class="p">,</span> <span class="mf">9.21</span><span class="p">,</span> <span class="mf">8.87</span><span class="p">,</span> <span class="mf">8.30</span><span class="p">,</span> <span class="mf">7.62</span><span class="p">,</span> <span class="mf">6.79</span><span class="p">,</span> <span class="mf">5.88</span><span class="p">,</span> <span class="mf">4.96</span><span class="p">,</span> <span class="mf">4.10</span><span class="p">,</span> <span class="mf">3.33</span><span class="p">,</span> <span class="mf">2.68</span><span class="p">,</span> <span class="mf">2.13</span><span class="p">,</span> <span class="mf">1.69</span><span class="p">,</span> <span class="mf">1.34</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">])</span><span class="c1">#, 0.8312, 0.5148, 0.4049, 0.3184])</span>
+<span class="c1">#Concentrations in moles per liter</span>
+
+<span class="c1">###################################################################################################</span>
+<span class="c1"># Graph experimental CA vs t data                                                                 #</span>
+<span class="c1">###################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">CA</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2f9ae0c639e1f10b6774dfbfbfa434aeb824d31f54771c351fd2d0bc03dc8968.png" src="../_images/2f9ae0c639e1f10b6774dfbfbfa434aeb824d31f54771c351fd2d0bc03dc8968.png" />
+</div>
+</div>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>This is our introduction to an inverse problem in kinetic analysis. Whereas we are used to solving problems that ask “how long do we need to let this reactor run to achieve a certain conversion,” this problem involves determining the model and parameters that best describe the trends in data that we observe. To this point, we’ve only used models (material balances, rate laws, etc.) in order to predict data (e.g., reactor volume required for a certain conversion). Here, we have to work backwards and use data to develop the correct model. Extracting information from data can be challenging, but we’ll work through a couple of methods. As we do so, we will highlight advantages and pitfalls associated with each one. This will help to build experience and awareness of strengths and weaknesses of each method available to us.</p>
+<p>For the current problem, there is no reason to believe that the reaction is an elementary step, so, at best, we can propose that the rate of reaction depends on temperature (which we capture with a rate constant) and the concentration of the reactant, <span class="math notranslate nohighlight">\(A\)</span>. As given in the problem statement, we do not know the nature of the relationship between rate and concentration – the reaction order in <span class="math notranslate nohighlight">\(A\)</span> is currently unknown. At this point, a logical first step is to propose a power law model, where there are two unknown parameters, <span class="math notranslate nohighlight">\((k, \alpha)\)</span>, that define precisely how reaction rate depends on :</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>Now we have to make some decisions about how we’ll estimate those parameters <span class="math notranslate nohighlight">\((k, \alpha)\)</span>. We have a rate law, but we do not yet have a model to apply to the data fitting exercise. We need to consider that the data available to us is a set of concentrations, <span class="math notranslate nohighlight">\(C_A\)</span>, measured as a function of time, i.e., we have <span class="math notranslate nohighlight">\(C_A\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> data. Our rate law tells us how <span class="math notranslate nohighlight">\(r\)</span> varies as a function of <span class="math notranslate nohighlight">\(C_A\)</span>, not how <span class="math notranslate nohighlight">\(C_A\)</span> varies as a function of <span class="math notranslate nohighlight">\(t\)</span>. This means that we can’t apply the rate law directly for data fitting. We will begin by writing the material balance on species A in a constant volume batch reactor – fundamentally, this is the equation that tells us how <span class="math notranslate nohighlight">\(C_A\)</span> varies with <span class="math notranslate nohighlight">\(t\)</span>, so it is a natural starting point for modelling a set of <span class="math notranslate nohighlight">\(C_A\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span> data.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_A}{dt} = R_AV\]</div>
+<p>For a constant volume reactor, we can divide through by V and move it inside of the derivative:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = R_A\]</div>
+<p>Ffor a single reaction, we know that <span class="math notranslate nohighlight">\(R_A = -r\)</span>, so:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -r\]</div>
+<p>We’ve proposed power law kinetics here – now is the time where it is appropriate to use the rate law information. We substitute it into our material balance, which gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -k{C_A}^\alpha\]</div>
+<p>Now we a general model that tells us, how <span class="math notranslate nohighlight">\(C_A\)</span> will vary as a function of time (although at this point it is a differential equation, not a function per se), and we have options in how we move forward. Generally, with this time of problem, we choose one of two strategies to approach the problem. The first approach is called a <em><strong>differential</strong></em> method of analysis, wherein we attempt to approximate reaction rates by taking numerical derivatives of data. The second approach is an <em><strong>integral</strong></em> method of analysis, where we attempt to solve the differential equation to generate a function that describes how <span class="math notranslate nohighlight">\(C_A\)</span> changes as a function of <span class="math notranslate nohighlight">\(t\)</span>. With that model in hand, we then find a way to regress parameters that minimize residual error. Generally, we will try to use both methods of batch reactor analysis because they each have advantages and disadvantages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>An <em><strong>integral method of analysis</strong></em> is easiest when we are able to assume a reaction order (1, 2, 3…). Once we do that, we know we can solve the differential equation analytically/symbolically in terms of <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(C_{A0}\)</span>. The hard part about applying an integral method of analysis is that there is no guarantee that our reaction will be have integer order kinetics or even positive order kinetics with respect to a particular variable. It can therefore be tedious to test multiple reaction orders with an integral method of analysis.</p>
+<p>A <em><strong>differential method of analysis</strong></em> is fast to apply, and it lets us estimate reaction orders and rate constants <em><strong>without</strong></em> solving a differential equation. A major disadvantage of differential analysis is that it involves calculating numerical derivatives, which is usually very imprecise for noisy, real-world data. Differential analysis amplifies measurement noise, and it can be difficult to extract definitive, statistically significant estimates for rate constants and reaction orders using this method</p>
+<p>The best approach is often to start with differential analysis to quickly develop a sense of likely reaction orders and then to use those insights to inform an integral analysis, where we only test reaction orders suggested by differential analysis. Whereas differential analysis amplifies noise, integral analysis smooths noise, and we can usually improve precision in parameter estimates by applying integral analysis.</p>
+</div>
+<section id="a-differential-analysis-of-batch-reactor-data">
+<h4>A Differential Analysis of Batch Reactor Data<a class="headerlink" href="#a-differential-analysis-of-batch-reactor-data" title="Link to this heading">#</a></h4>
+<section id="finite-difference-methods">
+<h5>Finite Difference Methods<a class="headerlink" href="#finite-difference-methods" title="Link to this heading">#</a></h5>
+<p>We’ll start with a differential method of analysis. Differential analysis of batch reactor data is based on approximating the value of a derivative using finite difference methods. These are very straightforward despite a possibly unfamiliar name. The basic idea is that we assume that we can approximate a derivative from discrete data points from the changes in measured data (here, <span class="math notranslate nohighlight">\(C_A\)</span>) that are observed over a change in input variable (here, <span class="math notranslate nohighlight">\(t\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} \approx \frac{\Delta C_A}{\Delta t}\]</div>
+<p>This is convenient because, <em><strong>in a constant volume batch reactor</strong></em>, we know the relationship between the time derivative of concentration and the reaction rate, namely:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -r\]</div>
+<p>So, by approximating the time derivative of concentration in a constant volume batch reactor, we are actually generating an approximation of the reaction rate at a certain time and reactant concentration.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\Delta C_A}{\Delta t} \approx -r\]</div>
+<p>Let’s start by working with the notion that if we approximate derivatives using finite differences, we will get an estimate of reaction rates. There are several types of finite difference formulas that we can use. They differ in the location of where they assume the derivative is valid. Here, we will use a <em><strong>forward difference method</strong></em>. The forward difference approximation says that we can estimate the derivative at point <span class="math notranslate nohighlight">\(n\)</span> using data at point <span class="math notranslate nohighlight">\(n\)</span> and the next data point at <span class="math notranslate nohighlight">\(n+1\)</span>. We call it a “forward difference” because it estimates the derivative at the current, <span class="math notranslate nohighlight">\(n^{th}\)</span> state of the system using data at the <em><strong>current state of <span class="math notranslate nohighlight">\(n\)</span></strong></em> and a <em><strong>future state of <span class="math notranslate nohighlight">\(n+1\)</span></strong></em>. As an equation, we would write this concept as:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt}\bigg|_{C_{A_n}} \approx \frac{C_{A_{n+1}} - C_{A_{n}}}{t_{n+1} - t_n}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When we are working with large data arrays, and we need to efficiently calculate the differences between neighboring elements in an array, we can do so using <code class="docutils literal notranslate"><span class="pre">numpy.diff()</span></code>. It will take an <span class="math notranslate nohighlight">\(n\)</span> element set of values and return the <span class="math notranslate nohighlight">\(n-1\)</span> set of differences between those values.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ΔCA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">CA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ΔCA</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">Δt</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Δt</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">ΔCA</span><span class="o">/</span><span class="n">Δt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.42 -0.37 -0.34 -0.57 -0.68 -0.83 -0.91 -0.92 -0.86 -0.77 -0.65 -0.55
+ -0.44 -0.35 -0.28] 
+
+[  1   1   1   2   3   5   8  13  21  34  55  89 144 233 377] 
+
+[0.42       0.37       0.34       0.285      0.22666667 0.166
+ 0.11375    0.07076923 0.04095238 0.02264706 0.01181818 0.00617978
+ 0.00305556 0.00150215 0.00074271]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As shown in the code cell above, <code class="docutils literal notranslate"><span class="pre">numpy.diff()</span></code> provides us with a quick and easy way to convert a concentration vs. time data set into an <em><strong>approximate</strong></em> (sometimes very approximate) set of reaction rates that we have inferred from changes in concentration measured over discrete changes in time. As indicated by our definition of the forward difference approximation, these entries represent the approximate time derivative of derivative at point “<span class="math notranslate nohighlight">\(n\)</span>”, <span class="math notranslate nohighlight">\(\frac{dC_A}{dt}\bigg|_{C_{A_n}}\)</span>. This means that the first value in <span class="math notranslate nohighlight">\(r\)</span> is the approximate rate of reaction at <code class="docutils literal notranslate"><span class="pre">t[0]</span></code> and <code class="docutils literal notranslate"><span class="pre">CA[0]</span></code>, the second value in <span class="math notranslate nohighlight">\(r\)</span> is the approximate raction rate at <code class="docutils literal notranslate"><span class="pre">t[1]</span></code> and <code class="docutils literal notranslate"><span class="pre">CA[1]</span></code>, etc.  The only catch is that we have 20 measurements. We can only calculate 19 derivatives from 20 measurements using the forward difference formula. As a consequence, the final value in our rate array represents an estimate of the reaction rate at <code class="docutils literal notranslate"><span class="pre">CA[18]</span></code>, i.e., the 19th concentration measurement.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this case, we don’t have an estimate for the rate at <code class="docutils literal notranslate"><span class="pre">CA[19]</span></code>, the 20th concentration measurement. This is because we are using a forward difference algorithm. Estimating the rate at the 20th concentration would require us to know the 21st concentration, which we didn’t measure.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">CA</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16 
+
+15
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualizing-rate-as-a-function-of-ca">
+<h4>Visualizing rate as a function of CA<a class="headerlink" href="#visualizing-rate-as-a-function-of-ca" title="Link to this heading">#</a></h4>
+<p>Remember: we have a model for how rate should vary with concentration:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>The finite difference approximations allowed us to estimate reaction rate as a function of concentration, so let’s plot <span class="math notranslate nohighlight">\(r\)</span> against <span class="math notranslate nohighlight">\(C_A\)</span> and see what it looks like. Remember: we can only generate 19 rate estimates from 20 concentration measurements at 20 different times. We need to consider the concentration value where the estimate of reaction rate applies. For this analysis, we used a forward difference approximation, which says that the rate is estimated at <span class="math notranslate nohighlight">\({C_A}_n\)</span>, so we’ll plot our rate measurements against the first 19 concentrations. The figure below shows us that rate increases with concentration, which we might generally anticipate. We cannot really determine a reaction order by looking at the data, but we can confidently say that the rate of reaction is positive order in <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################</span>
+<span class="c1"># Extract the concentration values where we have estimated the reaction rate  #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">Cmod</span> <span class="o">=</span> <span class="n">CA</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#keep all but last CA entry</span>
+
+<span class="c1">###############################################################################</span>
+<span class="c1"># Graph rate vs. CA                                                           #</span>
+<span class="c1">###############################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Cmod</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;CA (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;rate (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/22204234007d8e09bdf6bcb2f9b76d88ea4bed38722b8b4657779898d7b3a21d.png" src="../_images/22204234007d8e09bdf6bcb2f9b76d88ea4bed38722b8b4657779898d7b3a21d.png" />
+</div>
+</div>
+</section>
+<section id="attempting-a-linearization-of-r-vs-ca">
+<h4>Attempting a Linearization of <span class="math notranslate nohighlight">\(r\)</span> vs. CA<a class="headerlink" href="#attempting-a-linearization-of-r-vs-ca" title="Link to this heading">#</a></h4>
+<p>We know that the rate of this reaction is positive order in <span class="math notranslate nohighlight">\(A\)</span>…but it is hard for us to determine the order with any quantitative precision. There are many ways that we might approach this challenge. We’ll start with one strategy that most of us are already familiar with – we will attempt to linearize the data using any mathematical transformation(s) that are appropriate. Linearization is a powerful tool because it is relatively easy to assess linearity and deviations therefrom – when a linearization is successful, it gives us confidence that the model we have proposed is applicable.  Moreover, we can apply the tools of linear regression to estimate parameters, which provide additional information about our model.</p>
+<p>In this case, the data we have available is a set of reaction rates estimated at a set of <span class="math notranslate nohighlight">\(C_A\)</span> values. We then need a model that describes how rate of reaction varies with concentration. Here, we have proposed a power law model:</p>
+<div class="math notranslate nohighlight">
+\[r = k{C_A}^\alpha\]</div>
+<p>We can linearize a power law model by taking logarithms of each side. You can use any base that you like for this, but the two most common are base <span class="math notranslate nohighlight">\(e\)</span> logarithms (<code class="docutils literal notranslate"><span class="pre">np.log()</span></code>) and base <span class="math notranslate nohighlight">\(10\)</span> logarithms (<code class="docutils literal notranslate"><span class="pre">np.log10()</span></code>). There is no real advantage to one or the other in this particular problems, so we could pick either to linearize the rate law. For example, if we take the natural logarithm of each side of the rate law, we get the following result:</p>
+<div class="math notranslate nohighlight">
+\[\ln{r} = \alpha\ln{C_A} + \ln{k}\]</div>
+<p>It may not look like it at first glance, but this is a standard <span class="math notranslate nohighlight">\(y = mx + b\)</span> function, where <span class="math notranslate nohighlight">\(y = \ln(r)\)</span> and <span class="math notranslate nohighlight">\(x = \ln(C_A)\)</span>. If this reaction rate truly follows power law kinetics, we should see a straight line when we plot <span class="math notranslate nohighlight">\(\ln{r}\)</span> on the y-axis against <span class="math notranslate nohighlight">\(\ln{C_A}\)</span> on the x-axis. Further, we can see that the slope of this line is equal to the reaction order <span class="math notranslate nohighlight">\(\alpha\)</span>, and the y-intercept is equal to <span class="math notranslate nohighlight">\(\ln(k)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######################################################################################</span>
+<span class="c1"># Graph ln(r) vs. ln(CA), assess linearity                                           #</span>
+<span class="c1">######################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Cmod</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">),</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln(CA) (M)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(rate) (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/35ca3aabbce37e6135f3b1afb5af2d59b8284bffa4d997a5f34d729551c8f78b.png" src="../_images/35ca3aabbce37e6135f3b1afb5af2d59b8284bffa4d997a5f34d729551c8f78b.png" />
+</div>
+</div>
+</section>
+<section id="assessing-linearity-linear-regression">
+<h4>Assessing linearity; linear regression<a class="headerlink" href="#assessing-linearity-linear-regression" title="Link to this heading">#</a></h4>
+<p>Is that trend truly linear? It looks like it, which gives some confidence that power law kinetics are applicable. We cannot be very quantitative with a visual assessment, so now is a good time to perform a regression analysis using that first order model. We can leverage the concepts from <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N37.html">Notebook 37</a> and <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N38.html">Notebook 38</a> to generate the line of best fit as well as several useful quantiative metrics that allow us to determine goodness of fit. Moreover, by performing a regerssion analysis, we will generate estimates for the slope and y-intercept, which will help us to determine the reaction order.</p>
+<p>There are 19 <span class="math notranslate nohighlight">\((\ln(C_A), \ln(r))\)</span> pairs, and we want to find a straight line that describes the trend in data. Because there are 19 data points, we cannot find a single line that goes through all of them – the system is overdetermined. We can, however, regress the straight line that best describes the data using least squares regression. Here, we can follow the approaches outlined for linear regression and create a Vandermonde matrix (truncated to <span class="math notranslate nohighlight">\(x^1\)</span>). Thereafter, we can solve the least squares problem using linear algebra. Alternatively, we could use <code class="docutils literal notranslate"><span class="pre">np.polyfit()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.linalg.lstsq()</span></code>. Each of these uses identical methods and will give the exact same slope and intercept values.</p>
+<p>Since we have developed it already in this course, let’s leverage the code block from <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N38.html">Notebook 38</a>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The code block below is <em><strong>mostly</strong></em> the same as the version that appeared in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N38.html">Notebook 38</a>, but it is not exactly the same. Each time we want to use this linear regression code block, we will need to adapt it for the specific x and y data sets and the specific polynomial order that we wish to apply for a given data fit.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the xdata array and ydata array                                                            #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">CA</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the X matrix and Y array                                                                   #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Y</span>     <span class="o">=</span> <span class="n">ydata</span>
+<span class="n">X</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#This creates the X matrix shown above, truncating at 1st order</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Solve the least squares problem to find the best fit coefficients                                 #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">A</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span> 
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Workup and analysis for quantifying and visualizing goodness of fit                               #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Ypred</span>  <span class="o">=</span> <span class="n">X</span><span class="nd">@A</span>                          <span class="c1">#Calculate discrete array of predicted y values at each x value</span>
+<span class="n">Ybar</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>               <span class="c1">#Calculate the mean of the measured y values, use for SST calculation</span>
+<span class="n">Ndata</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>                   <span class="c1">#Calculate the number of data points/measurementws</span>
+<span class="n">SSE1</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>       <span class="c1">#Calculate residual sum of squares using intuitive summation formula</span>
+<span class="n">SSE2</span>   <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">@</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span>        <span class="c1">#Calculate residual sum of squares using matrix multiplication; equivalent to SSE1</span>
+<span class="n">SST</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ybar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>        <span class="c1">#Calculate total sum of squares; assumes model is just y_pred = mean(ydata)</span>
+<span class="n">MSE</span>    <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">Ndata</span>                   <span class="c1">#Calculate mean square error</span>
+<span class="n">RMSE</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>                 <span class="c1">#Calculate root mean square error</span>
+<span class="n">R2</span>     <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">SST</span>                 <span class="c1">#Calculate R2 (coefficient of determination)</span>
+<span class="n">DOF</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>          <span class="c1">#Count degrees of freedom</span>
+<span class="n">s2</span>     <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">DOF</span>                     <span class="c1">#Estimate variance</span>
+<span class="n">COV</span>    <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">)</span>      <span class="c1">#Generate the covariance matrix for this fit</span>
+<span class="n">m</span>      <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                         <span class="c1">#This is a linear model; with the way we define the X matrix, slope is A[0], intercept is A[1]</span>
+<span class="n">b</span>      <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                         <span class="c1">#This is a linear model; with the way we define the X matrix, slope is A[0], intercept is A[1] </span>
+<span class="n">SEm</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">COV</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>           <span class="c1">#For our definition of the X matrix, standard error in the slope is the first diagonal element in COV</span>
+<span class="n">SEb</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">COV</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>           <span class="c1">#For our definition of the X matrix, standard error in the intercept is the second diagonal element in COV</span>
+<span class="n">tval</span>   <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">DOF</span><span class="p">)</span>      <span class="c1">#t distribution for 95% confidence interval t(1 - α/2, DOF), α = 0.05 for 95% confidence interval</span>
+<span class="n">CIm</span>    <span class="o">=</span> <span class="n">SEm</span><span class="o">*</span><span class="n">tval</span>                     <span class="c1">#confidence interval on slope</span>
+<span class="n">CIb</span>    <span class="o">=</span> <span class="n">SEb</span><span class="o">*</span><span class="n">tval</span>                     <span class="c1">#confidence interval on intercept</span>
+<span class="n">α</span>     <span class="o">=</span> <span class="n">m</span>                             <span class="c1">#slope is equal to the reaction order</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>                     <span class="c1">#y intercept is equal to ln(k)</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Printing results using f strings; create arrays of labels and values                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;SSE&#39;</span><span class="p">,</span> <span class="s1">&#39;SST&#39;</span><span class="p">,</span><span class="s1">&#39;MSE&#39;</span><span class="p">,</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;α&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span>  <span class="p">,</span>  <span class="n">b</span> <span class="p">,</span>  <span class="n">SSE1</span><span class="p">,</span>  <span class="n">SST</span> <span class="p">,</span> <span class="n">MSE</span> <span class="p">,</span> <span class="n">RMSE</span> <span class="p">,</span>  <span class="n">R2</span><span class="p">,</span> <span class="n">α</span><span class="p">,</span> <span class="n">k</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">CIm</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">CIb</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;k&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0.4E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">0.4f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; overlay data and regressed y(x)                                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experimental rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Ypred</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;linear fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln(CA) mol/L&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ln(r) mol/L/s&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; plot of residual errors                                             #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">),</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">floor</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])),</span> <span class="n">ceil</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ln (CA) mol/L&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residual Error in ln (r) (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residual Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m    = 3.1674 +/- 0.0446
+b    = -8.1980 +/- 0.0758
+SSE  = 0.0352
+SST  = 63.9411
+MSE  = 0.0023
+RMSE = 0.0485
+R2   = 0.9994
+α    = 3.1674
+k    = 2.7520E-04
+</pre></div>
+</div>
+<img alt="../_images/1cfae89202a51e21321d1f170314127f27d6979b80c7dbc6b14f8dccec996f8d.png" src="../_images/1cfae89202a51e21321d1f170314127f27d6979b80c7dbc6b14f8dccec996f8d.png" />
+<img alt="../_images/a14912a84c213625bdd86f76432667e79b3f8a6fd2bb1e2440375bdef1d96a52.png" src="../_images/a14912a84c213625bdd86f76432667e79b3f8a6fd2bb1e2440375bdef1d96a52.png" />
+</div>
+</div>
+<p>OK, from the above, we can see visually that there is a linear relationship between <span class="math notranslate nohighlight">\(\ln(r)\)</span> and <span class="math notranslate nohighlight">\(\ln(C_A)\)</span>. We also see that the coefficient of determination is very close to 1 <span class="math notranslate nohighlight">\((R^2 = 0.9994)\)</span>. Although this metric alone is not sufficient to conclude that our model is correct, we can be reasonably confident that a power law rate expression is valid here. Next, we can consider the slope and intercept, which provide information about the reaction order and rate constant, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">α</span>     <span class="o">=</span> <span class="n">m</span>
+<span class="n">k</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;From the slope, we determine that the reaction order is α = </span><span class="si">{</span><span class="n">α</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;From the y-intercept, we determine that k = </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s1">3.2E</span><span class="si">}</span><span class="s1"> in as yet unspecified units&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>From the slope, we determine that the reaction order is α = 3.17
+From the y-intercept, we determine that k = 2.75E-04 in as yet unspecified units
+</pre></div>
+</div>
+</div>
+</div>
+<p>According to our analysis so far, we would conclude that this is a 3.17 order reaction and that the rate constant is <span class="math notranslate nohighlight">\(2.75 \times 10^{-4}\)</span>…in whatever units correspond to a 3.17 order reaction. These estimates are not bad per se, but they are not exactly correct either. Non-integer orders are possible, but they might also raise suspicion as to why the reaction has a strange, non-integer order. Now is a good time to reveal that the data we are fitting was generated artificially by simulating the concentration of species <span class="math notranslate nohighlight">\(A\)</span> in a constant volume batch reactor with the following parameters:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    r &amp; = k{C_A}^3 \\
+    k &amp;= 4.5 \times 10^{-4} \ \mathrm{L^{2} \ mol^{-2} \ s^{-1}} \\
+    C_{A0} &amp;= 10 \ \mathrm{mol \ L^{-1}} \\
+\end{align*}\]</div>
+<p>In other words, the data was generated by simulating a third order (integer order) reaction, so it seems problematic that we’re getting 3.17 order from the differential analysis. This is actually a common, anticipated problem when using differential analysis, and the data here was selected to highlight it. The fundamental problem is that we are treating our rates as if we actually measured them, but remember: we estimated them using a finite difference method (similar to an Euler step…):</p>
+<div class="math notranslate nohighlight">
+\[r|_{C_{A_n}} = \frac{dC_A}{dt}\bigg|_{C_{A_n}} \approx \frac{C_{A_{n+1}} - C_{A_{n}}}{t_{n+1} - t_n}\]</div>
+<p>This approximation tacitly assumes that the derivative of concentration with respect to time is constant between <span class="math notranslate nohighlight">\(t_n\)</span> and <span class="math notranslate nohighlight">\(t_{n+1}\)</span>. This <em><strong>can be</strong></em> a pretty good approximation if we consider small changes in time and concentration, but it can also be pretty bad if we assume it is true over large changes in time and/or concentration.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A differential method of analysis will add noise to the data and decrease the precision in parameter estimates. It is fast to apply, but we should be mindful that the results may be difficult to interpret, especially in cases of noisy data.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N40.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kinetics II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-differential-analysis-of-batch-reactor-data">A Differential Analysis of Batch Reactor Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-difference-methods">Finite Difference Methods</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-rate-as-a-function-of-ca">Visualizing rate as a function of CA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attempting-a-linearization-of-r-vs-ca">Attempting a Linearization of <span class="math notranslate nohighlight">\(r\)</span> vs. CA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-linearity-linear-regression">Assessing linearity; linear regression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

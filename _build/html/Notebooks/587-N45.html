@@ -1,0 +1,1658 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Nonlinear Regression &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N45';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kinetics VI" href="587-N46.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Nonlinear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="587-N46.html">Kinetics VI</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N45.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N45.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N45.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Nonlinear Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-least-squares-recap">Nonlinear Least Squares Recap:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-the-batch-reactor">Material Balance on the Batch Reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-optimization-routine">Using an optimization routine</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02">Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">Visualize the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-least-squares-problem">Setting up the Least Squares Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balances-on-the-constant-volume-batch-reactor">Material Balances on the Constant Volume Batch Reactor</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-more-flexible-ode-function-that-allows-us-to-pass-parameters">Create a more flexible ODE function that allows us to pass parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-ode-solver-to-evaluate-your-objective-function">Use the ODE solver to evaluate your objective function</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nonlinear-regression">
+<h1>Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Link to this heading">#</a></h1>
+<p>This notebook will develop some relatively advanced approaches for solving more challenging optimization problems; specifically, we consider problems where there is no analytical solution for model predictions. In these cases, we must use numerical methods to evaluate the objective function. It is not apparent yet, but this means that our solutions will involve two numerical methods–one to solve the objective function, and one to optimize the objective function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.integrate</span><span class="w"> </span><span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="nonlinear-least-squares-recap">
+<h2>Nonlinear Least Squares Recap:<a class="headerlink" href="#nonlinear-least-squares-recap" title="Link to this heading">#</a></h2>
+<p>We should have a good feel for least squares analysis at this point. So far, we have used both linear least squares and nonlinear least squares to find determine rate laws and estimate kinetic parameters. Today, we will use nonlinear least squares exclusively. The basic problem in kinetic analysis usually involves having aa single model that describes an observable quantity in our reactor. For example, below we have the solution for <span class="math notranslate nohighlight">\(C_A(t)\)</span> in the case of a single, first order, irreversible reaction in a constant volume batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0}e^{-kt}\]</div>
+<p>We would like to apply this model to our measured data. In this case, our measurements would be the concentration of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(C_A\)</span> as a function of <span class="math notranslate nohighlight">\(t\)</span>. When we perform an experiment, we might generate 10, 20, 50, or more <span class="math notranslate nohighlight">\((C_A, t)\)</span> pairs, and we would like our model to predict all of them. This is an inverse, data anlysis problem, so when we formulate the system, we will have many equations (10, 20, 50, or more – one equation per measurement), but we will only have a few unknowns. In this case, our single unknown parameter is the rate constant <span class="math notranslate nohighlight">\(k\)</span>. In theory, this model equation should be satisfied for all data points, but in practice, this is never true. The system is overdetermined (e.g., 50 independent equations, 1 unknown), and experimental errors mean that there is no unique solution.  Instead, we have to find the <em>best</em> values of the parameters of interest. In our context, the <em>best</em> value is the one that minimizes the total sum of square errors between our measurement and our model’s prediction.</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_i(y_i - \hat{y}_i)^2\]</div>
+<p>No matter what problem you are trying to solve, the method behind nonlinear least squares is always the same:</p>
+<ol class="arabic simple">
+<li><p>Propose a model that includes your variable parameters (e.g., a rate constant or reaction order)</p></li>
+<li><p>Use that model to calculate the value of your measurable quantity at each experimental condition (e.g., a concentration at a specific time)</p></li>
+<li><p>Calculate the square error between your measurement and the value predicted by your model</p></li>
+<li><p>Sum the square errors for each data point.</p></li>
+<li><p>Use an iterative solver to vary the parameters of interest until the sum of square errors is at a minimum.</p></li>
+</ol>
+</section>
+<section id="example-problem-01">
+<h2>Example Problem 01<a class="headerlink" href="#example-problem-01" title="Link to this heading">#</a></h2>
+<p>We want to determine the rate constant for the following reaction:</p>
+<div class="math notranslate nohighlight">
+\[A \longrightarrow B\]</div>
+<p>For this experiment, we use a constant volume batch reactor, and we know a few things about the reaction.  First, the rate of reaction is first order in species <span class="math notranslate nohighlight">\(A\)</span>. Second, the rate is independent of the concentration of <span class="math notranslate nohighlight">\(B\)</span>. Based on the above, we write the following rate law:</p>
+<div class="math notranslate nohighlight">
+\[r = kC_A\]</div>
+<p>Finally, the concentration of <span class="math notranslate nohighlight">\(A\)</span> at the start of the experiment was quantified very precisely.  We know that it is equal to <span class="math notranslate nohighlight">\(C_{A0} = 15 \mathrm{M}\)</span>. Otherwise, the only information that we have is that we measured the concentration of the reactant, <span class="math notranslate nohighlight">\(C_A\)</span>, as a function of reaction time. The data are compiled in separate CSV files, <code class="docutils literal notranslate"><span class="pre">t1.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">C1.csv</span></code>. We will import this data and then convert it into numpy arrays. Times are in minutes, and concentrations are in mol/L.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################################</span>
+<span class="c1"># Define the initial concentrations of A, B, C, and D -- these are fixed, global defs are fine  #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">CA01</span>    <span class="o">=</span> <span class="mf">15.0</span> <span class="c1">#mol/L</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Load experimental measurements for first problem into a data frame                            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA1df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;N45_DATA1.csv&quot;</span><span class="p">)</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Convert data frame to numpy array --&gt; easier for elementwise math                             #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA1</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">DATA1df</span><span class="p">)</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Store time data and CA data in separate numpy arrays for readability                          #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">t1</span>      <span class="o">=</span> <span class="n">DATA1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">CA1</span>     <span class="o">=</span> <span class="n">DATA1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Display data frame                                                                            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA1df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time (min)</th>
+      <th>CA (mol/L)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>15.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>14.60</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>14.70</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>12.30</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>11.10</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>10</td>
+      <td>12.40</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>15</td>
+      <td>11.10</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>20</td>
+      <td>9.55</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>25</td>
+      <td>7.72</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>30</td>
+      <td>6.56</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>35</td>
+      <td>6.26</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>40</td>
+      <td>5.86</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>45</td>
+      <td>5.21</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>50</td>
+      <td>4.03</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>55</td>
+      <td>3.76</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>60</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>65</td>
+      <td>2.74</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#####################################################################</span>
+<span class="c1"># Add figure of CA vs. t data                                       #</span>
+<span class="c1">#####################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">CA1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Experimental CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5e722e1e0150a3a1d065711fd2641288a4c19c2a3f9e286e1954d112ba5882d3.png" src="../_images/5e722e1e0150a3a1d065711fd2641288a4c19c2a3f9e286e1954d112ba5882d3.png" />
+</div>
+</div>
+<section id="material-balance-on-the-batch-reactor">
+<h3>Material Balance on the Batch Reactor<a class="headerlink" href="#material-balance-on-the-batch-reactor" title="Link to this heading">#</a></h3>
+<p>We know that this is a first order reaction in a constant volume batch reactor.  An appropriate material balance to model this system is:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dC_A}{dt} = -kC_A\]</div>
+<p>And we know how to solve this analytically to get:</p>
+<div class="math notranslate nohighlight">
+\[C_A = C_{A0}\exp(-kt)\]</div>
+<p>So we have a nonlinear model.  We can overlay that model with a guess at the rate constant and see how well it agrees with our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#######################################################################################</span>
+<span class="c1"># Define model that describes first order reaction in a constant volume batch reactor #</span>
+<span class="c1">#######################################################################################</span>
+<span class="n">CAfun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">,</span><span class="n">t</span><span class="p">:</span> <span class="n">CA01</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="n">t</span><span class="p">)</span> 
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># define test value of rate constant and time array to generate predictions           #</span>
+<span class="c1">#######################################################################################</span>
+
+<span class="n">ktest</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1">#1/min</span>
+<span class="n">tmod</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Calculate SSE for ktest and experimental times                                      #</span>
+<span class="c1">#######################################################################################</span>
+<span class="n">SSEtest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CA1</span> <span class="o">-</span> <span class="n">CAfun</span><span class="p">(</span><span class="n">ktest</span><span class="p">,</span> <span class="n">t1</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;For k = </span><span class="si">{</span><span class="n">ktest</span><span class="si">:</span><span class="s1">3.2f</span><span class="si">}</span><span class="s1">, residual sum of squares is SSE = </span><span class="si">{</span><span class="n">SSEtest</span><span class="si">:</span><span class="s1">3.2E</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#######################################################################################</span>
+<span class="c1"># Overlay predictions with observations using ktest                                   #</span>
+<span class="c1">#######################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">CA1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Experimental CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tmod</span><span class="p">,</span> <span class="n">CAfun</span><span class="p">(</span><span class="n">ktest</span><span class="p">,</span> <span class="n">tmod</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Model Pred. for CA&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For k = 0.01, residual sum of squares is SSE = 2.13E+02
+</pre></div>
+</div>
+<img alt="../_images/6361f788c94ff7c1ffbdacb8272363b0e04529cd910004712439c2901290703a.png" src="../_images/6361f788c94ff7c1ffbdacb8272363b0e04529cd910004712439c2901290703a.png" />
+</div>
+</div>
+</section>
+<section id="using-an-optimization-routine">
+<h3>Using an optimization routine<a class="headerlink" href="#using-an-optimization-routine" title="Link to this heading">#</a></h3>
+<p>As usual, we can do much better by creating an objective function and minimizing it with an optimization routine.  Here, we’ll create an objective function that calculates our sum of squares as a function of our variable parameter (the rate constant), and we’ll use opt.minimize_scaler to find the “best” value of the rate constant, i.e., the one that minimizes the error between our model predictions and our measurments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################################################################</span>
+<span class="c1"># Define objective function -- it will take unknown parameters as arguments, here obj1(k)     #</span>
+<span class="c1"># It will calculate SSE for the value of k passed as an argument and return SSE               #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj1</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">k</span>     <span class="o">=</span> <span class="n">par</span> 
+    <span class="n">CAexp</span> <span class="o">=</span> <span class="n">CA1</span>
+    <span class="n">CAmod</span> <span class="o">=</span> <span class="n">CAfun</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>  <span class="c1">#mol/L    </span>
+    <span class="n">SSE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">CAexp</span> <span class="o">-</span> <span class="n">CAmod</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">SSE</span>
+
+<span class="c1">###############################################################################################</span>
+<span class="c1"># Minimize SSE to find optimal k                                                              #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="n">ans1</span>  <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize_scalar</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span><span class="c1">#, method = &#39;Brent&#39;, bracket = [0.001, 1])</span>
+
+<span class="c1">###############################################################################################</span>
+<span class="c1"># Store and display answers at optimum                                                        #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="n">k_opt</span> <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">x</span>
+<span class="n">SSE</span>   <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">fun</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans1</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The optimum rate constant is </span><span class="si">{</span><span class="n">k_opt</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> 1/min with a SSE value of </span><span class="si">{</span><span class="n">SSE</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> message: 
+          Optimization terminated successfully;
+          The returned value satisfies the termination criteria
+          (using xtol = 1.48e-08 )
+ success: True
+     fun: 5.21951743321773
+       x: 0.024798795779924145
+     nit: 19
+    nfev: 22 
+
+The optimum rate constant is 0.025 1/min with a SSE value of 5.21951743321773
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we know the optimum value of the rate constant, we can overlay the model with our measurments and see how well it does.  It is good to get in the habit of looking at the raw residual error as it gives you an idea of whether your measurements are randomly scattered about the best fit line, or if there is systematic deviation.  We’ll calculate that quanity and plot it as a function of each measurement’s concentration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################</span>
+<span class="c1"># Calculate model result and residual error using optimum parameters               #</span>
+<span class="c1">####################################################################################</span>
+
+<span class="n">CAmod</span> <span class="o">=</span> <span class="n">CAfun</span><span class="p">(</span><span class="n">k_opt</span><span class="p">,</span> <span class="n">tmod</span><span class="p">)</span>               <span class="c1">#generate smooth curve showing model prediction as a continuous function of time</span>
+<span class="n">resid</span> <span class="o">=</span> <span class="p">(</span><span class="n">CAfun</span><span class="p">(</span><span class="n">k_opt</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span> <span class="o">-</span> <span class="n">CA1</span><span class="p">)</span><span class="o">/</span><span class="n">CA1</span><span class="o">*</span><span class="mi">100</span> <span class="c1">#generate residual error at each experimental time</span>
+
+<span class="c1">####################################################################################</span>
+<span class="c1"># Overlay best fit model with measurements                                         #</span>
+<span class="c1">####################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">CA1</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Experimental CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tmod</span><span class="p">,</span> <span class="n">CAmod</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Model Pred. for CA&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CA (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">####################################################################################</span>
+<span class="c1"># Generate plot of residual errors                                                 #</span>
+<span class="c1">####################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CA1</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Experimental CA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">% r</span><span class="s1">esidual error&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f65335339e2a9c75ec76a106d273af2d58419d73660de3ac1b20c18501ade549.png" src="../_images/f65335339e2a9c75ec76a106d273af2d58419d73660de3ac1b20c18501ade549.png" />
+<img alt="../_images/95a03072cd2abcfddf75b03ff86c222e8894e71bd10460bf91f7f43164dc986b.png" src="../_images/95a03072cd2abcfddf75b03ff86c222e8894e71bd10460bf91f7f43164dc986b.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example-problem-02">
+<h2>Example Problem 02<a class="headerlink" href="#example-problem-02" title="Link to this heading">#</a></h2>
+<p>The two following reactions occur in a constant volume batch reactor:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dc53ed0e-a761-424a-a30e-435b20189680">
+<span class="eqno">(1)<a class="headerlink" href="#equation-dc53ed0e-a761-424a-a30e-435b20189680" title="Permalink to this equation">#</a></span>\[\begin{align}
+    2A + B \longrightarrow C \\
+    B  + 2C \longrightarrow D \\
+\end{align}\]</div>
+<p>Both reactions follow an elementary rate law; however, we do not know either of the rate constants (<span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>), so we attempt to estimate them from data collected in our constant volume batch reactor.  The data (time in minutes and concentrations of <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, and <span class="math notranslate nohighlight">\(D\)</span> in moles per liter) are included in the CSV files <code class="docutils literal notranslate"><span class="pre">N45_DATA2.csv</span></code></p>
+<p>The initial concentrations of species <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are 25 and 20 moles per liter, respectively. The initial concentrations of <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are both zero.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################################</span>
+<span class="c1"># Define the initial concentrations of A, B, C, and D -- these are fixed, global defs are fine  #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">CA02</span> <span class="o">=</span> <span class="mf">25.0</span>  <span class="c1">#mol/L</span>
+<span class="n">CB02</span> <span class="o">=</span> <span class="mf">20.0</span>  <span class="c1">#mol/L</span>
+<span class="n">CC02</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1">#mol/L</span>
+<span class="n">CD02</span> <span class="o">=</span> <span class="mf">0.0</span>   <span class="c1">#mol/L</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Load t, CA, CB, CC, CD data for experiment 2 into a data frame                                #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA2df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;N45_DATA2.csv&quot;</span><span class="p">)</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Convert dataframe into numpy array                                                            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA2</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">DATA2df</span><span class="p">)</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Store t, CA, CB, CC, CD data in individual arrays; helps with human readability/comprehension #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">t2</span>      <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">C2</span>      <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="c1">#storing all concentrations in a single 2D array; used for plotting</span>
+<span class="n">CA2</span>     <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">CB2</span>     <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">CC2</span>     <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">CD2</span>     <span class="o">=</span> <span class="n">DATA2</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Display dataframe                                                                             #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">DATA2df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time (min)</th>
+      <th>CA (mol/L)</th>
+      <th>CB (mol/L)</th>
+      <th>CC (mol/L)</th>
+      <th>CD (mol/L)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0000</td>
+      <td>24.60</td>
+      <td>18.60</td>
+      <td>0.0000</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0050</td>
+      <td>22.50</td>
+      <td>20.80</td>
+      <td>0.0501</td>
+      <td>1.230000e-07</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0125</td>
+      <td>24.80</td>
+      <td>19.40</td>
+      <td>0.1320</td>
+      <td>2.030000e-06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0350</td>
+      <td>25.30</td>
+      <td>20.80</td>
+      <td>0.3610</td>
+      <td>3.950000e-05</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0750</td>
+      <td>22.30</td>
+      <td>17.90</td>
+      <td>0.7000</td>
+      <td>3.750000e-04</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.1250</td>
+      <td>20.70</td>
+      <td>17.10</td>
+      <td>1.1900</td>
+      <td>1.480000e-03</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.2500</td>
+      <td>19.70</td>
+      <td>19.50</td>
+      <td>1.8900</td>
+      <td>9.900000e-03</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.5000</td>
+      <td>16.60</td>
+      <td>16.80</td>
+      <td>3.6500</td>
+      <td>5.640000e-02</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1.0000</td>
+      <td>13.40</td>
+      <td>15.70</td>
+      <td>4.6000</td>
+      <td>2.190000e-01</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2.0000</td>
+      <td>11.00</td>
+      <td>12.40</td>
+      <td>6.0600</td>
+      <td>7.890000e-01</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>4.0000</td>
+      <td>8.32</td>
+      <td>9.87</td>
+      <td>4.8900</td>
+      <td>1.740000e+00</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>6.0000</td>
+      <td>6.22</td>
+      <td>8.43</td>
+      <td>5.0100</td>
+      <td>2.140000e+00</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>8.0000</td>
+      <td>5.07</td>
+      <td>7.40</td>
+      <td>4.3800</td>
+      <td>2.680000e+00</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>10.0000</td>
+      <td>4.39</td>
+      <td>7.16</td>
+      <td>4.3000</td>
+      <td>3.290000e+00</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15.0000</td>
+      <td>3.46</td>
+      <td>6.21</td>
+      <td>3.5700</td>
+      <td>3.740000e+00</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>20.0000</td>
+      <td>3.36</td>
+      <td>5.02</td>
+      <td>2.8500</td>
+      <td>3.890000e+00</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>25.0000</td>
+      <td>3.13</td>
+      <td>5.16</td>
+      <td>2.8100</td>
+      <td>4.070000e+00</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>30.0000</td>
+      <td>2.77</td>
+      <td>4.79</td>
+      <td>2.2300</td>
+      <td>4.710000e+00</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>35.0000</td>
+      <td>2.58</td>
+      <td>4.19</td>
+      <td>2.0100</td>
+      <td>4.220000e+00</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>40.0000</td>
+      <td>2.30</td>
+      <td>4.22</td>
+      <td>1.9900</td>
+      <td>4.940000e+00</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>45.0000</td>
+      <td>2.15</td>
+      <td>4.09</td>
+      <td>1.8300</td>
+      <td>4.540000e+00</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>50.0000</td>
+      <td>2.06</td>
+      <td>3.33</td>
+      <td>1.7800</td>
+      <td>5.280000e+00</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>55.0000</td>
+      <td>1.69</td>
+      <td>3.44</td>
+      <td>1.7000</td>
+      <td>5.040000e+00</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>60.0000</td>
+      <td>1.57</td>
+      <td>3.55</td>
+      <td>1.7500</td>
+      <td>4.650000e+00</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>65.0000</td>
+      <td>1.73</td>
+      <td>3.07</td>
+      <td>1.6200</td>
+      <td>4.600000e+00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="visualize-the-data">
+<h3>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Link to this heading">#</a></h3>
+<p>Plot the data to get a feel for what we’re working with.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################################################################################</span>
+<span class="c1"># Generate scatterplot of t vs CA, CB, CC, CD                                      #</span>
+<span class="c1">####################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/99dad0bc2ace83f5f38b8183761cc03f168d7213f2e972ea32fc7acfda44b46e.png" src="../_images/99dad0bc2ace83f5f38b8183761cc03f168d7213f2e972ea32fc7acfda44b46e.png" />
+</div>
+</div>
+</section>
+<section id="setting-up-the-least-squares-problem">
+<h3>Setting up the Least Squares Problem<a class="headerlink" href="#setting-up-the-least-squares-problem" title="Link to this heading">#</a></h3>
+<p>When we move toward the least squares analysis, we should generally understand that we will compare experimental measurements with model predictions, and use the differences between them to calculate the residual sum of squares. The data we have available comprises experimentally measured values of <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>, <span class="math notranslate nohighlight">\(C_C\)</span>, and <span class="math notranslate nohighlight">\(C_D\)</span> at various reaction times. We should try to use all of the data because we need to estimate parameters for both reactions, and the only way for us to do this is to account for changes in all species concentrations in our model predictions. Here, we run into a new issue in our optimization approach: we can’t solve this reactor model analytically as we would with a normal “integral analysis” method. We will have to integrate it numerically. We have done this many times in solving batch or tubular reactor designs, the catch here is that we have to solve the model numerically in order to evaluate the obejctive function (residual sum of squares) that we are attempting to minimize. This is not difficult once you grasp how to wrap an optimizer around an ODE solver, but the code is tricky compared to what we have seen so far in the course.</p>
+<p>To start, let’s just remember how we would solve the batch reactor problem in general if we are given known values <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>. We do not know these values, of course, but there is nothing to stop us from assigning arbitrary numerical values to them to facilitate developing and visualizing the numerical solution for the batch reactor design problem.  Remember: for us to model the changes in species concentration in a batch reactor, we must write and solve the material balance for each species that is present in the reactor.</p>
+<section id="material-balances-on-the-constant-volume-batch-reactor">
+<h4>Material Balances on the Constant Volume Batch Reactor<a class="headerlink" href="#material-balances-on-the-constant-volume-batch-reactor" title="Link to this heading">#</a></h4>
+<p>A straightforward approach for determining species concentrations is to write the material balance for each species in a constant volume batch reactor:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    \frac{dC_A}{dt} &amp;= R_A \\
+    \frac{dC_B}{dt} &amp;= R_B \\
+    \frac{dC_C}{dt} &amp;= R_C \\
+    \frac{dC_D}{dt} &amp;= R_D \\
+\end{align*}\]</div>
+<p>We can define production rates for each species as usual, <span class="math notranslate nohighlight">\(R_j = \sum_i \nu_{i,j}r_i\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    R_A &amp;= -2r_1 \\
+    R_B &amp;= -r_1 - r_2 \\
+    R_C &amp;= r_1 - 2r_2 \\
+    R_D &amp;= r_2 \\
+\end{align*}\]</div>
+<p>And both reactions are irreversible and follow elementary rate laws, so:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    r_1 = k_1{C_A}^2{C_B} \\
+    r_2 = k_2{C_B}{C_C}^2 \\
+\end{align*}\]</div>
+<p>We do not <em><strong>know</strong></em> the values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> yet, but that’s OK – we are building a framework, so we will set arbitrary values for them just to get the ODE solution set up. We know that we are in a position (nonlinear least squares) that will require us to iteratively optimize values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>, so we may as well set them to reasonable initial guesses and build the ODE solver before trying to run the optimizer on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##############################################################################################</span>
+<span class="c1"># Construct the ODE system; this is our set of material balances!                            #</span>
+<span class="c1"># It has the usual form of f(t, [CA, CB, CC, CD])                                            #</span>
+<span class="c1"># It returns [dCAdt, dCBdt, dCCdt, dCDdt]                                                    #</span>
+<span class="c1"># We can integrate it for any time span we want using solve_ivp()                            #</span>
+<span class="c1">##############################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P2a</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">CD</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="mf">0.05</span>
+    
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">k1</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">k2</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CC</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="mi">1</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RD</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">r2</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span>
+    <span class="n">D4</span> <span class="o">=</span> <span class="n">RD</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D4</span><span class="p">]</span>
+
+<span class="c1">###############################################################################################</span>
+<span class="c1"># Define parameters for solve_ivp(); initial guess and integration span                       #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="n">C02</span>    <span class="o">=</span> <span class="p">[</span><span class="n">CA02</span><span class="p">,</span> <span class="n">CB02</span><span class="p">,</span> <span class="n">CC02</span><span class="p">,</span> <span class="n">CD02</span><span class="p">]</span> <span class="c1">#mol/L</span>
+<span class="n">tspan2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+
+<span class="c1">###############################################################################################</span>
+<span class="c1"># Integrate the ODE system using solve_ivp()                                                  #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="n">ans2a</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2a</span><span class="p">,</span> <span class="n">tspan2</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="c1">###############################################################################################</span>
+<span class="c1"># Overlay the ODE solution with experimental data; use semilog x-axis to emphasize short t    #</span>
+<span class="c1">###############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># plt.plot(t2, C2, marker = &#39;o&#39;, markerfacecolor = &#39;none&#39;, linestyle = &#39;none&#39;)</span>
+<span class="c1"># plt.plot(ans2a.t, ans2a.y.T, color = &#39;black&#39;, linestyle = &#39;dashed&#39;, linewidth = 1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">ans2a</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">ans2a</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 70)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a11a6f204532ba09cf14da9583ea1a44ba87a09417319e3f757b2e8da0c3bb9f.png" src="../_images/a11a6f204532ba09cf14da9583ea1a44ba87a09417319e3f757b2e8da0c3bb9f.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="create-a-more-flexible-ode-function-that-allows-us-to-pass-parameters">
+<h3>Create a more flexible ODE function that allows us to pass parameters<a class="headerlink" href="#create-a-more-flexible-ode-function-that-allows-us-to-pass-parameters" title="Link to this heading">#</a></h3>
+<p>Our goal here is optimization – we do not know the values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>, and we will need to iteratively change their values until we find the results that minimize residual sum of squares. If this is our goal, we cannot hard code values for <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> as in the ODE function above. We should recognize that we will not be setting the rate constants ourselves, we will be allowing an optimization routine to iteratively change their values. The only way for us to do this is to make sure that we build the ODE function so that values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> are passed as parameters. We will build up to the optimization in a few steps.  The first one is to convert our ODE function to one that accepts parameters (rate constants here) as arguments; this will be essential for the optimization step.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is actually something that we already know how to do! We can use <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions or (in Python) we can use the <code class="docutils literal notranslate"><span class="pre">args</span></code> keyword to pass extra parameters.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##############################################################################################</span>
+<span class="c1"># Build a modified ODE function; this one accepts extra parameters as arguments              #</span>
+<span class="c1"># Function can be flexible, but here it is built as f(t, [CA, CB, CC, CD], [k1, k2])         #</span>
+<span class="c1"># Function still returns [dCAdt, dCBdt, dCCdt, dCDdt]                                        #</span>
+<span class="c1">##############################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">P2b</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">par</span><span class="p">):</span>
+    <span class="n">CA</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">CB</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">CD</span> <span class="o">=</span> <span class="n">var</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    
+    <span class="n">k1</span> <span class="o">=</span> <span class="n">par</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">k2</span> <span class="o">=</span> <span class="n">par</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">k1</span><span class="o">*</span><span class="n">CA</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">CB</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">k2</span><span class="o">*</span><span class="n">CB</span><span class="o">*</span><span class="n">CC</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="n">RA</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">r1</span>
+    <span class="n">RB</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RC</span> <span class="o">=</span>  <span class="mi">1</span><span class="o">*</span><span class="n">r1</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">r2</span>
+    <span class="n">RD</span> <span class="o">=</span>  <span class="mi">0</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">r2</span>
+    
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">RA</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">RB</span>
+    <span class="n">D3</span> <span class="o">=</span> <span class="n">RC</span>
+    <span class="n">D4</span> <span class="o">=</span> <span class="n">RD</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D4</span><span class="p">]</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Set solve_ivp() initial conditions, integration span, and initial parameter values            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">C02</span>    <span class="o">=</span> <span class="p">[</span><span class="n">CA02</span><span class="p">,</span> <span class="n">CB02</span><span class="p">,</span> <span class="n">CC02</span><span class="p">,</span> <span class="n">CD02</span><span class="p">]</span> <span class="c1">#mol/L</span>
+<span class="n">tspan2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+<span class="n">par</span>    <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Integrate ODE system using solve_ivp(), note keyword argument here passes extra parameters    #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">ans2b</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2b</span><span class="p">,</span> <span class="n">tspan2</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="c1">#################################################################################################</span>
+<span class="c1"># Overlay the ODE solution for CA, CB, CC, and CD with experimental data                        #</span>
+<span class="c1"># Note use of semilog plot -- x axis is log transformed to emphasize short time data            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># plt.plot(t2, C2, marker = &#39;o&#39;, markerfacecolor = &#39;none&#39;, linestyle = &#39;none&#39;)</span>
+<span class="c1"># plt.plot(ans2b.t, ans2b.y.T, color = &#39;black&#39;, linestyle = &#39;dashed&#39;, linewidth = 1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">ans2b</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">ans2b</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 70)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/39a93e380d3ba201eba7cd58356080214e9f7df7cf38f8a2692dbd444edc4bab.png" src="../_images/39a93e380d3ba201eba7cd58356080214e9f7df7cf38f8a2692dbd444edc4bab.png" />
+</div>
+</div>
+</section>
+<section id="use-the-ode-solver-to-evaluate-your-objective-function">
+<h3>Use the ODE solver to evaluate your objective function<a class="headerlink" href="#use-the-ode-solver-to-evaluate-your-objective-function" title="Link to this heading">#</a></h3>
+<p>Now that we can solve the ODE system for arbitrary (and easily variable) values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>, let’s consider the next step for a least squares optimization. We need to find a way to calculate the residual sum of squares. There is no set way to do this, but for this particular experiment, one might note that we have data available for <span class="math notranslate nohighlight">\(C_A\)</span>, <span class="math notranslate nohighlight">\(C_B\)</span>, <span class="math notranslate nohighlight">\(C_C\)</span>, and <span class="math notranslate nohighlight">\(C_D\)</span> as functions of time. Our best chance of estimating <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span> is if we use all of the data in calculating our residual sum of squares.  One way to do that–the most straightforward way to do that–is to define the residual sum of squares as:</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_j \sum_k (C_{j,k} - \hat{C}_{j,k})^2\]</div>
+<p>As a first step, let’s just make sure we understand how to calculate the residual sum of squares from four different measured quantities using our ODE solution. We will do this first as a demo to make sure we know the steps. Once this is clear, we will build this concept into an objective function that we can optimize!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The code block below will throw an error – this is intentional. It is there to demonstrate the size/shape incompatibility of experimental data set and model predictions made by the step-based ODE solver. This error arises because we cannot/should not attempt to control the steps taken by the ODE solver. By default, the solver will report the concentration results at the time steps it has taken, and there is essentially no chance that they are going to be the same as our experimental time stamps.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################################</span>
+<span class="c1"># Set solve_ivp() initial conditions, integration span, and initial parameter values            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">C02</span>    <span class="o">=</span> <span class="p">[</span><span class="n">CA02</span><span class="p">,</span> <span class="n">CB02</span><span class="p">,</span> <span class="n">CC02</span><span class="p">,</span> <span class="n">CD02</span><span class="p">]</span> <span class="c1">#mol/L</span>
+<span class="n">tspan2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+<span class="n">par0</span>   <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+
+<span class="c1">####################################################################################################</span>
+<span class="c1"># Integrate ODE system using solve_ivp() - this is our naive approach based on what we know so far #</span>
+<span class="c1">####################################################################################################</span>
+
+<span class="n">ans2c</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2b</span><span class="p">,</span> <span class="n">tspan2</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">)</span>
+<span class="n">tmod</span>    <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">t</span>
+<span class="n">CAmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CBmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">CCmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">CDmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">SSEA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CA2</span> <span class="o">-</span> <span class="n">CAmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSEB</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CB2</span> <span class="o">-</span> <span class="n">CBmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSEC</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CC2</span> <span class="o">-</span> <span class="n">CCmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSED</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CD2</span> <span class="o">-</span> <span class="n">CDmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSE</span>     <span class="o">=</span> <span class="n">SSEA</span> <span class="o">+</span> <span class="n">SSEB</span> <span class="o">+</span> <span class="n">SSEC</span> <span class="o">+</span> <span class="n">SSED</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">CCmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">CDmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="n">SSEA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CA2</span> <span class="o">-</span> <span class="n">CAmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">SSEB</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CB2</span> <span class="o">-</span> <span class="n">CBmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">SSEC</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CC2</span> <span class="o">-</span> <span class="n">CCmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: operands could not be broadcast together with shapes (25,) (107,) 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We should not try to control the integration steps taken by the ODE solver. These are sophisticated and well-tuned algorithms developed by people that understand Numerical Methods and Computer Science better than we do. We can however request that the ODE solver return solution values at specific steps using the <code class="docutils literal notranslate"><span class="pre">t_eval</span></code> keyword argument.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################################################################################</span>
+<span class="c1"># Set solve_ivp() initial conditions, integration span, and initial parameter values            #</span>
+<span class="c1">#################################################################################################</span>
+
+<span class="n">C02</span>     <span class="o">=</span> <span class="p">[</span><span class="n">CA02</span><span class="p">,</span> <span class="n">CB02</span><span class="p">,</span> <span class="n">CC02</span><span class="p">,</span> <span class="n">CD02</span><span class="p">]</span> <span class="c1">#mol/L</span>
+<span class="n">tspan</span>   <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span>
+<span class="n">par0</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span>
+
+<span class="c1">####################################################################################################</span>
+<span class="c1"># Integrate ODE system using solve_ivp() - this uses the t_eval keyword to control output           #</span>
+<span class="c1">####################################################################################################</span>
+
+<span class="n">ans2c</span>   <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2b</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par0</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t2</span><span class="p">)</span> <span class="c1">#here we specify time stamps where data should be returned</span>
+<span class="n">tmod</span>    <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">t</span>
+<span class="n">CAmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">CBmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">CCmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">CDmod</span>   <span class="o">=</span> <span class="n">ans2c</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">SSEA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CA2</span> <span class="o">-</span> <span class="n">CAmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSEB</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CB2</span> <span class="o">-</span> <span class="n">CBmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSEC</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CC2</span> <span class="o">-</span> <span class="n">CCmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSED</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CD2</span> <span class="o">-</span> <span class="n">CDmod</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSE</span>     <span class="o">=</span> <span class="n">SSEA</span> <span class="o">+</span> <span class="n">SSEB</span> <span class="o">+</span> <span class="n">SSEC</span> <span class="o">+</span> <span class="n">SSED</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">SSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3071.8311047073753
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have an understanding of how we could use a numerical solution to generate model predictions at various experimental times, we can embed this in an objective function. The main idea here is that we need to create a function (an objective function!) that (1) takes our parameter set (unknown values of <span class="math notranslate nohighlight">\(k_1\)</span> and <span class="math notranslate nohighlight">\(k_2\)</span>) as an argument and (2) returns the residual sum of squares.  We have to bear in mind that calculating the residual sum of squares <em><strong>for this problem</strong></em> requires us to numerically integrate the ODE system using <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code>, so this has to be embedded in the objective function.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>With an objective function constructed as below, it is essential to recognize that we are running <code class="docutils literal notranslate"><span class="pre">solve_ivp()</span></code> using a new parameter set on each iteration taken by the optimization routine.  If you can understand this structure, the approach becomes relatively straightforward, and it can be generalized to many different types of problems.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##########################################################################################</span>
+<span class="c1"># Define objective function; it has form f([k1, k2]) and it calculates and returns SSE   #</span>
+<span class="c1">##########################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj2</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">ans2</span>    <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2b</span><span class="p">,</span> <span class="n">tspan2</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t2</span><span class="p">)</span>
+    <span class="n">CAMOD</span>   <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">CBMOD</span>   <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">CCMOD</span>   <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">CDMOD</span>   <span class="o">=</span> <span class="n">ans2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">SSEA</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CA2</span> <span class="o">-</span> <span class="n">CAMOD</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">SSEB</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CB2</span> <span class="o">-</span> <span class="n">CBMOD</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">SSEC</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CC2</span> <span class="o">-</span> <span class="n">CCMOD</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">SSED</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">CD2</span> <span class="o">-</span> <span class="n">CDMOD</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+    <span class="n">SSE</span>     <span class="o">=</span> <span class="n">SSEA</span> <span class="o">+</span> <span class="n">SSEB</span> <span class="o">+</span> <span class="n">SSEC</span> <span class="o">+</span> <span class="n">SSED</span>
+    <span class="c1"># print(f&#39;For k1 = {par[0]:8.2E} and k2 = {par[1]:8.2E}, SSE = {SSE:8.2E}&#39;)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+
+<span class="c1">###########################################################################################</span>
+<span class="c1"># Below is a naieve use of opt.minimize; this is what we would try first                  #</span>
+<span class="c1"># You&#39;ll find that this one often has iterations that send k values negative              #</span>
+<span class="c1"># This causes instability and prevents convergence                                        #</span>
+<span class="c1"># This is a case where we should try to bound values of k1 and k2                         #</span>
+<span class="c1">###########################################################################################</span>
+
+<span class="c1"># par0  = [0.05, 0.05]</span>
+<span class="c1"># ans2d = opt.minimize(obj2, par0)</span>
+    
+<span class="c1">###########################################################################################</span>
+<span class="c1"># Below is a bounded optimization; we try this one after noticing the one above fails     #</span>
+<span class="c1"># We only figure this out after we understand why the unconstrained optimization fails    #</span>
+<span class="c1">###########################################################################################</span>
+
+<span class="n">bnds</span>  <span class="o">=</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="n">ans2d</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj2</span><span class="p">,</span> <span class="n">par0</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">,</span> <span class="n">bounds</span> <span class="o">=</span> <span class="n">bnds</span><span class="p">)</span>
+
+<span class="c1">###########################################################################################</span>
+<span class="c1"># Display the answers, bind to variable names as appropriate                              #</span>
+<span class="c1">###########################################################################################</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ans2d</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">k1_opt</span><span class="p">,</span> <span class="n">k2_opt</span> <span class="o">=</span> <span class="n">ans2d</span><span class="o">.</span><span class="n">x</span>
+<span class="n">par_opt</span> <span class="o">=</span> <span class="n">ans2d</span><span class="o">.</span><span class="n">x</span>
+<span class="n">SSE</span>   <span class="o">=</span> <span class="n">ans2d</span><span class="o">.</span><span class="n">fun</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The optimum rates constant are k1 = </span><span class="si">{</span><span class="n">k1_opt</span><span class="si">:</span><span class="s1">3.3E</span><span class="si">}</span><span class="s1"> and k2 = </span><span class="si">{</span><span class="n">k2_opt</span><span class="si">:</span><span class="s1">3.3E</span><span class="si">}</span><span class="s1"> giving an SSE value of </span><span class="si">{</span><span class="n">SSE</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  message: CONVERGENCE: RELATIVE REDUCTION OF F &lt;= FACTR*EPSMCH
+  success: True
+   status: 0
+      fun: 33.18150076035556
+        x: [ 9.021e-04  1.281e-03]
+      nit: 9
+      jac: [-1.153e-02  4.311e-03]
+     nfev: 60
+     njev: 20
+ hess_inv: &lt;2x2 LbfgsInvHessProduct with dtype=float64&gt; 
+
+The optimum rates constant are k1 = 9.021E-04 and k2 = 1.281E-03 giving an SSE value of 33.182
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see from the output from <code class="docutils literal notranslate"><span class="pre">opt.minimize()</span></code> that the solver converged and we were able to find optimal values of <span class="math notranslate nohighlight">\(k_1 = 9.02E-4\)</span> and <span class="math notranslate nohighlight">\(k_2 = 1.28E-3\)</span>. Now we will pass these optimal results to the ODE solver and re-integrate the coupled system once more to obtain concentration profiles for the optimal parameter set. We will then overlay these with experimental measurements to assess goodness of fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#########################################################################################################</span>
+<span class="c1"># Solve the ODE system one more time with the optimal values of k1 and k2                               #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">ans2e</span>  <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">P2b</span><span class="p">,</span> <span class="n">tspan</span><span class="p">,</span> <span class="n">C02</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">par_opt</span><span class="p">,</span> <span class="p">),</span> <span class="n">atol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t2</span><span class="p">)</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Block below is calculating residual errors; noting dimensions in experiment and model                 #</span>
+<span class="c1"># Need to make sure arrays are size/shape compatbile for math, e.g., transpose model results            #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="c1"># print(C2)</span>
+<span class="c1"># print(C2.shape)</span>
+<span class="c1"># print(ans2e.y)</span>
+<span class="c1"># print(ans2e.y.shape)</span>
+<span class="c1"># print(ans2e.y.T)</span>
+<span class="c1"># print(ans2e.y.T.shape)</span>
+<span class="n">resid</span>  <span class="o">=</span> <span class="p">(</span><span class="n">C2</span> <span class="o">-</span> <span class="n">ans2e</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1">#calculating all residuals as a 2D array</span>
+<span class="n">nexp</span>   <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">expn</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nexp</span><span class="p">,</span> <span class="n">nexp</span><span class="p">)</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Overlay experimental results with model prediction using optimum parameter set                        #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># plt.plot(t2, C2, marker = &#39;o&#39;, markerfacecolor = &#39;none&#39;, linestyle = &#39;none&#39;)</span>
+<span class="c1"># plt.plot(ans2e.t, ans2e.y.T, color = &#39;black&#39;, linestyle = &#39;dashed&#39;, linewidth = 1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">C2</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">ans2e</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">ans2e</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (min)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Concentration (mol/L)&#39;</span><span class="p">)</span>
+<span class="c1"># plt.xlim(0, 70)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;CB&#39;</span><span class="p">,</span> <span class="s1">&#39;CC&#39;</span><span class="p">,</span> <span class="s1">&#39;CD&#39;</span><span class="p">])</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Generate plot of residual errors                                                                      #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">expn</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Measurement Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;error in CA&#39;</span><span class="p">,</span> <span class="s1">&#39;error in CB&#39;</span><span class="p">,</span> <span class="s1">&#39;error in CC&#39;</span><span class="p">,</span> <span class="s1">&#39;error in CD&#39;</span><span class="p">],</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Generate parity plot of log(CA) data to test level of model vs. experiment agreement                  #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">parity</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-7</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="c1"># plt.plot(C2, ans2e.y.T, marker = &#39;o&#39;, markerfacecolor = &#39;none&#39;, linestyle = &#39;none&#39;)</span>
+<span class="c1"># plt.plot(parity, parity, color = &#39;black&#39;, linestyle = &#39;dashed&#39;, linewidth = 1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">C2</span><span class="p">,</span> <span class="n">ans2e</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">parity</span><span class="p">,</span> <span class="n">parity</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;experimental measurements&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;model predictions&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/36bbc23a1fd55f3ce2871e373ebce5563196a7cecdce0c63f00e9185d6917581.png" src="../_images/36bbc23a1fd55f3ce2871e373ebce5563196a7cecdce0c63f00e9185d6917581.png" />
+<img alt="../_images/492b3d0098349fb70a8af54997385fbe5751b854acc4f2c722cd8a16253df812.png" src="../_images/492b3d0098349fb70a8af54997385fbe5751b854acc4f2c722cd8a16253df812.png" />
+<img alt="../_images/7681c47c09e21fc58b70eb90409438a468885f8652d65a0acae9bfcb0671749d.png" src="../_images/7681c47c09e21fc58b70eb90409438a468885f8652d65a0acae9bfcb0671749d.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="587-N46.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kinetics VI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-least-squares-recap">Nonlinear Least Squares Recap:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01">Example Problem 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balance-on-the-batch-reactor">Material Balance on the Batch Reactor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-an-optimization-routine">Using an optimization routine</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02">Example Problem 02</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-data">Visualize the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-least-squares-problem">Setting up the Least Squares Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#material-balances-on-the-constant-volume-batch-reactor">Material Balances on the Constant Volume Batch Reactor</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-more-flexible-ode-function-that-allows-us-to-pass-parameters">Create a more flexible ODE function that allows us to pass parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-ode-solver-to-evaluate-your-objective-function">Use the ODE solver to evaluate your objective function</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

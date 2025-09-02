@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\nbclient\client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\jqbon\anaconda3\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\jqbon\anaconda3\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#################################################################################################
+# Set solve_ivp() initial conditions, integration span, and initial parameter values            #
+#################################################################################################
+
+C02    = [CA02, CB02, CC02, CD02] #mol/L
+tspan2 = (0, max(t2))
+par0   = [0.05, 0.05]
+
+####################################################################################################
+# Integrate ODE system using solve_ivp() - this is our naive approach based on what we know so far #
+####################################################################################################
+
+ans2c   = solve_ivp(P2b, tspan2, C02, args = (par0, ), atol = 1e-8, rtol = 1e-8)
+tmod    = ans2c.t
+CAmod   = ans2c.y[0]
+CBmod   = ans2c.y[1]
+CCmod   = ans2c.y[2]
+CDmod   = ans2c.y[3]
+SSEA    = np.sum((CA2 - CAmod)**2)
+SSEB    = np.sum((CB2 - CBmod)**2)
+SSEC    = np.sum((CC2 - CCmod)**2)
+SSED    = np.sum((CD2 - CDmod)**2)
+SSE     = SSEA + SSEB + SSEC + SSED
+print(SSE)
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[11], line 19[0m
+[0;32m     17[0m CCmod   [38;5;241m=[39m ans2c[38;5;241m.[39my[[38;5;241m2[39m]
+[0;32m     18[0m CDmod   [38;5;241m=[39m ans2c[38;5;241m.[39my[[38;5;241m3[39m]
+[1;32m---> 19[0m SSEA    [38;5;241m=[39m np[38;5;241m.[39msum((CA2 [38;5;241m-[39m CAmod)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m)
+[0;32m     20[0m SSEB    [38;5;241m=[39m np[38;5;241m.[39msum((CB2 [38;5;241m-[39m CBmod)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m)
+[0;32m     21[0m SSEC    [38;5;241m=[39m np[38;5;241m.[39msum((CC2 [38;5;241m-[39m CCmod)[38;5;241m*[39m[38;5;241m*[39m[38;5;241m2[39m)
+
+[1;31mValueError[0m: operands could not be broadcast together with shapes (25,) (107,) 
+

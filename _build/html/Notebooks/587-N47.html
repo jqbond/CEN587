@@ -1,0 +1,863 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kinetics VII &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N47';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kinetics VII</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N47.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N47.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N47.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kinetics VII</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01-ethyl-nitrate-pyrolysis">Example Problem 01: Ethyl Nitrate Pyrolysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-acetone-decomposition">Example Problem 02: Acetone Decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-03-ethane-pyrolysis">Example Problem 03: Ethane Pyrolysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-03">Solution to Example Problem 03</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-vii">
+<h1>Kinetics VII<a class="headerlink" href="#kinetics-vii" title="Link to this heading">#</a></h1>
+<p>This lecture extends our analysis of reaction mechanisms to chain reactions involving free radicals. To develop rate expressions from these complex mechanisms, we make extensive use of the Pseudo Steady State Hypothesis originally discussed in <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N46.html">Notebook 46</a>.</p>
+<section id="example-problem-01-ethyl-nitrate-pyrolysis">
+<h2>Example Problem 01: Ethyl Nitrate Pyrolysis<a class="headerlink" href="#example-problem-01-ethyl-nitrate-pyrolysis" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This example is based on Example 7-2 from <em>Introduction to Chemical Reaction Engineering and Kinetics</em> by Missen, Mims, and Saville.</p>
+</div>
+<p>Ethyl Nitrate <span class="math notranslate nohighlight">\((C_2H_5O\!N\!O_2)\)</span> undergoes pyrolysis in the gas phase to form formaldehyde <span class="math notranslate nohighlight">\((C\!H_2O)\)</span>, methyl nitrite, <span class="math notranslate nohighlight">\((C\!H_3N\!O_2)\)</span>, nitrogen dioxide <span class="math notranslate nohighlight">\((N\!O_2)\)</span>, ethanol <span class="math notranslate nohighlight">\((C_2H_5OH)\)</span> and acetaldehyde <span class="math notranslate nohighlight">\((CH_3CHO)\)</span>.</p>
+<p>The reaction is thought to be initiated by a homolytic bond scission of ethyl nitrate to form an ethoxy radical <span class="math notranslate nohighlight">\((C_2H_5O^\bullet)\)</span> and nitrogen dioxide <span class="math notranslate nohighlight">\((N\!O_2)\)</span>. Radicals are very reactive species, and once the ethoxy species forms, it continues to react further, forming other radicals, which then initiate sequential reactions, one of which forms methyl nitrite. Ultimately, the recombination of 2 ethoxy radicals is thought to form acetaldehyde and ethanol. The mechanism is described in the set of elementary steps below. In this mechanism, we have assumed that all of the reactions are irreversible.</p>
+<p><strong>Mechanism of Ethyl Nitrate Pyrolysis</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    C_2H_5O\!N\!O_2 &amp;\longrightarrow C_2H_5O^\bullet + NO_2\\
+    C_2H_5O^\bullet &amp;\longrightarrow C\!H_3^\bullet + C\!H_2O \\
+    C\!H_3^\bullet + C_2H_5O\!N\!O_2 &amp;\longrightarrow C\!H_3N\!O_2 + C_2H_5O^\bullet \\
+    2C_2H_5O^\bullet &amp;\longrightarrow C\!H_3C\!H\!O + C_2H_5O\!H\\
+\end{align*}\]</div>
+<p><strong>Experimental Observations</strong></p>
+<p>In the laboratory, we observe that the pyrolysis of ethyl nitrate is half-order in ethyl nitrate concentration. Apply the pseudo-steady state approximation to all radical intermediates in this mechanism to develop an expression for the rate of methyl nitrate formation. Show that it is consistent with experimental observations.</p>
+<section id="solution-to-example-problem-01">
+<h3>Solution to Example Problem 01<a class="headerlink" href="#solution-to-example-problem-01" title="Link to this heading">#</a></h3>
+<p>The problem statement asks us to develop an expression for the rate of methyl nitrate formation, so we’ll start here.  In the mechanism, methyl nitrite (<span class="math notranslate nohighlight">\(CH_3NO_2\)</span>) is only formed in step 3, thus:</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3NO_2} = r_3\]</div>
+<p>We further note that the rate of methyl nitrite formation must be equal to the overall rate of reaction (since it is a product of ethyl nitrate decomposition, i.e., 1 ethyl nitrate is consumed to form 1 methyl nitrite). Therefore, the overall rate of reaction is equal to the rate of step 3:</p>
+<div class="math notranslate nohighlight">
+\[r = r_3\]</div>
+<p>So we can work with the rate of step 3 to develop an expression for the overall rate of reaction here. Let’s begin by writing that rate expression, which we can do by inspection since these are elementary steps. Note that we are using bracket notation to express concentrations. This is because the chemical formulas are long and complex, and they are cumbersome as subscripts on concentrations. Bracket notation in this problem is a bit cleaner.</p>
+<div class="math notranslate nohighlight">
+\[r = r_3 = k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right]\]</div>
+<p>As often happens with the analysis of reaction mechanisms, we find that the reaction rate is a function of a reactive intermediate. In this case, it is a methyl radical (<span class="math notranslate nohighlight">\(CH_3^\bullet\)</span>). This is inconvenient because we cannot really purchase, measure, control, etc. the concentration of the methyl radical. So this isn’t a particularly useful rate expression. We would prefer to have the rate expressed as a function of concentrations of stable species that are observable in the gas phase, i.e., the reactants and products in the overall reaction.</p>
+<p>To eliminate reactive species from the rate expression, we make approximations that allow us to express their concentrations in terms of concentrations of stable species. Radicals generally meet the requirements of a “reactive intermediate” in the context of the PSSH. They are difficult to form (slow kinetics of formation), and they are very reactive, so they generally are consumed quickly (fast kinetics of consumption). They are also usually thermodynamically not very favorable, so they are pretty much guaranteed to be present at low concentrations. For these reasons, it is not a bad approximation to say that the concentration of radical intermediates is not changing as a function of time; in other words, their net rate of formation is exactly equal to their net rate of production.</p>
+<p>Next, we apply the PSSH to the methyl radical and see where that gets us. As we are doing this, we can view the concentration of any radical species as an “unknown” that we are looking to express in terms of measurable species (stable reactants and products) and/or kinetic parameters (rate constants). Each additional unknown radical concentration that appears in our expression will require us to write an additional equation in order to express all radicals as functions of stable species. Usually, this is a PSSH.</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3}^\bullet} = 0 = r_2 - r_3\]</div>
+<p>Let’s keep that equation in mind because it may be useful (which we will demonstrate later). To move further, we need to see what is buried in each of those elementary rate expressions, so we expand <span class="math notranslate nohighlight">\(r_2\)</span> and <span class="math notranslate nohighlight">\(r_3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3}^\bullet} = 0 = k_2\left[{C_2H_5O}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right]\]</div>
+<p>Now that we write this out, we see that making the PSSH on the methyl radical has introduced a new “unknown” into the system, specifically the concentration of the ethoxy radical (<span class="math notranslate nohighlight">\({C_2H_5O}^\bullet\)</span>). Because of this, we can’t yet solve for the concentration of the methyl radical in terms of only stable species – we have two “unknown” radical concentrations and only one equation (the PSSH on the methyl radical). To eliminate the concentration of the ethoxy radical, we apply the PSSH again, this time to the ethoxy radical:</p>
+<div class="math notranslate nohighlight">
+\[R_{{C_2H_5O}^\bullet} = 0 = r_1 - r_2 + r_3 - 2r_4\]</div>
+<p>We keep this equation in mind in case it is useful later, but we also have to figure out what other radical concentrations are buried in those elementary rate equations before we can solve this. Expanding each rate expression, we get:</p>
+<div class="math notranslate nohighlight">
+\[R_{{C_2H_5O}^\bullet} = 0 = k_1\left[{C_2H_5ONO_2} \right] - k_2\left[{C_2H_5O}^\bullet \right] + k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] - 2k_4\left[{C_2H_5O}^\bullet \right]^2\]</div>
+<p>Perfect! In writing that PSSH statement, we have not introduced any new radical concentrations, so now have a system of 2 equations (PSSH on <span class="math notranslate nohighlight">\({CH_3}^\bullet\)</span> and on <span class="math notranslate nohighlight">\({C_2H_5O}^\bullet\)</span>) written in terms of two unknowns, namely the concentrations of the methyl and ethoxy radicals (<span class="math notranslate nohighlight">\(\left[{CH_3}^\bullet \right]\)</span> and <span class="math notranslate nohighlight">\(\left[{C_2H_5O}^\bullet \right]\)</span>). We can solve this system.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Solving these system by hand can get pretty messy because of all of the terms that appear when applying the PSSH to species that form in complex mechanisms. I advise against jumping into something familiar, like a substitution method, straightaway. Study the equations first and look for easy cancellations!</p>
+</div>
+<p>Let’s recall that we have two forms of the PSSH equations. We have the complicated, full expansions of each PSSH statement:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f44d2ca5-3865-4f2b-a7dd-22e05add0b4f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-f44d2ca5-3865-4f2b-a7dd-22e05add0b4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= k_2\left[{C_2H_5O}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] \\
+    0 &amp;= k_1\left[{C_2H_5ONO_2} \right] - k_2\left[{C_2H_5O}^\bullet \right] + k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] - 2k_4\left[{C_2H_5O}^\bullet \right]^2
+\end{align}\]</div>
+<p>It can be tempting to start trying to solve for the radical concentrations in the above form, but it is easy to go in circles with a substitution method.  A better first step is often to find combinations of the PSSH equations that allow us to cancel as many terms as possible before trying to work with a substitution method. It is usually easiest to see the right combinations if we instead work with the original PSSH equations (which are equivalent to the above, but expressed only in terms of symbolic reaction rates):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-556f37c4-0ebb-4ec6-87fb-4abebabab505">
+<span class="eqno">(2)<a class="headerlink" href="#equation-556f37c4-0ebb-4ec6-87fb-4abebabab505" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= r_2 - r_3 \\
+    0 &amp;= r_1 - r_2 + r_3 - 2r_4 \\
+\end{align}\]</div>
+<p>Looking at the system this way, it is much easier to see that if we add the two equations, we get:</p>
+<div class="math notranslate nohighlight">
+\[0 = r_1 - 2r_4\]</div>
+<p>We can then expand the rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1\left[{C_2H_5ONO_2} \right] - 2k_4\left[{C_2H_5O}^\bullet \right]\]</div>
+<p>And now we can easily solve for the concentration of the ethoxy radical in terms of the stable gas phase species ethyl nitrate:</p>
+<div class="math notranslate nohighlight">
+\[\left[{C_2H_5O}^\bullet \right] = \sqrt{\frac{k_1}{2k_4}\left[{C_2H_5ONO_2} \right]}\]</div>
+<p>With this result established, we can return to the PSSH equation for the methyl radical (<span class="math notranslate nohighlight">\(CH_3^\bullet\)</span>), substitute the ethoxy concentration expression, and solve for the methyl radical concentration:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    0 &amp;= r_2 - r_3 \\
+    \\
+    0 &amp;= k_2\left[{C_2H_5O}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] \\
+    \\
+    0 &amp;= k_2\sqrt{\frac{k_1}{2k_4}\left[{C_2H_5ONO_2} \right]} - k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right] \\
+\end{align*}\]</div>
+<p>That third equation is now written in terms of 1 “unknown”, i.e., the concentration of the methyl radical.  We can now solve for it in terms of stable species concentrations to get:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3}^\bullet \right] = \frac{k_2}{k_3} \, \sqrt{\frac{k_1}{2k_4}} \, \frac{1}{\left[{C_2H_5ONO_2} \right]^{1/2}}\]</div>
+<p>Now that we have the methyl radical written in terms of ethyl nitrate concentration, we substitute this back into our original rate expression for the overall reaction, i.e.:</p>
+<div class="math notranslate nohighlight">
+\[r = r_3 = k_3\left[{CH_3}^\bullet \right]\left[{C_2H_5ONO_2} \right]\]</div>
+<p>Making the substitution, we get:</p>
+<div class="math notranslate nohighlight">
+\[r = k_3\frac{k_2}{k_3} \, \sqrt{\frac{k_1}{2k_4}} \, \frac{1}{\left[{C_2H_5ONO_2} \right]^{1/2}}\left[{C_2H_5ONO_2} \right]\]</div>
+<p>Which simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[r = k_2 \, \sqrt{\frac{k_1}{2k_4}} \, \left[{C_2H_5ONO_2} \right]^{1/2}\]</div>
+<p>Notably, this expression predicts that the overall rate of reaction is 1/2 order in ethyl nitrate concentration, which is consistent with our experimental observations. We therefore conclude that the proposed reaction mechanism is plausible and aligns with our observations.</p>
+</section>
+</section>
+<section id="example-problem-02-acetone-decomposition">
+<h2>Example Problem 02: Acetone Decomposition<a class="headerlink" href="#example-problem-02-acetone-decomposition" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following analysis is based on Example 5.2 from <em>Chemical Reactor Analysis and Design Fundamentals</em> by Rawlings and Ekerdt</p>
+</div>
+<p>We can write the following overall reaction to describe the thermal decomposition of acetone:</p>
+<div class="math notranslate nohighlight">
+\[3C\!H_3COC\!H_3 \longrightarrow CO + 2C\!H_4 + C\!H_2CO + C\!H_3COC_2H_5\]</div>
+<p>In reality, thermal decomposition of acetone occurs through a sequence of elementary steps that involve the formation and consumption of radicals. For example, one plausible mechanism is given below.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    C\!H_3COC\!H_3 &amp;\longrightarrow C\!H_3^\bullet + C\!H_3CO^\bullet \\
+    C\!H_3CO^\bullet &amp;\longrightarrow C\!H_3^\bullet + CO \\
+    C\!H_3^\bullet + C\!H_3COC\!H_3 &amp;\longrightarrow C\!H_4 + C\!H_3COC\!H_2^\bullet \\
+    C\!H_3COC\!H_2^\bullet &amp;\longrightarrow C\!H_2CO + C\!H_3^\bullet\\
+    C\!H_3^\bullet + C\!H_3COC\!H_2^\bullet &amp;\longrightarrow C\!H_3COC_2H_5 \\
+\end{align*}\]</div>
+<p>From the above mechanism, develop an expression for the production rate of acetone in terms of bulk species and kinetic parameters (i.e., no radicals!!!).</p>
+<section id="solution-to-example-problem-02">
+<h3>Solution to Example Problem 02<a class="headerlink" href="#solution-to-example-problem-02" title="Link to this heading">#</a></h3>
+<p>The problem asks for the production rate of acetone, so let’s roll with that.</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3COCH_3} = -r_1 - r_3\]</div>
+<p>Expanding the elementary rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3COCH_3} = -k_1\left[{CH_3COCH_3} \right] - k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right]\]</div>
+<p>We find ourselves in the familiar situation where the overall rate of acetone consumption depends on the concentration of a radical, but we’d much rather have that rate expression written in terms of stable species. In this system, stable species are acetone <span class="math notranslate nohighlight">\((CH_3COCH_3)\)</span>, <span class="math notranslate nohighlight">\(CO\)</span>, methane <span class="math notranslate nohighlight">\((CH_4)\)</span>, ketene <span class="math notranslate nohighlight">\((CH_2CO)\)</span>, and methylethylketone <span class="math notranslate nohighlight">\((CH_3COC_2H_5)\)</span>. We would like to eliminate the concentration of the methyl radical from the above rate expression, so we write a PSSH statement on the methyl radical. This is usually a fair assumption for radicals since they form slowly and react quickly.</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3}^\bullet} = 0 = r_1 + r_2 - r_3 + r_4 - r_5\]</div>
+<p>Yikes.  The methyl radical really shows up everywhere! Let’s expand those rate expressions to see what other radical concentrations are buried in this PSSH equation:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3}^\bullet} = 0 = k_1\left[{CH_3COCH_3} \right] + k_2\left[{CH_3CO}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] + k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right]\]</div>
+<p>From this expansion, we can see that writing the PSSH on the methyl radical added two more unknowns: the concentration of the acetyl radical <span class="math notranslate nohighlight">\(({CH_3CO}^\bullet)\)</span> and the concentration of the acetone radical <span class="math notranslate nohighlight">\(({CH_3COCH_2}^\bullet)\)</span>. We now write a PSSH for each of these species in hopes that we can express them in terms of stable species. First, we write the PSSH on the acetyl radical:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3CO}^\bullet} = 0 = r_1 - r_2\]</div>
+<p>This expands to:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3CO}^\bullet} = 0 = k_1\left[{CH_3COCH_3} \right] - k_2\left[{CH_3CO}^\bullet \right]\]</div>
+<p>Now, we write the PSSH on the acetone radical:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3COCH_2}^\bullet} = 0 = r_3 - r_4 - r_5\]</div>
+<p>This expands to:</p>
+<div class="math notranslate nohighlight">
+\[R_{{CH_3COCH_2}^\bullet} = 0 = k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] - k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right]\]</div>
+<p>Neither of these PSSH expressions have introduced additional “unknowns.” Our system is now written as three PSSH equations expressed in terms of three unknown radical concentrations (methyl, acetyl, and acetone radicals). We can solve this algebraically to define each radical concentration in terms of stable species.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before starting with heavy algebraic manipulations, it is useful to inspect equations to see if we can find easy cancellations.</p>
+</div>
+<p><strong>Resulting Systems of Equations</strong></p>
+<p>We can look at either the high level PSSH statements:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-17a3d3d5-7d92-4ba0-a725-b840b2e43d5f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-17a3d3d5-7d92-4ba0-a725-b840b2e43d5f" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= r_1 + r_2 - r_3 + r_4 - r_5 \\
+    0 &amp;= r_1 - r_2 \\
+    0 &amp;= r_3 - r_4 - r_5 \\
+\end{align}\]</div>
+<p>Or we can look at the expanded forms with rate expressions:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3b8ef41d-1094-4c98-8cf6-d95e04466ccf">
+<span class="eqno">(4)<a class="headerlink" href="#equation-3b8ef41d-1094-4c98-8cf6-d95e04466ccf" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= k_1\left[{CH_3COCH_3} \right] + k_2\left[{CH_3CO}^\bullet \right] - k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] + k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right] \\
+    0 &amp;= k_1\left[{CH_3COCH_3} \right] - k_2\left[{CH_3CO}^\bullet \right] \\
+    0 &amp;= k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] - k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right] \\
+\end{align}\]</div>
+<p>The best practice at this point is generally to study the high level forms of the equations because we can often find cancellations and simple results that make subsequent algebraic manipulations much easier. Right away, the equation below looks like a good starting point (for a couple of reasons):</p>
+<div class="math notranslate nohighlight">
+\[0 = r_1 - r_2\]</div>
+<p>First, it involves only two rate expressions, so there are relatively few species involved and few substitutions to make. Second, if we look at the expanded form written in terms of radical concentrations:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1\left[{CH_3COCH_3} \right] - k_2\left[{CH_3CO}^\bullet \right]\]</div>
+<p>We see that there is only one radical in this equation, namely the acetyl radical. This means that we can use this equation to solve explicitly for the concentration of the acetyl radical in terms of stable species. Doing so, we find:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3CO}^\bullet \right] = \frac{k_1}{k_2}\left[{CH_3COCH_3} \right]\]</div>
+<p>Next, we can add up all three PSSH expressions.  This gives:</p>
+<div class="math notranslate nohighlight">
+\[0 = r_1 - r_5\]</div>
+<p>This is another convenient equation; if we expand it:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1\left[{CH_3COCH_3} \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right]\]</div>
+<p>We find that it depends only on two unknowns, the methyl radical and the acetone radical. We’ll solve this to get the acetone radical in terms of the methyl radical.</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3COCH_2}^\bullet \right] = \frac{k_1}{k_5}\frac{\left[{CH_3COCH_3} \right]}{\left[{CH_3}^\bullet \right]}\]</div>
+<p>Now that we have these two expressions for the acetyl and acetone radical concentrations, we can substitute them into either the PSSH on the methyl or the PSSH on the acetone radical to solve for the concentration of the methyl radical. We’ll pick the last equation (PSSH on the acetone radical) since it is slightly simpler:</p>
+<div class="math notranslate nohighlight">
+\[0 = r_3 - r_4 - r_5\]</div>
+<p>Substituting rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] - k_4\left[{CH_3COCH_2}^\bullet \right] - k_5\left[{CH_3}^\bullet \right]\left[{CH_3COCH_2}^\bullet \right]\]</div>
+<p>Substituting for acetone radical concentrations:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right] - k_4\frac{k_1}{k_5}\frac{\left[{CH_3COCH_3} \right]}{\left[{CH_3}^\bullet \right]} - k_5\left[{CH_3}^\bullet \right]\frac{k_1}{k_5}\frac{\left[{CH_3COCH_3} \right]}{\left[{CH_3}^\bullet \right]}\]</div>
+<p>This simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3\left[{CH_3}^\bullet \right]^2 - k_1 \left[{CH_3}^\bullet \right] - \frac{k_1k_4}{k_5} \]</div>
+<p>We can solve this with the quadratic formula to get:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3}^\bullet \right] = \frac{k_1 \pm \sqrt{k_1^2 + \frac{4k_1k_3k_4}{k_5}}}{2k_3}\]</div>
+<p>Looking at the term under the square root, we find that, since rate constants are always positive, it’s <em>minimum</em> value is <span class="math notranslate nohighlight">\(k_1^2\)</span>.  This means that subtracting <span class="math notranslate nohighlight">\(k_1 - \sqrt{k_1^2 + \frac{4k_1k_3k_4}{k_5}}{2k_3}\)</span> will be, at most, zero.  For any case where <span class="math notranslate nohighlight">\(k_1\)</span>, <span class="math notranslate nohighlight">\(k_3\)</span>, <span class="math notranslate nohighlight">\(k_4\)</span>, and <span class="math notranslate nohighlight">\(k_5\)</span> are not zero that subtraction will give us a negative concentration. So the positive term is the only realistic one, and we conclude that:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3}^\bullet \right] = \frac{k_1 + \sqrt{k_1^2 + \frac{4k_1k_3k_4}{k_5}}}{2k_3}\]</div>
+<p>This can also be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3}^\bullet \right] = \frac{k_1}{2k_3} + \sqrt{\frac{k_1^2}{4k_3^2} + \frac{k_1k_4}{k_3k_5}}\]</div>
+<p>This is the expression we need to provide a rate law written in terms of stable species concentrations.</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3COCH_3} = -k_1\left[{CH_3COCH_3} \right] - k_3\left[{CH_3}^\bullet \right]\left[{CH_3COCH_3} \right]\]</div>
+<p>Substituting our expression for the concentration of the methyl radical into our original rate expression, we get:</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3COCH_3} = -\left(\frac{3k_1}{2} + \sqrt{\frac{k_1^2}{4} + \frac{k_1k_3k_4}{k_5}} \ \right)\left[{CH_3COCH_3} \right] \]</div>
+<p>In the lab, we would generally have a hard time determining each of these rate constants by regression of data.  For the purposes of designing a reactor, you would usually be content to say that this reaction is first order in acetone concentration, and you would just lump all of the rate constants into a single, empirical rate constant that you would regress as usual by analysis of the first order system.</p>
+<div class="math notranslate nohighlight">
+\[R_{CH_3COCH_3} = -k^\prime\left[{CH_3COCH_3} \right] \]</div>
+</section>
+</section>
+<section id="example-problem-03-ethane-pyrolysis">
+<h2>Example Problem 03: Ethane Pyrolysis<a class="headerlink" href="#example-problem-03-ethane-pyrolysis" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following is Example 5.5 from <em>Chemical Reactor Analysis and Design Fundamentals</em> by Rawlings and Ekerdt</p>
+</div>
+<p>Thermal pyrolysis of ethane is thought to occur by the following mechanism:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-462744e1-a366-48e9-b589-332a4fef08ef">
+<span class="eqno">(5)<a class="headerlink" href="#equation-462744e1-a366-48e9-b589-332a4fef08ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+    C_2H_6 &amp;\longrightarrow 2C\!H_3^\bullet \\
+    C\!H_3^\bullet + C_2H_6 &amp;\longrightarrow C\!H_4 + C_2H_5^\bullet \\
+    C_2H_5^\bullet &amp;\longrightarrow C_2H_4 + H^\bullet \\
+    H^\bullet + C_2H_6 &amp;\longrightarrow H_2 + C_2H_5^\bullet\\
+    H^\bullet + C_2H_5^\bullet &amp;\longrightarrow C_2H_6 \\
+\end{align}\]</div>
+<p>Derive an expression for the production rate of ethylene, <span class="math notranslate nohighlight">\(C_2H_4\)</span>. In this analysis, you may assume that the PSSH is valid for any radical or atomic intermediates.</p>
+<section id="solution-to-example-problem-03">
+<h3>Solution to Example Problem 03<a class="headerlink" href="#solution-to-example-problem-03" title="Link to this heading">#</a></h3>
+<p>First, we would write a standard production rate expression for ethylene, <span class="math notranslate nohighlight">\(C_2H_4\)</span>.  Conveniently, it only appears in a single step, so:</p>
+<div class="math notranslate nohighlight">
+\[R_{C_2H_4} = r_3\]</div>
+<p>Since these are elementary steps, we can expand the rate expression for step 3:</p>
+<div class="math notranslate nohighlight">
+\[R_{C_2H_4} = k_3 \left[{C_2H_5}^\bullet\right] \]</div>
+<p>And we find ourselves in the usual position of needing to express the concentration of a reactive intermediate, the ethyl radical <span class="math notranslate nohighlight">\(({C_2H_5}^\bullet)\)</span> in terms of stable species.  We start by writing a PSSH expression on the ethyl radical:</p>
+<div class="math notranslate nohighlight">
+\[0 = r_2 - r_3 + r_4  - r_5 \]</div>
+<p>Expanding the elementary rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] - k_3 \left[{C_2H_5}^\bullet\right] + k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right] \]</div>
+<p>Now we’ve introduced two new reactive intermediates, the hydrogen atom and the methyl radical.  We write PSSH statements on both of these.  First the hydrogen atom:</p>
+<div class="math notranslate nohighlight">
+\[0 = r_3 - r_4 - r_5\]</div>
+<p>Expanding the elementary rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3 \left[{C_2H_5}^\bullet\right] - k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right] \]</div>
+<p>And then the PSSH on the methyl radical:</p>
+<div class="math notranslate nohighlight">
+\[0 = 2r_1 - r_2\]</div>
+<p>And expanding the elementary rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = 2k_1 \left[{C_2H_6}\right] - k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] \]</div>
+<p>Now we have 3 equations (3 PSSH statements on the 3 radical species) and 3 unknowns (the 3 radical species).  We can solve the system to get the concentrations of all of the radicals in terms of stable species. As usual, we can look at the system in two ways, both are equivalent, but sometimes it is easy to simplify the system looking only at the equations involving reaction rates first.</p>
+<p><strong>System 1</strong></p>
+<div class="amsmath math notranslate nohighlight" id="equation-599a0048-bf8e-4c42-be10-a0ba4d01a8e7">
+<span class="eqno">(6)<a class="headerlink" href="#equation-599a0048-bf8e-4c42-be10-a0ba4d01a8e7" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= r_2 - r_3 + r_4  - r_5 \\
+    0 &amp;= r_3 - r_4 - r_5 \\
+    0 &amp;= 2r_1 - r_2 \\
+\end{align}\]</div>
+<p><strong>System 2</strong></p>
+<div class="amsmath math notranslate nohighlight" id="equation-831aa67c-40b3-47e3-b509-40d5d9c4c293">
+<span class="eqno">(7)<a class="headerlink" href="#equation-831aa67c-40b3-47e3-b509-40d5d9c4c293" title="Permalink to this equation">#</a></span>\[\begin{align}
+    0 &amp;= k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] - k_3 \left[{C_2H_5}^\bullet\right] + k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right]  \\
+    0 &amp;= k_3 \left[{C_2H_5}^\bullet\right] - k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right] \\
+    0 &amp;= 2k_1 \left[{C_2H_6}\right] - k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right] \\
+\end{align}\]</div>
+<p>Let’s start with the last equation:</p>
+<div class="math notranslate nohighlight">
+\[0 = 2k_1 \left[{C_2H_6}\right] - k_2 \left[{CH_3}^\bullet\right] \left[{C_2H_6}\right]\]</div>
+<p>This has only one unknown, so we can solve it to get an explicit expression for the methyl radical:</p>
+<div class="math notranslate nohighlight">
+\[\left[{CH_3}^\bullet\right] = \frac{2k_1}{k_2}\]</div>
+<p>If we add the 3 equations in System 1, we find:</p>
+<div class="math notranslate nohighlight">
+\[0 = 2r_1 - 2r_5\]</div>
+<p>Which expands to:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1 \left[{C_2H_6}\right] - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right]\]</div>
+<p>We can solve this to get either the concentration of the hydrogen atom or the ethyl radical in terms of the other.  Let’s chose to solve for the hydrogen atom concentration.</p>
+<div class="math notranslate nohighlight">
+\[\left[{H}^\bullet\right] = \frac{k_1}{k_5} \frac{\left[{C_2H_6}\right]}{\left[{C_2H_5}^\bullet\right]}\]</div>
+<p>Now, we’ll substitute this result into the equation below to get the concentration of the ethyl radical:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3 \left[{C_2H_5}^\bullet\right] - k_4 \left[{H}^\bullet\right] \left[{C_2H_6}\right]  - k_5 \left[{H}^\bullet\right] \left[{C_2H_5}^\bullet\right]\]</div>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3 \left[{C_2H_5}^\bullet\right]^2 - k_1 \left[{C_2H_6}\right] \left[{C_2H_5}^\bullet\right] - \frac{k_1k_4}{k_5} \left[{C_2H_6}\right]^2 \]</div>
+<p>This can be solved for <span class="math notranslate nohighlight">\(\left[{C_2H_5}^\bullet\right]\)</span> using the quadratic formula to get:</p>
+<div class="math notranslate nohighlight">
+\[\left[{C_2H_5}^\bullet\right] = \left(\frac{k_1}{2k_3} + \sqrt{\left(\frac{k_1}{2k_3}\right)^2 + \frac{k_1k_4}{k_3k_5}} \ \right)\left[{C_2H_6}\right]\]</div>
+<p>This can be substituted into our original expression for the production rate of ethylene, which gives us the overall reaction rate (overall production rate of ethylene) in terms of stable species concentrations.</p>
+<div class="math notranslate nohighlight">
+\[r = R_{C_2H_4} = k_3 \left(\frac{k_1}{2k_3} + \sqrt{\left(\frac{k_1}{2k_3}\right)^2 + \frac{k_1k_4}{k_3k_5}} \ \right)\left[{C_2H_6}\right] \]</div>
+<p>You can simplify a little by distributing <span class="math notranslate nohighlight">\(k_3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[r = \left(\frac{k_1}{2} + \sqrt{\left(\frac{k_1}{2}\right)^2 + \frac{k_1k_3k_4}{k_5}} \ \right)\left[{C_2H_6}\right] \]</div>
+<p>For empirical problems in reactor design, we would usually conclude that the rate of ethylene formation is first order in ethane concentration and that it has an empirical, lumped rate constant that we would determine by regression.</p>
+<div class="math notranslate nohighlight">
+\[r = k^\prime \left[{C_2H_6}\right] \]</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-01-ethyl-nitrate-pyrolysis">Example Problem 01: Ethyl Nitrate Pyrolysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-01">Solution to Example Problem 01</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-02-acetone-decomposition">Example Problem 02: Acetone Decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-02">Solution to Example Problem 02</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-problem-03-ethane-pyrolysis">Example Problem 03: Ethane Pyrolysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-problem-03">Solution to Example Problem 03</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1449 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kinetics IX &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N49';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Kinetics IX</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N49.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N49.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N49.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Kinetics IX</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-01-urea-decomposition">Example 01: Urea Decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-01">Solution to Example 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-regression">Nonlinear Regression</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-of-mm-rate-expression-the-lineweaver-burk-model">Linearization of MM rate expression: The Lineweaver-Burk model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enzyme-inhibition-mechanism-1">Enzyme Inhibition Mechanism 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overal-reaction">Overal Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanism">Mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enzyme-inhibition-mechanism-2">Enzyme Inhibition Mechanism 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-between-mechanisms-of-inhibition-by-linearization">Distinguishing Between Mechanisms of Inhibition by linearization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten">Michaelis-Menten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibition-mechanism-1-i-e-rightleftharpoons-ei">Inhibition Mechanism 1: <span class="math notranslate nohighlight">\(I + E \rightleftharpoons EI\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibition-mechanism-2-i-es-rightleftharpoons-ies">Inhibition Mechanism 2: <span class="math notranslate nohighlight">\(I + ES \rightleftharpoons IES\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-linearized-expressions">Comparing Linearized Expressions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-ix">
+<h1>Kinetics IX<a class="headerlink" href="#kinetics-ix" title="Link to this heading">#</a></h1>
+<p>This Notebook continues our discussion of enzymatic reactions. We consider some methods of analysis and linearization, and we discuss various mechanisms of enzyme inhibition and ways to distinguish them based on experimental observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">floor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-01-urea-decomposition">
+<h2>Example 01: Urea Decomposition<a class="headerlink" href="#example-01-urea-decomposition" title="Link to this heading">#</a></h2>
+<p>Urease is a metalloenzyme that contains <span class="math notranslate nohighlight">\(Ni^{2+}\)</span> cations. It serves the important biological function (generally in plants) of decomposing urea (U) to form ammonia <span class="math notranslate nohighlight">\((N\!H_3)\)</span> and <span class="math notranslate nohighlight">\(CO_2\)</span>. It is proposed that urea decomposition occurs through a Michaelis-Menten mechanism, which we write in two steps:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    U + E \rightleftharpoons EU \\
+    EU \rightarrow E + P \\
+\end{align*}\]</div>
+<p>Because it follows a Michaelis-Menten Mechanism, we know the overall rate law (See <a class="reference external" href="https://jqbond.github.io/CEN587/Notebooks/587-N48.html">Notebook 48</a>). Specifically, the rate of reaction should have the following dependence on substrate concentration (Urea concentration).</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[U]}{K_M + [U]}\]</div>
+<p>We are given the following experimental data (see cell below); show that it is consistent with a Michaelis-Menten rate law, and estiamte the value of the Michaelis-Menten parameters (<span class="math notranslate nohighlight">\(V_\textrm{max}\)</span> and <span class="math notranslate nohighlight">\(K_M\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###################################################################################################</span>
+<span class="c1"># Experimental data -- rates of urea decomposition measured at various concentrations of urea     #</span>
+<span class="c1">###################################################################################################</span>
+
+<span class="n">CU</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1">#Experimental values of urea concentration</span>
+<span class="n">rexp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">])</span>   <span class="c1">#Rates of urea decomposition measured at each above urea concentration</span>
+
+<span class="c1">###################################################################################################</span>
+<span class="c1"># Create scatterplot of rate vs. urea concentration                                               #</span>
+<span class="c1">###################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CU</span><span class="p">,</span> <span class="n">rexp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Urea Decomposition Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Urea Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate of Decomposition (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/596014b79f6fedf66f8f5623f4cc940fd09d220e3e132bfb73fdcab7607af959.png" src="../_images/596014b79f6fedf66f8f5623f4cc940fd09d220e3e132bfb73fdcab7607af959.png" />
+</div>
+</div>
+<section id="solution-to-example-01">
+<h3>Solution to Example 01<a class="headerlink" href="#solution-to-example-01" title="Link to this heading">#</a></h3>
+<p>Just from a simple, visual analysis, we can see that the data have a shape that <em><strong>could</strong></em> be attributed to a Michaelis-Menten Mechanism. At low concentrations, rate increases sharply with increasing concentration, and then at high concentrations, rate is not particularly sensitive to urea concentration. We haven’t done anything rigorous yet, but this would be consistent with an Michaelis-Menten Mechanism, which predicts first order kinetics at low substrate concentrations and zero order kinetics at high substrate concentrations.</p>
+<p>We should overlay model predictions with the measured data to see how well predictions align with experimental data. We can’t do this until we have estimates for <span class="math notranslate nohighlight">\(K_M\)</span> and <span class="math notranslate nohighlight">\(V_\mathrm{max}\)</span>, i.e., the Michaelis-Menten parameters. One useful skill is to learn how to generate rough parameter values without least squares minimization. Often, we can do this by studying limiting behavior. In the case of Michaelis-Menten kinetics, we know that the rate law should be:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[U]}{K_M + [U]}\]</div>
+<p>In the limit of very high substrate concentrations <span class="math notranslate nohighlight">\(([U] \rightarrow \infty)\)</span>, <span class="math notranslate nohighlight">\(K_M &lt;&lt; [U]\)</span>, so:</p>
+<div class="math notranslate nohighlight">
+\[r = V_\textrm{max}\]</div>
+<p>The highest concentration we’ve measured here is at 0.20 mol/L, where we measure a rate of 1.08 mol/L/s. Based on this measurement, we could say that if our system follows a Michaelis-Menten Mechanism, then the following is a good estimate for <span class="math notranslate nohighlight">\(V_\mathrm{max}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{max} \approx  1.08 \ \textrm{mol} \ \textrm{L}^{-1} \ \textrm{s}^{-1}\]</div>
+<p>We should recognize that the highest experimental concentration of urea, <span class="math notranslate nohighlight">\([U] = 0.2 \ \mathrm{M}\)</span> is likely not large enough to say conclusively that <span class="math notranslate nohighlight">\(K_M &lt;&lt; [U]\)</span>, but seeing that the rate of reaction is approaching zero order in urea concentration here, this is not a bad approximation, and it is far better than trying to blindly guess values of <span class="math notranslate nohighlight">\(V_{max}\)</span> to pass into an optimization routine as initial guesses.</p>
+<p>Analogously, if we look at low concentration data, say rates measured at 0.002 and 0.005 mol/L, we can say in this regime that (probably) <span class="math notranslate nohighlight">\(K_M &gt;&gt; [U]\)</span>. In this limit, we would observe:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}}{K_M}[U]\]</div>
+<p>In other words, rate scales linearly with urea concentration, and the slope of that line should be the ratio of <span class="math notranslate nohighlight">\(V_\mathrm{max}\)</span> to <span class="math notranslate nohighlight">\(K_M\)</span>. We can fit a line to the two lowest concentration data points to get an estimate for <span class="math notranslate nohighlight">\(K_M\)</span>. This is done in the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the xdata array and ydata array                                                            #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">ydata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the X matrix and Y array                                                                   #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Y</span>     <span class="o">=</span> <span class="n">ydata</span>
+<span class="n">X</span>     <span class="o">=</span> <span class="n">xdata</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Solve the least squares problem to find the best fit coefficients                                 #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">A</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span> 
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Workup and analysis for quantifying and visualizing goodness of fit                               #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Ypred</span>  <span class="o">=</span> <span class="n">X</span><span class="nd">@A</span>                          <span class="c1">#Calculate discrete array of predicted y values at each x value</span>
+<span class="n">Ybar</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>               <span class="c1">#Calculate the mean of the measured y values, use for SST calculation</span>
+<span class="n">Ndata</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>                   <span class="c1">#Calculate the number of data points/measurementws</span>
+<span class="n">SSE1</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>       <span class="c1">#Calculate residual sum of squares using intuitive summation formula</span>
+<span class="n">SSE2</span>   <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">@</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span>        <span class="c1">#Calculate residual sum of squares using matrix multiplication; equivalent to SSE1</span>
+<span class="n">SST</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ybar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>        <span class="c1">#Calculate total sum of squares; assumes model is just y_pred = mean(ydata)</span>
+<span class="n">MSE</span>    <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">Ndata</span>                   <span class="c1">#Calculate mean square error</span>
+<span class="n">RMSE</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>                 <span class="c1">#Calculate root mean square error</span>
+<span class="n">R2</span>     <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">SST</span>                 <span class="c1">#Calculate R2 (coefficient of determination)</span>
+<span class="n">DOF</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>          <span class="c1">#Count degrees of freedom</span>
+<span class="n">s2</span>     <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">DOF</span>                     <span class="c1">#Estimate variance</span>
+<span class="n">COV</span>    <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">)</span>      <span class="c1">#Generate the covariance matrix for this fit</span>
+<span class="n">m</span>      <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                         <span class="c1">#This is a linear model; with the way we define the X matrix, slope is A[0], intercept is A[1]</span>
+<span class="n">SEm</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">COV</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>           <span class="c1">#For our definition of the X matrix, standard error in the slope is the first diagonal element in COV</span>
+<span class="n">tval</span>   <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">DOF</span><span class="p">)</span>      <span class="c1">#t distribution for 95% confidence interval t(1 - α/2, DOF), α = 0.05 for 95% confidence interval</span>
+<span class="n">CIm</span>    <span class="o">=</span> <span class="n">SEm</span><span class="o">*</span><span class="n">tval</span>                     <span class="c1">#confidence interval on slope</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># defining MM parameters                                                                            #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Vmax_r</span>  <span class="o">=</span> <span class="mf">1.08</span> <span class="c1">#mol/L/s</span>
+<span class="n">KM_r</span>    <span class="o">=</span> <span class="n">Vmax_r</span><span class="o">/</span><span class="n">m</span> <span class="c1">#mol/L</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Printing results using f strings; create arrays of labels and values                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;SSE&#39;</span><span class="p">,</span> <span class="s1">&#39;SST&#39;</span><span class="p">,</span><span class="s1">&#39;MSE&#39;</span><span class="p">,</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;KM&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span>  <span class="p">,</span>  <span class="n">SSE1</span><span class="p">,</span>  <span class="n">SST</span> <span class="p">,</span> <span class="n">MSE</span> <span class="p">,</span> <span class="n">RMSE</span> <span class="p">,</span>  <span class="n">R2</span> <span class="p">,</span>  <span class="n">KM_r</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">9.2e</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">CIm</span><span class="si">:</span><span class="s1">8.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">9.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; overlay data and regressed y(x)                                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experimental rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Ypred</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;linear fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/2CA^2 - 1/2CAf^2&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; plot of residual errors                                             #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">)</span><span class="o">/</span><span class="n">Y</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">floor</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])),</span> <span class="n">ceil</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;τ (s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;% Residual Error&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residual Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Rough estimates for Vmax and KM are </span><span class="si">{</span><span class="n">Vmax_r</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L/s and </span><span class="si">{</span><span class="n">KM_r</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1"> mol/L&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m    =  4.07e+01 +/- 2.19e+01
+SSE  =      0.00
+SST  =      0.01
+MSE  =      0.00
+RMSE =      0.01
+R2   =      0.99
+KM   =      0.03
+</pre></div>
+</div>
+<img alt="../_images/23864a2562c0b0203e2d3a6e075e27e9615bc1506e4ef06cf0c94fe2ca94883d.png" src="../_images/23864a2562c0b0203e2d3a6e075e27e9615bc1506e4ef06cf0c94fe2ca94883d.png" />
+<img alt="../_images/70893ecdd3f7f294e8368f0214b38b93ce4564c21d2af7918dcaf58e938579c4.png" src="../_images/70893ecdd3f7f294e8368f0214b38b93ce4564c21d2af7918dcaf58e938579c4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rough estimates for Vmax and KM are 1.080 mol/L/s and 0.027 mol/L
+</pre></div>
+</div>
+</div>
+</div>
+<p>With these estimates established, we can overlay the rate predicted for a Michaelis-Menten mechanism with our data. We also add a calculation of residual sum of squares, <span class="math notranslate nohighlight">\(SS\)</span>, and the coefficient of determination, <span class="math notranslate nohighlight">\(R^2\)</span>, using these parameter estimates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#############################################################################################</span>
+<span class="c1"># Define a function to calculate rate predicted from MM mechanism                           #</span>
+<span class="c1">#############################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rMM</span><span class="p">(</span><span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">,</span> <span class="n">CU</span><span class="p">):</span>
+    <span class="n">rate</span> <span class="o">=</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CU</span><span class="o">/</span><span class="p">(</span><span class="n">KM</span><span class="o">+</span><span class="n">CU</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rate</span>
+
+<span class="c1">#############################################################################################</span>
+<span class="c1"># Generate overlay of model predictions on finely spaced CU values with experimental data   #</span>
+<span class="c1"># This will also calculate SSE and R2 for the rough estimates generated from limit analysis #</span>
+<span class="c1">############################################################################################# </span>
+
+<span class="n">CUfine</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">rpred</span>   <span class="o">=</span> <span class="n">rMM</span><span class="p">(</span><span class="n">Vmax_r</span><span class="p">,</span> <span class="n">KM_r</span><span class="p">,</span> <span class="n">CU</span><span class="p">)</span>
+<span class="n">resid</span>   <span class="o">=</span> <span class="n">rexp</span> <span class="o">-</span> <span class="n">rpred</span>
+<span class="n">SSE</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SST</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">rexp</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rexp</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">R2</span>      <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE</span><span class="o">/</span><span class="n">SST</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;With our rough approximation, the SSE is </span><span class="si">{</span><span class="n">SSE</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, and the R2 is </span><span class="si">{</span><span class="n">R2</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#############################################################################################</span>
+<span class="c1"># Overaly model predictions with experimental measurements                                  #</span>
+<span class="c1">#############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CU</span><span class="p">,</span> <span class="n">rexp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CUfine</span><span class="p">,</span> <span class="n">rMM</span><span class="p">(</span><span class="n">Vmax_r</span><span class="p">,</span> <span class="n">KM_r</span><span class="p">,</span> <span class="n">CUfine</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;MM Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Urea Decomposition Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Urea Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate of Decomposition (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#############################################################################################</span>
+<span class="c1"># Visualize residual error using rough estimats obtained from limit analysis                #</span>
+<span class="c1">#############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CU</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Urea Decomposition Residuals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Urea Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residual Error&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>With our rough approximation, the SSE is 0.032, and the R2 is 0.948
+</pre></div>
+</div>
+<img alt="../_images/ba9095d2bd96a332c2e21b9691f6ec3c07bb6c6b0579e3ec463f0a8f2d438b76.png" src="../_images/ba9095d2bd96a332c2e21b9691f6ec3c07bb6c6b0579e3ec463f0a8f2d438b76.png" />
+<img alt="../_images/d9c0d8a4baa768b7e1808e162b7422f6d6404ce377308d0498dfa88fb3dcffbd.png" src="../_images/d9c0d8a4baa768b7e1808e162b7422f6d6404ce377308d0498dfa88fb3dcffbd.png" />
+</div>
+</div>
+<section id="nonlinear-regression">
+<h4>Nonlinear Regression<a class="headerlink" href="#nonlinear-regression" title="Link to this heading">#</a></h4>
+<p>From the overlay and residual plot above, we can see that the rough estimates obtained by analysis of limiting behavior are are <em><strong>not bad</strong></em>!  They generally capture the shape of the data and the order of magnitude of the rates. That said, the residual plot does show a systematic underprediction of our experimental data. We can do much beter using an optimization routine to minimize the residual sum of squares. Generally speaking this is the method of <em><strong>nonlinear regression</strong></em>, which requires us to create an objective function that calculates the residual sum of squares as a function of parameter values:</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_i (r_i - \hat{r}_i)^2\]</div>
+<p>In this case, we have a <em><strong>multivariate</strong></em> objective function that will depend on both <span class="math notranslate nohighlight">\(V_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(K_M\)</span>. Once we create an appropriate function, we can use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.minimize()</span></code> to find the optimum parameter values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#########################################################################################################</span>
+<span class="c1"># Create the objective function; it is of the form f([Vmax, KM]) and it returns SSE                     #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">obj1</span><span class="p">(</span><span class="n">par</span><span class="p">):</span>
+    <span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span> <span class="o">=</span> <span class="n">par</span>
+    <span class="n">rpred</span>    <span class="o">=</span> <span class="n">rMM</span><span class="p">(</span><span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">,</span> <span class="n">CU</span><span class="p">)</span>
+    <span class="n">resid</span>    <span class="o">=</span> <span class="p">(</span><span class="n">rexp</span> <span class="o">-</span> <span class="n">rpred</span><span class="p">)</span>
+    <span class="n">SSE</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">resid</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SSE</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Define initial guesses for parameters; our rough estimates are very good initial guesses              #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">par0</span> <span class="o">=</span> <span class="p">[</span><span class="n">Vmax_r</span><span class="p">,</span> <span class="n">KM_r</span><span class="p">]</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Optimize the objective function, bind relevant quantities from solution structure to variable names   #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">ans1</span> <span class="o">=</span> <span class="n">opt</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">obj1</span><span class="p">,</span> <span class="n">par0</span><span class="p">)</span>
+<span class="n">SSE</span>  <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">fun</span>
+<span class="n">Vmax_opt</span><span class="p">,</span> <span class="n">KM_opt</span> <span class="o">=</span> <span class="n">ans1</span><span class="o">.</span><span class="n">x</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Calculate SST (total sum of squares) and R2, print various results                                    #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">SST</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">rexp</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rexp</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">R2</span>   <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE</span><span class="o">/</span><span class="n">SST</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using nonlinear regression, Vmax = </span><span class="si">{</span><span class="n">Vmax_opt</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, KM = </span><span class="si">{</span><span class="n">KM_opt</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, SSE = </span><span class="si">{</span><span class="n">SSE</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">, and R2 = </span><span class="si">{</span><span class="n">R2</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Generate model predictions on fine grid of CU values using optimum parameter set                      #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">rMM2</span>    <span class="o">=</span> <span class="n">Vmax_opt</span><span class="o">*</span><span class="n">CUfine</span><span class="o">/</span><span class="p">(</span><span class="n">KM_opt</span> <span class="o">+</span> <span class="n">CUfine</span><span class="p">)</span>
+<span class="n">resid</span>   <span class="o">=</span> <span class="n">rexp</span> <span class="o">-</span> <span class="n">Vmax_opt</span><span class="o">*</span><span class="n">CU</span><span class="o">/</span><span class="p">(</span><span class="n">KM_opt</span> <span class="o">+</span> <span class="n">CU</span><span class="p">)</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Overlay experimental data with model predictions using optimal parameter set                          #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CU</span><span class="p">,</span> <span class="n">rexp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">CUfine</span><span class="p">,</span> <span class="n">rMM</span><span class="p">(</span><span class="n">Vmax_opt</span><span class="p">,</span> <span class="n">KM_opt</span><span class="p">,</span> <span class="n">CUfine</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;MM Model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Urea Decomposition Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Urea Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Rate of Decomposition (mol/L/s)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#########################################################################################################</span>
+<span class="c1"># Generate residual plot                                                                                #</span>
+<span class="c1">#########################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">CU</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Urea Decomposition Residuals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Urea Concentration (mol/L)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Residual Error&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using nonlinear regression, Vmax = 1.206, KM = 0.023, SSE = 0.001, and R2 = 0.999
+</pre></div>
+</div>
+<img alt="../_images/090832cba5fd8e75c15d85f54d65618cf78d33141b1f06ec62bdd2c820517a0a.png" src="../_images/090832cba5fd8e75c15d85f54d65618cf78d33141b1f06ec62bdd2c820517a0a.png" />
+<img alt="../_images/b9b512b9f59be6a27c0405b9480827492a8366f63b63e206020467bbc64231aa.png" src="../_images/b9b512b9f59be6a27c0405b9480827492a8366f63b63e206020467bbc64231aa.png" />
+</div>
+</div>
+<p>This does a much better job of capturing the observed trends, and we see the residuals are now nicely scattered around the line of zero error, which is indicative that our model captures the data (and that deviations from zero error are attributable to random errors in the measurement).</p>
+</section>
+</section>
+<section id="linearization-of-mm-rate-expression-the-lineweaver-burk-model">
+<h3>Linearization of MM rate expression: The Lineweaver-Burk model<a class="headerlink" href="#linearization-of-mm-rate-expression-the-lineweaver-burk-model" title="Link to this heading">#</a></h3>
+<p>It is frequently useful to linearize models, so we will look for a way to do so. Linearization is beneficial because it allows us to use the robust tools of linear least squares (which are far more stable than iterative, numerical, nonlinear regression). It also gives us quick, easy diagnostic test to assess goodness of fit in that we can quickly tell if “linearized” data actually fall onto a straight line. For enzyme kinetics, a common linearization method is that of Lineweaver-Burk.We start with the Michaelis-Menten rate expression:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[U]}{K_M + [U]}\]</div>
+<p>We next resist the urge to take logarithms of both sides. A logarithmic transformation is not an effective linearization strategy here. Instead, we make note of the fact that this rate expression is a monomial, <span class="math notranslate nohighlight">\(V_\mathrm{max}[U]\)</span>, divided by a polynomial, <span class="math notranslate nohighlight">\((K_M + [U}]\)</span>. We can generally linearize models of this form by inverting the expression. In this case:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M + [U]}{V_\textrm{max}[U]}\]</div>
+<p>We can divide each term in the numerator by the monomial denominator to find:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M}{V_\textrm{max}}\frac{1}{[U]} + \frac{1}{V_\textrm{max}}\]</div>
+<p>Now we should be able to see that this is a <span class="math notranslate nohighlight">\(Y = mX + b\)</span> equation form. If this reaction follows a Michaelis-Menten mechanism and we plot <span class="math notranslate nohighlight">\(\frac{1}{r}\)</span> against <span class="math notranslate nohighlight">\(\frac{1}{[U]}\)</span>, we should see data fall onto a straight line. Further, we can estimate the <span class="math notranslate nohighlight">\(V_\mathrm{max}\)</span> and <span class="math notranslate nohighlight">\(K_M\)</span> from the slope and y-intercept.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">################################################################################################</span>
+<span class="c1"># Graphing a Lineweaver-Burk linearization of enzymatic rate data                              #</span>
+<span class="c1">################################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CU</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">rexp</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Lineweaver-Burk Transformation of Urea Decomp&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/CU (L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/rate (s*L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">550</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b205db98136d2fe56cc1c84e969a61d6cd460796b29b7cd82c4ae8e24ea48c5a.png" src="../_images/b205db98136d2fe56cc1c84e969a61d6cd460796b29b7cd82c4ae8e24ea48c5a.png" />
+</div>
+</div>
+</section>
+<section id="linear-regression">
+<h3>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h3>
+<p>That looks pretty linear (as it should); let’s regress the slope and intercept using linear regression.  We know that, for a linearized MM model:</p>
+<div class="math notranslate nohighlight">
+\[m = \frac{K_M}{V_\textrm{max}}\]</div>
+<p>And that:</p>
+<div class="math notranslate nohighlight">
+\[b = \frac{1}{V_\textrm{max}}\]</div>
+<p>We can easily rearrange those to solve for our parameters of interest:</p>
+<div class="math notranslate nohighlight">
+\[V_\textrm{max} = \frac{1}{b}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[K_M = V_\textrm{max}m\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xdata</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">CU</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">rexp</span>
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the xdata array and ydata array                                                            #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">ydata</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">rexp</span>
+<span class="n">xdata</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">CU</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Define the X matrix and Y array                                                                   #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Y</span>     <span class="o">=</span> <span class="n">ydata</span>
+<span class="n">X</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vander</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#This creates the X matrix shown above, truncating at 1st order</span>
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Solve the least squares problem to find the best fit coefficients                                 #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">A</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span> 
+
+<span class="c1">#####################################################################################################</span>
+<span class="c1"># Workup and analysis for quantifying and visualizing goodness of fit                               #</span>
+<span class="c1">#####################################################################################################</span>
+
+<span class="n">Ypred</span>  <span class="o">=</span> <span class="n">X</span><span class="nd">@A</span>                          <span class="c1">#Calculate discrete array of predicted y values at each x value</span>
+<span class="n">Ybar</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>               <span class="c1">#Calculate the mean of the measured y values, use for SST calculation</span>
+<span class="n">Ndata</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span>                   <span class="c1">#Calculate the number of data points/measurementws</span>
+<span class="n">SSE1</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>       <span class="c1">#Calculate residual sum of squares using intuitive summation formula</span>
+<span class="n">SSE2</span>   <span class="o">=</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">@</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">X</span><span class="nd">@A</span><span class="p">)</span>        <span class="c1">#Calculate residual sum of squares using matrix multiplication; equivalent to SSE1</span>
+<span class="n">SST</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ybar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>        <span class="c1">#Calculate total sum of squares; assumes model is just y_pred = mean(ydata)</span>
+<span class="n">MSE</span>    <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">Ndata</span>                   <span class="c1">#Calculate mean square error</span>
+<span class="n">RMSE</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">MSE</span><span class="p">)</span>                 <span class="c1">#Calculate root mean square error</span>
+<span class="n">R2</span>     <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">SST</span>                 <span class="c1">#Calculate R2 (coefficient of determination)</span>
+<span class="n">DOF</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ydata</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>          <span class="c1">#Count degrees of freedom</span>
+<span class="n">s2</span>     <span class="o">=</span> <span class="n">SSE1</span><span class="o">/</span><span class="n">DOF</span>                     <span class="c1">#Estimate variance</span>
+<span class="n">COV</span>    <span class="o">=</span> <span class="n">s2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">)</span>      <span class="c1">#Generate the covariance matrix for this fit</span>
+<span class="n">m</span>      <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>                         <span class="c1">#This is a linear model; with the way we define the X matrix, slope is A[0], intercept is A[1]</span>
+<span class="n">b</span>      <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>                         <span class="c1">#This is a linear model; with the way we define the X matrix, slope is A[0], intercept is A[1] </span>
+<span class="n">SEm</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">COV</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>           <span class="c1">#For our definition of the X matrix, standard error in the slope is the first diagonal element in COV</span>
+<span class="n">SEb</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">COV</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>           <span class="c1">#For our definition of the X matrix, standard error in the intercept is the second diagonal element in COV</span>
+<span class="n">tval</span>   <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span> <span class="n">DOF</span><span class="p">)</span>      <span class="c1">#t distribution for 95% confidence interval t(1 - α/2, DOF), α = 0.05 for 95% confidence interval</span>
+<span class="n">CIm</span>    <span class="o">=</span> <span class="n">SEm</span><span class="o">*</span><span class="n">tval</span>                     <span class="c1">#confidence interval on slope</span>
+<span class="n">CIb</span>    <span class="o">=</span> <span class="n">SEb</span><span class="o">*</span><span class="n">tval</span>                     <span class="c1">#confidence interval on intercept</span>
+<span class="n">Vmax</span>   <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">b</span>                          <span class="c1">#y lintercept = 1/Vmax</span>
+<span class="n">KM</span>     <span class="o">=</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">m</span>                       <span class="c1">#slope = KM/Vmax</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Printing results using f strings; create arrays of labels and values                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;SSE&#39;</span><span class="p">,</span> <span class="s1">&#39;SST&#39;</span><span class="p">,</span><span class="s1">&#39;MSE&#39;</span><span class="p">,</span><span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> <span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;Vmax&#39;</span><span class="p">,</span> <span class="s1">&#39;KM&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span>  <span class="p">,</span>  <span class="n">b</span> <span class="p">,</span>  <span class="n">SSE1</span><span class="p">,</span>  <span class="n">SST</span> <span class="p">,</span> <span class="n">MSE</span> <span class="p">,</span> <span class="n">RMSE</span> <span class="p">,</span>  <span class="n">R2</span><span class="p">,</span> <span class="n">Vmax</span><span class="p">,</span> <span class="n">KM</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">9.2e</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">CIm</span><span class="si">:</span><span class="s1">8.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">9.2e</span><span class="si">}</span><span class="s1"> +/- </span><span class="si">{</span><span class="n">CIb</span><span class="si">:</span><span class="s1">8.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">label</span><span class="si">:</span><span class="s1">4s</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s1">9.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; overlay data and regressed y(x)                                     #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">ydata</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;experimental rates&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">Ypred</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;linear fit&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/CU (L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/r s L/mol&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">############################################################################################</span>
+<span class="c1"># Visualizing results; plot of residual errors                                             #</span>
+<span class="c1">############################################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">Ypred</span><span class="p">)</span><span class="o">/</span><span class="n">Y</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;residual error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">floor</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])),</span> <span class="n">ceil</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;zero error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/CU (L/mol)&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;% Residual Error in 1/r&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Residual Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m    =  2.07e-02 +/- 1.08e-03
+b    =  7.53e-01 +/- 2.65e-01
+SSE  =      0.05
+SST  =     67.21
+MSE  =      0.01
+RMSE =      0.10
+R2   =      1.00
+Vmax =      1.33
+KM   =      0.03
+</pre></div>
+</div>
+<img alt="../_images/362cbed3ff5188491d1d508428cf56f38a957f5cd6e23adb9e9ec7d74823f782.png" src="../_images/362cbed3ff5188491d1d508428cf56f38a957f5cd6e23adb9e9ec7d74823f782.png" />
+<img alt="../_images/199a3891df6b24fbd589706621c20fa13667c8c6a4798776cc1228914eb5675c.png" src="../_images/199a3891df6b24fbd589706621c20fa13667c8c6a4798776cc1228914eb5675c.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="enzyme-inhibition-mechanism-1">
+<h2>Enzyme Inhibition Mechanism 1<a class="headerlink" href="#enzyme-inhibition-mechanism-1" title="Link to this heading">#</a></h2>
+<p>Like most catalysts, enzymes are sensitive to the presence of impurities, side products, or various species that can interact with the catalyst, bind to the active site or to activated complexes, and cause it to become inactive and unable to convert reactants into products.  We will consider two mechanisms of enzyme inhibition and consider how we can discern the more likely mechanism from analysis of experimental data. We start with an enzyme catalyzed reaction as usual. What we see at the macroscale in the lab looks like this:</p>
+<section id="overal-reaction">
+<h3>Overal Reaction<a class="headerlink" href="#overal-reaction" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[E + S \longrightarrow E + P\]</div>
+<p>But we also know that, in reality, the reaction is going to proceed through a mechanism that involves multiple elementary steps. In this case, we propose that the reaction follows a standard Michaelis-Menten mechanism, but with a small twist: the free enzyme can also bind (reversibly) with an inhibitor (I) that is present in the reaction media. This forms an enzyme-inhibitor complex that is inactive. Based on this conceptual description, we can write the following reaction mechanism.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Observe that this is just a slight modification to the classic Michaelis-Menten Mechanism! The only change is a single elementary step that describes the type of inhibition.</p>
+</div>
+</section>
+<section id="mechanism">
+<h3>Mechanism<a class="headerlink" href="#mechanism" title="Link to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    E + S &amp;\rightleftharpoons ES \\
+    ES &amp;\rightarrow E + P \\
+    E + I &amp;\rightleftharpoons EI \\
+\end{align*}\]</div>
+</section>
+<section id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h3>
+<p>If we study the overall reaction and each elementary step, we should be able to determine that the overall rate of reaction is equal to the rate of consumption of substrate (S), and it is equal to the rate of formation of the product (P). We will choose to write an overall rate expression based on the rate of product formation.</p>
+<div class="math notranslate nohighlight">
+\[r = R_P\]</div>
+<p>Now we look at the elementary steps; we can evaluate the production rate of <span class="math notranslate nohighlight">\(P\)</span>. It only appears as a product in step 2, so <span class="math notranslate nohighlight">\(R_P = r_2\)</span>, which means:</p>
+<div class="math notranslate nohighlight">
+\[r = r_2\]</div>
+<p>Now we expand the rate expression for step two:</p>
+<div class="math notranslate nohighlight">
+\[r = k_2[ES]\]</div>
+<p>This tells us that the rate of reaction has a first order dependence on the concentration of the enzyme-substrate complex. We will treat the enzyme-substrate complex as a “reactive intermediate” and apply the Pseudo-Steady State Approximation. According to the PSSA, we can say that the net production rate of the reactive intermediate is zero:</p>
+<div class="math notranslate nohighlight">
+\[R_{ES} = 0 = r_1 - r_2\]</div>
+<p>We can then expand the rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1[S][E] - k_{-1}[ES] - k_2[ES]\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is helpful to try to solve for the enzyme-substrate complex (or any species bound to a catalyst) as a function of the “free catalyst sites”. This makes the algebra very easy later in our analysis we introduce a site balance.</p>
+</div>
+<p>Solving the above PSSH equation for [ES]:</p>
+<div class="math notranslate nohighlight">
+\[[ES] = \frac{k_1}{k_{-1} + k_2} [S][E]\]</div>
+<p>Since we’ve already introduced the MM parameters <span class="math notranslate nohighlight">\(K_M\)</span> and <span class="math notranslate nohighlight">\(V_\textrm{max}\)</span>, we recognize that the ratio of rate constants in the above equation is the inverse of <span class="math notranslate nohighlight">\(K_M\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[[ES] = \frac{1}{K_M} [S][E]\]</div>
+<p>Now we try to resolve the concentration of free enzyme, <span class="math notranslate nohighlight">\(E\)</span>, using a <strong>site balance</strong>:</p>
+<div class="math notranslate nohighlight">
+\[[E_t] = [E] + [ES] + [EI]\]</div>
+<p>Unlike the base MM mechanism, we see that the enzyme is now distributed between 3 states, free enzyme <span class="math notranslate nohighlight">\((E)\)</span>, enzyme-substrate complex <span class="math notranslate nohighlight">\((ES)\)</span>, and the inactive enzyme-inhibitor complex <span class="math notranslate nohighlight">\((EI)\)</span>. Before we can solve the site balance for free enzyme concentration, <span class="math notranslate nohighlight">\([E]\)</span>, we need to resolve the concentration of the inhibitor complex. We do this by writing another Pseudo-Steady State approximation on <span class="math notranslate nohighlight">\(EI\)</span>, which appears only in step 3:</p>
+<div class="math notranslate nohighlight">
+\[R_{EI} = 0 = r_3\]</div>
+<p>Expanding the elementary rate law:</p>
+<div class="math notranslate nohighlight">
+\[R_{EI} = 0 = k_3[I][E] - k_{-3}[EI]\]</div>
+<p>We see that this expression only has the inhibitor complex as an “unknown” PSSH intermediate, so we can solve for it in terms of free enzyme concentration.</p>
+<div class="math notranslate nohighlight">
+\[[EI] = \frac{k_3}{k_{-3}}[I][E]\]</div>
+<p>For an elementary step, we recall that:</p>
+<div class="math notranslate nohighlight">
+\[K_{C,i} = \frac{k_{f,i}}{k_{r,i}}\]</div>
+<p>So we replace the rate constant ratio with a concentration-based equilibrium constant, <span class="math notranslate nohighlight">\(K_C\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[[EI] = K_{3_C}[I][E]\]</div>
+<p>Here we have expressed <span class="math notranslate nohighlight">\([EI]\)</span> as a function of free enzyme as we’ve done previously with <span class="math notranslate nohighlight">\([ES]\)</span>.  Now we can substitute both of these expressions into the site balance:</p>
+<div class="math notranslate nohighlight">
+\[[E_t] = [E] + \frac{1}{K_M} [S][E] + K_{3_C}[I][E] \]</div>
+<p>We now see that we only have a single “unknown” here, which is the free enzyme concentration. Even better, we’ve approached the solution in such a way that every term in the polynomial on the right hand side has a linear dependence on <span class="math notranslate nohighlight">\([E]\)</span>, which makes it straightforward to solve for <span class="math notranslate nohighlight">\([E]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[[E] = \frac{[E_t]}{1 + \frac{1}{K_M}[S] + K_{3_C}[I]}\]</div>
+<p>Now we’ve expressed all of the PSSH intermediates and the free enzyme concentration in terms of measurable or known quantities, so we start building up our rate expression by substituting them back into the starting point:</p>
+<p>The overall rate of reaction is equal to the rate of the step where the product is formed:</p>
+<div class="math notranslate nohighlight">
+\[r = k_2[ES]\]</div>
+<p>Next:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2}{K_M} [E][S]\]</div>
+<p>Finally substituting in the free enzyme concentration:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{K_M\left(1 + \frac{1}{K_M}[S] + K_{3_C}[I]\right)}\]</div>
+<p>Distributing the <span class="math notranslate nohighlight">\(K_M\)</span> term in the denominator gives:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{K_M + [S] + K_MK_{3_C}[I]}\]</div>
+<p>And we group the terms multipled by <span class="math notranslate nohighlight">\(K_M\)</span> to get:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{[S] + K_M(1 + K_{3_C}[I])}\]</div>
+<p>Noticing the product of <span class="math notranslate nohighlight">\(k_2[E_t]\)</span> in the numerator, we recall that this is equal to <span class="math notranslate nohighlight">\(V_\textrm{max}\)</span>, which gives the final rate expression for this mechanism:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{[S] + K_M(1 + K_{3_C}[I])}\]</div>
+<p>It is worth comparing this result with the classic MM mechanism:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{[S] + K_M}\]</div>
+<p>We can see that the more complex mechanism approaches the MM Mechanism in the limit where the inhibitor concentration is zero. This is a great consistency check!!</p>
+</section>
+</section>
+<section id="enzyme-inhibition-mechanism-2">
+<h2>Enzyme Inhibition Mechanism 2<a class="headerlink" href="#enzyme-inhibition-mechanism-2" title="Link to this heading">#</a></h2>
+<p>Now we will consider a second mechanism of enzyme inhibition.  Here, we propose that the overall reaction is the same as above:</p>
+<section id="overall">
+<h3>Overall<a class="headerlink" href="#overall" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[E + S \longrightarrow E + P\]</div>
+<p>We again propose that the main mechanism is a baseline Michaelis-Menten Mechanism, but here we also say that there is an inhibitor present, and that it binds (reversibly) with the enzyme substrate complex, converting it to an inactive form that cannot transform the substrate into products:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Make sure you can understand the fundamental difference between this inhibition mechanism (inhibitor binds to enzyme-substrate complex) and the first one that we considered (inhibitor binds directly to enzyme). Think about the different elementary steps that you would write to describe these two distinct types of inhibition.</p>
+</div>
+</section>
+<section id="id1">
+<h3>Mechanism<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-0a2fcbc8-5911-4d6c-a9f8-598f53609216">
+<span class="eqno">(1)<a class="headerlink" href="#equation-0a2fcbc8-5911-4d6c-a9f8-598f53609216" title="Permalink to this equation">#</a></span>\[\begin{align}
+    E + S &amp;\rightleftharpoons ES \\
+    ES &amp;\rightarrow E + P \\
+    ES + I &amp;\rightleftharpoons IES \\
+\end{align}\]</div>
+</section>
+<section id="id2">
+<h3>Analysis<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The overall rate of reaction is equal to the rate of formation of the product <span class="math notranslate nohighlight">\((P)\)</span>, so we write the overall rate expression based on the rate of product formation:</p>
+<div class="math notranslate nohighlight">
+\[r = R_P\]</div>
+<p><span class="math notranslate nohighlight">\(P\)</span> only appears as a product in step 2, so <span class="math notranslate nohighlight">\(R_P = r_2\)</span>, which means:</p>
+<div class="math notranslate nohighlight">
+\[r = r_2\]</div>
+<p>Expanding the rate expression for step two:</p>
+<div class="math notranslate nohighlight">
+\[r = k_2[ES]\]</div>
+<p>We treat the enzyme-substrate complex as a “reactive intermediate” and apply the Pseudo-Steady State Approximation. Here we note a change from the base case Michaelis-Menten analysis in that the enzyme substrate complex is consumed as a reactant in step 3:</p>
+<div class="math notranslate nohighlight">
+\[R_{ES} = 0 = r_1 - r_2 - r_3\]</div>
+<p>Expanding the rate expressions:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1[S][E] - k_{-1}[ES] - k_2[ES] - (k_3[I][ES] - k_{-3}[IES])\]</div>
+<p>We can pause here and remind ourselves that we would like to solve for the concentration of the enzyme substrate complex, <span class="math notranslate nohighlight">\([ES]\)</span> as a function of free enzyme concentration, <span class="math notranslate nohighlight">\([E]\)</span>. We can’t do that yet because the concentration of the inhibitor-enzyme-substrate complex, <span class="math notranslate nohighlight">\([IES]\)</span> appears in the PSSH expression above. This is a reactive intermediate, and we need to express its concentration in terms of stable species and rate constants, so we write the PSSH on IES:</p>
+<div class="math notranslate nohighlight">
+\[R_{IES} = 0 = r_3\]</div>
+<p>We expand this elementary rate expression:</p>
+<div class="math notranslate nohighlight">
+\[R_{IES} = 0 = k_3[I][ES] - k_{-3}[IES]\]</div>
+<p>Now we have basically two equations (PSSH on <span class="math notranslate nohighlight">\(ES\)</span> and on <span class="math notranslate nohighlight">\(IES\)</span>) and two unknowns (<span class="math notranslate nohighlight">\([ES]\)</span> and <span class="math notranslate nohighlight">\([IES]\)</span>). We can solve the system, but it is worth strategizing about how to approach the solution. One major thing to notice is that the PSSH on <span class="math notranslate nohighlight">\(IES\)</span> requires that <span class="math notranslate nohighlight">\(r_3 = 0\)</span>. This allows us to simplify the PSSH on <span class="math notranslate nohighlight">\(ES\)</span> (see above) from <span class="math notranslate nohighlight">\(0 = r_1 - r_2 - r_3\)</span> to:</p>
+<div class="math notranslate nohighlight">
+\[R_{ES} = 0 = r_1 - r_2\]</div>
+<p>Which expands to:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_1[S][E] - k_{-1}[ES] - k_2[ES]\]</div>
+<p>This is identical to what we solved for the classic Michaelis-Menten and the first enzyme inhibition case. We can solve this expression for <span class="math notranslate nohighlight">\([ES]\)</span> as a function of free enzyme concentration, <span class="math notranslate nohighlight">\([E]\)</span>, which is usually best practice in the analysis of catalytic mechanisms.</p>
+<div class="math notranslate nohighlight">
+\[[ES] = \frac{k_1}{k_{-1} + k_2} [S][E]\]</div>
+<p>We can replace the ratio of rate constants with <span class="math notranslate nohighlight">\(K_M\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[[ES] = \frac{1}{K_M} [S][E]\]</div>
+<p>With that established, we can work on solving for <span class="math notranslate nohighlight">\([IES]\)</span>. Starting with the PSSH expression:</p>
+<div class="math notranslate nohighlight">
+\[0 = k_3[I][ES] - k_{-3}[IES]\]</div>
+<p>We find that:</p>
+<div class="math notranslate nohighlight">
+\[[IES] = \frac{k_3}{k_{-3}}[I][ES]\]</div>
+<p>We remember that, for an elementary step, the ratio of forward-to-reverse rate constants is equal to <span class="math notranslate nohighlight">\(K_C\)</span>; thus:</p>
+<div class="math notranslate nohighlight">
+\[[IES] = K_{3_C}[I][ES]\]</div>
+<p>We already solved for <span class="math notranslate nohighlight">\([ES]\)</span> so we make the substitution:</p>
+<div class="math notranslate nohighlight">
+\[[IES] = \frac{K_{3_C}}{K_M}[I][S][E]\]</div>
+<p>Now we have both <span class="math notranslate nohighlight">\([ES]\)</span> and <span class="math notranslate nohighlight">\([IES]\)</span> expressed as functions of free enzyme concentration <span class="math notranslate nohighlight">\([E]\)</span>. This makes it easy to solve for <span class="math notranslate nohighlight">\([E]\)</span> from the site balance:</p>
+<div class="math notranslate nohighlight">
+\[[E_t] = [E] + [ES] + [IES]\]</div>
+<p>Making substitutions:</p>
+<div class="math notranslate nohighlight">
+\[[E_t] = [E] + \frac{1}{K_M} [S][E] + \frac{K_{3_C}}{K_M}[I][S][E]\]</div>
+<p>We now have every term on the right hand side of our site balance expressed as a linear function of free enzyme concentation <span class="math notranslate nohighlight">\([E]\)</span>, which makes for an easy solution:</p>
+<div class="math notranslate nohighlight">
+\[[E] = \frac{[E_t]}{1 + \frac{1}{K_M}[S] + \frac{K_{3_C}}{K_M}[I][S]}\]</div>
+<p>Now we just substitute everything back into the original expression for the overall reaction rate:</p>
+<div class="math notranslate nohighlight">
+\[r = k_2[ES]\]</div>
+<p>Next:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2}{K_M} [E][S]\]</div>
+<p>Finally substituting in the free enzyme concentration:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{K_M\left(1 + \frac{1}{K_M}[S] + \frac{K_{3_C}}{K_M}[I][S]\right)}\]</div>
+<p>Distributing the <span class="math notranslate nohighlight">\(K_M\)</span> term in the denominator gives:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{K_M + [S] + K_{3_C}[I][S]}\]</div>
+<p>Grouping the terms multipled by <span class="math notranslate nohighlight">\([S]\)</span> in the denominator:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{k_2[E_t][S]}{K_M + [S](1 + K_{3_C}[I])}\]</div>
+<p>Finally, replacing <span class="math notranslate nohighlight">\(k_2[E_t]\)</span> in the numerator with <span class="math notranslate nohighlight">\(V_\textrm{max}\)</span>, we get the final rate expression for this mechanism:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{K_M + [S](1 + K_{3_C}[I])}\]</div>
+<p>It is worth comparing this result with the classic Michaelis-Menten result:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{K_M + [S]}\]</div>
+<p>And again we see that the more complex mechanism approaches the simpler Michaelis-Menten result in the limit where the inhibitor concentration is zero. If this were not the case, we should suspect that we did something wrong in our analysis.</p>
+</section>
+</section>
+<section id="distinguishing-between-mechanisms-of-inhibition-by-linearization">
+<h2>Distinguishing Between Mechanisms of Inhibition by linearization<a class="headerlink" href="#distinguishing-between-mechanisms-of-inhibition-by-linearization" title="Link to this heading">#</a></h2>
+<section id="michaelis-menten">
+<h3>Michaelis-Menten<a class="headerlink" href="#michaelis-menten" title="Link to this heading">#</a></h3>
+<p>When we looked at the baseline MM Mechanism:</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{K_M + [S]}\]</div>
+<p>We found that a useful linearization is the method of Lineweaver-Burk; we invert the rate expression, which gives us a linearized form:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M + [S]}{V_\textrm{max}[S]}\]</div>
+<p>Dividing each term in the numerator polynomial by the denominator:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}}\]</div>
+<p>That is the equation for a straight line if we let <span class="math notranslate nohighlight">\(Y = 1/r\)</span> and <span class="math notranslate nohighlight">\(X = 1/[S]\)</span>.  We can get estimates for <span class="math notranslate nohighlight">\(K_M\)</span> and <span class="math notranslate nohighlight">\(V_\textrm{max}\)</span> from the regressed slope and intercept.</p>
+<p>Now we look at our two inhibition mechanims and work through the same linearization strategy:</p>
+</section>
+<section id="inhibition-mechanism-1-i-e-rightleftharpoons-ei">
+<h3>Inhibition Mechanism 1: <span class="math notranslate nohighlight">\(I + E \rightleftharpoons EI\)</span><a class="headerlink" href="#inhibition-mechanism-1-i-e-rightleftharpoons-ei" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{[S] + K_M(1 + K_{3_C}[I])}\]</div>
+<p>Inverting the expression:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{[S] + K_M(1 + K_{3_C}[I])}{V_\textrm{max}[S]}\]</div>
+<p>And distributing the denominator:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{1}{V_\textrm{max}} + \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]}\]</div>
+<p>Rearranging to <span class="math notranslate nohighlight">\(Y = mX + b\)</span> form to compare with baseline expression directly:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}}\]</div>
+</section>
+<section id="inhibition-mechanism-2-i-es-rightleftharpoons-ies">
+<h3>Inhibition Mechanism 2: <span class="math notranslate nohighlight">\(I + ES \rightleftharpoons IES\)</span><a class="headerlink" href="#inhibition-mechanism-2-i-es-rightleftharpoons-ies" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{K_M + [S](1 + K_{3_C}[I])}\]</div>
+<p>Inverting the expression:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M + [S](1 + K_{3_C}[I])}{V_\textrm{max}[S]}\]</div>
+<p>And distributing the denominator:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{(1 + K_{3_C}[I])}{V_\textrm{max}}\]</div>
+<p>This one is already in <span class="math notranslate nohighlight">\(Y = mX + b\)</span> form.</p>
+</section>
+<section id="comparing-linearized-expressions">
+<h3>Comparing Linearized Expressions<a class="headerlink" href="#comparing-linearized-expressions" title="Link to this heading">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-a9adfa7d-8d6c-4c44-89c5-28a278ee5385">
+<span class="eqno">(2)<a class="headerlink" href="#equation-a9adfa7d-8d6c-4c44-89c5-28a278ee5385" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \frac{1}{r} &amp;= \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}} \\
+    \\
+    \frac{1}{r} &amp;= \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}} \\
+    \\
+    \frac{1}{r} &amp;= \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{(1 + K_{3_C}[I])}{V_\textrm{max}} \\
+\end{align}\]</div>
+<p>We can see that the impacts of inhibitor concentration will show up in the slopes and intercepts of the linearized data sets.  To resolve the dependencies, we would have to measure reaction rates at various concentrations of substrate <em><strong>for various concentrations of the inhibitor</strong></em>.  Then, we would look at linearized data sets to see how the slope and intercept respond.</p>
+<p>Let’s look at the Case 1 linearization first:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M(1 + K_{3_C}[I])}{V_\textrm{max}}\frac{1}{[S]} + \frac{1}{V_\textrm{max}}\]</div>
+<p>Here, we see that changing inhibitor concentration has no impact on the y-intercept.  It will always be equal to <span class="math notranslate nohighlight">\(1/V_\mathrm{max}\)</span>, no matter the inhibitor concentration.  The slope will change with inhibitor concentration, though.  It becomes larger (steeper) for higher inhibitor concentrations and smaller (shallower) for lower inhibitor concentrations.  This is illustrated in the graph below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">################################################################</span>
+<span class="c1"># Assign arbitrary parameter values for illustration purposes  #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">K3</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">KM</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Vmax</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="c1">################################################################</span>
+<span class="c1"># Define rate expression as a function of CS and CI            #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">CS</span><span class="p">,</span> <span class="n">CI</span><span class="p">:</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CS</span><span class="o">/</span><span class="p">(</span><span class="n">CS</span> <span class="o">+</span> <span class="n">KM</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">K3</span><span class="o">*</span><span class="n">CI</span><span class="p">))</span>
+
+
+<span class="c1">################################################################</span>
+<span class="c1"># We want to see r vs [S] at various values of [I]             #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">CS_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">CI_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+
+<span class="c1">################################################################</span>
+<span class="c1"># Visualize r vs [S] at various values of [I]                  #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">CI_exp</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS_exp</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r</span><span class="p">(</span><span class="n">CS_exp</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;CI = </span><span class="si">{</span><span class="n">CI_exp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Case 1 Inhibition in a Lineweaver-Burk Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/CS&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/r&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d1755be71e3216c29a5dd63d79f76a7b2d2999cec5b22783d835dd47f658785a.png" src="../_images/d1755be71e3216c29a5dd63d79f76a7b2d2999cec5b22783d835dd47f658785a.png" />
+</div>
+</div>
+<p>So we can see clearly that if we have Case 1 type inhibition (<span class="math notranslate nohighlight">\(I + E \rightleftharpoons EI\)</span>), we should be able to detect it from <em><strong>varying slopes</strong></em> in a Lineweaver-Burk plot when we obtain data at various inhibitor concentrations.</p>
+<p>If instead we have Case 2 inhibition (<span class="math notranslate nohighlight">\(I + ES \rightleftharpoons IES\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{r} = \frac{K_M}{V_\textrm{max}}\frac{1}{[S]} + \frac{(1 + K_{3_C}[I])}{V_\textrm{max}}\]</div>
+<p>We should see the impact of changing inhibitor concentration in the y-intercept, whereas the slope in a Lineweaver-Burk plot will remain constant.  This behavior is illustrated below.</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{V_\textrm{max}[S]}{K_M + [S](1 + K_{3_C}[I])}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">################################################################</span>
+<span class="c1"># Assign arbitrary parameter values for illustration purposes  #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">K3</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">KM</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Vmax</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="c1">################################################################</span>
+<span class="c1"># Define rate expression as a function of CS and CI            #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">CS</span><span class="p">,</span> <span class="n">CI</span><span class="p">:</span> <span class="n">Vmax</span><span class="o">*</span><span class="n">CS</span><span class="o">/</span><span class="p">(</span><span class="n">KM</span> <span class="o">+</span> <span class="n">CS</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">K3</span><span class="o">*</span><span class="n">CI</span><span class="p">))</span>
+
+<span class="c1">################################################################</span>
+<span class="c1"># We want to see r vs [S] at various values of [I]             #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">CS_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">CI_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])</span>
+
+<span class="c1">################################################################</span>
+<span class="c1"># Visualize r vs [S] at various values of [I]                  #</span>
+<span class="c1">################################################################</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">CI_exp</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">CS_exp</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">r</span><span class="p">(</span><span class="n">CS_exp</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;CI = </span><span class="si">{</span><span class="n">CI_exp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1">3.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Case 2 Inhibition in a Lineweaver-Burk Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;1/CS&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;1/r&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">450</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d80ee8501fa9e0161a52041ca93f4a9d30ab3de2bb8a6066dd8c4126558f98f1.png" src="../_images/d80ee8501fa9e0161a52041ca93f4a9d30ab3de2bb8a6066dd8c4126558f98f1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-01-urea-decomposition">Example 01: Urea Decomposition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-to-example-01">Solution to Example 01</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nonlinear-regression">Nonlinear Regression</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-of-mm-rate-expression-the-lineweaver-burk-model">Linearization of MM rate expression: The Lineweaver-Burk model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enzyme-inhibition-mechanism-1">Enzyme Inhibition Mechanism 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overal-reaction">Overal Reaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanism">Mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enzyme-inhibition-mechanism-2">Enzyme Inhibition Mechanism 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall">Overall</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Mechanism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distinguishing-between-mechanisms-of-inhibition-by-linearization">Distinguishing Between Mechanisms of Inhibition by linearization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#michaelis-menten">Michaelis-Menten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibition-mechanism-1-i-e-rightleftharpoons-ei">Inhibition Mechanism 1: <span class="math notranslate nohighlight">\(I + E \rightleftharpoons EI\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inhibition-mechanism-2-i-es-rightleftharpoons-ies">Inhibition Mechanism 2: <span class="math notranslate nohighlight">\(I + ES \rightleftharpoons IES\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-linearized-expressions">Comparing Linearized Expressions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,799 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Energy Balances I &#8212; Kinetics and Reaction Engineering</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/587-N54';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lectures" href="../Chapter2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/JQB.png" class="logo__image only-light" alt="Kinetics and Reaction Engineering - Home"/>
+    <script>document.write(`<img src="../_static/JQB.png" class="logo__image only-dark" alt="Kinetics and Reaction Engineering - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to CEN 587!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Chapter2.html">Lectures</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Energy Balances I</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jqbond/CEN587/main?urlpath=tree/Notebooks/587-N54.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jqbond/CEN587/issues/new?title=Issue%20on%20page%20%2FNotebooks/587-N54.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/587-N54.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Energy Balances I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="energy-balances-i">
+<h1>Energy Balances I<a class="headerlink" href="#energy-balances-i" title="Link to this heading">#</a></h1>
+<p>This lecture begins the development of energy balances for various ideal reactor archetypes. It follows the presentation of Energy Balances in <em>Chemical Engineering Thermodynamics</em> by Smith, van Ness, and Abbott.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">opt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Until now, we’ve always considered isothermal reactors.  We have often considered the effect of changing temperature on a rate constant, but as far as the reactor is concerned, we have always assumed that the entire reactor operates at a single temperature that is equal to the temperature at the start of the run (in a batch reactor) or the temperature of the feed (in a flow reactor). These cases are all <em>isothermal</em> reactors.</p>
+<p>We know after courses in mass and energy balances and thermodynamics that most reactions are not thermoneutral. This means that most reactions have a non-zero heat of reaction <span class="math notranslate nohighlight">\((\Delta H)\)</span>, so they will either release energy to or absorb energy from the environment. As this happens, we should anticipate that the temperature inside of the reactor may change considerably. From a strict chemistry standpoint, this is important for two reasons:</p>
+<ol class="arabic simple">
+<li><p>Rate constants have an exponential dependence on temperature</p></li>
+<li><p>Equilibrium constants have an exponential dependence on temperature</p></li>
+</ol>
+<p>In other words, changing the reaction temperature over the course of reaction progress can dramatically impact how favorable reaction is (thermodynamics, equilibrium constant) and how fast the reaction occurs (kinetics, rate constant). Because of this, it is important that we understand how to anticipate changes in temperature as a function of reaction progress, reaction time, and/or reactor size. We model temperature changes in a reacting system this by writing energy balances on the reactor of interest. We can use the same conceptual approach that we did for material balances – we envision a shell balance on the reactor, and we consider the energy entering, leaving, and accumulating in that control volume.</p>
+<figure class="align-default" id="energyshellbalance">
+<a class="reference internal image-reference" href="../_images/Energyshellbalance.svg"><img alt="../_images/Energyshellbalance.svg" src="../_images/Energyshellbalance.svg" style="width: 920.8000000000001px; height: 520.8000000000001px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Conceptual Illustration of an Energy Balance</span><a class="headerlink" href="#energyshellbalance" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Developing the Energy Balance from the above picture</strong></p>
+<p>Just as with a material balance, we write a conceptual energy balance as:</p>
+<div class="math notranslate nohighlight">
+\[\left\{\textrm{Rate of Energy Accumulation}\right\} = \left\{\textrm{Rate of Energy in by flow}\right\} - \left\{\textrm{Rate of Energy out by flow}\right\} + \left\{\textrm{Rate of heat addition}\right\} + \left\{\textrm{Rate of work performed on system}\right\}\]</div>
+<p>We would translate this into the following differential equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dE_T}{dt} = \dot{Q} + \dot{W} + F_f\bar{E}_f - F\bar{E}\]</div>
+<p>The bars on the energies denote that I’m specifying all of them in molar units, i.e., they have dimensions of energy per mole. We note that every term in this equation has units of energy per time, so it is an extensive balance, just like our general material balance.  We will consider a detailed breakdown of terms to develop a general energy balance that applies for any system, and then we’ll adapt it to batch, cstr, and pfr models.</p>
+<p><strong>Work</strong></p>
+<p>We can generally break work down into flow work, shaft work, and boundary work.  Flow work (<span class="math notranslate nohighlight">\(\dot{W}_f\)</span>) is associated with moving fluid into and out of the control volume.  Shaft work (<span class="math notranslate nohighlight">\(\dot{W}_s\)</span>) is associated with mechanical work on the system like stirring or compression.  Boundary work (<span class="math notranslate nohighlight">\(\dot{W}_b\)</span>) is associated with changing the size (V) of the volume element.</p>
+<p>Generally:</p>
+<div class="math notranslate nohighlight">
+\[\dot{W} = \dot{W}_s + \dot{W}_b + \dot{W}_f\]</div>
+<p>We can expand the flow work term further as a product of volumetric flowrate and pressure so that the net flow work on the system is given by the difference between the inlet and the exit of the reactor:</p>
+<div class="math notranslate nohighlight">
+\[\dot{W}_b = Q_fP_f - QP\]</div>
+<p>It is convenient to express volumetric flowrates in terms of molar flowrates since we write material balances in terms of the latter.  This can be done conceptually by expressing a volumetric flowrate as the product of a molar flowrate and a molar volume (similar to exercises in variable density, liquid-phase flow reactors from Unit 04).  Doing so:</p>
+<div class="math notranslate nohighlight">
+\[\dot{W}_b = F_fP_f\bar{V}_f - FP\bar{V}\]</div>
+<p>We can then substitute this expression back into our Work expression:</p>
+<div class="math notranslate nohighlight">
+\[\dot{W} = \dot{W}_s + \dot{W}_b + F_fP_f\bar{V}_f - FP\bar{V}\]</div>
+<p>And we can substitute this expression for <span class="math notranslate nohighlight">\(\dot{W}\)</span> into the general energy balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dE_T}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_fP_f\bar{V}_f - FP\bar{V} + F_f\bar{E}_f - F\bar{E}\]</div>
+<p>We see that the total molar flowrate into the reactor (<span class="math notranslate nohighlight">\(F_f\)</span>) and the total molar flowrate out of the reactor (<span class="math notranslate nohighlight">\(F\)</span>) both multiply by a few groups of terms, so we factor accordingly:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dE_T}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f(\bar{E}_f + P_f\bar{V}_f) - F(\bar{E} + P\bar{V})\]</div>
+<p>We can express the total energy in terms of its internal energy (U), kinetic (K), and potential (<span class="math notranslate nohighlight">\(\Phi\)</span>) contributions:</p>
+<div class="math notranslate nohighlight">
+\[E = U + K + \Phi\]</div>
+<p>We can extend this concept to express the molar “energy” in terms of internal (<span class="math notranslate nohighlight">\(\bar{U}\)</span>), kinetic (<span class="math notranslate nohighlight">\(\bar{K}\)</span>), and potential energy (<span class="math notranslate nohighlight">\(\bar{\Phi}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\bar{E} = \bar{U} + \bar{K} + \bar{\Phi}\]</div>
+<p>Where the overbar indicates energy-per-unit mole (e.g., every term is in Joules per mole).</p>
+<p><strong>Aside:</strong> In the above expression, I am lumping molecular weights into the molar kinetic and potential terms. Formally, I would probably start by saying that the total energy of species j is given by:</p>
+<div class="math notranslate nohighlight">
+\[E_j = U_j + \frac{m_ju_j^2}{2} + m_jgz_j\]</div>
+<p>This can be represented symbolically as:</p>
+<p>If I divide by the total moles of j present in the system:</p>
+<div class="math notranslate nohighlight">
+\[\frac{E_j}{N_j} = \frac{U_j}{N_j} + \frac{m_ju_j^2}{2N_j} + \frac{m_jgz_j}{N_j}\]</div>
+<p>I recognize the molecular weight of species j (<span class="math notranslate nohighlight">\(M_j\)</span>) on the right hand side:</p>
+<div class="math notranslate nohighlight">
+\[\frac{E_j}{N_j} = \frac{U_j}{N_j} + \frac{M_ju_j^2}{2} + M_jgz_j\]</div>
+<p>Then I use the notation <span class="math notranslate nohighlight">\(\bar{E}\)</span> and <span class="math notranslate nohighlight">\(\bar{U}\)</span> to represent the energy and internal energy per unit mole of species j:</p>
+<div class="math notranslate nohighlight">
+\[\bar{E}_j = \bar{U}_j + \frac{M_ju_j^2}{2} + M_jgz_j\]</div>
+<p>And we’ll represent those “molar” kinetic and potential terms as follows:</p>
+<div class="math notranslate nohighlight">
+\[\bar{E}_j = \bar{U}_j + \bar{K}_j + \bar{\Phi}_j\]</div>
+<p><strong>End Aside</strong></p>
+<p>Formally, we would substitute this complete expressions for total and molar energy into our energy balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d(U + K + \Phi)}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f(\bar{U}_f + \bar{K}_f + \bar{\Phi}_f + P_f\bar{V}_f) - F(\bar{U} + \bar{K} + \bar{\Phi} + P\bar{V})\]</div>
+<p>For a reacting system, <em>usually</em> the kinetic and potential energy contributions to the total energy are very small compared to the internal energy, so moving forward with our derivation, we will say:</p>
+<div class="math notranslate nohighlight">
+\[\bar{E} \approx \bar{U}\]</div>
+<p>In other words, the total energy of a species is equal to its internal energy. This simplification gives:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f(\bar{U}_f + P_f\bar{V}_f) - F(\bar{U} + P\bar{V})\]</div>
+<p>We recall that we define the enthaply as:</p>
+<div class="math notranslate nohighlight">
+\[H = U + PV\]</div>
+<p>Or, in molar units:</p>
+<div class="math notranslate nohighlight">
+\[\bar{H} = \bar{U} + P\bar{V}\]</div>
+<p>Making these substitutions, we have:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>This is the most general form of the energy balance that we will occasionally work with.  I will mostly use it as the starting point to develop specific balance equations on each ideal reactor archetype.</p>
+<p><strong>Batch Reactor</strong></p>
+<p>We start with the general energy balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>A batch reactor is a closed system, so there is no flow in or flow out.  Our energy balance under these assumptions simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b\]</div>
+<p>Under most conditions, shaft work (e.g., stirring) is very, very small compared to heat exchange or boundary work, so we will almost always neglect this term in the energy balance.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_b\]</div>
+<p>We have certainly encountered batch reactors that have changing volumes; this is where we encounter boundary work.  We can express this term as a pressure multipled by a volume derivative.</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} - P\frac{dV}{dt}\]</div>
+<p>We also know that we can relate enthalpy and internal energy:</p>
+<div class="math notranslate nohighlight">
+\[H = U + PV\]</div>
+<p>Which we can rearrange to get:</p>
+<div class="math notranslate nohighlight">
+\[U = H - PV\]</div>
+<p>Taking time derivatives of each term–note that both pressure and volume may change with time in a batch reactor, so differentiating PV requires a product rule:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \frac{dH}{dt} - V\frac{dP}{dt} - P\frac{dV}{dt}\]</div>
+<p>We substitute this internal energy derivative into the Left Hand Side of the developing balance equation to get:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dH}{dt} - V\frac{dP}{dt} - P\frac{dV}{dt} = \dot{Q} - P\frac{dV}{dt}\]</div>
+<p>This allows us to cancel the volume derivative terms:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dH}{dt} - V\frac{dP}{dt} = \dot{Q}\]</div>
+<p>Generally, we have to allow for the fact that enthalpy (H) is a function of T, P, and number of moles, all of which may vary with time in a batch reactor.  To handle this, we begin with the total derivative of enthalpy:</p>
+<div class="math notranslate nohighlight">
+\[dH = \left(\frac{\partial H}{\partial T}\right)_{P, N_j} dT + \left(\frac{\partial H}{\partial P}\right)_{T, N_j} dP + \sum_j \left(\frac{\partial H}{\partial N_j}\right)_{T, P, N_{k \neq j}} dN_j\]</div>
+<p>Recalling definitions from our Thermo courses (see, e.g., Chapter 6 of Smith, Van Ness, and Abbott):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7a15379a-ff3e-4cad-9d0b-92fe6bc773aa">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7a15379a-ff3e-4cad-9d0b-92fe6bc773aa" title="Permalink to this equation">#</a></span>\[\begin{align}
+    \left(\frac{\partial H}{\partial T}\right)_{P, N_j} dT &amp;= C_p = N_T\bar{C}_p = \sum_j N_j\bar{C}_{p,j} \\
+    \left(\frac{\partial H}{\partial P}\right)_{T, N_j} dT &amp;= V(1 - \alpha T) \\
+    \left(\frac{\partial H}{\partial N_j}\right)_{T, P, N_{k \neq j}} dT &amp;= \bar{H}_j \\
+\end{align}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(N_T\)</span> is the total number of moles in the system, <span class="math notranslate nohighlight">\(\bar{C}_p\)</span> is the molar heat capacity of the system, <span class="math notranslate nohighlight">\(\alpha\)</span> is the coefficient of thermal expansion, and <span class="math notranslate nohighlight">\(\bar{H}\)</span> is the partial molar enthalpy of species j.  With these definitions in hand, our total derivative of enthalpy becomes:</p>
+<div class="math notranslate nohighlight">
+\[dH = C_p dT + (1 - \alpha T)V dP + \sum_j \bar{H}_j dN_j\]</div>
+<p>And our time derivative of enthalpy becomes:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dH}{dt} = C_p \frac{dT}{dt} + (1 - \alpha T)V \frac{dP}{dt} + \sum_j \bar{H}_j \frac{dN_j}{dt}\]</div>
+<p>Substituting this into our developing material balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dH}{dt} - V\frac{dP}{dt} = \dot{Q}\]</div>
+<p>Will give:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} + (1 - \alpha T)V \frac{dP}{dt} + \sum_j \bar{H}_j \frac{dN_j}{dt} - V\frac{dP}{dt} = \dot{Q}\]</div>
+<p>We can cancel one of the pressure derivative terms, which leaves us the following general energy balance for a batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j \bar{H}_j \frac{dN_j}{dt} = \dot{Q}\]</div>
+<p>Typically, in reactor design, we will take one more step to put this into a form that is useful for reacting systems.  From a material balance on species j in a batch reactor, we know:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dn_j}{dt} = R_jV = \sum_i \nu_{i,j}r_iV\]</div>
+<p>We can substitute this back into our energy balance:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j \bar{H}_j \sum_i \nu_{i,j}r_iV = \dot{Q}\]</div>
+<p>Rearranging:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_i \sum_j \nu_{i,j}\bar{H}_j r_iV = \dot{Q}\]</div>
+<p>We might recognize the internal summation in the last term:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j \nu_{i,j}\bar{H}_j = \Delta H_i\]</div>
+<p>So our “useful” general energy balance for any batch reactor has the following form:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} = -\sum_i \Delta H_i r_iV + \dot{Q}\]</div>
+<p>This equation will allow us to handle changes in pressure, volume, and/or temperature.  In CEN 587, we will only consider a few special cases of this equation.  For all of our examples, one of the following will be true:</p>
+<p>Either we have an incompressible fluid, where:</p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0\]</div>
+<p>Or we have an isobaric reactor where:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dP}{dt} = 0\]</div>
+<p>If either of these are true, then we can work with the following, simplified energy balance for a batch reactor:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} = -\sum_i \Delta H_i r_iV + \dot{Q}\]</div>
+<p>Just note again that we usually compute the “extensive” heat capacity for the system, <span class="math notranslate nohighlight">\(C_p\)</span> by summing up all contributions from the individual species, so our practical energy balance ends up being:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j \bar{C}_{p,j} \frac{dT}{dt} = -\sum_i \Delta H_i r_iV + \dot{Q}\]</div>
+<p>Generally speaking, we will express the rate of heat addition in terms of an overall mass transfer coefficient, an interfacial area, and a temperature gradient between the heat transfer medium and the reactor contents:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+<p>By convention, we define a positive rate of heat addition as moving in the direction from the surroundings into the reactor, and we define a negative rate addition as moving in the direction from the reactor to the surroundings.  Since U and A are always positive, we can see that this sign convention is consistent for our expectations when the reactor is colder than the surroundings (<span class="math notranslate nohighlight">\(T_a &gt; T\)</span>, so heat flows into the reactor) and for when the reactor is hotter than the surroundings (<span class="math notranslate nohighlight">\(T_a &lt; T\)</span>, so heat flows out of the reactor).</p>
+<p><strong>CSTR Derivation</strong></p>
+<p>Most of the derivation for the CSTR is the same as that above for a batch reactor, so we’ll expedite a little.  The key difference is that when we start with the very general energy balance:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = \dot{Q} + \dot{W}_s + \dot{W}_b + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>We have to retain the flow terms <span class="math notranslate nohighlight">\(F_f\bar{H}_f\)</span> and <span class="math notranslate nohighlight">\(F\bar{H}\)</span>.  This is because there is generally flow into and out of a CSTR.  For the U, Q, and W terms, you follow exactly the same steps as a Batch Reactor, which gets you to the following equation:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j \bar{H}_j \frac{dn_j}{dt} = \dot{Q} + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>If you go back over the Batch derivation, you’ll see this is the same thing with two flow terms (in and out) added to the right hand side.  We proceed from here in making further simplifications.</p>
+<p>For a CSTR, we have:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \sum_i \nu_{i,j} r_i V\]</div>
+<p>We substitute this into the left hand side of our developing energy balance to get:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j \bar{H}_j \left(F_{j,f} - F_j + \sum_i \nu_{i,j} r_i V\right) = \dot{Q} + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>We can distribute the enthalphy summation on the left hand side:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j F_{j,f} \bar{H}_j  - \sum_j F_j\bar{H}_j  + \sum_j \bar{H}_j\sum_i \nu_{i,j} r_i V = \dot{Q} + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>Rearranging:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j F_{j,f} \bar{H}_j  - \sum_j F_j\bar{H}_j + \sum_i \sum_j \nu_{i,j} \bar{H}_j  r_i V = \dot{Q} + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>On the left hand side, we see the heat of reaction i again:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j F_{j,f} \bar{H}_j  - \sum_j F_j\bar{H}_j + \sum_i \Delta H_i  r_i V = \dot{Q} + F_f\bar{H}_f - F\bar{H}\]</div>
+<p>On the right hand side, we note that the products <span class="math notranslate nohighlight">\(F_f\bar{H}_f\)</span> and <span class="math notranslate nohighlight">\(F\bar{H}\)</span> are the <em>total</em> molar flowrate multipliec by the <em>total</em> molar enthalpy of the influent and effluent streams.  We can express them as the sum of contributions from individual components:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j F_{j,f} \bar{H}_j  - \sum_j F_j\bar{H}_j + \sum_i \Delta H_i  r_i V = \dot{Q} + \sum_j F_{j,f}\bar{H}_{j,f} - \sum_j F_j\bar{H}_j\]</div>
+<p>This permits cancellation of the exit flow term on the LHS and RHS of the balance, leaving:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} + \sum_j F_{j,f} \bar{H}_j + \sum_i \Delta H_i  r_i V = \dot{Q} + \sum_j F_{j,f}\bar{H}_{j,f}\]</div>
+<p>We move the non-derivative terms to the right hand side:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} = - \sum_i \Delta H_i  r_i V + \sum_j F_{j,f}\bar{H}_{j,f} - \sum_j F_{j,f} \bar{H}_j + \dot{Q}\]</div>
+<p>And we can factor the feed molar flowrates in the summation to arrive at the general balance for any CSTR:</p>
+<div class="math notranslate nohighlight">
+\[C_p \frac{dT}{dt} - \alpha TV \frac{dP}{dt} = - \sum_i \Delta H_i  r_i V + \sum_j F_{j,f}\left(\bar{H}_{j,f} - \bar{H}_j\right) + \dot{Q}\]</div>
+<p>Again we note that the “total” extensive heat capacity, <span class="math notranslate nohighlight">\(C_p\)</span> can be expressed as the sum of individual contributions:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j\bar{C}_{p,j} \frac{dT}{dt} - \alpha TV \frac{dP}{dt} = - \sum_i \Delta H_i  r_i V + \sum_j F_{j,f}\left(\bar{H}_{j,f} - \bar{H}_j\right) + \dot{Q}\]</div>
+<p>In our course, we will always work in simplfied systems. For liquid phase reactions or for incompressible fluids in general, <span class="math notranslate nohighlight">\(\alpha = 0\)</span>.  If the system operates at constant pressure, then <span class="math notranslate nohighlight">\(\frac{dP}{dt} = 0\)</span>, so we’re usually able to work with the following form if we need to consider transient (dynamic) operation of a CSTR:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j N_j\bar{C}_{p,j} \frac{dT}{dt} = - \sum_i \Delta H_i  r_i V + \sum_j F_{j,f}\left(\bar{H}_{j,f} - \bar{H}_j\right) + \dot{Q}\]</div>
+<p>More commonly, we’ll only worry about steady state operation in the undergraduate course, so temperature is time-independent, and the left hand side equals 0:</p>
+<div class="math notranslate nohighlight">
+\[0 = - \sum_i \Delta H_i  r_i V + \sum_j F_{j,f}\left(\bar{H}_{j,f} - \bar{H}_j\right) + \dot{Q}\]</div>
+<p>Generally speaking, we will express the rate of heat addition in terms of an overall mass transfer coefficient, an interfacial area, and a temperature gradient between the heat transfer medium and the reactor contents:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+<p>By convention, we define a positive rate of heat addition as moving in the direction from the surroundings into the reactor, and we define a negative rate addition as moving in the direction from the reactor to the surroundings.  Since U and A are always positive, we can see that this sign convention is consistent for our expectations when the reactor is colder than the surroundings (<span class="math notranslate nohighlight">\(T_a &gt; T\)</span>, so heat flows into the reactor) and for when the reactor is hotter than the surroundings (<span class="math notranslate nohighlight">\(T_a &lt; T\)</span>, so heat flows out of the reactor).</p>
+<p><strong>Energy Balance on a PFR</strong></p>
+<p>We take a slightly different approach for the PFR, which arises due to the way we model it (as an infinite number of axial slices).  The shell balance is expressed on a single “slice” of volume, which has a size <span class="math notranslate nohighlight">\(\Delta V\)</span>.</p>
+<p><img alt="EnergybalancePFR.svg" src="Notebooks/attachment:EnergybalancePFR.svg" /></p>
+<p>There is generally no shaft work (e.g., mixing) in the control volume with a PFR, so we’ll neglect the shaft work term. Then, we write our general energy balance on the volume element:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dU}{dt} = F\bar{H} \, \big|_V - F\bar{H} \, \big|_{V+\Delta V} + \dot{Q}\]</div>
+<p>In this course, we will only be interested in steady state solutions, where the total internal energy of the system is time-independent, so the left hand side of the above is equal to zero:</p>
+<div class="math notranslate nohighlight">
+\[0 = F\bar{H} \, \big|_V - F\bar{H} \, \big|_{V+\Delta V} + \dot{Q}\]</div>
+<p>We will expand our Q term; the above is in extensive units of energy per time:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = UA(T_a - T)\]</div>
+<p>We’ll instead write this as follows for the PFR; I know this is not intuitive, but it gives a convenient result down the road:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = \frac{UA\Delta V(T_a - T)}{\Delta V}\]</div>
+<p>The quantity <span class="math notranslate nohighlight">\(\frac{A}{\Delta V}\)</span> the ratio of surface area to volume for the tube. Re-arranging:</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = \frac{UA(T_a - T)}{\Delta V} \Delta V\]</div>
+<p>We’ll define a new term, the rate of heat addition per unit volume (<span class="math notranslate nohighlight">\(\dot{q}\)</span>) as:</p>
+<div class="math notranslate nohighlight">
+\[\dot{q} = \frac{UA(T_a - T)}{\Delta V}\]</div>
+<p>This gives the following expression for extensive rate of heat addition (<span class="math notranslate nohighlight">\(\dot{Q}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\dot{Q} = \dot{q} \Delta V\]</div>
+<p>And we substitute this into the energy balance on the control volume:</p>
+<div class="math notranslate nohighlight">
+\[0 = F\bar{H} \, \big|_V - F\bar{H} \, \big|_{V+\Delta V} + \dot{q}\Delta V\]</div>
+<p>Now we’ll divide through by <span class="math notranslate nohighlight">\(\Delta V\)</span> and take the limit as <span class="math notranslate nohighlight">\(\Delta V \rightarrow 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[0 = -\frac{d}{dV}(F\bar{H}) + \dot{q}\]</div>
+<p>We can rearrange and express the product <span class="math notranslate nohighlight">\(F\bar{H}\)</span> in terms of individual species:</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dV}\sum_j F_j\bar{H}_j = \dot{q}\]</div>
+<p>We have to allow that both <span class="math notranslate nohighlight">\(F_j\)</span> and <span class="math notranslate nohighlight">\(H_j\)</span> may change with position (V) in a PFR, so that derivative needs to be expanded with a product rule, giving:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j \bar{H}_j \frac{dF_j}{dV} + \sum_j F_j\frac{d\bar{H}_j}{dV} = \dot{q}\]</div>
+<p>We can use the material balance on a PFR (<span class="math notranslate nohighlight">\(\frac{dF_j}{dV} = R_j\)</span>) to expand the volume derivative of <span class="math notranslate nohighlight">\(F_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\sum_i \sum_j \nu_{i,j} \bar{H}_j r_i + \sum_j F_j\frac{d\bar{H}_j}{dV} = \dot{q}\]</div>
+<p>This simplifies to a heat of reaction term:</p>
+<div class="math notranslate nohighlight">
+\[\sum_i \Delta H_i r_i + \sum_j F_j\frac{d\bar{H}_j}{dV} = \dot{q}\]</div>
+<p>We follow similar steps to generate the total derivative of enthalpy as in the batch reactor; we can then replace the second term:</p>
+<div class="math notranslate nohighlight">
+\[\sum_i \Delta H_i r_i + \sum_j F_j\bar{C}_{p,j} \frac{dT}{dV} + (1 - \alpha T) \frac{dP}{dV} = \dot{q}\]</div>
+<p>We rearrange so that only differential terms are on the left hand side, and we get:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j F_j\bar{C}_{p,j} \frac{dT}{dV} + (1 - \alpha T) \frac{dP}{dV} = -\sum_i \Delta H_i r_i + \dot{q}\]</div>
+<p>This is the general form for a PFR, and it covers a variety of cases.  In our course, we will restrict consideration to cases where:</p>
+<ol class="arabic simple">
+<li><p>We have an ideal gas so that <span class="math notranslate nohighlight">\(\alpha T = 1\)</span></p></li>
+<li><p>We have an isobaric reactor so that <span class="math notranslate nohighlight">\(\frac{dP}{dV} = 0\)</span></p></li>
+</ol>
+<p>If either of these are true, then we have the following result, which is the only form we’ll work with in 587:</p>
+<div class="math notranslate nohighlight">
+\[\sum_j F_j\bar{C}_{p,j} \frac{dT}{dV} = -\sum_i \Delta H_i r_i + \dot{q}\]</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../Chapter2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lectures</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jesse Q. Bond, Syracuse University
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,986 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Keep aspect ratio if custom image width or height is specified
+    \setkeys{Gin}{keepaspectratio}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{soul}      % strikethrough (\st) support for pandoc >= 3.0.0
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \makeatletter
+    \newsavebox\pandoc@box
+    \newcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      % scaling factors for width and height
+      \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+      % select the smaller of both
+      \ifdim\@tempb\p@<\@tempa\p@
+        \let\@tempa\@tempb
+      \fi
+      % scaling accordingly (\@tempa < 1)
+      \ifdim\@tempa\p@<\p@
+        \scalebox{\@tempa}{\usebox\pandoc@box}%
+      % scaling not needed, use as it is
+      \else
+        \usebox{\pandoc@box}%
+      \fi
+    }
+    \makeatother
+
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{587-N14b}
+    
+    
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb.
+    \makeatletter
+        \newbox\Wrappedcontinuationbox
+        \newbox\Wrappedvisiblespacebox
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}}
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}}
+        \newcommand*\Wrappedcontinuationindent {3ex }
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox}
+        % Take advantage of the already applied Pygments mark-up to insert
+        % potential linebreaks for TeX processing.
+        %        {, <, #, %, $, ' and ": go to next line.
+        %        _, }, ^, &, >, - and ~: stay at end of broken line.
+        % Use of \textquotesingle for straight quote.
+        \newcommand*\Wrappedbreaksatspecials {%
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}%
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}%
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}%
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}%
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}%
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}%
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}%
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}%
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}%
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}%
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}%
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}%
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}%
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}%
+        }
+        % Some characters . , ; ? ! / are not pygmentized.
+        % This macro makes them "active" and they will insert potential linebreaks
+        \newcommand*\Wrappedbreaksatpunct {%
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}%
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}%
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}%
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}%
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}%
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}%
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}%
+            \catcode`\.\active
+            \catcode`\,\active
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active
+            \lccode`\~`\~
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{material-balances-ii}{%
+\section{Material Balances II}\label{material-balances-ii}}
+
+\href{https://www.youtube.com/watch?v=7vP2hFFV57E\&list=RD7vP2hFFV57E\&start_radio=1}{What
+is Bond listening to right now?}
+
+This lecture continues discussion of material balances on reacting
+systems.
+
+In
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N13.html}{Notebook
+13}, we looked at a species balance on a reactor of arbitrary ``size''
+and shape, where we considered that the ``size'' of the system might be
+described in terms of volume, mass of catalyst, interfacial area, or
+even number of catalytic ``active sites'' in the reactor. Our species
+balance on an arbitrary reactor:
+
+\begin{figure}
+\centering
+\includegraphics{MB1.png}
+\caption{Conceptual Illustration of an Arbitrary Chemical Reactor}
+\end{figure}
+
+Would give the following equation:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+In other words, \{accumulation\} = \{in\} - \{out\} + \{generation by
+reactions\}. We finished
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N13.html\#the-rate-of-generation-or-consumption-by-chemical-reaction}{Notebook
+13} with a brief presentation of \(G_j\). We willl pick this up here.
+
+\(G_j\) is the \textbf{\emph{extensive}} rate of generation (or
+consumption) of species \(j\) by chemical reaction. It represents how
+quickly species \(j\) is either consumed or produced by chemical
+reaction(s) that are occuring inside of our reactor in
+\textbf{\emph{extensive}} units of \textbf{\emph{moles-per-time}}. It is
+related to the rate of reaction, but it is not the same thing as the
+rate of reaction:
+
+\[G_j \neq r_i\]
+
+\(G_j\) is a \textbf{\emph{species specific term}}. It is an
+\textbf{\emph{extensive}} quantity that represents the amount of species
+\(j\) that is produced or consumed by chemical reaction in extensive
+units of moles-per-time. It will change depending on the size of the
+system and the particulars of the reactor you are using. In contrast,
+the rate of reaction, \(r_i\), is a \textbf{\emph{reaction specific
+term}}. It represents the rate of reaction \(i\) that is occuring at the
+conditions inside of the reactor you are considering. Importantly, in
+Chemical Reaction Engineering, the rate of a chemical reaction, \(r_i\),
+is always an \textbf{\emph{intensive}} quantity that is scale and/or
+system independent. In terms of what controls the intensive rate of
+reaction, \(r_i\):
+
+\[r_i = f(T, P, \chi_j)\]
+
+To expand that concept: once we decide on what reaction we're
+considering and what (if any) catalyst it uses, \textbf{\emph{the rate
+of that reaction, \(r_i\), is entirely determined by the temperature,
+pressure, and composition of the reacting mixture}}. The rate of
+reaction, \(r_i\), does not depend on stoichiometry, nor does it depend
+on the type, size, or shape of a reactor. It might surprise you, but the
+rate of reaction also has no fundamental dependence on important aspects
+of reactor design, like mixing. The rate of reaction is always entirely
+determined by temperature, pressure, and composition. In contrast,
+stoichiometry, shape, size, type of reactor, extent of mixing, etc. will
+all influence the extensive rate of generation by chemical reaction,
+\(G_j\):
+
+\[G_j = f(T, P, \chi_j, \text{reactor type, reactor size, mixing, etc.})\]
+
+These two quantities are related, but they are not the same thing. Next,
+we'll develop the relationship between the two.
+
+    \hypertarget{a-conceptual-definition-of-a-reaction-rate}{%
+\subsection{A conceptual definition of a reaction
+rate}\label{a-conceptual-definition-of-a-reaction-rate}}
+
+I have always liked the way that reaction rates are conceptually defined
+in Boudart's textbook \emph{Kinetics of Chemical Processes}. They are
+not defined in terms of a species, rather, they are defined in terms of
+the amount of ``reaction'' that has occured. Namely reaction rates are
+defined in terms of an extent of reaction, \(\varepsilon\), which we
+know is an extensive quantity that describes how many ``moles of
+reaction'' have occured. We want to transform that idea into a rate,
+specifically, into a rate of how many moles of reaction have occurred.
+At least from a dimensional standpoint, one could define an extensive
+rate of reaction \(i\), \(\bar{r_i}\) as:
+
+\[\bar{r_i} = \frac{\Delta \varepsilon_i}{\Delta t} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{time}}\]
+
+Since the extent of reaction \(i\), \(\varepsilon_i\), is an extensive
+variable, the above definition of \(\bar{r_i}\) is an extensive rate of
+reaction, i.e., it varies with the scale of the system.
+
+\hypertarget{intensive-rates-of-reaction-are-more-useful}{%
+\subsection{Intensive rates of reaction are more
+useful}\label{intensive-rates-of-reaction-are-more-useful}}
+
+Generally, we prefer to work with \emph{intensive} reaction rates. The
+reason for this is that, fundamentally, a reaction rate should be a
+function of only \((T, P, x_j)\). It should not depend on the type of
+reactor we are using or the size of that system. This ensures that when
+I study kinetics in a small scale batch reactor, those results will
+apply to the same reaction happening in a large fluidized bed at
+ExxonMobil. Intensive reaction rates ensure the data are universal and
+that they will apply for a given \((T, P, x_j)\) regardless of the
+reactor. This is a much more useful description of reaction rate than an
+extensive reaction rate that changes every time we change the reactor.
+Accordingly, in chemical reactor design, we will always work with
+intensive reaction rates that are normalized to a unit dimension of
+``size'' or ``scale'' that describes our system. As we discussed in
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N13.html}{Notebook
+13}, what constitutes an appropriate dimensional scaling depends on the
+type of reaction. For homogeneous reactions that occur throughout the
+space occupied by the reaction mixture, volume is a good description of
+system size. We reach this conclusion because it is clear that
+increasing the volume of fluid within the reactor (for a fixed
+concentration of reactants) will increase the extensive quantity of
+reaction that is occuring. In other cases, catalyst mass, interfacial
+surface area, or even number of surface active sites may be appropriate
+bases for normalizing reaction rates. With this in mind, we present a
+few general conceptual definitions of intensive reaction rates using
+different types of normalizations that may be relevant in different
+types of reacting systems.
+
+\hypertarget{homogeneous-reactions}{%
+\subsubsection{Homogeneous Reactions}\label{homogeneous-reactions}}
+
+For homogeneous reactions that occur throughout the space occupied by a
+fluid phase, volume is a good basis for normalizing reaction rates;
+hence, our convention for homogeneous systems is to report intensive
+reaction rates normalized to unit volume:
+
+\[r_i = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta V} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{volume} \cdot \text{time}}\]
+
+We will use the notation convention presented in Scott Fogler's
+\emph{Elements of Chemical Reaction Engineering} wherein the rate of
+reaction \(i\) reported per unit volume will have the symbol \(r_i\).
+
+\hypertarget{heterogeneous-reactions}{%
+\subsubsection{Heterogeneous Reactions}\label{heterogeneous-reactions}}
+
+\hypertarget{catalytic-reactions-e.g.-in-a-packed-bed}{%
+\paragraph{Catalytic reactions (e.g., in a packed
+bed)}\label{catalytic-reactions-e.g.-in-a-packed-bed}}
+
+In cases where the reaction occurs on a catalyst, reactor volume is a
+much less relevant description of the reactor scale than the amount of
+catalyst present in the reactor. In practice, for catalytic reactions,
+we frequently will see intensive reaction rates reported per unit mass
+of catalyst. This makes sense because the \textbf{\emph{extensive}}
+productivity of a catalytic reactor scales with the quantity (mass) of
+catalyst inside of the reactor much moreso than it does the volume of
+space inside of the reactor. In this case, we define:
+
+\[r_i^\prime = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta W} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{mass of catalyst} \cdot \text{time}}\]
+
+Note that Scott Fogler's textbook (\emph{Elements of Chemical Reaction
+Engineering}) uses the symbol \(W\) for catalyst mass (catalyst
+``weight''). This has become standard notation for packed bed and
+fluidized bed reactors, so we'll use it here. In our course, we'll also
+use Fogler's convention of using the symbol \(r_i^\prime\) to indicate
+the mass-normalized rate of reaction \(i\).
+
+\hypertarget{reactions-at-interfaces-between-phases}{%
+\paragraph{Reactions at interfaces between
+phases}\label{reactions-at-interfaces-between-phases}}
+
+Sometimes, a reaction occurs only at an interface between two phases. In
+these cases, the extensive ``scale'' of the reaction is best described
+in terms of that interfacial area. When we have a reaction that occurs
+over a 2D surface or 2D interface between phases, it is often convenient
+for us to report reaction rates per unit area. Again, this is because
+the interfacial area is far more important than the total volume
+occupied in determining the overall, extensive performance of the
+reactor. In these cases, we might see a rate definition like this one:
+
+\[r_i^{\prime\prime} = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta A} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{interfacial area} \cdot \text{time}}\]
+
+We will extend the prime notation used by Fogler as well as Dumesic (in
+\emph{The Microkinetics of Heterogeneous Catalysis}) and use the symbol
+\(r_i^{\prime\prime}\) to represent the rate of reaction \(i\) per unit
+area.
+
+\hypertarget{reactions-at-specific-active-sites-on-a-surface}{%
+\paragraph{Reactions at specific active sites on a
+surface}\label{reactions-at-specific-active-sites-on-a-surface}}
+
+In
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N13.html\#heterogenous-reactions-at-exposed-surface-atoms-active-sites}{Notebook
+13}, we introduced the idea that catalysts are frequently comprised of
+expensive metals like Pt or Pd. In those cases, we almost never use a
+bulk sample of pure Pt or Pd. Instead, we disperse nanometer sized
+particles of Pt or Pd onto a high surface area carrier like silica or
+alumina. Frequently, the silica and alumina do nothing in terms of
+catalysis--they are there as a host for Pt or Pd nanoparticles. In these
+situations, the vast majority of catalyst mass or even catalyst surface
+area in the reactor is inert. Only a few exposed surface atoms of Pt or
+Pd are doing the catalysis, so the mass of catalyst and the surface area
+of the interface between the catalyst and the bulk fluid become poor
+descriptions of the size of the system. Instead, it is better for us to
+think of the reactor ``size'' in terms of the number of Pt or Pd atoms
+that are accessible in that system. This is a common convention in
+fundamental catalysis, where we usually report rates of reaction per
+active site:
+
+\[r_i^{\prime\prime\prime} = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta S} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{active site} \cdot \text{time}}\]
+
+Usually, we quantity our active site in number of moles of active sites:
+
+\[r_i^{\prime\prime\prime} = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta S} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{moles of active site} \cdot \text{time}}\]
+
+Which leads to a common (though not strictly rigorous) ``cancellation''
+of moles to give a reaction rate in units of inverse time. This is
+called the turnover frequency of a catalytic reaction.
+
+\[r_i^{\prime\prime\prime} = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta S} \ [=] \ \frac{\text{1}}{\text{time}}\]
+
+The notation here is consistent with that presented in Dumesic's The
+Microkinetics of Heterogeneous Catalysis, where
+\(r_i^{\prime\prime\prime}\) represents the rate of reaction \(i\) per
+unit active site. It can be reduced to units of inverse time, and is is
+also known as the \textbf{\emph{turnover frequency}} of a catalytic
+reaction.
+
+There are many types of catalysts, and they have many types of ``active
+sites.'' Above, we present the idea that a catalyst might be comprised
+of a metal dispersed on an inert carrier and that the active sites are
+accessible, surface metal atoms (not metal atoms buried in the bulk of a
+3D particle). Some common examples of catalytic metals include Pt, Pd,
+Ir, Ru, Ni, Cu, and Os. Sometimes, we use metal oxides or mixed metal
+oxides as catalysts. In these cases, the active sites are often
+coordinatively unsaturated Lewis acidic metal cations (electron
+acceptors) like \(Al^{3+}\); Brønsted acidic protons, \(H^{+}\); basic
+oxygen anions like \(O^{2-}\); or reducible metal cations like
+\(V^{5+}\) or \(Ti^{4+}\). In all cases, the active site is likely a
+rare species on the surface of the catalyst.
+
+    \hypertarget{relating-production-rates-to-reaction-rates}{%
+\subsection{Relating Production Rates to Reaction
+Rates}\label{relating-production-rates-to-reaction-rates}}
+
+For the rest of this lecture, we'll work with a homogeneous reaction and
+so consider the development of intensive reaction rates that are
+normalized per unit volume, i.e.,
+
+\[r_i = \frac{\Delta \varepsilon_i}{\Delta t \ \Delta V} \ [=] \ \frac{\text{moles of extent of reaction} \ i}{\text{volume} \cdot \text{time}}\]
+
+Consider a homogeneous reaction--let's call it Reaction 1:
+
+\[2A \ (g) \longrightarrow 3B \ (g)\]
+
+Under the conditions of our system, Reaction 1 is occuring with an
+\textbf{\emph{intensive}} reaction rate of:
+
+\[r_1 = 1 \ \frac{\text{moles of extent of reaction} \ 1}{\text{L} \cdot \text{min}}\]
+
+Remember, we have defined reaction rates as properties of the reaction
+(not of a species), and they represent the rate of change in extent of
+reaction per unit time and size. In material balances, though, we are
+always interested in the rate that \textbf{\emph{species}} are being
+generated by chemical reaction more than we are interested in the rate
+of the reaction itself. We can relate the intensive rate of reaction
+\(i\), \(r_i\), to the intensive production rate of species \(j\),
+\(R_j\), using stoichiometric coefficients. This is similar to what we
+do with extents of reaction in completing a mole table for equilibrium
+problems. For example, if we wanted to define the number of moles of
+\(A\) and \(B\) as functions of extent of reaction 1, \(\varepsilon_1\),
+we would write:
+
+\begin{align}
+    N_A = N_{A0} + \nu_A \varepsilon = N_{A0} - 2 \varepsilon_1 \\
+    N_B = N_{B0} + \nu_B \varepsilon = N_{B0} + 3 \varepsilon_1 \\
+\end{align}
+
+From this, you can see how stoichiometric coefficients allow us to
+relate a reaction specific property (like extent) to a species specific
+property (number of moles of \(A\) consumed). We can use an anlogous
+approach to relate reaction-specific reaction rates, \(r_i\), to
+species-specific production rates, \(R_j\). For example, if we wanted to
+calculate the rate at which species A is produced, \(R_A\), by reaction
+1, we would consider that each time reaction 1 occurs, it consumes 2
+moles of species A. \(R_A\) would therefore be defined as:
+
+\[R_A = \nu_A r_1 = -2r_1 = -2 \ \frac{\text{moles \ of \ A}}{\text{L} \cdot \text{min}}\]
+
+Similarly, the production rate of species B, \(R_B\), is given by:
+
+\[R_B = \nu_B r_1 = 3r_1 = 3 \ \frac{\text{moles \ of \ B}}{\text{L} \cdot \text{min}}\]
+
+Notice that these quantities, \(R_j\), are defined per unit size (volume
+in this case), so these capital \(R\) production rates, \(R_j\) are
+intensive quantities, just like reaction rates, \(r_i\). Intensive
+production rates for homogeneous reactions will usually have the
+following units:
+
+\[R_j \ [=] \ \frac{\text{moles of j}}{\text{volume} \cdot \text{time}}\]
+
+\hypertarget{generalizing-the-concept}{%
+\subsubsection{Generalizing the
+Concept}\label{generalizing-the-concept}}
+
+Based on that example above, we can conclude that for any, generic
+single reaction:
+
+\[\nu_A A + \nu_B B \leftrightharpoons \nu_C C + \nu_D D\]
+
+That is occuring with an intensive reaction rate, \(r_i\). We would
+define the intensive production rate of a species participating in that
+reaction as:
+
+\[R_j = \nu_j r_i\]
+
+Conversely, in some situations, we are able to estimate the rate of
+reaction (which we can't measure directly) from the production rate of a
+species (which we can measure directly):
+
+\[r_i = \frac{R_j}{\nu_j}\]
+
+    \hypertarget{multiple-reactions}{%
+\subsubsection{Multiple Reactions}\label{multiple-reactions}}
+
+There is no restriction that a species is only participating in one
+reaction in a given reactor. In fact, the more realistic scenario is
+that each species is actually participating in multiple reactions. This
+means that each species is being consumed or produced by multiple
+chemical reactions, and so when we define the production rate, \(R_j\),
+we actually need to account for the rate of consumption from many
+chemical reactions. We'll do this with an intuitive example and then
+present a general equation. Consider partial and complete combustion
+pathways that occur during methane oxidation:
+
+\begin{align*}
+    (1) \qquad CH_4 \ (g) + \frac{3}{2} O_2 \ (g) &\longrightarrow CO \ (g) + 2H_2O \ (g) \\
+    \\
+    (2) \qquad CH_4 \ (g) + 2 O_2 \ (g) &\longrightarrow CO_2 \ (g) + 2H_2O \ (g) \\
+\end{align*}
+
+These are different reactions, and their rates will have different
+dependencies on temperature, pressure, and composition. In other words:
+
+\[r_1(T,P,x_j) \neq r_2(T,P,x_j)\]
+
+Because of this, we have to account for the rate of each reaction
+separately when we quantify the production rate for each species.
+Conceptually, it's pretty straightforward. Analogous to our solution of
+multiple reaction equilibria using mole tables, we simply add up the
+consumption or production rate for each species in each reaction. So for
+methane \((CH_4)\), we find:
+
+\[R_{CH_4} = -1r_1 - 1r_2\]
+
+And we can do the same thing for every species participating in these
+two reactions.
+
+\begin{align}
+    R_{O_2} &= -\frac{3}{2}r_1 - 2r_2\\
+    R_{CO} &= +1r_1 + 0r_2\\
+    R_{CO_2} &= +0r_1 + 1r_2\\
+    R_{H_2O} &= +2r_1 + 2r_2\\
+\end{align}
+
+From that exercise, it makes sense that we can formally calculate an
+intensive production rate for any species, \(j\), by summing up the
+intensive production rate for that species in each reaction that is
+occuring in the system. That results in the following definition of
+intensive production rates:
+
+\[R_j = \sum_{i = 1}^{N_R} \nu_{i,j} \, r_i\]
+
+Here, the summation goes over all reactions (\(i = 1\) to \(N_R\), where
+\(N_R\) is the number of reactions occuring in the system). The
+stoichiometric coefficient, \(\nu_{i,j}\), is the coefficient of the
+\(j^{\text{th}}\) species in the \(i^{\text{th}}\) reaction, and \(r_i\)
+is the rate of the \(i^{\text{th}}\) reaction. You'll notice that these
+species production rates are still intensive and, for homogeneous
+systems, have the following units, just as they did for a single
+reaction:
+
+\[R_j \ [=] \ \frac{\text{moles of }j}{\text{volume} \cdot \text{time}}\]
+
+    \hypertarget{connecting-intensive-production-rates-r_j-to-extensive-production-rates-g_j}{%
+\subsubsection{\texorpdfstring{Connecting Intensive production rates,
+\(R_j\) to Extensive production rates,
+\(G_j\)}{Connecting Intensive production rates, R\_j to Extensive production rates, G\_j}}\label{connecting-intensive-production-rates-r_j-to-extensive-production-rates-g_j}}
+
+Recall that a species balance on a reactor is fundamentally an extensive
+balance that changes with the size of the system and has units of
+moles/time:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+The \textbf{basic} idea of relating an intensive property of a system to
+an extensive property of a system is that we simply scale the intensive
+property to the size of the system.
+
+\hypertarget{a-simple-example}{%
+\paragraph{A Simple Example}\label{a-simple-example}}
+
+Consider that we have a homogeneous reaction, \(A \longrightarrow B\),
+that is occuring in a 1 Liter reactor. We will again call this
+``Reaction 1'', and we will set the concentration of \(A\) at 1 mole per
+liter, and there is no \(B\) initially in the system. At these
+conditions, the intensive rate of Reaction 1 is:
+
+\[r_1 = 1 \ \frac{\text{moles of extent of reaction} \ 1}{\text{L} \cdot \text{min}}\]
+
+Based on our discussion above, the intensive production rates for A and
+B would be:
+
+\begin{align}
+    R_A &= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
+    R_B &= 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
+\end{align}
+
+And to get the extensive production rates for A and B, we'd multiply
+those intensive rates by the size of the system, which is 1L here:
+
+\begin{align}
+    G_A &= -1 \ \frac{\text{mol}}{\text{min}}\\
+    G_B &= 1 \ \frac{\text{mol}}{\text{min}}\\
+\end{align}
+
+\hypertarget{scaling-to-100l}{%
+\paragraph{Scaling to 100L}\label{scaling-to-100l}}
+
+If we scale this system to a 100L reactor with identical temperature,
+pressure, and composition, we find that it has an identical intensive
+rate of reaction, which makes sense because reaction rate only depends
+on \((T, P, x_j)\), which is identical in the two reactors:
+
+\[r_1 = 1 \ \frac{\text{moles of extent of reaction} \ 1}{\text{L} \cdot \text{min}}\]
+
+Similarly, intensive production rates are identical in the 100L reactor
+and the 1L reactor:
+
+\begin{align}
+    R_A &= -1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
+    R_B &= 1 \ \frac{\text{mol}}{\text{L} \cdot \text{min}}\\
+\end{align}
+
+It is only when we get to calculating extensive rates--which we do by
+multiplying intensive rates by the size of the system--that we see a
+difference:
+
+\begin{align}
+    G_A &= -100 \ \frac{\text{mol}}{\text{min}}\\
+    G_B &= 100 \ \frac{\text{mol}}{\text{min}}\\
+\end{align}
+
+\begin{figure}
+\centering
+\includegraphics{IntensiveExtensive.png}
+\caption{Intensive vs.~Extensive Quantities in a Chemical Reactor}
+\end{figure}
+
+    \hypertarget{doing-this-for-a-real-reactor}{%
+\subsubsection{Doing this for a real
+reactor\ldots{}}\label{doing-this-for-a-real-reactor}}
+
+What we did above, directly multiplying an intensive production rate by
+the volume of the system is something we can only do if the intensive
+reaction rate is \textbf{\emph{the same}} throughout the reactor volume.
+This is not always true. Consider our arbitrary reactor:
+
+\begin{figure}
+\centering
+\includegraphics{ArbitraryReactor.png}
+\caption{Calculating Extensive Production Rates in an Arbitrary Reactor}
+\end{figure}
+
+This reactor has a total volume of \(V\). We can further conceptually
+subdivide that volume into many small volumes, each with a volume of
+\(V_k\). If we sum up all of those volumes, we would get the total
+volume of the system:
+
+\[V = \sum_k V_k\]
+
+Now we consider potential differences between the small volume element
+at position 1, \(V_1\), and the one at positions 2, \(V_2\), and 3,
+\(V_3\). We know that rates of reaction are a function of only
+temperature, pressure, and composition. So if we have a single reaction
+\(i\) occuring in this reactor, we could define the reaction rate inside
+of any volume element \(k\), \(r_{i,k}\) as:
+
+\[r_{i,k} = f(T, P, x_j)_k\]
+
+We have no way to guarantee that the temperature, pressure, and
+compositions are equal at all of the positions in our reactor, so it is
+entirely possible that:
+
+\[(T, P, x_j)_1 \neq (T, P, x_j)_2 \neq (T, P, x_j)_3\]
+
+Because \((T, P, x_j)_k\) fully determine the reaction rate within
+volume element \(k\), it follows that it is possible for:
+
+\[r_{i,1} \neq r_{i,2} \neq r_{i,3}\]
+
+If this is true, then it also means that production rates may be
+spatially non-uniform throughout the reactor:
+
+\[R_{j,1} \neq R_{j,2} \neq R_{j,3}\]
+
+It is important to note that we are still only considering a single
+reaction--the subscripts 1, 2, and 3 refer to \textbf{\emph{positions}}
+in the reactor. The implication is that, without making some specific
+assumptions about our reactor, we \textbf{\emph{cannot}} guarantee that
+reaction rates and production rates are spatially uniform everywhere
+inside of the reactor. Since we can't guarantee spatially uniform rates,
+we \textbf{\emph{cannot}} simply multiply the intensive production rate
+of a species by the reactor volume to get the extensive production rate.
+It's slightly more difficult\ldots{}
+
+We start with our individual volume elements in the system, \(V_k\). We
+will assume that each of these elements is small. Moreso, we will assume
+that it is sufficiently small that we can say the temperature, pressure,
+and composition \textbf{\emph{inside}} of a single element, \(V_k\) are
+spatially uniform throughout that small volume element. If this is true,
+then we can say that the intensive rates of all reactions are spatially
+uniform throughout that small volume element. If this is true, then the
+intensive production rate of each species must be spatially uniform
+throughout that small volume element. If these things are true, then for
+the small volume element, \(V_k\), we can calculate an extensive
+production rate for species \(j\) in that volume element, \(G_{j,k}\) as
+follows:
+
+\[G_{j,k} = R_{j,k} V_k \ [=] \ \frac{\text{moles of} \ j}{\text{time}} \]
+
+Since we know the extensive production rate in a single volume element,
+\(V_k\), we can sum up the extensive rate in each element to calculate
+the total extensive production rate of \(j\) throughout the entire
+volume, \(V\).
+
+\[G_{j} = \sum_{k = 1}^{m} G_{j,k} = \sum_{k = 1}^{m} R_{j,k} V_k \ [=] \ \frac{\text{moles of} \ j}{\text{time}} \]
+
+Focusing on this part of the equation:
+
+\[G_{j} = \sum_{k = 1}^{m} R_{j,k} V_k\]
+
+If we assume that we have an infinite number of volume elements
+(\(m \longrightarrow \infty\)), the volume of each element approaches
+zero, and this summation becomes an integral:
+
+\[G_{j} = \int^{V} R_j dV\]
+
+In other words, we allow that \(R_j\) is a \textbf{\emph{function of
+Volume}}, and we integrate it over the entire reactor volume to compute
+the extensive production rate of species \(j\), \(G_j\). Without making
+specific declarations about the type of reactor we are working with and
+assumptions about how it operates, we cannot simplify this expression
+any further. So, for our general species balance on a reactor:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+The final result that we'll use (\textbf{\emph{for a homogeneous
+reaction}}) is:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \int^{V} R_j dV\]
+
+In the next lecture, we will look at how to apply this general balance
+equation to various types of reactors (Batch, CSTR, PFR) operating under
+specific assumptions.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}

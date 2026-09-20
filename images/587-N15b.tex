@@ -1,0 +1,930 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Keep aspect ratio if custom image width or height is specified
+    \setkeys{Gin}{keepaspectratio}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{soul}      % strikethrough (\st) support for pandoc >= 3.0.0
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \makeatletter
+    \newsavebox\pandoc@box
+    \newcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      % scaling factors for width and height
+      \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+      % select the smaller of both
+      \ifdim\@tempb\p@<\@tempa\p@
+        \let\@tempa\@tempb
+      \fi
+      % scaling accordingly (\@tempa < 1)
+      \ifdim\@tempa\p@<\p@
+        \scalebox{\@tempa}{\usebox\pandoc@box}%
+      % scaling not needed, use as it is
+      \else
+        \usebox{\pandoc@box}%
+      \fi
+    }
+    \makeatother
+
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{587-N15b}
+    
+    
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb.
+    \makeatletter
+        \newbox\Wrappedcontinuationbox
+        \newbox\Wrappedvisiblespacebox
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}}
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}}
+        \newcommand*\Wrappedcontinuationindent {3ex }
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox}
+        % Take advantage of the already applied Pygments mark-up to insert
+        % potential linebreaks for TeX processing.
+        %        {, <, #, %, $, ' and ": go to next line.
+        %        _, }, ^, &, >, - and ~: stay at end of broken line.
+        % Use of \textquotesingle for straight quote.
+        \newcommand*\Wrappedbreaksatspecials {%
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}%
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}%
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}%
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}%
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}%
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}%
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}%
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}%
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}%
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}%
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}%
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}%
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}%
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}%
+        }
+        % Some characters . , ; ? ! / are not pygmentized.
+        % This macro makes them "active" and they will insert potential linebreaks
+        \newcommand*\Wrappedbreaksatpunct {%
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}%
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}%
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}%
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}%
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}%
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}%
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}%
+            \catcode`\.\active
+            \catcode`\,\active
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active
+            \lccode`\~`\~
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{material-balances-iii}{%
+\section{Material Balances III}\label{material-balances-iii}}
+
+\href{https://www.youtube.com/watch?v=TSM0jj-hZtw\&list=RDTSM0jj-hZtw\&start_radio=1}{Bond's
+favorite Zep tune.}
+
+This lecture applies the general species balance to three common reactor
+models: The Batch Reactor, the Continuous Stirred Tank Reactor (CSTR),
+and the Plug Flow Reactor (PFR).
+
+    \hypertarget{the-general-balance-equation}{%
+\subsection{The General Balance
+Equation}\label{the-general-balance-equation}}
+
+Regardless of the reactor we're using, we can always apply the general
+balance equation that we developed in
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N13.html\#developing-a-material-balance-for-a-reacting-system}{Notebook
+13}:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+For homogeneous reactions (reactions occuring in a single phase), we
+usually report \emph{intensive reaction rates} per unit volume, which
+leads to the following result for homogeneous reactions (Developed in
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N14.html\#doing-this-for-a-real-reactor}{Notebook
+14}):
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \int^V R_jV\]
+
+We further recall that \(R_j\) is the net, intensive production rate of
+species \(j\) given in units of moles per volume per time. We calculate
+the net intensive production rate by
+\href{https://jqbond.github.io/CEN587/Notebooks/587-N14.html\#multiple-reactions}{summing
+the production rate of \(j\) in each individual reaction occuring in the
+system}:
+
+\[R_j = \sum_{i = 1}^{N_R} \nu_{i,j} \, r_i\]
+
+    \hypertarget{the-batch-reactor}{%
+\subsection{The Batch Reactor}\label{the-batch-reactor}}
+
+A batch reactor is a closed system. It is initially charged with some
+quantity of reactants, products, solvents, catalysts, etc. at some
+temperature, pressure, and composition. Thereafter, there is no flow of
+material into or out of the reactor (although exchange of energy with
+the surroundings is permitted). Typically, we imagine starting a
+reaction at \(t = 0\), and then we allow the reaction to occur as time
+progresses. This is not a flow process, and batch reactors do not
+operate at steady state (steady state in a batch reactor means that the
+reaction has reached completion or equilibrium such that composition is
+no longer changing). When we discuss batch reactors, we usually will
+think about how the characteristics of the batch reactor and the
+reaction media inside of the batch reactor \textbf{\emph{change as a
+function of time}}. Mass conservation requires that, for a closed
+system, the total mass inside of the system is invariant with time.
+Element conservation also applies, so the atomic quantities of elements
+will also not change with time. However, as the reaction occurs, the
+nature of that mass and elements will change since reactants are
+generally converting into products. In fact, for a batch reactor, total
+mass and atomic quantities of elements are pretty much the only things
+that are fixed. When working with a batch reactor, as time elapses, we
+should generally expect that:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The number of moles of each species may change with time.
+\item
+  The total moles inside the reactor may change with time.
+\item
+  The composition inside the reactor may change with time.
+\item
+  The temperature inside the reactor may change with time.
+\item
+  The pressure of the reactor may change with time.
+\item
+  The size (volume) of the reactor may change with time.
+\end{enumerate}
+
+When we analyze batch reactors, we'll always be considering how their
+characteristics change with time. During the useful part of their
+operation, batch reactions are always dynamic, non-steady state
+processes.
+
+\hypertarget{applications-of-batch-reactors}{%
+\subsubsection{Applications of Batch
+Reactors}\label{applications-of-batch-reactors}}
+
+Batch reactors tend to be a bit more labor intensive since they require
+startup, shutdown, product recovery, cleaning/decontamination,
+re-charging, etc. They are commonly used for exploratory research with
+liquid- or gas-phase reactions at small scales. Often, we study kinetics
+in the laboratory using batch reactors. This allows us to develop
+functions that tell us how intensive rates of reactions vary with
+temperature, pressure, and composition. Once we have developed these
+\textbf{\emph{rate laws}}, they are applicable universally, and we can
+use them to scale the process to larger reactors. Batch reactors are
+also used industrially for the production of things that do not scale
+well to continuous flow. Some examples might be very high value products
+(like pharmaceuticals) that are produced in very small quantities. In
+these cases, it may not be practical to run a process continuously, and
+the industry is better served by using a batch reactor to produce small
+quantities in multiple batches throughout the year. Processes that use
+expensive homogeneous catalysts (organometallic complexes, enzymes,
+etc.) are also sometimes carried out in batch processes because it is
+impractical to continuously flow expensive catalysts in solution and
+subsequently try to recover them from the reactor effluent. In these
+cases, it is may be better to work in batch systems. Another example
+could be biological processes, such as those involving microbial
+fermentation. Fermentation in the food and beverage industry,
+beer-brewing, for example is usually performed in batch reactors.
+
+    \hypertarget{material-balance-on-the-batch-reactor}{%
+\subsubsection{Material Balance on The Batch
+Reactor}\label{material-balance-on-the-batch-reactor}}
+
+A typical batch reactor is illustrated in the figure below. In this
+case, we have a homogeneous reaction occuring throughout the fluid phase
+(blue color)
+
+Now we'll apply the balance equation to that reactor.
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+A batch reactor is a closed system, so it is clear that we do not have
+flow of species \(j\) into or out of the reactor. Accordingly, both of
+the flow terms in our general balance equation are zero.
+
+\[F_{j,f} = F_j = 0\]
+
+We generally expect that we have a reaction occuring in this reactor, so
+that means that there is probably generation or consumption of species
+\(j\) by reaction. This means that the generation term is usually
+non-zero:
+
+\[G_j \neq 0\]
+
+Finally, we should usually expect that the quantity of each species is
+changing inside of a batch reactor as time elapses. Even though the
+total mass in the reactor is constant, we should be converting reactants
+into products, so there should be a change in the number of moles of
+each species with time (otherwise, we have not designed the reactor very
+well!!) As discussed in
+\href{https://jqbond.github.io/CEN587/Lectures/587-L10.html\#accumulation-without-flow}{Notebook
+13}, this is a type of accumulation. Specifically, the fact that the
+number of moles of species is generally going to change as a function of
+time in a batch reactor means that there is a non-zero accumulation term
+in a batch reactor material balance:
+
+\[\frac{dN_j}{dt} \neq 0\]
+
+Based on these insights, we have the following equation for balance on
+species \(j\) in a generic batch reactor:
+
+\[\frac{dN_j}{dt} = G_j\]
+
+In other words, the rate of accumulation of species in a batch reactor
+is exactly equal to its rate of generation or consumption by chemical
+reaction! We can go further. Since this example specifically considers a
+homogeneous reaction occuring throughout the volume of fluid occupied by
+the reactor, intensive rates will be specified per unit volume, so:
+
+\[\frac{dN_j}{dt} = \int^V R_jdV\]
+
+This equation applies for any batch reactor without making assumptions.
+If we want to simplify further, we have to start making assumptions
+about the operation of our reactor.
+
+\hypertarget{simplifiying-the-material-balance-for-a-well-mixed-batch-reactor}{%
+\subsubsection{Simplifiying the material balance for a well-mixed batch
+reactor}\label{simplifiying-the-material-balance-for-a-well-mixed-batch-reactor}}
+
+To facilitate solution of problems in this course, we will always assume
+that our batch reactors have \textbf{\emph{perfect mixing}}. This
+implies that temperature, pressure, and composition \textbf{\emph{must
+be spatially uniform}} inside of the batch reactor. If we could examine
+a fluid sample from one position inside of a \textbf{\emph{perfectly
+mixed batch reactor}}, we would find that the temperature, pressure, and
+composition is exactly the same as the temperature, pressure, and
+composition within fluid samples taken \textbf{\emph{at every other
+position inside of the reactor}}. This allows us to make a very useful
+simplification to the batch reactor material balance. Specifically, we
+know that reaction rates are entirely determined by temperature,
+pressure, and composition. If those three things are spatially uniform
+throughout the batch reactor (i.e., they do not change as a function of
+position inside of the reactor), then reaction rates must also be
+spatially uniform throughout the batch reactor. If reaction rates are
+position independent (spatially invariant), then intensive species
+production rates are also position independent:
+
+\[R_j \neq f(V)\]
+
+If we're able to assume that \(R_j\) is not a function of volume, then
+the volume integral in our material balance simplifies considerably:
+
+\[\frac{dN_j}{dt} = \int^V R_jdV = R_j \int^V dV = R_j V \]
+
+In other words, as long as the reaction rate is uniform throughout the
+volume of the reactor, we can say that:
+
+\[G_j = R_j V\]
+
+That gives a really useful result--the material balance for a well-mixed
+batch reactor. We will use this balance extensively in reactor design
+and analysis!
+
+\[\frac{dN_j}{dt} = R_j V \]
+
+    \hypertarget{simplification-for-a-constant-volume-process}{%
+\subsubsection{Simplification for a Constant Volume
+Process}\label{simplification-for-a-constant-volume-process}}
+
+We cannot always guarantee that fluid density is constant in a batch
+reactor, so we generally use the above equation since it allows us to
+account for changes in the volume of reaction media that occur as the
+reaction progresses. In some cases--gas phase reactions where there is
+no change in moles or liquid phase reactions where there is a large
+excess of solvent--we can assume the volume of the batch reactor is
+constant. We will work through a useful simplification that applies only
+for constant volume batch reactors. In addition to being widely used for
+analysis of laboratory and kinetic data, this is a useful example
+because it introduces the idea that you can manipulate differential
+equations (and transform the differential variables therein) to suit the
+system that you are considering. If we start with the general balance on
+a well-mixed batch reactor:
+
+\[\frac{dN_j}{dt} = R_j V \]
+
+Without making any assumptions beyond perfect mixing, we can rearrange
+as follows:
+
+\[\frac{1}{V}\frac{dN_j}{dt} = R_j \]
+
+Now, we'll assume that volume is time-independent (it does not change
+with time). If reactor volume is constant with respect to time, we can
+move \(1/V\) inside of the derivative:
+
+\[\frac{d\frac{N_j}{V}}{dt} = R_j \]
+
+We recognize that \(N_j/V\) is our standard definition for the molar
+concentration of species \(j\), which gives:
+
+\[\frac{dC_j}{dt} = R_j \]
+
+This equation is frequently applied in the analysis of batch reactors.
+Often, this is done without considering whether the constant volume
+approximation is appropriate. One reason people do this is very likely
+that \(\frac{dC_A}{dt} = R_j\) is an easy equation to remember, and
+you've seen it elsewhere in, e.g., most of your chemistry courses. It is
+very important that we remember that this result is only valid for a
+constant-volume batch reactor. If our system experiences any sort of
+change in density upon reaction, then we cannot use this simplified
+result.
+
+    \hypertarget{continuous-stirred-tank-reactor-cstr}{%
+\subsection{Continuous Stirred Tank Reactor
+(CSTR)}\label{continuous-stirred-tank-reactor-cstr}}
+
+Next, we consider a CSTR. This is essentially a batch reactor where we
+relax the constaints on material exchange across the boundaries to
+create an open system. Specifically, a CSTR basically behaves like a
+stirred batch wherein we allow flow of material into and out of the
+reactor (See figure below). CSTRs are used frequently for liquid-phase
+reactions, especially for those where mixing is beneficial to either
+activity or selectivity (mixing is not always desirable).
+
+\includegraphics{CSTR.png}
+
+To derive a material balance on species \(j\) in a CSTR, we start with
+the general balance equation:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + G_j\]
+
+Upon inspection (and consideration of the CSTR figure and operating
+paradigm), we should conclude that none of the terms in the general
+balance equation are guaranteed to be equal to zero. There is flow into
+the system and flow out of the system, so the flow terms are non-zero.
+There is also usually a reaction occuring, so we expect some
+generation/consumption of species \(j\), which means that
+\(G_j \neq 0\). Finally, unless we know specifically that the reactor is
+at steady state, the quantity of each species may change with time, so
+the accumulation term is non-zero. This idea tends to confuse students
+at first because they are used to thinking about flow reactors at steady
+state in material balence courses, but imagine a bucket with a hole in
+it. At time = 0, the bucket is empty, and you turn on a faucet to fill
+the bucket. The level of water will increase (i.e., there is
+accumulation of water) until the system reaches a point where inflow and
+outflow are balanced (there is no reaction when you're filling a bucket
+with water, so \(G_j = 0\)). At that point, the amount of water in the
+bucket stops changing, flow in equals flow out, there is no more net
+accumulation of water, and the system is at steady state. But it takes
+some time for this to happen! We will encouter a similar scenario any
+time we start up or shut down a flow reactor--the flow reactor will
+operate away from steady state during these times. For this notebook, we
+will consider a homogeneous reaction occuring throughout the volume of
+fluid, so we normalize reaction rates per unit volume. In this case, we
+find that the relevant species balance for a CSTR is:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + \int^V R_j dV\]
+
+    \hypertarget{simplifying-the-cstr-balance-by-assuming-perfect-mixing}{%
+\subsubsection{Simplifying the CSTR balance by assuming perfect
+mixing\ldots{}}\label{simplifying-the-cstr-balance-by-assuming-perfect-mixing}}
+
+Next, we assume that the reactor contents are perfectly mixed. Just like
+in the batch reactor example, this means that temperature, pressure, and
+composition inside of the reaction mixture are spatially uniform. They
+do not change at all with position in the reactor, and if we take a
+sample at one position, it will be identical to samples taken at all
+other positions. One implication of the perfect mixing assumption is
+that the reaction rate must be uniform throughout the reactor volume. In
+this case, just as in a perfectly mixed batch reactor, we find:
+
+\[\int^V R_j dV = R_j V\]
+
+So our simplified balance on a perfectly mixed CSTR is:
+
+\[\frac{dN_j}{dt} = F_{j,f} - F_j + R_j V\]
+
+The well-mixed CSTR therefore represents the theoretical limit of a
+\textbf{\emph{perfectly mixed flow reactor}}. In this course, we will
+always assume that CSTRs are perfectly mixed.
+
+    \hypertarget{simplifying-the-cstr-balance-by-assuming-steady-state}{%
+\subsubsection{Simplifying the CSTR balance by assuming Steady
+State\ldots{}}\label{simplifying-the-cstr-balance-by-assuming-steady-state}}
+
+With flow reactors, we are frequently interested in their performance at
+steady state. This happens after they are left on stream for a
+sufficient period of time for dynamic (time dependent) processes to
+decay to zero. At that point, the system reaches steady state. At steady
+state, the system is time-independent. There are changes in temperature,
+pressure, and/or species composition that occur between the inlet of the
+reactor and the outlet of the reactor, but those changes will be the
+same if we look at a steady state system now, 10 minutes in the future,
+or 10 years in the future. The key is that once a system reaches steady
+state, it becomes \textbf{\emph{time-independent}}. Once the system
+becomes time-independent, there can be no accumulation of species. So,
+when a CSTR reaches steady state, we find (for a perfectly mixed
+reactor):
+
+\[0 = F_{j,f} - F_j + R_j V\]
+
+Usually, when we consider the design of CSTRs, we will be interested in
+steady state performance, and we'll frequently use this equation.
+
+    \hypertarget{other-implications-of-the-perfect-mixing-assumption-in-a-cstr}{%
+\subsubsection{Other implications of the perfect mixing assumption in a
+CSTR}\label{other-implications-of-the-perfect-mixing-assumption-in-a-cstr}}
+
+Above, we pointed out that a perfectly mixed CSTR volume implies that
+the temperature, pressure, and composition are uniform throughout the
+reactor volume. This leads to some interesting and non-intuitive
+behavior. We would expect that any flow reactor will accomplish a change
+between the reactor inlet and the reactor outlet (otherwise, it has been
+poorly designed). What this means is we should generally expect that the
+temperature, pressure, and composition of the fluid entering a CSTR is
+different from the temperature, pressure, and composition of the fluid
+exiting a CSTR. We'll add this concept to our illustration of the CSTR:
+
+\includegraphics{CSTRINOUT.png}
+
+Generally, the above figure implies is that we should expect that, for
+any CSTR, the volumetric flowrate (\(Q\)), the temperature (\(T\)), the
+pressure (\(P\)), the species concentration (\(C_j\)), and/or the
+species composition (\(x_j\), e.g., mole fractions) will be different in
+the exit stream than they are in the feed stream. Here, we use a
+subscript, \(f\), to denote ``feed'' conditions and no subscript to
+denote exit conditions.
+
+\hypertarget{consider-the-step-change}{%
+\paragraph{Consider the step change}\label{consider-the-step-change}}
+
+We now consider a subtle extension of the idea that temperature,
+pressure, and composition are spatially uniform inside of a well-mixed
+CSTR. One might imagine how the exit pipe from a CSTR is simply sampling
+a part of the CSTR volume and removing it from the reactor. We have
+already discussed how the assumption of perfect mixing implies that
+everything inside of the CSTR is present at the same (\(T, P, x_j\)).
+Since the exit pipe is basically removing a sample of the fluid from the
+CSTR, so this means that the temperature, pressure, and composition in
+the exit stream is exactly the same as the temperature, pressure, and
+composition inside of the fluid phase within the reactor. We also know
+that temperature, pressure, and composition in the fluid phase within
+the reactor are the same everywhere inside of the reactor. Perfect
+mixing then also implies that there is an entirely non-intuitive step
+change between inlet conditions and exit conditions. This is illustrated
+in the sketch below. This is how we should always think of a perfectly
+mixed CSTR.
+
+\includegraphics{CSTRStep.png}
+
+    \hypertarget{tubular-reactor-plug-flow-reactor}{%
+\subsection{Tubular Reactor (Plug Flow
+Reactor)}\label{tubular-reactor-plug-flow-reactor}}
+
+The final type of reactor that we'll consider (for now) is the Plug Flow
+Reactor (PFR). These reactors are widely used for gas- or liquid phase
+reactions in industry. A PFR is basically an empty tube through which
+the reacting fluid is flowing---there is absolutely no mixing in a Plug
+Flow Reactor. The core assumption for the PFR is that the fluid flows
+through at a relatively high Reynolds number (\(\mathrm{Re} > 10^3\)).
+This generally ensures that the fluid moves through the reactor in a
+turbulent flow regime. This is convenient from a reactor modelling
+perspective because it means that (if we consider an axial cross section
+of the reactor), the velocity profile is flat, i.e., all fluid in that
+cross section has an identical average velocity. Constrast this with a
+Laminar Flow Regime where we assume there is a parabolic velocity
+profile (See Figure Below).
+
+\includegraphics{PFRvsLaminar.png}
+
+The consequence of these assumptions is that everything moves through
+through the PFR with the exact same velocity profile, so every molecule
+we put in at the entrance of a PFR spends exactly the same amount of
+time in the reactor. The way we think about the PFR is this: if we look
+at a cross section of the tube, that entire cross section has spent an
+identical amount of time in the reactor. So: everything \textbf{\emph{in
+a single reactor cross section must be completely uniform in terms of
+temperature, pressure, and composition}}. That said, as we move from one
+cross section of the reactor to the next cross section travelling down
+the length of the reactor, the temperature, pressure, and composition
+will probably change. There is no mixing between cross sections, a PFR
+behaves like an infinite series of isolated, well-mixed axial slices,
+and we find that temperature, pressure, and composition vary as one
+moves from one axial slice to the next down the length (through the
+volume) of a PFR.
+
+    \hypertarget{a-model-for-the-pfr}{%
+\subsubsection{A model for the PFR}\label{a-model-for-the-pfr}}
+
+Translating these ideas into a representative balance equation, as
+discussed above, we will consider the PFR as being comprised of many
+thin axial slices, all with an identical volume of \(\Delta V\).
+
+\includegraphics{PFRDV.png}
+
+Conceptually we will make each cross section very thin, so we are then
+able to assume that there is no change in temperature, pressure, or
+composition spatially throughout that entire cross section. Essentially,
+we treat it like a very small CSTR! It is only when we move to the next
+cross section that we would experience a change in temperature,
+pressure, and composition. As we move axially down the length of a PFR,
+we then see changes in temperature, pressure, and composition, but
+\textbf{\emph{if we consider a single, isolated thin cross section}},
+there is no variation in temperature, pressure, or composition with
+respect to the radial or theta coordinate (i.e., everything in the cross
+section is spatially uniform). With this concept in mind, we can propose
+a mathematical description of this reactor.
+
+    \hypertarget{focus-on-a-single-cross-section}{%
+\subsubsection{Focus on a single cross
+section\ldots{}}\label{focus-on-a-single-cross-section}}
+
+We develop a PFR balance by considering a single cross sectional element
+with a volume of \(\Delta V\):
+
+\includegraphics{PFRsingleDV.png}
+
+Inside of that cross section, everything is spatially uniform (by virtue
+of having spent the same amount of time in the reactor), so we know that
+this isolated cross section has a spatially uniform temperature,
+pressure, and composition. It must also then have spatially uniform
+reaction rates, \(r_i\), and spatially uniform species production rates,
+\(R_j\). So, within that well-mixed cross section:
+
+\[G_j = R_j\Delta V\]
+
+For this derivation, we will assume that the PFR is operating at steady
+state. This is not necessary, but we will only use the steady state
+result in this class, so we will go ahead and apply the assumption from
+the start since it makes the rest of the derivation more
+straightforward. With these things in mind, we can write a balance on
+that well-mixed cross section at steady state:
+
+\[ 0 = F_j\big|_V - F_j\big|_{V+\Delta V} + R_j \Delta V\]
+
+Next, we divide the whole equation by \(\Delta V\):
+
+\[ 0 = \frac{F_j\big|_V - F_j\big|_{V+\Delta V}}{\Delta V} + R_j\]
+
+And we now assume we have an infinite number of cross sections and let
+the volume of each cross section approach zero, i.e.,
+\(\Delta V \longrightarrow 0\). You may recognize this as the definition
+of a derivative from your first semester calculus course. This gives:
+
+\[ 0 = -\frac{dF_j}{dV} + R_j\]
+
+In PFR analysis, we typically rearrange this equation to get:
+
+\[\frac{dF_j}{dV} = R_j\]
+
+Notice, unlike the general balance equation or material balances
+developed for batch reactors and CSTRS, the PFR balance is actually an
+\textbf{\emph{intensive}} balance because it is normalized per unit
+volume of reactor. Inspection reveals that the dimensions on the left
+and right hand side in a PFR balance equation are in moles per volume
+per time. This equation gives us good intuition of how we think about a
+PFR. It is a reactor that (generally) we will consider at steady state,
+and we have to think about the way that composition (and temperature and
+pressure) vary as a packet of fluid moves through the reactor from inlet
+to exit. This is conceptually different from a batch reactor where there
+is no variation with respect to position in the reactor, and we think
+about changes that occur as a function of clock time.
+
+Interestingly enough, the mathematics in PFR and Batch reactor problems
+work out almost identically!
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
